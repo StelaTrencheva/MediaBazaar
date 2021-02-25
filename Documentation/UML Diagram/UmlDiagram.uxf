@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>365</y>
+      <w>185</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Admin
+--
+-companyName: string
+-password: string
+--
++Admin(name: string,pass: string)
++ChangePassword(oldPass:string, newPass: string): bool
++CheckPassword(pass: string): bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>760</x>
+      <y>365</y>
+      <w>200</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>Manager
+--
+_-idSeeker: int_
+-id: int
+&lt;&lt;get&gt;&gt; +Name: string
+//&lt;&lt;get&gt;&gt; +DepartmentId: string
+&lt;&lt;get&gt;&gt; +Email: string
+&lt;&lt;get&gt;&gt; +PhoneNumber:string
+-passsword: string
+--
++Manager(name: string, email: string, pNumber: string)
++ChangeInfo(name: string, email: string, pNumber: string): bool
++ChangePassword(oldPass:string, newPass: string): bool
++CheckPassword(pass: string): bool
++GetManager(id: int): Manager</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>190</x>
+      <y>365</y>
+      <w>305</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>DepotWorker
+--
+_-idSeeker: int_
+-id: int
+&lt;&lt;get&gt;&gt; +Name: string
+//&lt;&lt;get&gt;&gt; +DepartmentId: string
+&lt;&lt;get&gt;&gt; +Email: string
+&lt;&lt;get&gt;&gt; +PhoneNumber:string
+&lt;&lt;get&gt;&gt; +Contract:ContractType
+&lt;&lt;get&gt;&gt; +Salary: double
+-passsword: string
+--
++DepotWorker(name: string, email: string, pNumber: string,contract:ContractType, salary: double)
++ChangeInfo(name: string, email: string, pNumber: string): bool
++ChangeContract(contract: ContractType):bool
++ChangeSalary(salary: double): bool
++ChangePassword(oldPass:string, newPass: string): bool
++CheckPassword(pass: string): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>520</y>
+      <w>80</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+ContractType
+--
+FULLTIME,
+EIGHTYPERCENT,
+FLEX,
+LEFT,
+EXPELLED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>365</y>
+      <w>255</w>
+      <h>115</h>
+    </coordinates>
+    <panel_attributes>Product
+--
+_-idSeeker: int_
+-id: int
+&lt;&lt;get&gt;&gt; + Name: string
+&lt;&lt;get&gt;&gt; + Decription: string
+&lt;&lt;get&gt;&gt; + Price: double
+&lt;&lt;get&gt;&gt; + Quantity: int
+&lt;&lt;get&gt;&gt; + SuplierEmail: string
+--
++Product(name: string,description: string, price: double, quantity: int)
++ChangeInfo(name: string, description: string, price: double, suplierEmail: string)
++ChangePrice(price: double): bool
++Sell(quantity: int)
++Add(quantity: int)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>965</x>
+      <y>365</y>
+      <w>105</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>Request
+--
+_-idSeeker: int_
+-id: int
+-products: List&lt;string&gt;
+-quantity: List&lt;int&gt; 
+-status: bool
+--
++Request(products: List&lt;string&gt;,quantity: List&lt;int&gt;)
++Done()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>120</y>
+      <w>155</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>SystemManager
+--
+
+--
++AddManager(manager: Manager)
++AddDepotWorker(depotWorker: DepotWorker)
++AddProduct(Product: Product)
++AddRequest(request: Request)
++GetManager(id: int): Manager
++GetDepotWorker(id: int): Depotworker
++GetProduct(id: int): Product
++GetRequest(id: int): Request</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>105</x>
+      <y>285</y>
+      <w>460</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>900.0;20.0;10.0;20.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>545</x>
+      <y>285</y>
+      <w>500</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;980.0;20.0;980.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>880</x>
+      <y>290</y>
+      <w>15</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>700</x>
+      <y>290</y>
+      <w>15</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>290</y>
+      <w>15</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>575</x>
+      <y>205</y>
+      <w>15</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+</diagram>
