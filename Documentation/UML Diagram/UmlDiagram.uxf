@@ -1,32 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>5</zoom_level>
+  <zoom_level>6</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>365</y>
-      <w>185</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>Admin
---
--companyName: string
--password: string
---
-+Admin(name: string,pass: string)
-+ChangePassword(oldPass:string, newPass: string): bool
-+CheckPassword(pass: string): bool
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>760</x>
-      <y>365</y>
-      <w>200</w>
-      <h>105</h>
+      <x>1122</x>
+      <y>402</y>
+      <w>240</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>Manager
 --
@@ -48,10 +29,10 @@ _-idSeeker: int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>190</x>
-      <y>365</y>
-      <w>305</w>
-      <h>130</h>
+      <x>438</x>
+      <y>402</y>
+      <w>366</w>
+      <h>156</h>
     </coordinates>
     <panel_attributes>DepotWorker
 --
@@ -76,10 +57,10 @@ _-idSeeker: int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>320</x>
-      <y>520</y>
-      <w>80</w>
-      <h>65</h>
+      <x>594</x>
+      <y>588</y>
+      <w>96</w>
+      <h>78</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enumeration&gt;&gt;
 ContractType
@@ -94,10 +75,10 @@ EXPELLED</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>500</x>
-      <y>365</y>
-      <w>255</w>
-      <h>115</h>
+      <x>810</x>
+      <y>402</y>
+      <w>306</w>
+      <h>138</h>
     </coordinates>
     <panel_attributes>Product
 --
@@ -120,10 +101,10 @@ _-idSeeker: int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>965</x>
-      <y>365</y>
-      <w>105</w>
-      <h>95</h>
+      <x>1368</x>
+      <y>402</y>
+      <w>126</w>
+      <h>114</h>
     </coordinates>
     <panel_attributes>Request
 --
@@ -140,10 +121,10 @@ _-idSeeker: int_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>490</x>
-      <y>120</y>
-      <w>155</w>
-      <h>90</h>
+      <x>798</x>
+      <y>108</y>
+      <w>186</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>SystemManager
 --
@@ -162,10 +143,10 @@ _-idSeeker: int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>105</x>
-      <y>285</y>
-      <w>460</w>
-      <h>90</h>
+      <x>336</x>
+      <y>306</y>
+      <w>552</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>900.0;20.0;10.0;20.0;10.0;160.0</additional_attributes>
@@ -173,10 +154,10 @@ _-idSeeker: int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>545</x>
-      <y>285</y>
-      <w>500</w>
-      <h>90</h>
+      <x>864</x>
+      <y>306</y>
+      <w>600</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;980.0;20.0;980.0;160.0</additional_attributes>
@@ -184,10 +165,10 @@ _-idSeeker: int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>880</x>
-      <y>290</y>
-      <w>15</w>
-      <h>85</h>
+      <x>1266</x>
+      <y>312</y>
+      <w>18</w>
+      <h>102</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
@@ -195,10 +176,10 @@ _-idSeeker: int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>700</x>
-      <y>290</y>
-      <w>15</w>
-      <h>85</h>
+      <x>1050</x>
+      <y>312</y>
+      <w>18</w>
+      <h>102</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
@@ -206,10 +187,10 @@ _-idSeeker: int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>420</x>
-      <y>290</y>
-      <w>15</w>
-      <h>85</h>
+      <x>714</x>
+      <y>312</y>
+      <w>18</w>
+      <h>102</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
@@ -217,12 +198,104 @@ _-idSeeker: int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>575</x>
-      <y>205</y>
-      <w>15</w>
-      <h>100</h>
+      <x>900</x>
+      <y>210</y>
+      <w>18</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>402</y>
+      <w>432</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Admin
+--
+-companyName: string
+-password: string
+--
++Admin(name: string,pass: string)
++ChangePassword(oldPass:string, newPass: string): bool
++CheckPassword(pass: string): bool
++AddEmployee(ID: int, Name: string, Email: string, phoneNumber: string, Contract: ContractType, Salary: double): bool
++RemoveEmployee(EmployeeID: int): bool
++GetInfo(): string
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>72</x>
+      <y>576</y>
+      <w>264</w>
+      <h>102</h>
+    </coordinates>
+    <panel_attributes>Shifts
+--
+-DayOfTheWeek: string
+-EarlyShift: List&lt;int&gt;
+-DayShift: List&lt;int&gt;
+-AfternoonShift: List&lt;int&gt;
+-NightShift: List&lt;int&gt;
+--
++Shifts(EmployeeID: int, TypeShift: bool)
++GetInfo(TypeShift: bool)
++GetInfo()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>198</x>
+      <y>492</y>
+      <w>18</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>276</x>
+      <y>108</y>
+      <w>480</w>
+      <h>138</h>
+    </coordinates>
+    <panel_attributes>Employee
+--
+-ID: int
+-password: string
+-Name: string
+-Email: string
+-PhoneNumber: string
+-Contract: ContractType
+-Salary: double
+ 
+--
++Employee(ID: int, password: string, Name: string, Email: string, PhoneNubmer: string, Contract: ContractType, Salary: double)
++GetInfo(EmployeeID: int): string
++EmployeeStatus(EmployeeID: int): bool
++FindEmployee(EmployeeID: int): bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>126</y>
+      <w>60</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;80.0;20.0</additional_attributes>
   </element>
 </diagram>
