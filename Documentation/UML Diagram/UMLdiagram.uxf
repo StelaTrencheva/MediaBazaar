@@ -99,7 +99,7 @@ EXPELLED</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>870</x>
-      <y>336</y>
+      <y>330</y>
       <w>492</w>
       <h>48</h>
     </coordinates>
@@ -154,10 +154,10 @@ EXPELLED</panel_attributes>
       <x>942</x>
       <y>276</y>
       <w>18</w>
-      <h>72</h>
+      <h>66</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
