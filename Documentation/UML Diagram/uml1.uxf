@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1477</x>
+      <y>322</y>
+      <w>567</w>
+      <h>238</h>
+    </coordinates>
+    <panel_attributes>User
+--
+-ID: int
+-BSN: unsigned int
+-firstName: string
+-lastName: string
+-address: string
+-email: string
+-username: string
+-password: string
+-birthDay: DateTime
+-firstWorkingDay: DateTime
+-emergencyPhoneNumber: string
+-IBAN:string
+-hourlyWage:double
+//-Department
+//Position
+//Level
+//Photo
+//Availability
+//FTE
+//-contractType:ContractType
+-contractStartDate: DateTime
+//-contractHistory: list&lt;ContractType&gt;
+--
++User(ID: int, BSN: int, Username: string, Password: string, Name: string, Email: string, PhoneNumber: string, Salary: double)
++ChangePassword(oldPass:string, newPass: string): bool
++CheckPassword(pass: string): bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1057</x>
+      <y>756</y>
+      <w>672</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Employee
+--
+-Contract: ContractType
+--
++Employee(ID: int, BSN: int, Username: int, Password: string, Name: string, Email: string, PhoneNumber: string, Salary: double, Contract: ContractType)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1281</x>
+      <y>868</y>
+      <w>112</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+ContractType
+--
+FULLTIME,
+EIGHTYPERCENT,
+FLEX,
+LEFT,
+EXPELLED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1498</x>
+      <y>980</y>
+      <w>539</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>HR
+--
+
+--
++HR(id : int, bsn : int, username : int, password : string, name : string, email : string, phoneNumber : string, salary : double)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1939</x>
+      <y>721</y>
+      <w>574</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>Management
+--
+
+--
++Management(ID: int, BSN: int, Username: int, Password: string, Name: string, Email: string, PhoneNumber: string, Salary: double)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1827</x>
+      <y>847</y>
+      <w>693</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>DepotWorker
+--
+-Contract: ContractType
+--
++DepotWorker(ID: int, BSN: int, Username: int, Password: string, Name: string, Email: string, PhoneNumber: string, Salary: double, Contract: ContractType)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1771</x>
+      <y>553</y>
+      <w>21</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1519</x>
+      <y>644</y>
+      <w>525</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>730.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1519</x>
+      <y>651</y>
+      <w>21</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2023</x>
+      <y>651</y>
+      <w>21</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1771</x>
+      <y>651</y>
+      <w>21</w>
+      <h>343</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;470.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1876</x>
+      <y>651</y>
+      <w>21</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;280.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>21</x>
+      <y>735</y>
+      <w>112</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+ShiftType
+--
+EARLY,
+DAY,
+AFTERNOON,
+NIGHT</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>126</x>
+      <y>770</y>
+      <w>112</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>448</x>
+      <y>588</y>
+      <w>112</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+Day
+--
+EARLY,
+DAY,
+AFTERNOON,
+NIGHT</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>399</x>
+      <y>595</y>
+      <w>63</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>224</x>
+      <y>735</y>
+      <w>210</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>Shift
+--
+-shiftType : ShiftType
+--
++Shifts(shiftType: ShiftType)
++AssignEmployee(employeeID : int) : void
++RemoveEmployee(employeeID : int) : void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>588</y>
+      <w>147</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>Week
+--
+-week: int
+--
++Weeks(week : int)
++GetDay(day : int) : Day
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>224</x>
+      <y>588</y>
+      <w>182</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>Day
+--
+-dayOfTheWeek : int
+--
++Day(week : int)
++GetShift(shiftType : ShiftType) : Shift
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>140</x>
+      <y>623</y>
+      <w>98</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=7</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>672</y>
+      <w>28</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=4</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>35</x>
+      <y>385</y>
+      <w>441</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Schedule
+--
+
+--
++AssignEmployeeToShift(employeeID : int, shiftType : ShiftType, week : int, day : int) : bool
++RemoveEmployeeFromShift(employeeID : int, shiftType : ShiftType, week : int, day : int) : bool
++GetShifts(week : int) : Week
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1330</x>
+      <y>819</y>
+      <w>21</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>63</x>
+      <y>511</y>
+      <w>105</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1..n</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;50.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>644</x>
+      <y>322</y>
+      <w>539</w>
+      <h>203</h>
+    </coordinates>
+    <panel_attributes>Manage Employees
+--
+
+--
++AddEmployee(id : int, name : string, email : string, phoneNumber : string, contract : contractType, salary : double): bool
++RemoveEmployee(employeeID : int): bool
++FindEmployee(bsn : int): Employee
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>847</x>
+      <y>518</y>
+      <w>308</w>
+      <h>252</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>400.0;340.0;400.0;190.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>427</x>
+      <y>784</y>
+      <w>644</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>900.0;20.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1001</x>
+      <y>0</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Stereotype&gt;&gt;
+Package::FatClass
+{Some Properties}
+--
+-id: Long
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
