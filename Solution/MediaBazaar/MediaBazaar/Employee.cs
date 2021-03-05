@@ -6,42 +6,96 @@ using System.Threading.Tasks;
 
 namespace MediaBazaar
 {
-    class Employee
+    public class Employee
     {
-        public int ID;
-        public int BSN;
-        public string firstName;
-        public string lastName;
-        public string Address;
-        public string Email;
-        public string Username;
-        public string Password;
-        public DateTime birthDay;
-        public DateTime firstWorkingDay;
-        public string emergencyPhoneNumber;
-        public string IBAN;
-        public double hourlyWage;
-        public DateTime contractStartDate;
-        public ContractType Contract;
+        private int id;
+        private int bsn;
+        private string firstName;
+        private string lastName;
+        private string address;
+        private string email;
+        private string username;
+        private string password;
+        private DateTime birthDay;
+        private DateTime firstWorkingDay;
+        private string emergencyPhoneNumber;
+        private string iban;
+        private double hourlyWage;
+        private DateTime contractStartDate;
+        private ContractType contract;
+        private EmployeeType position;
+        private int maxWorkingHours;
+        private int assignedHours;
 
-        public Employee(int ID, int BSN, string firstName, string lastName, string Address, string Email, string Username, string Password, DateTime birthDay,
-             DateTime firstWorkingDay, string emergencyPhoneNumber, string IBAN, double hourlyWage, DateTime contractStartDate, ContractType Contract)
+        public int BSN
         {
-            this.ID = ID;
-            this.BSN = BSN;
+            get { return this.bsn; }
+        }
+        public string Username
+        {
+            get { return this.username; }
+            set { this.username = value; }
+        }
+        public string Password
+        {
+            get { return this.password; }
+            set { this.password = value; }
+        }
+        public EmployeeType Position
+        {
+            get { return this.position; }
+        }
+        public ContractType Contract
+        {
+            get { return this.contract; }
+        }
+        public int MaxWorkingHours
+        {
+            get { return this.maxWorkingHours; }
+        }
+        public int AvailableWorkingHours
+        {
+            get { return this.AvailableWorkingHours; }
+            set { this.AvailableWorkingHours = value; }
+        }
+
+        public Employee(int id, int bsn, string firstName, string lastName, string address, string email, string username, string password, DateTime birthDay,
+             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, DateTime contractStartDate, ContractType contract,EmployeeType position)
+        {
+            this.id = id;
+            this.bsn = bsn;
             this.firstName = firstName;
             this.lastName = lastName;
-            this.Address = Address;
-            this.Email = Email;
-            this.Username = Username;
-            this.Password = Password;
+            this.address = address;
+            this.email = email;
+            this.Username = username;
+            this.Password = password;
             this.birthDay = birthDay;
             this.firstWorkingDay = firstWorkingDay;
             this.emergencyPhoneNumber = emergencyPhoneNumber;
-            this.IBAN = IBAN;
+            this.iban = iban;
             this.hourlyWage = hourlyWage;
             this.contractStartDate = contractStartDate;
-            this.Contract = Contract;
+            this.contract = contract;
+            this.position = position;
+            if (position == EmployeeType.STOCK_WORKER || position == EmployeeType.STORE_WORKER)
+            {
+                switch (contract)
+                {
+                    case ContractType.FULLTIME: {
+                            this.maxWorkingHours = 40;
+                            this.assignedHours = 0;
+                        }
+                        break;
+                    case ContractType.EIGHTYPERCENT:
+                        {
+                            this.maxWorkingHours = 32;
+                            this.assignedHours = 0;
+                        }
+                        break;
+                        
+                }
+            }
         }
     }
 }

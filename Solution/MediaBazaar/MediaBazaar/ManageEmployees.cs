@@ -6,44 +6,53 @@ using System.Threading.Tasks;
 
 namespace MediaBazaar
 {
-    class ManageEmployees
+    public class ManageEmployees
     {
-        Employee employee;
-        List<Employee> ListOfEmployees; 
+        private Employee employee;
+        private List<Employee> employees; 
+        private Schedule schedule;
 
-        public bool AddEmployee(int ID, int BSN, string firstName, string lastName, string Address, string Email, string Username,
-            string Password, DateTime birthDay, DateTime firstWorkingDay, string emergencyPhoneNumber, string IBAN,
-            double hourlyWage, DateTime contractStartDate, double FTE, ContractType Contract)
+        public ManageEmployees(int currentWeek)
         {
-            foreach(Employee emp in ListOfEmployees)
+            employees = new List<Employee>();
+            schedule = new Schedule(currentWeek);
+        }
+        public bool AddEmployee(int id, int bsn, string firstName, string lastName, string address, string email, string username,
+            string password, DateTime birthDay, DateTime firstWorkingDay, string emergencyPhoneNumber, string iban,
+            double hourlyWage, DateTime contractStartDate, ContractType contract,EmployeeType position)
+        {
+            foreach(Employee emp in employees)
             {
-                if(emp.BSN == BSN)
+                if(emp.BSN == bsn)
                 {
                     return false;
                 }
             }
-            ListOfEmployees.Add(employee = new Employee( ID,  BSN,  firstName,  lastName,  Address,  Email,  Username,
-            Password,  birthDay,  firstWorkingDay,  emergencyPhoneNumber, IBAN,
-            hourlyWage,  contractStartDate,  Contract));
+            employees.Add(employee = new Employee( id,  bsn,  firstName,  lastName,  address,  email,  username,
+            password,  birthDay,  firstWorkingDay,  emergencyPhoneNumber, iban,
+            hourlyWage,  contractStartDate,  contract, position));
             return true;
         }
         
         public bool RemoveEmployee(int bsn) 
         {
-            foreach(Employee emp in ListOfEmployees)
+            foreach(Employee emp in employees)
             {
                 if(emp.BSN == bsn)
                 {
-                    ListOfEmployees.Remove(emp);
+                    employees.Remove(emp);
                     return true;
                 }
             }
             return false;
         }
-
+        public List<Employee> GetEmployees()
+        {
+            return this.employees;
+        }
         public Employee FindEmployee(int bsn)
         {
-           foreach(Employee emp in ListOfEmployees)
+           foreach(Employee emp in employees)
             {
                 if(emp.BSN == bsn)
                 {
@@ -55,7 +64,7 @@ namespace MediaBazaar
 
         public bool CheckPassword(string password)
         {
-            foreach(Employee emp in ListOfEmployees)
+            foreach(Employee emp in employees)
             {
                 if(emp.Password == password)
                 {
@@ -66,7 +75,7 @@ namespace MediaBazaar
         }
         public bool CheckUsername(string username)
         {
-            foreach(Employee emp in ListOfEmployees)
+            foreach(Employee emp in employees)
             {
                 if(emp.Username == username)
                 {
