@@ -54,9 +54,9 @@ namespace MediaBazaar
             // 
             this.lblHRAdminAddress.AutoSize = true;
             this.lblHRAdminAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHRAdminAddress.Location = new System.Drawing.Point(558, 255);
+            this.lblHRAdminAddress.Location = new System.Drawing.Point(628, 319);
             this.lblHRAdminAddress.Name = "lblHRAdminAddress";
-            this.lblHRAdminAddress.Size = new System.Drawing.Size(171, 20);
+            this.lblHRAdminAddress.Size = new System.Drawing.Size(217, 25);
             this.lblHRAdminAddress.TabIndex = 32;
             this.lblHRAdminAddress.Text = "Address: Street 1, NL";
             // 
@@ -64,9 +64,9 @@ namespace MediaBazaar
             // 
             this.lblHRAdminEmail.AutoSize = true;
             this.lblHRAdminEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHRAdminEmail.Location = new System.Drawing.Point(558, 221);
+            this.lblHRAdminEmail.Location = new System.Drawing.Point(628, 276);
             this.lblHRAdminEmail.Name = "lblHRAdminEmail";
-            this.lblHRAdminEmail.Size = new System.Drawing.Size(224, 20);
+            this.lblHRAdminEmail.Size = new System.Drawing.Size(288, 25);
             this.lblHRAdminEmail.TabIndex = 31;
             this.lblHRAdminEmail.Text = "Email: steve.j@example.com";
             // 
@@ -74,9 +74,9 @@ namespace MediaBazaar
             // 
             this.lblHRAdminPhoneNum.AutoSize = true;
             this.lblHRAdminPhoneNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHRAdminPhoneNum.Location = new System.Drawing.Point(558, 187);
+            this.lblHRAdminPhoneNum.Location = new System.Drawing.Point(628, 234);
             this.lblHRAdminPhoneNum.Name = "lblHRAdminPhoneNum";
-            this.lblHRAdminPhoneNum.Size = new System.Drawing.Size(205, 20);
+            this.lblHRAdminPhoneNum.Size = new System.Drawing.Size(266, 25);
             this.lblHRAdminPhoneNum.TabIndex = 30;
             this.lblHRAdminPhoneNum.Text = "Phone number: 06-****-****";
             // 
@@ -84,9 +84,9 @@ namespace MediaBazaar
             // 
             this.lblHRAdminEmployeeType.AutoSize = true;
             this.lblHRAdminEmployeeType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHRAdminEmployeeType.Location = new System.Drawing.Point(558, 153);
+            this.lblHRAdminEmployeeType.Location = new System.Drawing.Point(628, 191);
             this.lblHRAdminEmployeeType.Name = "lblHRAdminEmployeeType";
-            this.lblHRAdminEmployeeType.Size = new System.Drawing.Size(203, 20);
+            this.lblHRAdminEmployeeType.Size = new System.Drawing.Size(261, 25);
             this.lblHRAdminEmployeeType.TabIndex = 29;
             this.lblHRAdminEmployeeType.Text = "EmployeeType: HR admin";
             // 
@@ -94,9 +94,9 @@ namespace MediaBazaar
             // 
             this.lblHRAdminLName.AutoSize = true;
             this.lblHRAdminLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHRAdminLName.Location = new System.Drawing.Point(558, 119);
+            this.lblHRAdminLName.Location = new System.Drawing.Point(628, 149);
             this.lblHRAdminLName.Name = "lblHRAdminLName";
-            this.lblHRAdminLName.Size = new System.Drawing.Size(161, 20);
+            this.lblHRAdminLName.Size = new System.Drawing.Size(206, 25);
             this.lblHRAdminLName.TabIndex = 28;
             this.lblHRAdminLName.Text = "Last name: Johnson";
             // 
@@ -104,18 +104,19 @@ namespace MediaBazaar
             // 
             this.lblHRAdminFName.AutoSize = true;
             this.lblHRAdminFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHRAdminFName.Location = new System.Drawing.Point(558, 85);
+            this.lblHRAdminFName.Location = new System.Drawing.Point(628, 106);
             this.lblHRAdminFName.Name = "lblHRAdminFName";
-            this.lblHRAdminFName.Size = new System.Drawing.Size(141, 20);
+            this.lblHRAdminFName.Size = new System.Drawing.Size(180, 25);
             this.lblHRAdminFName.TabIndex = 27;
             this.lblHRAdminFName.Text = "First name: Steve";
             // 
             // pbxHRAdmin
             // 
             this.pbxHRAdmin.Image = ((System.Drawing.Image)(resources.GetObject("pbxHRAdmin.Image")));
-            this.pbxHRAdmin.Location = new System.Drawing.Point(333, 85);
+            this.pbxHRAdmin.Location = new System.Drawing.Point(375, 106);
+            this.pbxHRAdmin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbxHRAdmin.Name = "pbxHRAdmin";
-            this.pbxHRAdmin.Size = new System.Drawing.Size(160, 171);
+            this.pbxHRAdmin.Size = new System.Drawing.Size(180, 214);
             this.pbxHRAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxHRAdmin.TabIndex = 26;
             this.pbxHRAdmin.TabStop = false;
@@ -125,9 +126,10 @@ namespace MediaBazaar
             this.btnHRAdminEdit.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnHRAdminEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHRAdminEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHRAdminEdit.Location = new System.Drawing.Point(768, 455);
+            this.btnHRAdminEdit.Location = new System.Drawing.Point(864, 569);
+            this.btnHRAdminEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnHRAdminEdit.Name = "btnHRAdminEdit";
-            this.btnHRAdminEdit.Size = new System.Drawing.Size(125, 43);
+            this.btnHRAdminEdit.Size = new System.Drawing.Size(141, 54);
             this.btnHRAdminEdit.TabIndex = 25;
             this.btnHRAdminEdit.Text = "Edit";
             this.btnHRAdminEdit.UseVisualStyleBackColor = false;
@@ -140,17 +142,19 @@ namespace MediaBazaar
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(206, 530);
+            this.panel1.Size = new System.Drawing.Size(232, 662);
             this.panel1.TabIndex = 24;
             // 
             // pbxLogo
             // 
             this.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
-            this.pbxLogo.Location = new System.Drawing.Point(32, 12);
+            this.pbxLogo.Location = new System.Drawing.Point(36, 15);
+            this.pbxLogo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbxLogo.Name = "pbxLogo";
-            this.pbxLogo.Size = new System.Drawing.Size(146, 134);
+            this.pbxLogo.Size = new System.Drawing.Size(164, 168);
             this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxLogo.TabIndex = 2;
             this.pbxLogo.TabStop = false;
@@ -160,9 +164,10 @@ namespace MediaBazaar
             this.btnManageEmployee.BackColor = System.Drawing.Color.SlateGray;
             this.btnManageEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageEmployee.Location = new System.Drawing.Point(32, 152);
+            this.btnManageEmployee.Location = new System.Drawing.Point(36, 190);
+            this.btnManageEmployee.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnManageEmployee.Name = "btnManageEmployee";
-            this.btnManageEmployee.Size = new System.Drawing.Size(146, 87);
+            this.btnManageEmployee.Size = new System.Drawing.Size(164, 109);
             this.btnManageEmployee.TabIndex = 1;
             this.btnManageEmployee.Text = "Manage employees profiles";
             this.btnManageEmployee.UseVisualStyleBackColor = false;
@@ -172,9 +177,10 @@ namespace MediaBazaar
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.btnHRAdminLogOut);
             this.panel2.Controls.Add(this.btnHRAdminAccount);
-            this.panel2.Location = new System.Drawing.Point(-1, 311);
+            this.panel2.Location = new System.Drawing.Point(-1, 389);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(207, 217);
+            this.panel2.Size = new System.Drawing.Size(233, 271);
             this.panel2.TabIndex = 0;
             // 
             // btnHRAdminLogOut
@@ -182,9 +188,10 @@ namespace MediaBazaar
             this.btnHRAdminLogOut.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnHRAdminLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHRAdminLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHRAdminLogOut.Location = new System.Drawing.Point(32, 142);
+            this.btnHRAdminLogOut.Location = new System.Drawing.Point(36, 178);
+            this.btnHRAdminLogOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnHRAdminLogOut.Name = "btnHRAdminLogOut";
-            this.btnHRAdminLogOut.Size = new System.Drawing.Size(146, 43);
+            this.btnHRAdminLogOut.Size = new System.Drawing.Size(164, 54);
             this.btnHRAdminLogOut.TabIndex = 3;
             this.btnHRAdminLogOut.Text = "Log out";
             this.btnHRAdminLogOut.UseVisualStyleBackColor = false;
@@ -194,16 +201,17 @@ namespace MediaBazaar
             this.btnHRAdminAccount.BackColor = System.Drawing.Color.White;
             this.btnHRAdminAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHRAdminAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHRAdminAccount.Location = new System.Drawing.Point(32, 47);
+            this.btnHRAdminAccount.Location = new System.Drawing.Point(36, 59);
+            this.btnHRAdminAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnHRAdminAccount.Name = "btnHRAdminAccount";
-            this.btnHRAdminAccount.Size = new System.Drawing.Size(146, 43);
+            this.btnHRAdminAccount.Size = new System.Drawing.Size(164, 54);
             this.btnHRAdminAccount.TabIndex = 2;
             this.btnHRAdminAccount.Text = "My account";
             this.btnHRAdminAccount.UseVisualStyleBackColor = false;
             // 
             // HRAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblHRAdminAddress);
             this.Controls.Add(this.lblHRAdminEmail);
@@ -214,8 +222,9 @@ namespace MediaBazaar
             this.Controls.Add(this.pbxHRAdmin);
             this.Controls.Add(this.btnHRAdminEdit);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "HRAdmin";
-            this.Size = new System.Drawing.Size(924, 530);
+            this.Size = new System.Drawing.Size(1040, 662);
             ((System.ComponentModel.ISupportInitialize)(this.pbxHRAdmin)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
