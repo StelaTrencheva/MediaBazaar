@@ -33,7 +33,7 @@ namespace MediaBazaar
             this.lblSManagerAddress = new System.Windows.Forms.Label();
             this.lblSManagerEmail = new System.Windows.Forms.Label();
             this.lblSManagerPhoneNum = new System.Windows.Forms.Label();
-            this.lblSManagerPosition = new System.Windows.Forms.Label();
+            this.lblSManagerEmployeeType = new System.Windows.Forms.Label();
             this.lblSManagerLName = new System.Windows.Forms.Label();
             this.lblSManagerFName = new System.Windows.Forms.Label();
             this.pbxSManager = new System.Windows.Forms.PictureBox();
@@ -81,15 +81,15 @@ namespace MediaBazaar
             this.lblSManagerPhoneNum.TabIndex = 48;
             this.lblSManagerPhoneNum.Text = "Phone number: 06-****-****";
             // 
-            // lblSManagerPosition
+            // lblSManagerEmployeeType
             // 
-            this.lblSManagerPosition.AutoSize = true;
-            this.lblSManagerPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSManagerPosition.Location = new System.Drawing.Point(558, 153);
-            this.lblSManagerPosition.Name = "lblSManagerPosition";
-            this.lblSManagerPosition.Size = new System.Drawing.Size(191, 20);
-            this.lblSManagerPosition.TabIndex = 47;
-            this.lblSManagerPosition.Text = "Position: Stock Manager";
+            this.lblSManagerEmployeeType.AutoSize = true;
+            this.lblSManagerEmployeeType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSManagerEmployeeType.Location = new System.Drawing.Point(558, 153);
+            this.lblSManagerEmployeeType.Name = "lblSManagerEmployeeType";
+            this.lblSManagerEmployeeType.Size = new System.Drawing.Size(240, 20);
+            this.lblSManagerEmployeeType.TabIndex = 47;
+            this.lblSManagerEmployeeType.Text = "Employee type: Stock Manager";
             // 
             // lblSManagerLName
             // 
@@ -222,7 +222,7 @@ namespace MediaBazaar
             this.Controls.Add(this.lblSManagerAddress);
             this.Controls.Add(this.lblSManagerEmail);
             this.Controls.Add(this.lblSManagerPhoneNum);
-            this.Controls.Add(this.lblSManagerPosition);
+            this.Controls.Add(this.lblSManagerEmployeeType);
             this.Controls.Add(this.lblSManagerLName);
             this.Controls.Add(this.lblSManagerFName);
             this.Controls.Add(this.pbxSManager);
@@ -244,7 +244,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblSManagerAddress;
         private System.Windows.Forms.Label lblSManagerEmail;
         private System.Windows.Forms.Label lblSManagerPhoneNum;
-        private System.Windows.Forms.Label lblSManagerPosition;
+        private System.Windows.Forms.Label lblSManagerEmployeeType;
         private System.Windows.Forms.Label lblSManagerLName;
         private System.Windows.Forms.Label lblSManagerFName;
         private System.Windows.Forms.PictureBox pbxSManager;

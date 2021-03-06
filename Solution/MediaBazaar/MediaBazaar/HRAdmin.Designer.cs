@@ -33,7 +33,7 @@ namespace MediaBazaar
             this.lblHRAdminAddress = new System.Windows.Forms.Label();
             this.lblHRAdminEmail = new System.Windows.Forms.Label();
             this.lblHRAdminPhoneNum = new System.Windows.Forms.Label();
-            this.lblHRAdminPosition = new System.Windows.Forms.Label();
+            this.lblHRAdminEmployeeType = new System.Windows.Forms.Label();
             this.lblHRAdminLName = new System.Windows.Forms.Label();
             this.lblHRAdminFName = new System.Windows.Forms.Label();
             this.pbxHRAdmin = new System.Windows.Forms.PictureBox();
@@ -80,15 +80,15 @@ namespace MediaBazaar
             this.lblHRAdminPhoneNum.TabIndex = 30;
             this.lblHRAdminPhoneNum.Text = "Phone number: 06-****-****";
             // 
-            // lblHRAdminPosition
+            // lblHRAdminEmployeeType
             // 
-            this.lblHRAdminPosition.AutoSize = true;
-            this.lblHRAdminPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHRAdminPosition.Location = new System.Drawing.Point(558, 153);
-            this.lblHRAdminPosition.Name = "lblHRAdminPosition";
-            this.lblHRAdminPosition.Size = new System.Drawing.Size(154, 20);
-            this.lblHRAdminPosition.TabIndex = 29;
-            this.lblHRAdminPosition.Text = "Position: HR admin";
+            this.lblHRAdminEmployeeType.AutoSize = true;
+            this.lblHRAdminEmployeeType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHRAdminEmployeeType.Location = new System.Drawing.Point(558, 153);
+            this.lblHRAdminEmployeeType.Name = "lblHRAdminEmployeeType";
+            this.lblHRAdminEmployeeType.Size = new System.Drawing.Size(203, 20);
+            this.lblHRAdminEmployeeType.TabIndex = 29;
+            this.lblHRAdminEmployeeType.Text = "EmployeeType: HR admin";
             // 
             // lblHRAdminLName
             // 
@@ -208,7 +208,7 @@ namespace MediaBazaar
             this.Controls.Add(this.lblHRAdminAddress);
             this.Controls.Add(this.lblHRAdminEmail);
             this.Controls.Add(this.lblHRAdminPhoneNum);
-            this.Controls.Add(this.lblHRAdminPosition);
+            this.Controls.Add(this.lblHRAdminEmployeeType);
             this.Controls.Add(this.lblHRAdminLName);
             this.Controls.Add(this.lblHRAdminFName);
             this.Controls.Add(this.pbxHRAdmin);
@@ -230,7 +230,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblHRAdminAddress;
         private System.Windows.Forms.Label lblHRAdminEmail;
         private System.Windows.Forms.Label lblHRAdminPhoneNum;
-        private System.Windows.Forms.Label lblHRAdminPosition;
+        private System.Windows.Forms.Label lblHRAdminEmployeeType;
         private System.Windows.Forms.Label lblHRAdminLName;
         private System.Windows.Forms.Label lblHRAdminFName;
         private System.Windows.Forms.PictureBox pbxHRAdmin;

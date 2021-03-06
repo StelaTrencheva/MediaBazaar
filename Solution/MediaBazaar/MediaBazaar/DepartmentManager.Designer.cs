@@ -31,6 +31,7 @@ namespace MediaBazaar
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DepartmentManager));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDManagerSchedule = new System.Windows.Forms.Button();
             this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.btnDManagerEmployeeStatistic = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -39,12 +40,11 @@ namespace MediaBazaar
             this.lblDManagerAddress = new System.Windows.Forms.Label();
             this.lblDManagerEmail = new System.Windows.Forms.Label();
             this.lblDManagerPhoneNum = new System.Windows.Forms.Label();
-            this.lblDManagerPosition = new System.Windows.Forms.Label();
+            this.lblDManagerEmployeeType = new System.Windows.Forms.Label();
             this.lblDManagerLName = new System.Windows.Forms.Label();
             this.lblDManagerFName = new System.Windows.Forms.Label();
             this.pbxDManager = new System.Windows.Forms.PictureBox();
             this.btnDManagerEdit = new System.Windows.Forms.Button();
-            this.btnDManagerSchedule = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -63,6 +63,18 @@ namespace MediaBazaar
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(206, 530);
             this.panel1.TabIndex = 33;
+            // 
+            // btnDManagerSchedule
+            // 
+            this.btnDManagerSchedule.BackColor = System.Drawing.Color.SlateGray;
+            this.btnDManagerSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDManagerSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDManagerSchedule.Location = new System.Drawing.Point(32, 242);
+            this.btnDManagerSchedule.Name = "btnDManagerSchedule";
+            this.btnDManagerSchedule.Size = new System.Drawing.Size(146, 42);
+            this.btnDManagerSchedule.TabIndex = 3;
+            this.btnDManagerSchedule.Text = "Schedule";
+            this.btnDManagerSchedule.UseVisualStyleBackColor = false;
             // 
             // pbxLogo
             // 
@@ -151,15 +163,15 @@ namespace MediaBazaar
             this.lblDManagerPhoneNum.TabIndex = 39;
             this.lblDManagerPhoneNum.Text = "Phone number: 06-****-****";
             // 
-            // lblDManagerPosition
+            // lblDManagerEmployeeType
             // 
-            this.lblDManagerPosition.AutoSize = true;
-            this.lblDManagerPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDManagerPosition.Location = new System.Drawing.Point(558, 153);
-            this.lblDManagerPosition.Name = "lblDManagerPosition";
-            this.lblDManagerPosition.Size = new System.Drawing.Size(237, 20);
-            this.lblDManagerPosition.TabIndex = 38;
-            this.lblDManagerPosition.Text = "Position: Department Manager";
+            this.lblDManagerEmployeeType.AutoSize = true;
+            this.lblDManagerEmployeeType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDManagerEmployeeType.Location = new System.Drawing.Point(558, 153);
+            this.lblDManagerEmployeeType.Name = "lblDManagerEmployeeType";
+            this.lblDManagerEmployeeType.Size = new System.Drawing.Size(286, 20);
+            this.lblDManagerEmployeeType.TabIndex = 38;
+            this.lblDManagerEmployeeType.Text = "Employee type: Department Manager";
             // 
             // lblDManagerLName
             // 
@@ -203,18 +215,6 @@ namespace MediaBazaar
             this.btnDManagerEdit.Text = "Edit";
             this.btnDManagerEdit.UseVisualStyleBackColor = false;
             // 
-            // btnDManagerSchedule
-            // 
-            this.btnDManagerSchedule.BackColor = System.Drawing.Color.SlateGray;
-            this.btnDManagerSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDManagerSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDManagerSchedule.Location = new System.Drawing.Point(32, 242);
-            this.btnDManagerSchedule.Name = "btnDManagerSchedule";
-            this.btnDManagerSchedule.Size = new System.Drawing.Size(146, 42);
-            this.btnDManagerSchedule.TabIndex = 3;
-            this.btnDManagerSchedule.Text = "Schedule";
-            this.btnDManagerSchedule.UseVisualStyleBackColor = false;
-            // 
             // DepartmentManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -222,7 +222,7 @@ namespace MediaBazaar
             this.Controls.Add(this.lblDManagerAddress);
             this.Controls.Add(this.lblDManagerEmail);
             this.Controls.Add(this.lblDManagerPhoneNum);
-            this.Controls.Add(this.lblDManagerPosition);
+            this.Controls.Add(this.lblDManagerEmployeeType);
             this.Controls.Add(this.lblDManagerLName);
             this.Controls.Add(this.lblDManagerFName);
             this.Controls.Add(this.pbxDManager);
@@ -249,7 +249,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblDManagerAddress;
         private System.Windows.Forms.Label lblDManagerEmail;
         private System.Windows.Forms.Label lblDManagerPhoneNum;
-        private System.Windows.Forms.Label lblDManagerPosition;
+        private System.Windows.Forms.Label lblDManagerEmployeeType;
         private System.Windows.Forms.Label lblDManagerLName;
         private System.Windows.Forms.Label lblDManagerFName;
         private System.Windows.Forms.PictureBox pbxDManager;

@@ -33,7 +33,7 @@ namespace MediaBazaar
             this.lblStockWAddress = new System.Windows.Forms.Label();
             this.lblStockWEmail = new System.Windows.Forms.Label();
             this.lblStockWPhoneNum = new System.Windows.Forms.Label();
-            this.lblStockWPosition = new System.Windows.Forms.Label();
+            this.lblStockWEmployeeType = new System.Windows.Forms.Label();
             this.lblStockWLName = new System.Windows.Forms.Label();
             this.lblStockWFName = new System.Windows.Forms.Label();
             this.pbxStockW = new System.Windows.Forms.PictureBox();
@@ -80,15 +80,15 @@ namespace MediaBazaar
             this.lblStockWPhoneNum.TabIndex = 57;
             this.lblStockWPhoneNum.Text = "Phone number: 06-****-****";
             // 
-            // lblStockWPosition
+            // lblStockWEmployeeType
             // 
-            this.lblStockWPosition.AutoSize = true;
-            this.lblStockWPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockWPosition.Location = new System.Drawing.Point(558, 153);
-            this.lblStockWPosition.Name = "lblStockWPosition";
-            this.lblStockWPosition.Size = new System.Drawing.Size(180, 20);
-            this.lblStockWPosition.TabIndex = 56;
-            this.lblStockWPosition.Text = "Position: Stock Worker";
+            this.lblStockWEmployeeType.AutoSize = true;
+            this.lblStockWEmployeeType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockWEmployeeType.Location = new System.Drawing.Point(558, 153);
+            this.lblStockWEmployeeType.Name = "lblStockWEmployeeType";
+            this.lblStockWEmployeeType.Size = new System.Drawing.Size(229, 20);
+            this.lblStockWEmployeeType.TabIndex = 56;
+            this.lblStockWEmployeeType.Text = "Employee type: Stock Worker";
             // 
             // lblStockWLName
             // 
@@ -208,7 +208,7 @@ namespace MediaBazaar
             this.Controls.Add(this.lblStockWAddress);
             this.Controls.Add(this.lblStockWEmail);
             this.Controls.Add(this.lblStockWPhoneNum);
-            this.Controls.Add(this.lblStockWPosition);
+            this.Controls.Add(this.lblStockWEmployeeType);
             this.Controls.Add(this.lblStockWLName);
             this.Controls.Add(this.lblStockWFName);
             this.Controls.Add(this.pbxStockW);
@@ -230,7 +230,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblStockWAddress;
         private System.Windows.Forms.Label lblStockWEmail;
         private System.Windows.Forms.Label lblStockWPhoneNum;
-        private System.Windows.Forms.Label lblStockWPosition;
+        private System.Windows.Forms.Label lblStockWEmployeeType;
         private System.Windows.Forms.Label lblStockWLName;
         private System.Windows.Forms.Label lblStockWFName;
         private System.Windows.Forms.PictureBox pbxStockW;
