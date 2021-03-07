@@ -1,7 +1,7 @@
 ﻿
 namespace MediaBazaar
 {
-    partial class StockWorker
+    partial class StockWorkerInterface
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockWorker));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockWorkerInterface));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.btnStockWRestockRequest = new System.Windows.Forms.Button();

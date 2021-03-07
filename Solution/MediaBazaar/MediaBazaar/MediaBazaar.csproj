@@ -48,11 +48,11 @@
   <ItemGroup>
     <Compile Include="ContractType.cs" />
     <Compile Include="Day.cs" />
-    <Compile Include="DepartmentManager.cs">
+    <Compile Include="DepartmentManagerInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DepartmentManager.Designer.cs">
-      <DependentUpon>DepartmentManager.cs</DependentUpon>
+    <Compile Include="DepartmentManagerInterface.Designer.cs">
+      <DependentUpon>DepartmentManagerInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeType.cs" />
@@ -62,11 +62,11 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HRAdmin.cs">
+    <Compile Include="HRAdminInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="HRAdmin.Designer.cs">
-      <DependentUpon>HRAdmin.cs</DependentUpon>
+    <Compile Include="HRAdminInterface.Designer.cs">
+      <DependentUpon>HRAdminInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="ManageEmployees.cs" />
     <Compile Include="Program.cs" />
@@ -74,27 +74,27 @@
     <Compile Include="Schedule.cs" />
     <Compile Include="Shift.cs" />
     <Compile Include="ShiftType.cs" />
-    <Compile Include="StockManager.cs">
+    <Compile Include="StockManagerInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="StockManager.Designer.cs">
-      <DependentUpon>StockManager.cs</DependentUpon>
+    <Compile Include="StockManagerInterface.Designer.cs">
+      <DependentUpon>StockManagerInterface.cs</DependentUpon>
     </Compile>
-    <Compile Include="StockWorker.cs">
+    <Compile Include="StockWorkerInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="StockWorker.Designer.cs">
-      <DependentUpon>StockWorker.cs</DependentUpon>
+    <Compile Include="StockWorkerInterface.Designer.cs">
+      <DependentUpon>StockWorkerInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Week.cs" />
-    <EmbeddedResource Include="DepartmentManager.resx">
-      <DependentUpon>DepartmentManager.cs</DependentUpon>
+    <EmbeddedResource Include="DepartmentManagerInterface.resx">
+      <DependentUpon>DepartmentManagerInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HRAdmin.resx">
-      <DependentUpon>HRAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="HRAdminInterface.resx">
+      <DependentUpon>HRAdminInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -106,11 +106,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="StockManager.resx">
-      <DependentUpon>StockManager.cs</DependentUpon>
+    <EmbeddedResource Include="StockManagerInterface.resx">
+      <DependentUpon>StockManagerInterface.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StockWorker.resx">
-      <DependentUpon>StockWorker.cs</DependentUpon>
+    <EmbeddedResource Include="StockWorkerInterface.resx">
+      <DependentUpon>StockWorkerInterface.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

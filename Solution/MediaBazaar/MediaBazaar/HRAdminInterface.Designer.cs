@@ -1,7 +1,7 @@
 ﻿
 namespace MediaBazaar
 {
-    partial class HRAdmin
+    partial class HRAdminInterface
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HRAdmin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HRAdminInterface));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.btnManageEmployee = new System.Windows.Forms.Button();

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MediaBazaar
 {
-    public partial class StockWorker : UserControl
+    public partial class HRAdminInterface : UserControl
     {
-        public StockWorker()
+        public HRAdminInterface()
         {
             InitializeComponent();
         }

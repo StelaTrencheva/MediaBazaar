@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MediaBazaar
 {
-    public partial class DepartmentManager : UserControl
+    public partial class DepartmentManagerInterface : UserControl
     {
-        public DepartmentManager()
+        public DepartmentManagerInterface()
         {
             InitializeComponent();
         }
