@@ -1,7 +1,7 @@
 ﻿
 namespace MediaBazaar
 {
-    partial class DepartmentManagerFormcs
+    partial class DepartmentManagerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DepartmentManagerFormcs));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DepartmentManagerForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDManagerSchedule = new System.Windows.Forms.Button();
             this.btnDManagerEmployeeStatistic = new System.Windows.Forms.Button();

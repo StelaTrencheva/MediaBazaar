@@ -12,9 +12,13 @@ namespace MediaBazaar
 {
     public partial class HRAdminForm : Form
     {
-        public HRAdminForm()
+        ManageEmployees manageEmployees;
+        int bsn;
+        public HRAdminForm(ManageEmployees manageEmployees,int bsn)
         {
             InitializeComponent();
+            this.manageEmployees = manageEmployees;
+            this.bsn = bsn;
         }
     }
 }
