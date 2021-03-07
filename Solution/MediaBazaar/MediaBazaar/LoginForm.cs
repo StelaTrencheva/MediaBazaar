@@ -25,9 +25,10 @@ namespace MediaBazaar
             if (bsn == 0)
             {
                 MessageBox.Show("This user does not exist");
+                tbPassword.Text = "";
                 return;
             }
-            else if(manageEmployees.FindEmployee(bsn).Position==EmployeeType.HR)
+            else if(manageEmployees.FindEmployee(bsn).Position == EmployeeType.HR)
             {
                 
             } else if (manageEmployees.FindEmployee(bsn).Position == EmployeeType.STORE_MANAGER)

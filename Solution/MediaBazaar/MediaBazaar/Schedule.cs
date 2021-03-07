@@ -11,6 +11,7 @@ namespace MediaBazaar
         private List<Week> weeks;
         public Schedule(int currentWeek)
         {
+            weeks = new List<Week>();
             for (int i = currentWeek; i <= currentWeek+10; i++)
             {
                 weeks.Add(new Week(i));
