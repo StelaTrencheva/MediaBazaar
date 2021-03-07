@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="ContractType.cs" />
     <Compile Include="Day.cs" />
+    <Compile Include="DepartmentManagerFormcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepartmentManagerFormcs.Designer.cs">
+      <DependentUpon>DepartmentManagerFormcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="DepartmentManagerInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -56,6 +62,12 @@
     </Compile>
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeType.cs" />
+    <Compile Include="HRAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRAdminForm.Designer.cs">
+      <DependentUpon>HRAdminForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,11 +86,23 @@
     <Compile Include="Schedule.cs" />
     <Compile Include="Shift.cs" />
     <Compile Include="ShiftType.cs" />
+    <Compile Include="StockManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockManagerForm.Designer.cs">
+      <DependentUpon>StockManagerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StockManagerInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="StockManagerInterface.Designer.cs">
       <DependentUpon>StockManagerInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StockWorkerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockWorkerForm.Designer.cs">
+      <DependentUpon>StockWorkerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StockWorkerInterface.cs">
       <SubType>UserControl</SubType>
@@ -87,8 +111,14 @@
       <DependentUpon>StockWorkerInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Week.cs" />
+    <EmbeddedResource Include="DepartmentManagerFormcs.resx">
+      <DependentUpon>DepartmentManagerFormcs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DepartmentManagerInterface.resx">
       <DependentUpon>DepartmentManagerInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HRAdminForm.resx">
+      <DependentUpon>HRAdminForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -106,8 +136,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="StockManagerForm.resx">
+      <DependentUpon>StockManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StockManagerInterface.resx">
       <DependentUpon>StockManagerInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockWorkerForm.resx">
+      <DependentUpon>StockWorkerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StockWorkerInterface.resx">
       <DependentUpon>StockWorkerInterface.cs</DependentUpon>

@@ -30,13 +30,6 @@ namespace MediaBazaar
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DepartmentManagerInterface));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDManagerSchedule = new System.Windows.Forms.Button();
-            this.pbxLogo = new System.Windows.Forms.PictureBox();
-            this.btnDManagerEmployeeStatistic = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnDManagerLogOut = new System.Windows.Forms.Button();
-            this.btnDManagerAccount = new System.Windows.Forms.Button();
             this.btnDManagerSave = new System.Windows.Forms.Button();
             this.tbxDManagerBSN = new System.Windows.Forms.TextBox();
             this.lblDManagerBSN = new System.Windows.Forms.Label();
@@ -54,100 +47,15 @@ namespace MediaBazaar
             this.lblDManagerFName = new System.Windows.Forms.Label();
             this.pbxDManager = new System.Windows.Forms.PictureBox();
             this.btnDManagerEdit = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDManager)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btnDManagerSchedule);
-            this.panel1.Controls.Add(this.pbxLogo);
-            this.panel1.Controls.Add(this.btnDManagerEmployeeStatistic);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(206, 530);
-            this.panel1.TabIndex = 33;
-            // 
-            // btnDManagerSchedule
-            // 
-            this.btnDManagerSchedule.BackColor = System.Drawing.Color.SlateGray;
-            this.btnDManagerSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDManagerSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDManagerSchedule.Location = new System.Drawing.Point(32, 242);
-            this.btnDManagerSchedule.Name = "btnDManagerSchedule";
-            this.btnDManagerSchedule.Size = new System.Drawing.Size(146, 42);
-            this.btnDManagerSchedule.TabIndex = 3;
-            this.btnDManagerSchedule.Text = "Schedule";
-            this.btnDManagerSchedule.UseVisualStyleBackColor = false;
-            // 
-            // pbxLogo
-            // 
-            this.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
-            this.pbxLogo.Location = new System.Drawing.Point(32, 12);
-            this.pbxLogo.Name = "pbxLogo";
-            this.pbxLogo.Size = new System.Drawing.Size(146, 134);
-            this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxLogo.TabIndex = 2;
-            this.pbxLogo.TabStop = false;
-            // 
-            // btnDManagerEmployeeStatistic
-            // 
-            this.btnDManagerEmployeeStatistic.BackColor = System.Drawing.Color.SlateGray;
-            this.btnDManagerEmployeeStatistic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDManagerEmployeeStatistic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDManagerEmployeeStatistic.Location = new System.Drawing.Point(32, 152);
-            this.btnDManagerEmployeeStatistic.Name = "btnDManagerEmployeeStatistic";
-            this.btnDManagerEmployeeStatistic.Size = new System.Drawing.Size(146, 64);
-            this.btnDManagerEmployeeStatistic.TabIndex = 1;
-            this.btnDManagerEmployeeStatistic.Text = "Employee Statistic";
-            this.btnDManagerEmployeeStatistic.UseVisualStyleBackColor = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.btnDManagerLogOut);
-            this.panel2.Controls.Add(this.btnDManagerAccount);
-            this.panel2.Location = new System.Drawing.Point(-1, 311);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(207, 217);
-            this.panel2.TabIndex = 0;
-            // 
-            // btnDManagerLogOut
-            // 
-            this.btnDManagerLogOut.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnDManagerLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDManagerLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDManagerLogOut.Location = new System.Drawing.Point(32, 142);
-            this.btnDManagerLogOut.Name = "btnDManagerLogOut";
-            this.btnDManagerLogOut.Size = new System.Drawing.Size(146, 43);
-            this.btnDManagerLogOut.TabIndex = 3;
-            this.btnDManagerLogOut.Text = "Log out";
-            this.btnDManagerLogOut.UseVisualStyleBackColor = false;
-            // 
-            // btnDManagerAccount
-            // 
-            this.btnDManagerAccount.BackColor = System.Drawing.Color.White;
-            this.btnDManagerAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDManagerAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDManagerAccount.Location = new System.Drawing.Point(32, 47);
-            this.btnDManagerAccount.Name = "btnDManagerAccount";
-            this.btnDManagerAccount.Size = new System.Drawing.Size(146, 43);
-            this.btnDManagerAccount.TabIndex = 2;
-            this.btnDManagerAccount.Text = "My account";
-            this.btnDManagerAccount.UseVisualStyleBackColor = false;
             // 
             // btnDManagerSave
             // 
             this.btnDManagerSave.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnDManagerSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDManagerSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDManagerSave.Location = new System.Drawing.Point(613, 448);
+            this.btnDManagerSave.Location = new System.Drawing.Point(387, 447);
             this.btnDManagerSave.Name = "btnDManagerSave";
             this.btnDManagerSave.Size = new System.Drawing.Size(125, 43);
             this.btnDManagerSave.TabIndex = 108;
@@ -158,7 +66,7 @@ namespace MediaBazaar
             // 
             // tbxDManagerBSN
             // 
-            this.tbxDManagerBSN.Location = new System.Drawing.Point(613, 165);
+            this.tbxDManagerBSN.Location = new System.Drawing.Point(387, 164);
             this.tbxDManagerBSN.Name = "tbxDManagerBSN";
             this.tbxDManagerBSN.ReadOnly = true;
             this.tbxDManagerBSN.Size = new System.Drawing.Size(145, 22);
@@ -169,7 +77,7 @@ namespace MediaBazaar
             // 
             this.lblDManagerBSN.AutoSize = true;
             this.lblDManagerBSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDManagerBSN.Location = new System.Drawing.Point(467, 165);
+            this.lblDManagerBSN.Location = new System.Drawing.Point(241, 164);
             this.lblDManagerBSN.Name = "lblDManagerBSN";
             this.lblDManagerBSN.Size = new System.Drawing.Size(49, 20);
             this.lblDManagerBSN.TabIndex = 106;
@@ -177,7 +85,7 @@ namespace MediaBazaar
             // 
             // tbxDManagerAddress
             // 
-            this.tbxDManagerAddress.Location = new System.Drawing.Point(613, 301);
+            this.tbxDManagerAddress.Location = new System.Drawing.Point(387, 300);
             this.tbxDManagerAddress.Name = "tbxDManagerAddress";
             this.tbxDManagerAddress.ReadOnly = true;
             this.tbxDManagerAddress.Size = new System.Drawing.Size(220, 22);
@@ -186,7 +94,7 @@ namespace MediaBazaar
             // 
             // tbxDManagerEmail
             // 
-            this.tbxDManagerEmail.Location = new System.Drawing.Point(613, 267);
+            this.tbxDManagerEmail.Location = new System.Drawing.Point(387, 266);
             this.tbxDManagerEmail.Name = "tbxDManagerEmail";
             this.tbxDManagerEmail.ReadOnly = true;
             this.tbxDManagerEmail.Size = new System.Drawing.Size(170, 22);
@@ -195,7 +103,7 @@ namespace MediaBazaar
             // 
             // tbxDManagerPhoneNum
             // 
-            this.tbxDManagerPhoneNum.Location = new System.Drawing.Point(613, 233);
+            this.tbxDManagerPhoneNum.Location = new System.Drawing.Point(387, 232);
             this.tbxDManagerPhoneNum.Name = "tbxDManagerPhoneNum";
             this.tbxDManagerPhoneNum.ReadOnly = true;
             this.tbxDManagerPhoneNum.Size = new System.Drawing.Size(170, 22);
@@ -204,7 +112,7 @@ namespace MediaBazaar
             // 
             // tbxDManagerEmployeeType
             // 
-            this.tbxDManagerEmployeeType.Location = new System.Drawing.Point(613, 199);
+            this.tbxDManagerEmployeeType.Location = new System.Drawing.Point(387, 198);
             this.tbxDManagerEmployeeType.Name = "tbxDManagerEmployeeType";
             this.tbxDManagerEmployeeType.ReadOnly = true;
             this.tbxDManagerEmployeeType.Size = new System.Drawing.Size(145, 22);
@@ -213,7 +121,7 @@ namespace MediaBazaar
             // 
             // tbxDManagerLName
             // 
-            this.tbxDManagerLName.Location = new System.Drawing.Point(613, 131);
+            this.tbxDManagerLName.Location = new System.Drawing.Point(387, 130);
             this.tbxDManagerLName.Name = "tbxDManagerLName";
             this.tbxDManagerLName.ReadOnly = true;
             this.tbxDManagerLName.Size = new System.Drawing.Size(145, 22);
@@ -222,7 +130,7 @@ namespace MediaBazaar
             // 
             // tbxDManagerFName
             // 
-            this.tbxDManagerFName.Location = new System.Drawing.Point(613, 97);
+            this.tbxDManagerFName.Location = new System.Drawing.Point(387, 96);
             this.tbxDManagerFName.Name = "tbxDManagerFName";
             this.tbxDManagerFName.ReadOnly = true;
             this.tbxDManagerFName.Size = new System.Drawing.Size(145, 22);
@@ -233,7 +141,7 @@ namespace MediaBazaar
             // 
             this.lblDManagerAddress.AutoSize = true;
             this.lblDManagerAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDManagerAddress.Location = new System.Drawing.Point(468, 301);
+            this.lblDManagerAddress.Location = new System.Drawing.Point(242, 300);
             this.lblDManagerAddress.Name = "lblDManagerAddress";
             this.lblDManagerAddress.Size = new System.Drawing.Size(76, 20);
             this.lblDManagerAddress.TabIndex = 99;
@@ -243,7 +151,7 @@ namespace MediaBazaar
             // 
             this.lblDManagerEmail.AutoSize = true;
             this.lblDManagerEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDManagerEmail.Location = new System.Drawing.Point(468, 267);
+            this.lblDManagerEmail.Location = new System.Drawing.Point(242, 266);
             this.lblDManagerEmail.Name = "lblDManagerEmail";
             this.lblDManagerEmail.Size = new System.Drawing.Size(56, 20);
             this.lblDManagerEmail.TabIndex = 98;
@@ -253,7 +161,7 @@ namespace MediaBazaar
             // 
             this.lblDManagerPhoneNum.AutoSize = true;
             this.lblDManagerPhoneNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDManagerPhoneNum.Location = new System.Drawing.Point(468, 233);
+            this.lblDManagerPhoneNum.Location = new System.Drawing.Point(242, 232);
             this.lblDManagerPhoneNum.Name = "lblDManagerPhoneNum";
             this.lblDManagerPhoneNum.Size = new System.Drawing.Size(122, 20);
             this.lblDManagerPhoneNum.TabIndex = 97;
@@ -263,7 +171,7 @@ namespace MediaBazaar
             // 
             this.lblDManagerEmployeeType.AutoSize = true;
             this.lblDManagerEmployeeType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDManagerEmployeeType.Location = new System.Drawing.Point(468, 199);
+            this.lblDManagerEmployeeType.Location = new System.Drawing.Point(242, 198);
             this.lblDManagerEmployeeType.Name = "lblDManagerEmployeeType";
             this.lblDManagerEmployeeType.Size = new System.Drawing.Size(123, 20);
             this.lblDManagerEmployeeType.TabIndex = 96;
@@ -273,7 +181,7 @@ namespace MediaBazaar
             // 
             this.lblDManagerLName.AutoSize = true;
             this.lblDManagerLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDManagerLName.Location = new System.Drawing.Point(468, 131);
+            this.lblDManagerLName.Location = new System.Drawing.Point(242, 130);
             this.lblDManagerLName.Name = "lblDManagerLName";
             this.lblDManagerLName.Size = new System.Drawing.Size(93, 20);
             this.lblDManagerLName.TabIndex = 95;
@@ -283,7 +191,7 @@ namespace MediaBazaar
             // 
             this.lblDManagerFName.AutoSize = true;
             this.lblDManagerFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDManagerFName.Location = new System.Drawing.Point(468, 97);
+            this.lblDManagerFName.Location = new System.Drawing.Point(242, 96);
             this.lblDManagerFName.Name = "lblDManagerFName";
             this.lblDManagerFName.Size = new System.Drawing.Size(94, 20);
             this.lblDManagerFName.TabIndex = 94;
@@ -292,7 +200,7 @@ namespace MediaBazaar
             // pbxDManager
             // 
             this.pbxDManager.Image = ((System.Drawing.Image)(resources.GetObject("pbxDManager.Image")));
-            this.pbxDManager.Location = new System.Drawing.Point(271, 97);
+            this.pbxDManager.Location = new System.Drawing.Point(45, 96);
             this.pbxDManager.Name = "pbxDManager";
             this.pbxDManager.Size = new System.Drawing.Size(160, 171);
             this.pbxDManager.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -304,7 +212,7 @@ namespace MediaBazaar
             this.btnDManagerEdit.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnDManagerEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDManagerEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDManagerEdit.Location = new System.Drawing.Point(758, 448);
+            this.btnDManagerEdit.Location = new System.Drawing.Point(532, 447);
             this.btnDManagerEdit.Name = "btnDManagerEdit";
             this.btnDManagerEdit.Size = new System.Drawing.Size(125, 43);
             this.btnDManagerEdit.TabIndex = 92;
@@ -312,7 +220,7 @@ namespace MediaBazaar
             this.btnDManagerEdit.UseVisualStyleBackColor = false;
             this.btnDManagerEdit.Click += new System.EventHandler(this.btnDManagerEdit_Click);
             // 
-            // DepartmentManager
+            // DepartmentManagerInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -333,12 +241,8 @@ namespace MediaBazaar
             this.Controls.Add(this.lblDManagerFName);
             this.Controls.Add(this.pbxDManager);
             this.Controls.Add(this.btnDManagerEdit);
-            this.Controls.Add(this.panel1);
-            this.Name = "DepartmentManager";
-            this.Size = new System.Drawing.Size(924, 530);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
-            this.panel2.ResumeLayout(false);
+            this.Name = "DepartmentManagerInterface";
+            this.Size = new System.Drawing.Size(717, 530);
             ((System.ComponentModel.ISupportInitialize)(this.pbxDManager)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -346,13 +250,7 @@ namespace MediaBazaar
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pbxLogo;
-        private System.Windows.Forms.Button btnDManagerEmployeeStatistic;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnDManagerLogOut;
-        private System.Windows.Forms.Button btnDManagerAccount;
-        private System.Windows.Forms.Button btnDManagerSchedule;
+
         private System.Windows.Forms.Button btnDManagerSave;
         private System.Windows.Forms.TextBox tbxDManagerBSN;
         private System.Windows.Forms.Label lblDManagerBSN;
