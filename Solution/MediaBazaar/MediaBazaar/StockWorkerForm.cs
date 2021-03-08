@@ -12,7 +12,7 @@ namespace MediaBazaar
 {
     public partial class StockWorkerForm : Form
     {
-        public StockWorkerForm()
+        public StockWorkerForm(ManageEmployees manageEmployees, int bsn)
         {
             InitializeComponent();
         }

@@ -48,11 +48,11 @@
   <ItemGroup>
     <Compile Include="ContractType.cs" />
     <Compile Include="Day.cs" />
-    <Compile Include="DepartmentManagerFormcs.cs">
+    <Compile Include="DepartmentManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DepartmentManagerFormcs.Designer.cs">
-      <DependentUpon>DepartmentManagerFormcs.cs</DependentUpon>
+    <Compile Include="DepartmentManagerForm.Designer.cs">
+      <DependentUpon>DepartmentManagerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DepartmentManagerInterface.cs">
       <SubType>UserControl</SubType>
@@ -123,8 +123,8 @@
       <DependentUpon>StoreWorkerScheduleInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Week.cs" />
-    <EmbeddedResource Include="DepartmentManagerFormcs.resx">
-      <DependentUpon>DepartmentManagerFormcs.cs</DependentUpon>
+    <EmbeddedResource Include="DepartmentManagerForm.resx">
+      <DependentUpon>DepartmentManagerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DepartmentManagerInterface.resx">
       <DependentUpon>DepartmentManagerInterface.cs</DependentUpon>

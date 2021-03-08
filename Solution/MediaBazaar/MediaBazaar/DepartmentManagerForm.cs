@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MediaBazaar
 {
-    public partial class DepartmentManagerFormcs : Form
+    public partial class DepartmentManagerForm : Form
     {
-        public DepartmentManagerFormcs()
+        public DepartmentManagerForm(ManageEmployees manageEmployees, int bsn)
         {
             InitializeComponent();
         }
