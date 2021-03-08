@@ -80,6 +80,12 @@
     <Compile Include="HRAdminInterface.Designer.cs">
       <DependentUpon>HRAdminInterface.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageEmployeeInterface.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ManageEmployeeInterface.Designer.cs">
+      <DependentUpon>ManageEmployeeInterface.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageEmployees.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,6 +116,12 @@
     <Compile Include="StockWorkerInterface.Designer.cs">
       <DependentUpon>StockWorkerInterface.cs</DependentUpon>
     </Compile>
+    <Compile Include="StoreWorkerScheduleInterface.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StoreWorkerScheduleInterface.Designer.cs">
+      <DependentUpon>StoreWorkerScheduleInterface.cs</DependentUpon>
+    </Compile>
     <Compile Include="Week.cs" />
     <EmbeddedResource Include="DepartmentManagerFormcs.resx">
       <DependentUpon>DepartmentManagerFormcs.cs</DependentUpon>
@@ -125,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HRAdminInterface.resx">
       <DependentUpon>HRAdminInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageEmployeeInterface.resx">
+      <DependentUpon>ManageEmployeeInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -147,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StockWorkerInterface.resx">
       <DependentUpon>StockWorkerInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StoreWorkerScheduleInterface.resx">
+      <DependentUpon>StoreWorkerScheduleInterface.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

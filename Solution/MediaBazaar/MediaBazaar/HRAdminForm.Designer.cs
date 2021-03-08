@@ -31,15 +31,15 @@ namespace MediaBazaar
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HRAdminForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.btnManageEmployee = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnHRAdminLogOut = new System.Windows.Forms.Button();
             this.btnHRAdminAccount = new System.Windows.Forms.Button();
-            this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.hrAdminInterface1 = new MediaBazaar.HRAdminInterface();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -54,6 +54,17 @@ namespace MediaBazaar
             this.panel1.Size = new System.Drawing.Size(206, 528);
             this.panel1.TabIndex = 26;
             // 
+            // pbxLogo
+            // 
+            this.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
+            this.pbxLogo.Location = new System.Drawing.Point(32, 12);
+            this.pbxLogo.Name = "pbxLogo";
+            this.pbxLogo.Size = new System.Drawing.Size(146, 134);
+            this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxLogo.TabIndex = 2;
+            this.pbxLogo.TabStop = false;
+            // 
             // btnManageEmployee
             // 
             this.btnManageEmployee.BackColor = System.Drawing.Color.SlateGray;
@@ -65,6 +76,7 @@ namespace MediaBazaar
             this.btnManageEmployee.TabIndex = 1;
             this.btnManageEmployee.Text = "Manage employees profiles";
             this.btnManageEmployee.UseVisualStyleBackColor = false;
+            this.btnManageEmployee.Click += new System.EventHandler(this.btnManageEmployee_Click);
             // 
             // panel2
             // 
@@ -87,6 +99,7 @@ namespace MediaBazaar
             this.btnHRAdminLogOut.TabIndex = 3;
             this.btnHRAdminLogOut.Text = "Log out";
             this.btnHRAdminLogOut.UseVisualStyleBackColor = false;
+            this.btnHRAdminLogOut.Click += new System.EventHandler(this.btnHRAdminLogOut_Click);
             // 
             // btnHRAdminAccount
             // 
@@ -99,17 +112,7 @@ namespace MediaBazaar
             this.btnHRAdminAccount.TabIndex = 2;
             this.btnHRAdminAccount.Text = "My account";
             this.btnHRAdminAccount.UseVisualStyleBackColor = false;
-            // 
-            // pbxLogo
-            // 
-            this.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
-            this.pbxLogo.Location = new System.Drawing.Point(32, 12);
-            this.pbxLogo.Name = "pbxLogo";
-            this.pbxLogo.Size = new System.Drawing.Size(146, 134);
-            this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxLogo.TabIndex = 2;
-            this.pbxLogo.TabStop = false;
+            this.btnHRAdminAccount.Click += new System.EventHandler(this.btnHRAdminAccount_Click);
             // 
             // hrAdminInterface1
             // 
@@ -131,8 +134,8 @@ namespace MediaBazaar
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HRAdminForm";
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
