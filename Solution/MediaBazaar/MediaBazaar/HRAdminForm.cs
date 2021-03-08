@@ -14,11 +14,13 @@ namespace MediaBazaar
     {
         ManageEmployees manageEmployees;
         int bsn;
+
         public HRAdminForm(ManageEmployees manageEmployees,int bsn)
         {
             InitializeComponent();
-<<<<<<< HEAD
             hrAdminInterface1.BringToFront();
+            this.manageEmployees = manageEmployees;
+            this.bsn = bsn;
         }
 
         private void btnManageEmployee_Click(object sender, EventArgs e)
@@ -41,10 +43,6 @@ namespace MediaBazaar
             btnManageEmployee.BackColor = Color.SlateGray;
             btnHRAdminAccount.BackColor = Color.SlateGray;
             btnHRAdminLogOut.BackColor = Color.White;
-=======
-            this.manageEmployees = manageEmployees;
-            this.bsn = bsn;
->>>>>>> fb23de75a92755de7e2da2bc7615eb1f4529f018
         }
     }
 }

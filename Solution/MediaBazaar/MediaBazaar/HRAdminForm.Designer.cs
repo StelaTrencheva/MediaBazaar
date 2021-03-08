@@ -59,16 +59,10 @@ namespace MediaBazaar
             // 
             this.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
-<<<<<<< HEAD
-            this.pbxLogo.Location = new System.Drawing.Point(32, 12);
-            this.pbxLogo.Name = "pbxLogo";
-            this.pbxLogo.Size = new System.Drawing.Size(146, 134);
-=======
             this.pbxLogo.Location = new System.Drawing.Point(36, 15);
             this.pbxLogo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbxLogo.Name = "pbxLogo";
             this.pbxLogo.Size = new System.Drawing.Size(164, 168);
->>>>>>> fb23de75a92755de7e2da2bc7615eb1f4529f018
             this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxLogo.TabIndex = 2;
             this.pbxLogo.TabStop = false;
@@ -124,10 +118,7 @@ namespace MediaBazaar
             this.btnHRAdminAccount.TabIndex = 2;
             this.btnHRAdminAccount.Text = "My account";
             this.btnHRAdminAccount.UseVisualStyleBackColor = false;
-<<<<<<< HEAD
             this.btnHRAdminAccount.Click += new System.EventHandler(this.btnHRAdminAccount_Click);
-=======
->>>>>>> fb23de75a92755de7e2da2bc7615eb1f4529f018
             // 
             // hrAdminInterface1
             // 
