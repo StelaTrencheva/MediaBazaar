@@ -31,15 +31,15 @@ namespace MediaBazaar
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockWorkerForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.btnStockWRestockRequest = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnStockWLogOut = new System.Windows.Forms.Button();
             this.btnStockWAccount = new System.Windows.Forms.Button();
-            this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.stockWorkerInterface1 = new MediaBazaar.StockWorkerInterface();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -54,12 +54,23 @@ namespace MediaBazaar
             this.panel1.Size = new System.Drawing.Size(206, 528);
             this.panel1.TabIndex = 52;
             // 
+            // pbxLogo
+            // 
+            this.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
+            this.pbxLogo.Location = new System.Drawing.Point(32, 12);
+            this.pbxLogo.Name = "pbxLogo";
+            this.pbxLogo.Size = new System.Drawing.Size(146, 134);
+            this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxLogo.TabIndex = 2;
+            this.pbxLogo.TabStop = false;
+            // 
             // btnStockWRestockRequest
             // 
             this.btnStockWRestockRequest.BackColor = System.Drawing.Color.SlateGray;
             this.btnStockWRestockRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStockWRestockRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStockWRestockRequest.Location = new System.Drawing.Point(32, 152);
+            this.btnStockWRestockRequest.Location = new System.Drawing.Point(32, 195);
             this.btnStockWRestockRequest.Name = "btnStockWRestockRequest";
             this.btnStockWRestockRequest.Size = new System.Drawing.Size(146, 64);
             this.btnStockWRestockRequest.TabIndex = 1;
@@ -100,17 +111,6 @@ namespace MediaBazaar
             this.btnStockWAccount.Text = "My account";
             this.btnStockWAccount.UseVisualStyleBackColor = false;
             // 
-            // pbxLogo
-            // 
-            this.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
-            this.pbxLogo.Location = new System.Drawing.Point(32, 12);
-            this.pbxLogo.Name = "pbxLogo";
-            this.pbxLogo.Size = new System.Drawing.Size(146, 134);
-            this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxLogo.TabIndex = 2;
-            this.pbxLogo.TabStop = false;
-            // 
             // stockWorkerInterface1
             // 
             this.stockWorkerInterface1.Location = new System.Drawing.Point(213, 0);
@@ -131,8 +131,8 @@ namespace MediaBazaar
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StockWorkerForm";
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

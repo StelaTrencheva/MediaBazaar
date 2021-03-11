@@ -19,26 +19,26 @@ namespace MediaBazaar
 
         private void btnSManagerEdit_Click(object sender, EventArgs e)
         {
-            tbxSManagerFName.ReadOnly = false;
-            tbxSManagerLName.ReadOnly = false;
-            tbxSManagerBSN.ReadOnly = false;
-            tbxSManagerPhoneNum.ReadOnly = false;
-            tbxSManagerEmail.ReadOnly = false;
-            tbxSManagerAddress.ReadOnly = false;
-            btnSManagerEdit.Visible = false;
-            btnSManagerSave.Visible = true;
+            tbxStockMFName.ReadOnly = false;
+            tbxStockMLName.ReadOnly = false;
+            tbxStockMBSN.ReadOnly = false;
+            tbxStockMPhoneNum.ReadOnly = false;
+            tbxStockMEmail.ReadOnly = false;
+            tbxStockMAddress.ReadOnly = false;
+            btnStockMEdit.Visible = false;
+            btnStockMSave.Visible = true;
         }
 
         private void btnSManagerSave_Click(object sender, EventArgs e)
         {
-            tbxSManagerFName.ReadOnly = true;
-            tbxSManagerLName.ReadOnly = true;
-            tbxSManagerBSN.ReadOnly = true;
-            tbxSManagerPhoneNum.ReadOnly = true;
-            tbxSManagerEmail.ReadOnly = true;
-            tbxSManagerAddress.ReadOnly = true;
-            btnSManagerEdit.Visible = true;
-            btnSManagerSave.Visible = false;
+            tbxStockMFName.ReadOnly = true;
+            tbxStockMLName.ReadOnly = true;
+            tbxStockMBSN.ReadOnly = true;
+            tbxStockMPhoneNum.ReadOnly = true;
+            tbxStockMEmail.ReadOnly = true;
+            tbxStockMAddress.ReadOnly = true;
+            btnStockMEdit.Visible = true;
+            btnStockMSave.Visible = false;
         }
     }
 }

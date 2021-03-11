@@ -116,6 +116,18 @@
     <Compile Include="StockWorkerInterface.Designer.cs">
       <DependentUpon>StockWorkerInterface.cs</DependentUpon>
     </Compile>
+    <Compile Include="StoreManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StoreManagerForm.Designer.cs">
+      <DependentUpon>StoreManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StoreManagerInterface.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StoreManagerInterface.Designer.cs">
+      <DependentUpon>StoreManagerInterface.cs</DependentUpon>
+    </Compile>
     <Compile Include="StoreWorkerScheduleInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -162,6 +174,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StockWorkerInterface.resx">
       <DependentUpon>StockWorkerInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StoreManagerForm.resx">
+      <DependentUpon>StoreManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StoreManagerInterface.resx">
+      <DependentUpon>StoreManagerInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StoreWorkerScheduleInterface.resx">
       <DependentUpon>StoreWorkerScheduleInterface.cs</DependentUpon>

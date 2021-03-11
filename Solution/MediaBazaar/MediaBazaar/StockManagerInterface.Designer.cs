@@ -30,242 +30,242 @@ namespace MediaBazaar
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockManagerInterface));
-            this.btnSManagerSave = new System.Windows.Forms.Button();
-            this.tbxSManagerBSN = new System.Windows.Forms.TextBox();
-            this.lblSManagerBSN = new System.Windows.Forms.Label();
-            this.tbxSManagerAddress = new System.Windows.Forms.TextBox();
-            this.tbxSManagerEmail = new System.Windows.Forms.TextBox();
-            this.tbxSManagerPhoneNum = new System.Windows.Forms.TextBox();
-            this.tbxSManagerEmployeeType = new System.Windows.Forms.TextBox();
-            this.tbxSManagerLName = new System.Windows.Forms.TextBox();
-            this.tbxSManagerFName = new System.Windows.Forms.TextBox();
-            this.lblSManagerAddress = new System.Windows.Forms.Label();
-            this.lblSManagerEmail = new System.Windows.Forms.Label();
-            this.lblSManagerPhoneNum = new System.Windows.Forms.Label();
-            this.lblSManagerEmployeeType = new System.Windows.Forms.Label();
-            this.lblSManagerLName = new System.Windows.Forms.Label();
-            this.lblSManagerFName = new System.Windows.Forms.Label();
-            this.btnSManagerEdit = new System.Windows.Forms.Button();
-            this.pbxSManager = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxSManager)).BeginInit();
+            this.btnStockMSave = new System.Windows.Forms.Button();
+            this.tbxStockMBSN = new System.Windows.Forms.TextBox();
+            this.lblStockMBSN = new System.Windows.Forms.Label();
+            this.tbxStockMAddress = new System.Windows.Forms.TextBox();
+            this.tbxStockMEmail = new System.Windows.Forms.TextBox();
+            this.tbxStockMPhoneNum = new System.Windows.Forms.TextBox();
+            this.tbxStockMEmployeeType = new System.Windows.Forms.TextBox();
+            this.tbxStockMLName = new System.Windows.Forms.TextBox();
+            this.tbxStockMFName = new System.Windows.Forms.TextBox();
+            this.lblStockMAddress = new System.Windows.Forms.Label();
+            this.lblStockMEmail = new System.Windows.Forms.Label();
+            this.lblStockMPhoneNum = new System.Windows.Forms.Label();
+            this.lblStockMEmployeeType = new System.Windows.Forms.Label();
+            this.lblStockMLName = new System.Windows.Forms.Label();
+            this.lblStockMFName = new System.Windows.Forms.Label();
+            this.btnStockMEdit = new System.Windows.Forms.Button();
+            this.pbxStockM = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxStockM)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnSManagerSave
+            // btnStockMSave
             // 
-            this.btnSManagerSave.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnSManagerSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSManagerSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSManagerSave.Location = new System.Drawing.Point(388, 447);
-            this.btnSManagerSave.Name = "btnSManagerSave";
-            this.btnSManagerSave.Size = new System.Drawing.Size(125, 43);
-            this.btnSManagerSave.TabIndex = 123;
-            this.btnSManagerSave.Text = "Save";
-            this.btnSManagerSave.UseVisualStyleBackColor = false;
-            this.btnSManagerSave.Visible = false;
-            this.btnSManagerSave.Click += new System.EventHandler(this.btnSManagerSave_Click);
+            this.btnStockMSave.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnStockMSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStockMSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStockMSave.Location = new System.Drawing.Point(388, 447);
+            this.btnStockMSave.Name = "btnStockMSave";
+            this.btnStockMSave.Size = new System.Drawing.Size(125, 43);
+            this.btnStockMSave.TabIndex = 123;
+            this.btnStockMSave.Text = "Save";
+            this.btnStockMSave.UseVisualStyleBackColor = false;
+            this.btnStockMSave.Visible = false;
+            this.btnStockMSave.Click += new System.EventHandler(this.btnSManagerSave_Click);
             // 
-            // tbxSManagerBSN
+            // tbxStockMBSN
             // 
-            this.tbxSManagerBSN.Location = new System.Drawing.Point(388, 164);
-            this.tbxSManagerBSN.Name = "tbxSManagerBSN";
-            this.tbxSManagerBSN.ReadOnly = true;
-            this.tbxSManagerBSN.Size = new System.Drawing.Size(145, 22);
-            this.tbxSManagerBSN.TabIndex = 122;
-            this.tbxSManagerBSN.Text = "766543";
+            this.tbxStockMBSN.Location = new System.Drawing.Point(388, 164);
+            this.tbxStockMBSN.Name = "tbxStockMBSN";
+            this.tbxStockMBSN.ReadOnly = true;
+            this.tbxStockMBSN.Size = new System.Drawing.Size(145, 22);
+            this.tbxStockMBSN.TabIndex = 122;
+            this.tbxStockMBSN.Text = "766543";
             // 
-            // lblSManagerBSN
+            // lblStockMBSN
             // 
-            this.lblSManagerBSN.AutoSize = true;
-            this.lblSManagerBSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSManagerBSN.Location = new System.Drawing.Point(242, 164);
-            this.lblSManagerBSN.Name = "lblSManagerBSN";
-            this.lblSManagerBSN.Size = new System.Drawing.Size(49, 20);
-            this.lblSManagerBSN.TabIndex = 121;
-            this.lblSManagerBSN.Text = "BSN:";
+            this.lblStockMBSN.AutoSize = true;
+            this.lblStockMBSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockMBSN.Location = new System.Drawing.Point(242, 164);
+            this.lblStockMBSN.Name = "lblStockMBSN";
+            this.lblStockMBSN.Size = new System.Drawing.Size(49, 20);
+            this.lblStockMBSN.TabIndex = 121;
+            this.lblStockMBSN.Text = "BSN:";
             // 
-            // tbxSManagerAddress
+            // tbxStockMAddress
             // 
-            this.tbxSManagerAddress.Location = new System.Drawing.Point(388, 300);
-            this.tbxSManagerAddress.Name = "tbxSManagerAddress";
-            this.tbxSManagerAddress.ReadOnly = true;
-            this.tbxSManagerAddress.Size = new System.Drawing.Size(220, 22);
-            this.tbxSManagerAddress.TabIndex = 120;
-            this.tbxSManagerAddress.Text = "Street 1";
+            this.tbxStockMAddress.Location = new System.Drawing.Point(388, 300);
+            this.tbxStockMAddress.Name = "tbxStockMAddress";
+            this.tbxStockMAddress.ReadOnly = true;
+            this.tbxStockMAddress.Size = new System.Drawing.Size(220, 22);
+            this.tbxStockMAddress.TabIndex = 120;
+            this.tbxStockMAddress.Text = "Street 1";
             // 
-            // tbxSManagerEmail
+            // tbxStockMEmail
             // 
-            this.tbxSManagerEmail.Location = new System.Drawing.Point(388, 266);
-            this.tbxSManagerEmail.Name = "tbxSManagerEmail";
-            this.tbxSManagerEmail.ReadOnly = true;
-            this.tbxSManagerEmail.Size = new System.Drawing.Size(170, 22);
-            this.tbxSManagerEmail.TabIndex = 119;
-            this.tbxSManagerEmail.Text = "paula.l@example.com";
+            this.tbxStockMEmail.Location = new System.Drawing.Point(388, 266);
+            this.tbxStockMEmail.Name = "tbxStockMEmail";
+            this.tbxStockMEmail.ReadOnly = true;
+            this.tbxStockMEmail.Size = new System.Drawing.Size(170, 22);
+            this.tbxStockMEmail.TabIndex = 119;
+            this.tbxStockMEmail.Text = "paula.l@example.com";
             // 
-            // tbxSManagerPhoneNum
+            // tbxStockMPhoneNum
             // 
-            this.tbxSManagerPhoneNum.Location = new System.Drawing.Point(388, 232);
-            this.tbxSManagerPhoneNum.Name = "tbxSManagerPhoneNum";
-            this.tbxSManagerPhoneNum.ReadOnly = true;
-            this.tbxSManagerPhoneNum.Size = new System.Drawing.Size(170, 22);
-            this.tbxSManagerPhoneNum.TabIndex = 118;
-            this.tbxSManagerPhoneNum.Text = "067*********";
+            this.tbxStockMPhoneNum.Location = new System.Drawing.Point(388, 232);
+            this.tbxStockMPhoneNum.Name = "tbxStockMPhoneNum";
+            this.tbxStockMPhoneNum.ReadOnly = true;
+            this.tbxStockMPhoneNum.Size = new System.Drawing.Size(170, 22);
+            this.tbxStockMPhoneNum.TabIndex = 118;
+            this.tbxStockMPhoneNum.Text = "067*********";
             // 
-            // tbxSManagerEmployeeType
+            // tbxStockMEmployeeType
             // 
-            this.tbxSManagerEmployeeType.Location = new System.Drawing.Point(388, 198);
-            this.tbxSManagerEmployeeType.Name = "tbxSManagerEmployeeType";
-            this.tbxSManagerEmployeeType.ReadOnly = true;
-            this.tbxSManagerEmployeeType.Size = new System.Drawing.Size(145, 22);
-            this.tbxSManagerEmployeeType.TabIndex = 117;
-            this.tbxSManagerEmployeeType.Text = "Stock manager";
+            this.tbxStockMEmployeeType.Location = new System.Drawing.Point(388, 198);
+            this.tbxStockMEmployeeType.Name = "tbxStockMEmployeeType";
+            this.tbxStockMEmployeeType.ReadOnly = true;
+            this.tbxStockMEmployeeType.Size = new System.Drawing.Size(145, 22);
+            this.tbxStockMEmployeeType.TabIndex = 117;
+            this.tbxStockMEmployeeType.Text = "Stock manager";
             // 
-            // tbxSManagerLName
+            // tbxStockMLName
             // 
-            this.tbxSManagerLName.Location = new System.Drawing.Point(388, 130);
-            this.tbxSManagerLName.Name = "tbxSManagerLName";
-            this.tbxSManagerLName.ReadOnly = true;
-            this.tbxSManagerLName.Size = new System.Drawing.Size(145, 22);
-            this.tbxSManagerLName.TabIndex = 116;
-            this.tbxSManagerLName.Text = "Lopez";
+            this.tbxStockMLName.Location = new System.Drawing.Point(388, 130);
+            this.tbxStockMLName.Name = "tbxStockMLName";
+            this.tbxStockMLName.ReadOnly = true;
+            this.tbxStockMLName.Size = new System.Drawing.Size(145, 22);
+            this.tbxStockMLName.TabIndex = 116;
+            this.tbxStockMLName.Text = "Lopez";
             // 
-            // tbxSManagerFName
+            // tbxStockMFName
             // 
-            this.tbxSManagerFName.Location = new System.Drawing.Point(388, 96);
-            this.tbxSManagerFName.Name = "tbxSManagerFName";
-            this.tbxSManagerFName.ReadOnly = true;
-            this.tbxSManagerFName.Size = new System.Drawing.Size(145, 22);
-            this.tbxSManagerFName.TabIndex = 115;
-            this.tbxSManagerFName.Text = "Paula";
+            this.tbxStockMFName.Location = new System.Drawing.Point(388, 96);
+            this.tbxStockMFName.Name = "tbxStockMFName";
+            this.tbxStockMFName.ReadOnly = true;
+            this.tbxStockMFName.Size = new System.Drawing.Size(145, 22);
+            this.tbxStockMFName.TabIndex = 115;
+            this.tbxStockMFName.Text = "Paula";
             // 
-            // lblSManagerAddress
+            // lblStockMAddress
             // 
-            this.lblSManagerAddress.AutoSize = true;
-            this.lblSManagerAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSManagerAddress.Location = new System.Drawing.Point(243, 300);
-            this.lblSManagerAddress.Name = "lblSManagerAddress";
-            this.lblSManagerAddress.Size = new System.Drawing.Size(76, 20);
-            this.lblSManagerAddress.TabIndex = 114;
-            this.lblSManagerAddress.Text = "Address:";
+            this.lblStockMAddress.AutoSize = true;
+            this.lblStockMAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockMAddress.Location = new System.Drawing.Point(243, 300);
+            this.lblStockMAddress.Name = "lblStockMAddress";
+            this.lblStockMAddress.Size = new System.Drawing.Size(76, 20);
+            this.lblStockMAddress.TabIndex = 114;
+            this.lblStockMAddress.Text = "Address:";
             // 
-            // lblSManagerEmail
+            // lblStockMEmail
             // 
-            this.lblSManagerEmail.AutoSize = true;
-            this.lblSManagerEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSManagerEmail.Location = new System.Drawing.Point(243, 266);
-            this.lblSManagerEmail.Name = "lblSManagerEmail";
-            this.lblSManagerEmail.Size = new System.Drawing.Size(56, 20);
-            this.lblSManagerEmail.TabIndex = 113;
-            this.lblSManagerEmail.Text = "Email:";
+            this.lblStockMEmail.AutoSize = true;
+            this.lblStockMEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockMEmail.Location = new System.Drawing.Point(243, 266);
+            this.lblStockMEmail.Name = "lblStockMEmail";
+            this.lblStockMEmail.Size = new System.Drawing.Size(56, 20);
+            this.lblStockMEmail.TabIndex = 113;
+            this.lblStockMEmail.Text = "Email:";
             // 
-            // lblSManagerPhoneNum
+            // lblStockMPhoneNum
             // 
-            this.lblSManagerPhoneNum.AutoSize = true;
-            this.lblSManagerPhoneNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSManagerPhoneNum.Location = new System.Drawing.Point(243, 232);
-            this.lblSManagerPhoneNum.Name = "lblSManagerPhoneNum";
-            this.lblSManagerPhoneNum.Size = new System.Drawing.Size(122, 20);
-            this.lblSManagerPhoneNum.TabIndex = 112;
-            this.lblSManagerPhoneNum.Text = "Phone number:";
+            this.lblStockMPhoneNum.AutoSize = true;
+            this.lblStockMPhoneNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockMPhoneNum.Location = new System.Drawing.Point(243, 232);
+            this.lblStockMPhoneNum.Name = "lblStockMPhoneNum";
+            this.lblStockMPhoneNum.Size = new System.Drawing.Size(122, 20);
+            this.lblStockMPhoneNum.TabIndex = 112;
+            this.lblStockMPhoneNum.Text = "Phone number:";
             // 
-            // lblSManagerEmployeeType
+            // lblStockMEmployeeType
             // 
-            this.lblSManagerEmployeeType.AutoSize = true;
-            this.lblSManagerEmployeeType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSManagerEmployeeType.Location = new System.Drawing.Point(243, 198);
-            this.lblSManagerEmployeeType.Name = "lblSManagerEmployeeType";
-            this.lblSManagerEmployeeType.Size = new System.Drawing.Size(123, 20);
-            this.lblSManagerEmployeeType.TabIndex = 111;
-            this.lblSManagerEmployeeType.Text = "EmployeeType:";
+            this.lblStockMEmployeeType.AutoSize = true;
+            this.lblStockMEmployeeType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockMEmployeeType.Location = new System.Drawing.Point(243, 198);
+            this.lblStockMEmployeeType.Name = "lblStockMEmployeeType";
+            this.lblStockMEmployeeType.Size = new System.Drawing.Size(123, 20);
+            this.lblStockMEmployeeType.TabIndex = 111;
+            this.lblStockMEmployeeType.Text = "EmployeeType:";
             // 
-            // lblSManagerLName
+            // lblStockMLName
             // 
-            this.lblSManagerLName.AutoSize = true;
-            this.lblSManagerLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSManagerLName.Location = new System.Drawing.Point(243, 130);
-            this.lblSManagerLName.Name = "lblSManagerLName";
-            this.lblSManagerLName.Size = new System.Drawing.Size(93, 20);
-            this.lblSManagerLName.TabIndex = 110;
-            this.lblSManagerLName.Text = "Last name:";
+            this.lblStockMLName.AutoSize = true;
+            this.lblStockMLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockMLName.Location = new System.Drawing.Point(243, 130);
+            this.lblStockMLName.Name = "lblStockMLName";
+            this.lblStockMLName.Size = new System.Drawing.Size(93, 20);
+            this.lblStockMLName.TabIndex = 110;
+            this.lblStockMLName.Text = "Last name:";
             // 
-            // lblSManagerFName
+            // lblStockMFName
             // 
-            this.lblSManagerFName.AutoSize = true;
-            this.lblSManagerFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSManagerFName.Location = new System.Drawing.Point(243, 96);
-            this.lblSManagerFName.Name = "lblSManagerFName";
-            this.lblSManagerFName.Size = new System.Drawing.Size(94, 20);
-            this.lblSManagerFName.TabIndex = 109;
-            this.lblSManagerFName.Text = "First name:";
+            this.lblStockMFName.AutoSize = true;
+            this.lblStockMFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockMFName.Location = new System.Drawing.Point(243, 96);
+            this.lblStockMFName.Name = "lblStockMFName";
+            this.lblStockMFName.Size = new System.Drawing.Size(94, 20);
+            this.lblStockMFName.TabIndex = 109;
+            this.lblStockMFName.Text = "First name:";
             // 
-            // btnSManagerEdit
+            // btnStockMEdit
             // 
-            this.btnSManagerEdit.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnSManagerEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSManagerEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSManagerEdit.Location = new System.Drawing.Point(533, 447);
-            this.btnSManagerEdit.Name = "btnSManagerEdit";
-            this.btnSManagerEdit.Size = new System.Drawing.Size(125, 43);
-            this.btnSManagerEdit.TabIndex = 107;
-            this.btnSManagerEdit.Text = "Edit";
-            this.btnSManagerEdit.UseVisualStyleBackColor = false;
-            this.btnSManagerEdit.Click += new System.EventHandler(this.btnSManagerEdit_Click);
+            this.btnStockMEdit.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnStockMEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStockMEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStockMEdit.Location = new System.Drawing.Point(533, 447);
+            this.btnStockMEdit.Name = "btnStockMEdit";
+            this.btnStockMEdit.Size = new System.Drawing.Size(125, 43);
+            this.btnStockMEdit.TabIndex = 107;
+            this.btnStockMEdit.Text = "Edit";
+            this.btnStockMEdit.UseVisualStyleBackColor = false;
+            this.btnStockMEdit.Click += new System.EventHandler(this.btnSManagerEdit_Click);
             // 
-            // pbxSManager
+            // pbxStockM
             // 
-            this.pbxSManager.Image = ((System.Drawing.Image)(resources.GetObject("pbxSManager.Image")));
-            this.pbxSManager.Location = new System.Drawing.Point(46, 96);
-            this.pbxSManager.Name = "pbxSManager";
-            this.pbxSManager.Size = new System.Drawing.Size(160, 171);
-            this.pbxSManager.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbxSManager.TabIndex = 108;
-            this.pbxSManager.TabStop = false;
+            this.pbxStockM.Image = ((System.Drawing.Image)(resources.GetObject("pbxStockM.Image")));
+            this.pbxStockM.Location = new System.Drawing.Point(46, 96);
+            this.pbxStockM.Name = "pbxStockM";
+            this.pbxStockM.Size = new System.Drawing.Size(160, 171);
+            this.pbxStockM.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxStockM.TabIndex = 108;
+            this.pbxStockM.TabStop = false;
             // 
             // StockManagerInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnSManagerSave);
-            this.Controls.Add(this.tbxSManagerBSN);
-            this.Controls.Add(this.lblSManagerBSN);
-            this.Controls.Add(this.tbxSManagerAddress);
-            this.Controls.Add(this.tbxSManagerEmail);
-            this.Controls.Add(this.tbxSManagerPhoneNum);
-            this.Controls.Add(this.tbxSManagerEmployeeType);
-            this.Controls.Add(this.tbxSManagerLName);
-            this.Controls.Add(this.tbxSManagerFName);
-            this.Controls.Add(this.lblSManagerAddress);
-            this.Controls.Add(this.lblSManagerEmail);
-            this.Controls.Add(this.lblSManagerPhoneNum);
-            this.Controls.Add(this.lblSManagerEmployeeType);
-            this.Controls.Add(this.lblSManagerLName);
-            this.Controls.Add(this.lblSManagerFName);
-            this.Controls.Add(this.pbxSManager);
-            this.Controls.Add(this.btnSManagerEdit);
+            this.Controls.Add(this.btnStockMSave);
+            this.Controls.Add(this.tbxStockMBSN);
+            this.Controls.Add(this.lblStockMBSN);
+            this.Controls.Add(this.tbxStockMAddress);
+            this.Controls.Add(this.tbxStockMEmail);
+            this.Controls.Add(this.tbxStockMPhoneNum);
+            this.Controls.Add(this.tbxStockMEmployeeType);
+            this.Controls.Add(this.tbxStockMLName);
+            this.Controls.Add(this.tbxStockMFName);
+            this.Controls.Add(this.lblStockMAddress);
+            this.Controls.Add(this.lblStockMEmail);
+            this.Controls.Add(this.lblStockMPhoneNum);
+            this.Controls.Add(this.lblStockMEmployeeType);
+            this.Controls.Add(this.lblStockMLName);
+            this.Controls.Add(this.lblStockMFName);
+            this.Controls.Add(this.pbxStockM);
+            this.Controls.Add(this.btnStockMEdit);
             this.Name = "StockManagerInterface";
             this.Size = new System.Drawing.Size(717, 530);
-            ((System.ComponentModel.ISupportInitialize)(this.pbxSManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxStockM)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnSManagerSave;
-        private System.Windows.Forms.TextBox tbxSManagerBSN;
-        private System.Windows.Forms.Label lblSManagerBSN;
-        private System.Windows.Forms.TextBox tbxSManagerAddress;
-        private System.Windows.Forms.TextBox tbxSManagerEmail;
-        private System.Windows.Forms.TextBox tbxSManagerPhoneNum;
-        private System.Windows.Forms.TextBox tbxSManagerEmployeeType;
-        private System.Windows.Forms.TextBox tbxSManagerLName;
-        private System.Windows.Forms.TextBox tbxSManagerFName;
-        private System.Windows.Forms.Label lblSManagerAddress;
-        private System.Windows.Forms.Label lblSManagerEmail;
-        private System.Windows.Forms.Label lblSManagerPhoneNum;
-        private System.Windows.Forms.Label lblSManagerEmployeeType;
-        private System.Windows.Forms.Label lblSManagerLName;
-        private System.Windows.Forms.Label lblSManagerFName;
-        private System.Windows.Forms.PictureBox pbxSManager;
-        private System.Windows.Forms.Button btnSManagerEdit;
+        private System.Windows.Forms.Button btnStockMSave;
+        private System.Windows.Forms.TextBox tbxStockMBSN;
+        private System.Windows.Forms.Label lblStockMBSN;
+        private System.Windows.Forms.TextBox tbxStockMAddress;
+        private System.Windows.Forms.TextBox tbxStockMEmail;
+        private System.Windows.Forms.TextBox tbxStockMPhoneNum;
+        private System.Windows.Forms.TextBox tbxStockMEmployeeType;
+        private System.Windows.Forms.TextBox tbxStockMLName;
+        private System.Windows.Forms.TextBox tbxStockMFName;
+        private System.Windows.Forms.Label lblStockMAddress;
+        private System.Windows.Forms.Label lblStockMEmail;
+        private System.Windows.Forms.Label lblStockMPhoneNum;
+        private System.Windows.Forms.Label lblStockMEmployeeType;
+        private System.Windows.Forms.Label lblStockMLName;
+        private System.Windows.Forms.Label lblStockMFName;
+        private System.Windows.Forms.PictureBox pbxStockM;
+        private System.Windows.Forms.Button btnStockMEdit;
     }
 }
