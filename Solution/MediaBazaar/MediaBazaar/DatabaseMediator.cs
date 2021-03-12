@@ -20,7 +20,7 @@ namespace MediaBazaar
             dbConnection = new MySqlConnection("server=studmysql01.fhict.local;database=dbi467491;uid=dbi467491;password=bulcari;");
         }
 
-        public int GetEmployeeNumber()
+        public int GetEmpCount()//WORKING!!
         {
             int numOfEmp = 0;
             string sqlStatement = "SELECT COUNT(*) FROM mb_employee";
@@ -37,37 +37,42 @@ namespace MediaBazaar
                 MessageBox.Show(sqlExceptionMessage(e.Message));
                 return numOfEmp;
             }
+            catch (Exception e)
+            {
+                MessageBox.Show(sqlExceptionMessage(e.Message));
+                return numOfEmp;
+            }
             finally
             {
-                dbConnection.Close();
+                 dbConnection.Close();
             }
 
         }
 
-        public List<string> getEmployees(List<string> emp)
+        public List<Employee> getEmployees()//WORKING!!
         {
             string sqlStatement = "SELECT * FROM mb_employee";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, dbConnection);
-
+            List<Employee> emp = new List<Employee>();
             try
             {
                 MySqlDataReader EmployeeReader;
-
                 dbConnection.Open();
+                
                 EmployeeReader = sqlCommand.ExecuteReader();
-
                 while (EmployeeReader.Read())
                 {
-                    emp.Add(GetEmpInfo(EmployeeReader["bsn"],
-                        EmployeeReader["fname"], EmployeeReader["lname"],
-                        EmployeeReader["email"], EmployeeReader["uname"], EmployeeReader["pwd"],
-                        EmployeeReader["birthdate"], EmployeeReader["street"],
-                        EmployeeReader["streetnumber"], EmployeeReader["zipcode"], EmployeeReader["town"],
-                        EmployeeReader["country"],EmployeeReader["firstworkingday"],
-                        EmployeeReader["emergphonenumber"], EmployeeReader["iban"],
-                        EmployeeReader["hourlywage"], EmployeeReader["contracttype"],
-                        EmployeeReader["contractstartdate"],
-                        EmployeeReader["position"]));
+                    Enum.TryParse(EmployeeReader["contracttype"].ToString(), out ContractType contracttype);
+                    Enum.TryParse(EmployeeReader["position"].ToString(), out EmployeeType position);
+                    emp.Add(new Employee(Convert.ToInt32(EmployeeReader["id"]), EmployeeReader["bsn"].ToString(),
+                    EmployeeReader["fname"].ToString(), EmployeeReader["lname"].ToString(),
+                    EmployeeReader["email"].ToString(), EmployeeReader["uname"].ToString(), EmployeeReader["pwd"].ToString(),
+                    Convert.ToDateTime(EmployeeReader["birthdate"].ToString()), EmployeeReader["street"].ToString(),
+                    EmployeeReader["streetnumber"].ToString(), EmployeeReader["zipcode"].ToString(), EmployeeReader["town"].ToString(),
+                    EmployeeReader["country"].ToString(), Convert.ToDateTime(EmployeeReader["firstworkingday"].ToString()),
+                    EmployeeReader["emergphonenumber"].ToString(), EmployeeReader["iban"].ToString(),
+                    Convert.ToDouble(EmployeeReader["hourlywage"]),
+                    Convert.ToDateTime(EmployeeReader["contractstartdate"].ToString()), contracttype, position));
                 }
                 return emp;
             }
@@ -80,8 +85,8 @@ namespace MediaBazaar
             {
                 dbConnection.Close();
             }
-
         }
+        
 
         public bool AddEmployee(int bsn, string firstName, string lastName, string email, string username, string password, DateTime birthDay,
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
@@ -174,27 +179,9 @@ namespace MediaBazaar
             return $"({bsn})--{fname} {lname} - {position}.";
         }
 
-        //public Employee CreateEMp(object bsn, object fname, object lname, object email,
-        //    object uname, object pwd, object birthdate, object street, object streetnumber, object zipcode,
-        //    object town, object country, object firstworkingday, object emergphonenumber, object iban,
-        //    object hourlywage, object contractstartdate, object contracttype, object position)
-        //{
+        
 
-        //    return new Employee(int.Parse(bsn.ToString()),
-        //                fname.ToString(), lname.ToString(),
-        //                email.ToString(), uname.ToString(), 
-        //                pwd.ToString(),
-        //                Convert.ToDateTime(birthdate.ToString()), 
-        //                street.ToString(), streetnumber.ToString(), 
-        //                zipcode.ToString(), town.ToString(),
-        //                country.ToString(), Convert.ToDateTime(firstworkingday.ToString()),
-        //                emergphonenumber.ToString(), iban.ToString(),
-        //                double.Parse(hourlywage.ToString()), Convert.ToDateTime(contractstartdate.ToString()),
-        //                (ContractType)int.Parse(contracttype.ToString()),
-        //                (EmployeeType)int.Parse(position.ToString()));
-        //}
-
-        private string sqlExceptionMessage(string originalExceptionMessage)
+        private string sqlExceptionMessage(string originalExceptionMessage)//WORKING!!
         {
             return (
                 "For Media Bazaar users: Database problem detected" +

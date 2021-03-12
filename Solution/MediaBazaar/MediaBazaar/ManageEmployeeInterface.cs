@@ -24,11 +24,8 @@ namespace MediaBazaar
         private void ManageEmployeeInterface_Load(object sender, EventArgs e)
         {
 
-            List<string> EmpList = new List<string>();
-            foreach(string emp in db.getEmployees(EmpList))
-            {
-                lbxDisplayRemove.Items.Add(emp);
-            }
+           // List<string> EmpList = 
+            
         }
 
         private void btnRemove_Click(object sender, EventArgs e)

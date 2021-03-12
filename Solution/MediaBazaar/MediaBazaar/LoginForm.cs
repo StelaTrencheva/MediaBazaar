@@ -17,7 +17,9 @@ namespace MediaBazaar
         {
             InitializeComponent();
             manageEmployees = new ManageEmployees(1);
+            manageEmployees.UpdateEmployees();
         }
+
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {

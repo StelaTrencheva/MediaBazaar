@@ -17,13 +17,12 @@ namespace MediaBazaar
         {
             employees = new List<Employee>();
             schedule = new Schedule(currentWeek);
-            DefaultValues();
+            dbMediator = new DatabaseMediator();
+           // DefaultValues();
         }
-<<<<<<< HEAD
-        public bool AddEmployee(int bsn, string firstName, string lastName,  string email, string username, string password, DateTime birthDay,
-=======
-        public bool AddEmployee(int id,int bsn, string firstName, string lastName, string address, string email, string username,string password, DateTime birthDay,
->>>>>>> 52d53119dddf143df99a7add23d7b05fbf31116a
+
+        public bool AddEmployee(int id, string bsn, string firstName, string lastName, string address, string email, string username,string password, DateTime birthDay,
+
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
              DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, DateTime contractStartDate, ContractType contract, EmployeeType position)
         {
@@ -34,62 +33,20 @@ namespace MediaBazaar
                     return false;
                 }
             }
-<<<<<<< HEAD
-            employees.Add(employee = new Employee(bsn,  firstName,  lastName,  email,  username,
-=======
-            employees.Add(employee = new Employee(id,bsn,  firstName,  lastName,  address,  email,  username,
->>>>>>> 52d53119dddf143df99a7add23d7b05fbf31116a
+            employees.Add(employee = new Employee(id,bsn,  firstName,  lastName,   email,  username,
             password,  birthDay,  addrStreet,  addrStreetNumber,  addrZipcode,  addrTown,  addrCountry, firstWorkingDay,  emergencyPhoneNumber, iban,
             hourlyWage,  contractStartDate,  contract, position));
             return true;
-        }
-<<<<<<< HEAD
-        private void DefaultValues()
-        {
-            AddEmployee(999999990, "Marvin", "Tommie", "Marvin@mediabazaar.com", "Marvin001", "0000", DateTime.Today, "De Koppele", "132", "5000AA", "Eindhoven", "The NEtherlands", DateTime.Today, "+31888888888", "3333 4444 5555 6666", 20, DateTime.Today, ContractType.FULLTIME, EmployeeType.HR);
-            //AddEmployee(999999991, "Archie", "Beverly", "Van Renesseweg 59", "Archie@mediabazaar.com", "Archie001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 16, DateTime.Today, ContractType.FULLTIME, EmployeeType.STORE_MANAGER);
-            //AddEmployee(999999992, "Jay", "Ross", "Thorvaldsenlaan 135", "Jay@mediabazaar.com", "Jay001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 16, DateTime.Today, ContractType.FULLTIME, EmployeeType.DEPARTMENT_MANAGER);
-            //AddEmployee(999999993, "Roberto", "Shaw", "Fellenoord 120", "Roberto@mediabazaar.com", "Roberto001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 16, DateTime.Today, ContractType.EIGHTYPERCENT, EmployeeType.STORE_WORKER);
-            //AddEmployee(999999994, "Victoria", "Clark", "Uranuslaan 192", "Victoria@mediabazaar.com", "Victoria001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 10, DateTime.Today, ContractType.EIGHTYPERCENT, EmployeeType.STORE_WORKER);
-            //AddEmployee(999999995, "Elizabeth", "Guerrero", "Beukenlaan 179", "Elizabeth@mediabazaar.com", "Elizabeth001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 10, DateTime.Today, ContractType.EIGHTYPERCENT, EmployeeType.STOCK_MANAGER);
-            //AddEmployee(999999996, "Oscar", "Patterson", "Bleekweg 44", "Oscar@mediabazaar.com", "Oscar001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 10, DateTime.Today, ContractType.EIGHTYPERCENT, EmployeeType.DEPARTMENT_MANAGER);
-            //AddEmployee(999999997, "Orlando", "Holt", "Glaslaan 114", "Orlando@mediabazaar.com", "Orlando001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 10, DateTime.Today, ContractType.EIGHTYPERCENT, EmployeeType.STORE_WORKER);
-            //AddEmployee(999999998, "Carlos", "Phillips", "Edelweisstraat 14", "Carlos@mediabazaar.com", "Carlos001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 10, DateTime.Today, ContractType.FLEX, EmployeeType.STORE_WORKER);
-            //AddEmployee(999999999, "Mona", "Robertson", "Antonius van Gilsweg 52", "Mona@mediabazaar.com", "Mona001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 10, DateTime.Today, ContractType.FLEX, EmployeeType.STORE_WORKER);
-=======
-        //private void DefaultValues()
-        //{
-        //    AddEmployee(999999990, "Marvin", "Tommie", "De Koppele 132", "Marvin@mediabazaar.com", "Marvin001", "0000", DateTime.Today, DateTime.Today,"+31888888888", "3333 4444 5555 6666", 20, DateTime.Today, ContractType.FULLTIME, EmployeeType.HR);
-        //    AddEmployee(999999991, "Archie", "Beverly", "Van Renesseweg 59", "Archie@mediabazaar.com", "Archie001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 16, DateTime.Today, ContractType.FULLTIME, EmployeeType.STORE_MANAGER);
-        //    AddEmployee(999999992, "Jay", "Ross", "Thorvaldsenlaan 135", "Jay@mediabazaar.com", "Jay001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 16, DateTime.Today, ContractType.FULLTIME, EmployeeType.DEPARTMENT_MANAGER);
-        //    AddEmployee(999999993, "Roberto", "Shaw", "Fellenoord 120", "Roberto@mediabazaar.com", "Roberto001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 16, DateTime.Today, ContractType.EIGHTYPERCENT, EmployeeType.STORE_WORKER);
-        //    AddEmployee(999999994, "Victoria", "Clark", "Uranuslaan 192", "Victoria@mediabazaar.com", "Victoria001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 10, DateTime.Today, ContractType.EIGHTYPERCENT, EmployeeType.STORE_WORKER);
-        //    AddEmployee(999999995, "Elizabeth", "Guerrero", "Beukenlaan 179", "Elizabeth@mediabazaar.com", "Elizabeth001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 10, DateTime.Today, ContractType.EIGHTYPERCENT, EmployeeType.STOCK_MANAGER);
-        //    AddEmployee(999999996, "Oscar", "Patterson", "Bleekweg 44", "Oscar@mediabazaar.com", "Oscar001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 10, DateTime.Today, ContractType.EIGHTYPERCENT, EmployeeType.DEPARTMENT_MANAGER);
-        //    AddEmployee(999999997, "Orlando", "Holt", "Glaslaan 114", "Orlando@mediabazaar.com", "Orlando001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 10, DateTime.Today, ContractType.EIGHTYPERCENT, EmployeeType.STORE_WORKER);
-        //    AddEmployee(999999998, "Carlos", "Phillips", "Edelweisstraat 14", "Carlos@mediabazaar.com", "Carlos001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 10, DateTime.Today, ContractType.FLEX, EmployeeType.STORE_WORKER);
-        //    AddEmployee(999999999, "Mona", "Robertson", "Antonius van Gilsweg 52", "Mona@mediabazaar.com", "Mona001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 10, DateTime.Today, ContractType.FLEX, EmployeeType.STORE_WORKER);
-        //}
-        
-        public bool RemoveEmployee(int id) 
-        {
-            foreach(Employee emp in employees)
-            {
-                if(emp.Id == id)
-                {
-                    employees.Remove(emp);
-                    return true;
-                }
-            }
-            return false;
->>>>>>> 52d53119dddf143df99a7add23d7b05fbf31116a
-        }
-
-        
+        }        
         public List<Employee> GetEmployees()
         {
             return this.employees;
         }
+        public int GetEmployeeCount()
+        {
+            return dbMediator.GetEmpCount();
+        }
+
         public Employee FindEmployee(int id)
         {
            foreach(Employee emp in employees)
@@ -125,15 +82,29 @@ namespace MediaBazaar
             return 0;
         }
 
-        public List<string> GetListOFAllEmployees()
+        public List<Employee> GetListOFAllEmployees()
         {
-            List<string> emp = new List<string>();
-            return dbMediator.getEmployees(emp);
+            return dbMediator.getEmployees();
         }
 
-        public bool RemoveEmployee(int ID)
+        public bool RemoveEmployee(int id)
         {
-            return  dbMediator.RemoveEmployee(ID);
+            if(dbMediator.RemoveEmployee(id))
+            {
+                foreach (Employee emp in employees)
+                {
+                    if (emp.Id == id)
+                    {
+                        employees.Remove(emp);
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        public void UpdateEmployees()
+        {
+            this.employees = dbMediator.getEmployees();
         }
     }
 }
