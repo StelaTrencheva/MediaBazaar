@@ -51,6 +51,10 @@ namespace MediaBazaar
             btnHRAdminManageEmployee.BackColor = Color.SlateGray;
             btnHRAdminAccount.BackColor = Color.SlateGray;
             btnHRAdminLogOut.BackColor = Color.White;
+            LoginForm form = new LoginForm();
+            this.Hide();
+            form.ShowDialog();
+            this.Close();
         }
 
         private void manageEmployeeInterface1_Load(object sender, EventArgs e)

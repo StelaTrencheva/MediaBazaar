@@ -50,8 +50,9 @@ namespace MediaBazaar
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(206, 528);
+            this.panel1.Size = new System.Drawing.Size(232, 660);
             this.panel1.TabIndex = 43;
             // 
             // btnStockMSchedule
@@ -59,9 +60,10 @@ namespace MediaBazaar
             this.btnStockMSchedule.BackColor = System.Drawing.Color.SlateGray;
             this.btnStockMSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStockMSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStockMSchedule.Location = new System.Drawing.Point(32, 206);
+            this.btnStockMSchedule.Location = new System.Drawing.Point(36, 258);
+            this.btnStockMSchedule.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStockMSchedule.Name = "btnStockMSchedule";
-            this.btnStockMSchedule.Size = new System.Drawing.Size(146, 42);
+            this.btnStockMSchedule.Size = new System.Drawing.Size(164, 52);
             this.btnStockMSchedule.TabIndex = 3;
             this.btnStockMSchedule.Text = "Schedule";
             this.btnStockMSchedule.UseVisualStyleBackColor = false;
@@ -70,9 +72,10 @@ namespace MediaBazaar
             // 
             this.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
-            this.pbxLogo.Location = new System.Drawing.Point(32, 12);
+            this.pbxLogo.Location = new System.Drawing.Point(36, 15);
+            this.pbxLogo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbxLogo.Name = "pbxLogo";
-            this.pbxLogo.Size = new System.Drawing.Size(146, 134);
+            this.pbxLogo.Size = new System.Drawing.Size(164, 168);
             this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxLogo.TabIndex = 2;
             this.pbxLogo.TabStop = false;
@@ -82,9 +85,10 @@ namespace MediaBazaar
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.btnStockMLogOut);
             this.panel2.Controls.Add(this.btnStockMAccount);
-            this.panel2.Location = new System.Drawing.Point(-1, 311);
+            this.panel2.Location = new System.Drawing.Point(-1, 389);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(207, 217);
+            this.panel2.Size = new System.Drawing.Size(233, 271);
             this.panel2.TabIndex = 0;
             // 
             // btnStockMLogOut
@@ -92,41 +96,46 @@ namespace MediaBazaar
             this.btnStockMLogOut.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnStockMLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStockMLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStockMLogOut.Location = new System.Drawing.Point(32, 142);
+            this.btnStockMLogOut.Location = new System.Drawing.Point(36, 178);
+            this.btnStockMLogOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStockMLogOut.Name = "btnStockMLogOut";
-            this.btnStockMLogOut.Size = new System.Drawing.Size(146, 43);
+            this.btnStockMLogOut.Size = new System.Drawing.Size(164, 54);
             this.btnStockMLogOut.TabIndex = 3;
             this.btnStockMLogOut.Text = "Log out";
             this.btnStockMLogOut.UseVisualStyleBackColor = false;
+            this.btnStockMLogOut.Click += new System.EventHandler(this.btnStockMLogOut_Click);
             // 
             // btnStockMAccount
             // 
             this.btnStockMAccount.BackColor = System.Drawing.Color.White;
             this.btnStockMAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStockMAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStockMAccount.Location = new System.Drawing.Point(32, 47);
+            this.btnStockMAccount.Location = new System.Drawing.Point(36, 59);
+            this.btnStockMAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStockMAccount.Name = "btnStockMAccount";
-            this.btnStockMAccount.Size = new System.Drawing.Size(146, 43);
+            this.btnStockMAccount.Size = new System.Drawing.Size(164, 54);
             this.btnStockMAccount.TabIndex = 2;
             this.btnStockMAccount.Text = "My account";
             this.btnStockMAccount.UseVisualStyleBackColor = false;
             // 
             // stockManagerInterface1
             // 
-            this.stockManagerInterface1.Location = new System.Drawing.Point(213, 0);
+            this.stockManagerInterface1.Location = new System.Drawing.Point(240, 0);
+            this.stockManagerInterface1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.stockManagerInterface1.Name = "stockManagerInterface1";
-            this.stockManagerInterface1.Size = new System.Drawing.Size(717, 530);
+            this.stockManagerInterface1.Size = new System.Drawing.Size(807, 662);
             this.stockManagerInterface1.TabIndex = 44;
             // 
             // StockManagerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(906, 528);
+            this.ClientSize = new System.Drawing.Size(1019, 660);
             this.Controls.Add(this.stockManagerInterface1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "StockManagerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StockManagerForm";

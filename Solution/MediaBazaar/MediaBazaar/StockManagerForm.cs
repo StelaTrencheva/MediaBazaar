@@ -16,5 +16,13 @@ namespace MediaBazaar
         {
             InitializeComponent();
         }
+
+        private void btnStockMLogOut_Click(object sender, EventArgs e)
+        {
+            LoginForm form = new LoginForm();
+            this.Hide();
+            form.ShowDialog();
+            this.Close();
+        }
     }
 }
