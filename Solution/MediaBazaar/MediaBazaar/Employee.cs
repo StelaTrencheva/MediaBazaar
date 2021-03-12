@@ -64,7 +64,7 @@ namespace MediaBazaar
             set { this.AvailableWorkingHours = value; }
         }
 
-        public Employee( int bsn, string firstName, string lastName, string address, string email, string username, string password, DateTime birthDay, 
+        public Employee( int bsn, string firstName, string lastName, string email, string username, string password, DateTime birthDay, 
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
              DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, DateTime contractStartDate, ContractType contract,EmployeeType position)
         {

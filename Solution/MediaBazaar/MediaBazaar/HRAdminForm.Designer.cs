@@ -36,6 +36,7 @@ namespace MediaBazaar
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnHRAdminLogOut = new System.Windows.Forms.Button();
             this.btnHRAdminAccount = new System.Windows.Forms.Button();
+            this.manageEmployeeInterface1 = new MediaBazaar.ManageEmployeeInterface();
             this.hrAdminInterface1 = new MediaBazaar.HRAdminInterface();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -114,6 +115,14 @@ namespace MediaBazaar
             this.btnHRAdminAccount.UseVisualStyleBackColor = false;
             this.btnHRAdminAccount.Click += new System.EventHandler(this.btnHRAdminAccount_Click);
             // 
+            // manageEmployeeInterface1
+            // 
+            this.manageEmployeeInterface1.Location = new System.Drawing.Point(212, 0);
+            this.manageEmployeeInterface1.Name = "manageEmployeeInterface1";
+            this.manageEmployeeInterface1.Size = new System.Drawing.Size(691, 530);
+            this.manageEmployeeInterface1.TabIndex = 28;
+            this.manageEmployeeInterface1.Load += new System.EventHandler(this.manageEmployeeInterface1_Load);
+            // 
             // hrAdminInterface1
             // 
             this.hrAdminInterface1.Location = new System.Drawing.Point(213, 0);
@@ -127,12 +136,14 @@ namespace MediaBazaar
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(906, 528);
+            this.Controls.Add(this.manageEmployeeInterface1);
             this.Controls.Add(this.hrAdminInterface1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "HRAdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HRAdminForm";
+            this.Load += new System.EventHandler(this.HRAdminForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -149,5 +160,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnHRAdminLogOut;
         private System.Windows.Forms.Button btnHRAdminAccount;
         private HRAdminInterface hrAdminInterface1;
+        private ManageEmployeeInterface manageEmployeeInterface1;
     }
 }

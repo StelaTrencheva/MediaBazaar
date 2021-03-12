@@ -220,7 +220,7 @@ namespace MediaBazaar
             this.btnHRAdminEdit.UseVisualStyleBackColor = false;
             this.btnHRAdminEdit.Click += new System.EventHandler(this.btnHRAdminEdit_Click);
             // 
-            // HRAdminInterface
+            // hrAdminInterface1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -241,7 +241,7 @@ namespace MediaBazaar
             this.Controls.Add(this.lblHRAdminFName);
             this.Controls.Add(this.pbxHRAdmin);
             this.Controls.Add(this.btnHRAdminEdit);
-            this.Name = "HRAdminInterface";
+            this.Name = "hrAdminInterface1";
             this.Size = new System.Drawing.Size(717, 530);
             ((System.ComponentModel.ISupportInitialize)(this.pbxHRAdmin)).EndInit();
             this.ResumeLayout(false);
