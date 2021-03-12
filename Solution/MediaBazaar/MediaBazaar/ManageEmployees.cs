@@ -18,19 +18,19 @@ namespace MediaBazaar
             schedule = new Schedule(currentWeek);
             //DefaultValues();
         }
-        public bool AddEmployee(int bsn, string firstName, string lastName, string address, string email, string username,string password, DateTime birthDay,
+        public bool AddEmployee(int id,int bsn, string firstName, string lastName, string address, string email, string username,string password, DateTime birthDay,
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban,
             double hourlyWage, DateTime contractStartDate, ContractType contract,EmployeeType position)
         {
             foreach(Employee emp in employees)
             {
-                if(emp.BSN == bsn)
+                if(emp.BSN == bsn||emp.Id == id)
                 {
                     return false;
                 }
             }
-            employees.Add(employee = new Employee(bsn,  firstName,  lastName,  address,  email,  username,
+            employees.Add(employee = new Employee(id,bsn,  firstName,  lastName,  address,  email,  username,
             password,  birthDay,  addrStreet,  addrStreetNumber,  addrZipcode,  addrTown,  addrCountry, firstWorkingDay,  emergencyPhoneNumber, iban,
             hourlyWage,  contractStartDate,  contract, position));
             return true;
@@ -49,11 +49,11 @@ namespace MediaBazaar
         //    AddEmployee(999999999, "Mona", "Robertson", "Antonius van Gilsweg 52", "Mona@mediabazaar.com", "Mona001", "0000", DateTime.Today, DateTime.Today, "+31888888888", "3333 4444 5555 6666", 10, DateTime.Today, ContractType.FLEX, EmployeeType.STORE_WORKER);
         //}
         
-        public bool RemoveEmployee(int bsn) 
+        public bool RemoveEmployee(int id) 
         {
             foreach(Employee emp in employees)
             {
-                if(emp.BSN == bsn)
+                if(emp.Id == id)
                 {
                     employees.Remove(emp);
                     return true;
@@ -65,11 +65,11 @@ namespace MediaBazaar
         {
             return this.employees;
         }
-        public Employee FindEmployee(int bsn)
+        public Employee FindEmployee(int id)
         {
            foreach(Employee emp in employees)
             {
-                if(emp.BSN == bsn)
+                if(emp.Id == id)
                 {
                     return emp;
                 }
@@ -94,7 +94,7 @@ namespace MediaBazaar
             {
                 if(emp.Username == username && emp.Password == password)
                 {
-                    return emp.BSN;
+                    return emp.Id;
                 }
             }
             return 0;

@@ -21,36 +21,36 @@ namespace MediaBazaar
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            int bsn = manageEmployees.CheckLoginInfo(tbUserName.Text, tbPassword.Text);
-            if (bsn == 0)
+            int id = manageEmployees.CheckLoginInfo(tbUserName.Text, tbPassword.Text);
+            if (id == 0)
             {
                 MessageBox.Show("This user does not exist");
                 tbPassword.Text = "";
                 return;
             }
-            else if(manageEmployees.FindEmployee(bsn).Position == EmployeeType.HR)
+            else if(manageEmployees.FindEmployee(id).Position == EmployeeType.HR)
             {
                 //When the login information of a HR is correct
-                HRAdminForm form = new HRAdminForm(manageEmployees,bsn);
+                HRAdminForm form = new HRAdminForm(manageEmployees,id);
                 this.Hide();
                 form.ShowDialog();
                 this.Close();
-            } else if (manageEmployees.FindEmployee(bsn).Position == EmployeeType.STORE_MANAGER)
+            } else if (manageEmployees.FindEmployee(id).Position == EmployeeType.STORE_MANAGER)
             {
                 //When the login information of a store manager is correct
             }
-            else if (manageEmployees.FindEmployee(bsn).Position == EmployeeType.DEPARTMENT_MANAGER)
+            else if (manageEmployees.FindEmployee(id).Position == EmployeeType.DEPARTMENT_MANAGER)
             {
                 //When the login information of a department manager is correct
-                DepartmentManagerForm form = new DepartmentManagerForm(manageEmployees, bsn);
+                DepartmentManagerForm form = new DepartmentManagerForm(manageEmployees, id);
                 this.Hide();
                 form.ShowDialog();
                 this.Close();
             }
-            else if (manageEmployees.FindEmployee(bsn).Position == EmployeeType.STOCK_WORKER)
+            else if (manageEmployees.FindEmployee(id).Position == EmployeeType.STOCK_WORKER)
             {
                 //When the login information of a stock worker is correct
-                StockWorkerForm form = new StockWorkerForm(manageEmployees, bsn);
+                StockWorkerForm form = new StockWorkerForm(manageEmployees, id);
                 this.Hide();
                 form.ShowDialog();
                 this.Close();
