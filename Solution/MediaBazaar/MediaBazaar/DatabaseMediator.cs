@@ -93,32 +93,32 @@ namespace MediaBazaar
              DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, DateTime contractStartDate, ContractType contract, EmployeeType position)
         {
             string sqlStatement = "INSERT INTO mb_employee (bsn, fname, lname, email, uname, pwd, birthdate, street, streetnumber, zipcode, town, country, firstworkingday, emergphonenumber, iban, hourlywage, contracttype, contractstartdate, position)" +
-                "VALUES(@1, @2, @3, @4 @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16, @17, @18, @19);";
+                "VALUES(@1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16, @17, @18, @19);";
 
             //INSERT INTO mb_employee (bsn, fname, lname, email, uname, pwd, birthdate, street, streetnumber, zipcode, town, country, firstworkingday, emergphonenumber, iban, hourlywage, contracttype, contractstartdate, position)VALUES('TEST', 'TEST', 'TEST', 'TEST', 'TEST', 'TEST', '2020-10-10', 'TEST', 'TEST', 'TEST', 'TEST', 'TEST', '2020-10-10', 'TEST', 'TEST', 11, 'FLEX', '2020-10-10', 'HR');
 
 
 
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, dbConnection);
-
+            string g = firstWorkingDay.ToString("d");
             sqlCommand.Parameters.AddWithValue("@1", bsn);
             sqlCommand.Parameters.AddWithValue("@2", firstName);
             sqlCommand.Parameters.AddWithValue("@3", lastName);
             sqlCommand.Parameters.AddWithValue("@4", email);
             sqlCommand.Parameters.AddWithValue("@5", username);
             sqlCommand.Parameters.AddWithValue("@6", password);
-            sqlCommand.Parameters.AddWithValue("@7", birthDay.Date);
+            sqlCommand.Parameters.AddWithValue("@7",  birthDay.ToString("yyyy-MM-dd"));
             sqlCommand.Parameters.AddWithValue("@8", addrStreet);
             sqlCommand.Parameters.AddWithValue("@9", addrStreetNumber);
             sqlCommand.Parameters.AddWithValue("@10", addrZipcode);
             sqlCommand.Parameters.AddWithValue("@11", addrTown);
             sqlCommand.Parameters.AddWithValue("@12", addrCountry);
-            sqlCommand.Parameters.AddWithValue("@13", firstWorkingDay.Date);
+            sqlCommand.Parameters.AddWithValue("@13", firstWorkingDay.ToString("yyyy-MM-dd"));
             sqlCommand.Parameters.AddWithValue("@14", emergencyPhoneNumber);
             sqlCommand.Parameters.AddWithValue("@15", iban);
             sqlCommand.Parameters.AddWithValue("@16", hourlyWage);
             sqlCommand.Parameters.AddWithValue("@17", contract.ToString());
-            sqlCommand.Parameters.AddWithValue("@18", contractStartDate.Date);
+            sqlCommand.Parameters.AddWithValue("@18", contractStartDate.ToString("yyyy-MM-dd"));
             sqlCommand.Parameters.AddWithValue("@19", position.ToString());
 
             try
