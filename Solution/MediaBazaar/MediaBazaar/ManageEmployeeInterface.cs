@@ -41,9 +41,10 @@ namespace MediaBazaar
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            //add try-catch!!!
             string FName = tbxFName.Text.ToString();
             string LName = tbxLName.Text.ToString();
-            int bsn = int.Parse(tbxBSN.Text);
+            string bsn = tbxBSN.Text.ToString();
             string email = tbxEmail.Text.ToString();
             string username = FName + "00";
             string password = FName + "00";
