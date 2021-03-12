@@ -8,7 +8,6 @@ namespace MediaBazaar
 {
     public class Employee
     {
-        private static int idseeker = 1;
         private int id;
         private int bsn;
         private string firstName;
@@ -32,6 +31,10 @@ namespace MediaBazaar
         private int maxWorkingHours;
         private int assignedHours;
 
+        public int Id
+        {
+            get { return this.id; }
+        }
         public int BSN
         {
             get { return this.bsn; }
@@ -64,12 +67,15 @@ namespace MediaBazaar
             set { this.AvailableWorkingHours = value; }
         }
 
+<<<<<<< HEAD
         public Employee( int bsn, string firstName, string lastName, string email, string username, string password, DateTime birthDay, 
+=======
+        public Employee( int id,int bsn, string firstName, string lastName, string address, string email, string username, string password, DateTime birthDay, 
+>>>>>>> 52d53119dddf143df99a7add23d7b05fbf31116a
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
              DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, DateTime contractStartDate, ContractType contract,EmployeeType position)
         {
-            this.id = idseeker;
-            idseeker++;
+            this.id = id;
             this.bsn = bsn;
             this.firstName = firstName;
             this.lastName = lastName;
