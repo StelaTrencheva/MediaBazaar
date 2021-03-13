@@ -31,6 +31,15 @@ namespace MediaBazaar
         {
             this.tcManageEmployee = new System.Windows.Forms.TabControl();
             this.tpRegister = new System.Windows.Forms.TabPage();
+            this.tbxZipCode = new System.Windows.Forms.TextBox();
+            this.lblZipCode = new System.Windows.Forms.Label();
+            this.cbxTypeOfEmployee = new System.Windows.Forms.ComboBox();
+            this.tbxCountry = new System.Windows.Forms.TextBox();
+            this.tbxTown = new System.Windows.Forms.TextBox();
+            this.lblCountry = new System.Windows.Forms.Label();
+            this.lblTown = new System.Windows.Forms.Label();
+            this.tbxHouseNumber = new System.Windows.Forms.TextBox();
+            this.lblHouseNumber = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
             this.dtpContractStartDate = new System.Windows.Forms.DateTimePicker();
             this.lblContractStartDate = new System.Windows.Forms.Label();
@@ -62,15 +71,8 @@ namespace MediaBazaar
             this.tpRemove = new System.Windows.Forms.TabPage();
             this.btnRemove = new System.Windows.Forms.Button();
             this.lbxDisplayRemove = new System.Windows.Forms.ListBox();
-            this.lblHouseNumber = new System.Windows.Forms.Label();
-            this.tbxHouseNumber = new System.Windows.Forms.TextBox();
-            this.lblTown = new System.Windows.Forms.Label();
-            this.lblCountry = new System.Windows.Forms.Label();
-            this.tbxTown = new System.Windows.Forms.TextBox();
-            this.tbxCountry = new System.Windows.Forms.TextBox();
-            this.cbxTypeOfEmployee = new System.Windows.Forms.ComboBox();
-            this.lblZipCode = new System.Windows.Forms.Label();
-            this.tbxZipCode = new System.Windows.Forms.TextBox();
+            this.tbxUsername = new System.Windows.Forms.TextBox();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.tcManageEmployee.SuspendLayout();
             this.tpRegister.SuspendLayout();
             this.tpRemove.SuspendLayout();
@@ -91,6 +93,8 @@ namespace MediaBazaar
             // 
             this.tpRegister.AutoScroll = true;
             this.tpRegister.BackColor = System.Drawing.Color.Lavender;
+            this.tpRegister.Controls.Add(this.tbxUsername);
+            this.tpRegister.Controls.Add(this.lblUsername);
             this.tpRegister.Controls.Add(this.tbxZipCode);
             this.tpRegister.Controls.Add(this.lblZipCode);
             this.tpRegister.Controls.Add(this.cbxTypeOfEmployee);
@@ -135,12 +139,91 @@ namespace MediaBazaar
             this.tpRegister.TabIndex = 0;
             this.tpRegister.Text = "Register";
             // 
+            // tbxZipCode
+            // 
+            this.tbxZipCode.Location = new System.Drawing.Point(307, 240);
+            this.tbxZipCode.Name = "tbxZipCode";
+            this.tbxZipCode.Size = new System.Drawing.Size(249, 28);
+            this.tbxZipCode.TabIndex = 88;
+            // 
+            // lblZipCode
+            // 
+            this.lblZipCode.AutoSize = true;
+            this.lblZipCode.Location = new System.Drawing.Point(57, 240);
+            this.lblZipCode.Name = "lblZipCode";
+            this.lblZipCode.Size = new System.Drawing.Size(90, 24);
+            this.lblZipCode.TabIndex = 87;
+            this.lblZipCode.Text = "Zip code:";
+            // 
+            // cbxTypeOfEmployee
+            // 
+            this.cbxTypeOfEmployee.FormattingEnabled = true;
+            this.cbxTypeOfEmployee.Items.AddRange(new object[] {
+            "STORE_WORKER",
+            "STOCK_WORKER",
+            "DEPARTMENT_MANAGER",
+            "STORE_MANAGER",
+            "STOCK_MANAGER",
+            "HR"});
+            this.cbxTypeOfEmployee.Location = new System.Drawing.Point(358, 726);
+            this.cbxTypeOfEmployee.Name = "cbxTypeOfEmployee";
+            this.cbxTypeOfEmployee.Size = new System.Drawing.Size(172, 30);
+            this.cbxTypeOfEmployee.TabIndex = 86;
+            // 
+            // tbxCountry
+            // 
+            this.tbxCountry.Location = new System.Drawing.Point(307, 325);
+            this.tbxCountry.Name = "tbxCountry";
+            this.tbxCountry.Size = new System.Drawing.Size(249, 28);
+            this.tbxCountry.TabIndex = 85;
+            // 
+            // tbxTown
+            // 
+            this.tbxTown.Location = new System.Drawing.Point(307, 280);
+            this.tbxTown.Name = "tbxTown";
+            this.tbxTown.Size = new System.Drawing.Size(249, 28);
+            this.tbxTown.TabIndex = 84;
+            // 
+            // lblCountry
+            // 
+            this.lblCountry.AutoSize = true;
+            this.lblCountry.Location = new System.Drawing.Point(57, 329);
+            this.lblCountry.Name = "lblCountry";
+            this.lblCountry.Size = new System.Drawing.Size(80, 24);
+            this.lblCountry.TabIndex = 83;
+            this.lblCountry.Text = "Country:";
+            // 
+            // lblTown
+            // 
+            this.lblTown.AutoSize = true;
+            this.lblTown.Location = new System.Drawing.Point(57, 283);
+            this.lblTown.Name = "lblTown";
+            this.lblTown.Size = new System.Drawing.Size(63, 24);
+            this.lblTown.TabIndex = 82;
+            this.lblTown.Text = "Town:";
+            // 
+            // tbxHouseNumber
+            // 
+            this.tbxHouseNumber.Location = new System.Drawing.Point(307, 197);
+            this.tbxHouseNumber.Name = "tbxHouseNumber";
+            this.tbxHouseNumber.Size = new System.Drawing.Size(249, 28);
+            this.tbxHouseNumber.TabIndex = 81;
+            // 
+            // lblHouseNumber
+            // 
+            this.lblHouseNumber.AutoSize = true;
+            this.lblHouseNumber.Location = new System.Drawing.Point(57, 197);
+            this.lblHouseNumber.Name = "lblHouseNumber";
+            this.lblHouseNumber.Size = new System.Drawing.Size(142, 24);
+            this.lblHouseNumber.TabIndex = 80;
+            this.lblHouseNumber.Text = "House number:";
+            // 
             // btnRegister
             // 
             this.btnRegister.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Location = new System.Drawing.Point(244, 904);
+            this.btnRegister.Location = new System.Drawing.Point(244, 945);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(148, 59);
             this.btnRegister.TabIndex = 79;
@@ -150,14 +233,14 @@ namespace MediaBazaar
             // 
             // dtpContractStartDate
             // 
-            this.dtpContractStartDate.Location = new System.Drawing.Point(315, 846);
+            this.dtpContractStartDate.Location = new System.Drawing.Point(315, 887);
             this.dtpContractStartDate.Name = "dtpContractStartDate";
             this.dtpContractStartDate.Size = new System.Drawing.Size(249, 28);
             this.dtpContractStartDate.TabIndex = 41;
             // 
             // lblContractStartDate
             // 
-            this.lblContractStartDate.Location = new System.Drawing.Point(57, 846);
+            this.lblContractStartDate.Location = new System.Drawing.Point(57, 887);
             this.lblContractStartDate.Name = "lblContractStartDate";
             this.lblContractStartDate.Size = new System.Drawing.Size(137, 28);
             this.lblContractStartDate.TabIndex = 40;
@@ -171,7 +254,7 @@ namespace MediaBazaar
             "EIGHTYPERCENT",
             "FLEX",
             "LEFT"});
-            this.cbxContractType.Location = new System.Drawing.Point(358, 790);
+            this.cbxContractType.Location = new System.Drawing.Point(358, 831);
             this.cbxContractType.Name = "cbxContractType";
             this.cbxContractType.Size = new System.Drawing.Size(172, 30);
             this.cbxContractType.TabIndex = 39;
@@ -179,7 +262,7 @@ namespace MediaBazaar
             // lblContractType
             // 
             this.lblContractType.AutoSize = true;
-            this.lblContractType.Location = new System.Drawing.Point(57, 790);
+            this.lblContractType.Location = new System.Drawing.Point(57, 831);
             this.lblContractType.Name = "lblContractType";
             this.lblContractType.Size = new System.Drawing.Size(124, 24);
             this.lblContractType.TabIndex = 38;
@@ -188,7 +271,7 @@ namespace MediaBazaar
             // lblAvailability
             // 
             this.lblAvailability.AutoSize = true;
-            this.lblAvailability.Location = new System.Drawing.Point(57, 739);
+            this.lblAvailability.Location = new System.Drawing.Point(57, 780);
             this.lblAvailability.Name = "lblAvailability";
             this.lblAvailability.Size = new System.Drawing.Size(101, 24);
             this.lblAvailability.TabIndex = 36;
@@ -197,7 +280,7 @@ namespace MediaBazaar
             // lblTypeOfEmployee
             // 
             this.lblTypeOfEmployee.AutoSize = true;
-            this.lblTypeOfEmployee.Location = new System.Drawing.Point(57, 688);
+            this.lblTypeOfEmployee.Location = new System.Drawing.Point(57, 729);
             this.lblTypeOfEmployee.Name = "lblTypeOfEmployee";
             this.lblTypeOfEmployee.Size = new System.Drawing.Size(81, 24);
             this.lblTypeOfEmployee.TabIndex = 34;
@@ -206,7 +289,7 @@ namespace MediaBazaar
             // lblHourlyWage
             // 
             this.lblHourlyWage.AutoSize = true;
-            this.lblHourlyWage.Location = new System.Drawing.Point(60, 637);
+            this.lblHourlyWage.Location = new System.Drawing.Point(60, 678);
             this.lblHourlyWage.Name = "lblHourlyWage";
             this.lblHourlyWage.Size = new System.Drawing.Size(121, 24);
             this.lblHourlyWage.TabIndex = 32;
@@ -215,7 +298,7 @@ namespace MediaBazaar
             // lblBankAccNum
             // 
             this.lblBankAccNum.AutoSize = true;
-            this.lblBankAccNum.Location = new System.Drawing.Point(57, 586);
+            this.lblBankAccNum.Location = new System.Drawing.Point(57, 627);
             this.lblBankAccNum.Name = "lblBankAccNum";
             this.lblBankAccNum.Size = new System.Drawing.Size(200, 24);
             this.lblBankAccNum.TabIndex = 31;
@@ -224,7 +307,7 @@ namespace MediaBazaar
             // lblEmTelNum
             // 
             this.lblEmTelNum.AutoSize = true;
-            this.lblEmTelNum.Location = new System.Drawing.Point(57, 535);
+            this.lblEmTelNum.Location = new System.Drawing.Point(57, 576);
             this.lblEmTelNum.Name = "lblEmTelNum";
             this.lblEmTelNum.Size = new System.Drawing.Size(274, 24);
             this.lblEmTelNum.TabIndex = 30;
@@ -233,7 +316,7 @@ namespace MediaBazaar
             // lblBSN
             // 
             this.lblBSN.AutoSize = true;
-            this.lblBSN.Location = new System.Drawing.Point(57, 487);
+            this.lblBSN.Location = new System.Drawing.Point(57, 528);
             this.lblBSN.Name = "lblBSN";
             this.lblBSN.Size = new System.Drawing.Size(53, 24);
             this.lblBSN.TabIndex = 29;
@@ -241,7 +324,7 @@ namespace MediaBazaar
             // 
             // dtpDateFWD
             // 
-            this.dtpDateFWD.Location = new System.Drawing.Point(307, 424);
+            this.dtpDateFWD.Location = new System.Drawing.Point(307, 465);
             this.dtpDateFWD.Name = "dtpDateFWD";
             this.dtpDateFWD.Size = new System.Drawing.Size(249, 28);
             this.dtpDateFWD.TabIndex = 28;
@@ -249,7 +332,7 @@ namespace MediaBazaar
             // lblDateFWD
             // 
             this.lblDateFWD.AutoSize = true;
-            this.lblDateFWD.Location = new System.Drawing.Point(57, 429);
+            this.lblDateFWD.Location = new System.Drawing.Point(57, 470);
             this.lblDateFWD.Name = "lblDateFWD";
             this.lblDateFWD.Size = new System.Drawing.Size(211, 24);
             this.lblDateFWD.TabIndex = 27;
@@ -257,7 +340,7 @@ namespace MediaBazaar
             // 
             // dtpDateOfBirth
             // 
-            this.dtpDateOfBirth.Location = new System.Drawing.Point(307, 378);
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(307, 419);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(249, 28);
             this.dtpDateOfBirth.TabIndex = 26;
@@ -265,7 +348,7 @@ namespace MediaBazaar
             // lblDateOBirth
             // 
             this.lblDateOBirth.AutoSize = true;
-            this.lblDateOBirth.Location = new System.Drawing.Point(57, 383);
+            this.lblDateOBirth.Location = new System.Drawing.Point(57, 424);
             this.lblDateOBirth.Name = "lblDateOBirth";
             this.lblDateOBirth.Size = new System.Drawing.Size(114, 24);
             this.lblDateOBirth.TabIndex = 25;
@@ -274,7 +357,7 @@ namespace MediaBazaar
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(57, 333);
+            this.lblEmail.Location = new System.Drawing.Point(57, 374);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(62, 24);
             this.lblEmail.TabIndex = 24;
@@ -283,7 +366,7 @@ namespace MediaBazaar
             // lblStreet
             // 
             this.lblStreet.AutoSize = true;
-            this.lblStreet.Location = new System.Drawing.Point(57, 118);
+            this.lblStreet.Location = new System.Drawing.Point(57, 159);
             this.lblStreet.Name = "lblStreet";
             this.lblStreet.Size = new System.Drawing.Size(63, 24);
             this.lblStreet.TabIndex = 23;
@@ -291,42 +374,42 @@ namespace MediaBazaar
             // 
             // tbxHourlyWage
             // 
-            this.tbxHourlyWage.Location = new System.Drawing.Point(358, 637);
+            this.tbxHourlyWage.Location = new System.Drawing.Point(358, 678);
             this.tbxHourlyWage.Name = "tbxHourlyWage";
             this.tbxHourlyWage.Size = new System.Drawing.Size(172, 28);
             this.tbxHourlyWage.TabIndex = 22;
             // 
             // tbxBankAccNum
             // 
-            this.tbxBankAccNum.Location = new System.Drawing.Point(358, 583);
+            this.tbxBankAccNum.Location = new System.Drawing.Point(358, 624);
             this.tbxBankAccNum.Name = "tbxBankAccNum";
             this.tbxBankAccNum.Size = new System.Drawing.Size(172, 28);
             this.tbxBankAccNum.TabIndex = 21;
             // 
             // tbxEmTelNum
             // 
-            this.tbxEmTelNum.Location = new System.Drawing.Point(358, 532);
+            this.tbxEmTelNum.Location = new System.Drawing.Point(358, 573);
             this.tbxEmTelNum.Name = "tbxEmTelNum";
             this.tbxEmTelNum.Size = new System.Drawing.Size(172, 28);
             this.tbxEmTelNum.TabIndex = 20;
             // 
             // tbxBSN
             // 
-            this.tbxBSN.Location = new System.Drawing.Point(358, 484);
+            this.tbxBSN.Location = new System.Drawing.Point(358, 525);
             this.tbxBSN.Name = "tbxBSN";
             this.tbxBSN.Size = new System.Drawing.Size(172, 28);
             this.tbxBSN.TabIndex = 19;
             // 
             // tbxEmail
             // 
-            this.tbxEmail.Location = new System.Drawing.Point(307, 329);
+            this.tbxEmail.Location = new System.Drawing.Point(307, 370);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(249, 28);
             this.tbxEmail.TabIndex = 16;
             // 
             // tbxStreet
             // 
-            this.tbxStreet.Location = new System.Drawing.Point(307, 113);
+            this.tbxStreet.Location = new System.Drawing.Point(307, 154);
             this.tbxStreet.Name = "tbxStreet";
             this.tbxStreet.Size = new System.Drawing.Size(249, 28);
             this.tbxStreet.TabIndex = 15;
@@ -340,7 +423,7 @@ namespace MediaBazaar
             // 
             // tbxAvailability
             // 
-            this.tbxAvailability.Location = new System.Drawing.Point(358, 739);
+            this.tbxAvailability.Location = new System.Drawing.Point(358, 780);
             this.tbxAvailability.Name = "tbxAvailability";
             this.tbxAvailability.Size = new System.Drawing.Size(172, 28);
             this.tbxAvailability.TabIndex = 6;
@@ -375,10 +458,10 @@ namespace MediaBazaar
             this.tpRemove.BackColor = System.Drawing.Color.Lavender;
             this.tpRemove.Controls.Add(this.btnRemove);
             this.tpRemove.Controls.Add(this.lbxDisplayRemove);
-            this.tpRemove.Location = new System.Drawing.Point(4, 25);
+            this.tpRemove.Location = new System.Drawing.Point(4, 31);
             this.tpRemove.Name = "tpRemove";
             this.tpRemove.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRemove.Size = new System.Drawing.Size(651, 468);
+            this.tpRemove.Size = new System.Drawing.Size(651, 507);
             this.tpRemove.TabIndex = 1;
             this.tpRemove.Text = "Remove";
             // 
@@ -404,84 +487,21 @@ namespace MediaBazaar
             this.lbxDisplayRemove.Size = new System.Drawing.Size(635, 356);
             this.lbxDisplayRemove.TabIndex = 0;
             // 
-            // lblHouseNumber
+            // tbxUsername
             // 
-            this.lblHouseNumber.AutoSize = true;
-            this.lblHouseNumber.Location = new System.Drawing.Point(57, 156);
-            this.lblHouseNumber.Name = "lblHouseNumber";
-            this.lblHouseNumber.Size = new System.Drawing.Size(142, 24);
-            this.lblHouseNumber.TabIndex = 80;
-            this.lblHouseNumber.Text = "House number:";
+            this.tbxUsername.Location = new System.Drawing.Point(307, 111);
+            this.tbxUsername.Name = "tbxUsername";
+            this.tbxUsername.Size = new System.Drawing.Size(249, 28);
+            this.tbxUsername.TabIndex = 90;
             // 
-            // tbxHouseNumber
+            // lblUsername
             // 
-            this.tbxHouseNumber.Location = new System.Drawing.Point(307, 156);
-            this.tbxHouseNumber.Name = "tbxHouseNumber";
-            this.tbxHouseNumber.Size = new System.Drawing.Size(249, 28);
-            this.tbxHouseNumber.TabIndex = 81;
-            // 
-            // lblTown
-            // 
-            this.lblTown.AutoSize = true;
-            this.lblTown.Location = new System.Drawing.Point(57, 242);
-            this.lblTown.Name = "lblTown";
-            this.lblTown.Size = new System.Drawing.Size(63, 24);
-            this.lblTown.TabIndex = 82;
-            this.lblTown.Text = "Town:";
-            // 
-            // lblCountry
-            // 
-            this.lblCountry.AutoSize = true;
-            this.lblCountry.Location = new System.Drawing.Point(57, 288);
-            this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(80, 24);
-            this.lblCountry.TabIndex = 83;
-            this.lblCountry.Text = "Country:";
-            // 
-            // tbxTown
-            // 
-            this.tbxTown.Location = new System.Drawing.Point(307, 239);
-            this.tbxTown.Name = "tbxTown";
-            this.tbxTown.Size = new System.Drawing.Size(249, 28);
-            this.tbxTown.TabIndex = 84;
-            // 
-            // tbxCountry
-            // 
-            this.tbxCountry.Location = new System.Drawing.Point(307, 284);
-            this.tbxCountry.Name = "tbxCountry";
-            this.tbxCountry.Size = new System.Drawing.Size(249, 28);
-            this.tbxCountry.TabIndex = 85;
-            // 
-            // cbxTypeOfEmployee
-            // 
-            this.cbxTypeOfEmployee.FormattingEnabled = true;
-            this.cbxTypeOfEmployee.Items.AddRange(new object[] {
-            "STORE_WORKER",
-            "STOCK_WORKER",
-            "DEPARTMENT_MANAGER",
-            "STORE_MANAGER",
-            "STOCK_MANAGER",
-            "HR"});
-            this.cbxTypeOfEmployee.Location = new System.Drawing.Point(358, 685);
-            this.cbxTypeOfEmployee.Name = "cbxTypeOfEmployee";
-            this.cbxTypeOfEmployee.Size = new System.Drawing.Size(172, 30);
-            this.cbxTypeOfEmployee.TabIndex = 86;
-            // 
-            // lblZipCode
-            // 
-            this.lblZipCode.AutoSize = true;
-            this.lblZipCode.Location = new System.Drawing.Point(57, 199);
-            this.lblZipCode.Name = "lblZipCode";
-            this.lblZipCode.Size = new System.Drawing.Size(90, 24);
-            this.lblZipCode.TabIndex = 87;
-            this.lblZipCode.Text = "Zip code:";
-            // 
-            // tbxZipCode
-            // 
-            this.tbxZipCode.Location = new System.Drawing.Point(307, 199);
-            this.tbxZipCode.Name = "tbxZipCode";
-            this.tbxZipCode.Size = new System.Drawing.Size(249, 28);
-            this.tbxZipCode.TabIndex = 88;
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(57, 111);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(102, 24);
+            this.lblUsername.TabIndex = 89;
+            this.lblUsername.Text = "Username:";
             // 
             // ManageEmployeeInterface
             // 
@@ -543,5 +563,7 @@ namespace MediaBazaar
         private System.Windows.Forms.ComboBox cbxTypeOfEmployee;
         private System.Windows.Forms.TextBox tbxZipCode;
         private System.Windows.Forms.Label lblZipCode;
+        private System.Windows.Forms.TextBox tbxUsername;
+        private System.Windows.Forms.Label lblUsername;
     }
 }
