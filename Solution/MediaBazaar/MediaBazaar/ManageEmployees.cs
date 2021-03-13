@@ -93,20 +93,9 @@ namespace MediaBazaar
             return dbMediator.getEmployees();
         }
 
-        public bool RemoveEmployee(int id)
+        public bool ChangeWorkContract(ContractType contract, int id)
         {
-            if(dbMediator.RemoveEmployee(id))
-            {
-                foreach (Employee emp in employees)
-                {
-                    if (emp.Id == id)
-                    {
-                        employees.Remove(emp);
-                        return true;
-                    }
-                }
-            }
-            return false;
+            return dbMediator.ChangeWorkContract(contract, id);
         }
         public void UpdateEmployees()
         {

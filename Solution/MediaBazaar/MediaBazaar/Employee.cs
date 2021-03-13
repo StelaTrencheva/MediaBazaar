@@ -56,6 +56,7 @@ namespace MediaBazaar
         public ContractType Contract
         {
             get { return this.contract; }
+            set { this.contract = value; }
         }
         public int MaxWorkingHours
         {
@@ -66,8 +67,21 @@ namespace MediaBazaar
             get { return this.AvailableWorkingHours; }
             set { this.AvailableWorkingHours = value; }
         }
-
-
+        public string GetEmployeeNames
+        {
+            get { return $"{this.firstName} {this.lastName}"; }
+        }
+        public string GetInfo
+        {
+            get { return $"ID: {this.Id}-{this.firstName} {this.lastName} - {this.Position}/ Contract: {this.Contract}"; }
+        }
+        public string EmployeeFullInfo
+        {
+            get { return $"ID: {this.Id}-{this.firstName} {this.lastName} - {this.Position} \r\n" +
+                    $"Address: {this.addrStreet} {this.addrStreetNumber}, {this.addrTown}, {this.addrCountry} \r\n " +
+                    $"First working day: {this.firstWorkingDay}, Contract start date: {this.contractStartDate} \r\n" +
+                    $"Hourly wage: {this.hourlyWage}, Phone number: {this.emergencyPhoneNumber}"; }
+        }
  
 
         public Employee( int id, string bsn, string firstName, string lastName, string email, string username, string password, DateTime birthDay, 

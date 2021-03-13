@@ -145,16 +145,16 @@ namespace MediaBazaar
             }
         }
 
-        public bool RemoveEmployee(int ID)
+       public bool ChangeWorkContract(ContractType contract, int id)
         {
-            string sqlStatement = "DELETE FROM mb_employee WHERE id = @i";
+            string sqlStatement = "UPDATE mb_employee SET contracttype = @c	WHERE id = @i";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, dbConnection);
-
-            sqlCommand.Parameters.AddWithValue("@i", ID);
-
+            sqlCommand.Parameters.AddWithValue("@c", contract);
+            sqlCommand.Parameters.AddWithValue("@i", id);
             try
             {
-                int n;
+                int n = 0;
+
                 dbConnection.Open();
                 n = sqlCommand.ExecuteNonQuery();
 
@@ -169,21 +169,17 @@ namespace MediaBazaar
                 MessageBox.Show(sqlExceptionMessage(e.Message));
                 return false;
             }
+            catch (Exception e)
+            {
+                MessageBox.Show(sqlExceptionMessage(e.Message));
+                return false;
+            }
             finally
             {
                 dbConnection.Close();
             }
-        }
 
-        public string GetEmpInfo(object bsn, object fname, object lname, object email,
-            object uname, object pwd, object birthdate, object street, object streetnumber, object zipcode,
-            object town, object country, object firstworkingday, object emergphonenumber, object iban,
-            object hourlywage, object contractstartdate, object contracttype, object position)
-        {
-            return $"({bsn})--{fname} {lname} - {position}.";
         }
-
-        
 
         private string sqlExceptionMessage(string originalExceptionMessage)//WORKING!!
         {

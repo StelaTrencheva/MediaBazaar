@@ -13,30 +13,38 @@ namespace MediaBazaar
     public partial class ManageEmployeeInterface : UserControl
     {
         ManageEmployees mngEmp;
-        //DatabaseMediator db;
+        ChangeEmployeeWorkingContract changeContractForm;
         public ManageEmployeeInterface()
         {
             InitializeComponent();
-            //db = new DatabaseMediator();
             mngEmp = new ManageEmployees(1);
         }
        
 
         private void ManageEmployeeInterface_Load(object sender, EventArgs e)
         {
+            foreach(Employee emp in mngEmp.GetListOFAllEmployees())
+            {
+                lbxDisplayEMployees.Items.Add(emp.GetInfo);
+            }
 
-           // List<string> EmpList = 
-            
+
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            //int index = lbxDisplayRemove.SelectedIndex + 1;
-            //if (db.RemoveEmployee(index))
-            //{
-            //    MessageBox.Show("Success!");
-            //}
-            //else { MessageBox.Show("Try again"); }
+            changeContractForm = new ChangeEmployeeWorkingContract();
+            
+            int index = lbxDisplayEMployees.SelectedIndex;
+            foreach (Employee emp in mngEmp.GetListOFAllEmployees())
+            {
+               if(emp.Id == (index + 1))
+                {
+                    changeContractForm.SetEmployee(emp);
+                    changeContractForm.Show();
+                }
+            }
+            
 
         }
 

@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeEmployeeWorkingContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeEmployeeWorkingContract.Designer.cs">
+      <DependentUpon>ChangeEmployeeWorkingContract.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContractType.cs" />
     <Compile Include="DatabaseMediator.cs" />
     <Compile Include="Day.cs" />
@@ -144,6 +150,9 @@
       <DependentUpon>StoreWorkerScheduleInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Week.cs" />
+    <EmbeddedResource Include="ChangeEmployeeWorkingContract.resx">
+      <DependentUpon>ChangeEmployeeWorkingContract.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DepartmentManagerForm.resx">
       <DependentUpon>DepartmentManagerForm.cs</DependentUpon>
     </EmbeddedResource>
