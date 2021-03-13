@@ -33,7 +33,7 @@ namespace MediaBazaar
 
         private void btnChangeContract_Click(object sender, EventArgs e)
         {
-            int index = cbbChangeCOntract.SelectedIndex +1 ;
+            int index = cbbChangeCOntract.SelectedIndex  ;
             if(employee.Contract == (ContractType)(index))
             {
                 MessageBox.Show($"{employee.GetEmployeeNames}is already assigned to this contract. \r\n" +
@@ -42,7 +42,7 @@ namespace MediaBazaar
             else
             {
                 employee.Contract = (ContractType)(index);
-                bool success = dbMediator.ChangeWorkContract((ContractType)(index), employee.Id);
+                bool success = dbMediator.ChangeWorkContract((ContractType)(index + 1), employee.Id);
                 if(success)
                 {
                     MessageBox.Show("Success");

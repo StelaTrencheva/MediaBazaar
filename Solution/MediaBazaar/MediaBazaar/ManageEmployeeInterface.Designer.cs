@@ -84,7 +84,7 @@ namespace MediaBazaar
             this.tcManageEmployee.Location = new System.Drawing.Point(31, 17);
             this.tcManageEmployee.Name = "tcManageEmployee";
             this.tcManageEmployee.SelectedIndex = 0;
-            this.tcManageEmployee.Size = new System.Drawing.Size(586, 416);
+            this.tcManageEmployee.Size = new System.Drawing.Size(667, 525);
             this.tcManageEmployee.TabIndex = 1;
             // 
             // tpRegister
@@ -131,7 +131,7 @@ namespace MediaBazaar
             this.tpRegister.Location = new System.Drawing.Point(4, 31);
             this.tpRegister.Name = "tpRegister";
             this.tpRegister.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpRegister.Size = new System.Drawing.Size(578, 381);
+            this.tpRegister.Size = new System.Drawing.Size(659, 490);
             this.tpRegister.TabIndex = 0;
             this.tpRegister.Text = "Register";
             // 
@@ -178,7 +178,7 @@ namespace MediaBazaar
             "STORE_MANAGER",
             "STOCK_MANAGER",
             "HR"});
-            this.cbxTypeOfEmployee.Location = new System.Drawing.Point(358, 726);
+            this.cbxTypeOfEmployee.Location = new System.Drawing.Point(358, 830);
             this.cbxTypeOfEmployee.Name = "cbxTypeOfEmployee";
             this.cbxTypeOfEmployee.Size = new System.Drawing.Size(172, 30);
             this.cbxTypeOfEmployee.TabIndex = 86;
@@ -236,10 +236,10 @@ namespace MediaBazaar
             this.btnRegister.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Location = new System.Drawing.Point(217, 717);
+            this.btnRegister.Location = new System.Drawing.Point(232, 897);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(132, 52);
+            this.btnRegister.Size = new System.Drawing.Size(132, 69);
             this.btnRegister.TabIndex = 79;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = false;
@@ -247,7 +247,7 @@ namespace MediaBazaar
             // 
             // dtpContractStartDate
             // 
-            this.dtpContractStartDate.Location = new System.Drawing.Point(273, 668);
+            this.dtpContractStartDate.Location = new System.Drawing.Point(307, 774);
             this.dtpContractStartDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpContractStartDate.Name = "dtpContractStartDate";
             this.dtpContractStartDate.Size = new System.Drawing.Size(249, 28);
@@ -255,7 +255,7 @@ namespace MediaBazaar
             // 
             // lblContractStartDate
             // 
-            this.lblContractStartDate.Location = new System.Drawing.Point(51, 672);
+            this.lblContractStartDate.Location = new System.Drawing.Point(51, 779);
             this.lblContractStartDate.Name = "lblContractStartDate";
             this.lblContractStartDate.Size = new System.Drawing.Size(137, 28);
             this.lblContractStartDate.TabIndex = 40;
@@ -269,7 +269,7 @@ namespace MediaBazaar
             "EIGHTYPERCENT",
             "FLEX",
             "LEFT"});
-            this.cbxContractType.Location = new System.Drawing.Point(318, 625);
+            this.cbxContractType.Location = new System.Drawing.Point(358, 728);
             this.cbxContractType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxContractType.Name = "cbxContractType";
             this.cbxContractType.Size = new System.Drawing.Size(172, 30);
@@ -278,7 +278,7 @@ namespace MediaBazaar
             // lblContractType
             // 
             this.lblContractType.AutoSize = true;
-            this.lblContractType.Location = new System.Drawing.Point(51, 627);
+            this.lblContractType.Location = new System.Drawing.Point(51, 731);
             this.lblContractType.Name = "lblContractType";
             this.lblContractType.Size = new System.Drawing.Size(124, 24);
             this.lblContractType.TabIndex = 38;
@@ -287,7 +287,7 @@ namespace MediaBazaar
             // lblTypeOfEmployee
             // 
             this.lblTypeOfEmployee.AutoSize = true;
-            this.lblTypeOfEmployee.Location = new System.Drawing.Point(57, 729);
+            this.lblTypeOfEmployee.Location = new System.Drawing.Point(51, 833);
             this.lblTypeOfEmployee.Name = "lblTypeOfEmployee";
             this.lblTypeOfEmployee.Size = new System.Drawing.Size(81, 24);
             this.lblTypeOfEmployee.TabIndex = 34;
@@ -296,7 +296,7 @@ namespace MediaBazaar
             // lblHourlyWage
             // 
             this.lblHourlyWage.AutoSize = true;
-            this.lblHourlyWage.Location = new System.Drawing.Point(60, 678);
+            this.lblHourlyWage.Location = new System.Drawing.Point(57, 677);
             this.lblHourlyWage.Name = "lblHourlyWage";
             this.lblHourlyWage.Size = new System.Drawing.Size(121, 24);
             this.lblHourlyWage.TabIndex = 32;
@@ -381,7 +381,7 @@ namespace MediaBazaar
             // 
             // tbxHourlyWage
             // 
-            this.tbxHourlyWage.Location = new System.Drawing.Point(358, 678);
+            this.tbxHourlyWage.Location = new System.Drawing.Point(358, 674);
             this.tbxHourlyWage.Name = "tbxHourlyWage";
             this.tbxHourlyWage.Size = new System.Drawing.Size(172, 28);
             this.tbxHourlyWage.TabIndex = 22;
@@ -462,7 +462,7 @@ namespace MediaBazaar
             this.tpChangeCOntract.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpChangeCOntract.Name = "tpChangeCOntract";
             this.tpChangeCOntract.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpChangeCOntract.Size = new System.Drawing.Size(578, 381);
+            this.tpChangeCOntract.Size = new System.Drawing.Size(659, 490);
             this.tpChangeCOntract.TabIndex = 1;
             this.tpChangeCOntract.Text = "Change contract";
             // 
@@ -471,10 +471,10 @@ namespace MediaBazaar
             this.btnViewDetails.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnViewDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewDetails.Location = new System.Drawing.Point(196, 326);
+            this.btnViewDetails.Location = new System.Drawing.Point(233, 414);
             this.btnViewDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnViewDetails.Name = "btnViewDetails";
-            this.btnViewDetails.Size = new System.Drawing.Size(175, 34);
+            this.btnViewDetails.Size = new System.Drawing.Size(175, 46);
             this.btnViewDetails.TabIndex = 78;
             this.btnViewDetails.Text = "View Details";
             this.btnViewDetails.UseVisualStyleBackColor = false;
@@ -487,7 +487,7 @@ namespace MediaBazaar
             this.lbxDisplayEMployees.Location = new System.Drawing.Point(5, 8);
             this.lbxDisplayEMployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbxDisplayEMployees.Name = "lbxDisplayEMployees";
-            this.lbxDisplayEMployees.Size = new System.Drawing.Size(565, 268);
+            this.lbxDisplayEMployees.Size = new System.Drawing.Size(648, 378);
             this.lbxDisplayEMployees.TabIndex = 0;
             // 
             // ManageEmployeeInterface
