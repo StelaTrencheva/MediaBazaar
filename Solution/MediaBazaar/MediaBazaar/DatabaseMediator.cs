@@ -95,10 +95,6 @@ namespace MediaBazaar
             string sqlStatement = "INSERT INTO mb_employee (bsn, fname, lname, email, uname, pwd, birthdate, street, streetnumber, zipcode, town, country, firstworkingday, emergphonenumber, iban, hourlywage, contracttype, contractstartdate, position)" +
                 "VALUES(@1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16, @17, @18, @19);";
 
-            //INSERT INTO mb_employee (bsn, fname, lname, email, uname, pwd, birthdate, street, streetnumber, zipcode, town, country, firstworkingday, emergphonenumber, iban, hourlywage, contracttype, contractstartdate, position)VALUES('TEST', 'TEST', 'TEST', 'TEST', 'TEST', 'TEST', '2020-10-10', 'TEST', 'TEST', 'TEST', 'TEST', 'TEST', '2020-10-10', 'TEST', 'TEST', 11, 'FLEX', '2020-10-10', 'HR');
-
-
-
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, dbConnection);
             string g = firstWorkingDay.ToString("d");
             sqlCommand.Parameters.AddWithValue("@1", bsn);
@@ -120,7 +116,6 @@ namespace MediaBazaar
             sqlCommand.Parameters.AddWithValue("@17", contract.ToString());
             sqlCommand.Parameters.AddWithValue("@18", contractStartDate.ToString("yyyy-MM-dd"));
             sqlCommand.Parameters.AddWithValue("@19", position.ToString());
-
             try
             {
                 int n = 0;
