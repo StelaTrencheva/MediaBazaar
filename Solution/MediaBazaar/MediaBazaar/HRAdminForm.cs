@@ -13,14 +13,16 @@ namespace MediaBazaar
     public partial class HRAdminForm : Form
     {
         ManageEmployees manageEmployees;
-        int bsn;
+        int id;
 
-        public HRAdminForm(ManageEmployees manageEmployees, int bsn)
+        public HRAdminForm(ManageEmployees manageEmployees, int id)
         {
-            
             InitializeComponent();
             this.manageEmployees = manageEmployees;
-            this.bsn = bsn;
+            this.id = id;
+            hrAdminInterface1.SendInfo(manageEmployees,id);
+
+
         }
         private void HRAdminForm_Load(object sender, EventArgs e)
         {

@@ -12,9 +12,29 @@ namespace MediaBazaar
 {
     public partial class HRAdminInterface : UserControl
     {
+        private ManageEmployees manageEmployees;
+        private int id = 0;
+
         public HRAdminInterface()
         {
             InitializeComponent();
+        }
+        public void SendInfo(ManageEmployees manageEmployees,int id)
+        {
+            this.manageEmployees = manageEmployees;
+            this.id = id;
+            Updatetbx();
+        }
+        
+        private void Updatetbx()
+        {
+            tbxHRAdminFName.Text = manageEmployees.FindEmployee(id).FirstName;
+            tbxHRAdminLName.Text = manageEmployees.FindEmployee(id).LastName;
+            tbxHRAdminBSN.Text = manageEmployees.FindEmployee(id).BSN;
+            tbxHRAdminEmployeeType.Text = manageEmployees.FindEmployee(id).Position.ToString();
+            tbxHRAdminEmail.Text = manageEmployees.FindEmployee(id).Email;
+            tbxHRAdminPhoneNum.Text = manageEmployees.FindEmployee(id).PhoneNumber;
+            tbxHRAdminAddress.Text = manageEmployees.FindEmployee(id).GetAddress();
         }
 
         private void btnHRAdminEdit_Click(object sender, EventArgs e)

@@ -35,6 +35,14 @@ namespace MediaBazaar
         {
             get { return this.id; }
         }
+        public string FirstName
+        {
+            get { return this.firstName; }
+        }
+        public string LastName
+        {
+            get { return this.lastName; }
+        }
         public string BSN
         {
             get { return this.bsn; }
@@ -44,10 +52,21 @@ namespace MediaBazaar
             get { return this.username; }
             set { this.username = value; }
         }
+        
         public string Password
         {
             get { return this.password; }
             set { this.password = value; }
+        }
+        public string Email
+        {
+            get { return this.email; }
+            set { this.email = value; }
+        }
+        public string PhoneNumber
+        {
+            get { return this.emergencyPhoneNumber; }
+            set { this.emergencyPhoneNumber = value; }
         }
         public EmployeeType Position
         {
@@ -67,22 +86,19 @@ namespace MediaBazaar
             set { this.AvailableWorkingHours = value; }
         }
 
-
- 
-
-        public Employee( int id, string bsn, string firstName, string lastName, string email, string username, string password, DateTime birthDay, 
+        public Employee(int id, string bsn, string firstName, string lastName, string email, string username, string password, DateTime birthDay,
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
-             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, DateTime contractStartDate, ContractType contract,EmployeeType position)
+             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, DateTime contractStartDate, ContractType contract, EmployeeType position)
         {
             this.id = id;
             this.bsn = bsn;
             this.firstName = firstName;
             this.lastName = lastName;
-            this.addrStreet =addrStreet ;
-            this.addrStreetNumber =addrStreetNumber;
-            this.addrZipcode =addrZipcode;
-            this.addrTown =addrTown;
-            this.addrCountry =addrCountry;
+            this.addrStreet = addrStreet;
+            this.addrStreetNumber = addrStreetNumber;
+            this.addrZipcode = addrZipcode;
+            this.addrTown = addrTown;
+            this.addrCountry = addrCountry;
             this.email = email;
             this.Username = username;
             this.Password = password;
@@ -98,7 +114,8 @@ namespace MediaBazaar
             {
                 switch (contract)
                 {
-                    case ContractType.FULLTIME: {
+                    case ContractType.FULLTIME:
+                        {
                             this.maxWorkingHours = 40;
                             this.assignedHours = 0;
                         }
@@ -111,6 +128,10 @@ namespace MediaBazaar
                         break;
                 }
             }
+        }
+        public string GetAddress()
+        {
+            return $"{addrStreet} {addrStreetNumber}; {addrZipcode}; {addrCountry}, {addrTown}";
         }
     }
 }
