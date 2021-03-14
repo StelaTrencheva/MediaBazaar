@@ -31,6 +31,7 @@ namespace MediaBazaar
         {
             this.tcManageEmployee = new System.Windows.Forms.TabControl();
             this.tpRegister = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.tbxUsername = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.tbxZipCode = new System.Windows.Forms.TextBox();
@@ -71,7 +72,6 @@ namespace MediaBazaar
             this.tpChangeCOntract = new System.Windows.Forms.TabPage();
             this.btnViewDetails = new System.Windows.Forms.Button();
             this.lbxDisplayEMployees = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tcManageEmployee.SuspendLayout();
             this.tpRegister.SuspendLayout();
             this.tpChangeCOntract.SuspendLayout();
@@ -136,6 +136,13 @@ namespace MediaBazaar
             this.tpRegister.Size = new System.Drawing.Size(825, 490);
             this.tpRegister.TabIndex = 0;
             this.tpRegister.Text = "Register";
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(3, 974);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(797, 17);
+            this.label1.TabIndex = 91;
             // 
             // tbxUsername
             // 
@@ -491,13 +498,6 @@ namespace MediaBazaar
             this.lbxDisplayEMployees.Name = "lbxDisplayEMployees";
             this.lbxDisplayEMployees.Size = new System.Drawing.Size(814, 378);
             this.lbxDisplayEMployees.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(3, 974);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(797, 17);
-            this.label1.TabIndex = 91;
             // 
             // ManageEmployeeInterface
             // 

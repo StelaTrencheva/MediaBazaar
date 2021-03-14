@@ -69,6 +69,18 @@
       <DependentUpon>DepartmentManagerInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeStatistics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeeStatistics.Designer.cs">
+      <DependentUpon>EmployeeStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeStatisticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeStatisticsForm.Designer.cs">
+      <DependentUpon>EmployeeStatisticsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeType.cs" />
     <Compile Include="HRAdminForm.cs">
       <SubType>Form</SubType>
@@ -158,6 +170,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DepartmentManagerInterface.resx">
       <DependentUpon>DepartmentManagerInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeStatistics.resx">
+      <DependentUpon>EmployeeStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeStatisticsForm.resx">
+      <DependentUpon>EmployeeStatisticsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HRAdminForm.resx">
       <DependentUpon>HRAdminForm.cs</DependentUpon>

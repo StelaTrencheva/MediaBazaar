@@ -104,6 +104,10 @@ namespace MediaBazaar
                     $"First working day: {this.firstWorkingDay}, Contract start date: {this.contractStartDate} \r\n" +
                     $"Hourly wage: {this.hourlyWage}, Phone number: {this.emergencyPhoneNumber}"; }
         }
+        public string GetTotalSalaryPerTimeUnit
+        {
+            get { return $"{this.hourlyWage}/Day"; }
+        }
  
 
         public Employee( int id, string bsn, string firstName, string lastName, string email, string username, string password, DateTime birthDay, 
