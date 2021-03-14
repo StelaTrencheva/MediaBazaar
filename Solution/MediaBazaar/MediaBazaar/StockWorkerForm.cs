@@ -42,6 +42,7 @@ namespace MediaBazaar
             btnStockWAccount.BackColor = Color.SlateGray;
             btnStockWLogOut.BackColor = Color.SlateGray;
             stockWorkerInterface1.Hide();
+            productData1.Show();
         }
 
         private void btnStockWRestockRequest_Click(object sender, EventArgs e)
@@ -51,6 +52,7 @@ namespace MediaBazaar
             btnStockWAccount.BackColor = Color.SlateGray;
             btnStockWLogOut.BackColor = Color.SlateGray;
             stockWorkerInterface1.Hide();
+            productData1.Hide();
         }
 
         private void btnStockWAccount_Click(object sender, EventArgs e)
@@ -60,6 +62,7 @@ namespace MediaBazaar
             btnStockWAccount.BackColor = Color.White;
             btnStockWLogOut.BackColor = Color.SlateGray;
             stockWorkerInterface1.Show();
+            productData1.Hide();
         }
 
         private void stockWorkerInterface1_Load(object sender, EventArgs e)

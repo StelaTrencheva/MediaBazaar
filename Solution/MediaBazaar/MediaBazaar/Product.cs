@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MediaBazaar
 {
-    class Product
+    public class Product
     {
         private int pNumber;
         private string brand;
@@ -15,13 +15,13 @@ namespace MediaBazaar
         private string description;
         private string category;
         private string subcategory;
-        private int costPrice;
-        private int salePrice;
+        private decimal costPrice;
+        private decimal salePrice;
         private int amountInStore;
         private int amountInWarehouse;
 
         public Product(int pNumber, string brand, string type, string model, string description,
-            string category, string subcategory, int costPrice, int salePrice, int amountInStore,
+            string category, string subcategory, decimal costPrice, decimal salePrice, int amountInStore,
             int amountInWarehouse)
         {
             this.pNumber = pNumber;
@@ -35,6 +35,12 @@ namespace MediaBazaar
             this.salePrice = salePrice;
             this.amountInStore = amountInStore;
             this.amountInWarehouse = amountInWarehouse;
+        }
+
+        public override string ToString()
+        {
+            return $" Product number: {this.pNumber} - {this.brand} {this.model} - Description: {this.description} - Cost price: {this.costPrice} -" +
+                $" Sale price: {this.salePrice} - Amount in store: {this.amountInStore} - Amount in warehouse: {this.amountInWarehouse}";
         }
     }
 }

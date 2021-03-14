@@ -12,9 +12,16 @@ namespace MediaBazaar
 {
     public partial class ProductData : UserControl
     {
+        ManageEmployees manageEmployees;
+
         public ProductData()
         {
             InitializeComponent();
+            manageEmployees = new ManageEmployees(1);
+            foreach (Product i in manageEmployees.GetAllProducts())
+            {
+                lbxProductDisplay.Items.Add(i.ToString());
+            }
         }
     }
 }

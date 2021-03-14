@@ -38,6 +38,7 @@ namespace MediaBazaar
             this.btnStockWLogOut = new System.Windows.Forms.Button();
             this.btnStockWAccount = new System.Windows.Forms.Button();
             this.stockWorkerInterface1 = new MediaBazaar.StockWorkerInterface();
+            this.productData1 = new MediaBazaar.ProductData();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -137,12 +138,20 @@ namespace MediaBazaar
             this.stockWorkerInterface1.TabIndex = 53;
             this.stockWorkerInterface1.Load += new System.EventHandler(this.stockWorkerInterface1_Load);
             // 
+            // productData1
+            // 
+            this.productData1.Location = new System.Drawing.Point(213, 0);
+            this.productData1.Name = "productData1";
+            this.productData1.Size = new System.Drawing.Size(890, 530);
+            this.productData1.TabIndex = 54;
+            // 
             // StockWorkerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1126, 528);
+            this.Controls.Add(this.productData1);
             this.Controls.Add(this.stockWorkerInterface1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -166,5 +175,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnStockWAccount;
         private System.Windows.Forms.Button btnStockWProductData;
         private StockWorkerInterface stockWorkerInterface1;
+        private ProductData productData1;
     }
 }

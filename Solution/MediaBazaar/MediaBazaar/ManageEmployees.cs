@@ -101,5 +101,10 @@ namespace MediaBazaar
         {
             this.employees = dbMediator.getEmployees();
         }
+
+        public List<Product> GetAllProducts()
+        {
+            return dbMediator.GetProducts();
+        }
     }
 }

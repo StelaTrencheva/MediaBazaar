@@ -178,7 +178,38 @@ namespace MediaBazaar
             {
                 dbConnection.Close();
             }
+        }
 
+        public List<Product> GetProducts()
+        {
+            string sqlStatement = "SELECT * FROM mb_product";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, dbConnection);
+            List<Product> p = new List<Product>();
+
+            try
+            {
+                MySqlDataReader reader;
+                dbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
+                        (string)reader["description"], (string)reader["category"], (string)reader["sub_category"],
+                        (decimal)reader["cost_price"], (decimal)reader["sales_price"], (int)reader["amount_in_store"],
+                        (int)reader["amount_in_warehouse"]));
+                }
+                return p;
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(sqlExceptionMessage(e.Message));
+                return p;
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
         }
 
         private string sqlExceptionMessage(string originalExceptionMessage)//WORKING!!
