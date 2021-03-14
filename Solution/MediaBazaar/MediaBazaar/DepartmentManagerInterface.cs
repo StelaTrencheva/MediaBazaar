@@ -12,33 +12,32 @@ namespace MediaBazaar
 {
     public partial class DepartmentManagerInterface : UserControl
     {
+        private ManageEmployees manageEmployees;
+        private int id;
+
         public DepartmentManagerInterface()
         {
             InitializeComponent();
         }
 
-        private void btnDManagerEdit_Click(object sender, EventArgs e)
+        public void SendInfo(ManageEmployees manageEmployees, int id)
         {
-            tbxDepartmentMFName.ReadOnly = false;
-            tbxDepartmentMLName.ReadOnly = false;
-            tbxDepartmentMBSN.ReadOnly = false;
-            tbxDepartmentMPhoneNum.ReadOnly = false;
-            tbxDepartmentMEmail.ReadOnly = false;
-            tbxDepartmentMBSN.ReadOnly = false;
-            btnDepartmentMEdit.Visible = false;
-            btnDepartmentMSave.Visible = true;
+            this.manageEmployees = manageEmployees;
+            this.id = id;
+            this.UpdateLabel();
         }
 
-        private void btnDManagerSave_Click(object sender, EventArgs e)
+        private void UpdateLabel()
         {
-            tbxDepartmentMFName.ReadOnly = true;
-            tbxDepartmentMLName.ReadOnly = true;
-            tbxDepartmentMBSN.ReadOnly = true;
-            tbxDepartmentMPhoneNum.ReadOnly = true;
-            tbxDepartmentMEmail.ReadOnly = true;
-            tbxDepartmentMAddress.ReadOnly = true;
-            btnDepartmentMEdit.Visible = true;
-            btnDepartmentMSave.Visible = false;
+            lblDepartmentMFName.Text = $"First name: {manageEmployees.FindEmployee(id).FirstName}";
+            lblDepartmentMLName.Text = $"Last name: {manageEmployees.FindEmployee(id).LastName}";
+            lblDepartmentMBirthday.Text = $"Birthday: {manageEmployees.FindEmployee(id).Birthday}";
+            lblDepartmentMBSN.Text = $"BSN: {manageEmployees.FindEmployee(id).BSN}";
+            lblDepartmentMEmployeeType.Text = $"Eployee type: {manageEmployees.FindEmployee(id).Position}";
+            lblDepartmentMContractType.Text = $"Contract type: {manageEmployees.FindEmployee(id).Contract}";
+            lblDepartmentMPhoneNum.Text = $"Phone number: {manageEmployees.FindEmployee(id).PhoneNumber}";
+            lblDepartmentMEmail.Text = $"Email: {manageEmployees.FindEmployee(id).Email}";
+            lblDepartmentMAddress.Text = $"Address: {manageEmployees.FindEmployee(id).GetAddress()}";
         }
     }
 }

@@ -35,6 +35,10 @@ namespace MediaBazaar
         {
             get { return this.id; }
         }
+        public string BSN
+        {
+            get { return this.bsn; }
+        }
         public string FirstName
         {
             get { return this.firstName; }
@@ -43,20 +47,19 @@ namespace MediaBazaar
         {
             get { return this.lastName; }
         }
-        public string BSN
-        {
-            get { return this.bsn; }
-        }
         public string Username
         {
             get { return this.username; }
             set { this.username = value; }
         }
-        
         public string Password
         {
             get { return this.password; }
             set { this.password = value; }
+        }
+        public DateTime Birthday
+        {
+            get { return this.birthDay; }
         }
         public string Email
         {

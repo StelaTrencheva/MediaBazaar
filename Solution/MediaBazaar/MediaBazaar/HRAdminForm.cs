@@ -21,8 +21,6 @@ namespace MediaBazaar
             this.manageEmployees = manageEmployees;
             this.id = id;
             hrAdminInterface1.SendInfo(manageEmployees,id);
-
-
         }
         private void HRAdminForm_Load(object sender, EventArgs e)
         {

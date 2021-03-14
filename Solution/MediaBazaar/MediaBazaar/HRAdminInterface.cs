@@ -23,42 +23,20 @@ namespace MediaBazaar
         {
             this.manageEmployees = manageEmployees;
             this.id = id;
-            Updatetbx();
+            UpdateLabel();
         }
         
-        private void Updatetbx()
+        private void UpdateLabel()
         {
-            tbxHRAdminFName.Text = manageEmployees.FindEmployee(id).FirstName;
-            tbxHRAdminLName.Text = manageEmployees.FindEmployee(id).LastName;
-            tbxHRAdminBSN.Text = manageEmployees.FindEmployee(id).BSN;
-            tbxHRAdminEmployeeType.Text = manageEmployees.FindEmployee(id).Position.ToString();
-            tbxHRAdminEmail.Text = manageEmployees.FindEmployee(id).Email;
-            tbxHRAdminPhoneNum.Text = manageEmployees.FindEmployee(id).PhoneNumber;
-            tbxHRAdminAddress.Text = manageEmployees.FindEmployee(id).GetAddress();
-        }
-
-        private void btnHRAdminEdit_Click(object sender, EventArgs e)
-        {
-            tbxHRAdminFName.ReadOnly = false;
-            tbxHRAdminLName.ReadOnly = false;
-            tbxHRAdminBSN.ReadOnly = false;
-            tbxHRAdminPhoneNum.ReadOnly = false;
-            tbxHRAdminEmail.ReadOnly = false;
-            tbxHRAdminAddress.ReadOnly = false;
-            btnHRAdminEdit.Visible = false;
-            btnHRAdminSave.Visible = true;
-        }
-
-        private void btnHRAdminSave_Click(object sender, EventArgs e)
-        {
-            tbxHRAdminFName.ReadOnly = true;
-            tbxHRAdminLName.ReadOnly = true;
-            tbxHRAdminBSN.ReadOnly = true;
-            tbxHRAdminPhoneNum.ReadOnly = true;
-            tbxHRAdminEmail.ReadOnly = true;
-            tbxHRAdminAddress.ReadOnly = true;
-            btnHRAdminEdit.Visible = true;
-            btnHRAdminSave.Visible = false;
+            lblHRAdminFName.Text = $"First name: {manageEmployees.FindEmployee(id).FirstName}";
+            lblHRAdminLName.Text = $"Last name: {manageEmployees.FindEmployee(id).LastName}";
+            lblHRAdminBirthday.Text = $"Birthday: {manageEmployees.FindEmployee(id).Birthday}";
+            lblHRAdminBSN.Text = $"BSN: {manageEmployees.FindEmployee(id).BSN}";
+            lblHRAdminEmployeeType.Text = $"Eployee type: {manageEmployees.FindEmployee(id).Position}";
+            lblHRAdminContractType.Text = $"Contract type: {manageEmployees.FindEmployee(id).Contract}";
+            lblHRAdminPhoneNum.Text = $"Phone number: {manageEmployees.FindEmployee(id).PhoneNumber}";
+            lblHRAdminEmail.Text = $"Email: {manageEmployees.FindEmployee(id).Email}";
+            lblHRAdminAddress.Text = $"Address: {manageEmployees.FindEmployee(id).GetAddress()}";
         }
     }
 }

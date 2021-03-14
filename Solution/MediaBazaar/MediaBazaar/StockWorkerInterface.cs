@@ -12,33 +12,32 @@ namespace MediaBazaar
 {
     public partial class StockWorkerInterface : UserControl
     {
+        private ManageEmployees manageEmployees;
+        private int id;
+
         public StockWorkerInterface()
         {
             InitializeComponent();
         }
 
-        private void btnStockWEdit_Click(object sender, EventArgs e)
+        public void SendInfo(ManageEmployees manageEmployees, int id)
         {
-            tbxStockWFName.ReadOnly = false;
-            tbxStockWLName.ReadOnly = false;
-            tbxStockWBSN.ReadOnly = false;
-            tbxStockWPhoneNum.ReadOnly = false;
-            tbxStockWEmail.ReadOnly = false;
-            tbxStockWAddress.ReadOnly = false;
-            btnStockWEdit.Visible = false;
-            btnStockWSave.Visible = true;
+            this.manageEmployees = manageEmployees;
+            this.id = id;
+            this.UpdateLabel();
         }
 
-        private void btnStockWSave_Click(object sender, EventArgs e)
+        private void UpdateLabel()
         {
-            tbxStockWFName.ReadOnly = true;
-            tbxStockWLName.ReadOnly = true;
-            tbxStockWBSN.ReadOnly = true;
-            tbxStockWPhoneNum.ReadOnly = true;
-            tbxStockWEmail.ReadOnly = true;
-            tbxStockWAddress.ReadOnly = true;
-            btnStockWEdit.Visible = true;
-            btnStockWSave.Visible = false;
+            lblStockWFName.Text = $"First name: {manageEmployees.FindEmployee(id).FirstName}";
+            lblStockWLName.Text = $"Last name: {manageEmployees.FindEmployee(id).LastName}";
+            lblStockWBirthday.Text = $"Birthday: {manageEmployees.FindEmployee(id).Birthday}";
+            lblStockWBSN.Text = $"BSN: {manageEmployees.FindEmployee(id).BSN}";
+            lblStockWEmployeeType.Text = $"Eployee type: {manageEmployees.FindEmployee(id).Position}";
+            lblStockWContractType.Text = $"Contract type: {manageEmployees.FindEmployee(id).Contract}";
+            lblStockWPhoneNum.Text = $"Phone number: {manageEmployees.FindEmployee(id).PhoneNumber}";
+            lblStockWEmail.Text = $"Email: {manageEmployees.FindEmployee(id).Email}";
+            lblStockWAddress.Text = $"Address: {manageEmployees.FindEmployee(id).GetAddress()}";
         }
     }
 }

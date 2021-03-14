@@ -24,6 +24,7 @@ namespace MediaBazaar
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             int id = manageEmployees.CheckLoginInfo(tbUserName.Text, tbPassword.Text);
+
             if (id == 0)
             {
                 MessageBox.Show("This user does not exist");
@@ -37,14 +38,27 @@ namespace MediaBazaar
                 this.Hide();
                 form.ShowDialog();
                 this.Close();
-            } else if (manageEmployees.FindEmployee(id).Position == EmployeeType.STORE_MANAGER)
+            } 
+            else if (manageEmployees.FindEmployee(id).Position == EmployeeType.STORE_MANAGER)
             {
                 //When the login information of a store manager is correct
+                StoreManagerForm form = new StoreManagerForm(manageEmployees, id);
+                this.Hide();
+                form.ShowDialog();
+                this.Close();
             }
             else if (manageEmployees.FindEmployee(id).Position == EmployeeType.DEPARTMENT_MANAGER)
             {
                 //When the login information of a department manager is correct
                 DepartmentManagerForm form = new DepartmentManagerForm(manageEmployees, id);
+                this.Hide();
+                form.ShowDialog();
+                this.Close();
+            }
+            else if (manageEmployees.FindEmployee(id).Position == EmployeeType.STOCK_MANAGER)
+            {
+                //When the login information of a stock manager is correct
+                StockManagerForm form = new StockManagerForm(manageEmployees, id);
                 this.Hide();
                 form.ShowDialog();
                 this.Close();
