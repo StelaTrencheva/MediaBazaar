@@ -273,7 +273,7 @@ namespace MediaBazaar
             this.btnRegister.Location = new System.Drawing.Point(295, 937);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(298, 39);
+            this.btnRegister.Size = new System.Drawing.Size(298, 46);
             this.btnRegister.TabIndex = 79;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = false;
@@ -284,7 +284,7 @@ namespace MediaBazaar
             this.dtpContractStartDate.Location = new System.Drawing.Point(307, 830);
             this.dtpContractStartDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpContractStartDate.Name = "dtpContractStartDate";
-            this.dtpContractStartDate.Size = new System.Drawing.Size(249, 28);
+            this.dtpContractStartDate.Size = new System.Drawing.Size(319, 28);
             this.dtpContractStartDate.TabIndex = 41;
             // 
             // lblContractStartDate
@@ -367,7 +367,7 @@ namespace MediaBazaar
             // 
             this.dtpDateFWD.Location = new System.Drawing.Point(307, 514);
             this.dtpDateFWD.Name = "dtpDateFWD";
-            this.dtpDateFWD.Size = new System.Drawing.Size(249, 28);
+            this.dtpDateFWD.Size = new System.Drawing.Size(319, 28);
             this.dtpDateFWD.TabIndex = 28;
             // 
             // lblDateFWD
@@ -383,7 +383,7 @@ namespace MediaBazaar
             // 
             this.dtpDateOfBirth.Location = new System.Drawing.Point(307, 468);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
-            this.dtpDateOfBirth.Size = new System.Drawing.Size(249, 28);
+            this.dtpDateOfBirth.Size = new System.Drawing.Size(319, 28);
             this.dtpDateOfBirth.TabIndex = 26;
             // 
             // lblDateOBirth
