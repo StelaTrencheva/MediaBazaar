@@ -12,6 +12,7 @@ namespace MediaBazaar
         private string bsn;
         private string firstName;
         private string lastName;
+        private Gender gender;
         private string email;
         private string username;
         private string password;
@@ -25,7 +26,7 @@ namespace MediaBazaar
         private string emergencyPhoneNumber;
         private string iban;
         private double hourlyWage;
-        private DateTime contractStartDate;
+        /*private DateTime contractStartDate;*/
         private ContractType contract;
         private EmployeeType position;
         private int maxWorkingHours;
@@ -47,6 +48,9 @@ namespace MediaBazaar
         {
             get { return this.lastName; }
         }
+
+        public Gender Gender { get { return this.gender; } }
+
         public string Username
         {
             get { return this.username; }
@@ -99,10 +103,10 @@ namespace MediaBazaar
         }
         public string EmployeeFullInfo
         {
-            get { return $"ID: {this.Id}-{this.firstName} {this.lastName} - {this.Position} \r\n" +
-                    $"Address: {this.addrStreet} {this.addrStreetNumber}, {this.addrTown}, {this.addrCountry} \r\n " +
-                    $"First working day: {this.firstWorkingDay}, Contract start date: {this.contractStartDate} \r\n" +
-                    $"Hourly wage: {this.hourlyWage}, Phone number: {this.emergencyPhoneNumber}"; }
+            get { return $"ID: {this.Id}-{this.firstName} {this.lastName} - {this.gender} - {this.Position} \r\n" +
+                    $"Address: {this.addrStreet} {this.addrStreetNumber}, {this.addrTown}, {this.addrCountry} \r\n" +
+                    $"First working day: {this.firstWorkingDay.ToString("dd-MM-yyyy")}, Contract start date:  \r\n" + /*{this.contractStartDate.ToString("dd-MM-yyyy")}*/
+                $"Hourly wage: {this.hourlyWage}, Phone number: {this.emergencyPhoneNumber}"; }
         }
         public string GetTotalSalaryPerTimeUnit
         {
@@ -110,14 +114,15 @@ namespace MediaBazaar
         }
  
 
-        public Employee( int id, string bsn, string firstName, string lastName, string email, string username, string password, DateTime birthDay, 
+        public Employee( int id, string bsn, string firstName, string lastName, Gender gender, string email, string username, string password, DateTime birthDay, 
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
-             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, DateTime contractStartDate, ContractType contract, EmployeeType position)
+             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, /*DateTime contractStartDate,*/ ContractType contract, EmployeeType position)
         {
             this.id = id;
             this.bsn = bsn;
             this.firstName = firstName;
             this.lastName = lastName;
+            this.gender = gender;
             this.addrStreet = addrStreet;
             this.addrStreetNumber = addrStreetNumber;
             this.addrZipcode = addrZipcode;
@@ -131,7 +136,7 @@ namespace MediaBazaar
             this.emergencyPhoneNumber = emergencyPhoneNumber;
             this.iban = iban;
             this.hourlyWage = hourlyWage;
-            this.contractStartDate = contractStartDate;
+            /*this.contractStartDate = contractStartDate;*/
             this.contract = contract;
             this.position = position;
             if (position == EmployeeType.STOCK_WORKER || position == EmployeeType.STORE_WORKER)

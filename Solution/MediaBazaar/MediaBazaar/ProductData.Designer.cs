@@ -30,6 +30,7 @@ namespace MediaBazaar
         private void InitializeComponent()
         {
             this.lbxProductDisplay = new System.Windows.Forms.ListBox();
+            this.btnShowProducts = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbxProductDisplay
@@ -41,13 +42,25 @@ namespace MediaBazaar
             this.lbxProductDisplay.Location = new System.Drawing.Point(3, 3);
             this.lbxProductDisplay.Name = "lbxProductDisplay";
             this.lbxProductDisplay.ScrollAlwaysVisible = true;
-            this.lbxProductDisplay.Size = new System.Drawing.Size(884, 379);
+            this.lbxProductDisplay.Size = new System.Drawing.Size(884, 354);
             this.lbxProductDisplay.TabIndex = 0;
+            // 
+            // btnShowProducts
+            // 
+            this.btnShowProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowProducts.Location = new System.Drawing.Point(267, 374);
+            this.btnShowProducts.Name = "btnShowProducts";
+            this.btnShowProducts.Size = new System.Drawing.Size(351, 36);
+            this.btnShowProducts.TabIndex = 1;
+            this.btnShowProducts.Text = "Show product";
+            this.btnShowProducts.UseVisualStyleBackColor = true;
+            this.btnShowProducts.Click += new System.EventHandler(this.btnShowProducts_Click);
             // 
             // ProductData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnShowProducts);
             this.Controls.Add(this.lbxProductDisplay);
             this.Name = "ProductData";
             this.Size = new System.Drawing.Size(890, 530);
@@ -58,5 +71,6 @@ namespace MediaBazaar
         #endregion
 
         private System.Windows.Forms.ListBox lbxProductDisplay;
+        private System.Windows.Forms.Button btnShowProducts;
     }
 }

@@ -31,7 +31,8 @@ namespace MediaBazaar
         {
             lblDepartmentMFName.Text = $"First name: {manageEmployees.FindEmployee(id).FirstName}";
             lblDepartmentMLName.Text = $"Last name: {manageEmployees.FindEmployee(id).LastName}";
-            lblDepartmentMBirthday.Text = $"Birthday: {manageEmployees.FindEmployee(id).Birthday}";
+            lblDepartmentMGender.Text = $"Gender: {manageEmployees.FindEmployee(id).Gender}";
+            lblDepartmentMBirthday.Text = $"Birthday: {manageEmployees.FindEmployee(id).Birthday.ToString("dd-MM-yyyy")}";
             lblDepartmentMBSN.Text = $"BSN: {manageEmployees.FindEmployee(id).BSN}";
             lblDepartmentMEmployeeType.Text = $"Eployee type: {manageEmployees.FindEmployee(id).Position}";
             lblDepartmentMContractType.Text = $"Contract type: {manageEmployees.FindEmployee(id).Contract}";

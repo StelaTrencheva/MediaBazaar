@@ -82,6 +82,7 @@
       <DependentUpon>EmployeeStatisticsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EmployeeType.cs" />
+    <Compile Include="Gender.cs" />
     <Compile Include="HRAdminForm.cs">
       <SubType>Form</SubType>
     </Compile>

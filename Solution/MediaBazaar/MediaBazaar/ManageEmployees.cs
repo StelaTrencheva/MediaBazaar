@@ -8,7 +8,7 @@ namespace MediaBazaar
 {
     public class ManageEmployees
     {
-        private Employee employee;
+        //private Employee employee;
         private List<Employee> employees; 
         private Schedule schedule;
         DatabaseMediator dbMediator;
@@ -19,16 +19,16 @@ namespace MediaBazaar
             schedule = new Schedule(currentWeek);
             dbMediator = new DatabaseMediator();
         }
-        public bool AddEmployeeToDb(string bsn, string firstName, string lastName, string email, string username, string password, DateTime birthDay,
+        public bool AddEmployeeToDb(string bsn, string firstName, string lastName, Gender gender, string email, string username, string password, DateTime birthDay,
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
-             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, DateTime contractStartDate, ContractType contract, EmployeeType position)
+             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, /*DateTime contractStartDate,*/ ContractType contract, EmployeeType position)
         {
-            return dbMediator.AddEmployee(bsn, firstName, lastName, email, username, password, birthDay,
+            return dbMediator.AddEmployee(bsn, firstName, lastName, gender, email, username, password, birthDay,
                                           addrStreet, addrStreetNumber, addrZipcode, addrTown, addrCountry,
-                                          firstWorkingDay, emergencyPhoneNumber, iban, hourlyWage, contractStartDate, contract, position);
+                                          firstWorkingDay, emergencyPhoneNumber, iban, hourlyWage, /*contractStartDate,*/ contract, position);
         }
 
-            public bool AddEmployeeToList(int id, string bsn, string firstName, string lastName, string address, string email, string username,string password, DateTime birthDay,
+        /*public bool AddEmployeeToList(int id, string bsn, string firstName, string lastName, string address, string email, string username,string password, DateTime birthDay,
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
              DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, DateTime contractStartDate, ContractType contract, EmployeeType position)
         {
@@ -43,7 +43,8 @@ namespace MediaBazaar
             password,  birthDay,  addrStreet,  addrStreetNumber,  addrZipcode,  addrTown,  addrCountry, firstWorkingDay,  emergencyPhoneNumber, iban,
             hourlyWage,  contractStartDate,  contract, position));
             return true;
-        }        
+        }*/
+        
         public List<Employee> GetEmployees()
         {
             return this.employees;

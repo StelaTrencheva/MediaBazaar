@@ -64,15 +64,16 @@ namespace MediaBazaar
                 {
                     Enum.TryParse(EmployeeReader["contracttype"].ToString(), out ContractType contracttype);
                     Enum.TryParse(EmployeeReader["position"].ToString(), out EmployeeType position);
+                    Enum.TryParse(EmployeeReader["gender"].ToString(), out Gender gender);
                     emp.Add(new Employee(Convert.ToInt32(EmployeeReader["id"]), EmployeeReader["bsn"].ToString(),
-                    EmployeeReader["fname"].ToString(), EmployeeReader["lname"].ToString(),
+                    EmployeeReader["fname"].ToString(), EmployeeReader["lname"].ToString(), gender,
                     EmployeeReader["email"].ToString(), EmployeeReader["uname"].ToString(), EmployeeReader["pwd"].ToString(),
                     Convert.ToDateTime(EmployeeReader["birthdate"].ToString()), EmployeeReader["street"].ToString(),
                     EmployeeReader["streetnumber"].ToString(), EmployeeReader["zipcode"].ToString(), EmployeeReader["town"].ToString(),
                     EmployeeReader["country"].ToString(), Convert.ToDateTime(EmployeeReader["firstworkingday"].ToString()),
                     EmployeeReader["emergphonenumber"].ToString(), EmployeeReader["iban"].ToString(),
                     Convert.ToDouble(EmployeeReader["hourlywage"]),
-                    Convert.ToDateTime(EmployeeReader["contractstartdate"].ToString()), contracttype, position));
+                    /*Convert.ToDateTime(EmployeeReader["contractstartdate"].ToString()),*/ contracttype, position));
                 }
                 return emp;
             }
@@ -88,11 +89,11 @@ namespace MediaBazaar
         }
         
 
-        public bool AddEmployee(string bsn, string firstName, string lastName, string email, string username, string password, DateTime birthDay,
+        public bool AddEmployee(string bsn, string firstName, string lastName, Gender gender, string email, string username, string password, DateTime birthDay,
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
-             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, DateTime contractStartDate, ContractType contract, EmployeeType position)
+             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, /*DateTime contractStartDate,*/ ContractType contract, EmployeeType position)
         {
-            string sqlStatement = "INSERT INTO mb_employee (bsn, fname, lname, email, uname, pwd, birthdate, street, streetnumber, zipcode, town, country, firstworkingday, emergphonenumber, iban, hourlywage, contracttype, contractstartdate, position)" +
+            string sqlStatement = "INSERT INTO mb_employee (bsn, fname, lname, gender, email, uname, pwd, birthdate, street, streetnumber, zipcode, town, country, firstworkingday, emergphonenumber, iban, hourlywage, contracttype, position)" + /*contractstartdate,*/
                 "VALUES(@1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16, @17, @18, @19);";
 
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, dbConnection);
@@ -100,21 +101,22 @@ namespace MediaBazaar
             sqlCommand.Parameters.AddWithValue("@1", bsn);
             sqlCommand.Parameters.AddWithValue("@2", firstName);
             sqlCommand.Parameters.AddWithValue("@3", lastName);
-            sqlCommand.Parameters.AddWithValue("@4", email);
-            sqlCommand.Parameters.AddWithValue("@5", username);
-            sqlCommand.Parameters.AddWithValue("@6", password);
-            sqlCommand.Parameters.AddWithValue("@7",  birthDay.ToString("yyyy-MM-dd"));
-            sqlCommand.Parameters.AddWithValue("@8", addrStreet);
-            sqlCommand.Parameters.AddWithValue("@9", addrStreetNumber);
-            sqlCommand.Parameters.AddWithValue("@10", addrZipcode);
-            sqlCommand.Parameters.AddWithValue("@11", addrTown);
-            sqlCommand.Parameters.AddWithValue("@12", addrCountry);
-            sqlCommand.Parameters.AddWithValue("@13", firstWorkingDay.ToString("yyyy-MM-dd"));
-            sqlCommand.Parameters.AddWithValue("@14", emergencyPhoneNumber);
-            sqlCommand.Parameters.AddWithValue("@15", iban);
-            sqlCommand.Parameters.AddWithValue("@16", hourlyWage);
-            sqlCommand.Parameters.AddWithValue("@17", contract.ToString());
-            sqlCommand.Parameters.AddWithValue("@18", contractStartDate.ToString("yyyy-MM-dd"));
+            sqlCommand.Parameters.AddWithValue("@4", gender);
+            sqlCommand.Parameters.AddWithValue("@5", email);
+            sqlCommand.Parameters.AddWithValue("@6", username);
+            sqlCommand.Parameters.AddWithValue("@7", password);
+            sqlCommand.Parameters.AddWithValue("@8",  birthDay.ToString("yyyy-MM-dd"));
+            sqlCommand.Parameters.AddWithValue("@9", addrStreet);
+            sqlCommand.Parameters.AddWithValue("@10", addrStreetNumber);
+            sqlCommand.Parameters.AddWithValue("@11", addrZipcode);
+            sqlCommand.Parameters.AddWithValue("@12", addrTown);
+            sqlCommand.Parameters.AddWithValue("@13", addrCountry);
+            sqlCommand.Parameters.AddWithValue("@14", firstWorkingDay.ToString("yyyy-MM-dd"));
+            sqlCommand.Parameters.AddWithValue("@15", emergencyPhoneNumber);
+            sqlCommand.Parameters.AddWithValue("@16", iban);
+            sqlCommand.Parameters.AddWithValue("@17", hourlyWage);
+            sqlCommand.Parameters.AddWithValue("@18", contract.ToString());
+            /*sqlCommand.Parameters.AddWithValue("@18", contractStartDate.ToString("yyyy-MM-dd"));*/
             sqlCommand.Parameters.AddWithValue("@19", position.ToString());
             try
             {

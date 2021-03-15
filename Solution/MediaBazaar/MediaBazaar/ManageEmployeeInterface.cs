@@ -27,8 +27,6 @@ namespace MediaBazaar
             {
                 lbxDisplayEMployees.Items.Add(emp.GetInfo);
             }
-
-
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -44,8 +42,6 @@ namespace MediaBazaar
                     changeContractForm.Show();
                 }
             }
-            
-
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -53,10 +49,11 @@ namespace MediaBazaar
             try { 
                 string FName = tbxFName.Text.ToString();
                 string LName = tbxLName.Text.ToString();
+                Gender gender = (Gender)(cbxGender.SelectedIndex);
                 string bsn = tbxBSN.Text.ToString();
                 string email = tbxEmail.Text.ToString();
                 string username = tbxUsername.Text.ToString();
-                string password = FName + "0000";
+                string password = "0000";
                 DateTime birthDay = dtpDateOfBirth.Value;
                 string addrStreet = tbxStreet.Text.ToString();
                 string addrStreetNumber = tbxHouseNumber.Text.ToString();
@@ -71,9 +68,9 @@ namespace MediaBazaar
                 ContractType contract = (ContractType)(cbxContractType.SelectedIndex);
                 EmployeeType position = (EmployeeType)(cbxTypeOfEmployee.SelectedIndex);
 
-                if (mngEmp.AddEmployeeToDb( bsn, FName, LName,  email,  username,  password,  birthDay,
+                if (mngEmp.AddEmployeeToDb( bsn, FName, LName, gender,  email,  username,  password,  birthDay,
                  addrStreet,  addrStreetNumber,  addrZipcode,  addrTown,  addrCountry,
-                  firstWorkingDay,  emergencyPhoneNumber,  iban,  hourlyWage,  contractStartDate, contract,  position))
+                  firstWorkingDay,  emergencyPhoneNumber,  iban,  hourlyWage,  /*contractStartDate,*/ contract,  position))
                 {
                     MessageBox.Show("Success!");
                 }
