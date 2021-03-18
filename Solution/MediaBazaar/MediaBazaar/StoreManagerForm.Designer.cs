@@ -136,7 +136,6 @@ namespace MediaBazaar
             this.storeManagerInterface1.Name = "storeManagerInterface1";
             this.storeManagerInterface1.Size = new System.Drawing.Size(890, 530);
             this.storeManagerInterface1.TabIndex = 45;
-            this.storeManagerInterface1.Load += new System.EventHandler(this.storeManagerInterface1_Load);
             // 
             // StoreManagerForm
             // 
@@ -150,6 +149,7 @@ namespace MediaBazaar
             this.Name = "StoreManagerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StoreManagerForm";
+            this.Load += new System.EventHandler(this.StoreManagerForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             this.panel2.ResumeLayout(false);

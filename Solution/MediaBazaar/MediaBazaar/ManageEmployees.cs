@@ -9,14 +9,12 @@ namespace MediaBazaar
     public class ManageEmployees
     {
         //private Employee employee;
-        private List<Employee> employees; 
-        private Schedule schedule;
+        private List<Employee> employees;
         DatabaseMediator dbMediator;
 
-        public ManageEmployees(int currentWeek)
+        public ManageEmployees()
         {
             employees = new List<Employee>();
-            schedule = new Schedule(currentWeek);
             dbMediator = new DatabaseMediator();
         }
         public bool AddEmployeeToDb(string bsn, string firstName, string lastName, Gender gender, string email, string username, string password, DateTime birthDay,

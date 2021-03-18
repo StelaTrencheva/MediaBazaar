@@ -8,9 +8,9 @@ namespace MediaBazaar
 {
     public enum ShiftType
     {
-        EARLY,
-        MIDDAY,
-        AFTERNOON,
-        NIGHT
+        Morning,
+        Afternoon,
+        Evening,
+        Night
     }
 }

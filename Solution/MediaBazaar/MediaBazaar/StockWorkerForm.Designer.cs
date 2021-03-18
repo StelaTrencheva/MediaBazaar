@@ -136,7 +136,6 @@ namespace MediaBazaar
             this.stockWorkerInterface1.Name = "stockWorkerInterface1";
             this.stockWorkerInterface1.Size = new System.Drawing.Size(890, 530);
             this.stockWorkerInterface1.TabIndex = 53;
-            this.stockWorkerInterface1.Load += new System.EventHandler(this.stockWorkerInterface1_Load);
             // 
             // productData1
             // 
@@ -158,6 +157,7 @@ namespace MediaBazaar
             this.Name = "StockWorkerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StockWorkerForm";
+            this.Load += new System.EventHandler(this.StockWorkerForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             this.panel2.ResumeLayout(false);

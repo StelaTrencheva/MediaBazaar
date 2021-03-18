@@ -17,7 +17,7 @@ namespace MediaBazaar
         public ManageEmployeeInterface()
         {
             InitializeComponent();
-            mngEmp = new ManageEmployees(1);
+            mngEmp = new ManageEmployees();
         }
        
 

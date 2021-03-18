@@ -122,7 +122,6 @@ namespace MediaBazaar
             this.manageEmployeeInterface1.Name = "manageEmployeeInterface1";
             this.manageEmployeeInterface1.Size = new System.Drawing.Size(890, 530);
             this.manageEmployeeInterface1.TabIndex = 28;
-            this.manageEmployeeInterface1.Load += new System.EventHandler(this.manageEmployeeInterface1_Load);
             // 
             // hrAdminInterface1
             // 

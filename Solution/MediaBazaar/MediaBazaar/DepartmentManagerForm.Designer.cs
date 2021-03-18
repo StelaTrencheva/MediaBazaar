@@ -36,7 +36,8 @@ namespace MediaBazaar
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnDepartmentMLogOut = new System.Windows.Forms.Button();
             this.btnDepartmentMAccount = new System.Windows.Forms.Button();
-            this.departmentManagerInterface1 = new MediaBazaar.DepartmentManagerInterface();
+            this.storeWorkerScheduleInterface = new MediaBazaar.StoreWorkerScheduleInterface();
+            this.departmentManagerAccountInterface = new MediaBazaar.DepartmentManagerInterface();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -114,13 +115,19 @@ namespace MediaBazaar
             this.btnDepartmentMAccount.UseVisualStyleBackColor = false;
             this.btnDepartmentMAccount.Click += new System.EventHandler(this.btnDepartmentMAccount_Click);
             // 
-            // departmentManagerInterface1
+            // storeWorkerScheduleInterface
             // 
-            this.departmentManagerInterface1.Location = new System.Drawing.Point(213, 0);
-            this.departmentManagerInterface1.Name = "departmentManagerInterface1";
-            this.departmentManagerInterface1.Size = new System.Drawing.Size(890, 530);
-            this.departmentManagerInterface1.TabIndex = 35;
-            this.departmentManagerInterface1.Load += new System.EventHandler(this.departmentManagerInterface1_Load);
+            this.storeWorkerScheduleInterface.Location = new System.Drawing.Point(224, 0);
+            this.storeWorkerScheduleInterface.Name = "storeWorkerScheduleInterface";
+            this.storeWorkerScheduleInterface.Size = new System.Drawing.Size(890, 530);
+            this.storeWorkerScheduleInterface.TabIndex = 36;
+            // 
+            // departmentManagerAccountInterface
+            // 
+            this.departmentManagerAccountInterface.Location = new System.Drawing.Point(213, 0);
+            this.departmentManagerAccountInterface.Name = "departmentManagerAccountInterface";
+            this.departmentManagerAccountInterface.Size = new System.Drawing.Size(890, 530);
+            this.departmentManagerAccountInterface.TabIndex = 35;
             // 
             // DepartmentManagerForm
             // 
@@ -128,12 +135,14 @@ namespace MediaBazaar
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1126, 528);
-            this.Controls.Add(this.departmentManagerInterface1);
+            this.Controls.Add(this.storeWorkerScheduleInterface);
+            this.Controls.Add(this.departmentManagerAccountInterface);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DepartmentManagerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DepartmentManagerFormcs";
+            this.Load += new System.EventHandler(this.DepartmentManagerForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -149,6 +158,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnDepartmentMLogOut;
         private System.Windows.Forms.Button btnDepartmentMAccount;
-        private DepartmentManagerInterface departmentManagerInterface1;
+        private DepartmentManagerInterface departmentManagerAccountInterface;
+        private StoreWorkerScheduleInterface storeWorkerScheduleInterface;
     }
 }

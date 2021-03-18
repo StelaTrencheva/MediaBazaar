@@ -16,7 +16,7 @@ namespace MediaBazaar
         public LoginForm()
         {
             InitializeComponent();
-            manageEmployees = new ManageEmployees(1);
+            manageEmployees = new ManageEmployees();
             manageEmployees.UpdateEmployees();
         }
 

@@ -20,39 +20,50 @@ namespace MediaBazaar
             InitializeComponent();
             this.manageEmployees = manageEmployees;
             this.id = id;
-            this.departmentManagerInterface1.SendInfo(manageEmployees, id);
+            this.departmentManagerAccountInterface.SendInfo(manageEmployees, id);
         }
-
-        private void btnDepartmentMLogOut_Click(object sender, EventArgs e)
+        private void PaintAllButtons()
         {
             btnDepartmentMAccount.BackColor = Color.SlateGray;
             btnDepartmentMSchedule.BackColor = Color.SlateGray;
-            btnDepartmentMLogOut.BackColor = Color.White;
+            btnDepartmentMLogOut.BackColor = Color.SlateGray;
+        }
+        private void btnDepartmentMLogOut_Click(object sender, EventArgs e)
+        {
             LoginForm form = new LoginForm();
             this.Hide();
             form.ShowDialog();
             this.Close();
         }
-
+        private void HideAllInterfaces()
+        {
+            departmentManagerAccountInterface.Hide();
+            storeWorkerScheduleInterface.Hide();
+        }
         private void btnDepartmentMSchedule_Click(object sender, EventArgs e)
         {
-            btnDepartmentMAccount.BackColor = Color.SlateGray;
+            PaintAllButtons();
             btnDepartmentMSchedule.BackColor = Color.White;
-            btnDepartmentMLogOut.BackColor = Color.SlateGray;
-            departmentManagerInterface1.Hide();
+            HideAllInterfaces();
+            storeWorkerScheduleInterface.Visible = true;
+            storeWorkerScheduleInterface.BringToFront();
+
         }
 
         private void btnDepartmentMAccount_Click(object sender, EventArgs e)
         {
+            PaintAllButtons();
             btnDepartmentMAccount.BackColor = Color.White;
-            btnDepartmentMSchedule.BackColor = Color.SlateGray;
-            btnDepartmentMLogOut.BackColor = Color.SlateGray;
-            departmentManagerInterface1.Show();
+            HideAllInterfaces();
+            departmentManagerAccountInterface.Show();
         }
 
-        private void departmentManagerInterface1_Load(object sender, EventArgs e)
+        private void DepartmentManagerForm_Load(object sender, EventArgs e)
         {
-            departmentManagerInterface1.BringToFront();
+            PaintAllButtons();
+            btnDepartmentMAccount.BackColor = Color.White;
+            HideAllInterfaces();
+            departmentManagerAccountInterface.Show();
         }
     }
 }

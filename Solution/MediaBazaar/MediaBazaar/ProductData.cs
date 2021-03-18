@@ -17,7 +17,7 @@ namespace MediaBazaar
         public ProductData()
         {
             InitializeComponent();
-            manageEmployees = new ManageEmployees(1);
+            manageEmployees = new ManageEmployees();
         }
 
         private void btnShowProducts_Click(object sender, EventArgs e)

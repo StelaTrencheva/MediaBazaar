@@ -135,6 +135,7 @@ namespace MediaBazaar
             this.Name = "StockManagerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StockManagerForm";
+            this.Load += new System.EventHandler(this.StockManagerForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             this.panel2.ResumeLayout(false);

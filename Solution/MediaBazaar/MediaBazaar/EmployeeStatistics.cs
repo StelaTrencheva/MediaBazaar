@@ -17,7 +17,7 @@ namespace MediaBazaar
         public EmployeeStatistics()
         {
             InitializeComponent();
-            mngEmp = new ManageEmployees(1);
+            mngEmp = new ManageEmployees();
             empStats = new EmployeeStatisticsForm();
         }
 

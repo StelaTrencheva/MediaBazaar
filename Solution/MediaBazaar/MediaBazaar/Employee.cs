@@ -29,9 +29,6 @@ namespace MediaBazaar
         /*private DateTime contractStartDate;*/
         private ContractType contract;
         private EmployeeType position;
-        private int maxWorkingHours;
-        private int assignedHours;
-
         public int Id
         {
             get { return this.id; }
@@ -84,15 +81,7 @@ namespace MediaBazaar
             get { return this.contract; }
             set { this.contract = value; }
         }
-        public int MaxWorkingHours
-        {
-            get { return this.maxWorkingHours; }
-        }
-        public int AvailableWorkingHours
-        {
-            get { return this.AvailableWorkingHours; }
-            set { this.AvailableWorkingHours = value; }
-        }
+       
         public string GetEmployeeNames
         {
             get { return $"{this.firstName} {this.lastName}"; }
@@ -139,24 +128,7 @@ namespace MediaBazaar
             /*this.contractStartDate = contractStartDate;*/
             this.contract = contract;
             this.position = position;
-            if (position == EmployeeType.STOCK_WORKER || position == EmployeeType.STORE_WORKER)
-            {
-                switch (contract)
-                {
-                    case ContractType.FULLTIME:
-                        {
-                            this.maxWorkingHours = 40;
-                            this.assignedHours = 0;
-                        }
-                        break;
-                    case ContractType.EIGHTYPERCENT:
-                        {
-                            this.maxWorkingHours = 32;
-                            this.assignedHours = 0;
-                        }
-                        break;
-                }
-            }
+            
         }
         public string GetAddress()
         {

@@ -22,13 +22,20 @@ namespace MediaBazaar
             this.id = id;
             stockWorkerInterface1.SendInfo(manageEmployees, id);
         }
-
-        private void btnStockWLogOut_Click(object sender, EventArgs e)
+        private void PaintAllButtons()
         {
-            btnStockWProductData.BackColor = Color.SlateGray;
+          btnStockWProductData.BackColor = Color.SlateGray;
             btnStockWRestockRequest.BackColor = Color.SlateGray;
             btnStockWAccount.BackColor = Color.SlateGray;
-            btnStockWLogOut.BackColor = Color.White;
+            btnStockWLogOut.BackColor = Color.SlateGray;
+        }
+        private void HideAllInterfaces()
+        {
+            stockWorkerInterface1.Hide();
+            productData1.Hide();
+        }
+        private void btnStockWLogOut_Click(object sender, EventArgs e)
+        {
             LoginForm form = new LoginForm();
             this.Hide();
             form.ShowDialog();
@@ -37,37 +44,33 @@ namespace MediaBazaar
 
         private void btnStockWProductData_Click(object sender, EventArgs e)
         {
+            PaintAllButtons();
             btnStockWProductData.BackColor = Color.White;
-            btnStockWRestockRequest.BackColor = Color.SlateGray;
-            btnStockWAccount.BackColor = Color.SlateGray;
-            btnStockWLogOut.BackColor = Color.SlateGray;
-            stockWorkerInterface1.Hide();
+            HideAllInterfaces();
             productData1.Show();
         }
 
         private void btnStockWRestockRequest_Click(object sender, EventArgs e)
         {
-            btnStockWProductData.BackColor = Color.SlateGray;
+            PaintAllButtons();
             btnStockWRestockRequest.BackColor = Color.White;
-            btnStockWAccount.BackColor = Color.SlateGray;
-            btnStockWLogOut.BackColor = Color.SlateGray;
-            stockWorkerInterface1.Hide();
-            productData1.Hide();
+            HideAllInterfaces();
         }
 
         private void btnStockWAccount_Click(object sender, EventArgs e)
         {
-            btnStockWProductData.BackColor = Color.SlateGray;
-            btnStockWRestockRequest.BackColor = Color.SlateGray;
+            PaintAllButtons();
             btnStockWAccount.BackColor = Color.White;
-            btnStockWLogOut.BackColor = Color.SlateGray;
+            HideAllInterfaces();
             stockWorkerInterface1.Show();
-            productData1.Hide();
         }
 
-        private void stockWorkerInterface1_Load(object sender, EventArgs e)
+        private void StockWorkerForm_Load(object sender, EventArgs e)
         {
-            stockWorkerInterface1.BringToFront();
+            PaintAllButtons();
+            btnStockWAccount.BackColor = Color.White;
+            HideAllInterfaces();
+            stockWorkerInterface1.Show();
         }
     }
 }

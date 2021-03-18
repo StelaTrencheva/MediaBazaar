@@ -24,42 +24,48 @@ namespace MediaBazaar
         }
         private void HRAdminForm_Load(object sender, EventArgs e)
         {
-            hrAdminInterface1.BringToFront();
+            PaintAllButtons();
+            btnHRAdminAccount.BackColor = Color.White;
+            HideAllInterfaces();
+            hrAdminInterface1.Show();
         }
-
-        
-        private void btnManageEmployee_Click(object sender, EventArgs e)
+        private void PaintAllButtons()
         {
-            manageEmployeeInterface1.Show();
-            hrAdminInterface1.Hide();
-            btnHRAdminManageEmployee.BackColor = Color.White;
             btnHRAdminAccount.BackColor = Color.SlateGray;
             btnHRAdminLogOut.BackColor = Color.SlateGray;
+            btnHRAdminManageEmployee.BackColor = Color.SlateGray;
+        }
+        private void HideAllInterfaces()
+        {
+           hrAdminInterface1.Hide();
+           manageEmployeeInterface1.Hide();
+        }
+
+        private void btnManageEmployee_Click(object sender, EventArgs e)
+        {
+            HideAllInterfaces();
+            manageEmployeeInterface1.Show();
+            PaintAllButtons();
+            btnHRAdminManageEmployee.BackColor = Color.White;
+            
         }
 
         private void btnHRAdminAccount_Click(object sender, EventArgs e)
         {
+            PaintAllButtons();
             hrAdminInterface1.Show();
-            manageEmployeeInterface1.Hide();
-            btnHRAdminManageEmployee.BackColor = Color.SlateGray;
+            HideAllInterfaces();
             btnHRAdminAccount.BackColor = Color.White;
-            btnHRAdminLogOut.BackColor = Color.SlateGray;
         }
 
         private void btnHRAdminLogOut_Click(object sender, EventArgs e)
         {
-            btnHRAdminManageEmployee.BackColor = Color.SlateGray;
-            btnHRAdminAccount.BackColor = Color.SlateGray;
-            btnHRAdminLogOut.BackColor = Color.White;
             LoginForm form = new LoginForm();
             this.Hide();
             form.ShowDialog();
             this.Close();
         }
 
-        private void manageEmployeeInterface1_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

@@ -55,7 +55,6 @@
     </Compile>
     <Compile Include="ContractType.cs" />
     <Compile Include="DatabaseMediator.cs" />
-    <Compile Include="Day.cs" />
     <Compile Include="DepartmentManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,7 +161,6 @@
     <Compile Include="StoreWorkerScheduleInterface.Designer.cs">
       <DependentUpon>StoreWorkerScheduleInterface.cs</DependentUpon>
     </Compile>
-    <Compile Include="Week.cs" />
     <EmbeddedResource Include="ChangeEmployeeWorkingContract.resx">
       <DependentUpon>ChangeEmployeeWorkingContract.cs</DependentUpon>
     </EmbeddedResource>

@@ -22,13 +22,19 @@ namespace MediaBazaar
             this.id = id;
             storeManagerInterface1.SendInfo(manageEmployees, id);
         }
-
-        private void btnStoreMLogOut_Click(object sender, EventArgs e)
+        private void PaintAllButtons()
         {
             btnStoreMEmployeeStatistic.BackColor = Color.SlateGray;
             btnStoreMStockStatistic.BackColor = Color.SlateGray;
             btnStoreM.BackColor = Color.SlateGray;
-            btnStoreMLogOut.BackColor = Color.White;
+        }
+        private void HideAllInterfaces()
+        {
+            storeManagerInterface1.Hide();
+
+        }
+        private void btnStoreMLogOut_Click(object sender, EventArgs e)
+        {
             LoginForm form = new LoginForm();
             this.Hide();
             form.ShowDialog();
@@ -37,34 +43,33 @@ namespace MediaBazaar
 
         private void btnStoreMEmployeeStatistic_Click(object sender, EventArgs e)
         {
+            PaintAllButtons();
             btnStoreMEmployeeStatistic.BackColor = Color.White;
-            btnStoreMStockStatistic.BackColor = Color.SlateGray;
-            btnStoreM.BackColor = Color.SlateGray;
-            btnStoreMLogOut.BackColor = Color.SlateGray;
-            storeManagerInterface1.Hide();
+            HideAllInterfaces();
+            
         }
 
         private void btnStoreMStockStatistic_Click(object sender, EventArgs e)
         {
-            btnStoreMEmployeeStatistic.BackColor = Color.SlateGray;
+            PaintAllButtons();
             btnStoreMStockStatistic.BackColor = Color.White;
-            btnStoreM.BackColor = Color.SlateGray;
-            btnStoreMLogOut.BackColor = Color.SlateGray;
-            storeManagerInterface1.Hide();
+            HideAllInterfaces();
         }
 
         private void btnStoreM_Click(object sender, EventArgs e)
         {
-            btnStoreMEmployeeStatistic.BackColor = Color.SlateGray;
-            btnStoreMStockStatistic.BackColor = Color.SlateGray;
+            PaintAllButtons();
             btnStoreM.BackColor = Color.White;
-            btnStoreMLogOut.BackColor = Color.SlateGray;
+            HideAllInterfaces();
             storeManagerInterface1.Show();
         }
 
-        private void storeManagerInterface1_Load(object sender, EventArgs e)
+        private void StoreManagerForm_Load(object sender, EventArgs e)
         {
-            storeManagerInterface1.BringToFront();
+            PaintAllButtons();
+            btnStoreM.BackColor = Color.White;
+            HideAllInterfaces();
+            storeManagerInterface1.Show();
         }
     }
 }

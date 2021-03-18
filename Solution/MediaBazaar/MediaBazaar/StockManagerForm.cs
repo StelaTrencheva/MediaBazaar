@@ -22,12 +22,18 @@ namespace MediaBazaar
             this.id = id;
             this.stockManagerInterface1.SendInfo(manageEmployees, id);
         }
-
+        private void PaintAllButtons()
+        {
+           btnStockMSchedule.BackColor = Color.SlateGray;
+            btnStockMAccount.BackColor = Color.SlateGray;
+            btnStockMLogOut.BackColor = Color.SlateGray;
+        }
+        private void HideAllInterfaces()
+        {
+            stockManagerInterface1.Hide();
+        }
         private void btnStockMLogOut_Click(object sender, EventArgs e)
         {
-            btnStockMSchedule.BackColor = Color.SlateGray;
-            btnStockMAccount.BackColor = Color.SlateGray;
-            btnStockMLogOut.BackColor = Color.White;
             LoginForm form = new LoginForm();
             this.Hide();
             form.ShowDialog();
@@ -36,22 +42,29 @@ namespace MediaBazaar
 
         private void stockManagerInterface1_Load(object sender, EventArgs e)
         {
-            stockManagerInterface1.BringToFront();
+            
         }
 
         private void btnStockMSchedule_Click(object sender, EventArgs e)
         {
+            PaintAllButtons();
             btnStockMSchedule.BackColor = Color.White;
-            btnStockMAccount.BackColor = Color.SlateGray;
-            btnStockMLogOut.BackColor = Color.SlateGray;
-            stockManagerInterface1.Hide();
+            HideAllInterfaces();
         }
 
         private void btnStockMAccount_Click(object sender, EventArgs e)
         {
-            btnStockMSchedule.BackColor = Color.SlateGray;
+            PaintAllButtons();
             btnStockMAccount.BackColor = Color.White;
-            btnStockMLogOut.BackColor = Color.SlateGray;
+            HideAllInterfaces();
+            stockManagerInterface1.Show();
+        }
+
+        private void StockManagerForm_Load(object sender, EventArgs e)
+        {
+            PaintAllButtons();
+            HideAllInterfaces();
+            btnStockMAccount.BackColor = Color.White;
             stockManagerInterface1.Show();
         }
     }

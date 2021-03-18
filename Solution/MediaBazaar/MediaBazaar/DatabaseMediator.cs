@@ -222,5 +222,54 @@ namespace MediaBazaar
                 "For developers: " + originalExceptionMessage
                 );
         }
+
+        // Schedule DB mediator
+        public MySqlConnection GetDBConnection()
+        {
+            return this.dbConnection;
+        }
+        public MySqlDataReader OpenExecuteReader(MySqlCommand sqlReaderCommand)
+        {
+            this.dbConnection.Open();
+            MySqlDataReader reader = sqlReaderCommand.ExecuteReader();
+
+            return reader;
+        }
+        public void CloseExecuteReader(MySqlDataReader reader)
+        {
+            if (reader != null)
+                reader.Close();
+
+            this.dbConnection.Close();
+        }
+        public int ExecuteNonQuery(MySqlCommand sqlNonQueryCommand)
+        {
+            try
+            {
+                this.dbConnection.Open();
+                int numberAffectedRows = sqlNonQueryCommand.ExecuteNonQuery();
+
+                return numberAffectedRows;
+            }
+            finally
+            {
+                this.dbConnection.Close();
+            }
+        }
+        public int ExecuteScalar(MySqlCommand sqlCommand)
+        {
+            try
+            {
+                this.dbConnection.Open();
+                int n = Convert.ToInt32(sqlCommand.ExecuteScalar());
+
+                return n;
+            }
+            finally
+            {
+                this.dbConnection.Close();
+            }
+        }
+
     }
 }
