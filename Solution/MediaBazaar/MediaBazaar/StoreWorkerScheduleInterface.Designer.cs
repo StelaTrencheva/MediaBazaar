@@ -43,14 +43,14 @@ namespace MediaBazaar
             this.cbxShiftType = new System.Windows.Forms.ComboBox();
             this.lblShiftType = new System.Windows.Forms.Label();
             this.tpStoreWView = new System.Windows.Forms.TabPage();
+            this.btnChangeSelectedWeek = new System.Windows.Forms.Button();
+            this.lbViewSchedule = new System.Windows.Forms.ListBox();
             this.lblViewInstructions = new System.Windows.Forms.Label();
             this.btnShowShifts = new System.Windows.Forms.Button();
             this.calendarDate = new System.Windows.Forms.MonthCalendar();
             this.lblDay = new System.Windows.Forms.Label();
             this.tpStoreWAssign = new System.Windows.Forms.TabPage();
             this.tcStoreWorkerSchedule = new System.Windows.Forms.TabControl();
-            this.lbViewSchedule = new System.Windows.Forms.ListBox();
-            this.btnChangeSelectedWeek = new System.Windows.Forms.Button();
             this.tpStoreWView.SuspendLayout();
             this.tpStoreWAssign.SuspendLayout();
             this.tcStoreWorkerSchedule.SuspendLayout();
@@ -221,6 +221,30 @@ namespace MediaBazaar
             this.tpStoreWView.TabIndex = 1;
             this.tpStoreWView.Text = "View";
             // 
+            // btnChangeSelectedWeek
+            // 
+            this.btnChangeSelectedWeek.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnChangeSelectedWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeSelectedWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnChangeSelectedWeek.Location = new System.Drawing.Point(566, 6);
+            this.btnChangeSelectedWeek.Name = "btnChangeSelectedWeek";
+            this.btnChangeSelectedWeek.Size = new System.Drawing.Size(240, 43);
+            this.btnChangeSelectedWeek.TabIndex = 94;
+            this.btnChangeSelectedWeek.Text = "Change week";
+            this.btnChangeSelectedWeek.UseVisualStyleBackColor = false;
+            this.btnChangeSelectedWeek.Visible = false;
+            this.btnChangeSelectedWeek.Click += new System.EventHandler(this.btnChangeSelectedWeek_Click);
+            // 
+            // lbViewSchedule
+            // 
+            this.lbViewSchedule.FormattingEnabled = true;
+            this.lbViewSchedule.ItemHeight = 20;
+            this.lbViewSchedule.Location = new System.Drawing.Point(56, 53);
+            this.lbViewSchedule.Name = "lbViewSchedule";
+            this.lbViewSchedule.Size = new System.Drawing.Size(750, 384);
+            this.lbViewSchedule.TabIndex = 93;
+            this.lbViewSchedule.Visible = false;
+            // 
             // lblViewInstructions
             // 
             this.lblViewInstructions.AutoSize = true;
@@ -298,30 +322,7 @@ namespace MediaBazaar
             this.tcStoreWorkerSchedule.SelectedIndex = 0;
             this.tcStoreWorkerSchedule.Size = new System.Drawing.Size(890, 530);
             this.tcStoreWorkerSchedule.TabIndex = 2;
-            // 
-            // lbViewSchedule
-            // 
-            this.lbViewSchedule.FormattingEnabled = true;
-            this.lbViewSchedule.ItemHeight = 20;
-            this.lbViewSchedule.Location = new System.Drawing.Point(56, 53);
-            this.lbViewSchedule.Name = "lbViewSchedule";
-            this.lbViewSchedule.Size = new System.Drawing.Size(750, 384);
-            this.lbViewSchedule.TabIndex = 93;
-            this.lbViewSchedule.Visible = false;
-            // 
-            // btnChangeSelectedWeek
-            // 
-            this.btnChangeSelectedWeek.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnChangeSelectedWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangeSelectedWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnChangeSelectedWeek.Location = new System.Drawing.Point(566, 6);
-            this.btnChangeSelectedWeek.Name = "btnChangeSelectedWeek";
-            this.btnChangeSelectedWeek.Size = new System.Drawing.Size(240, 43);
-            this.btnChangeSelectedWeek.TabIndex = 94;
-            this.btnChangeSelectedWeek.Text = "Change week";
-            this.btnChangeSelectedWeek.UseVisualStyleBackColor = false;
-            this.btnChangeSelectedWeek.Visible = false;
-            this.btnChangeSelectedWeek.Click += new System.EventHandler(this.btnChangeSelectedWeek_Click);
+            this.tcStoreWorkerSchedule.SelectedIndexChanged += new System.EventHandler(this.tcStoreWorkerSchedule_SelectedIndexChanged);
             // 
             // StoreWorkerScheduleInterface
             // 

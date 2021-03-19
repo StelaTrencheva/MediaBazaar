@@ -151,13 +151,13 @@ namespace MediaBazaar
         private void btnShowShifts_Click(object sender, EventArgs e)
         {
             DateTime selectedDate = calendarDate.SelectionRange.Start;
-            
-            int weekNumberOfSelectedDate = GetWeekNumber(selectedDate);
-            DateTime startDate=selectedDate;
-            DateTime endDate = startDate.AddDays(7);
+           
             lbViewSchedule.Visible = true;
             lbViewSchedule.Items.Clear();
             btnChangeSelectedWeek.Visible = true;
+            int weekNumberOfSelectedDate = GetWeekNumber(selectedDate);
+            DateTime startDate=selectedDate;
+            DateTime endDate = startDate.AddDays(7);
             List<DateTime> dates = new List<DateTime>();
             for (DateTime i = startDate; i > selectedDate.AddDays(-7); i=i.AddDays(-1))
             {
@@ -194,6 +194,12 @@ namespace MediaBazaar
         private void btnChangeSelectedWeek_Click(object sender, EventArgs e)
         {
             lbViewSchedule.Visible = false;
+        }
+
+        private void tcStoreWorkerSchedule_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            calendarDate.MinDate = today.AddMonths(-3);
+            calendarDate.MaxDate = today.AddMonths(3);
         }
     }
 }
