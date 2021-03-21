@@ -227,6 +227,7 @@ namespace MediaBazaar
             }
         }
 
+        //SHOW ALL PRODUCTS
         public List<Product> GetProducts()
         {
             string sqlStatement = "SELECT * FROM mb_product";
@@ -252,6 +253,53 @@ namespace MediaBazaar
             {
                 MessageBox.Show(sqlExceptionMessage(e.Message));
                 return p;
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+        }
+
+        //ADD PRODUCT
+        public bool AddProduct(string brand, string type, string model, string description, string category, 
+            string subcategory, decimal costPrice, decimal salePrice, int amountInStore, int amountInWarehouse)
+        {
+            string sqlStatement = "INSERT INTO mb_product (brand, type, model, description, category, sub_category, cost_price, " +
+                "sales_price, amount_in_store, amount_in_warehouse) VALUES (@br, @ty, @mo, @de, @ca, @sc, @cp, @sp, @as, @aw)";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, dbConnection);
+
+            sqlCommand.Parameters.AddWithValue("@br", brand);
+            sqlCommand.Parameters.AddWithValue("@ty", type);
+            sqlCommand.Parameters.AddWithValue("@mo", model);
+            sqlCommand.Parameters.AddWithValue("@de", description);
+            sqlCommand.Parameters.AddWithValue("@ca", category);
+            sqlCommand.Parameters.AddWithValue("@sc", subcategory);
+            sqlCommand.Parameters.AddWithValue("@cp", costPrice);
+            sqlCommand.Parameters.AddWithValue("@sp", salePrice);
+            sqlCommand.Parameters.AddWithValue("@as", amountInStore);
+            sqlCommand.Parameters.AddWithValue("@aw", amountInWarehouse);
+
+            try
+            {
+                int n = 0;
+
+                dbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+                if(n == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(sqlExceptionMessage(e.Message));
+                return false;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(sqlExceptionMessage(e.Message));
+                return false;
             }
             finally
             {

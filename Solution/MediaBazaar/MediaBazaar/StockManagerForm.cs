@@ -24,13 +24,15 @@ namespace MediaBazaar
         }
         private void PaintAllButtons()
         {
-           btnStockMSchedule.BackColor = Color.SlateGray;
+            btnStockMSchedule.BackColor = Color.SlateGray;
             btnStockMAccount.BackColor = Color.SlateGray;
             btnStockMLogOut.BackColor = Color.SlateGray;
+            btnStockMAddProduct.BackColor = Color.SlateGray;
         }
         private void HideAllInterfaces()
         {
             stockManagerInterface1.Hide();
+            addProductInterface1.Hide();
         }
         private void btnStockMLogOut_Click(object sender, EventArgs e)
         {
@@ -66,6 +68,14 @@ namespace MediaBazaar
             HideAllInterfaces();
             btnStockMAccount.BackColor = Color.White;
             stockManagerInterface1.Show();
+        }
+
+        private void btnStockMAddProduct_Click(object sender, EventArgs e)
+        {
+            PaintAllButtons();
+            HideAllInterfaces();
+            btnStockMAddProduct.BackColor = Color.White;
+            addProductInterface1.Show();
         }
     }
 }

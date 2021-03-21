@@ -43,6 +43,10 @@ namespace MediaBazaar
             return true;
         }*/
         
+        public List<Employee> GetEmployees()
+        {
+            return this.employees;
+        }
         public int GetEmployeeCount()
         {
             return dbMediator.GetEmpCount();
@@ -103,7 +107,14 @@ namespace MediaBazaar
 
         public List<Product> GetAllProducts()
         {
-            return dbMediator.GetProducts();
+            return this.dbMediator.GetProducts();
+        }
+
+        public bool AddProductToDB(string brand, string type, string model, string description, string category,
+            string subcategory, decimal costPrice, decimal salePrice, int amountInStore, int amountInWarehouse)
+        {
+            return this.dbMediator.AddProduct(brand, type, model, description, category, subcategory, costPrice, salePrice,
+                amountInStore, amountInWarehouse);
         }
     }
 }

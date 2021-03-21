@@ -12,23 +12,35 @@ namespace MediaBazaar
 {
     public partial class EmployeeStatistics : UserControl
     {
+        EmployeeStatisticsForm empStats;
         ManageEmployees mngEmp;
         public EmployeeStatistics()
         {
             InitializeComponent();
             mngEmp = new ManageEmployees();
+            empStats = new EmployeeStatisticsForm();
         }
 
         private void EmployeeStatistics_Load(object sender, EventArgs e)
         {
-            
-            foreach (Employee emp in mngEmp.GetListOFAllEmployees()) //To be continued
+            foreach(Employee emp in mngEmp.GetEmployees())
             {
-                GridViewEmployeeStatistics.Rows.Add(emp.Id, emp.GetEmployeeNames, emp.Position, emp.Contract, emp.Email);
+                lbxListOfEmployees.Items.Add(emp.GetInfo);
             }
-
         }
-        
 
+        private void btnViewDetails_Click(object sender, EventArgs e)
+        {
+            int index = lbxListOfEmployees.SelectedIndex;
+            foreach(Employee emp in mngEmp.GetEmployees())
+            {
+                if(emp.Id == index+1)
+                {
+                   empStats.SetEmployeeInfo(emp);
+                   empStats.Show();
+                }
+            }
+            
+        }
     }
 }

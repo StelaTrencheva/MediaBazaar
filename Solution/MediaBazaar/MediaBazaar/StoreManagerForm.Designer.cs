@@ -38,7 +38,6 @@ namespace MediaBazaar
             this.btnStoreMLogOut = new System.Windows.Forms.Button();
             this.btnStoreM = new System.Windows.Forms.Button();
             this.storeManagerInterface1 = new MediaBazaar.StoreManagerInterface();
-            this.employeeStatistics = new MediaBazaar.EmployeeStatistics();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -138,21 +137,12 @@ namespace MediaBazaar
             this.storeManagerInterface1.Size = new System.Drawing.Size(890, 530);
             this.storeManagerInterface1.TabIndex = 45;
             // 
-            // employeeStatistics
-            // 
-            this.employeeStatistics.BackColor = System.Drawing.Color.Lavender;
-            this.employeeStatistics.Location = new System.Drawing.Point(224, 0);
-            this.employeeStatistics.Name = "employeeStatistics";
-            this.employeeStatistics.Size = new System.Drawing.Size(890, 530);
-            this.employeeStatistics.TabIndex = 46;
-            // 
             // StoreManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1126, 528);
-            this.Controls.Add(this.employeeStatistics);
             this.Controls.Add(this.storeManagerInterface1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -177,6 +167,5 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnStoreMStockStatistic;
         private System.Windows.Forms.Button btnStoreMEmployeeStatistic;
         private StoreManagerInterface storeManagerInterface1;
-        private EmployeeStatistics employeeStatistics;
     }
 }

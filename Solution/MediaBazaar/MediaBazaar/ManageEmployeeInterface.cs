@@ -31,17 +31,12 @@ namespace MediaBazaar
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (lbxDisplayEMployees.SelectedItem==null)
-            {
-                MessageBox.Show("Please select an employee");
-                return;
-            }
             changeContractForm = new ChangeEmployeeWorkingContract();
             
-            string index = lbxDisplayEMployees.SelectedItem.ToString();
+            int index = lbxDisplayEMployees.SelectedIndex;
             foreach (Employee emp in mngEmp.GetListOFAllEmployees())
             {
-               if(emp.GetInfo == index )
+               if(emp.Id == (index + 1))
                 {
                     changeContractForm.SetEmployee(emp);
                     changeContractForm.Show();
