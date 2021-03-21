@@ -45,7 +45,10 @@ namespace MediaBazaar
         {
             get { return this.lastName; }
         }
-
+        public double HourlyWage
+        {
+            get { return this.hourlyWage; }
+        }
         public Gender Gender { get { return this.gender; } }
 
         public string Username
@@ -97,10 +100,7 @@ namespace MediaBazaar
                     $"First working day: {this.firstWorkingDay.ToString("dd-MM-yyyy")}, Contract start date:  \r\n" + /*{this.contractStartDate.ToString("dd-MM-yyyy")}*/
                 $"Hourly wage: {this.hourlyWage}, Phone number: {this.emergencyPhoneNumber}"; }
         }
-        public string GetTotalSalaryPerTimeUnit
-        {
-            get { return $"{this.hourlyWage}/Day"; }
-        }
+        
  
 
         public Employee( int id, string bsn, string firstName, string lastName, Gender gender, string email, string username, string password, DateTime birthDay, 

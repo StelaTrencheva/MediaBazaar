@@ -43,10 +43,6 @@ namespace MediaBazaar
             return true;
         }*/
         
-        public List<Employee> GetEmployees()
-        {
-            return this.employees;
-        }
         public int GetEmployeeCount()
         {
             return dbMediator.GetEmpCount();
