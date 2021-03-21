@@ -91,6 +91,10 @@ namespace MediaBazaar
         {
             return dbMediator.getEmployees();
         }
+        public Employee Login(string username,string password)
+        {
+            return dbMediator.FindMatchingLoginInfo(username, password);
+        }
 
         public bool ChangeWorkContract(ContractType contract, int id)
         {

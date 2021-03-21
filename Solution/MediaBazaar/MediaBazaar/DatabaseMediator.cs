@@ -49,6 +49,51 @@ namespace MediaBazaar
 
         }
 
+        public Employee FindMatchingLoginInfo(string username, string password)
+        {
+            string sqlStatement = "SELECT * FROM `mb_employee` WHERE uname = @u AND pwd= @p";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, dbConnection);
+            List<Employee> emp = new List<Employee>();
+            try
+            {
+                MySqlDataReader EmployeeReader;
+                sqlCommand.Parameters.AddWithValue("@u", username);
+                sqlCommand.Parameters.AddWithValue("@p", password);
+                dbConnection.Open();
+
+                EmployeeReader = sqlCommand.ExecuteReader();
+                if (EmployeeReader.Read())
+                {
+                    Enum.TryParse(EmployeeReader["contracttype"].ToString(), out ContractType contracttype);
+                    Enum.TryParse(EmployeeReader["position"].ToString(), out EmployeeType position);
+                    Enum.TryParse(EmployeeReader["gender"].ToString(), out Gender gender);
+
+                    Employee employee= new Employee(Convert.ToInt32(EmployeeReader["id"]), EmployeeReader["bsn"].ToString(),
+                    EmployeeReader["fname"].ToString(), EmployeeReader["lname"].ToString(), gender,
+                    EmployeeReader["email"].ToString(), EmployeeReader["uname"].ToString(), EmployeeReader["pwd"].ToString(),
+                    Convert.ToDateTime(EmployeeReader["birthdate"].ToString()), EmployeeReader["street"].ToString(),
+                    EmployeeReader["streetnumber"].ToString(), EmployeeReader["zipcode"].ToString(), EmployeeReader["town"].ToString(),
+                    EmployeeReader["country"].ToString(), Convert.ToDateTime(EmployeeReader["firstworkingday"].ToString()),
+                    EmployeeReader["emergphonenumber"].ToString(), EmployeeReader["iban"].ToString(),
+                    Convert.ToDouble(EmployeeReader["hourlywage"]),
+                    /*Convert.ToDateTime(EmployeeReader["contractstartdate"].ToString()),*/ contracttype, position);
+                    return employee;
+                }else
+                return null;
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(sqlExceptionMessage(e.Message));
+                return null;
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+
+        }
+
+
         public List<Employee> getEmployees()//WORKING!!
         {
             string sqlStatement = "SELECT * FROM mb_employee";

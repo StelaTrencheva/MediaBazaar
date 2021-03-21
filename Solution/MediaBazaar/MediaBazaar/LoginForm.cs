@@ -17,62 +17,63 @@ namespace MediaBazaar
         {
             InitializeComponent();
             manageEmployees = new ManageEmployees();
-            manageEmployees.UpdateEmployees();
         }
-
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            int id = manageEmployees.CheckLoginInfo(tbUserName.Text, tbPassword.Text);
-
-            if (id == 0)
+            Employee currentEmp= manageEmployees.Login(tbUserName.Text, tbPassword.Text);
+            if (currentEmp == null)
             {
                 MessageBox.Show("This user does not exist");
                 tbPassword.Text = "";
                 return;
             }
-            else if(manageEmployees.FindEmployee(id).Position == EmployeeType.HR)
+            
+            else if(currentEmp.Position == EmployeeType.HR)
             {
                 //When the login information of a HR is correct
-                HRAdminForm form = new HRAdminForm(manageEmployees,id);
+                HRAdminForm form = new HRAdminForm(currentEmp);
                 this.Hide();
                 form.ShowDialog();
                 this.Close();
             } 
-            else if (manageEmployees.FindEmployee(id).Position == EmployeeType.STORE_MANAGER)
+            else if (currentEmp.Position == EmployeeType.STORE_MANAGER)
             {
                 //When the login information of a store manager is correct
-                StoreManagerForm form = new StoreManagerForm(manageEmployees, id);
+                StoreManagerForm form = new StoreManagerForm(currentEmp);
                 this.Hide();
                 form.ShowDialog();
                 this.Close();
             }
-            else if (manageEmployees.FindEmployee(id).Position == EmployeeType.DEPARTMENT_MANAGER)
+            else if (currentEmp.Position == EmployeeType.DEPARTMENT_MANAGER)
             {
                 //When the login information of a department manager is correct
-                DepartmentManagerForm form = new DepartmentManagerForm(manageEmployees, id);
+                DepartmentManagerForm form = new DepartmentManagerForm(currentEmp);
                 this.Hide();
                 form.ShowDialog();
                 this.Close();
             }
-            else if (manageEmployees.FindEmployee(id).Position == EmployeeType.STOCK_MANAGER)
+            else if (currentEmp.Position == EmployeeType.STOCK_MANAGER)
             {
                 //When the login information of a stock manager is correct
-                StockManagerForm form = new StockManagerForm(manageEmployees, id);
+                StockManagerForm form = new StockManagerForm(currentEmp);
                 this.Hide();
                 form.ShowDialog();
                 this.Close();
             }
-            else if (manageEmployees.FindEmployee(id).Position == EmployeeType.STOCK_WORKER)
+            else if (currentEmp.Position == EmployeeType.STOCK_WORKER)
             {
                 //When the login information of a stock worker is correct
-                StockWorkerForm form = new StockWorkerForm(manageEmployees, id);
+                StockWorkerForm form = new StockWorkerForm(currentEmp);
                 this.Hide();
                 form.ShowDialog();
                 this.Close();
             }
-            
-            
+            else if (currentEmp.Position == EmployeeType.STORE_WORKER)
+            {
+                //When the login information of a stock worker is correct
+                MessageBox.Show($"Hello {currentEmp.FirstName}! You dont have access to the application.\nSoon you will have access to the website.");
+            }
         }
     }
 }

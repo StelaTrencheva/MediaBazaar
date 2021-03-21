@@ -13,14 +13,14 @@ namespace MediaBazaar
     public partial class HRAdminForm : Form
     {
         ManageEmployees manageEmployees;
-        int id;
+        Employee currentEmp;
 
-        public HRAdminForm(ManageEmployees manageEmployees, int id)
+        public HRAdminForm(Employee employee)
         {
             InitializeComponent();
-            this.manageEmployees = manageEmployees;
-            this.id = id;
-            hrAdminInterface1.SendInfo(manageEmployees,id);
+            this.manageEmployees = new ManageEmployees();
+            currentEmp = employee;
+            hrAdminInterface1.SendInfo(currentEmp);
         }
         private void HRAdminForm_Load(object sender, EventArgs e)
         {
@@ -53,8 +53,8 @@ namespace MediaBazaar
         private void btnHRAdminAccount_Click(object sender, EventArgs e)
         {
             PaintAllButtons();
-            hrAdminInterface1.Show();
             HideAllInterfaces();
+            hrAdminInterface1.Show();
             btnHRAdminAccount.BackColor = Color.White;
         }
 

@@ -13,14 +13,14 @@ namespace MediaBazaar
     public partial class StockManagerForm : Form
     {
         private ManageEmployees manageEmployees;
-        private int id;
+        private Employee currentEmp;
 
-        public StockManagerForm(ManageEmployees manageEmployees, int id)
+        public StockManagerForm(Employee currentEmp)
         {
             InitializeComponent();
-            this.manageEmployees = manageEmployees;
-            this.id = id;
-            this.stockManagerInterface1.SendInfo(manageEmployees, id);
+            this.manageEmployees = new ManageEmployees();
+            this.currentEmp = currentEmp;
+            this.stockManagerInterface1.SendInfo(currentEmp);
         }
         private void PaintAllButtons()
         {

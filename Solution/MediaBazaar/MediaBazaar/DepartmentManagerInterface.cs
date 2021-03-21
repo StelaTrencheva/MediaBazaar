@@ -13,32 +13,32 @@ namespace MediaBazaar
     public partial class DepartmentManagerInterface : UserControl
     {
         private ManageEmployees manageEmployees;
-        private int id;
+        private Employee currentEmp;
 
         public DepartmentManagerInterface()
         {
             InitializeComponent();
         }
 
-        public void SendInfo(ManageEmployees manageEmployees, int id)
+        public void SendInfo(Employee currentEmp)
         {
-            this.manageEmployees = manageEmployees;
-            this.id = id;
+            this.manageEmployees = new ManageEmployees();
+            this.currentEmp = currentEmp;
             this.UpdateLabel();
         }
 
         private void UpdateLabel()
         {
-            lblDepartmentMFName.Text = $"First name: {manageEmployees.FindEmployee(id).FirstName}";
-            lblDepartmentMLName.Text = $"Last name: {manageEmployees.FindEmployee(id).LastName}";
-            lblDepartmentMGender.Text = $"Gender: {manageEmployees.FindEmployee(id).Gender}";
-            lblDepartmentMBirthday.Text = $"Birthday: {manageEmployees.FindEmployee(id).Birthday.ToString("dd-MM-yyyy")}";
-            lblDepartmentMBSN.Text = $"BSN: {manageEmployees.FindEmployee(id).BSN}";
-            lblDepartmentMEmployeeType.Text = $"Eployee type: {manageEmployees.FindEmployee(id).Position}";
-            lblDepartmentMContractType.Text = $"Contract type: {manageEmployees.FindEmployee(id).Contract}";
-            lblDepartmentMPhoneNum.Text = $"Phone number: {manageEmployees.FindEmployee(id).PhoneNumber}";
-            lblDepartmentMEmail.Text = $"Email: {manageEmployees.FindEmployee(id).Email}";
-            lblDepartmentMAddress.Text = $"Address: {manageEmployees.FindEmployee(id).GetAddress()}";
+            lblDepartmentMFName.Text = $"First name: {currentEmp.FirstName}";
+            lblDepartmentMLName.Text = $"Last name: {currentEmp.LastName}";
+            lblDepartmentMGender.Text = $"Gender: {currentEmp.Gender}";
+            lblDepartmentMBirthday.Text = $"Birthday: {currentEmp.Birthday.ToString("dd-MM-yyyy")}";
+            lblDepartmentMBSN.Text = $"BSN: {currentEmp.BSN}";
+            lblDepartmentMEmployeeType.Text = $"Eployee type: {currentEmp.Position}";
+            lblDepartmentMContractType.Text = $"Contract type: {currentEmp.Contract}";
+            lblDepartmentMPhoneNum.Text = $"Phone number: {currentEmp.PhoneNumber}";
+            lblDepartmentMEmail.Text = $"Email: {currentEmp.Email}";
+            lblDepartmentMAddress.Text = $"Address: {currentEmp.GetAddress()}";
         }
     }
 }

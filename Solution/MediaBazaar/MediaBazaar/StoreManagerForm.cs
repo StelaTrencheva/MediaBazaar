@@ -13,14 +13,14 @@ namespace MediaBazaar
     public partial class StoreManagerForm : Form
     {
         private ManageEmployees manageEmployees;
-        private int id;
+        private Employee currentEmp;
 
-        public StoreManagerForm(ManageEmployees manageEmployees, int id)
+        public StoreManagerForm(Employee currentEmp)
         {
             InitializeComponent();
-            this.manageEmployees = manageEmployees;
-            this.id = id;
-            storeManagerInterface1.SendInfo(manageEmployees, id);
+            this.manageEmployees = new ManageEmployees();
+            this.currentEmp = currentEmp;
+            storeManagerInterface1.SendInfo(currentEmp);
         }
         private void PaintAllButtons()
         {

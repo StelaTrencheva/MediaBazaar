@@ -13,32 +13,32 @@ namespace MediaBazaar
     public partial class StockWorkerInterface : UserControl
     {
         private ManageEmployees manageEmployees;
-        private int id;
+        private Employee currentEmp;
 
         public StockWorkerInterface()
         {
             InitializeComponent();
         }
 
-        public void SendInfo(ManageEmployees manageEmployees, int id)
+        public void SendInfo(Employee currentEmp)
         {
-            this.manageEmployees = manageEmployees;
-            this.id = id;
+            this.manageEmployees = new ManageEmployees();
+            this.currentEmp = currentEmp;
             this.UpdateLabel();
         }
 
         private void UpdateLabel()
         {
-            lblStockWFName.Text = $"First name: {manageEmployees.FindEmployee(id).FirstName}";
-            lblStockWLName.Text = $"Last name: {manageEmployees.FindEmployee(id).LastName}";
-            lblStockWGender.Text = $"Gender: {manageEmployees.FindEmployee(id).Gender}";
-            lblStockWBirthday.Text = $"Birthday: {manageEmployees.FindEmployee(id).Birthday.ToString("dd-MM-yyyy")}";
-            lblStockWBSN.Text = $"BSN: {manageEmployees.FindEmployee(id).BSN}";
-            lblStockWEmployeeType.Text = $"Eployee type: {manageEmployees.FindEmployee(id).Position}";
-            lblStockWContractType.Text = $"Contract type: {manageEmployees.FindEmployee(id).Contract}";
-            lblStockWPhoneNum.Text = $"Phone number: {manageEmployees.FindEmployee(id).PhoneNumber}";
-            lblStockWEmail.Text = $"Email: {manageEmployees.FindEmployee(id).Email}";
-            lblStockWAddress.Text = $"Address: {manageEmployees.FindEmployee(id).GetAddress()}";
+            lblStockWFName.Text = $"First name: {currentEmp.FirstName}";
+            lblStockWLName.Text = $"Last name: {currentEmp.LastName}";
+            lblStockWGender.Text = $"Gender: {currentEmp.Gender}";
+            lblStockWBirthday.Text = $"Birthday: {currentEmp.Birthday.ToString("dd-MM-yyyy")}";
+            lblStockWBSN.Text = $"BSN: {currentEmp.BSN}";
+            lblStockWEmployeeType.Text = $"Eployee type: {currentEmp.Position}";
+            lblStockWContractType.Text = $"Contract type: {currentEmp.Contract}";
+            lblStockWPhoneNum.Text = $"Phone number: {currentEmp.PhoneNumber}";
+            lblStockWEmail.Text = $"Email: {currentEmp.Email}";
+            lblStockWAddress.Text = $"Address: {currentEmp.GetAddress()}";
         }
     }
 }

@@ -12,32 +12,30 @@ namespace MediaBazaar
 {
     public partial class StoreManagerInterface : UserControl
     {
-        private ManageEmployees manageEmployees;
-        private int id;
+        private Employee currentEmp;
 
         public StoreManagerInterface()
         {
             InitializeComponent();
         }
 
-        public void SendInfo(ManageEmployees manageEmployees, int id)
+        public void SendInfo(Employee currentEmp)
         {
-            this.manageEmployees = manageEmployees;
-            this.id = id;
+            this.currentEmp = currentEmp;
             this.UpdateLabel();
         }
         private void UpdateLabel()
         {
-            lblStoreMFName.Text = $"First name: {manageEmployees.FindEmployee(id).FirstName}";
-            lblStoreMLName.Text = $"Last name: {manageEmployees.FindEmployee(id).LastName}";
-            lblStoreMGender.Text = $"Gender: {manageEmployees.FindEmployee(id).Gender}";
-            lblStoreMBirthday.Text = $"Birthday: {manageEmployees.FindEmployee(id).Birthday.ToString("dd-MM-yyyy")}";
-            lblStoreMBSN.Text = $"BSN: {manageEmployees.FindEmployee(id).BSN}";
-            lblStoreMEmployeeType.Text = $"Eployee type: {manageEmployees.FindEmployee(id).Position}";
-            lblStoreMContractType.Text = $"Contract type: {manageEmployees.FindEmployee(id).Contract}";
-            lblStoreMPhoneNum.Text = $"Phone number: {manageEmployees.FindEmployee(id).PhoneNumber}";
-            lblStoreMEmail.Text = $"Email: {manageEmployees.FindEmployee(id).Email}";
-            lblStoreMAddress.Text = $"Address: {manageEmployees.FindEmployee(id).GetAddress()}";
+            lblStoreMFName.Text = $"First name: {currentEmp.FirstName}";
+            lblStoreMLName.Text = $"Last name: {currentEmp.LastName}";
+            lblStoreMGender.Text = $"Gender: {currentEmp.Gender}";
+            lblStoreMBirthday.Text = $"Birthday: {currentEmp.Birthday.ToString("dd-MM-yyyy")}";
+            lblStoreMBSN.Text = $"BSN: {currentEmp.BSN}";
+            lblStoreMEmployeeType.Text = $"Eployee type: {currentEmp.Position}";
+            lblStoreMContractType.Text = $"Contract type: {currentEmp.Contract}";
+            lblStoreMPhoneNum.Text = $"Phone number: {currentEmp.PhoneNumber}";
+            lblStoreMEmail.Text = $"Email: {currentEmp.Email}";
+            lblStoreMAddress.Text = $"Address: {currentEmp.GetAddress()}";
         }
     }
 }
