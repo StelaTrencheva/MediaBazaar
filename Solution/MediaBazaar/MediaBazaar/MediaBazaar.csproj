@@ -80,12 +80,6 @@
     <Compile Include="EmployeeStatistics.Designer.cs">
       <DependentUpon>EmployeeStatistics.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeStatisticsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EmployeeStatisticsForm.Designer.cs">
-      <DependentUpon>EmployeeStatisticsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="EmployeeType.cs" />
     <Compile Include="Gender.cs" />
     <Compile Include="HRAdminForm.cs">
@@ -181,9 +175,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeStatistics.resx">
       <DependentUpon>EmployeeStatistics.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeStatisticsForm.resx">
-      <DependentUpon>EmployeeStatisticsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HRAdminForm.resx">
       <DependentUpon>HRAdminForm.cs</DependentUpon>
