@@ -114,6 +114,12 @@
     <Compile Include="ProductData.Designer.cs">
       <DependentUpon>ProductData.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductStatisticInterface.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProductStatisticInterface.Designer.cs">
+      <DependentUpon>ProductStatisticInterface.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schedule.cs" />
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProductData.resx">
       <DependentUpon>ProductData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductStatisticInterface.resx">
+      <DependentUpon>ProductStatisticInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

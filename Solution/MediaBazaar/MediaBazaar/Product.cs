@@ -20,6 +20,16 @@ namespace MediaBazaar
         private int amountInStore;
         private int amountInWarehouse;
 
+        public int PNumber { get { return this.pNumber; } }
+
+        public string Brand { get { return this.brand; } }
+
+        public string Model { get { return this.model; } }
+
+        public decimal SalePrice { get { return this.salePrice; } }
+
+        public decimal CostPrice { get { return this.costPrice; } }
+
         public Product(int pNumber, string brand, string type, string model, string description,
             string category, string subcategory, decimal costPrice, decimal salePrice, int amountInStore,
             int amountInWarehouse)

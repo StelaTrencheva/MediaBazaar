@@ -37,8 +37,9 @@ namespace MediaBazaar
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnStoreMLogOut = new System.Windows.Forms.Button();
             this.btnStoreM = new System.Windows.Forms.Button();
-            this.storeManagerInterface1 = new MediaBazaar.StoreManagerInterface();
             this.employeeStatistics1 = new MediaBazaar.EmployeeStatistics();
+            this.storeManagerInterface1 = new MediaBazaar.StoreManagerInterface();
+            this.productStatisticInterface1 = new MediaBazaar.ProductStatisticInterface();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -130,14 +131,6 @@ namespace MediaBazaar
             this.btnStoreM.UseVisualStyleBackColor = false;
             this.btnStoreM.Click += new System.EventHandler(this.btnStoreM_Click);
             // 
-            // storeManagerInterface1
-            // 
-            this.storeManagerInterface1.Location = new System.Drawing.Point(213, 0);
-            this.storeManagerInterface1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.storeManagerInterface1.Name = "storeManagerInterface1";
-            this.storeManagerInterface1.Size = new System.Drawing.Size(890, 530);
-            this.storeManagerInterface1.TabIndex = 45;
-            // 
             // employeeStatistics1
             // 
             this.employeeStatistics1.BackColor = System.Drawing.Color.Transparent;
@@ -146,12 +139,28 @@ namespace MediaBazaar
             this.employeeStatistics1.Size = new System.Drawing.Size(890, 530);
             this.employeeStatistics1.TabIndex = 46;
             // 
+            // storeManagerInterface1
+            // 
+            this.storeManagerInterface1.Location = new System.Drawing.Point(213, 0);
+            this.storeManagerInterface1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.storeManagerInterface1.Name = "storeManagerInterface1";
+            this.storeManagerInterface1.Size = new System.Drawing.Size(890, 530);
+            this.storeManagerInterface1.TabIndex = 45;
+            // 
+            // productStatisticInterface1
+            // 
+            this.productStatisticInterface1.Location = new System.Drawing.Point(212, 0);
+            this.productStatisticInterface1.Name = "productStatisticInterface1";
+            this.productStatisticInterface1.Size = new System.Drawing.Size(890, 530);
+            this.productStatisticInterface1.TabIndex = 47;
+            // 
             // StoreManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1126, 528);
+            this.Controls.Add(this.productStatisticInterface1);
             this.Controls.Add(this.employeeStatistics1);
             this.Controls.Add(this.storeManagerInterface1);
             this.Controls.Add(this.panel1);
@@ -178,5 +187,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnStoreMEmployeeStatistic;
         private StoreManagerInterface storeManagerInterface1;
         private EmployeeStatistics employeeStatistics1;
+        private ProductStatisticInterface productStatisticInterface1;
     }
 }
