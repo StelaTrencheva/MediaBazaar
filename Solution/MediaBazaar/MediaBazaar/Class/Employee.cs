@@ -29,6 +29,7 @@ namespace MediaBazaar
         /*private DateTime contractStartDate;*/
         private ContractType contract;
         private EmployeeType position;
+        
         public int Id
         {
             get { return this.id; }
@@ -91,7 +92,7 @@ namespace MediaBazaar
         }
         public string GetInfo
         {
-            get { return $"ID: {this.Id}-{this.firstName} {this.lastName} - {this.Position}/ Contract: {this.Contract}"; }
+            get { return $"ID: {this.Id}-\t{this.firstName} {this.lastName} - {this.Position}/ Contract: {this.Contract}"; }
         }
         public string EmployeeFullInfo
         {
@@ -137,5 +138,10 @@ namespace MediaBazaar
         {
             return $"{addrStreet} {addrStreetNumber}; {addrZipcode}; {addrCountry}, {addrTown}";
         }
+        public override string ToString()
+        {
+            return $"Bsn: {bsn}, {firstName} {lastName}, {gender}, {email}, birthday: {birthDay.ToString("yyyy-MM-dd")}, Phone: {emergencyPhoneNumber}, IBAN: {iban}";
+        }
+
     }
 }

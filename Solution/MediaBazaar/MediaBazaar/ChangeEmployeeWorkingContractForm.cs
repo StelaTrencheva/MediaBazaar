@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace MediaBazaar
 {
-    public partial class ChangeEmployeeWorkingContract : Form
+    public partial class ChangeEmployeeWorkingContractForm : Form
     {
-        Employee employee;
+        Employee currentEmployee;
         DatabaseMediator dbMediator;
-        public ChangeEmployeeWorkingContract()
+        public ChangeEmployeeWorkingContractForm()
         {
             InitializeComponent();
             dbMediator = new DatabaseMediator();
@@ -22,30 +22,32 @@ namespace MediaBazaar
 
         public void SetEmployee(Employee emp)
         {
-            this.employee = emp;
+            this.currentEmployee = emp;
         }
 
         private void ChangeEmployeeWorkingContract_Load(object sender, EventArgs e)
         {
-            tbxCurrentContract.Text = employee.Contract.ToString();
-            txbEmployeeInfo.Text = employee.EmployeeFullInfo;
+            tbxCurrentContract.Text = currentEmployee.Contract.ToString();
+            txbEmployeeInfo.Text = currentEmployee.EmployeeFullInfo;
+            cbbChangeCOntract.SelectedIndex = 0;
         }
 
         private void btnChangeContract_Click(object sender, EventArgs e)
         {
             int index = cbbChangeCOntract.SelectedIndex  ;
-            if(employee.Contract == (ContractType)(index))
+            if(currentEmployee.Contract == (ContractType)(index))
             {
-                MessageBox.Show($"{employee.GetEmployeeNames}is already assigned to this contract. \r\n" +
-                    $" If you want to change {employee.GetEmployeeNames}'s contract please choose another option.");
+                MessageBox.Show($"{currentEmployee.GetEmployeeNames}is already assigned to this contract. \r\n" +
+                    $" If you want to change {currentEmployee.GetEmployeeNames}'s contract please choose another option.");
             }
             else
             {
-                employee.Contract = (ContractType)(index);
-                bool success = dbMediator.ChangeWorkContract((ContractType)(index + 1), employee.Id);
+                currentEmployee.Contract = (ContractType)(index);
+                bool success = dbMediator.ChangeWorkContract((ContractType)(index + 1), currentEmployee.Id);
                 if(success)
                 {
                     MessageBox.Show("Success");
+                    this.Close();
                 }
             }
 

@@ -28,7 +28,6 @@ namespace MediaBazaar
                 tbPassword.Text = "";
                 return;
             }
-            
             else if(currentEmp.Position == EmployeeType.HR)
             {
                 //When the login information of a HR is correct

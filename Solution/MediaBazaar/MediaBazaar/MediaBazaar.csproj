@@ -47,41 +47,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddProductInterface.cs">
+    <Compile Include="UserControls\AddProductInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AddProductInterface.Designer.cs">
+    <Compile Include="UserControls\AddProductInterface.Designer.cs">
       <DependentUpon>AddProductInterface.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChangeEmployeeWorkingContract.cs">
+    <Compile Include="ChangeEmployeeWorkingContractForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChangeEmployeeWorkingContract.Designer.cs">
-      <DependentUpon>ChangeEmployeeWorkingContract.cs</DependentUpon>
+    <Compile Include="ChangeEmployeeWorkingContractForm.Designer.cs">
+      <DependentUpon>ChangeEmployeeWorkingContractForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ContractType.cs" />
-    <Compile Include="DatabaseMediator.cs" />
+    <Compile Include="Enum\ContractType.cs" />
+    <Compile Include="Class\DatabaseMediator.cs" />
     <Compile Include="DepartmentManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DepartmentManagerForm.Designer.cs">
       <DependentUpon>DepartmentManagerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DepartmentManagerInterface.cs">
+    <Compile Include="UserControls\DepartmentManagerInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DepartmentManagerInterface.Designer.cs">
+    <Compile Include="UserControls\DepartmentManagerInterface.Designer.cs">
       <DependentUpon>DepartmentManagerInterface.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employee.cs" />
-    <Compile Include="EmployeeStatistics.cs">
+    <Compile Include="Class\Employee.cs" />
+    <Compile Include="UserControls\EmployeeStatistics.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EmployeeStatistics.Designer.cs">
+    <Compile Include="UserControls\EmployeeStatistics.Designer.cs">
       <DependentUpon>EmployeeStatistics.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeType.cs" />
-    <Compile Include="Gender.cs" />
+    <Compile Include="Enum\EmployeeType.cs" />
+    <Compile Include="Enum\Gender.cs" />
     <Compile Include="HRAdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,47 +94,47 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HRAdminInterface.cs">
+    <Compile Include="UserControls\HRAdminInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="HRAdminInterface.Designer.cs">
+    <Compile Include="UserControls\HRAdminInterface.Designer.cs">
       <DependentUpon>HRAdminInterface.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageEmployeeInterface.cs">
+    <Compile Include="UserControls\ManageEmployeeInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ManageEmployeeInterface.Designer.cs">
+    <Compile Include="UserControls\ManageEmployeeInterface.Designer.cs">
       <DependentUpon>ManageEmployeeInterface.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageEmployees.cs" />
-    <Compile Include="Product.cs" />
-    <Compile Include="ProductData.cs">
+    <Compile Include="Class\ManageEmployees.cs" />
+    <Compile Include="Class\Product.cs" />
+    <Compile Include="UserControls\ProductData.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ProductData.Designer.cs">
+    <Compile Include="UserControls\ProductData.Designer.cs">
       <DependentUpon>ProductData.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductStatisticInterface.cs">
+    <Compile Include="UserControls\ProductStatisticInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ProductStatisticInterface.Designer.cs">
+    <Compile Include="UserControls\ProductStatisticInterface.Designer.cs">
       <DependentUpon>ProductStatisticInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schedule.cs" />
-    <Compile Include="Shift.cs" />
-    <Compile Include="ShiftType.cs" />
+    <Compile Include="Class\Schedule.cs" />
+    <Compile Include="Class\Shift.cs" />
+    <Compile Include="Enum\ShiftType.cs" />
     <Compile Include="StockManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StockManagerForm.Designer.cs">
       <DependentUpon>StockManagerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StockManagerInterface.cs">
+    <Compile Include="UserControls\StockManagerInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="StockManagerInterface.Designer.cs">
+    <Compile Include="UserControls\StockManagerInterface.Designer.cs">
       <DependentUpon>StockManagerInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="StockWorkerForm.cs">
@@ -143,10 +143,10 @@
     <Compile Include="StockWorkerForm.Designer.cs">
       <DependentUpon>StockWorkerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StockWorkerInterface.cs">
+    <Compile Include="UserControls\StockWorkerInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="StockWorkerInterface.Designer.cs">
+    <Compile Include="UserControls\StockWorkerInterface.Designer.cs">
       <DependentUpon>StockWorkerInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="StoreManagerForm.cs">
@@ -155,31 +155,31 @@
     <Compile Include="StoreManagerForm.Designer.cs">
       <DependentUpon>StoreManagerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StoreManagerInterface.cs">
+    <Compile Include="UserControls\StoreManagerInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="StoreManagerInterface.Designer.cs">
+    <Compile Include="UserControls\StoreManagerInterface.Designer.cs">
       <DependentUpon>StoreManagerInterface.cs</DependentUpon>
     </Compile>
-    <Compile Include="StoreWorkerScheduleInterface.cs">
+    <Compile Include="UserControls\StoreWorkerScheduleInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="StoreWorkerScheduleInterface.Designer.cs">
+    <Compile Include="UserControls\StoreWorkerScheduleInterface.Designer.cs">
       <DependentUpon>StoreWorkerScheduleInterface.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddProductInterface.resx">
+    <EmbeddedResource Include="UserControls\AddProductInterface.resx">
       <DependentUpon>AddProductInterface.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChangeEmployeeWorkingContract.resx">
-      <DependentUpon>ChangeEmployeeWorkingContract.cs</DependentUpon>
+    <EmbeddedResource Include="ChangeEmployeeWorkingContractForm.resx">
+      <DependentUpon>ChangeEmployeeWorkingContractForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DepartmentManagerForm.resx">
       <DependentUpon>DepartmentManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DepartmentManagerInterface.resx">
+    <EmbeddedResource Include="UserControls\DepartmentManagerInterface.resx">
       <DependentUpon>DepartmentManagerInterface.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeStatistics.resx">
+    <EmbeddedResource Include="UserControls\EmployeeStatistics.resx">
       <DependentUpon>EmployeeStatistics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HRAdminForm.resx">
@@ -188,16 +188,16 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HRAdminInterface.resx">
+    <EmbeddedResource Include="UserControls\HRAdminInterface.resx">
       <DependentUpon>HRAdminInterface.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManageEmployeeInterface.resx">
+    <EmbeddedResource Include="UserControls\ManageEmployeeInterface.resx">
       <DependentUpon>ManageEmployeeInterface.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductData.resx">
+    <EmbeddedResource Include="UserControls\ProductData.resx">
       <DependentUpon>ProductData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductStatisticInterface.resx">
+    <EmbeddedResource Include="UserControls\ProductStatisticInterface.resx">
       <DependentUpon>ProductStatisticInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -213,22 +213,22 @@
     <EmbeddedResource Include="StockManagerForm.resx">
       <DependentUpon>StockManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StockManagerInterface.resx">
+    <EmbeddedResource Include="UserControls\StockManagerInterface.resx">
       <DependentUpon>StockManagerInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StockWorkerForm.resx">
       <DependentUpon>StockWorkerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StockWorkerInterface.resx">
+    <EmbeddedResource Include="UserControls\StockWorkerInterface.resx">
       <DependentUpon>StockWorkerInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StoreManagerForm.resx">
       <DependentUpon>StoreManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StoreManagerInterface.resx">
+    <EmbeddedResource Include="UserControls\StoreManagerInterface.resx">
       <DependentUpon>StoreManagerInterface.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StoreWorkerScheduleInterface.resx">
+    <EmbeddedResource Include="UserControls\StoreWorkerScheduleInterface.resx">
       <DependentUpon>StoreWorkerScheduleInterface.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -247,5 +247,6 @@
   <ItemGroup>
     <None Include="Resources\logo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

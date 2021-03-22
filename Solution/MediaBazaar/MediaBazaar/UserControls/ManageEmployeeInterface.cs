@@ -12,34 +12,62 @@ namespace MediaBazaar
 {
     public partial class ManageEmployeeInterface : UserControl
     {
-        ManageEmployees mngEmp;
-        ChangeEmployeeWorkingContract changeContractForm;
+        ManageEmployees manageEmployees;
+        ChangeEmployeeWorkingContractForm changeContractForm;
         public ManageEmployeeInterface()
         {
             InitializeComponent();
-            mngEmp = new ManageEmployees();
+            manageEmployees = new ManageEmployees();
         }
        
 
         private void ManageEmployeeInterface_Load(object sender, EventArgs e)
         {
-            foreach(Employee emp in mngEmp.GetListOFAllEmployees())
+            UpdateListBoxEmployee();
+            SetComboBoxes();
+            UpdateListBoxViewEmployees();
+        }
+        private void UpdateListBoxViewEmployees()
+        {
+            lbxViewEmployees.Items.Clear();
+            foreach (Employee emp in manageEmployees.GetListOFAllEmployees())
+            {
+                lbxViewEmployees.Items.Add(emp.ToString());
+            }
+
+        }
+        private void SetComboBoxes()
+        {
+            cbxContractType.SelectedIndex = 0;
+            cbxGender.SelectedIndex = 0;
+            cbxTypeOfEmployee.SelectedIndex = 0;
+        }
+        private void UpdateListBoxEmployee()
+        {
+            lbxDisplayEMployees.Items.Clear();
+            foreach (Employee emp in manageEmployees.GetListOFAllEmployees())
             {
                 lbxDisplayEMployees.Items.Add(emp.GetInfo);
             }
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
+        private void btnViewDetails_Click(object sender, EventArgs e)
         {
-            changeContractForm = new ChangeEmployeeWorkingContract();
-            
-            int index = lbxDisplayEMployees.SelectedIndex;
-            foreach (Employee emp in mngEmp.GetListOFAllEmployees())
+            if(lbxDisplayEMployees.SelectedItem == null)
             {
-               if(emp.Id == (index + 1))
+                MessageBox.Show("Please select an employee");
+                return;
+            }
+            changeContractForm = new ChangeEmployeeWorkingContractForm();
+            
+            foreach (Employee emp in manageEmployees.GetListOFAllEmployees())
+            {
+               if(emp.GetInfo == lbxDisplayEMployees.SelectedItem.ToString())
                 {
                     changeContractForm.SetEmployee(emp);
-                    changeContractForm.Show();
+                    changeContractForm.ShowDialog();
+                    UpdateListBoxEmployee();
+                    return;
                 }
             }
         }
@@ -68,7 +96,7 @@ namespace MediaBazaar
                 ContractType contract = (ContractType)(cbxContractType.SelectedIndex);
                 EmployeeType position = (EmployeeType)(cbxTypeOfEmployee.SelectedIndex);
 
-                if (mngEmp.AddEmployeeToDb( bsn, FName, LName, gender,  email,  username,  password,  birthDay,
+                if (manageEmployees.AddEmployeeToDb( bsn, FName, LName, gender,  email,  username,  password,  birthDay,
                  addrStreet,  addrStreetNumber,  addrZipcode,  addrTown,  addrCountry,
                   firstWorkingDay,  emergencyPhoneNumber,  iban,  hourlyWage,  /*contractStartDate,*/ contract,  position))
                 {

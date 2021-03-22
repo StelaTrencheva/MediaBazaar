@@ -146,7 +146,7 @@ namespace MediaBazaar
             sqlCommand.Parameters.AddWithValue("@1", bsn);
             sqlCommand.Parameters.AddWithValue("@2", firstName);
             sqlCommand.Parameters.AddWithValue("@3", lastName);
-            sqlCommand.Parameters.AddWithValue("@4", gender);
+            sqlCommand.Parameters.AddWithValue("@4", gender.ToString());
             sqlCommand.Parameters.AddWithValue("@5", email);
             sqlCommand.Parameters.AddWithValue("@6", username);
             sqlCommand.Parameters.AddWithValue("@7", password);
