@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgvEmployeeStatistics = new System.Windows.Forms.DataGridView();
+            this.lblEmpStat = new System.Windows.Forms.Label();
+            this.dtDateStatistic = new System.Windows.Forms.DateTimePicker();
             this.C_EmployeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_EmployeeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_Contract = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C_Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_HourlyWage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_TotalSalaryPerDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_TotalSalaryPerWeek = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_TotalSalaryPerMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,19 +53,20 @@
             this.C_ZeroHourContractAvgPerWeek = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_ZeroHourContractAvgPerMonth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_ZeroHourContractAvgPerYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C_Retention = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvEmployeeStatistics)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dtgvEmployeeStatistics
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtgvEmployeeStatistics.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.dtgvEmployeeStatistics.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvEmployeeStatistics.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.C_EmployeeID,
             this.C_EmployeeName,
             this.C_Position,
             this.C_Contract,
-            this.C_Department,
+            this.C_Email,
+            this.C_HourlyWage,
             this.C_TotalSalaryPerDay,
             this.C_TotalSalaryPerWeek,
             this.C_TotalSalaryPerMonth,
@@ -78,14 +82,35 @@
             this.C_ZeroHourContractAvgPerDay,
             this.C_ZeroHourContractAvgPerWeek,
             this.C_ZeroHourContractAvgPerMonth,
-            this.C_ZeroHourContractAvgPerYear,
-            this.C_Retention});
-            this.dataGridView1.Location = new System.Drawing.Point(17, 14);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(855, 497);
-            this.dataGridView1.TabIndex = 0;
+            this.C_ZeroHourContractAvgPerYear});
+            this.dtgvEmployeeStatistics.GridColor = System.Drawing.SystemColors.InfoText;
+            this.dtgvEmployeeStatistics.Location = new System.Drawing.Point(0, 57);
+            this.dtgvEmployeeStatistics.Name = "dtgvEmployeeStatistics";
+            this.dtgvEmployeeStatistics.RowHeadersWidth = 51;
+            this.dtgvEmployeeStatistics.RowTemplate.Height = 24;
+            this.dtgvEmployeeStatistics.Size = new System.Drawing.Size(890, 470);
+            this.dtgvEmployeeStatistics.StandardTab = true;
+            this.dtgvEmployeeStatistics.TabIndex = 0;
+            // 
+            // lblEmpStat
+            // 
+            this.lblEmpStat.AutoSize = true;
+            this.lblEmpStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblEmpStat.Location = new System.Drawing.Point(3, 12);
+            this.lblEmpStat.Name = "lblEmpStat";
+            this.lblEmpStat.Size = new System.Drawing.Size(213, 25);
+            this.lblEmpStat.TabIndex = 2;
+            this.lblEmpStat.Text = "Chosen period of time: ";
+            // 
+            // dtDateStatistic
+            // 
+            this.dtDateStatistic.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dtDateStatistic.Location = new System.Drawing.Point(243, 14);
+            this.dtDateStatistic.Name = "dtDateStatistic";
+            this.dtDateStatistic.Size = new System.Drawing.Size(256, 22);
+            this.dtDateStatistic.TabIndex = 3;
+            this.dtDateStatistic.Value = new System.DateTime(2021, 3, 22, 12, 44, 54, 0);
+            this.dtDateStatistic.ValueChanged += new System.EventHandler(this.dtDateStatistic_ValueChanged);
             // 
             // C_EmployeeID
             // 
@@ -115,12 +140,19 @@
             this.C_Contract.Name = "C_Contract";
             this.C_Contract.Width = 125;
             // 
-            // C_Department
+            // C_Email
             // 
-            this.C_Department.HeaderText = "Department";
-            this.C_Department.MinimumWidth = 6;
-            this.C_Department.Name = "C_Department";
-            this.C_Department.Width = 125;
+            this.C_Email.HeaderText = "E-mail";
+            this.C_Email.MinimumWidth = 6;
+            this.C_Email.Name = "C_Email";
+            this.C_Email.Width = 125;
+            // 
+            // C_HourlyWage
+            // 
+            this.C_HourlyWage.HeaderText = "Hourly wage";
+            this.C_HourlyWage.MinimumWidth = 6;
+            this.C_HourlyWage.Name = "C_HourlyWage";
+            this.C_HourlyWage.Width = 125;
             // 
             // C_TotalSalaryPerDay
             // 
@@ -138,7 +170,7 @@
             // 
             // C_TotalSalaryPerMonth
             // 
-            this.C_TotalSalaryPerMonth.HeaderText = "TotalSalaryPerMonth";
+            this.C_TotalSalaryPerMonth.HeaderText = "Total salary per month";
             this.C_TotalSalaryPerMonth.MinimumWidth = 6;
             this.C_TotalSalaryPerMonth.Name = "C_TotalSalaryPerMonth";
             this.C_TotalSalaryPerMonth.Width = 125;
@@ -180,7 +212,7 @@
             // 
             // C_ContractuaHoursPerDay
             // 
-            this.C_ContractuaHoursPerDay.HeaderText = "Contractual hours per day";
+            this.C_ContractuaHoursPerDay.HeaderText = "Contractual hours per day (avg)";
             this.C_ContractuaHoursPerDay.MinimumWidth = 6;
             this.C_ContractuaHoursPerDay.Name = "C_ContractuaHoursPerDay";
             this.C_ContractuaHoursPerDay.Width = 125;
@@ -222,7 +254,7 @@
             // 
             // C_ZeroHourContractAvgPerMonth
             // 
-            this.C_ZeroHourContractAvgPerMonth.HeaderText = "Zero-hour contract per month";
+            this.C_ZeroHourContractAvgPerMonth.HeaderText = "Zero-hour contract avg per month";
             this.C_ZeroHourContractAvgPerMonth.MinimumWidth = 6;
             this.C_ZeroHourContractAvgPerMonth.Name = "C_ZeroHourContractAvgPerMonth";
             this.C_ZeroHourContractAvgPerMonth.Width = 125;
@@ -234,35 +266,34 @@
             this.C_ZeroHourContractAvgPerYear.Name = "C_ZeroHourContractAvgPerYear";
             this.C_ZeroHourContractAvgPerYear.Width = 125;
             // 
-            // C_Retention
-            // 
-            this.C_Retention.HeaderText = "Retention";
-            this.C_Retention.MinimumWidth = 6;
-            this.C_Retention.Name = "C_Retention";
-            this.C_Retention.Width = 125;
-            // 
             // EmployeeStatistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Lavender;
-            this.Controls.Add(this.dataGridView1);
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.dtDateStatistic);
+            this.Controls.Add(this.lblEmpStat);
+            this.Controls.Add(this.dtgvEmployeeStatistics);
             this.Name = "EmployeeStatistics";
             this.Size = new System.Drawing.Size(890, 530);
             this.Load += new System.EventHandler(this.EmployeeStatistics_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvEmployeeStatistics)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgvEmployeeStatistics;
+        private System.Windows.Forms.Label lblEmpStat;
+        private System.Windows.Forms.DateTimePicker dtDateStatistic;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_EmployeeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_EmployeeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_Position;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_Contract;
-        private System.Windows.Forms.DataGridViewTextBoxColumn C_Department;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C_Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C_HourlyWage;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_TotalSalaryPerDay;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_TotalSalaryPerWeek;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_TotalSalaryPerMonth;
@@ -279,6 +310,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn C_ZeroHourContractAvgPerWeek;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_ZeroHourContractAvgPerMonth;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_ZeroHourContractAvgPerYear;
-        private System.Windows.Forms.DataGridViewTextBoxColumn C_Retention;
     }
 }

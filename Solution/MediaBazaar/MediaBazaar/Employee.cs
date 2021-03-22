@@ -81,7 +81,10 @@ namespace MediaBazaar
             get { return this.contract; }
             set { this.contract = value; }
         }
-       
+       public double HourlyWage
+        {
+            get { return this.hourlyWage; }
+        }
         public string GetEmployeeNames
         {
             get { return $"{this.firstName} {this.lastName}"; }

@@ -307,6 +307,121 @@ namespace MediaBazaar
             }
         }
 
+        public List<int> GetEmployeesAssignedHoursForStatPerDay(List<int> employees, string date)
+        {
+            string sqlStatement = " select IF(es.times IS NULL, 0, es.times) as assignedHours, e.id from mb_employee e left join " +
+                "(select count(*) as times, employeeID from mb_shift_with_assigned_employee where shiftID in " +
+                "(select id from mb_shift where EXTRACT(DAY FROM date) = @date ) group by employeeID) es ON es.employeeID = e.id" +
+                " where e.id in (" + string.Join(",", employees) + ")";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.dbConnection);
+            sqlCommand.Parameters.AddWithValue("@date", date);
+            List<int> assignedHours = new List<int>();
+
+            try
+            {
+                MySqlDataReader reader;
+                dbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    assignedHours.Add(Convert.ToInt32(reader["assignedHours"]) * 4);
+                }
+            }
+            finally
+            {
+                this.dbConnection.Close();
+
+            }
+            return assignedHours;
+        }
+        //Proba
+        public List<int> GetEmployeesAssignedHoursForStatPerWeek(List<int> employees, string date)
+        {
+            string sqlStatement = " select IF(es.times IS NULL, 0, es.times) as assignedHours, e.id from mb_employee e left join " +
+                "(select count(*) as times, employeeID from mb_shift_with_assigned_employee where shiftID in " +
+                "(select id from mb_shift where week(date, 1) = week(@date, 1)) group by employeeID) es ON es.employeeID = e.id" +
+                " where e.id in (" + string.Join(",", employees) + ")";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.dbConnection);
+            sqlCommand.Parameters.AddWithValue("@date", date);
+            List<int> assignedHours = new List<int>();
+
+            try
+            {
+                MySqlDataReader reader;
+                dbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    assignedHours.Add(Convert.ToInt32(reader["assignedHours"]) * 4);
+                }
+            }
+            finally
+            {
+                this.dbConnection.Close();
+
+            }
+            return assignedHours;
+        }
+        public List<int> GetEmployeesAssignedHoursForStatPerMonth(List<int> employees, string month)
+        {
+            string sqlStatement = " select IF(es.times IS NULL, 0, es.times) as assignedHours, e.id from mb_employee e left join " +
+                "(select count(*) as times, employeeID from mb_shift_with_assigned_employee where shiftID in " +
+                "(select id from mb_shift where EXTRACT(MONTH FROM date) = @month ) group by employeeID) es ON es.employeeID = e.id" +
+                " where e.id in (" + string.Join(",", employees) + ")";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.dbConnection);
+            sqlCommand.Parameters.AddWithValue("@month", month);
+            List<int> assignedHours = new List<int>();
+
+            try
+            {
+                MySqlDataReader reader;
+                dbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    assignedHours.Add(Convert.ToInt32(reader["assignedHours"]) * 4);
+                }
+            }
+            finally
+            {
+                this.dbConnection.Close();
+
+            }
+            return assignedHours;
+        }
+
+        public List<int> GetEmployeesAssignedHoursForStatPerYear(List<int> employees, string year)
+        {
+            string sqlStatement = " select IF(es.times IS NULL, 0, es.times) as assignedHours, e.id from mb_employee e left join " +
+                "(select count(*) as times, employeeID from mb_shift_with_assigned_employee where shiftID in " +
+                "(select id from mb_shift where EXTRACT(YEAR FROM date) = @year ) group by employeeID) es ON es.employeeID = e.id" +
+                " where e.id in (" + string.Join(",", employees) + ")";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.dbConnection);
+            sqlCommand.Parameters.AddWithValue("@year", year);
+            List<int> assignedHours = new List<int>();
+
+            try
+            {
+                MySqlDataReader reader;
+                dbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    assignedHours.Add(Convert.ToInt32(reader["assignedHours"]) * 4);
+                }
+            }
+            finally
+            {
+                this.dbConnection.Close();
+
+            }
+            return assignedHours;
+        }
+
         private string sqlExceptionMessage(string originalExceptionMessage)//WORKING!!
         {
             return (

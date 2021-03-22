@@ -31,6 +31,7 @@ namespace MediaBazaar
         private void HideAllInterfaces()
         {
             storeManagerInterface1.Hide();
+            employeeStatistics1.Hide();
 
         }
         private void btnStoreMLogOut_Click(object sender, EventArgs e)
@@ -46,6 +47,7 @@ namespace MediaBazaar
             PaintAllButtons();
             btnStoreMEmployeeStatistic.BackColor = Color.White;
             HideAllInterfaces();
+            employeeStatistics1.Show();
             
         }
 
