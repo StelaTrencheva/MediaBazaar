@@ -46,7 +46,12 @@ namespace MediaBazaar
             this.amountInStore = amountInStore;
             this.amountInWarehouse = amountInWarehouse;
         }
-
+        public string GetStatistic(int quantity)
+        {
+            return $"Product number: {PNumber} - {Brand} {Model} - Total revenue: " +
+                    $"{SalePrice * quantity} Total profit: {(SalePrice * quantity) - (CostPrice * quantity)} " +
+                    $"- for {quantity} Quality";
+        }
         public override string ToString()
         {
             return $" Product number: {this.pNumber} - {this.brand} {this.model} - Description: {this.description} - Cost price: {this.costPrice} -" +

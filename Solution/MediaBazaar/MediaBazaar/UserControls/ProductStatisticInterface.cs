@@ -17,18 +17,19 @@ namespace MediaBazaar
         {
             InitializeComponent();
             this.manageEmployees = new ManageEmployees();
+            UpdateListBoxAllProducts();
         }
 
-        private void btnShowPRevenueProfit_Click(object sender, EventArgs e)
+        private void nudAmount_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateListBoxAllProducts();
+        }
+        public void UpdateListBoxAllProducts()
         {
             lbxDisplayPRevenueProfit.Items.Clear();
-
-            int quantity = 5;
             foreach (Product i in this.manageEmployees.GetAllProducts())
             {
-                lbxDisplayPRevenueProfit.Items.Add($"Product number: {i.PNumber} - {i.Brand} {i.Model} - Total revenue: " +
-                    $"{i.SalePrice * quantity} Total profit: {(i.SalePrice * quantity) - (i.CostPrice * quantity)} " +
-                    $"- for {quantity} Quality");
+                lbxDisplayPRevenueProfit.Items.Add(i.GetStatistic(Convert.ToInt32(nudAmount.Value)));
             }
         }
     }
