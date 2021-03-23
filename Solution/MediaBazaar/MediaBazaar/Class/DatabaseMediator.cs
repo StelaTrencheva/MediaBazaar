@@ -134,7 +134,7 @@ namespace MediaBazaar
         }
         
 
-        public bool AddEmployee(string bsn, string firstName, string lastName, Gender gender, string email, string username, string password, DateTime birthDay,
+        public bool AddEmployee(string bsn, string firstName, string lastName, Gender gender, string email, string username, DateTime birthDay,
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
              DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, /*DateTime contractStartDate,*/ ContractType contract, EmployeeType position)
         {
@@ -149,7 +149,7 @@ namespace MediaBazaar
             sqlCommand.Parameters.AddWithValue("@4", gender.ToString());
             sqlCommand.Parameters.AddWithValue("@5", email);
             sqlCommand.Parameters.AddWithValue("@6", username);
-            sqlCommand.Parameters.AddWithValue("@7", password);
+            sqlCommand.Parameters.AddWithValue("@7", 0000);
             sqlCommand.Parameters.AddWithValue("@8",  birthDay.ToString("yyyy-MM-dd"));
             sqlCommand.Parameters.AddWithValue("@9", addrStreet);
             sqlCommand.Parameters.AddWithValue("@10", addrStreetNumber);

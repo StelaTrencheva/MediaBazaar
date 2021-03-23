@@ -24,6 +24,24 @@ namespace MediaBazaar
             this.manageEmployees = new ManageEmployees();
             this.currentEmp = currentEmp;
             this.UpdateLabel();
+            PictureBoxUpdate();
+        }
+        private void PictureBoxUpdate()
+        {
+            if (currentEmp.Gender == Gender.MALE)
+            {
+                pbxStockM.Image = Properties.Resources.Male;
+            }
+            else if (currentEmp.Gender == Gender.FEMALE)
+            {
+                pbxStockM.Image = Properties.Resources.Female;
+
+            }
+            else if (currentEmp.Gender == Gender.OTHER)
+            {
+                pbxStockM.Image = Properties.Resources.Other;
+            }
+
         }
 
         private void UpdateLabel()

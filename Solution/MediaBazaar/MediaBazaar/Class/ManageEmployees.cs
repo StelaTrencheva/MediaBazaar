@@ -17,11 +17,15 @@ namespace MediaBazaar
             employees = new List<Employee>();
             dbMediator = new DatabaseMediator();
         }
-        public bool AddEmployeeToDb(string bsn, string firstName, string lastName, Gender gender, string email, string username, string password, DateTime birthDay,
+        public bool AddEmployeeToDb(string bsn, string firstName, string lastName, Gender gender, string email, string username,  DateTime birthDay,
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
              DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, /*DateTime contractStartDate,*/ ContractType contract, EmployeeType position)
         {
-            return dbMediator.AddEmployee(bsn, firstName, lastName, gender, email, username, password, birthDay,
+            if (bsn == "" || firstName == "" || lastName == "" || email == "" || username == "" || addrStreet == "" || addrStreetNumber == "" || addrZipcode == "" || addrTown == "" || addrCountry == "" || emergencyPhoneNumber == "" || iban == "")
+            {
+                throw new NullReferenceException();
+            }
+            return dbMediator.AddEmployee(bsn, firstName, lastName, gender, email, username,  birthDay,
                                           addrStreet, addrStreetNumber, addrZipcode, addrTown, addrCountry,
                                           firstWorkingDay, emergencyPhoneNumber, iban, hourlyWage, /*contractStartDate,*/ contract, position);
         }

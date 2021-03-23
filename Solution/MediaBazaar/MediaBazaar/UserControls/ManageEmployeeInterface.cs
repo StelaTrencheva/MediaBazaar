@@ -81,7 +81,6 @@ namespace MediaBazaar
                 string bsn = tbxBSN.Text.ToString();
                 string email = tbxEmail.Text.ToString();
                 string username = tbxUsername.Text.ToString();
-                string password = "0000";
                 DateTime birthDay = dtpDateOfBirth.Value;
                 string addrStreet = tbxStreet.Text.ToString();
                 string addrStreetNumber = tbxHouseNumber.Text.ToString();
@@ -96,17 +95,23 @@ namespace MediaBazaar
                 ContractType contract = (ContractType)(cbxContractType.SelectedIndex);
                 EmployeeType position = (EmployeeType)(cbxTypeOfEmployee.SelectedIndex);
 
-                if (manageEmployees.AddEmployeeToDb( bsn, FName, LName, gender,  email,  username,  password,  birthDay,
+                if (manageEmployees.AddEmployeeToDb( bsn, FName, LName, gender,  email,  username,   birthDay,
                  addrStreet,  addrStreetNumber,  addrZipcode,  addrTown,  addrCountry,
                   firstWorkingDay,  emergencyPhoneNumber,  iban,  hourlyWage,  /*contractStartDate,*/ contract,  position))
                 {
                     MessageBox.Show("Success!");
+                    UpdateListBoxViewEmployees();
+                    UpdateListBoxEmployee();
                 }
                 else { MessageBox.Show("Try again"); }
             }
             catch(FormatException)
             {
                 MessageBox.Show("Please fill the fields with the correct format");
+            }
+            catch (NullReferenceException )
+            {
+                MessageBox.Show("Please fill all the fields");
             }
             catch(Exception exce)
             {
@@ -132,15 +137,20 @@ namespace MediaBazaar
                     {
                         MessageBox.Show("The employee is deleted");
                         UpdateListBoxViewEmployees();
+                        UpdateListBoxEmployee();
 
-                    }else
+                    }
+                    else
                     {
                         MessageBox.Show("The employee is not deleted.");
                         UpdateListBoxViewEmployees();
+                        UpdateListBoxEmployee();
                     }
                     return;
                 }
             }
         }
+
+
     }
 }
