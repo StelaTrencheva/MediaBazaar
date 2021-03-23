@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UserControls\StockWorkerScheduleInterface.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\StockWorkerScheduleInterface.Designer.cs">
+      <DependentUpon>StockWorkerScheduleInterface.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AddProductInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -167,6 +173,9 @@
     <Compile Include="UserControls\StoreWorkerScheduleInterface.Designer.cs">
       <DependentUpon>StoreWorkerScheduleInterface.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\StockWorkerScheduleInterface.resx">
+      <DependentUpon>StockWorkerScheduleInterface.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddProductInterface.resx">
       <DependentUpon>AddProductInterface.cs</DependentUpon>
     </EmbeddedResource>

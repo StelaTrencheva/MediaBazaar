@@ -33,6 +33,7 @@ namespace MediaBazaar
         {
             stockManagerInterface1.Hide();
             addProductInterface1.Hide();
+            stockWorkerScheduleInterface1.Hide();
         }
         private void btnStockMLogOut_Click(object sender, EventArgs e)
         {
@@ -52,6 +53,7 @@ namespace MediaBazaar
             PaintAllButtons();
             btnStockMSchedule.BackColor = Color.White;
             HideAllInterfaces();
+            stockWorkerScheduleInterface1.Show();
         }
 
         private void btnStockMAccount_Click(object sender, EventArgs e)
