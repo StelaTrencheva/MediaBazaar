@@ -33,6 +33,7 @@ namespace MediaBazaar
         {
             stockWorkerInterface1.Hide();
             productData1.Hide();
+            restockRequestInterface1.Hide();
         }
         private void btnStockWLogOut_Click(object sender, EventArgs e)
         {
@@ -55,6 +56,7 @@ namespace MediaBazaar
             PaintAllButtons();
             btnStockWRestockRequest.BackColor = Color.White;
             HideAllInterfaces();
+            restockRequestInterface1.Show();
         }
 
         private void btnStockWAccount_Click(object sender, EventArgs e)

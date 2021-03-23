@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RestockRequestInterface.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RestockRequestInterface.Designer.cs">
+      <DependentUpon>RestockRequestInterface.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AddProductInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -179,6 +185,9 @@
     <Compile Include="UserControls\StoreWorkerScheduleInterface.Designer.cs">
       <DependentUpon>StoreWorkerScheduleInterface.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RestockRequestInterface.resx">
+      <DependentUpon>RestockRequestInterface.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddProductInterface.resx">
       <DependentUpon>AddProductInterface.cs</DependentUpon>
     </EmbeddedResource>
