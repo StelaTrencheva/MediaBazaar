@@ -14,7 +14,7 @@ namespace MediaBazaar
     {
         private ManageEmployees manageEmployees;
         private Employee currentEmp;
-
+        ChangePasswordForm changePasswordForm;
         public DepartmentManagerInterface()
         {
             InitializeComponent();
@@ -57,6 +57,12 @@ namespace MediaBazaar
             lblDepartmentMPhoneNum.Text = $"Phone number: {currentEmp.PhoneNumber}";
             lblDepartmentMEmail.Text = $"Email: {currentEmp.Email}";
             lblDepartmentMAddress.Text = $"Address: {currentEmp.GetAddress()}";
+        }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            changePasswordForm = new ChangePasswordForm(currentEmp);
+            changePasswordForm.ShowDialog();
         }
     }
 }

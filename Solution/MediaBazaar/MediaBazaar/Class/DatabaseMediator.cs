@@ -257,6 +257,40 @@ namespace MediaBazaar
                 dbConnection.Close();
             }
         }
+        public bool ChangePassword(string password, int id)
+        {
+            string sqlStatement = "UPDATE mb_employee SET pwd = @p	WHERE id = @i";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, dbConnection);
+            sqlCommand.Parameters.AddWithValue("@p", password);
+            sqlCommand.Parameters.AddWithValue("@i", id);
+            try
+            {
+                int n = 0;
+
+                dbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+
+                if (n == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(sqlExceptionMessage(e.Message));
+                return false;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(sqlExceptionMessage(e.Message));
+                return false;
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+        }
 
         //SHOW ALL PRODUCTS
         public List<Product> GetProducts()
@@ -366,7 +400,6 @@ namespace MediaBazaar
             }
             return assignedHours;
         }
-        //Proba
         public List<int> GetEmployeesAssignedHoursForStatPerWeek(List<int> employees, string date)
         {
             string sqlStatement = " select IF(es.times IS NULL, 0, es.times) as assignedHours, e.id from mb_employee e left join " +

@@ -79,6 +79,10 @@ namespace MediaBazaar
             }
             return false;
         }
+        public bool ChangePassword(string password, int id)
+        {
+            return dbMediator.ChangePassword(password, id);
+        }
         public bool DeleteEmployeeFromDb(int id)
         {
             return dbMediator.DeleteEmployee(id);

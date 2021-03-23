@@ -41,6 +41,7 @@ namespace MediaBazaar
             this.lblDepartmentMEmployeeType = new System.Windows.Forms.Label();
             this.lblDepartmentMLName = new System.Windows.Forms.Label();
             this.lblDepartmentMFName = new System.Windows.Forms.Label();
+            this.btnChangePassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDepartmentM)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,10 +155,22 @@ namespace MediaBazaar
             this.lblDepartmentMFName.TabIndex = 126;
             this.lblDepartmentMFName.Text = "First name:";
             // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnChangePassword.Location = new System.Drawing.Point(636, 452);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(220, 48);
+            this.btnChangePassword.TabIndex = 136;
+            this.btnChangePassword.Text = "Change password";
+            this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            // 
             // DepartmentManagerInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.lblDepartmentMGender);
             this.Controls.Add(this.lblDepartmentMBirthday);
             this.Controls.Add(this.lblDepartmentMContractType);
@@ -189,5 +202,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblDepartmentMEmployeeType;
         private System.Windows.Forms.Label lblDepartmentMLName;
         private System.Windows.Forms.Label lblDepartmentMFName;
+        private System.Windows.Forms.Button btnChangePassword;
     }
 }

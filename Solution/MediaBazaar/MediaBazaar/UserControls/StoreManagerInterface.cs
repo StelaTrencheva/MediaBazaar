@@ -13,6 +13,7 @@ namespace MediaBazaar
     public partial class StoreManagerInterface : UserControl
     {
         private Employee currentEmp;
+        ChangePasswordForm changePasswordForm;
 
         public StoreManagerInterface()
         {
@@ -53,6 +54,12 @@ namespace MediaBazaar
             lblStoreMPhoneNum.Text = $"Phone number: {currentEmp.PhoneNumber}";
             lblStoreMEmail.Text = $"Email: {currentEmp.Email}";
             lblStoreMAddress.Text = $"Address: {currentEmp.GetAddress()}";
+        }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            changePasswordForm = new ChangePasswordForm(currentEmp);
+            changePasswordForm.ShowDialog();
         }
     }
 }

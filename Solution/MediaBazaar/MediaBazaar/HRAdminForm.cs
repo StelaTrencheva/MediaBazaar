@@ -14,7 +14,7 @@ namespace MediaBazaar
     {
         ManageEmployees manageEmployees;
         Employee currentEmp;
-
+        
         public HRAdminForm(Employee employee)
         {
             InitializeComponent();

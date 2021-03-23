@@ -13,7 +13,7 @@ namespace MediaBazaar
     public partial class HRAdminInterface : UserControl
     {
         Employee employee;
-
+        ChangePasswordForm changePasswordForm;
         public HRAdminInterface()
         {
             InitializeComponent();
@@ -22,22 +22,6 @@ namespace MediaBazaar
         {
             this.employee = employee;
             UpdateLabel();
-            PictureBoxUpdate();
-        }
-        private void PictureBoxUpdate()
-        {
-            if (employee.Gender==Gender.MALE)
-            {
-                pbxHRAdmin.Image = Properties.Resources.Male;
-            }else if (employee.Gender == Gender.FEMALE)
-            {
-                pbxHRAdmin.Image = Properties.Resources.Female;
-
-            }else if (employee.Gender == Gender.OTHER)
-            {
-                pbxHRAdmin.Image = Properties.Resources.Other;
-            }
-
         }
         
         private void UpdateLabel()
@@ -52,6 +36,13 @@ namespace MediaBazaar
             lblHRAdminPhoneNum.Text = $"Phone number: {employee.PhoneNumber}";
             lblHRAdminEmail.Text = $"Email: {employee.Email}";
             lblHRAdminAddress.Text = $"Address: {employee.GetAddress()}";
+        }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            changePasswordForm = new ChangePasswordForm(employee);
+            changePasswordForm.ShowDialog();
+
         }
     }
 }

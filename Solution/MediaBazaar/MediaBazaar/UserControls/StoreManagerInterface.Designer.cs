@@ -41,6 +41,7 @@ namespace MediaBazaar
             this.lblStoreMEmployeeType = new System.Windows.Forms.Label();
             this.lblStoreMLName = new System.Windows.Forms.Label();
             this.lblStoreMFName = new System.Windows.Forms.Label();
+            this.btnChangePassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxStoreM)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,10 +155,22 @@ namespace MediaBazaar
             this.lblStoreMFName.TabIndex = 153;
             this.lblStoreMFName.Text = "First name:";
             // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnChangePassword.Location = new System.Drawing.Point(600, 440);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(224, 44);
+            this.btnChangePassword.TabIndex = 163;
+            this.btnChangePassword.Text = "Change password";
+            this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            // 
             // StoreManagerInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.lblStoreMGender);
             this.Controls.Add(this.lblStoreMBirthday);
             this.Controls.Add(this.lblStoreMContractType);
@@ -189,5 +202,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblStoreMEmployeeType;
         private System.Windows.Forms.Label lblStoreMLName;
         private System.Windows.Forms.Label lblStoreMFName;
+        private System.Windows.Forms.Button btnChangePassword;
     }
 }

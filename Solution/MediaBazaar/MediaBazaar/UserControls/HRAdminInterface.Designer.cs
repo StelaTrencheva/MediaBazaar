@@ -30,6 +30,7 @@ namespace MediaBazaar
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HRAdminInterface));
+            this.pbxHRAdmin = new System.Windows.Forms.PictureBox();
             this.lblHRAdminGender = new System.Windows.Forms.Label();
             this.lblHRAdminBirthday = new System.Windows.Forms.Label();
             this.lblHRAdminContractType = new System.Windows.Forms.Label();
@@ -40,17 +41,27 @@ namespace MediaBazaar
             this.lblHRAdminEmployeeType = new System.Windows.Forms.Label();
             this.lblHRAdminLName = new System.Windows.Forms.Label();
             this.lblHRAdminFName = new System.Windows.Forms.Label();
-            this.pbxHRAdmin = new System.Windows.Forms.PictureBox();
+            this.btnChangePassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxHRAdmin)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pbxHRAdmin
+            // 
+            this.pbxHRAdmin.Image = ((System.Drawing.Image)(resources.GetObject("pbxHRAdmin.Image")));
+            this.pbxHRAdmin.Location = new System.Drawing.Point(45, 96);
+            this.pbxHRAdmin.Name = "pbxHRAdmin";
+            this.pbxHRAdmin.Size = new System.Drawing.Size(160, 171);
+            this.pbxHRAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxHRAdmin.TabIndex = 78;
+            this.pbxHRAdmin.TabStop = false;
             // 
             // lblHRAdminGender
             // 
             this.lblHRAdminGender.AutoSize = true;
             this.lblHRAdminGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHRAdminGender.Location = new System.Drawing.Point(255, 170);
+            this.lblHRAdminGender.Location = new System.Drawing.Point(227, 136);
             this.lblHRAdminGender.Name = "lblHRAdminGender";
-            this.lblHRAdminGender.Size = new System.Drawing.Size(89, 25);
+            this.lblHRAdminGender.Size = new System.Drawing.Size(69, 20);
             this.lblHRAdminGender.TabIndex = 136;
             this.lblHRAdminGender.Text = "Gender:";
             // 
@@ -58,9 +69,9 @@ namespace MediaBazaar
             // 
             this.lblHRAdminBirthday.AutoSize = true;
             this.lblHRAdminBirthday.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHRAdminBirthday.Location = new System.Drawing.Point(256, 209);
+            this.lblHRAdminBirthday.Location = new System.Drawing.Point(228, 167);
             this.lblHRAdminBirthday.Name = "lblHRAdminBirthday";
-            this.lblHRAdminBirthday.Size = new System.Drawing.Size(97, 25);
+            this.lblHRAdminBirthday.Size = new System.Drawing.Size(76, 20);
             this.lblHRAdminBirthday.TabIndex = 135;
             this.lblHRAdminBirthday.Text = "Birthday:";
             // 
@@ -68,9 +79,9 @@ namespace MediaBazaar
             // 
             this.lblHRAdminContractType.AutoSize = true;
             this.lblHRAdminContractType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHRAdminContractType.Location = new System.Drawing.Point(256, 336);
+            this.lblHRAdminContractType.Location = new System.Drawing.Point(228, 269);
             this.lblHRAdminContractType.Name = "lblHRAdminContractType";
-            this.lblHRAdminContractType.Size = new System.Drawing.Size(146, 25);
+            this.lblHRAdminContractType.Size = new System.Drawing.Size(114, 20);
             this.lblHRAdminContractType.TabIndex = 134;
             this.lblHRAdminContractType.Text = "Contract type:";
             // 
@@ -78,9 +89,9 @@ namespace MediaBazaar
             // 
             this.lblHRAdminBSN.AutoSize = true;
             this.lblHRAdminBSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHRAdminBSN.Location = new System.Drawing.Point(254, 251);
+            this.lblHRAdminBSN.Location = new System.Drawing.Point(226, 201);
             this.lblHRAdminBSN.Name = "lblHRAdminBSN";
-            this.lblHRAdminBSN.Size = new System.Drawing.Size(61, 25);
+            this.lblHRAdminBSN.Size = new System.Drawing.Size(49, 20);
             this.lblHRAdminBSN.TabIndex = 133;
             this.lblHRAdminBSN.Text = "BSN:";
             // 
@@ -88,9 +99,9 @@ namespace MediaBazaar
             // 
             this.lblHRAdminAddress.AutoSize = true;
             this.lblHRAdminAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHRAdminAddress.Location = new System.Drawing.Point(256, 464);
+            this.lblHRAdminAddress.Location = new System.Drawing.Point(228, 371);
             this.lblHRAdminAddress.Name = "lblHRAdminAddress";
-            this.lblHRAdminAddress.Size = new System.Drawing.Size(97, 25);
+            this.lblHRAdminAddress.Size = new System.Drawing.Size(76, 20);
             this.lblHRAdminAddress.TabIndex = 132;
             this.lblHRAdminAddress.Text = "Address:";
             // 
@@ -98,9 +109,9 @@ namespace MediaBazaar
             // 
             this.lblHRAdminEmail.AutoSize = true;
             this.lblHRAdminEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHRAdminEmail.Location = new System.Drawing.Point(256, 421);
+            this.lblHRAdminEmail.Location = new System.Drawing.Point(228, 337);
             this.lblHRAdminEmail.Name = "lblHRAdminEmail";
-            this.lblHRAdminEmail.Size = new System.Drawing.Size(71, 25);
+            this.lblHRAdminEmail.Size = new System.Drawing.Size(56, 20);
             this.lblHRAdminEmail.TabIndex = 131;
             this.lblHRAdminEmail.Text = "Email:";
             // 
@@ -108,9 +119,9 @@ namespace MediaBazaar
             // 
             this.lblHRAdminPhoneNum.AutoSize = true;
             this.lblHRAdminPhoneNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHRAdminPhoneNum.Location = new System.Drawing.Point(256, 379);
+            this.lblHRAdminPhoneNum.Location = new System.Drawing.Point(228, 303);
             this.lblHRAdminPhoneNum.Name = "lblHRAdminPhoneNum";
-            this.lblHRAdminPhoneNum.Size = new System.Drawing.Size(158, 25);
+            this.lblHRAdminPhoneNum.Size = new System.Drawing.Size(122, 20);
             this.lblHRAdminPhoneNum.TabIndex = 130;
             this.lblHRAdminPhoneNum.Text = "Phone number:";
             // 
@@ -118,9 +129,9 @@ namespace MediaBazaar
             // 
             this.lblHRAdminEmployeeType.AutoSize = true;
             this.lblHRAdminEmployeeType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHRAdminEmployeeType.Location = new System.Drawing.Point(255, 294);
+            this.lblHRAdminEmployeeType.Location = new System.Drawing.Point(227, 235);
             this.lblHRAdminEmployeeType.Name = "lblHRAdminEmployeeType";
-            this.lblHRAdminEmployeeType.Size = new System.Drawing.Size(161, 25);
+            this.lblHRAdminEmployeeType.Size = new System.Drawing.Size(123, 20);
             this.lblHRAdminEmployeeType.TabIndex = 129;
             this.lblHRAdminEmployeeType.Text = "EmployeeType:";
             // 
@@ -128,9 +139,9 @@ namespace MediaBazaar
             // 
             this.lblHRAdminLName.AutoSize = true;
             this.lblHRAdminLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHRAdminLName.Location = new System.Drawing.Point(256, 131);
+            this.lblHRAdminLName.Location = new System.Drawing.Point(228, 105);
             this.lblHRAdminLName.Name = "lblHRAdminLName";
-            this.lblHRAdminLName.Size = new System.Drawing.Size(118, 25);
+            this.lblHRAdminLName.Size = new System.Drawing.Size(93, 20);
             this.lblHRAdminLName.TabIndex = 128;
             this.lblHRAdminLName.Text = "Last name:";
             // 
@@ -138,27 +149,28 @@ namespace MediaBazaar
             // 
             this.lblHRAdminFName.AutoSize = true;
             this.lblHRAdminFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHRAdminFName.Location = new System.Drawing.Point(256, 89);
+            this.lblHRAdminFName.Location = new System.Drawing.Point(228, 71);
             this.lblHRAdminFName.Name = "lblHRAdminFName";
-            this.lblHRAdminFName.Size = new System.Drawing.Size(119, 25);
+            this.lblHRAdminFName.Size = new System.Drawing.Size(94, 20);
             this.lblHRAdminFName.TabIndex = 127;
             this.lblHRAdminFName.Text = "First name:";
             // 
-            // pbxHRAdmin
+            // btnChangePassword
             // 
-            this.pbxHRAdmin.Image = ((System.Drawing.Image)(resources.GetObject("pbxHRAdmin.Image")));
-            this.pbxHRAdmin.Location = new System.Drawing.Point(22, 89);
-            this.pbxHRAdmin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pbxHRAdmin.Name = "pbxHRAdmin";
-            this.pbxHRAdmin.Size = new System.Drawing.Size(209, 245);
-            this.pbxHRAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbxHRAdmin.TabIndex = 78;
-            this.pbxHRAdmin.TabStop = false;
+            this.btnChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnChangePassword.Location = new System.Drawing.Point(622, 458);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(233, 44);
+            this.btnChangePassword.TabIndex = 137;
+            this.btnChangePassword.Text = "Change password";
+            this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
             // HRAdminInterface
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.lblHRAdminGender);
             this.Controls.Add(this.lblHRAdminBirthday);
             this.Controls.Add(this.lblHRAdminContractType);
@@ -170,9 +182,8 @@ namespace MediaBazaar
             this.Controls.Add(this.lblHRAdminLName);
             this.Controls.Add(this.lblHRAdminFName);
             this.Controls.Add(this.pbxHRAdmin);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "HRAdminInterface";
-            this.Size = new System.Drawing.Size(1001, 662);
+            this.Size = new System.Drawing.Size(890, 530);
             ((System.ComponentModel.ISupportInitialize)(this.pbxHRAdmin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -191,5 +202,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblHRAdminEmployeeType;
         private System.Windows.Forms.Label lblHRAdminLName;
         private System.Windows.Forms.Label lblHRAdminFName;
+        private System.Windows.Forms.Button btnChangePassword;
     }
 }
