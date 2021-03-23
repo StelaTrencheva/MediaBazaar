@@ -18,9 +18,10 @@ namespace MediaBazaar
         {
             InitializeComponent();
             manageEmployees = new ManageEmployees();
+            UpdateListBoxProducts();
         }
 
-        private void btnShowProducts_Click(object sender, EventArgs e)
+        private void UpdateListBoxProducts()
         {
             lbxProductDisplay.Items.Clear();
             foreach (Product i in manageEmployees.GetAllProducts())

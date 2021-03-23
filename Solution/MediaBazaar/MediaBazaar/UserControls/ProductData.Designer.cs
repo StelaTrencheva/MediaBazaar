@@ -30,7 +30,7 @@ namespace MediaBazaar
         private void InitializeComponent()
         {
             this.lbxProductDisplay = new System.Windows.Forms.ListBox();
-            this.btnShowProducts = new System.Windows.Forms.Button();
+            this.lblAllProducts = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbxProductDisplay
@@ -38,32 +38,33 @@ namespace MediaBazaar
             this.lbxProductDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxProductDisplay.FormattingEnabled = true;
             this.lbxProductDisplay.HorizontalScrollbar = true;
-            this.lbxProductDisplay.ItemHeight = 25;
-            this.lbxProductDisplay.Location = new System.Drawing.Point(3, 3);
+            this.lbxProductDisplay.ItemHeight = 29;
+            this.lbxProductDisplay.Location = new System.Drawing.Point(0, 56);
+            this.lbxProductDisplay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lbxProductDisplay.Name = "lbxProductDisplay";
             this.lbxProductDisplay.ScrollAlwaysVisible = true;
-            this.lbxProductDisplay.Size = new System.Drawing.Size(884, 354);
+            this.lbxProductDisplay.Size = new System.Drawing.Size(998, 584);
             this.lbxProductDisplay.TabIndex = 0;
             // 
-            // btnShowProducts
+            // lblAllProducts
             // 
-            this.btnShowProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowProducts.Location = new System.Drawing.Point(267, 374);
-            this.btnShowProducts.Name = "btnShowProducts";
-            this.btnShowProducts.Size = new System.Drawing.Size(351, 36);
-            this.btnShowProducts.TabIndex = 1;
-            this.btnShowProducts.Text = "Show product";
-            this.btnShowProducts.UseVisualStyleBackColor = true;
-            this.btnShowProducts.Click += new System.EventHandler(this.btnShowProducts_Click);
+            this.lblAllProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAllProducts.Location = new System.Drawing.Point(-1, 9);
+            this.lblAllProducts.Name = "lblAllProducts";
+            this.lblAllProducts.Size = new System.Drawing.Size(1001, 43);
+            this.lblAllProducts.TabIndex = 1;
+            this.lblAllProducts.Text = "All products in the store";
+            this.lblAllProducts.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ProductData
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnShowProducts);
             this.Controls.Add(this.lbxProductDisplay);
+            this.Controls.Add(this.lblAllProducts);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ProductData";
-            this.Size = new System.Drawing.Size(890, 530);
+            this.Size = new System.Drawing.Size(1001, 662);
             this.ResumeLayout(false);
 
         }
@@ -71,6 +72,6 @@ namespace MediaBazaar
         #endregion
 
         private System.Windows.Forms.ListBox lbxProductDisplay;
-        private System.Windows.Forms.Button btnShowProducts;
+        private System.Windows.Forms.Label lblAllProducts;
     }
 }

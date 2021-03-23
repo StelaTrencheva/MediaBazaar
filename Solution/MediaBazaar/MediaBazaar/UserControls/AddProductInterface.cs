@@ -18,6 +18,10 @@ namespace MediaBazaar
             InitializeComponent();
             this.manageEmployees = new ManageEmployees();
         }
+        private void AddProductInterface_Load(object sender, EventArgs e)
+        {
+            UpdateListBoxAllProducts();
+        }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
@@ -34,10 +38,11 @@ namespace MediaBazaar
                 int amountInStore = Convert.ToInt32(tbxProductAmountInStore.Text);
                 int amountInWarehouse = Convert.ToInt32(tbxProductAmountInWarehouse.Text);
 
-                if (this.manageEmployees.AddProductToDB(brand, type, model, description, catergory, subCategory, costPrice, 
+                if (manageEmployees.AddProductToDB(brand, type, model, description, catergory, subCategory, costPrice, 
                     salesPrice, amountInStore, amountInWarehouse))
                 {
                     MessageBox.Show("Success!");
+                    UpdateListBoxAllProducts();
                 }
                 else
                 {
@@ -52,11 +57,42 @@ namespace MediaBazaar
             {
                 MessageBox.Show(exce.ToString());
             }
-
+        }
+        private void UpdateListBoxAllProducts()
+        {
             lbxProductDisplay.Items.Clear();
             foreach (Product i in manageEmployees.GetAllProducts())
             {
                 lbxProductDisplay.Items.Add(i.ToString());
+            }
+        }
+
+        private void btnDeleteProduct_Click(object sender, EventArgs e)
+        {
+            if (lbxProductDisplay.SelectedItem==null)
+            {
+                MessageBox.Show("Please select a product");
+                return;
+            }
+            foreach (Product i in manageEmployees.GetAllProducts())
+            {
+                if (lbxProductDisplay.SelectedItem.ToString() == i.ToString())
+                {
+                    if(manageEmployees.DeleteAProduct(i.PNumber))
+                    {
+                        MessageBox.Show("Success");
+                        UpdateListBoxAllProducts();
+                        return;
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed deleting");
+                        UpdateListBoxAllProducts();
+                        return;
+                        
+                    }
+                }
             }
         }
     }

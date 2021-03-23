@@ -53,9 +53,9 @@ namespace MediaBazaar
             this.btnAddProduct = new System.Windows.Forms.Button();
             this.tcProducts = new System.Windows.Forms.TabControl();
             this.tpAllProducts = new System.Windows.Forms.TabPage();
-            this.tpAddProduct = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnDeleteProduct = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tpAddProduct = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.tcProducts.SuspendLayout();
             this.tpAllProducts.SuspendLayout();
@@ -210,7 +210,7 @@ namespace MediaBazaar
             // tbxProductSalesPrice
             // 
             this.tbxProductSalesPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxProductSalesPrice.Location = new System.Drawing.Point(626, 196);
+            this.tbxProductSalesPrice.Location = new System.Drawing.Point(626, 209);
             this.tbxProductSalesPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxProductSalesPrice.Name = "tbxProductSalesPrice";
             this.tbxProductSalesPrice.Size = new System.Drawing.Size(112, 28);
@@ -220,7 +220,7 @@ namespace MediaBazaar
             // 
             this.lblProductSalesPrice.AutoSize = true;
             this.lblProductSalesPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductSalesPrice.Location = new System.Drawing.Point(517, 196);
+            this.lblProductSalesPrice.Location = new System.Drawing.Point(517, 209);
             this.lblProductSalesPrice.Name = "lblProductSalesPrice";
             this.lblProductSalesPrice.Size = new System.Drawing.Size(104, 22);
             this.lblProductSalesPrice.TabIndex = 16;
@@ -229,7 +229,7 @@ namespace MediaBazaar
             // tbxProductAmountInWarehouse
             // 
             this.tbxProductAmountInWarehouse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxProductAmountInWarehouse.Location = new System.Drawing.Point(626, 288);
+            this.tbxProductAmountInWarehouse.Location = new System.Drawing.Point(626, 336);
             this.tbxProductAmountInWarehouse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxProductAmountInWarehouse.Name = "tbxProductAmountInWarehouse";
             this.tbxProductAmountInWarehouse.Size = new System.Drawing.Size(112, 28);
@@ -239,7 +239,7 @@ namespace MediaBazaar
             // 
             this.lblProductAmountInWarehouse.AutoSize = true;
             this.lblProductAmountInWarehouse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductAmountInWarehouse.Location = new System.Drawing.Point(442, 288);
+            this.lblProductAmountInWarehouse.Location = new System.Drawing.Point(442, 336);
             this.lblProductAmountInWarehouse.Name = "lblProductAmountInWarehouse";
             this.lblProductAmountInWarehouse.Size = new System.Drawing.Size(188, 22);
             this.lblProductAmountInWarehouse.TabIndex = 20;
@@ -248,7 +248,7 @@ namespace MediaBazaar
             // tbxProductAmountInStore
             // 
             this.tbxProductAmountInStore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxProductAmountInStore.Location = new System.Drawing.Point(626, 239);
+            this.tbxProductAmountInStore.Location = new System.Drawing.Point(626, 270);
             this.tbxProductAmountInStore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxProductAmountInStore.Name = "tbxProductAmountInStore";
             this.tbxProductAmountInStore.Size = new System.Drawing.Size(112, 28);
@@ -258,7 +258,7 @@ namespace MediaBazaar
             // 
             this.lblProductAmountInStore.AutoSize = true;
             this.lblProductAmountInStore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductAmountInStore.Location = new System.Drawing.Point(483, 239);
+            this.lblProductAmountInStore.Location = new System.Drawing.Point(483, 270);
             this.lblProductAmountInStore.Name = "lblProductAmountInStore";
             this.lblProductAmountInStore.Size = new System.Drawing.Size(140, 22);
             this.lblProductAmountInStore.TabIndex = 18;
@@ -280,10 +280,11 @@ namespace MediaBazaar
             // 
             this.tcProducts.Controls.Add(this.tpAllProducts);
             this.tcProducts.Controls.Add(this.tpAddProduct);
-            this.tcProducts.Location = new System.Drawing.Point(3, 1);
+            this.tcProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcProducts.Location = new System.Drawing.Point(0, 0);
             this.tcProducts.Name = "tcProducts";
             this.tcProducts.SelectedIndex = 0;
-            this.tcProducts.Size = new System.Drawing.Size(995, 658);
+            this.tcProducts.Size = new System.Drawing.Size(1001, 662);
             this.tcProducts.TabIndex = 23;
             // 
             // tpAllProducts
@@ -295,9 +296,31 @@ namespace MediaBazaar
             this.tpAllProducts.Location = new System.Drawing.Point(4, 29);
             this.tpAllProducts.Name = "tpAllProducts";
             this.tpAllProducts.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAllProducts.Size = new System.Drawing.Size(987, 625);
+            this.tpAllProducts.Size = new System.Drawing.Size(993, 629);
             this.tpAllProducts.TabIndex = 0;
             this.tpAllProducts.Text = "All Products";
+            // 
+            // btnDeleteProduct
+            // 
+            this.btnDeleteProduct.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnDeleteProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteProduct.Location = new System.Drawing.Point(341, 523);
+            this.btnDeleteProduct.Name = "btnDeleteProduct";
+            this.btnDeleteProduct.Size = new System.Drawing.Size(254, 71);
+            this.btnDeleteProduct.TabIndex = 3;
+            this.btnDeleteProduct.Text = "Delete a product\r\n/Only when necessary/";
+            this.btnDeleteProduct.UseVisualStyleBackColor = false;
+            this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(361, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(223, 22);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "All products in the store";
             // 
             // tpAddProduct
             // 
@@ -331,27 +354,6 @@ namespace MediaBazaar
             this.tpAddProduct.TabIndex = 1;
             this.tpAddProduct.Text = "Add product";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(361, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(223, 22);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "All products in the store";
-            // 
-            // btnDeleteProduct
-            // 
-            this.btnDeleteProduct.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnDeleteProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteProduct.Location = new System.Drawing.Point(341, 523);
-            this.btnDeleteProduct.Name = "btnDeleteProduct";
-            this.btnDeleteProduct.Size = new System.Drawing.Size(254, 71);
-            this.btnDeleteProduct.TabIndex = 3;
-            this.btnDeleteProduct.Text = "Delete a product\r\n/Only when necessary/";
-            this.btnDeleteProduct.UseVisualStyleBackColor = false;
-            // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -370,6 +372,7 @@ namespace MediaBazaar
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AddProductInterface";
             this.Size = new System.Drawing.Size(1001, 662);
+            this.Load += new System.EventHandler(this.AddProductInterface_Load);
             this.tcProducts.ResumeLayout(false);
             this.tpAllProducts.ResumeLayout(false);
             this.tpAllProducts.PerformLayout();

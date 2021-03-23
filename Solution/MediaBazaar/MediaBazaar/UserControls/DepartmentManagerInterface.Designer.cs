@@ -48,9 +48,10 @@ namespace MediaBazaar
             // pbxDepartmentM
             // 
             this.pbxDepartmentM.Image = ((System.Drawing.Image)(resources.GetObject("pbxDepartmentM.Image")));
-            this.pbxDepartmentM.Location = new System.Drawing.Point(45, 96);
+            this.pbxDepartmentM.Location = new System.Drawing.Point(51, 120);
+            this.pbxDepartmentM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbxDepartmentM.Name = "pbxDepartmentM";
-            this.pbxDepartmentM.Size = new System.Drawing.Size(160, 171);
+            this.pbxDepartmentM.Size = new System.Drawing.Size(180, 214);
             this.pbxDepartmentM.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxDepartmentM.TabIndex = 93;
             this.pbxDepartmentM.TabStop = false;
@@ -59,9 +60,9 @@ namespace MediaBazaar
             // 
             this.lblDepartmentMGender.AutoSize = true;
             this.lblDepartmentMGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentMGender.Location = new System.Drawing.Point(229, 135);
+            this.lblDepartmentMGender.Location = new System.Drawing.Point(258, 169);
             this.lblDepartmentMGender.Name = "lblDepartmentMGender";
-            this.lblDepartmentMGender.Size = new System.Drawing.Size(69, 20);
+            this.lblDepartmentMGender.Size = new System.Drawing.Size(89, 25);
             this.lblDepartmentMGender.TabIndex = 135;
             this.lblDepartmentMGender.Text = "Gender:";
             // 
@@ -69,9 +70,9 @@ namespace MediaBazaar
             // 
             this.lblDepartmentMBirthday.AutoSize = true;
             this.lblDepartmentMBirthday.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentMBirthday.Location = new System.Drawing.Point(229, 166);
+            this.lblDepartmentMBirthday.Location = new System.Drawing.Point(258, 208);
             this.lblDepartmentMBirthday.Name = "lblDepartmentMBirthday";
-            this.lblDepartmentMBirthday.Size = new System.Drawing.Size(76, 20);
+            this.lblDepartmentMBirthday.Size = new System.Drawing.Size(97, 25);
             this.lblDepartmentMBirthday.TabIndex = 134;
             this.lblDepartmentMBirthday.Text = "Birthday:";
             // 
@@ -79,9 +80,9 @@ namespace MediaBazaar
             // 
             this.lblDepartmentMContractType.AutoSize = true;
             this.lblDepartmentMContractType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentMContractType.Location = new System.Drawing.Point(229, 268);
+            this.lblDepartmentMContractType.Location = new System.Drawing.Point(258, 335);
             this.lblDepartmentMContractType.Name = "lblDepartmentMContractType";
-            this.lblDepartmentMContractType.Size = new System.Drawing.Size(114, 20);
+            this.lblDepartmentMContractType.Size = new System.Drawing.Size(146, 25);
             this.lblDepartmentMContractType.TabIndex = 133;
             this.lblDepartmentMContractType.Text = "Contract type:";
             // 
@@ -89,9 +90,9 @@ namespace MediaBazaar
             // 
             this.lblDepartmentMBSN.AutoSize = true;
             this.lblDepartmentMBSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentMBSN.Location = new System.Drawing.Point(227, 200);
+            this.lblDepartmentMBSN.Location = new System.Drawing.Point(255, 250);
             this.lblDepartmentMBSN.Name = "lblDepartmentMBSN";
-            this.lblDepartmentMBSN.Size = new System.Drawing.Size(49, 20);
+            this.lblDepartmentMBSN.Size = new System.Drawing.Size(61, 25);
             this.lblDepartmentMBSN.TabIndex = 132;
             this.lblDepartmentMBSN.Text = "BSN:";
             // 
@@ -99,9 +100,9 @@ namespace MediaBazaar
             // 
             this.lblDepartmentMAddress.AutoSize = true;
             this.lblDepartmentMAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentMAddress.Location = new System.Drawing.Point(229, 370);
+            this.lblDepartmentMAddress.Location = new System.Drawing.Point(258, 462);
             this.lblDepartmentMAddress.Name = "lblDepartmentMAddress";
-            this.lblDepartmentMAddress.Size = new System.Drawing.Size(76, 20);
+            this.lblDepartmentMAddress.Size = new System.Drawing.Size(97, 25);
             this.lblDepartmentMAddress.TabIndex = 131;
             this.lblDepartmentMAddress.Text = "Address:";
             // 
@@ -109,9 +110,9 @@ namespace MediaBazaar
             // 
             this.lblDepartmentMEmail.AutoSize = true;
             this.lblDepartmentMEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentMEmail.Location = new System.Drawing.Point(229, 336);
+            this.lblDepartmentMEmail.Location = new System.Drawing.Point(258, 420);
             this.lblDepartmentMEmail.Name = "lblDepartmentMEmail";
-            this.lblDepartmentMEmail.Size = new System.Drawing.Size(56, 20);
+            this.lblDepartmentMEmail.Size = new System.Drawing.Size(71, 25);
             this.lblDepartmentMEmail.TabIndex = 130;
             this.lblDepartmentMEmail.Text = "Email:";
             // 
@@ -119,9 +120,9 @@ namespace MediaBazaar
             // 
             this.lblDepartmentMPhoneNum.AutoSize = true;
             this.lblDepartmentMPhoneNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentMPhoneNum.Location = new System.Drawing.Point(229, 302);
+            this.lblDepartmentMPhoneNum.Location = new System.Drawing.Point(258, 378);
             this.lblDepartmentMPhoneNum.Name = "lblDepartmentMPhoneNum";
-            this.lblDepartmentMPhoneNum.Size = new System.Drawing.Size(122, 20);
+            this.lblDepartmentMPhoneNum.Size = new System.Drawing.Size(158, 25);
             this.lblDepartmentMPhoneNum.TabIndex = 129;
             this.lblDepartmentMPhoneNum.Text = "Phone number:";
             // 
@@ -129,9 +130,9 @@ namespace MediaBazaar
             // 
             this.lblDepartmentMEmployeeType.AutoSize = true;
             this.lblDepartmentMEmployeeType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentMEmployeeType.Location = new System.Drawing.Point(228, 234);
+            this.lblDepartmentMEmployeeType.Location = new System.Drawing.Point(256, 292);
             this.lblDepartmentMEmployeeType.Name = "lblDepartmentMEmployeeType";
-            this.lblDepartmentMEmployeeType.Size = new System.Drawing.Size(123, 20);
+            this.lblDepartmentMEmployeeType.Size = new System.Drawing.Size(161, 25);
             this.lblDepartmentMEmployeeType.TabIndex = 128;
             this.lblDepartmentMEmployeeType.Text = "EmployeeType:";
             // 
@@ -139,9 +140,9 @@ namespace MediaBazaar
             // 
             this.lblDepartmentMLName.AutoSize = true;
             this.lblDepartmentMLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentMLName.Location = new System.Drawing.Point(229, 105);
+            this.lblDepartmentMLName.Location = new System.Drawing.Point(258, 131);
             this.lblDepartmentMLName.Name = "lblDepartmentMLName";
-            this.lblDepartmentMLName.Size = new System.Drawing.Size(93, 20);
+            this.lblDepartmentMLName.Size = new System.Drawing.Size(118, 25);
             this.lblDepartmentMLName.TabIndex = 127;
             this.lblDepartmentMLName.Text = "Last name:";
             // 
@@ -149,18 +150,19 @@ namespace MediaBazaar
             // 
             this.lblDepartmentMFName.AutoSize = true;
             this.lblDepartmentMFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentMFName.Location = new System.Drawing.Point(229, 71);
+            this.lblDepartmentMFName.Location = new System.Drawing.Point(258, 89);
             this.lblDepartmentMFName.Name = "lblDepartmentMFName";
-            this.lblDepartmentMFName.Size = new System.Drawing.Size(94, 20);
+            this.lblDepartmentMFName.Size = new System.Drawing.Size(119, 25);
             this.lblDepartmentMFName.TabIndex = 126;
             this.lblDepartmentMFName.Text = "First name:";
             // 
             // btnChangePassword
             // 
             this.btnChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnChangePassword.Location = new System.Drawing.Point(636, 452);
+            this.btnChangePassword.Location = new System.Drawing.Point(675, 550);
+            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(220, 48);
+            this.btnChangePassword.Size = new System.Drawing.Size(248, 60);
             this.btnChangePassword.TabIndex = 136;
             this.btnChangePassword.Text = "Change password";
             this.btnChangePassword.UseVisualStyleBackColor = true;
@@ -168,7 +170,7 @@ namespace MediaBazaar
             // 
             // DepartmentManagerInterface
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.lblDepartmentMGender);
@@ -182,8 +184,9 @@ namespace MediaBazaar
             this.Controls.Add(this.lblDepartmentMLName);
             this.Controls.Add(this.lblDepartmentMFName);
             this.Controls.Add(this.pbxDepartmentM);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "DepartmentManagerInterface";
-            this.Size = new System.Drawing.Size(890, 530);
+            this.Size = new System.Drawing.Size(1001, 662);
             ((System.ComponentModel.ISupportInitialize)(this.pbxDepartmentM)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

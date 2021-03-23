@@ -33,32 +33,28 @@ namespace MediaBazaar
             {
                 MessageBox.Show("Your input is not valid");
                 return;
-            }
-
-            if (oldPass != employee.Password && !String.IsNullOrEmpty(oldPass))
+            }else if (oldPass != employee.Password)
             { 
                 MessageBox.Show("Wrong password!");
                 return;
             }
-            if (newPass == employee.Password && !String.IsNullOrEmpty(newPass))
+            else if (newPass == employee.Password)
             { 
                 MessageBox.Show("This password is already used!");
                 return;
-            }
-            if (newPass != repeatOldPass && !String.IsNullOrEmpty(newPass) && !String.IsNullOrEmpty(repeatOldPass))
+            }else if (newPass != repeatOldPass)
             { 
                 MessageBox.Show("Your repeat password does not match your new password!");
                 return;
             }
-            try
-            {
-                if (mngEmp.ChangePassword(newPass, employee.Id))
-                { MessageBox.Show("Password changed successfully!"); }
-                else { MessageBox.Show("Change password failed. Please try again."); }
+            else if (mngEmp.ChangePassword(newPass, employee.Id))
+            { 
+                MessageBox.Show("Password changed successfully!");
+                this.Close();
             }
-            catch (FormatException)
-            {
-                MessageBox.Show("Wrong input. Try again");
+            else 
+            { 
+                MessageBox.Show("Change password failed. Please try again."); 
             }
         }
     }

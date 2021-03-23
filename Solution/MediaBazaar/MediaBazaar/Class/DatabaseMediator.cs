@@ -292,7 +292,7 @@ namespace MediaBazaar
             }
         }
 
-        //SHOW ALL PRODUCTS
+        //TAKE ALL PRODUCTS
         public List<Product> GetProducts()
         {
             string sqlStatement = "SELECT * FROM mb_product";
@@ -351,6 +351,40 @@ namespace MediaBazaar
                 dbConnection.Open();
                 n = sqlCommand.ExecuteNonQuery();
                 if(n == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(sqlExceptionMessage(e.Message));
+                return false;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(sqlExceptionMessage(e.Message));
+                return false;
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+        }
+
+        //DELETE PRODUCT
+        public bool DeleteProduct(int id)
+        {
+            string sqlStatement = "DELETE FROM `mb_product` WHERE pNum=@i";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, dbConnection); ;
+            sqlCommand.Parameters.AddWithValue("@i", id);
+            try
+            {
+                int n = 0;
+                dbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+
+                if (n == 1)
                 {
                     return true;
                 }

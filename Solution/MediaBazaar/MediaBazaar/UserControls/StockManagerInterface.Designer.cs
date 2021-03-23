@@ -48,9 +48,10 @@ namespace MediaBazaar
             // pbxStockM
             // 
             this.pbxStockM.Image = ((System.Drawing.Image)(resources.GetObject("pbxStockM.Image")));
-            this.pbxStockM.Location = new System.Drawing.Point(46, 96);
+            this.pbxStockM.Location = new System.Drawing.Point(52, 120);
+            this.pbxStockM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbxStockM.Name = "pbxStockM";
-            this.pbxStockM.Size = new System.Drawing.Size(160, 171);
+            this.pbxStockM.Size = new System.Drawing.Size(180, 214);
             this.pbxStockM.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxStockM.TabIndex = 108;
             this.pbxStockM.TabStop = false;
@@ -59,9 +60,9 @@ namespace MediaBazaar
             // 
             this.lblStockMGender.AutoSize = true;
             this.lblStockMGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockMGender.Location = new System.Drawing.Point(227, 139);
+            this.lblStockMGender.Location = new System.Drawing.Point(255, 174);
             this.lblStockMGender.Name = "lblStockMGender";
-            this.lblStockMGender.Size = new System.Drawing.Size(69, 20);
+            this.lblStockMGender.Size = new System.Drawing.Size(89, 25);
             this.lblStockMGender.TabIndex = 144;
             this.lblStockMGender.Text = "Gender:";
             // 
@@ -69,9 +70,9 @@ namespace MediaBazaar
             // 
             this.lblStockMBirthday.AutoSize = true;
             this.lblStockMBirthday.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockMBirthday.Location = new System.Drawing.Point(227, 170);
+            this.lblStockMBirthday.Location = new System.Drawing.Point(255, 212);
             this.lblStockMBirthday.Name = "lblStockMBirthday";
-            this.lblStockMBirthday.Size = new System.Drawing.Size(76, 20);
+            this.lblStockMBirthday.Size = new System.Drawing.Size(97, 25);
             this.lblStockMBirthday.TabIndex = 143;
             this.lblStockMBirthday.Text = "Birthday:";
             // 
@@ -79,9 +80,9 @@ namespace MediaBazaar
             // 
             this.lblStockMContractType.AutoSize = true;
             this.lblStockMContractType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockMContractType.Location = new System.Drawing.Point(227, 272);
+            this.lblStockMContractType.Location = new System.Drawing.Point(255, 340);
             this.lblStockMContractType.Name = "lblStockMContractType";
-            this.lblStockMContractType.Size = new System.Drawing.Size(114, 20);
+            this.lblStockMContractType.Size = new System.Drawing.Size(146, 25);
             this.lblStockMContractType.TabIndex = 142;
             this.lblStockMContractType.Text = "Contract type:";
             // 
@@ -89,9 +90,9 @@ namespace MediaBazaar
             // 
             this.lblStockMBSN.AutoSize = true;
             this.lblStockMBSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockMBSN.Location = new System.Drawing.Point(225, 204);
+            this.lblStockMBSN.Location = new System.Drawing.Point(253, 255);
             this.lblStockMBSN.Name = "lblStockMBSN";
-            this.lblStockMBSN.Size = new System.Drawing.Size(49, 20);
+            this.lblStockMBSN.Size = new System.Drawing.Size(61, 25);
             this.lblStockMBSN.TabIndex = 141;
             this.lblStockMBSN.Text = "BSN:";
             // 
@@ -99,9 +100,9 @@ namespace MediaBazaar
             // 
             this.lblStockMAddress.AutoSize = true;
             this.lblStockMAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockMAddress.Location = new System.Drawing.Point(227, 374);
+            this.lblStockMAddress.Location = new System.Drawing.Point(255, 468);
             this.lblStockMAddress.Name = "lblStockMAddress";
-            this.lblStockMAddress.Size = new System.Drawing.Size(76, 20);
+            this.lblStockMAddress.Size = new System.Drawing.Size(97, 25);
             this.lblStockMAddress.TabIndex = 140;
             this.lblStockMAddress.Text = "Address:";
             // 
@@ -109,9 +110,9 @@ namespace MediaBazaar
             // 
             this.lblStockMEmail.AutoSize = true;
             this.lblStockMEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockMEmail.Location = new System.Drawing.Point(227, 340);
+            this.lblStockMEmail.Location = new System.Drawing.Point(255, 425);
             this.lblStockMEmail.Name = "lblStockMEmail";
-            this.lblStockMEmail.Size = new System.Drawing.Size(56, 20);
+            this.lblStockMEmail.Size = new System.Drawing.Size(71, 25);
             this.lblStockMEmail.TabIndex = 139;
             this.lblStockMEmail.Text = "Email:";
             // 
@@ -119,9 +120,9 @@ namespace MediaBazaar
             // 
             this.lblStockMPhoneNum.AutoSize = true;
             this.lblStockMPhoneNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockMPhoneNum.Location = new System.Drawing.Point(227, 306);
+            this.lblStockMPhoneNum.Location = new System.Drawing.Point(255, 382);
             this.lblStockMPhoneNum.Name = "lblStockMPhoneNum";
-            this.lblStockMPhoneNum.Size = new System.Drawing.Size(122, 20);
+            this.lblStockMPhoneNum.Size = new System.Drawing.Size(158, 25);
             this.lblStockMPhoneNum.TabIndex = 138;
             this.lblStockMPhoneNum.Text = "Phone number:";
             // 
@@ -129,9 +130,9 @@ namespace MediaBazaar
             // 
             this.lblStockMEmployeeType.AutoSize = true;
             this.lblStockMEmployeeType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockMEmployeeType.Location = new System.Drawing.Point(226, 238);
+            this.lblStockMEmployeeType.Location = new System.Drawing.Point(254, 298);
             this.lblStockMEmployeeType.Name = "lblStockMEmployeeType";
-            this.lblStockMEmployeeType.Size = new System.Drawing.Size(123, 20);
+            this.lblStockMEmployeeType.Size = new System.Drawing.Size(161, 25);
             this.lblStockMEmployeeType.TabIndex = 137;
             this.lblStockMEmployeeType.Text = "EmployeeType:";
             // 
@@ -139,9 +140,9 @@ namespace MediaBazaar
             // 
             this.lblStockMLName.AutoSize = true;
             this.lblStockMLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockMLName.Location = new System.Drawing.Point(227, 107);
+            this.lblStockMLName.Location = new System.Drawing.Point(255, 134);
             this.lblStockMLName.Name = "lblStockMLName";
-            this.lblStockMLName.Size = new System.Drawing.Size(93, 20);
+            this.lblStockMLName.Size = new System.Drawing.Size(118, 25);
             this.lblStockMLName.TabIndex = 136;
             this.lblStockMLName.Text = "Last name:";
             // 
@@ -149,18 +150,19 @@ namespace MediaBazaar
             // 
             this.lblStockMFName.AutoSize = true;
             this.lblStockMFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockMFName.Location = new System.Drawing.Point(227, 73);
+            this.lblStockMFName.Location = new System.Drawing.Point(255, 91);
             this.lblStockMFName.Name = "lblStockMFName";
-            this.lblStockMFName.Size = new System.Drawing.Size(94, 20);
+            this.lblStockMFName.Size = new System.Drawing.Size(119, 25);
             this.lblStockMFName.TabIndex = 135;
             this.lblStockMFName.Text = "First name:";
             // 
             // btnChangePassword
             // 
             this.btnChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnChangePassword.Location = new System.Drawing.Point(653, 460);
+            this.btnChangePassword.Location = new System.Drawing.Point(675, 550);
+            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(213, 47);
+            this.btnChangePassword.Size = new System.Drawing.Size(240, 59);
             this.btnChangePassword.TabIndex = 145;
             this.btnChangePassword.Text = "Change password";
             this.btnChangePassword.UseVisualStyleBackColor = true;
@@ -168,7 +170,7 @@ namespace MediaBazaar
             // 
             // StockManagerInterface
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.lblStockMGender);
@@ -182,8 +184,9 @@ namespace MediaBazaar
             this.Controls.Add(this.lblStockMLName);
             this.Controls.Add(this.lblStockMFName);
             this.Controls.Add(this.pbxStockM);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "StockManagerInterface";
-            this.Size = new System.Drawing.Size(890, 530);
+            this.Size = new System.Drawing.Size(1001, 662);
             ((System.ComponentModel.ISupportInitialize)(this.pbxStockM)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
