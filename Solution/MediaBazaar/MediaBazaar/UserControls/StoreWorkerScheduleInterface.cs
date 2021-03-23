@@ -48,10 +48,12 @@ namespace MediaBazaar
 
                     lbxDisplayAssignedEmployees.Items.Add(employee.BSN);
                 }
-                List<int> assignedHours = schedule.GetEmployeesAssignedHours(foundShift.GetAvailableEmployeesIds(), date);
+                Dictionary<int, int> assignedHours = schedule.GetEmployeesAssignedHours(foundShift.GetAvailableEmployeesIds(), date);
+                
                 for (int i = 0; i < foundShift.GetAvailableEmployees().Count; i++)
                 {
-                    lbxDisplayAvailableStoreW.Items.Add(foundShift.GetAvailableEmployees()[i].BSN + " - " + foundShift.GetAvailableEmployees()[i].Contract + " - " + assignedHours[i] + "h assigned for the week.");
+                    assignedHours.TryGetValue(foundShift.GetAvailableEmployees()[i].Id,out int hours);
+                    lbxDisplayAvailableStoreW.Items.Add(foundShift.GetAvailableEmployees()[i].BSN + " - " + foundShift.GetAvailableEmployees()[i].Contract + " - " + hours + "h assigned for the week.");
                 }
 
 

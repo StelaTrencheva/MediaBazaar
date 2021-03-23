@@ -55,7 +55,7 @@ namespace MediaBazaar
                            contracttype,
                            position
                         );
-                    if (position == EmployeeType.STORE_WORKER)
+                    if (position == EmployeeType.STORE_WORKER&& contracttype !=ContractType.LEFT)
                     {
                         storeWorkers.Add(foundEmployee);
                     }
@@ -127,7 +127,7 @@ namespace MediaBazaar
 
 
             int n = this.DBMediator.ExecuteNonQuery(sqlCommand);
-
+            shift.AssignEmployee(bsn);
             if (n == 0)
                 return null;
             else if (n == 1)
@@ -152,7 +152,7 @@ namespace MediaBazaar
 
 
             int n = this.DBMediator.ExecuteNonQuery(sqlCommand);
-
+            shift.RemoveEmployee(bsn);
             if (n == 0)
                 return null;
             else if (n == 1)
@@ -164,7 +164,7 @@ namespace MediaBazaar
                     "addition of film entry results in number " + n
                 );
         }
-        public List<int> GetEmployeesAssignedHours(List<int> employees, string date)
+        public Dictionary<int, int> GetEmployeesAssignedHours(List<int> employees, string date)
         {
             string sqlStatement = " select IF(es.times IS NULL, 0, es.times) as assignedHours, e.id from mb_employee e left join " +
                 "(select count(*) as times, employeeID from mb_shift_with_assigned_employee where shiftID in " +
@@ -172,14 +172,14 @@ namespace MediaBazaar
                 " where e.id in (" + string.Join(",", employees) + ")";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DBMediator.GetDBConnection());
             sqlCommand.Parameters.AddWithValue("@date", date);
-            List<int> assignedHours = new List<int>();
+            Dictionary<int, int> assignedHours = new Dictionary<int, int>();
             MySqlDataReader Reader = null;
             try
             {
                 Reader = this.DBMediator.OpenExecuteReader(sqlCommand);
                 while (Reader.Read())
                 {
-                    assignedHours.Add(Convert.ToInt32(Reader["assignedHours"]) * 4);
+                    assignedHours.Add(Convert.ToInt32(Reader["id"]), Convert.ToInt32(Reader["assignedHours"]) * 4);
                 }
             }
             finally
@@ -191,6 +191,7 @@ namespace MediaBazaar
 
 
         }
-      
+
+
     }
 }
