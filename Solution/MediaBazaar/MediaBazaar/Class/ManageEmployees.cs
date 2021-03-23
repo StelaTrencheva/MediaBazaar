@@ -75,6 +75,10 @@ namespace MediaBazaar
             }
             return false;
         }
+        public bool DeleteEmployeeFromDb(int id)
+        {
+            return dbMediator.DeleteEmployee(id);
+        }
         public int CheckLoginInfo(string username, string password)
         {
             foreach(Employee emp in employees)

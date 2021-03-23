@@ -33,8 +33,8 @@ namespace MediaBazaar
             foreach (Employee emp in manageEmployees.GetListOFAllEmployees())
             {
                 lbxViewEmployees.Items.Add(emp.ToString());
+                lbxViewEmployees.Items.Add("");
             }
-
         }
         private void SetComboBoxes()
         {
@@ -114,5 +114,33 @@ namespace MediaBazaar
             }
         }
 
+        private void btnRemoveEmployee_Click(object sender, EventArgs e)
+        {
+            if (lbxViewEmployees.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an employee");
+                return;
+            }
+            foreach (Employee emp in manageEmployees.GetListOFAllEmployees())
+            {
+                if (lbxViewEmployees.SelectedItem.ToString() == emp.ToString())
+                {
+                    if (emp.Id == 2 || emp.Id == 3 || emp.Id == 4 || emp.Id == 6 || emp.Id == 8 || emp.Id == 28)
+                    {
+                        MessageBox.Show("You can not delete this user");
+                    }else if (manageEmployees.DeleteEmployeeFromDb(emp.Id))
+                    {
+                        MessageBox.Show("The employee is deleted");
+                        UpdateListBoxViewEmployees();
+
+                    }else
+                    {
+                        MessageBox.Show("The employee is not deleted.");
+                        UpdateListBoxViewEmployees();
+                    }
+                    return;
+                }
+            }
+        }
     }
 }

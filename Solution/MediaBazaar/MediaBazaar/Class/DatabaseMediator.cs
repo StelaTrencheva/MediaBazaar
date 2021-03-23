@@ -191,8 +191,39 @@ namespace MediaBazaar
                 dbConnection.Close();
             }
         }
+        public bool DeleteEmployee(int id)
+        {
+            string sqlStatement = "DELETE FROM `mb_employee` WHERE id=@i";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, dbConnection);;
+            sqlCommand.Parameters.AddWithValue("@i", id);
+            try
+            {
+                int n = 0;
+                dbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
 
-       public bool ChangeWorkContract(ContractType contract, int id)
+                if (n == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(sqlExceptionMessage(e.Message));
+                return false;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(sqlExceptionMessage(e.Message));
+                return false;
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+        }
+        public bool ChangeWorkContract(ContractType contract, int id)
         {
             string sqlStatement = "UPDATE mb_employee SET contracttype = @c	WHERE id = @i";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, dbConnection);

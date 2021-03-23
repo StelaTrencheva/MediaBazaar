@@ -140,7 +140,7 @@ namespace MediaBazaar
         }
         public override string ToString()
         {
-            return $"Bsn: {bsn}, {firstName} {lastName}, {gender}, {email}, birthday: {birthDay.ToString("yyyy-MM-dd")}, Phone: {emergencyPhoneNumber}, IBAN: {iban}";
+            return $"Bsn: {bsn}, {firstName} {lastName}, {gender}, {position}, {email}, Phone: {emergencyPhoneNumber}, birthday: {birthDay.ToString("yyyy-MM-dd")}, IBAN: {iban}";
         }
 
     }
