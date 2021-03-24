@@ -25,6 +25,13 @@ namespace MediaBazaar
             {
                 throw new NullReferenceException();
             }
+            foreach (Employee emp in GetListOFAllEmployees())
+            {
+                if (emp.BSN == bsn)
+                {
+                    throw new RepeatingObjectException();
+                }
+            }
             return dbMediator.AddEmployee(bsn, firstName, lastName, gender, email, username,  birthDay,
                                           addrStreet, addrStreetNumber, addrZipcode, addrTown, addrCountry,
                                           firstWorkingDay, emergencyPhoneNumber, iban, hourlyWage, /*contractStartDate,*/ contract, position);
@@ -133,7 +140,7 @@ namespace MediaBazaar
             {
                 if (i.Model == model && i.Brand == brand)
                 {
-                    throw new RepeatingProductException();
+                    throw new RepeatingObjectException();
                 }
             }
             return this.dbMediator.AddProduct(brand, type, model, description, category, subcategory, costPrice, salePrice,

@@ -75,7 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\RepeatingProductException.cs" />
+    <Compile Include="Exceptions\RepeatingObjectException.cs" />
     <Compile Include="UserControls\RestockRequestInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -112,6 +112,10 @@ namespace MediaBazaar
             {
                 MessageBox.Show("Please fill all the fields");
             }
+            catch (RepeatingObjectException)
+            {
+                MessageBox.Show("This bsn already exist");
+            }
             catch(Exception exce)
             {
                 MessageBox.Show(exce.ToString());
