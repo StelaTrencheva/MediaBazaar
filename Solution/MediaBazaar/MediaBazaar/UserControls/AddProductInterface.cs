@@ -53,6 +53,10 @@ namespace MediaBazaar
             {
                 MessageBox.Show("Please fill the fields with the correct format");
             }
+            catch (RepeatingProductException)
+            {
+                MessageBox.Show("This product already exist");
+            }
             catch (Exception exce)
             {
                 MessageBox.Show(exce.ToString());

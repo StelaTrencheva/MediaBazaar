@@ -129,6 +129,13 @@ namespace MediaBazaar
             {
                 throw new FormatException();
             }
+            foreach (Product i in GetAllProducts())
+            {
+                if (i.Model == model && i.Brand == brand)
+                {
+                    throw new RepeatingProductException();
+                }
+            }
             return this.dbMediator.AddProduct(brand, type, model, description, category, subcategory, costPrice, salePrice,
                 amountInStore, amountInWarehouse);
         }
