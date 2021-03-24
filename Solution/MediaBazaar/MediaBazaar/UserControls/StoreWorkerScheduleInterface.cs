@@ -123,12 +123,18 @@ namespace MediaBazaar
             string selectedUser;
             try
             {
-                selectedUser = lbxDisplayAssignedEmployees.SelectedItem.ToString();
-                MessageBox.Show("Employee with BSN: " + schedule.RemoveEmployeeFromShift(foundShift, selectedUser).BSN + " was removed from this shift.");
+                if (lbxDisplayAssignedEmployees.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select a store worker from the assigned store workers");
+                }
+                else
+                {
+                    selectedUser = lbxDisplayAssignedEmployees.SelectedItem.ToString(); 
+                    MessageBox.Show("Employee with BSN: " + schedule.RemoveEmployeeFromShift(foundShift, selectedUser).BSN + " was removed from this shift.");
                 UpdateInfo();
-
+                }
             }
-            catch (NullReferenceException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -140,10 +146,17 @@ namespace MediaBazaar
             string selectedUser;
             try
             {
-                selectedUser = lbxDisplayAvailableStoreW.SelectedItem.ToString();
-                selectedUser = selectedUser.Substring(0, selectedUser.IndexOf(" - "));
-                MessageBox.Show("Employee with BSN: " + schedule.AssignEmployeeToShift(foundShift, selectedUser).BSN + " was assigned to this shift.");
-                UpdateInfo();
+                if (lbxDisplayAvailableStoreW.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select a store worker from the available store workers");
+                }
+                else
+                {
+                    selectedUser = lbxDisplayAvailableStoreW.SelectedItem.ToString();
+                    selectedUser = selectedUser.Substring(0, selectedUser.IndexOf(" - "));
+                    MessageBox.Show("Employee with BSN: " + schedule.AssignEmployeeToShift(foundShift, selectedUser).BSN + " was assigned to this shift.");
+                    UpdateInfo();
+                }
 
             }
             catch (NullReferenceException ex)
