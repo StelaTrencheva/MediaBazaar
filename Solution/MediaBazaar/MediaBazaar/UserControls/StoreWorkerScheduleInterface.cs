@@ -76,6 +76,8 @@ namespace MediaBazaar
             lblDay.Visible = true;
             cbxDay.Visible = true;
             cbxDay.Items.Clear();
+            cbxShiftType.Visible = false;
+            lblShiftType.Visible = false;
             DateTime lst = today.AddMonths(3);
             for (DateTime day = today.Date; day <= lst; day = day.AddDays(1))
             {
@@ -95,12 +97,15 @@ namespace MediaBazaar
             lblAssignStoreW.Visible = false;
             lblShiftType.Visible = true;
             cbxShiftType.Visible = true;
-            cbxShiftType.Text = "";
+            cbxShiftType.SelectedIndex = -1;
+
         }
 
         private void cbxShiftType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblAssignStoreW.Visible = true;
+            if (cbxShiftType.SelectedIndex != -1)
+            {
+                lblAssignStoreW.Visible = true;
             lblAvailableStoreW.Visible = true;
             lbxDisplayAvailableStoreW.Visible = true;
             lbxDisplayAssignedEmployees.Visible = true;
@@ -108,6 +113,9 @@ namespace MediaBazaar
             btnAssign.Visible = true;
 
             UpdateInfo();
+
+            }
+            
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
