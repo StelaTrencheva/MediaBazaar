@@ -54,8 +54,9 @@ namespace MediaBazaar
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(206, 528);
+            this.panel1.Size = new System.Drawing.Size(232, 660);
             this.panel1.TabIndex = 44;
             // 
             // btnStoreMEmployeeStatistic
@@ -63,9 +64,10 @@ namespace MediaBazaar
             this.btnStoreMEmployeeStatistic.BackColor = System.Drawing.Color.SlateGray;
             this.btnStoreMEmployeeStatistic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStoreMEmployeeStatistic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStoreMEmployeeStatistic.Location = new System.Drawing.Point(29, 161);
+            this.btnStoreMEmployeeStatistic.Location = new System.Drawing.Point(33, 201);
+            this.btnStoreMEmployeeStatistic.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStoreMEmployeeStatistic.Name = "btnStoreMEmployeeStatistic";
-            this.btnStoreMEmployeeStatistic.Size = new System.Drawing.Size(146, 64);
+            this.btnStoreMEmployeeStatistic.Size = new System.Drawing.Size(164, 80);
             this.btnStoreMEmployeeStatistic.TabIndex = 4;
             this.btnStoreMEmployeeStatistic.Text = "Employee Statistic";
             this.btnStoreMEmployeeStatistic.UseVisualStyleBackColor = false;
@@ -76,9 +78,10 @@ namespace MediaBazaar
             this.btnStoreMStockStatistic.BackColor = System.Drawing.Color.SlateGray;
             this.btnStoreMStockStatistic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStoreMStockStatistic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStoreMStockStatistic.Location = new System.Drawing.Point(29, 231);
+            this.btnStoreMStockStatistic.Location = new System.Drawing.Point(33, 289);
+            this.btnStoreMStockStatistic.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStoreMStockStatistic.Name = "btnStoreMStockStatistic";
-            this.btnStoreMStockStatistic.Size = new System.Drawing.Size(146, 64);
+            this.btnStoreMStockStatistic.Size = new System.Drawing.Size(164, 80);
             this.btnStoreMStockStatistic.TabIndex = 3;
             this.btnStoreMStockStatistic.Text = "Stock Statistic";
             this.btnStoreMStockStatistic.UseVisualStyleBackColor = false;
@@ -88,9 +91,10 @@ namespace MediaBazaar
             // 
             this.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
-            this.pbxLogo.Location = new System.Drawing.Point(32, 12);
+            this.pbxLogo.Location = new System.Drawing.Point(36, 15);
+            this.pbxLogo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbxLogo.Name = "pbxLogo";
-            this.pbxLogo.Size = new System.Drawing.Size(146, 134);
+            this.pbxLogo.Size = new System.Drawing.Size(164, 168);
             this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxLogo.TabIndex = 2;
             this.pbxLogo.TabStop = false;
@@ -100,9 +104,10 @@ namespace MediaBazaar
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.btnStoreMLogOut);
             this.panel2.Controls.Add(this.btnStoreM);
-            this.panel2.Location = new System.Drawing.Point(-1, 311);
+            this.panel2.Location = new System.Drawing.Point(-1, 389);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(207, 217);
+            this.panel2.Size = new System.Drawing.Size(233, 271);
             this.panel2.TabIndex = 0;
             // 
             // btnStoreMLogOut
@@ -110,9 +115,10 @@ namespace MediaBazaar
             this.btnStoreMLogOut.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnStoreMLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStoreMLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStoreMLogOut.Location = new System.Drawing.Point(32, 142);
+            this.btnStoreMLogOut.Location = new System.Drawing.Point(36, 178);
+            this.btnStoreMLogOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStoreMLogOut.Name = "btnStoreMLogOut";
-            this.btnStoreMLogOut.Size = new System.Drawing.Size(146, 43);
+            this.btnStoreMLogOut.Size = new System.Drawing.Size(164, 54);
             this.btnStoreMLogOut.TabIndex = 3;
             this.btnStoreMLogOut.Text = "Log out";
             this.btnStoreMLogOut.UseVisualStyleBackColor = false;
@@ -123,9 +129,10 @@ namespace MediaBazaar
             this.btnStoreM.BackColor = System.Drawing.Color.White;
             this.btnStoreM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStoreM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStoreM.Location = new System.Drawing.Point(32, 47);
+            this.btnStoreM.Location = new System.Drawing.Point(36, 59);
+            this.btnStoreM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStoreM.Name = "btnStoreM";
-            this.btnStoreM.Size = new System.Drawing.Size(146, 43);
+            this.btnStoreM.Size = new System.Drawing.Size(164, 54);
             this.btnStoreM.TabIndex = 2;
             this.btnStoreM.Text = "My account";
             this.btnStoreM.UseVisualStyleBackColor = false;
@@ -134,37 +141,41 @@ namespace MediaBazaar
             // employeeStatistics1
             // 
             this.employeeStatistics1.BackColor = System.Drawing.Color.Transparent;
-            this.employeeStatistics1.Location = new System.Drawing.Point(224, -2);
+            this.employeeStatistics1.Location = new System.Drawing.Point(252, -2);
+            this.employeeStatistics1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.employeeStatistics1.Name = "employeeStatistics1";
-            this.employeeStatistics1.Size = new System.Drawing.Size(890, 530);
+            this.employeeStatistics1.Size = new System.Drawing.Size(1001, 662);
             this.employeeStatistics1.TabIndex = 46;
             // 
             // storeManagerInterface1
             // 
-            this.storeManagerInterface1.Location = new System.Drawing.Point(213, 0);
-            this.storeManagerInterface1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.storeManagerInterface1.Location = new System.Drawing.Point(240, 0);
+            this.storeManagerInterface1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.storeManagerInterface1.Name = "storeManagerInterface1";
-            this.storeManagerInterface1.Size = new System.Drawing.Size(890, 530);
+            this.storeManagerInterface1.Size = new System.Drawing.Size(1001, 662);
             this.storeManagerInterface1.TabIndex = 45;
             // 
             // productStatisticInterface1
             // 
-            this.productStatisticInterface1.Location = new System.Drawing.Point(212, 0);
+            this.productStatisticInterface1.Location = new System.Drawing.Point(238, 0);
+            this.productStatisticInterface1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.productStatisticInterface1.Name = "productStatisticInterface1";
-            this.productStatisticInterface1.Size = new System.Drawing.Size(890, 530);
+            this.productStatisticInterface1.Size = new System.Drawing.Size(1015, 662);
             this.productStatisticInterface1.TabIndex = 47;
             // 
             // StoreManagerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1126, 528);
+            this.ClientSize = new System.Drawing.Size(1267, 660);
             this.Controls.Add(this.productStatisticInterface1);
             this.Controls.Add(this.employeeStatistics1);
             this.Controls.Add(this.storeManagerInterface1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
             this.Name = "StoreManagerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StoreManagerForm";

@@ -14,15 +14,29 @@ namespace MediaBazaar
     {
         Employee currentEmployee;
         DatabaseMediator dbMediator;
-        public ChangeEmployeeWorkingContractForm()
+        public ChangeEmployeeWorkingContractForm(Employee currentEmployee)
         {
             InitializeComponent();
             dbMediator = new DatabaseMediator();
+            this.currentEmployee = currentEmployee;
+            PictureBoxUpdate();
         }
+        
 
-        public void SetEmployee(Employee emp)
+        
+        private void PictureBoxUpdate()
         {
-            this.currentEmployee = emp;
+            if (currentEmployee.Gender == Gender.MALE)
+            {
+                pictureBox.Image = Properties.Resources.Male;
+            }else if (currentEmployee.Gender == Gender.FEMALE)
+            {
+                pictureBox.Image = Properties.Resources.Female;
+
+            }else if (currentEmployee.Gender == Gender.OTHER)
+            {
+                pictureBox.Image = Properties.Resources.Other;
+            }
         }
 
         private void ChangeEmployeeWorkingContract_Load(object sender, EventArgs e)

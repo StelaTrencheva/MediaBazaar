@@ -58,13 +58,12 @@ namespace MediaBazaar
                 MessageBox.Show("Please select an employee");
                 return;
             }
-            changeContractForm = new ChangeEmployeeWorkingContractForm();
             
             foreach (Employee emp in manageEmployees.GetListOFAllEmployees())
             {
                if(emp.GetInfo == lbxDisplayEMployees.SelectedItem.ToString())
                 {
-                    changeContractForm.SetEmployee(emp);
+                    changeContractForm = new ChangeEmployeeWorkingContractForm(emp);
                     changeContractForm.ShowDialog();
                     UpdateListBoxEmployee();
                     return;

@@ -40,10 +40,11 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(38, 33);
+            this.pictureBox.Location = new System.Drawing.Point(55, 98);
             this.pictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(184, 241);
+            this.pictureBox.Size = new System.Drawing.Size(128, 176);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             // 
@@ -122,6 +123,7 @@
             this.Controls.Add(this.pictureBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "ChangeEmployeeWorkingContractForm";
             this.Text = "ChangeEmployeeWorkingContract";
             this.Load += new System.EventHandler(this.ChangeEmployeeWorkingContract_Load);
