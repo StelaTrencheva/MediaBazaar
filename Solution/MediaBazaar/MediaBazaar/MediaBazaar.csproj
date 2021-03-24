@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\RepeatingObjectException.cs" />
+    <Compile Include="Exceptions\IncorrectPricingException.cs" />
     <Compile Include="UserControls\RestockRequestInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>

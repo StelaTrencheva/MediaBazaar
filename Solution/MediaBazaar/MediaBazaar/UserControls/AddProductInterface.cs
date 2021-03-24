@@ -53,6 +53,10 @@ namespace MediaBazaar
             {
                 MessageBox.Show("Please fill the fields with the correct format");
             }
+            catch (IncorrectPricingException)
+            {
+                MessageBox.Show("The sale price can not be smaller than the cost price");
+            }
             catch (RepeatingObjectException)
             {
                 MessageBox.Show("This product already exist");

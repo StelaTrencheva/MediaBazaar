@@ -136,6 +136,10 @@ namespace MediaBazaar
             {
                 throw new FormatException();
             }
+            if (costPrice>=salePrice)
+            {
+                throw new IncorrectPricingException();
+            }
             foreach (Product i in GetAllProducts())
             {
                 if (i.Model == model && i.Brand == brand)
