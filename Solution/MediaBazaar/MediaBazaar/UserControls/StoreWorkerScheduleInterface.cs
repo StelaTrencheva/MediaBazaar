@@ -83,7 +83,7 @@ namespace MediaBazaar
             {
                 if (day.Month == month)
                 {
-                    cbxDay.Items.Add(day.ToShortDateString());
+                    cbxDay.Items.Add(day.ToShortDateString()+" - "+day.DayOfWeek);
                 }
 
             }
@@ -199,7 +199,7 @@ namespace MediaBazaar
             foreach (DateTime d in dates)
             {
                 string date = d.ToString("yyyy-MM-dd");
-                lbViewSchedule.Items.Add(d.ToShortDateString());
+                lbViewSchedule.Items.Add(d.ToShortDateString()+" - "+d.DayOfWeek);
                 foreach (ShiftType s in (ShiftType[])Enum.GetValues(typeof(ShiftType)))
                 {
                     lbViewSchedule.Items.Add("\t" + s.ToString());
