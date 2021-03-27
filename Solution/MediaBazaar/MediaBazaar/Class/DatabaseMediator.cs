@@ -94,7 +94,7 @@ namespace MediaBazaar
         }
 
 
-        public List<Employee> getEmployees()//WORKING!!
+        public List<Employee> GetEmployees()//WORKING!!
         {
             string sqlStatement = "SELECT * FROM mb_employee";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, dbConnection);

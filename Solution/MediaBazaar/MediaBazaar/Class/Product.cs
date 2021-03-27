@@ -50,7 +50,7 @@ namespace MediaBazaar
         {
             return $"Product number: {PNumber} - {Brand} {Model} - Total revenue: " +
                     $"{SalePrice * quantity} Total profit: {(SalePrice * quantity) - (CostPrice * quantity)} " +
-                    $"- for {quantity} Quality";
+                    $"- for {quantity} Quantity";
         }
         public override string ToString()
         {

@@ -10,7 +10,7 @@ namespace MediaBazaar
     {
         //private Employee employee;
         private List<Employee> employees;
-        DatabaseMediator dbMediator;
+        private DatabaseMediator dbMediator;
 
         public ManageEmployees()
         {
@@ -108,7 +108,7 @@ namespace MediaBazaar
 
         public List<Employee> GetListOFAllEmployees()
         {
-            return dbMediator.getEmployees();
+            return dbMediator.GetEmployees();
         }
         public Employee Login(string username,string password)
         {
@@ -121,7 +121,7 @@ namespace MediaBazaar
         }
         public void UpdateEmployees()
         {
-            this.employees = dbMediator.getEmployees();
+            this.employees = dbMediator.GetEmployees();
         }
 
         public List<Product> GetAllProducts()

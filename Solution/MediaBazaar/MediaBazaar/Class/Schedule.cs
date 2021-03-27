@@ -10,8 +10,8 @@ namespace MediaBazaar
     public class Schedule
     {
         private DatabaseMediator DBMediator;
-        List<Employee> assignedEmployees;
-        List<Employee> availableEmployees;
+        private List<Employee> assignedEmployees;
+        private List<Employee> availableEmployees;
         public Schedule()
         {
             DBMediator = new DatabaseMediator();

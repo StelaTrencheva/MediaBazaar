@@ -96,10 +96,12 @@ namespace MediaBazaar
         }
         public string EmployeeFullInfo
         {
-            get { return $"ID: {this.Id}-{this.firstName} {this.lastName} - {this.gender} - {this.Position} \r\n" +
+            get 
+            { return $"ID: {this.Id}-{this.firstName} {this.lastName} - {this.gender} - {this.Position} \r\n" +
                     $"Address: {this.addrStreet} {this.addrStreetNumber}, {this.addrTown}, {this.addrCountry} \r\n" +
                     $"First working day: {this.firstWorkingDay.ToString("dd-MM-yyyy")},\r\n" + /*Contract start date:{this.contractStartDate.ToString("dd-MM-yyyy")}*/
-                $"Hourly wage: {this.hourlyWage}, Phone number: {this.emergencyPhoneNumber}"; }
+                $"Hourly wage: {this.hourlyWage}, Phone number: {this.emergencyPhoneNumber}";
+            }
         }
         public string GetTotalSalaryPerTimeUnit
         {
