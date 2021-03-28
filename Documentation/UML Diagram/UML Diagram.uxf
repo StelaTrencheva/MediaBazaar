@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>8</zoom_level>
+  <zoom_level>5</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>984</x>
-      <y>208</y>
-      <w>672</w>
-      <h>416</h>
+      <x>615</x>
+      <y>105</y>
+      <w>420</w>
+      <h>260</h>
     </coordinates>
     <panel_attributes>Employee
 --
@@ -57,10 +57,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1752</x>
-      <y>552</y>
-      <w>128</w>
-      <h>88</h>
+      <x>1095</x>
+      <y>320</y>
+      <w>80</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enumeration&gt;&gt;
 Gender
@@ -73,10 +73,10 @@ OTHER</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1344</x>
-      <y>1024</y>
-      <w>128</w>
-      <h>112</h>
+      <x>1150</x>
+      <y>475</y>
+      <w>80</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enumeration&gt;&gt;
 ShiftType
@@ -90,10 +90,10 @@ Night</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1256</x>
-      <y>1072</y>
-      <w>104</w>
-      <h>24</h>
+      <x>1095</x>
+      <y>505</y>
+      <w>65</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
@@ -101,10 +101,10 @@ Night</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>944</x>
-      <y>824</y>
-      <w>504</w>
-      <h>152</h>
+      <x>590</x>
+      <y>490</y>
+      <w>315</w>
+      <h>95</h>
     </coordinates>
     <panel_attributes>Schedule
 --
@@ -123,10 +123,10 @@ Night</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>344</x>
-      <y>64</y>
-      <w>512</w>
-      <h>304</h>
+      <x>215</x>
+      <y>15</y>
+      <w>320</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>SystemManager
 --
@@ -166,22 +166,22 @@ Night</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>848</x>
-      <y>104</y>
-      <w>152</w>
-      <h>368</h>
+      <x>530</x>
+      <y>40</y>
+      <w>95</w>
+      <h>230</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-m1=0..n</panel_attributes>
+m1=0..*</panel_attributes>
     <additional_attributes>170.0;430.0;120.0;430.0;120.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1752</x>
-      <y>392</y>
-      <w>152</w>
-      <h>112</h>
+      <x>1095</x>
+      <y>220</y>
+      <w>95</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enumeration&gt;&gt;
 EmployeeType
@@ -197,10 +197,10 @@ HR</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1648</x>
-      <y>296</y>
-      <w>120</w>
-      <h>24</h>
+      <x>1030</x>
+      <y>160</y>
+      <w>75</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
@@ -208,10 +208,10 @@ HR</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1648</x>
-      <y>424</y>
-      <w>120</w>
-      <h>24</h>
+      <x>1030</x>
+      <y>240</y>
+      <w>75</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
@@ -219,10 +219,10 @@ HR</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1752</x>
-      <y>280</y>
-      <w>128</w>
-      <h>88</h>
+      <x>1095</x>
+      <y>150</y>
+      <w>80</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enumeration&gt;&gt;
 ContractType
@@ -236,10 +236,10 @@ LEFT</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1648</x>
-      <y>552</y>
-      <w>120</w>
-      <h>24</h>
+      <x>1030</x>
+      <y>320</y>
+      <w>75</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
@@ -247,10 +247,10 @@ LEFT</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>440</x>
-      <y>448</y>
-      <w>496</w>
-      <h>408</h>
+      <x>275</x>
+      <y>255</y>
+      <w>310</w>
+      <h>255</h>
     </coordinates>
     <panel_attributes>DatabaseMediator
 --
@@ -289,10 +289,10 @@ LEFT</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>544</x>
-      <y>360</y>
-      <w>40</w>
-      <h>104</h>
+      <x>340</x>
+      <y>200</y>
+      <w>25</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1</panel_attributes>
@@ -301,10 +301,10 @@ m1=0..1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>8</x>
-      <y>472</y>
-      <w>352</w>
-      <h>264</h>
+      <x>5</x>
+      <y>270</y>
+      <w>220</w>
+      <h>165</h>
     </coordinates>
     <panel_attributes>Product
 --
@@ -331,10 +331,10 @@ m1=0..1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>976</x>
-      <y>1048</y>
-      <w>288</w>
-      <h>200</h>
+      <x>920</x>
+      <y>490</y>
+      <w>180</w>
+      <h>125</h>
     </coordinates>
     <panel_attributes>Shift
 --
@@ -358,10 +358,10 @@ m1=0..1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1216</x>
-      <y>616</y>
-      <w>40</w>
-      <h>224</h>
+      <x>675</x>
+      <y>360</y>
+      <w>25</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1= 0..*</panel_attributes>
@@ -370,10 +370,10 @@ m1= 0..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1400</x>
-      <y>616</y>
-      <w>40</w>
-      <h>224</h>
+      <x>760</x>
+      <y>360</y>
+      <w>25</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*</panel_attributes>
@@ -382,10 +382,10 @@ m1=0..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>928</x>
-      <y>688</y>
-      <w>136</w>
-      <h>152</h>
+      <x>580</x>
+      <y>405</y>
+      <w>85</w>
+      <h>95</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1= 0...1</panel_attributes>
@@ -395,9 +395,9 @@ m1= 0...1</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>40</y>
-      <w>168</w>
-      <h>152</h>
+      <y>0</y>
+      <w>105</w>
+      <h>95</h>
     </coordinates>
     <panel_attributes>Form
 --
@@ -407,10 +407,10 @@ m1= 0...1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>72</y>
-      <w>200</w>
-      <h>32</h>
+      <x>100</x>
+      <y>20</y>
+      <w>125</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1</panel_attributes>
@@ -419,10 +419,10 @@ m1=0..1</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>1632</x>
-      <y>872</y>
-      <w>80</w>
-      <h>56</h>
+      <x>1020</x>
+      <y>520</y>
+      <w>50</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>-
 style=wordwrap</panel_attributes>
@@ -431,10 +431,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>1224</x>
-      <y>704</y>
-      <w>136</w>
-      <h>24</h>
+      <x>680</x>
+      <y>415</y>
+      <w>85</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>-assignedEmployees
 style=wordwrap</panel_attributes>
@@ -443,10 +443,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>1416</x>
-      <y>704</y>
-      <w>136</w>
-      <h>24</h>
+      <x>770</x>
+      <y>415</y>
+      <w>85</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>-availableEmployees
 style=wordwrap</panel_attributes>
@@ -455,10 +455,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>960</x>
-      <y>672</y>
-      <w>136</w>
-      <h>24</h>
+      <x>600</x>
+      <y>395</y>
+      <w>85</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>-DBMediator
 style=wordwrap</panel_attributes>
@@ -467,10 +467,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>872</x>
-      <y>88</y>
-      <w>136</w>
-      <h>24</h>
+      <x>545</x>
+      <y>30</y>
+      <w>85</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>-employees
 style=wordwrap</panel_attributes>
@@ -479,10 +479,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>552</x>
-      <y>384</y>
-      <w>136</w>
-      <h>24</h>
+      <x>345</x>
+      <y>215</y>
+      <w>85</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>-dbMediator
 style=wordwrap</panel_attributes>
@@ -491,12 +491,60 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>184</x>
-      <y>56</y>
-      <w>136</w>
-      <h>24</h>
+      <x>115</x>
+      <y>10</y>
+      <w>85</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>-systemManager
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>920</x>
+      <y>360</y>
+      <w>25</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1= 0..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;260.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>925</x>
+      <y>415</y>
+      <w>85</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>-assignedEmployees
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>360</y>
+      <w>25</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;260.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>1000</x>
+      <y>415</y>
+      <w>85</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>-availableEmployees
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
