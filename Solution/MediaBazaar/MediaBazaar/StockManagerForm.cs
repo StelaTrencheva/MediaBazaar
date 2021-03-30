@@ -20,7 +20,7 @@ namespace MediaBazaar
             InitializeComponent();
             this.manageEmployees = new ManageEmployees();
             this.currentEmp = currentEmp;
-            this.stockManagerInterface1.SendInfo(currentEmp);
+            userInterface1.SendInfo(currentEmp);
         }
         private void PaintAllButtons()
         {
@@ -31,7 +31,7 @@ namespace MediaBazaar
         }
         private void HideAllInterfaces()
         {
-            stockManagerInterface1.Hide();
+            userInterface1.Hide();
             addProductInterface1.Hide();
             stockWorkerScheduleInterface1.Hide();
         }
@@ -41,11 +41,6 @@ namespace MediaBazaar
             this.Hide();
             form.ShowDialog();
             this.Close();
-        }
-
-        private void stockManagerInterface1_Load(object sender, EventArgs e)
-        {
-            
         }
 
         private void btnStockMSchedule_Click(object sender, EventArgs e)
@@ -61,7 +56,7 @@ namespace MediaBazaar
             PaintAllButtons();
             btnStockMAccount.BackColor = Color.White;
             HideAllInterfaces();
-            stockManagerInterface1.Show();
+            userInterface1.Show();
         }
 
         private void StockManagerForm_Load(object sender, EventArgs e)
@@ -69,7 +64,7 @@ namespace MediaBazaar
             PaintAllButtons();
             HideAllInterfaces();
             btnStockMAccount.BackColor = Color.White;
-            stockManagerInterface1.Show();
+            userInterface1.Show();
         }
 
         private void btnStockMAddProduct_Click(object sender, EventArgs e)

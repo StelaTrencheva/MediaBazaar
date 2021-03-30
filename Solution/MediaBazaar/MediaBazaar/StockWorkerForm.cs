@@ -20,20 +20,20 @@ namespace MediaBazaar
             InitializeComponent();
             this.manageEmployees = new ManageEmployees();
             this.currentEmp = currentEmp;
-            stockWorkerInterface1.SendInfo(currentEmp);
+            userInterface1.SendInfo(currentEmp);
         }
         private void PaintAllButtons()
         {
-          btnStockWProductData.BackColor = Color.SlateGray;
+            btnStockWProductData.BackColor = Color.SlateGray;
             btnStockWRestockRequest.BackColor = Color.SlateGray;
             btnStockWAccount.BackColor = Color.SlateGray;
             btnStockWLogOut.BackColor = Color.SlateGray;
         }
         private void HideAllInterfaces()
         {
-            stockWorkerInterface1.Hide();
-            productData1.Hide();
+            userInterface1.Hide();
             restockRequestInterface1.Hide();
+            productData1.Hide();
         }
         private void btnStockWLogOut_Click(object sender, EventArgs e)
         {
@@ -64,15 +64,15 @@ namespace MediaBazaar
             PaintAllButtons();
             btnStockWAccount.BackColor = Color.White;
             HideAllInterfaces();
-            stockWorkerInterface1.Show();
+            userInterface1.Show();
         }
 
-        private void StockWorkerForm_Load(object sender, EventArgs e)
+        private void userInterface1_Load(object sender, EventArgs e)
         {
             PaintAllButtons();
             btnStockWAccount.BackColor = Color.White;
             HideAllInterfaces();
-            stockWorkerInterface1.Show();
+            userInterface1.Show();
         }
     }
 }

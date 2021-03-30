@@ -37,7 +37,7 @@ namespace MediaBazaar
             this.btnDepartmentMLogOut = new System.Windows.Forms.Button();
             this.btnDepartmentMAccount = new System.Windows.Forms.Button();
             this.storeWorkerScheduleInterface = new MediaBazaar.StoreWorkerScheduleInterface();
-            this.departmentManagerAccountInterface = new MediaBazaar.DepartmentManagerInterface();
+            this.userInterface1 = new MediaBazaar.UserInterface();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -51,9 +51,8 @@ namespace MediaBazaar
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(232, 660);
+            this.panel1.Size = new System.Drawing.Size(206, 528);
             this.panel1.TabIndex = 34;
             // 
             // btnDepartmentMSchedule
@@ -61,10 +60,9 @@ namespace MediaBazaar
             this.btnDepartmentMSchedule.BackColor = System.Drawing.Color.SlateGray;
             this.btnDepartmentMSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDepartmentMSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDepartmentMSchedule.Location = new System.Drawing.Point(36, 258);
-            this.btnDepartmentMSchedule.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDepartmentMSchedule.Location = new System.Drawing.Point(32, 206);
             this.btnDepartmentMSchedule.Name = "btnDepartmentMSchedule";
-            this.btnDepartmentMSchedule.Size = new System.Drawing.Size(164, 52);
+            this.btnDepartmentMSchedule.Size = new System.Drawing.Size(146, 42);
             this.btnDepartmentMSchedule.TabIndex = 3;
             this.btnDepartmentMSchedule.Text = "Schedule";
             this.btnDepartmentMSchedule.UseVisualStyleBackColor = false;
@@ -74,10 +72,9 @@ namespace MediaBazaar
             // 
             this.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
-            this.pbxLogo.Location = new System.Drawing.Point(36, 15);
-            this.pbxLogo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pbxLogo.Location = new System.Drawing.Point(32, 12);
             this.pbxLogo.Name = "pbxLogo";
-            this.pbxLogo.Size = new System.Drawing.Size(164, 168);
+            this.pbxLogo.Size = new System.Drawing.Size(146, 134);
             this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxLogo.TabIndex = 2;
             this.pbxLogo.TabStop = false;
@@ -87,10 +84,9 @@ namespace MediaBazaar
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.btnDepartmentMLogOut);
             this.panel2.Controls.Add(this.btnDepartmentMAccount);
-            this.panel2.Location = new System.Drawing.Point(-1, 389);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel2.Location = new System.Drawing.Point(-1, 311);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(233, 271);
+            this.panel2.Size = new System.Drawing.Size(207, 217);
             this.panel2.TabIndex = 0;
             // 
             // btnDepartmentMLogOut
@@ -98,10 +94,9 @@ namespace MediaBazaar
             this.btnDepartmentMLogOut.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnDepartmentMLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDepartmentMLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDepartmentMLogOut.Location = new System.Drawing.Point(36, 178);
-            this.btnDepartmentMLogOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDepartmentMLogOut.Location = new System.Drawing.Point(32, 142);
             this.btnDepartmentMLogOut.Name = "btnDepartmentMLogOut";
-            this.btnDepartmentMLogOut.Size = new System.Drawing.Size(164, 54);
+            this.btnDepartmentMLogOut.Size = new System.Drawing.Size(146, 43);
             this.btnDepartmentMLogOut.TabIndex = 3;
             this.btnDepartmentMLogOut.Text = "Log out";
             this.btnDepartmentMLogOut.UseVisualStyleBackColor = false;
@@ -112,10 +107,9 @@ namespace MediaBazaar
             this.btnDepartmentMAccount.BackColor = System.Drawing.Color.White;
             this.btnDepartmentMAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDepartmentMAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDepartmentMAccount.Location = new System.Drawing.Point(36, 59);
-            this.btnDepartmentMAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDepartmentMAccount.Location = new System.Drawing.Point(32, 47);
             this.btnDepartmentMAccount.Name = "btnDepartmentMAccount";
-            this.btnDepartmentMAccount.Size = new System.Drawing.Size(164, 54);
+            this.btnDepartmentMAccount.Size = new System.Drawing.Size(146, 43);
             this.btnDepartmentMAccount.TabIndex = 2;
             this.btnDepartmentMAccount.Text = "My account";
             this.btnDepartmentMAccount.UseVisualStyleBackColor = false;
@@ -123,36 +117,34 @@ namespace MediaBazaar
             // 
             // storeWorkerScheduleInterface
             // 
-            this.storeWorkerScheduleInterface.Location = new System.Drawing.Point(252, 0);
-            this.storeWorkerScheduleInterface.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.storeWorkerScheduleInterface.Location = new System.Drawing.Point(213, 0);
+            this.storeWorkerScheduleInterface.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.storeWorkerScheduleInterface.Name = "storeWorkerScheduleInterface";
-            this.storeWorkerScheduleInterface.Size = new System.Drawing.Size(1001, 662);
+            this.storeWorkerScheduleInterface.Size = new System.Drawing.Size(890, 530);
             this.storeWorkerScheduleInterface.TabIndex = 36;
             // 
-            // departmentManagerAccountInterface
+            // userInterface1
             // 
-            this.departmentManagerAccountInterface.Location = new System.Drawing.Point(240, 0);
-            this.departmentManagerAccountInterface.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.departmentManagerAccountInterface.Name = "departmentManagerAccountInterface";
-            this.departmentManagerAccountInterface.Size = new System.Drawing.Size(1001, 662);
-            this.departmentManagerAccountInterface.TabIndex = 35;
+            this.userInterface1.Location = new System.Drawing.Point(213, 0);
+            this.userInterface1.Name = "userInterface1";
+            this.userInterface1.Size = new System.Drawing.Size(890, 530);
+            this.userInterface1.TabIndex = 37;
+            this.userInterface1.Load += new System.EventHandler(this.userInterface1_Load);
             // 
             // DepartmentManagerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1267, 660);
+            this.ClientSize = new System.Drawing.Size(1126, 528);
             this.Controls.Add(this.storeWorkerScheduleInterface);
-            this.Controls.Add(this.departmentManagerAccountInterface);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.userInterface1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "DepartmentManagerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DepartmentManagerFormcs";
-            this.Load += new System.EventHandler(this.DepartmentManagerForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -168,7 +160,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnDepartmentMLogOut;
         private System.Windows.Forms.Button btnDepartmentMAccount;
-        private DepartmentManagerInterface departmentManagerAccountInterface;
         private StoreWorkerScheduleInterface storeWorkerScheduleInterface;
+        private UserInterface userInterface1;
     }
 }

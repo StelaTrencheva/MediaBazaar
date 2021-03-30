@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace MediaBazaar
 {
-    public partial class HRAdminInterface : UserControl
+    public partial class UserInterface : UserControl
     {
         Employee employee;
         ChangePasswordForm changePasswordForm;
-        public HRAdminInterface()
+        public UserInterface()
         {
             InitializeComponent();
         }

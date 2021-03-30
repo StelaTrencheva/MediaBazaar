@@ -109,12 +109,6 @@
     <Compile Include="ChangePasswordForm.Designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\DepartmentManagerInterface.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\DepartmentManagerInterface.Designer.cs">
-      <DependentUpon>DepartmentManagerInterface.cs</DependentUpon>
-    </Compile>
     <Compile Include="Class\Employee.cs" />
     <Compile Include="UserControls\EmployeeStatistics.cs">
       <SubType>UserControl</SubType>
@@ -136,11 +130,11 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\HRAdminInterface.cs">
+    <Compile Include="UserControls\UserInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\HRAdminInterface.Designer.cs">
-      <DependentUpon>HRAdminInterface.cs</DependentUpon>
+    <Compile Include="UserControls\UserInterface.Designer.cs">
+      <DependentUpon>UserInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ManageEmployeeInterface.cs">
       <SubType>UserControl</SubType>
@@ -173,23 +167,11 @@
     <Compile Include="StockManagerForm.Designer.cs">
       <DependentUpon>StockManagerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\StockManagerInterface.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\StockManagerInterface.Designer.cs">
-      <DependentUpon>StockManagerInterface.cs</DependentUpon>
-    </Compile>
     <Compile Include="StockWorkerForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StockWorkerForm.Designer.cs">
       <DependentUpon>StockWorkerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\StockWorkerInterface.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\StockWorkerInterface.Designer.cs">
-      <DependentUpon>StockWorkerInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="StoreManagerForm.cs">
       <SubType>Form</SubType>
@@ -202,12 +184,6 @@
     </Compile>
     <Compile Include="UserControls\StockWorkerScheduleInterface.Designer.cs">
       <DependentUpon>StockWorkerScheduleInterface.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\StoreManagerInterface.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\StoreManagerInterface.Designer.cs">
-      <DependentUpon>StoreManagerInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\StoreWorkerScheduleInterface.cs">
       <SubType>UserControl</SubType>
@@ -230,9 +206,6 @@
     <EmbeddedResource Include="ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\DepartmentManagerInterface.resx">
-      <DependentUpon>DepartmentManagerInterface.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\EmployeeStatistics.resx">
       <DependentUpon>EmployeeStatistics.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,8 +215,8 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\HRAdminInterface.resx">
-      <DependentUpon>HRAdminInterface.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UserInterface.resx">
+      <DependentUpon>UserInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ManageEmployeeInterface.resx">
       <DependentUpon>ManageEmployeeInterface.cs</DependentUpon>
@@ -267,23 +240,14 @@
     <EmbeddedResource Include="StockManagerForm.resx">
       <DependentUpon>StockManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\StockManagerInterface.resx">
-      <DependentUpon>StockManagerInterface.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="StockWorkerForm.resx">
       <DependentUpon>StockWorkerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\StockWorkerInterface.resx">
-      <DependentUpon>StockWorkerInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StoreManagerForm.resx">
       <DependentUpon>StoreManagerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StockWorkerScheduleInterface.resx">
       <DependentUpon>StockWorkerScheduleInterface.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\StoreManagerInterface.resx">
-      <DependentUpon>StoreManagerInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StoreWorkerScheduleInterface.resx">
       <DependentUpon>StoreWorkerScheduleInterface.cs</DependentUpon>

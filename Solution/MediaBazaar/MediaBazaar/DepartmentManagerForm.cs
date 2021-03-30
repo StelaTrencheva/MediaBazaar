@@ -20,7 +20,7 @@ namespace MediaBazaar
             InitializeComponent();
             this.manageEmployees = new ManageEmployees();
             this.currentEmp = currentEmp;
-            this.departmentManagerAccountInterface.SendInfo(currentEmp);
+            userInterface1.SendInfo(currentEmp);
         }
         private void PaintAllButtons()
         {
@@ -37,7 +37,7 @@ namespace MediaBazaar
         }
         private void HideAllInterfaces()
         {
-            departmentManagerAccountInterface.Hide();
+            userInterface1.Hide();
             storeWorkerScheduleInterface.Hide();
         }
         private void btnDepartmentMSchedule_Click(object sender, EventArgs e)
@@ -55,15 +55,15 @@ namespace MediaBazaar
             PaintAllButtons();
             btnDepartmentMAccount.BackColor = Color.White;
             HideAllInterfaces();
-            departmentManagerAccountInterface.Show();
+            userInterface1.Show();
         }
 
-        private void DepartmentManagerForm_Load(object sender, EventArgs e)
+        private void userInterface1_Load(object sender, EventArgs e)
         {
             PaintAllButtons();
             btnDepartmentMAccount.BackColor = Color.White;
             HideAllInterfaces();
-            departmentManagerAccountInterface.Show();
+            userInterface1.Show();
         }
     }
 }

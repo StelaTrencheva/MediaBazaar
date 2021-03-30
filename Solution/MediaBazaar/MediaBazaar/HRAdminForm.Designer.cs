@@ -37,7 +37,7 @@ namespace MediaBazaar
             this.btnHRAdminLogOut = new System.Windows.Forms.Button();
             this.btnHRAdminAccount = new System.Windows.Forms.Button();
             this.manageEmployeeInterface1 = new MediaBazaar.ManageEmployeeInterface();
-            this.hrAdminInterface1 = new MediaBazaar.HRAdminInterface();
+            this.userInterface1 = new MediaBazaar.UserInterface();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -51,19 +51,19 @@ namespace MediaBazaar
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(232, 681);
+            this.panel1.Size = new System.Drawing.Size(194, 567);
             this.panel1.TabIndex = 26;
             // 
             // pbxLogo
             // 
             this.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
-            this.pbxLogo.Location = new System.Drawing.Point(36, 15);
-            this.pbxLogo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pbxLogo.Location = new System.Drawing.Point(30, 12);
+            this.pbxLogo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pbxLogo.Name = "pbxLogo";
-            this.pbxLogo.Size = new System.Drawing.Size(164, 168);
+            this.pbxLogo.Size = new System.Drawing.Size(137, 140);
             this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxLogo.TabIndex = 2;
             this.pbxLogo.TabStop = false;
@@ -73,10 +73,10 @@ namespace MediaBazaar
             this.btnHRAdminManageEmployee.BackColor = System.Drawing.Color.SlateGray;
             this.btnHRAdminManageEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHRAdminManageEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHRAdminManageEmployee.Location = new System.Drawing.Point(36, 234);
-            this.btnHRAdminManageEmployee.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnHRAdminManageEmployee.Location = new System.Drawing.Point(30, 195);
+            this.btnHRAdminManageEmployee.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnHRAdminManageEmployee.Name = "btnHRAdminManageEmployee";
-            this.btnHRAdminManageEmployee.Size = new System.Drawing.Size(164, 109);
+            this.btnHRAdminManageEmployee.Size = new System.Drawing.Size(137, 91);
             this.btnHRAdminManageEmployee.TabIndex = 1;
             this.btnHRAdminManageEmployee.Text = "Manage employees profiles";
             this.btnHRAdminManageEmployee.UseVisualStyleBackColor = false;
@@ -87,10 +87,10 @@ namespace MediaBazaar
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.btnHRAdminLogOut);
             this.panel2.Controls.Add(this.btnHRAdminAccount);
-            this.panel2.Location = new System.Drawing.Point(-1, 389);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel2.Location = new System.Drawing.Point(-1, 324);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(233, 291);
+            this.panel2.Size = new System.Drawing.Size(194, 243);
             this.panel2.TabIndex = 0;
             // 
             // btnHRAdminLogOut
@@ -98,10 +98,10 @@ namespace MediaBazaar
             this.btnHRAdminLogOut.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnHRAdminLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHRAdminLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHRAdminLogOut.Location = new System.Drawing.Point(36, 178);
-            this.btnHRAdminLogOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnHRAdminLogOut.Location = new System.Drawing.Point(30, 148);
+            this.btnHRAdminLogOut.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnHRAdminLogOut.Name = "btnHRAdminLogOut";
-            this.btnHRAdminLogOut.Size = new System.Drawing.Size(164, 54);
+            this.btnHRAdminLogOut.Size = new System.Drawing.Size(137, 45);
             this.btnHRAdminLogOut.TabIndex = 3;
             this.btnHRAdminLogOut.Text = "Log out";
             this.btnHRAdminLogOut.UseVisualStyleBackColor = false;
@@ -112,10 +112,10 @@ namespace MediaBazaar
             this.btnHRAdminAccount.BackColor = System.Drawing.Color.White;
             this.btnHRAdminAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHRAdminAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHRAdminAccount.Location = new System.Drawing.Point(36, 59);
-            this.btnHRAdminAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnHRAdminAccount.Location = new System.Drawing.Point(30, 49);
+            this.btnHRAdminAccount.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnHRAdminAccount.Name = "btnHRAdminAccount";
-            this.btnHRAdminAccount.Size = new System.Drawing.Size(164, 54);
+            this.btnHRAdminAccount.Size = new System.Drawing.Size(137, 45);
             this.btnHRAdminAccount.TabIndex = 2;
             this.btnHRAdminAccount.Text = "My account";
             this.btnHRAdminAccount.UseVisualStyleBackColor = false;
@@ -123,36 +123,35 @@ namespace MediaBazaar
             // 
             // manageEmployeeInterface1
             // 
-            this.manageEmployeeInterface1.Location = new System.Drawing.Point(238, 0);
-            this.manageEmployeeInterface1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.manageEmployeeInterface1.Location = new System.Drawing.Point(198, 2);
+            this.manageEmployeeInterface1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.manageEmployeeInterface1.Name = "manageEmployeeInterface1";
-            this.manageEmployeeInterface1.Size = new System.Drawing.Size(1001, 662);
+            this.manageEmployeeInterface1.Size = new System.Drawing.Size(834, 552);
             this.manageEmployeeInterface1.TabIndex = 28;
             // 
-            // hrAdminInterface1
+            // userInterface1
             // 
-            this.hrAdminInterface1.Location = new System.Drawing.Point(240, 0);
-            this.hrAdminInterface1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.hrAdminInterface1.Name = "hrAdminInterface1";
-            this.hrAdminInterface1.Size = new System.Drawing.Size(1001, 662);
-            this.hrAdminInterface1.TabIndex = 27;
+            this.userInterface1.Location = new System.Drawing.Point(199, 0);
+            this.userInterface1.Name = "userInterface1";
+            this.userInterface1.Size = new System.Drawing.Size(890, 530);
+            this.userInterface1.TabIndex = 29;
+            this.userInterface1.Load += new System.EventHandler(this.userInterface1_Load);
             // 
             // HRAdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1279, 681);
+            this.ClientSize = new System.Drawing.Size(1066, 567);
             this.Controls.Add(this.manageEmployeeInterface1);
-            this.Controls.Add(this.hrAdminInterface1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.userInterface1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
             this.Name = "HRAdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HR Admin Form";
-            this.Load += new System.EventHandler(this.HRAdminForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -168,7 +167,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnHRAdminLogOut;
         private System.Windows.Forms.Button btnHRAdminAccount;
-        private HRAdminInterface hrAdminInterface1;
         private ManageEmployeeInterface manageEmployeeInterface1;
+        private UserInterface userInterface1;
     }
 }
