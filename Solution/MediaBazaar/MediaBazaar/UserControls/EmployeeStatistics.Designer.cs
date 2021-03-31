@@ -53,7 +53,19 @@
             this.C_ZeroHourContractAvgPerYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblEmpStat = new System.Windows.Forms.Label();
             this.dtDateStatistic = new System.Windows.Forms.DateTimePicker();
+            this.tbcEmployeeStatistics = new System.Windows.Forms.TabControl();
+            this.tbpAllEmployees = new System.Windows.Forms.TabPage();
+            this.tbpSpecificEmployee = new System.Windows.Forms.TabPage();
+            this.lblChooseAnEmployee = new System.Windows.Forms.Label();
+            this.btnShowStatistics = new System.Windows.Forms.Button();
+            this.lblPeriodOfTime = new System.Windows.Forms.Label();
+            this.dtpTimePeriod = new System.Windows.Forms.DateTimePicker();
+            this.txbEmployees = new System.Windows.Forms.TextBox();
+            this.lbxEmployees = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvEmployeeStatistics)).BeginInit();
+            this.tbcEmployeeStatistics.SuspendLayout();
+            this.tbpAllEmployees.SuspendLayout();
+            this.tbpSpecificEmployee.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtgvEmployeeStatistics
@@ -84,13 +96,12 @@
             this.C_ZeroHourContractAvgPerMonth,
             this.C_ZeroHourContractAvgPerYear});
             this.dtgvEmployeeStatistics.GridColor = System.Drawing.SystemColors.InfoText;
-            this.dtgvEmployeeStatistics.Location = new System.Drawing.Point(0, 71);
-            this.dtgvEmployeeStatistics.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtgvEmployeeStatistics.Location = new System.Drawing.Point(11, 58);
             this.dtgvEmployeeStatistics.Name = "dtgvEmployeeStatistics";
             this.dtgvEmployeeStatistics.ReadOnly = true;
             this.dtgvEmployeeStatistics.RowHeadersWidth = 51;
             this.dtgvEmployeeStatistics.RowTemplate.Height = 24;
-            this.dtgvEmployeeStatistics.Size = new System.Drawing.Size(1001, 588);
+            this.dtgvEmployeeStatistics.Size = new System.Drawing.Size(859, 420);
             this.dtgvEmployeeStatistics.StandardTab = true;
             this.dtgvEmployeeStatistics.TabIndex = 0;
             // 
@@ -274,38 +285,138 @@
             // 
             this.lblEmpStat.AutoSize = true;
             this.lblEmpStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblEmpStat.Location = new System.Drawing.Point(3, 15);
+            this.lblEmpStat.Location = new System.Drawing.Point(6, 18);
             this.lblEmpStat.Name = "lblEmpStat";
-            this.lblEmpStat.Size = new System.Drawing.Size(262, 29);
+            this.lblEmpStat.Size = new System.Drawing.Size(213, 25);
             this.lblEmpStat.TabIndex = 2;
             this.lblEmpStat.Text = "Chosen period of time: ";
             // 
             // dtDateStatistic
             // 
             this.dtDateStatistic.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dtDateStatistic.Location = new System.Drawing.Point(273, 18);
-            this.dtDateStatistic.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtDateStatistic.Location = new System.Drawing.Point(249, 20);
             this.dtDateStatistic.Name = "dtDateStatistic";
-            this.dtDateStatistic.Size = new System.Drawing.Size(288, 26);
+            this.dtDateStatistic.Size = new System.Drawing.Size(256, 24);
             this.dtDateStatistic.TabIndex = 3;
             this.dtDateStatistic.Value = new System.DateTime(2021, 3, 22, 12, 44, 54, 0);
             this.dtDateStatistic.ValueChanged += new System.EventHandler(this.dtDateStatistic_ValueChanged);
             // 
+            // tbcEmployeeStatistics
+            // 
+            this.tbcEmployeeStatistics.Controls.Add(this.tbpAllEmployees);
+            this.tbcEmployeeStatistics.Controls.Add(this.tbpSpecificEmployee);
+            this.tbcEmployeeStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbcEmployeeStatistics.Location = new System.Drawing.Point(3, 3);
+            this.tbcEmployeeStatistics.Name = "tbcEmployeeStatistics";
+            this.tbcEmployeeStatistics.SelectedIndex = 0;
+            this.tbcEmployeeStatistics.Size = new System.Drawing.Size(884, 508);
+            this.tbcEmployeeStatistics.TabIndex = 4;
+            // 
+            // tbpAllEmployees
+            // 
+            this.tbpAllEmployees.Controls.Add(this.lblEmpStat);
+            this.tbpAllEmployees.Controls.Add(this.dtgvEmployeeStatistics);
+            this.tbpAllEmployees.Controls.Add(this.dtDateStatistic);
+            this.tbpAllEmployees.Location = new System.Drawing.Point(4, 27);
+            this.tbpAllEmployees.Name = "tbpAllEmployees";
+            this.tbpAllEmployees.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpAllEmployees.Size = new System.Drawing.Size(876, 477);
+            this.tbpAllEmployees.TabIndex = 0;
+            this.tbpAllEmployees.Text = " Overall statistics";
+            this.tbpAllEmployees.UseVisualStyleBackColor = true;
+            this.tbpAllEmployees.Click += new System.EventHandler(this.tbpAllEmployees_Click);
+            // 
+            // tbpSpecificEmployee
+            // 
+            this.tbpSpecificEmployee.Controls.Add(this.lbxEmployees);
+            this.tbpSpecificEmployee.Controls.Add(this.txbEmployees);
+            this.tbpSpecificEmployee.Controls.Add(this.dtpTimePeriod);
+            this.tbpSpecificEmployee.Controls.Add(this.lblPeriodOfTime);
+            this.tbpSpecificEmployee.Controls.Add(this.btnShowStatistics);
+            this.tbpSpecificEmployee.Controls.Add(this.lblChooseAnEmployee);
+            this.tbpSpecificEmployee.Location = new System.Drawing.Point(4, 27);
+            this.tbpSpecificEmployee.Name = "tbpSpecificEmployee";
+            this.tbpSpecificEmployee.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpSpecificEmployee.Size = new System.Drawing.Size(876, 477);
+            this.tbpSpecificEmployee.TabIndex = 1;
+            this.tbpSpecificEmployee.Text = "Employee statistics";
+            this.tbpSpecificEmployee.UseVisualStyleBackColor = true;
+            // 
+            // lblChooseAnEmployee
+            // 
+            this.lblChooseAnEmployee.AutoSize = true;
+            this.lblChooseAnEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblChooseAnEmployee.Location = new System.Drawing.Point(26, 87);
+            this.lblChooseAnEmployee.Name = "lblChooseAnEmployee";
+            this.lblChooseAnEmployee.Size = new System.Drawing.Size(196, 24);
+            this.lblChooseAnEmployee.TabIndex = 0;
+            this.lblChooseAnEmployee.Text = "Choose an employee:";
+            // 
+            // btnShowStatistics
+            // 
+            this.btnShowStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnShowStatistics.Location = new System.Drawing.Point(322, 388);
+            this.btnShowStatistics.Name = "btnShowStatistics";
+            this.btnShowStatistics.Size = new System.Drawing.Size(211, 35);
+            this.btnShowStatistics.TabIndex = 2;
+            this.btnShowStatistics.Text = "Show statistics";
+            this.btnShowStatistics.UseVisualStyleBackColor = true;
+            this.btnShowStatistics.Click += new System.EventHandler(this.btnShowStatistics_Click);
+            // 
+            // lblPeriodOfTime
+            // 
+            this.lblPeriodOfTime.AutoSize = true;
+            this.lblPeriodOfTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPeriodOfTime.Location = new System.Drawing.Point(26, 33);
+            this.lblPeriodOfTime.Name = "lblPeriodOfTime";
+            this.lblPeriodOfTime.Size = new System.Drawing.Size(205, 24);
+            this.lblPeriodOfTime.TabIndex = 8;
+            this.lblPeriodOfTime.Text = "Chosen period of time: ";
+            // 
+            // dtpTimePeriod
+            // 
+            this.dtpTimePeriod.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dtpTimePeriod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dtpTimePeriod.Location = new System.Drawing.Point(249, 30);
+            this.dtpTimePeriod.Name = "dtpTimePeriod";
+            this.dtpTimePeriod.Size = new System.Drawing.Size(440, 27);
+            this.dtpTimePeriod.TabIndex = 9;
+            this.dtpTimePeriod.Value = new System.DateTime(2021, 3, 22, 12, 44, 54, 0);
+            // 
+            // txbEmployees
+            // 
+            this.txbEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txbEmployees.Location = new System.Drawing.Point(249, 87);
+            this.txbEmployees.Name = "txbEmployees";
+            this.txbEmployees.Size = new System.Drawing.Size(440, 27);
+            this.txbEmployees.TabIndex = 12;
+            this.txbEmployees.TextChanged += new System.EventHandler(this.txbEmployees_TextChanged);
+            // 
+            // lbxEmployees
+            // 
+            this.lbxEmployees.FormattingEnabled = true;
+            this.lbxEmployees.ItemHeight = 18;
+            this.lbxEmployees.Location = new System.Drawing.Point(249, 138);
+            this.lbxEmployees.Name = "lbxEmployees";
+            this.lbxEmployees.Size = new System.Drawing.Size(440, 184);
+            this.lbxEmployees.TabIndex = 13;
+            // 
             // EmployeeStatistics
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.dtDateStatistic);
-            this.Controls.Add(this.lblEmpStat);
-            this.Controls.Add(this.dtgvEmployeeStatistics);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Controls.Add(this.tbcEmployeeStatistics);
             this.Name = "EmployeeStatistics";
-            this.Size = new System.Drawing.Size(1001, 662);
+            this.Size = new System.Drawing.Size(890, 530);
             this.Load += new System.EventHandler(this.EmployeeStatistics_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvEmployeeStatistics)).EndInit();
+            this.tbcEmployeeStatistics.ResumeLayout(false);
+            this.tbpAllEmployees.ResumeLayout(false);
+            this.tbpAllEmployees.PerformLayout();
+            this.tbpSpecificEmployee.ResumeLayout(false);
+            this.tbpSpecificEmployee.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -336,5 +447,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn C_ZeroHourContractAvgPerWeek;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_ZeroHourContractAvgPerMonth;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_ZeroHourContractAvgPerYear;
+        private System.Windows.Forms.TabControl tbcEmployeeStatistics;
+        private System.Windows.Forms.TabPage tbpAllEmployees;
+        private System.Windows.Forms.TabPage tbpSpecificEmployee;
+        private System.Windows.Forms.Button btnShowStatistics;
+        private System.Windows.Forms.Label lblChooseAnEmployee;
+        private System.Windows.Forms.Label lblPeriodOfTime;
+        private System.Windows.Forms.DateTimePicker dtpTimePeriod;
+        private System.Windows.Forms.TextBox txbEmployees;
+        private System.Windows.Forms.ListBox lbxEmployees;
     }
 }
