@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MediaBazaar
@@ -22,10 +16,7 @@ namespace MediaBazaar
             InitializeComponent();
             mngEmp = new ManageEmployees();
             dbMediator = new DatabaseMediator();
-            C_ZeroHourContractAvgPerDay.Visible = false;
-            C_ZeroHourContractAvgPerMonth.Visible = false;
-            C_ZeroHourContractAvgPerWeek.Visible = false;
-            C_ZeroHourContractAvgPerYear.Visible = false;
+            
         }
 
         private void EmployeeStatistics_Load(object sender, EventArgs e)
@@ -36,61 +27,73 @@ namespace MediaBazaar
                 EmployeeID.Add(emp.Id);
                 lbxEmployees.Items.Add(emp.GetEmployeeNames);
             }
-            //ShowStatistics();
+            ShowOverallStatistics();
         }
 
         private void dtDateStatistic_ValueChanged(object sender, EventArgs e)
         {
-            //ShowStatistics();
+            ShowOverallStatistics();
         }
+        public void ShowOverallStatistics()
+        {
+            if(cbbShowStats.SelectedIndex == -1 || cbbShowStats.SelectedIndex == 0)  //"Total salary"
+            {
+                ShowOverallStatisticsForTotalSalary();
+            }
+            else if (cbbShowStats.SelectedIndex == 1) //"Average salary"
+            {
 
-        //public void ShowStatistics()
-        //{
+            }
+            else if (cbbShowStats.SelectedIndex == 2) //"Total hours worked"
+            {
 
-        //    DateTime date;
-        //    if (String.IsNullOrEmpty(dtDateStatistic.Text.ToString()))
-        //    { date = DateTime.Today; }
-        //    else { date = Convert.ToDateTime(dtDateStatistic.Text.ToString()); }
+            }
+            else if (cbbShowStats.SelectedIndex == 3)  //"Average hours worked"
+            {
 
-        //    List<int> EmpHoursPerDay = dbMediator.GetEmployeesAssignedHoursForStatPerDay(EmployeeID, date.Day.ToString());
-        //    List<int> EmpHoursPerWeek = dbMediator.GetEmployeesAssignedHoursForStatPerWeek(EmployeeID, date.ToString("yyyy-MM-dd"));
-        //    List<int> EmpHoursPerMonth = dbMediator.GetEmployeesAssignedHoursForStatPerMonth(EmployeeID, date.Month.ToString());
-        //    List<int> EmpHoursPerYear = dbMediator.GetEmployeesAssignedHoursForStatPerYear(EmployeeID, date.Year.ToString());
-        //    dtgvEmployeeStatistics.Rows.Clear();
-        //    int i = 0;
-        //    foreach (Employee emp in mngEmp.GetListOFAllEmployees())
-        //    {
-        //        switch (emp.Contract)
-        //        {
-        //            case ContractType.EIGHTYPERCENT:
-        //                dtgvEmployeeStatistics.Rows.Add(emp.Id, emp.GetEmployeeNames, emp.Position, emp.Contract, emp.Email, emp.HourlyWage,
-        //               (EmpHoursPerDay[i] * emp.HourlyWage), (EmpHoursPerWeek[i] * emp.HourlyWage), (EmpHoursPerMonth[i] * emp.HourlyWage),
-        //               (EmpHoursPerYear[i] * emp.HourlyWage), EmpHoursPerDay[i], EmpHoursPerWeek[i], EmpHoursPerMonth[i], EmpHoursPerYear[i],
-        //               "4.6", "32", "128", "1664");
-        //                break;
-        //            case ContractType.FLEX:
-        //                dtgvEmployeeStatistics.Rows.Add(emp.Id, emp.GetEmployeeNames, emp.Position, emp.Contract, emp.Email, emp.HourlyWage,
-        //           (EmpHoursPerDay[i] * emp.HourlyWage), (EmpHoursPerWeek[i] * emp.HourlyWage), (EmpHoursPerMonth[i] * emp.HourlyWage),
-        //           (EmpHoursPerYear[i] * emp.HourlyWage), EmpHoursPerDay[i], EmpHoursPerWeek[i], EmpHoursPerMonth[i], EmpHoursPerYear[i],
-        //           "FLEX", "FLEX", "FLEX", "FLEX");
-        //                break;
-        //            case ContractType.FULLTIME:
-        //                dtgvEmployeeStatistics.Rows.Add(emp.Id, emp.GetEmployeeNames, emp.Position, emp.Contract, emp.Email, emp.HourlyWage,
-        //           (EmpHoursPerDay[i] * emp.HourlyWage), (EmpHoursPerWeek[i] * emp.HourlyWage), (EmpHoursPerMonth[i] * emp.HourlyWage),
-        //           (EmpHoursPerYear[i] * emp.HourlyWage), EmpHoursPerDay[i], EmpHoursPerWeek[i], EmpHoursPerMonth[i], EmpHoursPerYear[i],
-        //           "5.7", "40", "160", "2080");
-        //                break;
-        //            case ContractType.LEFT:
-        //                dtgvEmployeeStatistics.Rows.Add(emp.Id, emp.GetEmployeeNames, emp.Position, emp.Contract, emp.Email, emp.HourlyWage,
-        //           (EmpHoursPerDay[i] * emp.HourlyWage), (EmpHoursPerWeek[i] * emp.HourlyWage), (EmpHoursPerMonth[i] * emp.HourlyWage),
-        //           (EmpHoursPerYear[i] * emp.HourlyWage), EmpHoursPerDay[i], EmpHoursPerWeek[i], EmpHoursPerMonth[i], EmpHoursPerYear[i],
-        //           "LEFT", "LEFT", "LEFT", "LEFT");
-        //                break;
-        //        }
-
-        //        i++;
-        //    }
-        //}
+            }
+        }
+        public void ShowOverallStatisticsForTotalSalary()
+        {
+            chartStatistics.Series["Total salary"].Points.Clear();
+            chartStatistics.Titles.Clear();
+            chartStatistics.Titles.Add("Total salary");
+            if (rbtnYear.Checked)
+            {
+            chartStatistics.Series["Total salary"].Points.AddXY("J", "1");
+            chartStatistics.Series["Total salary"].Points.AddXY("F", "2");
+            chartStatistics.Series["Total salary"].Points.AddXY("M", "1");
+            chartStatistics.Series["Total salary"].Points.AddXY("A", "2");
+            chartStatistics.Series["Total salary"].Points.AddXY("M", "2");
+            chartStatistics.Series["Total salary"].Points.AddXY("J", "1");
+            chartStatistics.Series["Total salary"].Points.AddXY("J", "2");
+            chartStatistics.Series["Total salary"].Points.AddXY("A", "1");
+            chartStatistics.Series["Total salary"].Points.AddXY("S", "2");
+            chartStatistics.Series["Total salary"].Points.AddXY("O", "1");
+            chartStatistics.Series["Total salary"].Points.AddXY("N", "2");
+            chartStatistics.Series["Total salary"].Points.AddXY("D", "1");
+            }
+            else if(rbtnMonth.Checked)
+            {
+                chartStatistics.Series["Total salary"].Points.AddXY("1", "1");
+                chartStatistics.Series["Total salary"].Points.AddXY("2", "1");
+                chartStatistics.Series["Total salary"].Points.AddXY("3", "1");
+                chartStatistics.Series["Total salary"].Points.AddXY("4", "1");
+            }
+            else if(rbtnWeek.Checked)
+            {
+                chartStatistics.Series["Total salary"].Points.AddXY("1", "1");
+                chartStatistics.Series["Total salary"].Points.AddXY("2", "1");
+                chartStatistics.Series["Total salary"].Points.AddXY("3", "1");
+                chartStatistics.Series["Total salary"].Points.AddXY("4", "1");
+                chartStatistics.Series["Total salary"].Points.AddXY("5", "1");
+                chartStatistics.Series["Total salary"].Points.AddXY("6", "1");
+                chartStatistics.Series["Total salary"].Points.AddXY("7", "1");
+            }
+            //AddXY value in chartStatistics in series named as "Total salary"
+            
+            
+        }
 
         private void tbpAllEmployees_Click(object sender, EventArgs e)
         {
@@ -127,6 +130,31 @@ namespace MediaBazaar
                     empStats.ShowDialog();
                 }
             }
+        }
+
+        private void cbbShowStats_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ShowOverallStatistics();
+        }
+
+        private void rbtnYear_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowOverallStatistics();
+        }
+
+        private void rbtnMonth_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowOverallStatistics();
+        }
+
+        private void rbtnWeek_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowOverallStatistics();
+        }
+
+        private void chbOrderBy_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowOverallStatistics();
         }
     }
 }
