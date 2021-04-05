@@ -38,6 +38,26 @@ namespace MediaBazaar
         {
             get { return this.bsn; }
         }
+        public string Street
+        {
+            get { return this.addrStreet; }
+        }
+        public string StreetNumber
+        {
+            get { return this.addrStreetNumber; }
+        }
+        public string Zipcode
+        {
+            get { return this.addrZipcode; }
+        }
+        public string Town
+        {
+            get { return this.addrTown; }
+        }
+        public string Country
+        {
+            get { return this.addrCountry; }
+        }
         public string FirstName
         {
             get { return this.firstName; }
@@ -59,9 +79,13 @@ namespace MediaBazaar
             get { return this.password; }
             set { this.password = value; }
         }
-        public DateTime Birthday
+        public string Birthday
         {
-            get { return this.birthDay; }
+            get { return this.birthDay.ToString("yyyy-MM-dd"); }
+        }
+        public string FirstWorkingDay
+        {
+            get { return this.firstWorkingDay.ToString("yyyy-MM-dd"); }
         }
         public string Email
         {
@@ -85,6 +109,10 @@ namespace MediaBazaar
        public double HourlyWage
         {
             get { return this.hourlyWage; }
+        }
+        public string Iban
+        {
+            get { return iban; }
         }
         public string GetEmployeeNames
         {

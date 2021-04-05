@@ -14,6 +14,7 @@ namespace MediaBazaar
     {
         ManageEmployees manageEmployees;
         ChangeEmployeeWorkingContractForm changeContractForm;
+        EmployeeFullInfoForm employeeFullInfoForm;
         public ManageEmployeeInterface()
         {
             InitializeComponent();
@@ -167,6 +168,24 @@ namespace MediaBazaar
                 }
             }
             
+        }
+
+        private void btnFullInfo_Click(object sender, EventArgs e)
+        {
+            if (lbxViewEmployees.SelectedItem == null|| lbxViewEmployees.SelectedItem.ToString()=="")
+            {
+                MessageBox.Show("Please select an employee");
+            }
+            foreach (Employee emp in manageEmployees.GetEmployees())
+            {
+                if (lbxViewEmployees.SelectedItem.ToString() == emp.ToString())
+                {
+                    employeeFullInfoForm = new EmployeeFullInfoForm(emp);
+                    employeeFullInfoForm.ShowDialog();
+                    employeeFullInfoForm.Close();
+                    return;
+                }
+            }
         }
     }
 }

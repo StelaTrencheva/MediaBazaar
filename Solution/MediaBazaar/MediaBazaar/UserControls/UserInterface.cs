@@ -46,7 +46,7 @@ namespace MediaBazaar
             lblHRAdminFName.Text = $"First name: {employee.FirstName}";
             lblHRAdminLName.Text = $"Last name: {employee.LastName}";
             lblHRAdminGender.Text = $"Gender: {employee.Gender}";
-            lblHRAdminBirthday.Text = $"Birthday: {employee.Birthday.ToString("dd-MM-yyyy")}";
+            lblHRAdminBirthday.Text = $"Birthday: {employee.Birthday}";
             lblHRAdminBSN.Text = $"BSN: {employee.BSN}";
             lblHRAdminEmployeeType.Text = $"Eployee type: {employee.Position}";
             lblHRAdminContractType.Text = $"Contract type: {employee.Contract}";

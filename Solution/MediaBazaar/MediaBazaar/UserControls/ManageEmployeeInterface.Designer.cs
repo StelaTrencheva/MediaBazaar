@@ -31,9 +31,10 @@ namespace MediaBazaar
         {
             this.tcManageEmployee = new System.Windows.Forms.TabControl();
             this.tpAllEmployees = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnFullInfo = new System.Windows.Forms.Button();
             this.btnRemoveEmployee = new System.Windows.Forms.Button();
             this.lbxViewEmployees = new System.Windows.Forms.ListBox();
             this.lblEmployees = new System.Windows.Forms.Label();
@@ -81,7 +82,6 @@ namespace MediaBazaar
             this.tpChangeCOntract = new System.Windows.Forms.TabPage();
             this.btnViewDetails = new System.Windows.Forms.Button();
             this.lbxDisplayEMployees = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.tcManageEmployee.SuspendLayout();
             this.tpAllEmployees.SuspendLayout();
             this.tpRegister.SuspendLayout();
@@ -107,7 +107,7 @@ namespace MediaBazaar
             this.tpAllEmployees.Controls.Add(this.button1);
             this.tpAllEmployees.Controls.Add(this.label1);
             this.tpAllEmployees.Controls.Add(this.tbSearch);
-            this.tpAllEmployees.Controls.Add(this.button2);
+            this.tpAllEmployees.Controls.Add(this.btnFullInfo);
             this.tpAllEmployees.Controls.Add(this.btnRemoveEmployee);
             this.tpAllEmployees.Controls.Add(this.lbxViewEmployees);
             this.tpAllEmployees.Controls.Add(this.lblEmployees);
@@ -117,6 +117,19 @@ namespace MediaBazaar
             this.tpAllEmployees.Size = new System.Drawing.Size(929, 617);
             this.tpAllEmployees.TabIndex = 2;
             this.tpAllEmployees.Text = "View Employees";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(515, 305);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(230, 79);
+            this.button1.TabIndex = 85;
+            this.button1.Text = "Edit personal information";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -136,18 +149,19 @@ namespace MediaBazaar
             this.tbSearch.TabIndex = 83;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
-            // button2
+            // btnFullInfo
             // 
-            this.button2.BackColor = System.Drawing.Color.LightSlateGray;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(515, 106);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(230, 79);
-            this.button2.TabIndex = 82;
-            this.button2.Text = "View All information";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnFullInfo.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnFullInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFullInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFullInfo.Location = new System.Drawing.Point(515, 128);
+            this.btnFullInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnFullInfo.Name = "btnFullInfo";
+            this.btnFullInfo.Size = new System.Drawing.Size(230, 79);
+            this.btnFullInfo.TabIndex = 82;
+            this.btnFullInfo.Text = "View full information";
+            this.btnFullInfo.UseVisualStyleBackColor = false;
+            this.btnFullInfo.Click += new System.EventHandler(this.btnFullInfo_Click);
             // 
             // btnRemoveEmployee
             // 
@@ -638,19 +652,6 @@ namespace MediaBazaar
             this.lbxDisplayEMployees.Size = new System.Drawing.Size(915, 454);
             this.lbxDisplayEMployees.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(515, 305);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(230, 79);
-            this.button1.TabIndex = 85;
-            this.button1.Text = "Edit personal information";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // ManageEmployeeInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -722,7 +723,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnRemoveEmployee;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnFullInfo;
         private System.Windows.Forms.Label lblEmployees;
         private System.Windows.Forms.Button button1;
     }

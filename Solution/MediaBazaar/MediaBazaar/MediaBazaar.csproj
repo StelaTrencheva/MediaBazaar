@@ -76,6 +76,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmployeeFullInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeFullInfoForm.Designer.cs">
+      <DependentUpon>EmployeeFullInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeStatistcsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,9 @@
     <Compile Include="UserControls\StoreWorkerScheduleInterface.Designer.cs">
       <DependentUpon>StoreWorkerScheduleInterface.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EmployeeFullInfoForm.resx">
+      <DependentUpon>EmployeeFullInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeStatistcsForm.resx">
       <DependentUpon>EmployeeStatistcsForm.cs</DependentUpon>
     </EmbeddedResource>
