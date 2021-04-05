@@ -10,13 +10,15 @@ namespace MediaBazaar
         DatabaseMediator dbMediator;
         ManageEmployees mngEmp;
         EmployeeStatistcsForm empStats;
+        OverallEmployeeSatisticsForm overallStats;
         List<int> EmployeeID;
+        string[] TypeOfStats = new string[4] { "Total salary", "Average salary", "Total hours worked", "Average hours worked" };
         public EmployeeStatistics()
         {
             InitializeComponent();
             mngEmp = new ManageEmployees();
             dbMediator = new DatabaseMediator();
-            
+
         }
 
         private void EmployeeStatistics_Load(object sender, EventArgs e)
@@ -27,74 +29,11 @@ namespace MediaBazaar
                 EmployeeID.Add(emp.Id);
                 lbxEmployees.Items.Add(emp.GetEmployeeNames);
             }
-            ShowOverallStatistics();
-        }
-
-        private void dtDateStatistic_ValueChanged(object sender, EventArgs e)
-        {
-            ShowOverallStatistics();
-        }
-        public void ShowOverallStatistics()
-        {
-            if(cbbShowStats.SelectedIndex == -1 || cbbShowStats.SelectedIndex == 0)  //"Total salary"
+            foreach (string stat in TypeOfStats)
             {
-                ShowOverallStatisticsForTotalSalary();
-            }
-            else if (cbbShowStats.SelectedIndex == 1) //"Average salary"
-            {
-
-            }
-            else if (cbbShowStats.SelectedIndex == 2) //"Total hours worked"
-            {
-
-            }
-            else if (cbbShowStats.SelectedIndex == 3)  //"Average hours worked"
-            {
-
+                lbxAllKindsOfStatistics.Items.Add(stat);
             }
         }
-        public void ShowOverallStatisticsForTotalSalary()
-        {
-            chartStatistics.Series["Total salary"].Points.Clear();
-            chartStatistics.Titles.Clear();
-            chartStatistics.Titles.Add("Total salary");
-            if (rbtnYear.Checked)
-            {
-            chartStatistics.Series["Total salary"].Points.AddXY("J", "1");
-            chartStatistics.Series["Total salary"].Points.AddXY("F", "2");
-            chartStatistics.Series["Total salary"].Points.AddXY("M", "1");
-            chartStatistics.Series["Total salary"].Points.AddXY("A", "2");
-            chartStatistics.Series["Total salary"].Points.AddXY("M", "2");
-            chartStatistics.Series["Total salary"].Points.AddXY("J", "1");
-            chartStatistics.Series["Total salary"].Points.AddXY("J", "2");
-            chartStatistics.Series["Total salary"].Points.AddXY("A", "1");
-            chartStatistics.Series["Total salary"].Points.AddXY("S", "2");
-            chartStatistics.Series["Total salary"].Points.AddXY("O", "1");
-            chartStatistics.Series["Total salary"].Points.AddXY("N", "2");
-            chartStatistics.Series["Total salary"].Points.AddXY("D", "1");
-            }
-            else if(rbtnMonth.Checked)
-            {
-                chartStatistics.Series["Total salary"].Points.AddXY("1", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("2", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("3", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("4", "1");
-            }
-            else if(rbtnWeek.Checked)
-            {
-                chartStatistics.Series["Total salary"].Points.AddXY("1", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("2", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("3", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("4", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("5", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("6", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("7", "1");
-            }
-            //AddXY value in chartStatistics in series named as "Total salary"
-            
-            
-        }
-
         private void tbpAllEmployees_Click(object sender, EventArgs e)
         {
 
@@ -111,7 +50,7 @@ namespace MediaBazaar
             }
             foreach (Employee emp in mngEmp.GetListOFAllEmployees())
             {
-                if (emp.GetEmployeeNames.Contains(empName))
+                if (emp.GetEmployeeNames.ToLower().Contains(empName))
                 {
                     lbxEmployees.Items.Add(emp.GetEmployeeNames);
                 }
@@ -120,10 +59,10 @@ namespace MediaBazaar
         }
         private void btnShowStatistics_Click(object sender, EventArgs e)
         {
-            
+
             foreach (Employee emp in mngEmp.GetListOFAllEmployees())
             {
-                if(emp.GetEmployeeNames == lbxEmployees.SelectedItem.ToString())
+                if (emp.GetEmployeeNames == lbxEmployees.SelectedItem.ToString())
                 {
                     empStats = new EmployeeStatistcsForm();
                     empStats.SetEmployee(emp, dtpTimePeriod.Value);
@@ -132,29 +71,34 @@ namespace MediaBazaar
             }
         }
 
-        private void cbbShowStats_SelectedIndexChanged(object sender, EventArgs e)
+        private void txbTypeOfStatistics_TextChanged(object sender, EventArgs e)
         {
-            ShowOverallStatistics();
+            lbxAllKindsOfStatistics.Items.Clear();
+            string typeOfStats = txbTypeOfStatistics.Text.ToString().ToLower();
+            if (String.IsNullOrEmpty(typeOfStats))
+            {
+                foreach (string stat in TypeOfStats)
+                {
+                    lbxAllKindsOfStatistics.Items.Add(stat);
+                }
+            }
+            else
+            {
+                foreach (string stat in TypeOfStats)
+                {
+                    if (stat.ToLower().Contains(typeOfStats))
+                    {
+                        lbxAllKindsOfStatistics.Items.Add(stat);
+                    }
+                }
+            }
         }
 
-        private void rbtnYear_CheckedChanged(object sender, EventArgs e)
+        private void btnShowOverallStats_Click(object sender, EventArgs e)
         {
-            ShowOverallStatistics();
-        }
-
-        private void rbtnMonth_CheckedChanged(object sender, EventArgs e)
-        {
-            ShowOverallStatistics();
-        }
-
-        private void rbtnWeek_CheckedChanged(object sender, EventArgs e)
-        {
-            ShowOverallStatistics();
-        }
-
-        private void chbOrderBy_CheckedChanged(object sender, EventArgs e)
-        {
-            ShowOverallStatistics();
+            overallStats = new OverallEmployeeSatisticsForm();
+            overallStats.SetTypeOfStatistics(lbxAllKindsOfStatistics.SelectedItem.ToString(), dtpTimePeriod.Value);
+            overallStats.ShowDialog();
         }
     }
 }

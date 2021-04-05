@@ -72,13 +72,14 @@ namespace MediaBazaar
             int EmpHoursPerYear = dbMediator.GetEmployeeAssignedHoursForStatPerYear(employee.Id, date.Year.ToString());
 
             lblTotalSalaryPerDay.Text = (EmpHoursPerDay * employee.HourlyWage).ToString();
-            lblTotalSalaryPerWeek.Text = (EmpHoursPerWeek*employee.HourlyWage).ToString();
-            lblTotalSalaryPerMonth.Text = (EmpHoursPerMonth*employee.HourlyWage).ToString();
-            lblTotalSalaryPerYear.Text = (EmpHoursPerYear*employee.HourlyWage).ToString();
+            lblTotalSalaryPerWeek.Text = (EmpHoursPerWeek * employee.HourlyWage).ToString();
+            lblTotalSalaryPerMonth.Text = (EmpHoursPerMonth * employee.HourlyWage).ToString();
+            lblTotalSalaryPerYear.Text = (EmpHoursPerYear * employee.HourlyWage).ToString();
             lblActualHoursPerDay.Text = EmpHoursPerDay.ToString();
             lblActualHoursPerWeek.Text = EmpHoursPerWeek.ToString();
             lblActualHoursPerMonth.Text = EmpHoursPerMonth.ToString();
             lblActualHoursPerYear.Text = EmpHoursPerYear.ToString();
         }
+
     }
 }
