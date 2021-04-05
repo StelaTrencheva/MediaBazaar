@@ -23,6 +23,7 @@ namespace MediaBazaar
 
         private void ManageEmployeeInterface_Load(object sender, EventArgs e)
         {
+            manageEmployees.UpdateEmployees();
             UpdateListBoxEmployee();
             SetComboBoxes();
             UpdateListBoxViewEmployees();
@@ -30,7 +31,7 @@ namespace MediaBazaar
         private void UpdateListBoxViewEmployees()
         {
             lbxViewEmployees.Items.Clear();
-            foreach (Employee emp in manageEmployees.GetListOFAllEmployees())
+            foreach (Employee emp in manageEmployees.GetEmployees())
             {
                 lbxViewEmployees.Items.Add(emp.ToString());
                 lbxViewEmployees.Items.Add("");
@@ -45,7 +46,7 @@ namespace MediaBazaar
         private void UpdateListBoxEmployee()
         {
             lbxDisplayEMployees.Items.Clear();
-            foreach (Employee emp in manageEmployees.GetListOFAllEmployees())
+            foreach (Employee emp in manageEmployees.GetEmployees())
             {
                 lbxDisplayEMployees.Items.Add(emp.GetInfo);
             }
@@ -154,6 +155,18 @@ namespace MediaBazaar
             }
         }
 
-
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            lbxViewEmployees.Items.Clear();
+            foreach (Employee emp in manageEmployees.GetEmployees())
+            {
+                if (emp.ToString().ToLower().Contains(tbSearch.Text.ToLower()))
+                {
+                    lbxViewEmployees.Items.Add(emp.ToString());
+                    lbxViewEmployees.Items.Add("");
+                }
+            }
+            
+        }
     }
 }

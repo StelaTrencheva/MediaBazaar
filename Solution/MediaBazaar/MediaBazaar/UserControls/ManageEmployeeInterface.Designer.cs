@@ -31,6 +31,9 @@ namespace MediaBazaar
         {
             this.tcManageEmployee = new System.Windows.Forms.TabControl();
             this.tpAllEmployees = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.btnRemoveEmployee = new System.Windows.Forms.Button();
             this.lbxViewEmployees = new System.Windows.Forms.ListBox();
             this.lblEmployees = new System.Windows.Forms.Label();
@@ -78,6 +81,7 @@ namespace MediaBazaar
             this.tpChangeCOntract = new System.Windows.Forms.TabPage();
             this.btnViewDetails = new System.Windows.Forms.Button();
             this.lbxDisplayEMployees = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tcManageEmployee.SuspendLayout();
             this.tpAllEmployees.SuspendLayout();
             this.tpRegister.SuspendLayout();
@@ -100,6 +104,10 @@ namespace MediaBazaar
             // tpAllEmployees
             // 
             this.tpAllEmployees.BackColor = System.Drawing.Color.Lavender;
+            this.tpAllEmployees.Controls.Add(this.button1);
+            this.tpAllEmployees.Controls.Add(this.label1);
+            this.tpAllEmployees.Controls.Add(this.tbSearch);
+            this.tpAllEmployees.Controls.Add(this.button2);
             this.tpAllEmployees.Controls.Add(this.btnRemoveEmployee);
             this.tpAllEmployees.Controls.Add(this.lbxViewEmployees);
             this.tpAllEmployees.Controls.Add(this.lblEmployees);
@@ -110,15 +118,46 @@ namespace MediaBazaar
             this.tpAllEmployees.TabIndex = 2;
             this.tpAllEmployees.Text = "View Employees";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.Window;
+            this.label1.Location = new System.Drawing.Point(861, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 26);
+            this.label1.TabIndex = 84;
+            this.label1.Text = "🔍";
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Location = new System.Drawing.Point(717, 37);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(190, 32);
+            this.tbSearch.TabIndex = 83;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.LightSlateGray;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(515, 106);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(230, 79);
+            this.button2.TabIndex = 82;
+            this.button2.Text = "View All information";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // btnRemoveEmployee
             // 
             this.btnRemoveEmployee.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnRemoveEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveEmployee.Location = new System.Drawing.Point(283, 500);
+            this.btnRemoveEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveEmployee.Location = new System.Drawing.Point(515, 492);
             this.btnRemoveEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRemoveEmployee.Name = "btnRemoveEmployee";
-            this.btnRemoveEmployee.Size = new System.Drawing.Size(331, 81);
+            this.btnRemoveEmployee.Size = new System.Drawing.Size(230, 79);
             this.btnRemoveEmployee.TabIndex = 80;
             this.btnRemoveEmployee.Text = "Remove an employee\r\n/Only when necessary/";
             this.btnRemoveEmployee.UseVisualStyleBackColor = false;
@@ -130,19 +169,19 @@ namespace MediaBazaar
             this.lbxViewEmployees.FormattingEnabled = true;
             this.lbxViewEmployees.HorizontalScrollbar = true;
             this.lbxViewEmployees.ItemHeight = 20;
-            this.lbxViewEmployees.Location = new System.Drawing.Point(3, 81);
+            this.lbxViewEmployees.Location = new System.Drawing.Point(6, 81);
             this.lbxViewEmployees.Name = "lbxViewEmployees";
-            this.lbxViewEmployees.Size = new System.Drawing.Size(920, 404);
+            this.lbxViewEmployees.Size = new System.Drawing.Size(459, 524);
             this.lbxViewEmployees.TabIndex = 2;
             // 
             // lblEmployees
             // 
             this.lblEmployees.AutoSize = true;
-            this.lblEmployees.Location = new System.Drawing.Point(265, 52);
+            this.lblEmployees.Location = new System.Drawing.Point(163, 37);
             this.lblEmployees.Name = "lblEmployees";
-            this.lblEmployees.Size = new System.Drawing.Size(364, 26);
+            this.lblEmployees.Size = new System.Drawing.Size(127, 26);
             this.lblEmployees.TabIndex = 1;
-            this.lblEmployees.Text = "List of all employees in the company";
+            this.lblEmployees.Text = "Employees:";
             // 
             // tpRegister
             // 
@@ -599,6 +638,19 @@ namespace MediaBazaar
             this.lbxDisplayEMployees.Size = new System.Drawing.Size(915, 454);
             this.lbxDisplayEMployees.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(515, 305);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(230, 79);
+            this.button1.TabIndex = 85;
+            this.button1.Text = "Edit personal information";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // ManageEmployeeInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -667,7 +719,11 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblGender;
         private System.Windows.Forms.TabPage tpAllEmployees;
         private System.Windows.Forms.ListBox lbxViewEmployees;
-        private System.Windows.Forms.Label lblEmployees;
         private System.Windows.Forms.Button btnRemoveEmployee;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblEmployees;
+        private System.Windows.Forms.Button button1;
     }
 }
