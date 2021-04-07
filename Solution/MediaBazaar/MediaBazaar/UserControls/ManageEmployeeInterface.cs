@@ -176,14 +176,17 @@ namespace MediaBazaar
             {
                 MessageBox.Show("Please select an employee");
             }
-            foreach (Employee emp in manageEmployees.GetEmployees())
+            else 
             {
-                if (lbxViewEmployees.SelectedItem.ToString() == emp.ToString())
+                foreach (Employee emp in manageEmployees.GetEmployees())
                 {
-                    employeeFullInfoForm = new EmployeeFullInfoForm(emp);
-                    employeeFullInfoForm.ShowDialog();
-                    employeeFullInfoForm.Close();
-                    return;
+                    if (lbxViewEmployees.SelectedItem.ToString() == emp.ToString())
+                    {
+                        employeeFullInfoForm = new EmployeeFullInfoForm(emp);
+                        employeeFullInfoForm.ShowDialog();
+                        employeeFullInfoForm.Close();
+                        return;
+                    }
                 }
             }
         }
