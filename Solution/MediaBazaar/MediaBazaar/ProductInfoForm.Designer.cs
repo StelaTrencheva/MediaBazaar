@@ -1,5 +1,5 @@
 ﻿
-namespace MediaBazaar.UserControls
+namespace MediaBazaar
 {
     partial class ProductInfoForm
     {
@@ -41,7 +41,7 @@ namespace MediaBazaar.UserControls
             this.MaximizeBox = false;
             this.Name = "ProductInfoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Product information";
+            this.Text = "Product Information";
             this.ResumeLayout(false);
 
         }

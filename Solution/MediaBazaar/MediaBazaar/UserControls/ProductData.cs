@@ -34,6 +34,21 @@ namespace MediaBazaar
 
         private void btnViewPInfo_Click(object sender, EventArgs e)
         {
+            if(lbxProductDisplay.SelectedItem == null || lbxProductDisplay.SelectedItem.ToString() == "")
+            {
+                MessageBox.Show("Please select a product.");
+            }
+            else
+            {
+                foreach(Product i in manageEmployees.GetAllProducts())
+                {
+                    if(lbxProductDisplay.SelectedItem.ToString() == i.ToString())
+                    {
+                        ProductInfoForm productInfo = new ProductInfoForm();
+                        productInfo.Show();
+                    }
+                }
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MediaBazaar.UserControls
+namespace MediaBazaar
 {
     public partial class ProductInfoForm : Form
     {
