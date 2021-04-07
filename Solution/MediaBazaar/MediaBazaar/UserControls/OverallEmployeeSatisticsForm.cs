@@ -16,6 +16,8 @@ namespace MediaBazaar
         ManageEmployees mngEmp;
         string typeOfStats = "Total salary";
         DateTime date = DateTime.Now;
+        string[] month = new string[12] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+        string[] day = new string[7] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
         public OverallEmployeeSatisticsForm()
         {
             InitializeComponent();
@@ -27,7 +29,6 @@ namespace MediaBazaar
             this.typeOfStats = stats;
             this.date = Date;
         }
-
 
         private void OverallEmployeeSatisticsForm_Load(object sender, EventArgs e)
         {
@@ -42,15 +43,15 @@ namespace MediaBazaar
             }
             else if (typeOfStats == "Average salary")
             {
-
+                ShowOverallStatisticsForAvgSalary();
             }
             else if (typeOfStats == "Total hours worked")
             {
-
+                ShowOverallStatisticsForTotalHoursWorked();
             }
             else if (typeOfStats == "Average hours worked")
             {
-
+                ShowOverallStatisticsForAverageHoursWorked();
             }
         }
 
@@ -61,39 +62,106 @@ namespace MediaBazaar
             chartStatistics.Titles.Add("Total salary");
             if (rbtnYear.Checked)
             {
-                chartStatistics.Series["Total salary"].Points.AddXY("Jan", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("Feb", "2");
-                chartStatistics.Series["Total salary"].Points.AddXY("Mar", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("Apr", "2");
-                chartStatistics.Series["Total salary"].Points.AddXY("May", "2");
-                chartStatistics.Series["Total salary"].Points.AddXY("Jun", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("Jul", "2");
-                chartStatistics.Series["Total salary"].Points.AddXY("Aug", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("Sep", "2");
-                chartStatistics.Series["Total salary"].Points.AddXY("Oct", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("Nov", "2");
-                chartStatistics.Series["Total salary"].Points.AddXY("Dec", "1");
+                for (int i = 0; i < 12; i++)
+                {
+                    chartStatistics.Series["Total salary"].Points.AddXY(month[i], i);
+                }
             }
             else if (rbtnMonth.Checked)
             {
-                chartStatistics.Series["Total salary"].Points.AddXY("1", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("2", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("3", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("4", "1");
+                for (int i = 1; i < 5; i++)
+                {
+                    chartStatistics.Series["Total salary"].Points.AddXY(i, i + 10);
+                }
             }
             else if (rbtnWeek.Checked)
             {
-                chartStatistics.Series["Total salary"].Points.AddXY("Mon", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("Tue", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("Wed", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("Thu", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("Fri", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("Sat", "1");
-                chartStatistics.Series["Total salary"].Points.AddXY("Sun", "1");
+                for (int i = 0; i < 7; i++)
+                {
+                    chartStatistics.Series["Total salary"].Points.AddXY(day[i], i);
+                }
             }
-            //AddXY value in chartStatistics in series named as "Total salary"
-
-
+        }
+        public void ShowOverallStatisticsForAvgSalary()
+        {
+            chartStatistics.Series["Average salary"].Points.Clear();
+            chartStatistics.Titles.Clear();
+            chartStatistics.Titles.Add("Average salary");
+            if (rbtnYear.Checked)
+            {
+                for (int i = 0; i < 12; i++)
+                {
+                    chartStatistics.Series["Average salary"].Points.AddXY(month[i], i);
+                }
+            }
+            else if (rbtnMonth.Checked)
+            {
+                for (int i = 1; i < 5; i++)
+                {
+                    chartStatistics.Series["Average salary"].Points.AddXY(i, i );
+                }
+            }
+            else if (rbtnWeek.Checked)
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    chartStatistics.Series["Average salary"].Points.AddXY(day[i], i);
+                }
+            }
+        }
+        public void ShowOverallStatisticsForTotalHoursWorked()
+        {
+            chartStatistics.Series["Total hours worked"].Points.Clear();
+            chartStatistics.Titles.Clear();
+            chartStatistics.Titles.Add("Total hours worked");
+            if (rbtnYear.Checked)
+            {
+                for (int i = 0; i < 12; i++)
+                {
+                    chartStatistics.Series["Total hours worked"].Points.AddXY(month[i], i);
+                }
+            }
+            else if (rbtnMonth.Checked)
+            {
+                for (int i = 1; i < 5; i++)
+                {
+                    chartStatistics.Series["Total hours worked"].Points.AddXY(i, i+10);
+                }
+            }
+            else if (rbtnWeek.Checked)
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    chartStatistics.Series["Total hours worked"].Points.AddXY(day[i], i);
+                }
+            }
+        }
+        public void ShowOverallStatisticsForAverageHoursWorked()
+        {
+            chartStatistics.Series["Average hours worked"].Points.Clear();
+            chartStatistics.Titles.Clear();
+            chartStatistics.Titles.Add("Average hours worked");
+            if (rbtnYear.Checked)
+            {
+                for (int i = 0; i < 12; i++)
+                {
+                    chartStatistics.Series["Average hours worked"].Points.AddXY(month[i], i+3);
+                }
+            }
+            else if (rbtnMonth.Checked)
+            {
+                for (int i = 1; i < 5; i++)
+                {
+                    chartStatistics.Series["Average hours worked"].Points.AddXY(i, i + 20);
+                }
+            }
+            else if (rbtnWeek.Checked)
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    chartStatistics.Series["Average hours worked"].Points.AddXY(day[i], i+2);
+                }
+            }
         }
 
         private void rbtnYear_CheckedChanged(object sender, EventArgs e)
