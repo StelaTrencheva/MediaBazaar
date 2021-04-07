@@ -54,8 +54,7 @@ namespace MediaBazaar
         }
         public override string ToString()
         {
-            return $" Product number: {this.pNumber} - {this.brand} {this.model} - Description: {this.description} - Cost price: {this.costPrice} -" +
-                $" Sale price: {this.salePrice} - Amount in store: {this.amountInStore} - Amount in warehouse: {this.amountInWarehouse}";
+            return $" Product number: {this.pNumber} .\t {this.brand} {this.model}.";
         }
     }
 }

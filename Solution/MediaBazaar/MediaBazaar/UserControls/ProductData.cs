@@ -13,6 +13,7 @@ namespace MediaBazaar
     public partial class ProductData : UserControl
     {
         ManageEmployees manageEmployees;
+        
 
         public ProductData()
         {
@@ -27,7 +28,12 @@ namespace MediaBazaar
             foreach (Product i in manageEmployees.GetAllProducts())
             {
                 lbxProductDisplay.Items.Add(i.ToString());
+                lbxProductDisplay.Items.Add("");
             }
+        }
+
+        private void btnViewPInfo_Click(object sender, EventArgs e)
+        {
         }
     }
 }
