@@ -12,11 +12,12 @@ namespace MediaBazaar
 {
     public partial class ProductStatisticInterface : UserControl
     {
-        ManageEmployees manageEmployees;
+        ProductManager pManager;
+
         public ProductStatisticInterface()
         {
             InitializeComponent();
-            this.manageEmployees = new ManageEmployees();
+            this.pManager = new ProductManager();
             UpdateListBoxAllProducts();
         }
 
@@ -27,7 +28,7 @@ namespace MediaBazaar
         public void UpdateListBoxAllProducts()
         {
             lbxDisplayPRevenueProfit.Items.Clear();
-            foreach (Product i in this.manageEmployees.GetAllProducts())
+            foreach (Product i in this.pManager.GetAllProducts())
             {
                 lbxDisplayPRevenueProfit.Items.Add(i.GetStatistic(Convert.ToInt32(nudAmount.Value)));
             }

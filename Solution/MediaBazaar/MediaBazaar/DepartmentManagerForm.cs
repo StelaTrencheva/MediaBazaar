@@ -65,5 +65,10 @@ namespace MediaBazaar
             HideAllInterfaces();
             userInterface1.Show();
         }
+
+        private void btnDepartment_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

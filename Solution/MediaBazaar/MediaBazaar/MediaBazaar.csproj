@@ -76,6 +76,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Department.cs" />
+    <Compile Include="Class\ProductManager.cs" />
+    <Compile Include="UserControls\DepartmentInterface.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DepartmentInterface.Designer.cs">
+      <DependentUpon>DepartmentInterface.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeFullInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +225,9 @@
     <Compile Include="UserControls\StoreWorkerScheduleInterface.Designer.cs">
       <DependentUpon>StoreWorkerScheduleInterface.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\DepartmentInterface.resx">
+      <DependentUpon>DepartmentInterface.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeFullInfoForm.resx">
       <DependentUpon>EmployeeFullInfoForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -12,20 +12,19 @@ namespace MediaBazaar
 {
     public partial class ProductData : UserControl
     {
-        ManageEmployees manageEmployees;
-        
+        ProductManager pManager;
 
         public ProductData()
         {
             InitializeComponent();
-            manageEmployees = new ManageEmployees();
+            this.pManager = new ProductManager();
             UpdateListBoxProducts();
         }
 
         private void UpdateListBoxProducts()
         {
             lbxProductDisplay.Items.Clear();
-            foreach (Product i in manageEmployees.GetAllProducts())
+            foreach (Product i in pManager.GetAllProducts())
             {
                 lbxProductDisplay.Items.Add(i.ToString());
                 lbxProductDisplay.Items.Add("");
@@ -40,7 +39,7 @@ namespace MediaBazaar
             }
             else
             {
-                foreach(Product i in manageEmployees.GetAllProducts())
+                foreach(Product i in pManager.GetAllProducts())
                 {
                     if(lbxProductDisplay.SelectedItem.ToString() == i.ToString())
                     {
