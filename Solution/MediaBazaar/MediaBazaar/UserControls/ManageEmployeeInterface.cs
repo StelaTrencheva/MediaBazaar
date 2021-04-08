@@ -27,15 +27,48 @@ namespace MediaBazaar
             manageEmployees.UpdateEmployees();
             UpdateListBoxEmployee();
             SetComboBoxes();
-            UpdateListBoxViewEmployees();
+            rbtnAllEmployees.Checked = true;
         }
-        private void UpdateListBoxViewEmployees()
+        private void UpdateListBoxAllEmployees()
         {
             lbxViewEmployees.Items.Clear();
             foreach (Employee emp in manageEmployees.GetEmployees())
             {
                 lbxViewEmployees.Items.Add(emp.ToString());
                 lbxViewEmployees.Items.Add("");
+            }
+        }
+        private void UpdateListBoxActiveEmployees()
+        {
+            lbxViewEmployees.Items.Clear();
+            foreach (Employee emp in manageEmployees.GetEmployees())
+            {
+                if (emp.Contract!=ContractType.LEFT)
+                {
+                    lbxViewEmployees.Items.Add(emp.ToString());
+                    lbxViewEmployees.Items.Add("");
+                }
+            }
+            if (lbxViewEmployees.Items.Count<0)
+            {
+                lbxViewEmployees.Items.Add("There is no active Employees");
+            }
+        }
+        private void UpdateListBoxFiredEmployees()
+        {
+            lbxViewEmployees.Items.Clear();
+            foreach (Employee emp in manageEmployees.GetEmployees())
+            {
+                if (emp.Contract == ContractType.LEFT)
+                {
+                    lbxViewEmployees.Items.Add(emp.ToString());
+                    lbxViewEmployees.Items.Add("");
+                }
+            }
+            if (lbxViewEmployees.Items.Count < 0)
+            {
+
+                lbxViewEmployees.Items.Add("There is no fired Employees");
             }
         }
         private void SetComboBoxes()
@@ -67,7 +100,9 @@ namespace MediaBazaar
                 {
                     changeContractForm = new ChangeEmployeeWorkingContractForm(emp);
                     changeContractForm.ShowDialog();
+                    manageEmployees.UpdateEmployees();
                     UpdateListBoxEmployee();
+                    rbtnAllEmployees.Checked = true;
                     return;
                 }
             }
@@ -101,7 +136,7 @@ namespace MediaBazaar
                   firstWorkingDay,  emergencyPhoneNumber,  iban,  hourlyWage,  /*contractStartDate,*/ contract,  position))
                 {
                     MessageBox.Show("Success!");
-                    UpdateListBoxViewEmployees();
+                    UpdateListBoxAllEmployees();
                     UpdateListBoxEmployee();
                 }
                 else { MessageBox.Show("Try again"); }
@@ -141,16 +176,14 @@ namespace MediaBazaar
                     }else if (manageEmployees.DeleteEmployeeFromDb(emp.Id))
                     {
                         MessageBox.Show("The employee is deleted");
-                        UpdateListBoxViewEmployees();
-                        UpdateListBoxEmployee();
 
                     }
                     else
                     {
                         MessageBox.Show("The employee is not deleted.");
-                        UpdateListBoxViewEmployees();
-                        UpdateListBoxEmployee();
                     }
+                    UpdateListBoxAllEmployees();
+                    UpdateListBoxEmployee();
                     return;
                 }
             }
@@ -189,6 +222,21 @@ namespace MediaBazaar
                     }
                 }
             }
+        }
+
+        private void rbtnAllEmployees_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateListBoxAllEmployees();
+        }
+
+        private void rbtnActiveEmployees_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateListBoxActiveEmployees();
+        }
+
+        private void rbtnFiredEmployees_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateListBoxFiredEmployees();
         }
     }
 }
