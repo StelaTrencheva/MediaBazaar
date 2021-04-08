@@ -24,11 +24,23 @@ namespace MediaBazaar
 
         public string Brand { get { return this.brand; } }
 
+        public string Type { get { return this.type; } }
+
         public string Model { get { return this.model; } }
+
+        public string Description { get { return this.description; } }
+
+        public string Category { get { return this.category; } }
+
+        public string Subcategory { get { return this.subcategory; } }
 
         public decimal SalePrice { get { return this.salePrice; } }
 
         public decimal CostPrice { get { return this.costPrice; } }
+
+        public decimal AmountInStore { get { return this.amountInStore; } }
+
+        public decimal AmountInWarehouse { get { return this.amountInWarehouse; } }
 
         public Product(int pNumber, string brand, string type, string model, string description,
             string category, string subcategory, decimal costPrice, decimal salePrice, int amountInStore,

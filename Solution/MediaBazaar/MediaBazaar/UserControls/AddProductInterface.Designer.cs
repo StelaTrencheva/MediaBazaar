@@ -56,7 +56,7 @@ namespace MediaBazaar
             this.btnDeleteProduct = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tpAddProduct = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.tcProducts.SuspendLayout();
             this.tpAllProducts.SuspendLayout();
             this.tpAddProduct.SuspendLayout();
@@ -316,7 +316,7 @@ namespace MediaBazaar
             // tpAddProduct
             // 
             this.tpAddProduct.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.tpAddProduct.Controls.Add(this.label2);
+            this.tpAddProduct.Controls.Add(this.lblTitle);
             this.tpAddProduct.Controls.Add(this.lblProductCategory);
             this.tpAddProduct.Controls.Add(this.btnAddProduct);
             this.tpAddProduct.Controls.Add(this.lblProductModel);
@@ -346,15 +346,15 @@ namespace MediaBazaar
             this.tpAddProduct.TabIndex = 1;
             this.tpAddProduct.Text = "Add product";
             // 
-            // label2
+            // lblTitle
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(867, 30);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Add a product";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(3, 20);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(867, 40);
+            this.lblTitle.TabIndex = 23;
+            this.lblTitle.Text = "Add a product";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AddProductInterface
             // 
@@ -402,6 +402,6 @@ namespace MediaBazaar
         private System.Windows.Forms.TabPage tpAddProduct;
         private System.Windows.Forms.Button btnDeleteProduct;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTitle;
     }
 }

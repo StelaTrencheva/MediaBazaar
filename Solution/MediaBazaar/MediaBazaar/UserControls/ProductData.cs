@@ -44,7 +44,7 @@ namespace MediaBazaar
                 {
                     if(lbxProductDisplay.SelectedItem.ToString() == i.ToString())
                     {
-                        ProductInfoForm productInfo = new ProductInfoForm();
+                        ProductInfoForm productInfo = new ProductInfoForm(i);
                         productInfo.Show();
                     }
                 }
