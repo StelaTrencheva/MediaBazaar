@@ -7,17 +7,15 @@ namespace MediaBazaar
 
     public partial class EmployeeStatistics : UserControl
     {
-        DatabaseMediator dbMediator;
         ManageEmployees mngEmp;
-        EmployeeStatistcsForm empStats;
-        OverallEmployeeSatisticsForm overallStats;
+        SystemManagerEmployeeStatistics empStatistics;
         List<int> EmployeeID;
         string[] TypeOfStats = new string[4] { "Total salary", "Average salary", "Total hours worked", "Average hours worked" };
         public EmployeeStatistics()
         {
             InitializeComponent();
             mngEmp = new ManageEmployees();
-            dbMediator = new DatabaseMediator();
+            empStatistics = new SystemManagerEmployeeStatistics();
 
         }
 
@@ -64,9 +62,7 @@ namespace MediaBazaar
             {
                 if (emp.GetEmployeeNames == lbxEmployees.SelectedItem.ToString())
                 {
-                    empStats = new EmployeeStatistcsForm();
-                    empStats.SetEmployee(emp, dtpTimePeriod.Value);
-                    empStats.ShowDialog();
+                    empStatistics.ShowIndividualEmpStats(emp, dtpTimePeriod.Value);
                 }
             }
         }
@@ -96,9 +92,7 @@ namespace MediaBazaar
 
         private void btnShowOverallStats_Click(object sender, EventArgs e)
         {
-            overallStats = new OverallEmployeeSatisticsForm();
-            overallStats.SetTypeOfStatistics(lbxAllKindsOfStatistics.SelectedItem.ToString(), dtpTimePeriod.Value);
-            overallStats.ShowDialog();
+            empStatistics.ShowOverviewEmpStats(lbxAllKindsOfStatistics.SelectedItem.ToString(), dtDateStatistic.Value);
         }
     }
 }

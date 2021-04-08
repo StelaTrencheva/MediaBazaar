@@ -12,8 +12,7 @@ namespace MediaBazaar
 {
     public partial class OverallEmployeeSatisticsForm : Form
     {
-        DatabaseMediator dbMediator;
-        ManageEmployees mngEmp;
+        SystemManagerEmployeeStatistics empStatisticsManager;
         string typeOfStats = "Total salary";
         DateTime date = DateTime.Now;
         string[] month = new string[12] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
@@ -21,8 +20,7 @@ namespace MediaBazaar
         public OverallEmployeeSatisticsForm()
         {
             InitializeComponent();
-            mngEmp = new ManageEmployees();
-            dbMediator = new DatabaseMediator();
+            empStatisticsManager = new SystemManagerEmployeeStatistics();
         }
         public void SetTypeOfStatistics(string stats, DateTime Date)
         {
@@ -57,6 +55,9 @@ namespace MediaBazaar
 
         public void ShowOverallStatisticsForTotalSalary()
         {
+            List<double> TotalSalaryPerYear = empStatisticsManager.GetTotalSalaryPerTimeUnit("year", date);
+            List<double> TotalSalaryPerMonth = empStatisticsManager.GetTotalSalaryPerTimeUnit("month", date);
+
             chartStatistics.Series["Total salary"].Points.Clear();
             chartStatistics.Titles.Clear();
             chartStatistics.Titles.Add("Total salary");
@@ -64,26 +65,23 @@ namespace MediaBazaar
             {
                 for (int i = 0; i < 12; i++)
                 {
-                    chartStatistics.Series["Total salary"].Points.AddXY(month[i], i);
+                    chartStatistics.Series["Total salary"].Points.AddXY(month[i], TotalSalaryPerYear[i]);
                 }
             }
             else if (rbtnMonth.Checked)
             {
-                for (int i = 1; i < 5; i++)
+                int daysInMonth = System.DateTime.DaysInMonth(date.Year, date.Month);
+                for (int i = 1; i <= daysInMonth; i++)
                 {
-                    chartStatistics.Series["Total salary"].Points.AddXY(i, i + 10);
-                }
-            }
-            else if (rbtnWeek.Checked)
-            {
-                for (int i = 0; i < 7; i++)
-                {
-                    chartStatistics.Series["Total salary"].Points.AddXY(day[i], i);
+                    chartStatistics.Series["Total salary"].Points.AddXY(i+1, TotalSalaryPerMonth[i]);
                 }
             }
         }
         public void ShowOverallStatisticsForAvgSalary()
         {
+            List<double> AvgSalaryPerYear = empStatisticsManager.GetAvgSalaryPerTimeUnit("year", date);
+            List<double> AvgSalaryPerMonth = empStatisticsManager.GetAvgSalaryPerTimeUnit("month", date);
+
             chartStatistics.Series["Average salary"].Points.Clear();
             chartStatistics.Titles.Clear();
             chartStatistics.Titles.Add("Average salary");
@@ -91,26 +89,23 @@ namespace MediaBazaar
             {
                 for (int i = 0; i < 12; i++)
                 {
-                    chartStatistics.Series["Average salary"].Points.AddXY(month[i], i);
+                    chartStatistics.Series["Average salary"].Points.AddXY(month[i], AvgSalaryPerYear[i]);
                 }
             }
             else if (rbtnMonth.Checked)
             {
-                for (int i = 1; i < 5; i++)
+                int daysInMonth = System.DateTime.DaysInMonth(date.Year, date.Month);
+                for (int i = 1; i <= daysInMonth; i++)
                 {
-                    chartStatistics.Series["Average salary"].Points.AddXY(i, i );
-                }
-            }
-            else if (rbtnWeek.Checked)
-            {
-                for (int i = 0; i < 7; i++)
-                {
-                    chartStatistics.Series["Average salary"].Points.AddXY(day[i], i);
+                    chartStatistics.Series["Average salary"].Points.AddXY(i+1, AvgSalaryPerMonth[i]);
                 }
             }
         }
         public void ShowOverallStatisticsForTotalHoursWorked()
         {
+            List<double> TotalHoursWorkedPerYear = empStatisticsManager.GetTotalHoursWorkedPerTimeUnit("year", date);
+            List<double> TotalHoursWorkedPerMonth = empStatisticsManager.GetTotalHoursWorkedPerTimeUnit("month", date);
+
             chartStatistics.Series["Total hours worked"].Points.Clear();
             chartStatistics.Titles.Clear();
             chartStatistics.Titles.Add("Total hours worked");
@@ -118,26 +113,23 @@ namespace MediaBazaar
             {
                 for (int i = 0; i < 12; i++)
                 {
-                    chartStatistics.Series["Total hours worked"].Points.AddXY(month[i], i);
+                    chartStatistics.Series["Total hours worked"].Points.AddXY(month[i], TotalHoursWorkedPerYear[i]);
                 }
             }
             else if (rbtnMonth.Checked)
             {
-                for (int i = 1; i < 5; i++)
+                int daysInMonth = System.DateTime.DaysInMonth(date.Year, date.Month);
+                for (int i = 0; i < daysInMonth; i++)
                 {
-                    chartStatistics.Series["Total hours worked"].Points.AddXY(i, i+10);
-                }
-            }
-            else if (rbtnWeek.Checked)
-            {
-                for (int i = 0; i < 7; i++)
-                {
-                    chartStatistics.Series["Total hours worked"].Points.AddXY(day[i], i);
+                    chartStatistics.Series["Total hours worked"].Points.AddXY(i+1, TotalHoursWorkedPerMonth[i]);
                 }
             }
         }
         public void ShowOverallStatisticsForAverageHoursWorked()
         {
+            List<double> AvgHoursWorkedPerYear = empStatisticsManager.GetAvgHoursWorkedPerTimeUnit("year", date);
+            List<double> AvgHoursWorkedPerMonth = empStatisticsManager.GetAvgHoursWorkedPerTimeUnit("month", date);
+
             chartStatistics.Series["Average hours worked"].Points.Clear();
             chartStatistics.Titles.Clear();
             chartStatistics.Titles.Add("Average hours worked");
@@ -145,21 +137,15 @@ namespace MediaBazaar
             {
                 for (int i = 0; i < 12; i++)
                 {
-                    chartStatistics.Series["Average hours worked"].Points.AddXY(month[i], i+3);
+                    chartStatistics.Series["Average hours worked"].Points.AddXY(month[i], AvgHoursWorkedPerYear[i]);
                 }
             }
             else if (rbtnMonth.Checked)
             {
-                for (int i = 1; i < 5; i++)
+                int daysInMonth = System.DateTime.DaysInMonth(date.Year, date.Month);
+                for (int i = 0; i < daysInMonth; i++)
                 {
-                    chartStatistics.Series["Average hours worked"].Points.AddXY(i, i + 20);
-                }
-            }
-            else if (rbtnWeek.Checked)
-            {
-                for (int i = 0; i < 7; i++)
-                {
-                    chartStatistics.Series["Average hours worked"].Points.AddXY(day[i], i+2);
+                    chartStatistics.Series["Average hours worked"].Points.AddXY(i+1, AvgHoursWorkedPerMonth[i]);
                 }
             }
         }

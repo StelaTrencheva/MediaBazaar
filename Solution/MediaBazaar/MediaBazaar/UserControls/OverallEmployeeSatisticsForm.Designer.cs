@@ -39,8 +39,6 @@
             this.cbbSortEmployees = new System.Windows.Forms.ComboBox();
             this.rbtnYear = new System.Windows.Forms.RadioButton();
             this.rbtnMonth = new System.Windows.Forms.RadioButton();
-            this.rbtnWeek = new System.Windows.Forms.RadioButton();
-            this.chbOrderBy = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.chartStatistics)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,35 +119,12 @@
             this.rbtnMonth.UseVisualStyleBackColor = true;
             this.rbtnMonth.CheckedChanged += new System.EventHandler(this.rbtnMonth_CheckedChanged);
             // 
-            // rbtnWeek
-            // 
-            this.rbtnWeek.AutoSize = true;
-            this.rbtnWeek.Location = new System.Drawing.Point(849, 29);
-            this.rbtnWeek.Name = "rbtnWeek";
-            this.rbtnWeek.Size = new System.Drawing.Size(65, 21);
-            this.rbtnWeek.TabIndex = 13;
-            this.rbtnWeek.Text = "Week";
-            this.rbtnWeek.UseVisualStyleBackColor = true;
-            this.rbtnWeek.CheckedChanged += new System.EventHandler(this.rbtnWeek_CheckedChanged);
-            // 
-            // chbOrderBy
-            // 
-            this.chbOrderBy.AutoSize = true;
-            this.chbOrderBy.Location = new System.Drawing.Point(908, 384);
-            this.chbOrderBy.Name = "chbOrderBy";
-            this.chbOrderBy.Size = new System.Drawing.Size(135, 38);
-            this.chbOrderBy.TabIndex = 14;
-            this.chbOrderBy.Text = "Order by \r\nhighest to lowest";
-            this.chbOrderBy.UseVisualStyleBackColor = true;
-            // 
             // OverallEmployeeSatisticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1135, 492);
-            this.Controls.Add(this.chbOrderBy);
-            this.Controls.Add(this.rbtnWeek);
             this.Controls.Add(this.rbtnMonth);
             this.Controls.Add(this.rbtnYear);
             this.Controls.Add(this.cbbSortEmployees);
@@ -171,7 +146,5 @@
         private System.Windows.Forms.ComboBox cbbSortEmployees;
         private System.Windows.Forms.RadioButton rbtnYear;
         private System.Windows.Forms.RadioButton rbtnMonth;
-        private System.Windows.Forms.RadioButton rbtnWeek;
-        private System.Windows.Forms.CheckBox chbOrderBy;
     }
 }

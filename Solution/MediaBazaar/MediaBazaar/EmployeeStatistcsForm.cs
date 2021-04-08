@@ -13,14 +13,12 @@ namespace MediaBazaar
     public partial class EmployeeStatistcsForm : Form
     {
         Employee employee;
-        ManageEmployees mngEmp;
-        DatabaseMediator dbMediator;
+        SystemManagerEmployeeStatistics empStatisticsManager;
         DateTime date;
         public EmployeeStatistcsForm()
         {
             InitializeComponent();
-            mngEmp = new ManageEmployees();
-            dbMediator = new DatabaseMediator();
+            empStatisticsManager = new SystemManagerEmployeeStatistics();
         }
         public void SetEmployee(Employee emp, DateTime date)
         {
@@ -61,25 +59,18 @@ namespace MediaBazaar
                     lblContractualHoursPerYear.Text = "LEFT";
                     break;
             }
-            ShowStatistics();
 
+            List<int> EmployeeHoursPerTimeUnit = empStatisticsManager.GetEmployeeHoursPerTimeUnit(employee.Id, date);
+            lblTotalSalaryPerDay.Text = (EmployeeHoursPerTimeUnit[0] * employee.HourlyWage).ToString();
+            lblTotalSalaryPerWeek.Text = (EmployeeHoursPerTimeUnit[1] * employee.HourlyWage).ToString();
+            lblTotalSalaryPerMonth.Text = (EmployeeHoursPerTimeUnit[2] * employee.HourlyWage).ToString();
+            lblTotalSalaryPerYear.Text = (EmployeeHoursPerTimeUnit[3] * employee.HourlyWage).ToString();
+            lblActualHoursPerDay.Text = EmployeeHoursPerTimeUnit[0].ToString();
+            lblActualHoursPerWeek.Text = EmployeeHoursPerTimeUnit[1].ToString();
+            lblActualHoursPerMonth.Text = EmployeeHoursPerTimeUnit[2].ToString();
+            lblActualHoursPerYear.Text = EmployeeHoursPerTimeUnit[3].ToString();
         }
-        public void ShowStatistics()
-        {
-            int EmpHoursPerDay = dbMediator.GetEmployeeAssignedHoursForStatPerDay(employee.Id, date.Day.ToString());
-            int EmpHoursPerWeek = dbMediator.GetEmployeeAssignedHoursForStatPerWeek(employee.Id, date.ToString("yyyy-MM-dd"));
-            int EmpHoursPerMonth = dbMediator.GetEmployeeAssignedHoursForStatPerMonth(employee.Id, date.Month.ToString());
-            int EmpHoursPerYear = dbMediator.GetEmployeeAssignedHoursForStatPerYear(employee.Id, date.Year.ToString());
 
-            lblTotalSalaryPerDay.Text = (EmpHoursPerDay * employee.HourlyWage).ToString();
-            lblTotalSalaryPerWeek.Text = (EmpHoursPerWeek * employee.HourlyWage).ToString();
-            lblTotalSalaryPerMonth.Text = (EmpHoursPerMonth * employee.HourlyWage).ToString();
-            lblTotalSalaryPerYear.Text = (EmpHoursPerYear * employee.HourlyWage).ToString();
-            lblActualHoursPerDay.Text = EmpHoursPerDay.ToString();
-            lblActualHoursPerWeek.Text = EmpHoursPerWeek.ToString();
-            lblActualHoursPerMonth.Text = EmpHoursPerMonth.ToString();
-            lblActualHoursPerYear.Text = EmpHoursPerYear.ToString();
-        }
 
     }
 }

@@ -135,11 +135,11 @@
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\Employee.cs" />
-    <Compile Include="UserControls\EmployeeStatistics.cs">
+    <Compile Include="UserControls\EmployeeStatisticsInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\EmployeeStatistics.Designer.cs">
-      <DependentUpon>EmployeeStatistics.cs</DependentUpon>
+    <Compile Include="UserControls\EmployeeStatisticsInterface.Designer.cs">
+      <DependentUpon>EmployeeStatisticsInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Enum\EmployeeType.cs" />
     <Compile Include="Enum\Gender.cs" />
@@ -155,6 +155,7 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\SystemManagerEmployeeStatistics.cs" />
     <Compile Include="UserControls\UserInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -243,8 +244,8 @@
     <EmbeddedResource Include="ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\EmployeeStatistics.resx">
-      <DependentUpon>EmployeeStatistics.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\EmployeeStatisticsInterface.resx">
+      <DependentUpon>EmployeeStatisticsInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HRAdminForm.resx">
       <DependentUpon>HRAdminForm.cs</DependentUpon>
