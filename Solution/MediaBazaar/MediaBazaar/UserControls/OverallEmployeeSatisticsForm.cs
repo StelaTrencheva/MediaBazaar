@@ -71,13 +71,13 @@ namespace MediaBazaar
             else if (rbtnMonth.Checked)
             {
                 int daysInMonth = System.DateTime.DaysInMonth(date.Year, date.Month);
-                for (int i = 1; i <= daysInMonth; i++)
+                for (int i = 0; i < daysInMonth; i++)
                 {
                     chartStatistics.Series["Total salary"].Points.AddXY(i+1, TotalSalaryPerMonth[i]);
                 }
             }
         }
-        public void ShowOverallStatisticsForAvgSalary()
+        public void ShowOverallStatisticsForAvgSalary()//TODO 
         {
             List<double> AvgSalaryPerYear = empStatisticsManager.GetAvgSalaryPerTimeUnit("year", date);
             List<double> AvgSalaryPerMonth = empStatisticsManager.GetAvgSalaryPerTimeUnit("month", date);
@@ -95,7 +95,7 @@ namespace MediaBazaar
             else if (rbtnMonth.Checked)
             {
                 int daysInMonth = System.DateTime.DaysInMonth(date.Year, date.Month);
-                for (int i = 1; i <= daysInMonth; i++)
+                for (int i = 0; i < daysInMonth; i++)
                 {
                     chartStatistics.Series["Average salary"].Points.AddXY(i+1, AvgSalaryPerMonth[i]);
                 }

@@ -61,18 +61,18 @@ namespace MediaBazaar
                 case "year":
                     for (int i = 1; i < 13; i++)
                     {
-                        // totalSalary.Add(dbMediator.GetOverallEmpStatTotalSalary(i.ToString()));
+                        totalSalary.Add(dbMediator.GetOverallEmpStatTotalSalaryForYear(i.ToString()));
                     }
                     break;
                 case "month":
                     int daysInMonth = System.DateTime.DaysInMonth(date.Year, date.Month);
                     for (int i = 1; i <= daysInMonth; i++)
                     {
-
+                        totalSalary.Add(dbMediator.GetOverallEmpStatTotalSalaryForMonth(date, i));
                     }
                     break;
             }
-            return null;
+            return totalSalary;
         }
         
         public List<double> GetAvgSalaryPerTimeUnit(string time, DateTime date)
@@ -82,17 +82,20 @@ namespace MediaBazaar
             switch (time)
             {
                 case "year":
-
+                    for (int i = 1; i < 13; i++)
+                    {
+                        avgSalary.Add(dbMediator.GetOverallEmpStatAvgSalaryForYear(i.ToString()));
+                    }
                     break;
                 case "month":
                     int daysInMonth = System.DateTime.DaysInMonth(date.Year, date.Month);
                     for (int i = 1; i <= daysInMonth; i++)
                     {
-
+                        avgSalary.Add(dbMediator.GetOverallEmpStatAvgSalaryForMonth(date, i));
                     }
                     break;
             }
-            return null;
+            return avgSalary;
         }
         public List<double> GetTotalHoursWorkedPerTimeUnit(string time, DateTime date)
         {

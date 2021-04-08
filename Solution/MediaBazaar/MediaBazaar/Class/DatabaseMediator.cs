@@ -526,6 +526,146 @@ namespace MediaBazaar
             return assignedHours;
         }
 
+        public double GetOverallEmpStatTotalSalaryForYear(string date)
+        {
+            string sqlStatement = "SELECT IFNULL((em.employeeID),0)*IFNULL((emp.hourlywage),0)*4 as assignedHours FROM `mb_shift_with_assigned_employee` as em  " +
+                                  "INNER JOIN `mb_shift` as sh " +
+                                  "ON sh.id = em.shiftID " +
+                                  "INNER JOIN `mb_employee`as emp " +
+                                  "ON em.employeeID = emp.id " +
+                                  "WHERE EXTRACT(MONTH FROM sh.date) = @month " +
+                                  "GROUP BY emp.id";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.dbConnection);
+            sqlCommand.Parameters.AddWithValue("@month", date);
+            double TotalSalaryStats = 0;
+            try
+            {
+                MySqlDataReader reader;
+                dbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    {
+                        TotalSalaryStats += Convert.ToDouble(reader["assignedHours"]);
+                    }
+
+                }
+            }
+            finally
+            {
+                this.dbConnection.Close();
+
+            }
+            return TotalSalaryStats;
+        }
+        public double GetOverallEmpStatTotalSalaryForMonth(DateTime date, int dayOfTheMonth)
+        {
+            string sqlStatement = "SELECT IFNULL(count(em.employeeID),0)*IFNULL((emp.hourlywage),0)*4 as assignedHours FROM `mb_shift_with_assigned_employee` as em  " +
+                                  "INNER JOIN `mb_shift` as sh " +
+                                  "ON sh.id = em.shiftID " +
+                                  "INNER JOIN `mb_employee`as emp " +
+                                  "ON em.employeeID = emp.id " +
+                                  "WHERE EXTRACT(MONTH FROM sh.date) = @month AND EXTRACT(DAY FROM sh.date) = @day " +
+                                  "GROUP BY emp.id, sh.date";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.dbConnection);
+            sqlCommand.Parameters.AddWithValue("@month", date.Month.ToString());
+            sqlCommand.Parameters.AddWithValue("@day", dayOfTheMonth);
+            double TotalSalaryStats = 0;
+            try
+            {
+                MySqlDataReader reader;
+                dbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    {
+                        TotalSalaryStats += Convert.ToDouble(reader["assignedHours"]);
+                    }
+
+                }
+            }
+            finally
+            {
+                this.dbConnection.Close();
+
+            }
+            return TotalSalaryStats;
+        }
+        public double GetOverallEmpStatAvgSalaryForMonth(DateTime date, int dayOfTheMonth)
+        {
+            string sqlStatement = "SELECT IFNULL(count(em.employeeID),0)*IFNULL((emp.hourlywage),0)*4 as assignedHours  FROM `mb_shift_with_assigned_employee` as em  " +
+                                 "INNER JOIN `mb_shift` as sh " +
+                                 "ON sh.id = em.shiftID " +
+                                 "INNER JOIN `mb_employee`as emp " +
+                                 "ON em.employeeID = emp.id " +
+                                 "WHERE EXTRACT(MONTH FROM sh.date) = @month AND EXTRACT(DAY FROM sh.date) = @day " +
+                                 "GROUP BY emp.id, sh.date";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.dbConnection);
+            sqlCommand.Parameters.AddWithValue("@month", date.Month.ToString());
+            sqlCommand.Parameters.AddWithValue("@day", dayOfTheMonth);
+            double TotalSalaryStats = 0;
+            int count = 0;
+            try
+            {
+                MySqlDataReader reader;
+                dbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    {
+                        TotalSalaryStats += Convert.ToDouble(reader["assignedHours"]);
+                        count += 1;
+                    }
+
+                }
+            }
+            finally
+            {
+                this.dbConnection.Close();
+                TotalSalaryStats /= count;
+
+            }
+            return TotalSalaryStats;
+        }public double GetOverallEmpStatAvgSalaryForYear(string date)
+        {
+            string sqlStatement = "SELECT IFNULL(count(em.employeeID),0)*IFNULL((emp.hourlywage),0)*4 as assignedHours  FROM `mb_shift_with_assigned_employee` as em  " +
+                                 "INNER JOIN `mb_shift` as sh " +
+                                 "ON sh.id = em.shiftID " +
+                                 "INNER JOIN `mb_employee`as emp " +
+                                 "ON em.employeeID = emp.id " +
+                                 "WHERE EXTRACT(MONTH FROM sh.date) = @month " +
+                                 "GROUP BY emp.id";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.dbConnection);
+            sqlCommand.Parameters.AddWithValue("@month", date);
+            double TotalSalaryStats = 0;
+            int count = 0;
+            try
+            {
+                MySqlDataReader reader;
+                dbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    {
+                        TotalSalaryStats += Convert.ToDouble(reader["assignedHours"]);
+                        count += 1;
+                    }
+
+                }
+            }
+            finally
+            {
+                this.dbConnection.Close();
+                TotalSalaryStats /= count;
+
+            }
+            return TotalSalaryStats;
+        }
+
         public double GetOverallEmpStatTotalHoursWorkedForYear(string date)
         {
             string sqlStatement = "SELECT (COUNT(em.shiftID) * 4) as assignedHours FROM `mb_shift` as sh " +
@@ -589,13 +729,14 @@ namespace MediaBazaar
         }
         public double GetOverallEmpStatAvgHoursWorkedForYear(string date)
         {
-            string sqlStatement = "SELECT IFNULL(AVG(em.shiftID),0) as assignedHours FROM `mb_shift` as sh " +
+            string sqlStatement = "SELECT IFNULL((em.employeeID),0)*4 as assignedHours FROM `mb_shift` as sh " +
                 "INNER JOIN `mb_shift_with_assigned_employee` as em " +
                 "ON sh.id = em.shiftID " +
                 "WHERE EXTRACT(MONTH FROM sh.date) = @month";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.dbConnection);
             sqlCommand.Parameters.AddWithValue("@month", date);
             double TotalSalaryStats = 0;
+            int count = 0;
             try
             {
                 MySqlDataReader reader;
@@ -605,7 +746,8 @@ namespace MediaBazaar
                 while (reader.Read())
                 {
                     {
-                        TotalSalaryStats = Convert.ToDouble(reader["assignedHours"]) * 4;
+                        TotalSalaryStats += Convert.ToDouble(reader["assignedHours"]);
+                        count++;
                     }
 
                 }
@@ -613,13 +755,13 @@ namespace MediaBazaar
             finally
             {
                 this.dbConnection.Close();
-
+                TotalSalaryStats /= count;
             }
             return TotalSalaryStats;
         } 
         public double GetOverallEmpStatAvgHoursWorkedForMonth(DateTime date, int dayOfTheMonth)
         {
-            string sqlStatement = "SELECT IFNULL(AVG(em.shiftID),0) as assignedHours FROM `mb_shift` as sh " +
+            string sqlStatement = "SELECT IFNULL((em.employeeID),0)*4 as assignedHours FROM `mb_shift` as sh " +
                 "INNER JOIN `mb_shift_with_assigned_employee` as em " +
                 "ON sh.id = em.shiftID " +
                 "WHERE EXTRACT(MONTH FROM sh.date) = @month AND EXTRACT(DAY FROM sh.date) = @day;";
@@ -627,6 +769,7 @@ namespace MediaBazaar
             sqlCommand.Parameters.AddWithValue("@month", date.Month.ToString());
             sqlCommand.Parameters.AddWithValue("@day", dayOfTheMonth);
             double TotalSalaryStats = 0;
+            int count = 0;
             try
             {
                 MySqlDataReader reader;
@@ -636,7 +779,8 @@ namespace MediaBazaar
                 while (reader.Read())
                 {
                     {
-                        TotalSalaryStats = Convert.ToDouble(reader["assignedHours"]) * 4;
+                        TotalSalaryStats = Convert.ToDouble(reader["assignedHours"]);
+                        count++;
                     }
 
                 }
@@ -644,7 +788,7 @@ namespace MediaBazaar
             finally
             {
                 this.dbConnection.Close();
-
+                TotalSalaryStats /= count;
             }
             return TotalSalaryStats;
         }
