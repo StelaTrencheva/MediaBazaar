@@ -33,103 +33,55 @@ namespace MediaBazaar
         }
         private void UpdateInfo()
         {
-            lbxDisplayAssignedEmployees.Items.Clear();
-            lbxDisplayAvailableStoreW.Items.Clear();
-            string selectedShiftValue = cbxShiftType.SelectedItem.ToString();
-            Enum.TryParse(selectedShiftValue, out ShiftType shiftType);
-            DateTime selectedDate = DateTime.Parse(cbxDay.SelectedItem.ToString());
-            string date = selectedDate.ToString("yyyy-MM-dd");
+            //lbxDisplayAssignedEmployees.Items.Clear();
+            //lbxDisplayAvailableStoreW.Items.Clear();
+            //string selectedShiftValue = cbxShiftType.SelectedItem.ToString();
+            //Enum.TryParse(selectedShiftValue, out ShiftType shiftType);
+            //DateTime selectedDate = DateTime.Parse(cbxDay.SelectedItem.ToString());
+            //string date = selectedDate.ToString("yyyy-MM-dd");
 
-            foundShift = schedule.GetShift(shiftType, date);
-            try
-            {
-                foreach (Employee employee in foundShift.GetAssignedEmployees())
-                {
+            //foundShift = schedule.GetShift(shiftType, date);
+            //try
+            //{
+            //    foreach (Employee employee in foundShift.GetAssignedEmployees())
+            //    {
 
-                    lbxDisplayAssignedEmployees.Items.Add(employee.BSN);
-                }
-                Dictionary<int, int> assignedHours = schedule.GetEmployeesAssignedHours(foundShift.GetAvailableEmployeesIds(), date);
+            //        lbxDisplayAssignedEmployees.Items.Add(employee.BSN);
+            //    }
+            //    Dictionary<int, int> assignedHours = schedule.GetEmployeesAssignedHours(foundShift.GetAvailableEmployeesIds(), date);
                 
-                for (int i = 0; i < foundShift.GetAvailableEmployees().Count; i++)
-                {
-                    assignedHours.TryGetValue(foundShift.GetAvailableEmployees()[i].Id,out int hours);
-                    lbxDisplayAvailableStoreW.Items.Add(foundShift.GetAvailableEmployees()[i].BSN + " - " + foundShift.GetAvailableEmployees()[i].Contract + " - " + hours + "h assigned for the week.");
-                }
+            //    for (int i = 0; i < foundShift.GetAvailableEmployees().Count; i++)
+            //    {
+            //        assignedHours.TryGetValue(foundShift.GetAvailableEmployees()[i].Id,out int hours);
+            //        lbxDisplayAvailableStoreW.Items.Add(foundShift.GetAvailableEmployees()[i].BSN + " - " + foundShift.GetAvailableEmployees()[i].Contract + " - " + hours + "h assigned for the week.");
+            //    }
 
 
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show("Database problem detected - " + exc.Message);
-            }
+            //}
+            //catch (Exception exc)
+            //{
+            //    MessageBox.Show("Database problem detected - " + exc.Message);
+            //}
         }
         public StoreWorkerScheduleInterface()
         {
             InitializeComponent();
             lbTodayDate.Text = today.ToShortDateString();
             CreateFutureMonths();
-        }
-
-        private void cbMonth_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int month = DateTime.ParseExact(cbMonth.SelectedItem.ToString(), "MMMM", CultureInfo.CurrentCulture).Month;
-            lblDay.Visible = true;
-            cbxDay.Visible = true;
-            cbxDay.Items.Clear();
-            cbxShiftType.Visible = false;
-            lblShiftType.Visible = false;
-            DateTime lst = today.AddMonths(3);
-            for (DateTime day = today.Date; day <= lst; day = day.AddDays(1))
-            {
-                if (day.Month == month)
-                {
-                    cbxDay.Items.Add(day.ToShortDateString()+" - "+day.DayOfWeek);
-                }
-
-            }
-        }
-
-        private void cbxDay_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lbxDisplayAssignedEmployees.Visible = false;
-            lbxDisplayAvailableStoreW.Visible = false;
-            lblAvailableStoreW.Visible = false;
-            lblAssignStoreW.Visible = false;
-            lblShiftType.Visible = true;
-            cbxShiftType.Visible = true;
-            cbxShiftType.SelectedIndex = -1;
-
-        }
-
-        private void cbxShiftType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbxShiftType.SelectedIndex != -1)
-            {
-                lblAssignStoreW.Visible = true;
-            lblAvailableStoreW.Visible = true;
-            lbxDisplayAvailableStoreW.Visible = true;
-            lbxDisplayAssignedEmployees.Visible = true;
-            btnRemove.Visible = true;
-            btnAssign.Visible = true;
-
-            UpdateInfo();
-
-            }
-            
-        }
+        }    
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
             string selectedUser;
             try
             {
-                if (lbxDisplayAssignedEmployees.SelectedIndex == -1)
+                if (lbxAssignedEmployeesMorning.SelectedIndex == -1)
                 {
                     MessageBox.Show("Please select a store worker from the assigned store workers");
                 }
                 else
                 {
-                    selectedUser = lbxDisplayAssignedEmployees.SelectedItem.ToString(); 
+                    selectedUser = lbxAssignedEmployeesMorning.SelectedItem.ToString(); 
                     MessageBox.Show("Employee with BSN: " + schedule.RemoveEmployeeFromShift(foundShift, selectedUser).BSN + " was removed from this shift.");
                 UpdateInfo();
                 }
@@ -146,13 +98,13 @@ namespace MediaBazaar
             string selectedUser;
             try
             {
-                if (lbxDisplayAvailableStoreW.SelectedIndex == -1)
+                if (lbxAssignedEmployeesMorning.SelectedIndex == -1)
                 {
                     MessageBox.Show("Please select a store worker from the available store workers");
                 }
                 else
                 {
-                    selectedUser = lbxDisplayAvailableStoreW.SelectedItem.ToString();
+                    selectedUser = lbxAssignedEmployeesMorning.SelectedItem.ToString();
                     selectedUser = selectedUser.Substring(0, selectedUser.IndexOf(" - "));
                     MessageBox.Show("Employee with BSN: " + schedule.AssignEmployeeToShift(foundShift, selectedUser).BSN + " was assigned to this shift.");
                     UpdateInfo();
@@ -223,6 +175,32 @@ namespace MediaBazaar
         {
             calendarDate.MinDate = today.AddMonths(-3);
             calendarDate.MaxDate = today.AddMonths(3);
+        }
+
+        private void cbMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int month = DateTime.ParseExact(cbMonth.SelectedItem.ToString(), "MMMM", CultureInfo.CurrentCulture).Month;
+            lblDay.Visible = true;
+            cbxDay.Visible = true;
+            cbxDay.Items.Clear();
+            DateTime lst = today.AddMonths(3);
+            for (DateTime day = today.Date; day <= lst; day = day.AddDays(1))
+            {
+                if (day.Month == month)
+                {
+                    cbxDay.Items.Add(day.ToShortDateString() + " - " + day.DayOfWeek);
+                }
+
+            }
+        }
+
+        private void cbxDay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gbOverview.Visible = true;
+            gbAvailableEmployees.Visible = true;
+            gbChangeAssignableEmployees.Visible = true;
+            
+
         }
     }
 }

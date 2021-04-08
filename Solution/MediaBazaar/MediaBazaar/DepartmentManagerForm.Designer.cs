@@ -36,8 +36,8 @@ namespace MediaBazaar
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnDepartmentMLogOut = new System.Windows.Forms.Button();
             this.btnDepartmentMAccount = new System.Windows.Forms.Button();
-            this.storeWorkerScheduleInterface = new MediaBazaar.StoreWorkerScheduleInterface();
             this.userInterface1 = new MediaBazaar.UserInterface();
+            this.storeWorkerScheduleInterface = new MediaBazaar.StoreWorkerScheduleInterface();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -52,7 +52,7 @@ namespace MediaBazaar
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(206, 528);
+            this.panel1.Size = new System.Drawing.Size(206, 786);
             this.panel1.TabIndex = 34;
             // 
             // btnDepartmentMSchedule
@@ -115,14 +115,6 @@ namespace MediaBazaar
             this.btnDepartmentMAccount.UseVisualStyleBackColor = false;
             this.btnDepartmentMAccount.Click += new System.EventHandler(this.btnDepartmentMAccount_Click);
             // 
-            // storeWorkerScheduleInterface
-            // 
-            this.storeWorkerScheduleInterface.Location = new System.Drawing.Point(213, 0);
-            this.storeWorkerScheduleInterface.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.storeWorkerScheduleInterface.Name = "storeWorkerScheduleInterface";
-            this.storeWorkerScheduleInterface.Size = new System.Drawing.Size(890, 530);
-            this.storeWorkerScheduleInterface.TabIndex = 36;
-            // 
             // userInterface1
             // 
             this.userInterface1.Location = new System.Drawing.Point(213, 0);
@@ -131,12 +123,19 @@ namespace MediaBazaar
             this.userInterface1.TabIndex = 37;
             this.userInterface1.Load += new System.EventHandler(this.userInterface1_Load);
             // 
+            // storeWorkerScheduleInterface
+            // 
+            this.storeWorkerScheduleInterface.Location = new System.Drawing.Point(212, 0);
+            this.storeWorkerScheduleInterface.Name = "storeWorkerScheduleInterface";
+            this.storeWorkerScheduleInterface.Size = new System.Drawing.Size(1129, 785);
+            this.storeWorkerScheduleInterface.TabIndex = 38;
+            // 
             // DepartmentManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1126, 528);
+            this.ClientSize = new System.Drawing.Size(1340, 786);
             this.Controls.Add(this.storeWorkerScheduleInterface);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.userInterface1);
@@ -160,7 +159,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnDepartmentMLogOut;
         private System.Windows.Forms.Button btnDepartmentMAccount;
-        private StoreWorkerScheduleInterface storeWorkerScheduleInterface;
         private UserInterface userInterface1;
+        private StoreWorkerScheduleInterface storeWorkerScheduleInterface;
     }
 }
