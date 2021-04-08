@@ -39,7 +39,7 @@ namespace MediaBazaar
             this.lblGender = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblUName = new System.Windows.Forms.Label();
-            this.lblBirthDay = new System.Windows.Forms.Label();
+            this.lblBirthday = new System.Windows.Forms.Label();
             this.lblFirstWorkingDay = new System.Windows.Forms.Label();
             this.lblPhoneNumber = new System.Windows.Forms.Label();
             this.lblIban = new System.Windows.Forms.Label();
@@ -51,33 +51,41 @@ namespace MediaBazaar
             this.lblZipcode = new System.Windows.Forms.Label();
             this.lblTown = new System.Windows.Forms.Label();
             this.lblCountry = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.lblAddress = new System.Windows.Forms.Label();
+            this.pnlAddress = new System.Windows.Forms.Panel();
+            this.lblPersonalInfo = new System.Windows.Forms.Label();
+            this.pnlPersonalInfo = new System.Windows.Forms.Panel();
+            this.pnlAddress.SuspendLayout();
+            this.pnlPersonalInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblContractHistory
             // 
             this.lblContractHistory.AutoSize = true;
-            this.lblContractHistory.Location = new System.Drawing.Point(680, 276);
+            this.lblContractHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContractHistory.Location = new System.Drawing.Point(372, 326);
             this.lblContractHistory.Name = "lblContractHistory";
-            this.lblContractHistory.Size = new System.Drawing.Size(124, 20);
+            this.lblContractHistory.Size = new System.Drawing.Size(154, 25);
             this.lblContractHistory.TabIndex = 0;
             this.lblContractHistory.Text = "Contract history:";
             // 
             // lbxContractHistory
             // 
+            this.lbxContractHistory.BackColor = System.Drawing.Color.AliceBlue;
             this.lbxContractHistory.FormattingEnabled = true;
-            this.lbxContractHistory.ItemHeight = 20;
-            this.lbxContractHistory.Location = new System.Drawing.Point(592, 299);
+            this.lbxContractHistory.ItemHeight = 16;
+            this.lbxContractHistory.Location = new System.Drawing.Point(377, 353);
+            this.lbxContractHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbxContractHistory.Name = "lbxContractHistory";
-            this.lbxContractHistory.Size = new System.Drawing.Size(303, 244);
+            this.lbxContractHistory.Size = new System.Drawing.Size(314, 196);
             this.lbxContractHistory.TabIndex = 1;
             // 
             // lblViewInfo
             // 
-            this.lblViewInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblViewInfo.Location = new System.Drawing.Point(1, 9);
+            this.lblViewInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblViewInfo.Location = new System.Drawing.Point(12, 7);
             this.lblViewInfo.Name = "lblViewInfo";
-            this.lblViewInfo.Size = new System.Drawing.Size(917, 44);
+            this.lblViewInfo.Size = new System.Drawing.Size(695, 45);
             this.lblViewInfo.TabIndex = 2;
             this.lblViewInfo.Text = "Employee full info";
             this.lblViewInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -85,216 +93,271 @@ namespace MediaBazaar
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(46, 101);
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(21, 12);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(31, 20);
+            this.lblId.Size = new System.Drawing.Size(30, 18);
             this.lblId.TabIndex = 3;
-            this.lblId.Text = "Id: ";
+            this.lblId.Text = "ID: ";
             // 
             // lblBSN
             // 
             this.lblBSN.AutoSize = true;
-            this.lblBSN.Location = new System.Drawing.Point(46, 121);
+            this.lblBSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBSN.Location = new System.Drawing.Point(21, 43);
             this.lblBSN.Name = "lblBSN";
-            this.lblBSN.Size = new System.Drawing.Size(46, 20);
+            this.lblBSN.Size = new System.Drawing.Size(43, 18);
             this.lblBSN.TabIndex = 4;
             this.lblBSN.Text = "BSN:";
             // 
             // lblFName
             // 
             this.lblFName.AutoSize = true;
-            this.lblFName.Location = new System.Drawing.Point(46, 141);
+            this.lblFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFName.Location = new System.Drawing.Point(21, 74);
             this.lblFName.Name = "lblFName";
-            this.lblFName.Size = new System.Drawing.Size(90, 20);
+            this.lblFName.Size = new System.Drawing.Size(82, 18);
             this.lblFName.TabIndex = 5;
-            this.lblFName.Text = "First Name:";
+            this.lblFName.Text = "First name:";
             // 
             // lblLName
             // 
             this.lblLName.AutoSize = true;
-            this.lblLName.Location = new System.Drawing.Point(46, 161);
+            this.lblLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLName.Location = new System.Drawing.Point(21, 105);
             this.lblLName.Name = "lblLName";
-            this.lblLName.Size = new System.Drawing.Size(86, 20);
+            this.lblLName.Size = new System.Drawing.Size(81, 18);
             this.lblLName.TabIndex = 6;
-            this.lblLName.Text = "Last Name";
+            this.lblLName.Text = "Last name:";
             // 
             // lblGender
             // 
             this.lblGender.AutoSize = true;
-            this.lblGender.Location = new System.Drawing.Point(46, 181);
+            this.lblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGender.Location = new System.Drawing.Point(21, 136);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(67, 20);
+            this.lblGender.Size = new System.Drawing.Size(61, 18);
             this.lblGender.TabIndex = 7;
             this.lblGender.Text = "Gender:";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(46, 201);
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Location = new System.Drawing.Point(21, 167);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(52, 20);
+            this.lblEmail.Size = new System.Drawing.Size(49, 18);
             this.lblEmail.TabIndex = 8;
             this.lblEmail.Text = "Email:";
             // 
             // lblUName
             // 
             this.lblUName.AutoSize = true;
-            this.lblUName.Location = new System.Drawing.Point(46, 222);
+            this.lblUName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUName.Location = new System.Drawing.Point(21, 198);
             this.lblUName.Name = "lblUName";
-            this.lblUName.Size = new System.Drawing.Size(87, 20);
+            this.lblUName.Size = new System.Drawing.Size(81, 18);
             this.lblUName.TabIndex = 9;
             this.lblUName.Text = "Username:";
             // 
-            // lblBirthDay
+            // lblBirthday
             // 
-            this.lblBirthDay.AutoSize = true;
-            this.lblBirthDay.Location = new System.Drawing.Point(46, 242);
-            this.lblBirthDay.Name = "lblBirthDay";
-            this.lblBirthDay.Size = new System.Drawing.Size(74, 20);
-            this.lblBirthDay.TabIndex = 10;
-            this.lblBirthDay.Text = "BirthDay:";
+            this.lblBirthday.AutoSize = true;
+            this.lblBirthday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBirthday.Location = new System.Drawing.Point(21, 229);
+            this.lblBirthday.Name = "lblBirthday";
+            this.lblBirthday.Size = new System.Drawing.Size(65, 18);
+            this.lblBirthday.TabIndex = 10;
+            this.lblBirthday.Text = "Birthday:";
             // 
             // lblFirstWorkingDay
             // 
             this.lblFirstWorkingDay.AutoSize = true;
-            this.lblFirstWorkingDay.Location = new System.Drawing.Point(46, 262);
+            this.lblFirstWorkingDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirstWorkingDay.Location = new System.Drawing.Point(21, 260);
             this.lblFirstWorkingDay.Name = "lblFirstWorkingDay";
-            this.lblFirstWorkingDay.Size = new System.Drawing.Size(131, 20);
+            this.lblFirstWorkingDay.Size = new System.Drawing.Size(124, 18);
             this.lblFirstWorkingDay.TabIndex = 11;
             this.lblFirstWorkingDay.Text = "First working day:";
             // 
             // lblPhoneNumber
             // 
             this.lblPhoneNumber.AutoSize = true;
-            this.lblPhoneNumber.Location = new System.Drawing.Point(46, 282);
+            this.lblPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhoneNumber.Location = new System.Drawing.Point(21, 291);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(117, 20);
+            this.lblPhoneNumber.Size = new System.Drawing.Size(109, 18);
             this.lblPhoneNumber.TabIndex = 12;
             this.lblPhoneNumber.Text = "Phone number:";
             // 
             // lblIban
             // 
             this.lblIban.AutoSize = true;
-            this.lblIban.Location = new System.Drawing.Point(297, 101);
+            this.lblIban.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIban.Location = new System.Drawing.Point(22, 322);
             this.lblIban.Name = "lblIban";
-            this.lblIban.Size = new System.Drawing.Size(45, 20);
+            this.lblIban.Size = new System.Drawing.Size(39, 18);
             this.lblIban.TabIndex = 13;
             this.lblIban.Text = "Iban:";
             // 
             // lblHourlyWage
             // 
             this.lblHourlyWage.AutoSize = true;
-            this.lblHourlyWage.Location = new System.Drawing.Point(297, 121);
+            this.lblHourlyWage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHourlyWage.Location = new System.Drawing.Point(22, 353);
             this.lblHourlyWage.Name = "lblHourlyWage";
-            this.lblHourlyWage.Size = new System.Drawing.Size(100, 20);
+            this.lblHourlyWage.Size = new System.Drawing.Size(94, 18);
             this.lblHourlyWage.TabIndex = 14;
             this.lblHourlyWage.Text = "Hourly wage:";
             // 
             // lblContractType
             // 
             this.lblContractType.AutoSize = true;
-            this.lblContractType.Location = new System.Drawing.Point(297, 141);
+            this.lblContractType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContractType.Location = new System.Drawing.Point(21, 384);
             this.lblContractType.Name = "lblContractType";
-            this.lblContractType.Size = new System.Drawing.Size(112, 20);
+            this.lblContractType.Size = new System.Drawing.Size(105, 18);
             this.lblContractType.TabIndex = 15;
             this.lblContractType.Text = "Contract Type:";
             // 
             // lblPosition
             // 
             this.lblPosition.AutoSize = true;
-            this.lblPosition.Location = new System.Drawing.Point(297, 161);
+            this.lblPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPosition.Location = new System.Drawing.Point(22, 412);
             this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(0, 20);
+            this.lblPosition.Size = new System.Drawing.Size(106, 18);
             this.lblPosition.TabIndex = 16;
+            this.lblPosition.Text = "Empoyee type:";
             // 
             // lblStreet
             // 
             this.lblStreet.AutoSize = true;
-            this.lblStreet.Location = new System.Drawing.Point(637, 120);
+            this.lblStreet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStreet.Location = new System.Drawing.Point(21, 19);
             this.lblStreet.Name = "lblStreet";
-            this.lblStreet.Size = new System.Drawing.Size(57, 20);
+            this.lblStreet.Size = new System.Drawing.Size(51, 18);
             this.lblStreet.TabIndex = 17;
             this.lblStreet.Text = "Street:";
             // 
             // lblNumber
             // 
             this.lblNumber.AutoSize = true;
-            this.lblNumber.Location = new System.Drawing.Point(637, 141);
+            this.lblNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumber.Location = new System.Drawing.Point(22, 51);
             this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(69, 20);
+            this.lblNumber.Size = new System.Drawing.Size(65, 18);
             this.lblNumber.TabIndex = 18;
             this.lblNumber.Text = "Number:";
             // 
             // lblZipcode
             // 
             this.lblZipcode.AutoSize = true;
-            this.lblZipcode.Location = new System.Drawing.Point(637, 161);
+            this.lblZipcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblZipcode.Location = new System.Drawing.Point(21, 83);
             this.lblZipcode.Name = "lblZipcode";
-            this.lblZipcode.Size = new System.Drawing.Size(70, 20);
+            this.lblZipcode.Size = new System.Drawing.Size(65, 18);
             this.lblZipcode.TabIndex = 19;
             this.lblZipcode.Text = "Zipcode:";
             // 
             // lblTown
             // 
             this.lblTown.AutoSize = true;
-            this.lblTown.Location = new System.Drawing.Point(637, 181);
+            this.lblTown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTown.Location = new System.Drawing.Point(21, 115);
             this.lblTown.Name = "lblTown";
-            this.lblTown.Size = new System.Drawing.Size(51, 20);
+            this.lblTown.Size = new System.Drawing.Size(49, 18);
             this.lblTown.TabIndex = 20;
             this.lblTown.Text = "Town:";
             // 
             // lblCountry
             // 
             this.lblCountry.AutoSize = true;
-            this.lblCountry.Location = new System.Drawing.Point(637, 201);
+            this.lblCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountry.Location = new System.Drawing.Point(21, 147);
             this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(68, 20);
+            this.lblCountry.Size = new System.Drawing.Size(64, 18);
             this.lblCountry.TabIndex = 21;
             this.lblCountry.Text = "Country:";
             // 
-            // label20
+            // lblAddress
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(657, 73);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(72, 20);
-            this.label20.TabIndex = 22;
-            this.label20.Text = "Address:";
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress.Location = new System.Drawing.Point(372, 67);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(91, 25);
+            this.lblAddress.TabIndex = 22;
+            this.lblAddress.Text = "Address:";
+            // 
+            // pnlAddress
+            // 
+            this.pnlAddress.BackColor = System.Drawing.Color.AliceBlue;
+            this.pnlAddress.Controls.Add(this.lblZipcode);
+            this.pnlAddress.Controls.Add(this.lblStreet);
+            this.pnlAddress.Controls.Add(this.lblCountry);
+            this.pnlAddress.Controls.Add(this.lblNumber);
+            this.pnlAddress.Controls.Add(this.lblTown);
+            this.pnlAddress.Location = new System.Drawing.Point(377, 95);
+            this.pnlAddress.Name = "pnlAddress";
+            this.pnlAddress.Size = new System.Drawing.Size(314, 215);
+            this.pnlAddress.TabIndex = 23;
+            // 
+            // lblPersonalInfo
+            // 
+            this.lblPersonalInfo.AutoSize = true;
+            this.lblPersonalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPersonalInfo.Location = new System.Drawing.Point(28, 67);
+            this.lblPersonalInfo.Name = "lblPersonalInfo";
+            this.lblPersonalInfo.Size = new System.Drawing.Size(189, 25);
+            this.lblPersonalInfo.TabIndex = 24;
+            this.lblPersonalInfo.Text = "Personal information";
+            // 
+            // pnlPersonalInfo
+            // 
+            this.pnlPersonalInfo.BackColor = System.Drawing.Color.AliceBlue;
+            this.pnlPersonalInfo.Controls.Add(this.lblUName);
+            this.pnlPersonalInfo.Controls.Add(this.lblId);
+            this.pnlPersonalInfo.Controls.Add(this.lblBSN);
+            this.pnlPersonalInfo.Controls.Add(this.lblFName);
+            this.pnlPersonalInfo.Controls.Add(this.lblPosition);
+            this.pnlPersonalInfo.Controls.Add(this.lblLName);
+            this.pnlPersonalInfo.Controls.Add(this.lblContractType);
+            this.pnlPersonalInfo.Controls.Add(this.lblGender);
+            this.pnlPersonalInfo.Controls.Add(this.lblHourlyWage);
+            this.pnlPersonalInfo.Controls.Add(this.lblEmail);
+            this.pnlPersonalInfo.Controls.Add(this.lblIban);
+            this.pnlPersonalInfo.Controls.Add(this.lblBirthday);
+            this.pnlPersonalInfo.Controls.Add(this.lblPhoneNumber);
+            this.pnlPersonalInfo.Controls.Add(this.lblFirstWorkingDay);
+            this.pnlPersonalInfo.Location = new System.Drawing.Point(33, 95);
+            this.pnlPersonalInfo.Name = "pnlPersonalInfo";
+            this.pnlPersonalInfo.Size = new System.Drawing.Size(333, 454);
+            this.pnlPersonalInfo.TabIndex = 25;
             // 
             // EmployeeFullInfoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(917, 555);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.lblCountry);
-            this.Controls.Add(this.lblTown);
-            this.Controls.Add(this.lblZipcode);
-            this.Controls.Add(this.lblNumber);
-            this.Controls.Add(this.lblStreet);
-            this.Controls.Add(this.lblPosition);
-            this.Controls.Add(this.lblContractType);
-            this.Controls.Add(this.lblHourlyWage);
-            this.Controls.Add(this.lblIban);
-            this.Controls.Add(this.lblPhoneNumber);
-            this.Controls.Add(this.lblFirstWorkingDay);
-            this.Controls.Add(this.lblBirthDay);
-            this.Controls.Add(this.lblUName);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.lblGender);
-            this.Controls.Add(this.lblLName);
-            this.Controls.Add(this.lblFName);
-            this.Controls.Add(this.lblBSN);
-            this.Controls.Add(this.lblId);
+            this.ClientSize = new System.Drawing.Size(719, 565);
+            this.Controls.Add(this.pnlPersonalInfo);
+            this.Controls.Add(this.lblPersonalInfo);
+            this.Controls.Add(this.pnlAddress);
+            this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblViewInfo);
             this.Controls.Add(this.lbxContractHistory);
             this.Controls.Add(this.lblContractHistory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "EmployeeFullInfoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee full info form";
+            this.pnlAddress.ResumeLayout(false);
+            this.pnlAddress.PerformLayout();
+            this.pnlPersonalInfo.ResumeLayout(false);
+            this.pnlPersonalInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,7 +375,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblGender;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblUName;
-        private System.Windows.Forms.Label lblBirthDay;
+        private System.Windows.Forms.Label lblBirthday;
         private System.Windows.Forms.Label lblFirstWorkingDay;
         private System.Windows.Forms.Label lblPhoneNumber;
         private System.Windows.Forms.Label lblIban;
@@ -324,6 +387,9 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblZipcode;
         private System.Windows.Forms.Label lblTown;
         private System.Windows.Forms.Label lblCountry;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.Panel pnlAddress;
+        private System.Windows.Forms.Label lblPersonalInfo;
+        private System.Windows.Forms.Panel pnlPersonalInfo;
     }
 }
