@@ -26,7 +26,7 @@ namespace MediaBazaar
         private string emergencyPhoneNumber;
         private string iban;
         private double hourlyWage;
-        /*private DateTime contractStartDate;*/
+        private DateTime contractStartDate;
         private ContractType contract;
         private EmployeeType position;
         
@@ -139,7 +139,7 @@ namespace MediaBazaar
 
         public Employee( int id, string bsn, string firstName, string lastName, Gender gender, string email, string username, string password, DateTime birthDay, 
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
-             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, /*DateTime contractStartDate,*/ ContractType contract, EmployeeType position)
+             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, DateTime contractStartDate, ContractType contract, EmployeeType position)
         {
             this.id = id;
             this.bsn = bsn;
@@ -159,11 +159,11 @@ namespace MediaBazaar
             this.emergencyPhoneNumber = emergencyPhoneNumber;
             this.iban = iban;
             this.hourlyWage = hourlyWage;
-            /*this.contractStartDate = contractStartDate;*/
+            this.contractStartDate = contractStartDate;
             this.contract = contract;
             this.position = position;
             
-        }
+        }//Struct
         public string GetAddress()
         {
             return $"{addrStreet} {addrStreetNumber}; {addrZipcode}; {addrCountry}, {addrTown}";

@@ -19,7 +19,7 @@ namespace MediaBazaar
         }
         public bool AddEmployeeToDb(string bsn, string firstName, string lastName, Gender gender, string email, string username,  DateTime birthDay,
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
-             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, /*DateTime contractStartDate,*/ ContractType contract, EmployeeType position)
+             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, ContractType contract, EmployeeType position)
         {
             if (bsn == "" || firstName == "" || lastName == "" || email == "" || username == "" || addrStreet == "" || addrStreetNumber == "" || addrZipcode == "" || addrTown == "" || addrCountry == "" || emergencyPhoneNumber == "" || iban == "")
             {
@@ -34,7 +34,7 @@ namespace MediaBazaar
             }
             return dbMediator.AddEmployee(bsn, firstName, lastName, gender, email, username,  birthDay,
                                           addrStreet, addrStreetNumber, addrZipcode, addrTown, addrCountry,
-                                          firstWorkingDay, emergencyPhoneNumber, iban, hourlyWage, /*contractStartDate,*/ contract, position);
+                                          firstWorkingDay, emergencyPhoneNumber, iban, hourlyWage, contract, position);
         }
 
         /*public bool AddEmployeeToList(int id, string bsn, string firstName, string lastName, string address, string email, string username,string password, DateTime birthDay,

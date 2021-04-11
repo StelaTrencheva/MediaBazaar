@@ -76,7 +76,7 @@ namespace MediaBazaar
                     EmployeeReader["country"].ToString(), Convert.ToDateTime(EmployeeReader["firstworkingday"].ToString()),
                     EmployeeReader["emergphonenumber"].ToString(), EmployeeReader["iban"].ToString(),
                     Convert.ToDouble(EmployeeReader["hourlywage"]),
-                    /*Convert.ToDateTime(EmployeeReader["contractstartdate"].ToString()),*/ contracttype, position);
+                    Convert.ToDateTime(EmployeeReader["contractstartdate"].ToString()), contracttype, position);
                     return employee;
                 }
                 else
@@ -119,7 +119,7 @@ namespace MediaBazaar
                     EmployeeReader["country"].ToString(), Convert.ToDateTime(EmployeeReader["firstworkingday"].ToString()),
                     EmployeeReader["emergphonenumber"].ToString(), EmployeeReader["iban"].ToString(),
                     Convert.ToDouble(EmployeeReader["hourlywage"]),
-                    /*Convert.ToDateTime(EmployeeReader["contractstartdate"].ToString()),*/ contracttype, position));
+                    Convert.ToDateTime(EmployeeReader["contractstartdate"].ToString()), contracttype, position));
                 }
                 return emp;
             }
@@ -137,10 +137,10 @@ namespace MediaBazaar
 
         public bool AddEmployee(string bsn, string firstName, string lastName, Gender gender, string email, string username, DateTime birthDay,
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
-             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, /*DateTime contractStartDate,*/ ContractType contract, EmployeeType position)
+             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, ContractType contract, EmployeeType position)
         {
-            string sqlStatement = "INSERT INTO mb_employee (bsn, fname, lname, gender, email, uname, pwd, birthdate, street, streetnumber, zipcode, town, country, firstworkingday, emergphonenumber, iban, hourlywage, contracttype, position)" + /*contractstartdate,*/
-                "VALUES(@1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16, @17, @18, @19);";
+            string sqlStatement = "INSERT INTO mb_employee (bsn, fname, lname, gender, email, uname, pwd, birthdate, street, streetnumber, zipcode, town, country, firstworkingday, emergphonenumber, iban, hourlywage, contractstartdate, contracttype, position)" + 
+                "VALUES(@1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16, @17, @18, @19, @20);";
 
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, dbConnection);
             string g = firstWorkingDay.ToString("d");
@@ -161,9 +161,9 @@ namespace MediaBazaar
             sqlCommand.Parameters.AddWithValue("@15", emergencyPhoneNumber);
             sqlCommand.Parameters.AddWithValue("@16", iban);
             sqlCommand.Parameters.AddWithValue("@17", hourlyWage);
-            sqlCommand.Parameters.AddWithValue("@18", contract.ToString());
-            /*sqlCommand.Parameters.AddWithValue("@18", contractStartDate.ToString("yyyy-MM-dd"));*/
-            sqlCommand.Parameters.AddWithValue("@19", position.ToString());
+            sqlCommand.Parameters.AddWithValue("@18", DateTime.Now.ToString("yyyy-MM-dd"));
+            sqlCommand.Parameters.AddWithValue("@19", contract.ToString());
+            sqlCommand.Parameters.AddWithValue("@20", position.ToString());
             try
             {
                 int n = 0;

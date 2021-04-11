@@ -52,6 +52,7 @@ namespace MediaBazaar
                            mySqlDataReader["emergphonenumber"].ToString(),
                            mySqlDataReader["iban"].ToString(),
                            Convert.ToDouble(mySqlDataReader["hourlywage"]),
+                           DateTime.Parse(mySqlDataReader["contractstartday"].ToString()), // 
                            contracttype,
                            position
                         );

@@ -48,7 +48,7 @@ namespace MediaBazaar
 
         private void btnChangeContract_Click(object sender, EventArgs e)
         {
-            int index = cbbChangeCOntract.SelectedIndex  ;
+            int index = cbbChangeCOntract.SelectedIndex;
             if(currentEmployee.Contract == (ContractType)(index))
             {
                 MessageBox.Show($"{currentEmployee.GetEmployeeNames}is already assigned to this contract. \r\n" +
