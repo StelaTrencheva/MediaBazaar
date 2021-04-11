@@ -80,7 +80,7 @@ namespace MediaBazaar
             this.lbxContractHistory.Location = new System.Drawing.Point(370, 359);
             this.lbxContractHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbxContractHistory.Name = "lbxContractHistory";
-            this.lbxContractHistory.Size = new System.Drawing.Size(314, 292);
+            this.lbxContractHistory.Size = new System.Drawing.Size(373, 292);
             this.lbxContractHistory.TabIndex = 1;
             // 
             // lblViewInfo
@@ -88,7 +88,7 @@ namespace MediaBazaar
             this.lblViewInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblViewInfo.Location = new System.Drawing.Point(12, 9);
             this.lblViewInfo.Name = "lblViewInfo";
-            this.lblViewInfo.Size = new System.Drawing.Size(671, 45);
+            this.lblViewInfo.Size = new System.Drawing.Size(742, 45);
             this.lblViewInfo.TabIndex = 2;
             this.lblViewInfo.Text = "Employee full information";
             this.lblViewInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -303,7 +303,7 @@ namespace MediaBazaar
             this.pnlAddress.Controls.Add(this.lblTown);
             this.pnlAddress.Location = new System.Drawing.Point(370, 93);
             this.pnlAddress.Name = "pnlAddress";
-            this.pnlAddress.Size = new System.Drawing.Size(314, 215);
+            this.pnlAddress.Size = new System.Drawing.Size(373, 215);
             this.pnlAddress.TabIndex = 23;
             // 
             // lblPersonalInfo
@@ -361,7 +361,7 @@ namespace MediaBazaar
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(701, 662);
+            this.ClientSize = new System.Drawing.Size(766, 662);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblWorkInfo);
             this.Controls.Add(this.pnlPersonalInfo);
