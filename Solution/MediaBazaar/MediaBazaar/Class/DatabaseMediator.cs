@@ -224,20 +224,31 @@ namespace MediaBazaar
                 dbConnection.Close();
             }
         }
-        public bool ChangeWorkContract(ContractType contract, int id)
+        public bool ChangeWorkContract(ContractType contract, Employee employee)
         {
-            string sqlStatement = "UPDATE mb_employee SET contracttype = @c	WHERE id = @i";
-            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, dbConnection);
-            sqlCommand.Parameters.AddWithValue("@c", contract);
-            sqlCommand.Parameters.AddWithValue("@i", id);
+            string sqlStatement1 = "INSERT INTO `mb_contract_history`( `empid`, `contract`, `startdate`, `lastdate`) VALUES (@empid,@contract,@startdate,@lastdate)";
+            MySqlCommand sqlCommand1 = new MySqlCommand(sqlStatement1, dbConnection);
+            sqlCommand1.Parameters.AddWithValue("@empid", employee.Id);
+            sqlCommand1.Parameters.AddWithValue("@contract", employee.Contract+1);
+            sqlCommand1.Parameters.AddWithValue("@startdate", employee.ContractStartDate);
+            sqlCommand1.Parameters.AddWithValue("@lastdate", DateTime.Now.ToString("yyyy-MM-dd"));
+
+
+            string sqlStatement2 = "UPDATE mb_employee SET contracttype = @c, contractstartdate=@d	WHERE id = @i";
+            MySqlCommand sqlCommand2 = new MySqlCommand(sqlStatement2, dbConnection);
+            sqlCommand2.Parameters.AddWithValue("@c", contract+1);
+            sqlCommand2.Parameters.AddWithValue("@i", employee.Id);
+            sqlCommand2.Parameters.AddWithValue("@d", DateTime.Now.ToString("yyyy-MM-dd"));
+
             try
             {
                 int n = 0;
 
                 dbConnection.Open();
-                n = sqlCommand.ExecuteNonQuery();
+                n = sqlCommand1.ExecuteNonQuery();
+                n += sqlCommand2.ExecuteNonQuery();
 
-                if (n == 1)
+                if (n > 0)
                 {
                     return true;
                 }
@@ -252,6 +263,39 @@ namespace MediaBazaar
             {
                 MessageBox.Show(sqlExceptionMessage(e.Message));
                 return false;
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+        }
+        public List<ContractHistory> GetContractHystory(int id)///
+        {
+            string sqlStatement = "SELECT empid,contract,startdate,lastdate FROM `mb_contract_history` INNER JOIN mb_employee ON empid = mb_employee.id where empid = @id;";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, dbConnection);
+            sqlCommand.Parameters.AddWithValue("@id", id);
+
+            List<ContractHistory> contracts = new List<ContractHistory>();
+            try
+            {
+                MySqlDataReader EmployeeReader;
+                dbConnection.Open();
+
+                EmployeeReader = sqlCommand.ExecuteReader();
+                while (EmployeeReader.Read())
+                {
+                    Enum.TryParse(EmployeeReader["contract"].ToString(), out ContractType contracttype);
+                    contracts.Add(new ContractHistory(Convert.ToInt32(EmployeeReader["empid"]),
+                                                       contracttype,
+                                                       Convert.ToDateTime(EmployeeReader["startdate"].ToString()),
+                                                       Convert.ToDateTime(EmployeeReader["lastdate"].ToString())));
+                }
+                return contracts;
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(sqlExceptionMessage(e.Message));
+                return contracts;
             }
             finally
             {

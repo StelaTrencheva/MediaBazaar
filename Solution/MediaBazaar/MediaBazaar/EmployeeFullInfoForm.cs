@@ -13,11 +13,14 @@ namespace MediaBazaar
     public partial class EmployeeFullInfoForm : Form
     {
         Employee currentEmp;
+        ContractHistoryManager contractHistoryManager;
         public EmployeeFullInfoForm(Employee currentEmp)
         {
             InitializeComponent();
             this.currentEmp = currentEmp;
+            this.contractHistoryManager = new ContractHistoryManager(currentEmp.Id);
             UpdateLables();
+            UpdateContractHistory();
         }
 
         private void UpdateLables()
@@ -41,6 +44,14 @@ namespace MediaBazaar
             lblZipcode.Text += $" {currentEmp.Zipcode}";
             lblTown.Text += $" {currentEmp.Town}";
             lblCountry.Text += $" {currentEmp.Country}";
+        }
+        private void UpdateContractHistory()
+        {
+            lbxContractHistory.Items.Clear();
+            foreach (ContractHistory contract in contractHistoryManager.ContractHistories)
+            {
+                lbxContractHistory.Items.Add(contract.ToString());
+            }
         }
     }
 }

@@ -127,13 +127,12 @@ namespace MediaBazaar
                 string emergencyPhoneNumber = tbxEmTelNum.Text.ToString();
                 string iban = tbxBankAccNum.Text.ToString();
                 double hourlyWage = double.Parse(tbxHourlyWage.Text);
-                DateTime contractStartDate = dtpContractStartDate.Value;
                 ContractType contract = (ContractType)(cbxContractType.SelectedIndex);
                 EmployeeType position = (EmployeeType)(cbxTypeOfEmployee.SelectedIndex);
 
                 if (manageEmployees.AddEmployeeToDb( bsn, FName, LName, gender,  email,  username,   birthDay,
                  addrStreet,  addrStreetNumber,  addrZipcode,  addrTown,  addrCountry,
-                  firstWorkingDay,  emergencyPhoneNumber,  iban,  hourlyWage,  /*contractStartDate,*/ contract,  position))
+                  firstWorkingDay,  emergencyPhoneNumber,  iban,  hourlyWage, contract,  position))
                 {
                     MessageBox.Show("Success!");
                     UpdateListBoxAllEmployees();

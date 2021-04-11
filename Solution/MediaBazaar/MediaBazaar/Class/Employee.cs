@@ -101,6 +101,10 @@ namespace MediaBazaar
         {
             get { return this.position; }
         }
+        public string ContractStartDate
+        {
+            get { return this.contractStartDate.ToString("yyyy-MM-dd"); }
+        }
         public ContractType Contract
         {
             get { return this.contract; }

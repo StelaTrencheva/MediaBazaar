@@ -76,6 +76,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\ContractHistory.cs" />
+    <Compile Include="Class\ContractHistoryManager.cs" />
     <Compile Include="Class\Department.cs" />
     <Compile Include="Class\ProductManager.cs" />
     <Compile Include="UserControls\DepartmentInterface.cs">

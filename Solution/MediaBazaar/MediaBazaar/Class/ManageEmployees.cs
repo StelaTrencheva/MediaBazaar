@@ -75,17 +75,7 @@ namespace MediaBazaar
             return null;
         }
 
-        public bool CheckPassword(string password)
-        {
-            foreach(Employee emp in employees)
-            {
-                if(emp.Password == password)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+
         public bool ChangePassword(string password, int id)
         {
             return dbMediator.ChangePassword(password, id);
@@ -94,17 +84,7 @@ namespace MediaBazaar
         {
             return dbMediator.DeleteEmployee(id);
         }
-        public int CheckLoginInfo(string username, string password)
-        {
-            foreach(Employee emp in employees)
-            {
-                if(emp.Username == username && emp.Password == password)
-                {
-                    return emp.Id;
-                }
-            }
-            return 0;
-        }
+        
 
         public List<Employee> GetListOFAllEmployees()
         {
@@ -115,10 +95,10 @@ namespace MediaBazaar
             return dbMediator.FindMatchingLoginInfo(username, password);
         }
 
-        public bool ChangeWorkContract(ContractType contract, int id)
-        {
-            return dbMediator.ChangeWorkContract(contract, id);
-        }
+        //public bool ChangeWorkContract(ContractType contract, Employee employee)
+        //{
+        //    return dbMediator.ChangeWorkContract(contract, employee);
+        //}
         public void UpdateEmployees()
         {
             this.employees = dbMediator.GetEmployees();

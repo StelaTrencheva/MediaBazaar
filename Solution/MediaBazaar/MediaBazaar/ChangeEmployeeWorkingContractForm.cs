@@ -56,8 +56,7 @@ namespace MediaBazaar
             }
             else
             {
-                currentEmployee.Contract = (ContractType)(index);
-                bool success = dbMediator.ChangeWorkContract((ContractType)(index + 1), currentEmployee.Id);
+                bool success = dbMediator.ChangeWorkContract((ContractType)(index), currentEmployee);
                 if(success)
                 {
                     MessageBox.Show("Success");
