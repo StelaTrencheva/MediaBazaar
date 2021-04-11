@@ -53,15 +53,19 @@
             this.chartStatistics.Name = "chartStatistics";
             series1.ChartArea = "ChartArea1";
             series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            series1.IsVisibleInLegend = false;
             series1.Legend = "Legend1";
             series1.Name = "Total salary";
             series2.ChartArea = "ChartArea1";
+            series2.IsVisibleInLegend = false;
             series2.Legend = "Legend1";
             series2.Name = "Average salary";
             series3.ChartArea = "ChartArea1";
+            series3.IsVisibleInLegend = false;
             series3.Legend = "Legend1";
             series3.Name = "Total hours worked";
             series4.ChartArea = "ChartArea1";
+            series4.IsVisibleInLegend = false;
             series4.Legend = "Legend1";
             series4.Name = "Average hours worked";
             this.chartStatistics.Series.Add(series1);
@@ -101,21 +105,21 @@
             this.rbtnYear.Checked = true;
             this.rbtnYear.Location = new System.Drawing.Point(609, 26);
             this.rbtnYear.Name = "rbtnYear";
-            this.rbtnYear.Size = new System.Drawing.Size(59, 21);
+            this.rbtnYear.Size = new System.Drawing.Size(160, 21);
             this.rbtnYear.TabIndex = 11;
             this.rbtnYear.TabStop = true;
-            this.rbtnYear.Text = "Year";
+            this.rbtnYear.Text = "In months (one year)";
             this.rbtnYear.UseVisualStyleBackColor = true;
             this.rbtnYear.CheckedChanged += new System.EventHandler(this.rbtnYear_CheckedChanged);
             // 
             // rbtnMonth
             // 
             this.rbtnMonth.AutoSize = true;
-            this.rbtnMonth.Location = new System.Drawing.Point(717, 26);
+            this.rbtnMonth.Location = new System.Drawing.Point(834, 26);
             this.rbtnMonth.Name = "rbtnMonth";
-            this.rbtnMonth.Size = new System.Drawing.Size(68, 21);
+            this.rbtnMonth.Size = new System.Drawing.Size(155, 21);
             this.rbtnMonth.TabIndex = 12;
-            this.rbtnMonth.Text = "Month";
+            this.rbtnMonth.Text = "In days (one month)";
             this.rbtnMonth.UseVisualStyleBackColor = true;
             this.rbtnMonth.CheckedChanged += new System.EventHandler(this.rbtnMonth_CheckedChanged);
             // 
@@ -131,7 +135,7 @@
             this.Controls.Add(this.lblSortEmployees);
             this.Controls.Add(this.chartStatistics);
             this.Name = "OverallEmployeeSatisticsForm";
-            this.Text = "OverallEmployeeSatisticsForm";
+            this.Text = "Overview of all employees";
             this.Load += new System.EventHandler(this.OverallEmployeeSatisticsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chartStatistics)).EndInit();
             this.ResumeLayout(false);

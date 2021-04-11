@@ -67,29 +67,6 @@ namespace MediaBazaar
             }
         }
 
-        private void txbTypeOfStatistics_TextChanged(object sender, EventArgs e)
-        {
-            lbxAllKindsOfStatistics.Items.Clear();
-            string typeOfStats = txbTypeOfStatistics.Text.ToString().ToLower();
-            if (String.IsNullOrEmpty(typeOfStats))
-            {
-                foreach (string stat in TypeOfStats)
-                {
-                    lbxAllKindsOfStatistics.Items.Add(stat);
-                }
-            }
-            else
-            {
-                foreach (string stat in TypeOfStats)
-                {
-                    if (stat.ToLower().Contains(typeOfStats))
-                    {
-                        lbxAllKindsOfStatistics.Items.Add(stat);
-                    }
-                }
-            }
-        }
-
         private void btnShowOverallStats_Click(object sender, EventArgs e)
         {
             empStatistics.ShowOverviewEmpStats(lbxAllKindsOfStatistics.SelectedItem.ToString(), dtDateStatistic.Value);

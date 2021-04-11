@@ -30,6 +30,10 @@
         {
             this.tbcEmployeeStatistics = new System.Windows.Forms.TabControl();
             this.tbpAllEmployees = new System.Windows.Forms.TabPage();
+            this.btnShowOverallStats = new System.Windows.Forms.Button();
+            this.dtDateStatistic = new System.Windows.Forms.DateTimePicker();
+            this.lblEmpStat = new System.Windows.Forms.Label();
+            this.lbxAllKindsOfStatistics = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbpSpecificEmployee = new System.Windows.Forms.TabPage();
             this.lbxEmployees = new System.Windows.Forms.ListBox();
@@ -38,11 +42,6 @@
             this.lblPeriodOfTime = new System.Windows.Forms.Label();
             this.btnShowStatistics = new System.Windows.Forms.Button();
             this.lblChooseAnEmployee = new System.Windows.Forms.Label();
-            this.lbxAllKindsOfStatistics = new System.Windows.Forms.ListBox();
-            this.txbTypeOfStatistics = new System.Windows.Forms.TextBox();
-            this.lblEmpStat = new System.Windows.Forms.Label();
-            this.dtDateStatistic = new System.Windows.Forms.DateTimePicker();
-            this.btnShowOverallStats = new System.Windows.Forms.Button();
             this.tbcEmployeeStatistics.SuspendLayout();
             this.tbpAllEmployees.SuspendLayout();
             this.tbpSpecificEmployee.SuspendLayout();
@@ -64,7 +63,6 @@
             this.tbpAllEmployees.Controls.Add(this.btnShowOverallStats);
             this.tbpAllEmployees.Controls.Add(this.dtDateStatistic);
             this.tbpAllEmployees.Controls.Add(this.lblEmpStat);
-            this.tbpAllEmployees.Controls.Add(this.txbTypeOfStatistics);
             this.tbpAllEmployees.Controls.Add(this.lbxAllKindsOfStatistics);
             this.tbpAllEmployees.Controls.Add(this.label1);
             this.tbpAllEmployees.Location = new System.Drawing.Point(4, 27);
@@ -75,6 +73,46 @@
             this.tbpAllEmployees.Text = " Overall statistics";
             this.tbpAllEmployees.UseVisualStyleBackColor = true;
             this.tbpAllEmployees.Click += new System.EventHandler(this.tbpAllEmployees_Click);
+            // 
+            // btnShowOverallStats
+            // 
+            this.btnShowOverallStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnShowOverallStats.Location = new System.Drawing.Point(387, 374);
+            this.btnShowOverallStats.Name = "btnShowOverallStats";
+            this.btnShowOverallStats.Size = new System.Drawing.Size(211, 35);
+            this.btnShowOverallStats.TabIndex = 18;
+            this.btnShowOverallStats.Text = "Show statistics";
+            this.btnShowOverallStats.UseVisualStyleBackColor = true;
+            this.btnShowOverallStats.Click += new System.EventHandler(this.btnShowOverallStats_Click);
+            // 
+            // dtDateStatistic
+            // 
+            this.dtDateStatistic.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dtDateStatistic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dtDateStatistic.Location = new System.Drawing.Point(271, 31);
+            this.dtDateStatistic.Name = "dtDateStatistic";
+            this.dtDateStatistic.Size = new System.Drawing.Size(440, 27);
+            this.dtDateStatistic.TabIndex = 17;
+            this.dtDateStatistic.Value = new System.DateTime(2021, 3, 22, 12, 44, 54, 0);
+            // 
+            // lblEmpStat
+            // 
+            this.lblEmpStat.AutoSize = true;
+            this.lblEmpStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblEmpStat.Location = new System.Drawing.Point(34, 34);
+            this.lblEmpStat.Name = "lblEmpStat";
+            this.lblEmpStat.Size = new System.Drawing.Size(205, 24);
+            this.lblEmpStat.TabIndex = 16;
+            this.lblEmpStat.Text = "Chosen period of time: ";
+            // 
+            // lbxAllKindsOfStatistics
+            // 
+            this.lbxAllKindsOfStatistics.FormattingEnabled = true;
+            this.lbxAllKindsOfStatistics.ItemHeight = 18;
+            this.lbxAllKindsOfStatistics.Location = new System.Drawing.Point(271, 95);
+            this.lbxAllKindsOfStatistics.Name = "lbxAllKindsOfStatistics";
+            this.lbxAllKindsOfStatistics.Size = new System.Drawing.Size(440, 184);
+            this.lbxAllKindsOfStatistics.TabIndex = 14;
             // 
             // label1
             // 
@@ -161,55 +199,6 @@
             this.lblChooseAnEmployee.TabIndex = 0;
             this.lblChooseAnEmployee.Text = "Choose an employee:";
             // 
-            // lbxAllKindsOfStatistics
-            // 
-            this.lbxAllKindsOfStatistics.FormattingEnabled = true;
-            this.lbxAllKindsOfStatistics.ItemHeight = 18;
-            this.lbxAllKindsOfStatistics.Location = new System.Drawing.Point(271, 149);
-            this.lbxAllKindsOfStatistics.Name = "lbxAllKindsOfStatistics";
-            this.lbxAllKindsOfStatistics.Size = new System.Drawing.Size(440, 184);
-            this.lbxAllKindsOfStatistics.TabIndex = 14;
-            // 
-            // txbTypeOfStatistics
-            // 
-            this.txbTypeOfStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txbTypeOfStatistics.Location = new System.Drawing.Point(271, 94);
-            this.txbTypeOfStatistics.Name = "txbTypeOfStatistics";
-            this.txbTypeOfStatistics.Size = new System.Drawing.Size(440, 27);
-            this.txbTypeOfStatistics.TabIndex = 15;
-            this.txbTypeOfStatistics.TextChanged += new System.EventHandler(this.txbTypeOfStatistics_TextChanged);
-            // 
-            // lblEmpStat
-            // 
-            this.lblEmpStat.AutoSize = true;
-            this.lblEmpStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblEmpStat.Location = new System.Drawing.Point(34, 34);
-            this.lblEmpStat.Name = "lblEmpStat";
-            this.lblEmpStat.Size = new System.Drawing.Size(205, 24);
-            this.lblEmpStat.TabIndex = 16;
-            this.lblEmpStat.Text = "Chosen period of time: ";
-            // 
-            // dtDateStatistic
-            // 
-            this.dtDateStatistic.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dtDateStatistic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dtDateStatistic.Location = new System.Drawing.Point(271, 31);
-            this.dtDateStatistic.Name = "dtDateStatistic";
-            this.dtDateStatistic.Size = new System.Drawing.Size(440, 27);
-            this.dtDateStatistic.TabIndex = 17;
-            this.dtDateStatistic.Value = new System.DateTime(2021, 3, 22, 12, 44, 54, 0);
-            // 
-            // btnShowOverallStats
-            // 
-            this.btnShowOverallStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnShowOverallStats.Location = new System.Drawing.Point(385, 373);
-            this.btnShowOverallStats.Name = "btnShowOverallStats";
-            this.btnShowOverallStats.Size = new System.Drawing.Size(211, 35);
-            this.btnShowOverallStats.TabIndex = 18;
-            this.btnShowOverallStats.Text = "Show statistics";
-            this.btnShowOverallStats.UseVisualStyleBackColor = true;
-            this.btnShowOverallStats.Click += new System.EventHandler(this.btnShowOverallStats_Click);
-            // 
             // EmployeeStatistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -239,7 +228,6 @@
         private System.Windows.Forms.TextBox txbEmployees;
         private System.Windows.Forms.ListBox lbxEmployees;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txbTypeOfStatistics;
         private System.Windows.Forms.ListBox lbxAllKindsOfStatistics;
         private System.Windows.Forms.Label lblEmpStat;
         private System.Windows.Forms.DateTimePicker dtDateStatistic;

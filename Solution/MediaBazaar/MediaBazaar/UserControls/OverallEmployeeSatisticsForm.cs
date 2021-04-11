@@ -55,12 +55,13 @@ namespace MediaBazaar
 
         public void ShowOverallStatisticsForTotalSalary()
         {
-            List<double> TotalSalaryPerYear = empStatisticsManager.GetTotalSalaryPerTimeUnit("year", date);
-            List<double> TotalSalaryPerMonth = empStatisticsManager.GetTotalSalaryPerTimeUnit("month", date);
+            List<double> TotalSalaryPerYear = empStatisticsManager.GetTotalSalary_HoursPerTimeUnit("year", date, "TotalSalary", "None");
+            List<double> TotalSalaryPerMonth = empStatisticsManager.GetTotalSalary_HoursPerTimeUnit("month", date, "TotalSalary", "None");
 
             chartStatistics.Series["Total salary"].Points.Clear();
             chartStatistics.Titles.Clear();
             chartStatistics.Titles.Add("Total salary");
+
             if (rbtnYear.Checked)
             {
                 for (int i = 0; i < 12; i++)
@@ -79,8 +80,8 @@ namespace MediaBazaar
         }
         public void ShowOverallStatisticsForAvgSalary()//TODO 
         {
-            List<double> AvgSalaryPerYear = empStatisticsManager.GetAvgSalaryPerTimeUnit("year", date);
-            List<double> AvgSalaryPerMonth = empStatisticsManager.GetAvgSalaryPerTimeUnit("month", date);
+            List<double> AvgSalaryPerYear = empStatisticsManager.GetTotalSalary_HoursPerTimeUnit("year", date, "TotalSalary", "Average");
+            List<double> AvgSalaryPerMonth = empStatisticsManager.GetTotalSalary_HoursPerTimeUnit("month", date, "TotalSalary", "Average");
 
             chartStatistics.Series["Average salary"].Points.Clear();
             chartStatistics.Titles.Clear();
@@ -103,8 +104,8 @@ namespace MediaBazaar
         }
         public void ShowOverallStatisticsForTotalHoursWorked()
         {
-            List<double> TotalHoursWorkedPerYear = empStatisticsManager.GetTotalHoursWorkedPerTimeUnit("year", date);
-            List<double> TotalHoursWorkedPerMonth = empStatisticsManager.GetTotalHoursWorkedPerTimeUnit("month", date);
+            List<double> TotalHoursWorkedPerYear = empStatisticsManager.GetTotalSalary_HoursPerTimeUnit("year", date, "TotalHoursWorked", "None");
+            List<double> TotalHoursWorkedPerMonth = empStatisticsManager.GetTotalSalary_HoursPerTimeUnit("month", date, "TotalHoursWorked", "None");
 
             chartStatistics.Series["Total hours worked"].Points.Clear();
             chartStatistics.Titles.Clear();
@@ -127,8 +128,8 @@ namespace MediaBazaar
         }
         public void ShowOverallStatisticsForAverageHoursWorked()
         {
-            List<double> AvgHoursWorkedPerYear = empStatisticsManager.GetAvgHoursWorkedPerTimeUnit("year", date);
-            List<double> AvgHoursWorkedPerMonth = empStatisticsManager.GetAvgHoursWorkedPerTimeUnit("month", date);
+            List<double> AvgHoursWorkedPerYear = empStatisticsManager.GetTotalSalary_HoursPerTimeUnit("year", date, "TotalHoursWorked", "Average");
+            List<double> AvgHoursWorkedPerMonth = empStatisticsManager.GetTotalSalary_HoursPerTimeUnit("month", date, "TotalHoursWorked", "Average");
 
             chartStatistics.Series["Average hours worked"].Points.Clear();
             chartStatistics.Titles.Clear();
