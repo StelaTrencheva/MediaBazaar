@@ -40,7 +40,7 @@ namespace MediaBazaar
         private void txbEmployees_TextChanged(object sender, EventArgs e)
         {
             lbxEmployees.Items.Clear();
-            string empName = txbEmployees.Text.ToString();
+            string empName = txbEmployees.Text.ToString().ToLower();
             if (String.IsNullOrEmpty(empName))
             {
                 foreach (Employee emp in mngEmp.GetListOFAllEmployees())
