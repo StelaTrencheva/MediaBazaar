@@ -13,12 +13,12 @@ namespace MediaBazaar
     public partial class ChangePasswordForm : Form
     {
         Employee employee;
-        ManageEmployees mngEmp;
+        EmployeeManager mngEmp;
         public ChangePasswordForm(Employee emp)
         {
             InitializeComponent();
             this.employee = emp;
-            mngEmp = new ManageEmployees();
+            mngEmp = new EmployeeManager();
         }
 
         private void btnSubmitChanges_Click(object sender, EventArgs e)

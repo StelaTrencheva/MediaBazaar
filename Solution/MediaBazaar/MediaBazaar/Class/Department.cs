@@ -8,17 +8,18 @@ namespace MediaBazaar
 {
     public class Department
     {
-        private int departmentID;
+        private int code;
         private string name;
 
-        public Department(string name)
+        public Department(int code, string name)
         {
+            this.code = code;
             this.name = name;
         }
 
         public override string ToString()
         {
-            return $"{this.name}";
+            return $"{this.name}.";
         }
     }
 }

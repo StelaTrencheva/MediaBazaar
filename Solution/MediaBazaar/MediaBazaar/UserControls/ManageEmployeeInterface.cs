@@ -12,13 +12,13 @@ namespace MediaBazaar
 {
     public partial class ManageEmployeeInterface : UserControl
     {
-        ManageEmployees manageEmployees;
+        EmployeeManager manageEmployees;
         ChangeEmployeeWorkingContractForm changeContractForm;
         EmployeeFullInfoForm employeeFullInfoForm;
         public ManageEmployeeInterface()
         {
             InitializeComponent();
-            manageEmployees = new ManageEmployees();
+            manageEmployees = new EmployeeManager();
         }
        
 

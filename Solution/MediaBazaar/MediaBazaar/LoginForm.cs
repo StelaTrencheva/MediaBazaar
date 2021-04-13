@@ -12,11 +12,11 @@ namespace MediaBazaar
 {
     public partial class LoginForm : Form
     {
-        ManageEmployees manageEmployees;
+        EmployeeManager manageEmployees;
         public LoginForm()
         {
             InitializeComponent();
-            manageEmployees = new ManageEmployees();
+            manageEmployees = new EmployeeManager();
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)

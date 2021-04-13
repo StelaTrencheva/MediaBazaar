@@ -1,7 +1,7 @@
 ﻿
 namespace MediaBazaar
 {
-    partial class D
+    partial class DepartmentInterface
     {
         /// <summary> 
         /// Required designer variable.
@@ -76,32 +76,32 @@ namespace MediaBazaar
             this.gbxAddDepartment.Controls.Add(this.lblName);
             this.gbxAddDepartment.Location = new System.Drawing.Point(26, 75);
             this.gbxAddDepartment.Name = "gbxAddDepartment";
-            this.gbxAddDepartment.Size = new System.Drawing.Size(368, 194);
+            this.gbxAddDepartment.Size = new System.Drawing.Size(452, 166);
             this.gbxAddDepartment.TabIndex = 2;
             this.gbxAddDepartment.TabStop = false;
             this.gbxAddDepartment.Text = "Add department";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(10, 116);
+            this.btnAdd.Location = new System.Drawing.Point(10, 107);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(352, 31);
+            this.btnAdd.Size = new System.Drawing.Size(436, 31);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
             // tbxName
             // 
-            this.tbxName.Location = new System.Drawing.Point(10, 83);
+            this.tbxName.Location = new System.Drawing.Point(10, 74);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(352, 27);
+            this.tbxName.Size = new System.Drawing.Size(436, 27);
             this.tbxName.TabIndex = 1;
             // 
             // lblName
             // 
-            this.lblName.Location = new System.Drawing.Point(10, 47);
+            this.lblName.Location = new System.Drawing.Point(11, 33);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(352, 30);
+            this.lblName.Size = new System.Drawing.Size(435, 30);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Name";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -111,17 +111,17 @@ namespace MediaBazaar
             this.lbxDepartments.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxDepartments.FormattingEnabled = true;
             this.lbxDepartments.ItemHeight = 20;
-            this.lbxDepartments.Location = new System.Drawing.Point(400, 75);
+            this.lbxDepartments.Location = new System.Drawing.Point(484, 75);
             this.lbxDepartments.Name = "lbxDepartments";
-            this.lbxDepartments.Size = new System.Drawing.Size(687, 644);
+            this.lbxDepartments.Size = new System.Drawing.Size(603, 644);
             this.lbxDepartments.TabIndex = 1;
             // 
             // lblDepartments
             // 
             this.lblDepartments.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartments.Location = new System.Drawing.Point(400, 27);
+            this.lblDepartments.Location = new System.Drawing.Point(484, 27);
             this.lblDepartments.Name = "lblDepartments";
-            this.lblDepartments.Size = new System.Drawing.Size(687, 45);
+            this.lblDepartments.Size = new System.Drawing.Size(603, 45);
             this.lblDepartments.TabIndex = 0;
             this.lblDepartments.Text = "Departments";
             this.lblDepartments.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -137,12 +137,12 @@ namespace MediaBazaar
             this.tpAssignEmployeeToDepartment.TabIndex = 1;
             this.tpAssignEmployeeToDepartment.Text = "Assign employee to department";
             // 
-            // D
+            // DepartmentInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tclDepartment);
-            this.Name = "D";
+            this.Name = "DepartmentInterface";
             this.Size = new System.Drawing.Size(1129, 785);
             this.tclDepartment.ResumeLayout(false);
             this.tpAddDepartment.ResumeLayout(false);

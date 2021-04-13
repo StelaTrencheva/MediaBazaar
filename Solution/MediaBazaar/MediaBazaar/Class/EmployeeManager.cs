@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace MediaBazaar
 {
-    public class ManageEmployees
+    public class EmployeeManager
     {
         //private Employee employee;
         private List<Employee> employees;
         private DatabaseMediator dbMediator;
 
-        public ManageEmployees()
+        public EmployeeManager()
         {
             employees = new List<Employee>();
             dbMediator = new DatabaseMediator();

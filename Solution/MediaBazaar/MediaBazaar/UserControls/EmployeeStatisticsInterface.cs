@@ -7,14 +7,14 @@ namespace MediaBazaar
 
     public partial class EmployeeStatistics : UserControl
     {
-        ManageEmployees mngEmp;
+        EmployeeManager mngEmp;
         SystemManagerEmployeeStatistics empStatistics;
         List<int> EmployeeID;
         string[] TypeOfStats = new string[4] { "Total salary", "Average salary", "Total hours worked", "Average hours worked" };
         public EmployeeStatistics()
         {
             InitializeComponent();
-            mngEmp = new ManageEmployees();
+            mngEmp = new EmployeeManager();
             empStatistics = new SystemManagerEmployeeStatistics();
 
         }

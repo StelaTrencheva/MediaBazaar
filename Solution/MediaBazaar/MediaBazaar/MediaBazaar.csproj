@@ -178,7 +178,7 @@
     <Compile Include="UserControls\ManageEmployeeInterface.Designer.cs">
       <DependentUpon>ManageEmployeeInterface.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class\ManageEmployees.cs" />
+    <Compile Include="Class\EmployeeManager.cs" />
     <Compile Include="Class\Product.cs" />
     <Compile Include="UserControls\ProductData.cs">
       <SubType>UserControl</SubType>

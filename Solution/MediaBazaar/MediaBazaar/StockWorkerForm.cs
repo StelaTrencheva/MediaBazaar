@@ -12,13 +12,13 @@ namespace MediaBazaar
 {
     public partial class StockWorkerForm : Form
     {
-        private ManageEmployees manageEmployees;
+        private EmployeeManager manageEmployees;
         private Employee currentEmp;
 
         public StockWorkerForm(Employee currentEmp)
         {
             InitializeComponent();
-            this.manageEmployees = new ManageEmployees();
+            this.manageEmployees = new EmployeeManager();
             this.currentEmp = currentEmp;
             userInterface1.SendInfo(currentEmp);
         }
