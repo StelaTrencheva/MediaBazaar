@@ -36,6 +36,11 @@ namespace MediaBazaar
             this.btnLogIn = new System.Windows.Forms.Button();
             this.tbUserName = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,12 +112,67 @@ namespace MediaBazaar
             this.tbPassword.Size = new System.Drawing.Size(163, 26);
             this.tbPassword.TabIndex = 7;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 470);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(89, 40);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "HR";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(107, 470);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(89, 40);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "StoreMana";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(202, 470);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(89, 40);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "Dep.Man";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(297, 470);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(89, 40);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "StockMan";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(392, 470);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(89, 40);
+            this.button5.TabIndex = 12;
+            this.button5.Text = "StockWork";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1115, 522);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUserName);
             this.Controls.Add(this.btnLogIn);
@@ -140,6 +200,11 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnLogIn;
         private System.Windows.Forms.TextBox tbUserName;
         private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
 

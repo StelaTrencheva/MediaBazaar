@@ -33,5 +33,7 @@ namespace MediaBazaar
                 lbxDisplayPRevenueProfit.Items.Add(i.GetStatistic(Convert.ToInt32(nudAmount.Value)));
             }
         }
+
+
     }
 }

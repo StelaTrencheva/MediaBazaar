@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace MediaBazaar
 {
-    class SystemManagerEmployeeStatistics
+    class EmpStatisticManager
     {
         //Employee employee;
         List<Employee> ListOfAllEmployees;
-        DatabaseMediator dbMediator;
-
+        EmployeeManager employeeManager;
+        DBMediatorEmpStatistic dbMediator;
+        
+        public EmpStatisticManager()
+        {
+            dbMediator = new DBMediatorEmpStatistic();
+        }
 
         public List<Employee> GetListOfAllEmployees()
         {
-            dbMediator = new DatabaseMediator();
-            return dbMediator.GetEmployees(); ;
+            employeeManager = new EmployeeManager();
+            return employeeManager.GetEmployees(); ;
         }
 
 
@@ -56,7 +62,6 @@ namespace MediaBazaar
         public List<int> GetEmployeeHoursPerTimeUnit(int empId, DateTime date)  //IndividualEmpStatistics
         {
             List<int> EmpHoursPerTimeUnit = new List<int>();
-            dbMediator = new DatabaseMediator();
             EmpHoursPerTimeUnit.Add(dbMediator.GetEmployeeAssignedHoursForStatPerDay(empId, date.Day.ToString()));
             EmpHoursPerTimeUnit.Add(dbMediator.GetEmployeeAssignedHoursForStatPerWeek(empId, date.ToString("yyyy-MM-dd")));
             EmpHoursPerTimeUnit.Add(dbMediator.GetEmployeeAssignedHoursForStatPerMonth(empId, date.Month.ToString()));
@@ -67,7 +72,6 @@ namespace MediaBazaar
         // //Overview of EmpStatistics
         public List<double> ShowOverallStatistics(string typeOfStats, string period, DateTime date)
         {
-            dbMediator = new DatabaseMediator();
             List<double> EmpStats = new List<double>();
             switch (period)
             {
@@ -110,30 +114,27 @@ namespace MediaBazaar
                 case "week":
                     if (typeOfStats == "Total salary")
                     {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(date, "Total salary", "None");
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(GetWeekNumber(date), date, "Total salary", "None");
                     }
                     else if (typeOfStats == "Average salary")
                     {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(date, "Total salary", "Average");
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(GetWeekNumber(date), date, "Total salary", "Average");
                     }
                     else if (typeOfStats == "Total hours worked")
                     {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(date, "Total hours worked", "None");
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(GetWeekNumber(date), date, "Total hours worked", "None");
                     }
                     else if (typeOfStats == "Average hours worked")
                     {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(date, "Total hours worked", "Average");
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(GetWeekNumber(date), date, "Total hours worked", "Average");
                     }
                     return EmpStats;
             }
-
             return EmpStats;
         }
-
-
-
-
-
-
+        public int GetWeekNumber(DateTime date)
+        {
+            return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+        }
     }
 }

@@ -61,5 +61,6 @@ namespace MediaBazaar
             changePasswordForm.ShowDialog();
 
         }
+
     }
 }

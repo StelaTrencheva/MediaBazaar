@@ -8,7 +8,7 @@ namespace MediaBazaar
     public partial class EmployeeStatistics : UserControl
     {
         Employee employee;
-        SystemManagerEmployeeStatistics empStatistics;
+        EmpStatisticManager empStatistics;
         List<int> EmployeeID;
         string TypeOfStats = "Total salary";
         string periodOverviewStats = "year";
@@ -19,7 +19,7 @@ namespace MediaBazaar
         public EmployeeStatistics()
         {
             InitializeComponent();
-            empStatistics = new SystemManagerEmployeeStatistics();
+            empStatistics = new EmpStatisticManager();
 
         }
 

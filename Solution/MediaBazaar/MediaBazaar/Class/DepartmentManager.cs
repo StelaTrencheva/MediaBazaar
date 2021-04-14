@@ -8,11 +8,11 @@ namespace MediaBazaar
 {
     public class DepartmentManager
     {
-        DatabaseMediator dbMediator;
+        DBMediatorDepartment dbMediator;
 
         public DepartmentManager()
         {
-            this.dbMediator = new DatabaseMediator();
+            this.dbMediator = new DBMediatorDepartment();
         }
 
         public void AddDepartment(string name)

@@ -10,12 +10,12 @@ namespace MediaBazaar
     {
         //private Employee employee;
         private List<Employee> employees;
-        private DatabaseMediator dbMediator;
+        private DBMediatorEmployee dbMediator;
 
         public EmployeeManager()
         {
             employees = new List<Employee>();
-            dbMediator = new DatabaseMediator();
+            dbMediator = new DBMediatorEmployee();
         }
         public bool AddEmployeeToDb(string bsn, string firstName, string lastName, Gender gender, string email, string username,  DateTime birthDay,
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
@@ -58,22 +58,18 @@ namespace MediaBazaar
         {
             return this.employees;
         }
-        public int GetEmployeeCount()
-        {
-            return dbMediator.GetEmpCount();
-        }
 
-        public Employee FindEmployee(int id)
-        {
-           foreach(Employee emp in employees)
-            {
-                if(emp.Id == id)
-                {
-                    return emp;
-                }
-            }
-            return null;
-        }
+        //public Employee FindEmployee(int id)
+        //{
+        //   foreach(Employee emp in employees)
+        //    {
+        //        if(emp.Id == id)
+        //        {
+        //            return emp;
+        //        }
+        //    }
+        //    return null;
+        //}
 
 
         public bool ChangePassword(string password, int id)
@@ -95,13 +91,14 @@ namespace MediaBazaar
             return dbMediator.FindMatchingLoginInfo(username, password);
         }
 
-        //public bool ChangeWorkContract(ContractType contract, Employee employee)
-        //{
-        //    return dbMediator.ChangeWorkContract(contract, employee);
-        //}
+        
         public void UpdateEmployees()
         {
             this.employees = dbMediator.GetEmployees();
+        }
+        public bool ChangeWorkContractDB(ContractType contract, Employee employee)//<3
+        {
+            return dbMediator.ChangeWorkContract(contract, employee);
         }
     }
 }

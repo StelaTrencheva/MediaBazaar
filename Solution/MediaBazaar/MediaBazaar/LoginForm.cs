@@ -74,5 +74,35 @@ namespace MediaBazaar
                 MessageBox.Show($"Hello {currentEmp.FirstName}! You dont have access to the application.\nSoon you will have access to the website.");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tbUserName.Text = "Marvin001";
+            tbPassword.Text = "0000";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tbUserName.Text = "Archie001";
+            tbPassword.Text = "0000";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            tbUserName.Text = "Jay001";
+            tbPassword.Text = "0000";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            tbUserName.Text = "Elizabeth001";
+            tbPassword.Text = "0000";
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            tbUserName.Text = "Jeff001";
+            tbPassword.Text = "0000";
+        }
     }
 }

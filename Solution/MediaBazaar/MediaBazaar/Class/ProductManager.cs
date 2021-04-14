@@ -8,11 +8,11 @@ namespace MediaBazaar
 {
     public class ProductManager
     {
-        DatabaseMediator dbMediator;
+        DBMediatorProduct dbMediator;
 
         public ProductManager()
         {
-            this.dbMediator = new DatabaseMediator();
+            this.dbMediator = new DBMediatorProduct();
         }
 
         public List<Product> GetAllProducts()

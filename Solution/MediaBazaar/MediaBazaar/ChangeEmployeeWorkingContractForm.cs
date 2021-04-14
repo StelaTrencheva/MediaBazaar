@@ -13,11 +13,11 @@ namespace MediaBazaar
     public partial class ChangeEmployeeWorkingContractForm : Form
     {
         Employee currentEmployee;
-        DatabaseMediator dbMediator;
+        EmployeeManager employeeManager;
         public ChangeEmployeeWorkingContractForm(Employee currentEmployee)
         {
             InitializeComponent();
-            dbMediator = new DatabaseMediator();
+            employeeManager = new EmployeeManager();
             this.currentEmployee = currentEmployee;
             PictureBoxUpdate();
         }
@@ -56,7 +56,7 @@ namespace MediaBazaar
             }
             else
             {
-                bool success = dbMediator.ChangeWorkContract((ContractType)(index), currentEmployee);
+                bool success = employeeManager.ChangeWorkContractDB((ContractType)(index), currentEmployee);
                 if(success)
                 {
                     MessageBox.Show("Success");

@@ -8,7 +8,7 @@ namespace MediaBazaar
 {
     public class ContractHistoryManager
     {
-        DatabaseMediator DatabaseMediator;
+        DBMediatorContractHistory databaseMediator;
         List<ContractHistory> contractHistories;
         
         public List<ContractHistory> ContractHistories
@@ -18,8 +18,8 @@ namespace MediaBazaar
 
         public ContractHistoryManager(int id)
         {
-            DatabaseMediator = new DatabaseMediator();
-            contractHistories = DatabaseMediator.GetContractHystory(id);
+            databaseMediator = new DBMediatorContractHistory();
+            contractHistories = databaseMediator.GetContractHystory(id);
         }
 
     }
