@@ -67,5 +67,7 @@ namespace MediaBazaar
             HideAllInterfaces();
             userInterface1.Show();
         }
+
+
     }
 }
