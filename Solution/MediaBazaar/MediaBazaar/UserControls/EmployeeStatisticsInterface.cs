@@ -7,28 +7,26 @@ namespace MediaBazaar
 
     public partial class EmployeeStatistics : UserControl
     {
-        EmployeeManager mngEmp;
+        Employee employee;
         SystemManagerEmployeeStatistics empStatistics;
         List<int> EmployeeID;
         string TypeOfStats = "Total salary";
-        string period = "year";
-        DateTime date = DateTime.Now;
+        string periodOverviewStats = "year";
+        DateTime dateOverviewStats = DateTime.Now;
+        DateTime dateIndividualStats = DateTime.Now;
         string[] month = new string[12] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
         string[] day = new string[7] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
         public EmployeeStatistics()
         {
             InitializeComponent();
-            mngEmp = new EmployeeManager();
             empStatistics = new SystemManagerEmployeeStatistics();
 
         }
 
         private void EmployeeStatistics_Load(object sender, EventArgs e)
         {
-            EmployeeID = new List<int>();
-            foreach (Employee emp in mngEmp.GetListOFAllEmployees())
+            foreach (Employee emp in empStatistics.GetListOfAllEmployees())
             {
-                EmployeeID.Add(emp.Id);
                 lbxEmployees.Items.Add(emp.GetEmployeeNames);
             }
 
@@ -45,10 +43,10 @@ namespace MediaBazaar
             string empName = txbEmployees.Text.ToString().ToLower();
             if (String.IsNullOrEmpty(empName))
             {
-                foreach (Employee emp in mngEmp.GetListOFAllEmployees())
+                foreach (Employee emp in empStatistics.GetListOfAllEmployees())
                 { lbxEmployees.Items.Add(emp.GetEmployeeNames); }
             }
-            foreach (Employee emp in mngEmp.GetListOFAllEmployees())
+            foreach (Employee emp in empStatistics.GetListOfAllEmployees())
             {
                 if (emp.GetEmployeeNames.ToLower().Contains(empName))
                 {
@@ -59,20 +57,106 @@ namespace MediaBazaar
         }
         private void btnShowStatistics_Click(object sender, EventArgs e)
         {
-
-            foreach (Employee emp in mngEmp.GetListOFAllEmployees())
+            if (lbxEmployees.SelectedIndex == -1)
             {
-                if (emp.GetEmployeeNames == lbxEmployees.SelectedItem.ToString())
+                MessageBox.Show("Select an employee from the list box.");
+            }
+            else
+            {
+                foreach (Employee emp in empStatistics.GetListOfAllEmployees())
                 {
-                    empStatistics.ShowIndividualEmpStats(emp, dtpTimePeriod.Value);
+                    if (emp.GetEmployeeNames == lbxEmployees.SelectedItem.ToString())
+                    {
+                        this.employee = emp; 
+                        this.dateIndividualStats = dtpTimePeriod.Value;
+                        FillEmployeeInformationCard();
+                        FillEmployeeUtilizationChart();
+
+                    }
                 }
             }
+
         }
 
+        public void FillEmployeeInformationCard()
+        {
+            lblEmpNames.Text = employee.GetEmployeeNames;
+            lblEmpId.Text = employee.Id.ToString();
+            lblEmpContract.Text = employee.Contract.ToString();
+            lblEmpHourlyWage.Text = employee.HourlyWage.ToString();
+            lblEmpPosition.Text = employee.Position.ToString();
+            List<int> TotalAssignedHours = empStatistics.GetEmployeeHoursPerTimeUnit(employee.Id, dateIndividualStats);
+            lblTotalSalaryPerDay.Text = TotalAssignedHours[0].ToString() +" /day";
+            lblTotalSalaryPerWeek.Text = TotalAssignedHours[1].ToString() + " /week"; ;
+            lblTotalSalaryPerMonth.Text = TotalAssignedHours[2].ToString() + " /month"; ;
+            lblTotalSalaryPerYear.Text = TotalAssignedHours[3].ToString() + " /year"; ;
+        }
+
+        public void FillEmployeeUtilizationChart()
+        {
+            ClearchartutilizationOfAnEmployee();
+            List<int> TotalAssignedHours = empStatistics.GetEmployeeHoursPerTimeUnit(employee.Id, dateIndividualStats);
+            List<double> ContractualHours = empStatistics.GetEmployeeContractualHours(employee.Contract.ToString());
+            if(rdbtnYear.Checked)
+            {
+                chartutilizationOfAnEmployee.Series["Actual hours worked"].Points.AddXY(dateIndividualStats.Year.ToString(), TotalAssignedHours[3]);
+                chartutilizationOfAnEmployee.Series["Contractual hours"].Points.AddXY(dateIndividualStats.Year.ToString(), ContractualHours[3]);
+            }
+            else if(rdbtnMonth.Checked)
+            {
+                chartutilizationOfAnEmployee.Series["Actual hours worked"].Points.AddXY(dateIndividualStats.Month.ToString(), TotalAssignedHours[2]);
+                chartutilizationOfAnEmployee.Series["Contractual hours"].Points.AddXY(dateIndividualStats.Month.ToString(), ContractualHours[2]);
+            }
+            else if(rdbtnWeek.Checked)
+            {
+                chartutilizationOfAnEmployee.Series["Actual hours worked"].Points.AddXY("Week", TotalAssignedHours[1]);
+                chartutilizationOfAnEmployee.Series["Contractual hours"].Points.AddXY("Week", ContractualHours[1]);
+            }
+            else if (rdbtnDay.Checked)
+            {
+                chartutilizationOfAnEmployee.Series["Actual hours worked"].Points.AddXY(dateIndividualStats.Day.ToString(), TotalAssignedHours[0]);
+                chartutilizationOfAnEmployee.Series["Contractual hours"].Points.AddXY(dateIndividualStats.Day.ToString(), ContractualHours[0]);
+            }
+        }
+        private void rdbtnYear_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearchartutilizationOfAnEmployee();
+            FillEmployeeUtilizationChart();
+        }
+
+        private void rdbtnMonth_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearchartutilizationOfAnEmployee();
+            FillEmployeeUtilizationChart();
+        }
+
+        private void rdbtnWeek_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearchartutilizationOfAnEmployee();
+            FillEmployeeUtilizationChart();
+        }
+
+        private void rdbtnDay_CheckedChanged(object sender, EventArgs e)
+        {
+            ClearchartutilizationOfAnEmployee();
+            FillEmployeeUtilizationChart();
+        }
+        private void dtpTimePeriod_ValueChanged(object sender, EventArgs e)
+        {
+            this.dateIndividualStats = dtpTimePeriod.Value;
+            ClearchartutilizationOfAnEmployee();
+            FillEmployeeInformationCard();
+            FillEmployeeUtilizationChart();
+        }
+        public void ClearchartutilizationOfAnEmployee()
+        {
+            chartutilizationOfAnEmployee.Series["Actual hours worked"].Points.Clear();
+            chartutilizationOfAnEmployee.Series["Contractual hours"].Points.Clear();
+        }
         //chart 
         public void ShowOverallStatisticsForTotalSalary()
         {
-            List<double> EmpStats = empStatistics.ShowOverallStatistics(TypeOfStats, period, date);
+            List<double> EmpStats = empStatistics.ShowOverallStatistics(TypeOfStats, periodOverviewStats, dateOverviewStats);
             if (!String.IsNullOrEmpty(lblChartTitle.Text))
             {
                 lblChartTitle.Text += " x " + TypeOfStats;
@@ -82,16 +166,16 @@ namespace MediaBazaar
                 lblChartTitle.Text = TypeOfStats;
             }
 
-            if (period == "year")
+            if (periodOverviewStats == "year")
             {
                 for (int i = 0; i < 12; i++)
                 {
                     chartStatistics.Series[TypeOfStats].Points.AddXY(month[i], EmpStats[i]);
                 }
             }
-            else if (period == "month")
+            else if (periodOverviewStats == "month")
             {
-                int daysInMonth = System.DateTime.DaysInMonth(date.Year, date.Month);
+                int daysInMonth = System.DateTime.DaysInMonth(dateOverviewStats.Year, dateOverviewStats.Month);
                 for (int i = 0; i < daysInMonth; i++)
                 {
                     chartStatistics.Series[TypeOfStats].Points.AddXY(i + 1, EmpStats[i]);
@@ -100,7 +184,6 @@ namespace MediaBazaar
         }
         public void ClearEmpStatsChart()
         {
-
             lblChartTitle.Text = String.Empty;
 
             chartStatistics.Series["Total salary"].Points.Clear();
@@ -111,21 +194,21 @@ namespace MediaBazaar
 
         private void rbtnYear_CheckedChanged(object sender, EventArgs e)
         {
-            period = "year";
+            periodOverviewStats = "year";
             ClearEmpStatsChart();
             ShowOverallStatisticsForTotalSalary();
         }
 
         private void rbtnMonth_CheckedChanged(object sender, EventArgs e)
         {
-            period = "month";
+            periodOverviewStats = "month";
             ClearEmpStatsChart();
             ShowOverallStatisticsForTotalSalary();
         }
 
         private void rbtnWeek_CheckedChanged(object sender, EventArgs e)
         {
-            period = "week";
+            periodOverviewStats = "week";
             ClearEmpStatsChart();
             ShowOverallStatisticsForTotalSalary();
         }
@@ -137,7 +220,7 @@ namespace MediaBazaar
 
         private void dtDateStatistic_ValueChanged(object sender, EventArgs e)
         {
-            date = dtDateStatistic.Value;
+            dateOverviewStats = dtDateStatistic.Value;
             ClearEmpStatsChart();
         }
 
@@ -150,5 +233,7 @@ namespace MediaBazaar
         {
             ClearEmpStatsChart();
         }
+
+        
     }
 }
