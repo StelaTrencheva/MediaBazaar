@@ -134,7 +134,7 @@ namespace MediaBazaar
             // 
             this.manageEmployeeInterface1.Location = new System.Drawing.Point(211, 0);
             this.manageEmployeeInterface1.Name = "manageEmployeeInterface1";
-            this.manageEmployeeInterface1.Size = new System.Drawing.Size(995, 622);
+            this.manageEmployeeInterface1.Size = new System.Drawing.Size(1121, 747);
             this.manageEmployeeInterface1.TabIndex = 32;
             // 
             // HRAdminForm
@@ -144,8 +144,8 @@ namespace MediaBazaar
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1340, 786);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.userInterface1);
             this.Controls.Add(this.manageEmployeeInterface1);
+            this.Controls.Add(this.userInterface1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
