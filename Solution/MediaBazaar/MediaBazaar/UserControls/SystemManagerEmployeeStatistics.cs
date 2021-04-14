@@ -12,25 +12,45 @@ namespace MediaBazaar
         List<Employee> ListOfAllEmployees;
         DatabaseMediator dbMediator;
 
-        EmployeeStatistcsForm IndividualEmpStats;
 
-        public List<int> GetAllEmployeesIds()
+        public List<Employee> GetListOfAllEmployees()
         {
             dbMediator = new DatabaseMediator();
-            ListOfAllEmployees = dbMediator.GetEmployees();
-            List<int> employeeId = new List<int>();
-            foreach (Employee emp in ListOfAllEmployees)
-            {
-                employeeId.Add(emp.Id);
-            }
-            return employeeId;
+            return dbMediator.GetEmployees(); ;
         }
 
-        public void ShowIndividualEmpStats(Employee emp, DateTime date)   //IndividualEmpStatistics
+
+        public List<double> GetEmployeeContractualHours(string contract)   //IndividualEmpStatistics
         {
-            IndividualEmpStats = new EmployeeStatistcsForm();
-            IndividualEmpStats.SetEmployee(emp, date);
-            IndividualEmpStats.ShowDialog();
+            List<double> ContractualHours = new List<double>();
+            switch (contract)
+            {
+                case "FULLTIME":
+                    ContractualHours.Add(5.7);
+                    ContractualHours.Add(40);
+                    ContractualHours.Add(160);
+                    ContractualHours.Add(2080);
+                    return ContractualHours;
+                case "EIGHTYPERCENT":
+                    ContractualHours.Add(5.7);
+                    ContractualHours.Add(40);
+                    ContractualHours.Add(160);
+                    ContractualHours.Add(2080);
+                    return ContractualHours;
+                case "FLEX":
+                    ContractualHours.Add(0);
+                    ContractualHours.Add(0);
+                    ContractualHours.Add(0);
+                    ContractualHours.Add(0);
+                    return ContractualHours; 
+                case "LEFT":
+                    ContractualHours.Add(0);
+                    ContractualHours.Add(0);
+                    ContractualHours.Add(0);
+                    ContractualHours.Add(0);
+                    return ContractualHours;
+            }
+            return ContractualHours;
         }
 
         public List<int> GetEmployeeHoursPerTimeUnit(int empId, DateTime date)  //IndividualEmpStatistics
@@ -46,7 +66,7 @@ namespace MediaBazaar
 
         // //Overview of EmpStatistics
         public List<double> ShowOverallStatistics(string typeOfStats, string period, DateTime date)
-        { 
+        {
             dbMediator = new DatabaseMediator();
             List<double> EmpStats = new List<double>();
             switch (period)
@@ -68,7 +88,7 @@ namespace MediaBazaar
                     {
                         EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.Year.ToString(), "Total hours worked", "Average");
                     }
-                return EmpStats;
+                    return EmpStats;
                 case "month":
                     if (typeOfStats == "Total salary")
                     {
@@ -86,8 +106,8 @@ namespace MediaBazaar
                     {
                         EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForMonth(date, "Total hours worked", "Average");
                     }
-               return EmpStats;
-             //case "week":
+                    return EmpStats;
+                    //case "week":
                     //if (typeOfStats == "Total salary")
                     //{
                     //    EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.ToString(), "Total salary", "None");
@@ -110,10 +130,10 @@ namespace MediaBazaar
             return EmpStats;
         }
 
-        
 
-       
-        
+
+
+
 
     }
 }

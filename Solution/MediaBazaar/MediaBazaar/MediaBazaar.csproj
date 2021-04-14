@@ -93,12 +93,6 @@
     <Compile Include="EmployeeFullInfoForm.Designer.cs">
       <DependentUpon>EmployeeFullInfoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeStatistcsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EmployeeStatistcsForm.Designer.cs">
-      <DependentUpon>EmployeeStatistcsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Exceptions\RepeatingObjectException.cs" />
     <Compile Include="Exceptions\IncorrectPricingException.cs" />
     <Compile Include="ProductInfoForm.cs">
@@ -227,9 +221,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeFullInfoForm.resx">
       <DependentUpon>EmployeeFullInfoForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeStatistcsForm.resx">
-      <DependentUpon>EmployeeStatistcsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductInfoForm.resx">
       <DependentUpon>ProductInfoForm.cs</DependentUpon>
