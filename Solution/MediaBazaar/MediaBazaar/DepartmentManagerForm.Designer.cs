@@ -31,14 +31,15 @@ namespace MediaBazaar
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DepartmentManagerForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDepartment = new System.Windows.Forms.Button();
             this.btnDepartmentMSchedule = new System.Windows.Forms.Button();
             this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnDepartmentMLogOut = new System.Windows.Forms.Button();
             this.btnDepartmentMAccount = new System.Windows.Forms.Button();
-            this.userInterface1 = new MediaBazaar.UserInterface();
             this.storeWorkerScheduleInterface = new MediaBazaar.StoreWorkerScheduleInterface();
-            this.btnDepartment = new System.Windows.Forms.Button();
+            this.userInterface1 = new MediaBazaar.UserInterface();
+            this.departmentInterface1 = new MediaBazaar.DepartmentInterface();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -56,6 +57,19 @@ namespace MediaBazaar
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(206, 786);
             this.panel1.TabIndex = 34;
+            // 
+            // btnDepartment
+            // 
+            this.btnDepartment.BackColor = System.Drawing.Color.SlateGray;
+            this.btnDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDepartment.Location = new System.Drawing.Point(32, 241);
+            this.btnDepartment.Name = "btnDepartment";
+            this.btnDepartment.Size = new System.Drawing.Size(146, 42);
+            this.btnDepartment.TabIndex = 4;
+            this.btnDepartment.Text = "Department";
+            this.btnDepartment.UseVisualStyleBackColor = false;
+            this.btnDepartment.Click += new System.EventHandler(this.btnDepartment_Click);
             // 
             // btnDepartmentMSchedule
             // 
@@ -117,6 +131,13 @@ namespace MediaBazaar
             this.btnDepartmentMAccount.UseVisualStyleBackColor = false;
             this.btnDepartmentMAccount.Click += new System.EventHandler(this.btnDepartmentMAccount_Click);
             // 
+            // storeWorkerScheduleInterface
+            // 
+            this.storeWorkerScheduleInterface.Location = new System.Drawing.Point(212, 0);
+            this.storeWorkerScheduleInterface.Name = "storeWorkerScheduleInterface";
+            this.storeWorkerScheduleInterface.Size = new System.Drawing.Size(1129, 785);
+            this.storeWorkerScheduleInterface.TabIndex = 38;
+            // 
             // userInterface1
             // 
             this.userInterface1.Location = new System.Drawing.Point(213, 0);
@@ -125,25 +146,12 @@ namespace MediaBazaar
             this.userInterface1.TabIndex = 37;
             this.userInterface1.Load += new System.EventHandler(this.userInterface1_Load);
             // 
-            // storeWorkerScheduleInterface
+            // departmentInterface1
             // 
-            this.storeWorkerScheduleInterface.Location = new System.Drawing.Point(212, 0);
-            this.storeWorkerScheduleInterface.Name = "storeWorkerScheduleInterface";
-            this.storeWorkerScheduleInterface.Size = new System.Drawing.Size(1129, 785);
-            this.storeWorkerScheduleInterface.TabIndex = 38;
-            // 
-            // btnDepartment
-            // 
-            this.btnDepartment.BackColor = System.Drawing.Color.SlateGray;
-            this.btnDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDepartment.Location = new System.Drawing.Point(32, 241);
-            this.btnDepartment.Name = "btnDepartment";
-            this.btnDepartment.Size = new System.Drawing.Size(146, 42);
-            this.btnDepartment.TabIndex = 4;
-            this.btnDepartment.Text = "Department";
-            this.btnDepartment.UseVisualStyleBackColor = false;
-            this.btnDepartment.Click += new System.EventHandler(this.btnDepartment_Click);
+            this.departmentInterface1.Location = new System.Drawing.Point(213, 1);
+            this.departmentInterface1.Name = "departmentInterface1";
+            this.departmentInterface1.Size = new System.Drawing.Size(1129, 785);
+            this.departmentInterface1.TabIndex = 39;
             // 
             // DepartmentManagerForm
             // 
@@ -151,6 +159,7 @@ namespace MediaBazaar
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1340, 786);
+            this.Controls.Add(this.departmentInterface1);
             this.Controls.Add(this.storeWorkerScheduleInterface);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.userInterface1);
@@ -177,5 +186,6 @@ namespace MediaBazaar
         private UserInterface userInterface1;
         private StoreWorkerScheduleInterface storeWorkerScheduleInterface;
         private System.Windows.Forms.Button btnDepartment;
+        private DepartmentInterface departmentInterface1;
     }
 }

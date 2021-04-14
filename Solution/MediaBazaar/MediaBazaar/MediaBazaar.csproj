@@ -80,6 +80,7 @@
     <Compile Include="Class\ContractHistoryManager.cs" />
     <Compile Include="Class\Department.cs" />
     <Compile Include="Class\ProductManager.cs" />
+    <Compile Include="Class\DepartmentManager.cs" />
     <Compile Include="UserControls\DepartmentInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>

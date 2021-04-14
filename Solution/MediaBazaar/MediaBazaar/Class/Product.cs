@@ -46,6 +46,7 @@ namespace MediaBazaar
             string category, string subcategory, decimal costPrice, decimal salePrice, int amountInStore,
             int amountInWarehouse)
         {
+
             this.pNumber = pNumber;
             this.brand = brand;
             this.type = type;
