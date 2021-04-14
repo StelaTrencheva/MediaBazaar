@@ -55,7 +55,7 @@ namespace MediaBazaar
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(206, 528);
+            this.panel1.Size = new System.Drawing.Size(206, 786);
             this.panel1.TabIndex = 52;
             // 
             // btnStockWProductData
@@ -134,37 +134,34 @@ namespace MediaBazaar
             // restockRequestInterface1
             // 
             this.restockRequestInterface1.Location = new System.Drawing.Point(212, 0);
-            this.restockRequestInterface1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.restockRequestInterface1.Name = "restockRequestInterface1";
-            this.restockRequestInterface1.Size = new System.Drawing.Size(890, 517);
-            this.restockRequestInterface1.TabIndex = 55;
+            this.restockRequestInterface1.Size = new System.Drawing.Size(1121, 747);
+            this.restockRequestInterface1.TabIndex = 57;
             // 
             // productData1
             // 
-            this.productData1.Location = new System.Drawing.Point(212, 0);
-            this.productData1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.productData1.Location = new System.Drawing.Point(213, 0);
             this.productData1.Name = "productData1";
-            this.productData1.Size = new System.Drawing.Size(890, 530);
-            this.productData1.TabIndex = 54;
+            this.productData1.Size = new System.Drawing.Size(1121, 747);
+            this.productData1.TabIndex = 58;
             // 
             // userInterface1
             // 
             this.userInterface1.Location = new System.Drawing.Point(213, 0);
             this.userInterface1.Name = "userInterface1";
-            this.userInterface1.Size = new System.Drawing.Size(890, 530);
-            this.userInterface1.TabIndex = 56;
-            this.userInterface1.Load += new System.EventHandler(this.userInterface1_Load);
+            this.userInterface1.Size = new System.Drawing.Size(1121, 747);
+            this.userInterface1.TabIndex = 59;
             // 
             // StockWorkerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1126, 528);
+            this.ClientSize = new System.Drawing.Size(1340, 786);
+            this.Controls.Add(this.userInterface1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.restockRequestInterface1);
             this.Controls.Add(this.productData1);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.userInterface1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "StockWorkerForm";
@@ -186,8 +183,8 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnStockWLogOut;
         private System.Windows.Forms.Button btnStockWAccount;
         private System.Windows.Forms.Button btnStockWProductData;
-        private ProductData productData1;
         private RestockRequestInterface restockRequestInterface1;
+        private ProductData productData1;
         private UserInterface userInterface1;
     }
 }

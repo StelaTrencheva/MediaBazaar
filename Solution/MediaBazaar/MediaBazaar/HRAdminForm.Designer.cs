@@ -53,7 +53,7 @@ namespace MediaBazaar
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(194, 567);
+            this.panel1.Size = new System.Drawing.Size(194, 786);
             this.panel1.TabIndex = 26;
             // 
             // pbxLogo
@@ -123,28 +123,26 @@ namespace MediaBazaar
             // 
             // manageEmployeeInterface1
             // 
-            this.manageEmployeeInterface1.Location = new System.Drawing.Point(198, 2);
-            this.manageEmployeeInterface1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.manageEmployeeInterface1.Location = new System.Drawing.Point(207, 0);
             this.manageEmployeeInterface1.Name = "manageEmployeeInterface1";
-            this.manageEmployeeInterface1.Size = new System.Drawing.Size(834, 552);
-            this.manageEmployeeInterface1.TabIndex = 28;
+            this.manageEmployeeInterface1.Size = new System.Drawing.Size(1121, 747);
+            this.manageEmployeeInterface1.TabIndex = 30;
             // 
             // userInterface1
             // 
-            this.userInterface1.Location = new System.Drawing.Point(199, 0);
+            this.userInterface1.Location = new System.Drawing.Point(207, 0);
             this.userInterface1.Name = "userInterface1";
-            this.userInterface1.Size = new System.Drawing.Size(890, 530);
-            this.userInterface1.TabIndex = 29;
-            this.userInterface1.Load += new System.EventHandler(this.userInterface1_Load);
+            this.userInterface1.Size = new System.Drawing.Size(1121, 747);
+            this.userInterface1.TabIndex = 31;
             // 
             // HRAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1066, 567);
-            this.Controls.Add(this.manageEmployeeInterface1);
+            this.ClientSize = new System.Drawing.Size(1340, 786);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.manageEmployeeInterface1);
             this.Controls.Add(this.userInterface1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);

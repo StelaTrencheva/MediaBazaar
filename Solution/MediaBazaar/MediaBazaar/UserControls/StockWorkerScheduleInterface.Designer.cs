@@ -48,7 +48,7 @@ namespace MediaBazaar
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblTitle);
             this.Name = "StockWorkerScheduleInterface";
-            this.Size = new System.Drawing.Size(890, 530);
+            this.Size = new System.Drawing.Size(1121, 747);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -38,7 +38,7 @@ namespace MediaBazaar
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(317, 202);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(252, 52);
+            this.lblTitle.Size = new System.Drawing.Size(248, 51);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "In progress";
             // 
@@ -48,7 +48,7 @@ namespace MediaBazaar
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblTitle);
             this.Name = "RestockRequestInterface";
-            this.Size = new System.Drawing.Size(882, 501);
+            this.Size = new System.Drawing.Size(1121, 747);
             this.ResumeLayout(false);
             this.PerformLayout();
 

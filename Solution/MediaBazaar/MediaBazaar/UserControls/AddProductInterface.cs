@@ -105,5 +105,24 @@ namespace MediaBazaar
                 }
             }
         }
+
+        private void btnViewProductInfo_Click(object sender, EventArgs e)
+        {
+            if (lbxProductDisplay.SelectedItem == null || lbxProductDisplay.SelectedItem.ToString() == "")
+            {
+                MessageBox.Show("Please select a product.");
+            }
+            else
+            {
+                foreach (Product i in pManager.GetAllProducts())
+                {
+                    if (lbxProductDisplay.SelectedItem.ToString() == i.ToString())
+                    {
+                        ProductInfoForm productInfo = new ProductInfoForm(i);
+                        productInfo.Show();
+                    }
+                }
+            }
+        }
     }
 }
