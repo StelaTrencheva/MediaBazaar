@@ -107,12 +107,6 @@
     <Compile Include="ProductInfoForm.Designer.cs">
       <DependentUpon>ProductInfoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\OverallEmployeeSatisticsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserControls\OverallEmployeeSatisticsForm.Designer.cs">
-      <DependentUpon>OverallEmployeeSatisticsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\RestockRequestInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -239,9 +233,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProductInfoForm.resx">
       <DependentUpon>ProductInfoForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\OverallEmployeeSatisticsForm.resx">
-      <DependentUpon>OverallEmployeeSatisticsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\RestockRequestInterface.resx">
       <DependentUpon>RestockRequestInterface.cs</DependentUpon>

@@ -10,7 +10,11 @@ namespace MediaBazaar
         EmployeeManager mngEmp;
         SystemManagerEmployeeStatistics empStatistics;
         List<int> EmployeeID;
-        string[] TypeOfStats = new string[4] { "Total salary", "Average salary", "Total hours worked", "Average hours worked" };
+        string TypeOfStats = "Total salary";
+        string period = "year";
+        DateTime date = DateTime.Now;
+        string[] month = new string[12] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+        string[] day = new string[7] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
         public EmployeeStatistics()
         {
             InitializeComponent();
@@ -27,10 +31,8 @@ namespace MediaBazaar
                 EmployeeID.Add(emp.Id);
                 lbxEmployees.Items.Add(emp.GetEmployeeNames);
             }
-            foreach (string stat in TypeOfStats)
-            {
-                lbxAllKindsOfStatistics.Items.Add(stat);
-            }
+
+
         }
         private void tbpAllEmployees_Click(object sender, EventArgs e)
         {
@@ -67,9 +69,86 @@ namespace MediaBazaar
             }
         }
 
-        private void btnShowOverallStats_Click(object sender, EventArgs e)
+        //chart 
+        public void ShowOverallStatisticsForTotalSalary()
         {
-            empStatistics.ShowOverviewEmpStats(lbxAllKindsOfStatistics.SelectedItem.ToString(), dtDateStatistic.Value);
+            List<double> EmpStats = empStatistics.ShowOverallStatistics(TypeOfStats, period, date);
+            if (!String.IsNullOrEmpty(lblChartTitle.Text))
+            {
+                lblChartTitle.Text += " x " + TypeOfStats;
+            }
+            else
+            {
+                lblChartTitle.Text = TypeOfStats;
+            }
+
+            if (period == "year")
+            {
+                for (int i = 0; i < 12; i++)
+                {
+                    chartStatistics.Series[TypeOfStats].Points.AddXY(month[i], EmpStats[i]);
+                }
+            }
+            else if (period == "month")
+            {
+                int daysInMonth = System.DateTime.DaysInMonth(date.Year, date.Month);
+                for (int i = 0; i < daysInMonth; i++)
+                {
+                    chartStatistics.Series[TypeOfStats].Points.AddXY(i + 1, EmpStats[i]);
+                }
+            }
+        }
+        public void ClearEmpStatsChart()
+        {
+
+            lblChartTitle.Text = String.Empty;
+
+            chartStatistics.Series["Total salary"].Points.Clear();
+            chartStatistics.Series["Average salary"].Points.Clear();
+            chartStatistics.Series["Total hours worked"].Points.Clear();
+            chartStatistics.Series["Average hours worked"].Points.Clear();
+        }
+
+        private void rbtnYear_CheckedChanged(object sender, EventArgs e)
+        {
+            period = "year";
+            ClearEmpStatsChart();
+            ShowOverallStatisticsForTotalSalary();
+        }
+
+        private void rbtnMonth_CheckedChanged(object sender, EventArgs e)
+        {
+            period = "month";
+            ClearEmpStatsChart();
+            ShowOverallStatisticsForTotalSalary();
+        }
+
+        private void rbtnWeek_CheckedChanged(object sender, EventArgs e)
+        {
+            period = "week";
+            ClearEmpStatsChart();
+            ShowOverallStatisticsForTotalSalary();
+        }
+
+        private void cbbAllKindsOfStatistics_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TypeOfStats = cbbAllKindsOfStatistics.SelectedItem.ToString();
+        }
+
+        private void dtDateStatistic_ValueChanged(object sender, EventArgs e)
+        {
+            date = dtDateStatistic.Value;
+            ClearEmpStatsChart();
+        }
+
+        private void btnShowStats_Click(object sender, EventArgs e)
+        {
+            ShowOverallStatisticsForTotalSalary();
+        }
+
+        private void btnRemoveStats_Click(object sender, EventArgs e)
+        {
+            ClearEmpStatsChart();
         }
     }
 }

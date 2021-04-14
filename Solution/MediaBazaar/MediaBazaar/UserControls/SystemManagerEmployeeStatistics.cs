@@ -13,7 +13,6 @@ namespace MediaBazaar
         DatabaseMediator dbMediator;
 
         EmployeeStatistcsForm IndividualEmpStats;
-        OverallEmployeeSatisticsForm AllEmpStats;
 
         public List<int> GetAllEmployeesIds()
         {
@@ -45,28 +44,73 @@ namespace MediaBazaar
             return EmpHoursPerTimeUnit;
         }
 
-        public void ShowOverviewEmpStats(string stats, DateTime date)   //Overview of EmpStatistics
-        {
-            AllEmpStats = new OverallEmployeeSatisticsForm();
-            AllEmpStats.SetTypeOfStatistics(stats, date);
-            AllEmpStats.ShowDialog();
-        }
-
-        public List<double> GetTotalSalary_HoursPerTimeUnit(string time, DateTime date, string conditionTotal, string conditionAverage)
-        {
+        // //Overview of EmpStatistics
+        public List<double> ShowOverallStatistics(string typeOfStats, string period, DateTime date)
+        { 
             dbMediator = new DatabaseMediator();
-            List<double> TotalSalaryForWholeYear = new List<double>();
-            switch (time)
+            List<double> EmpStats = new List<double>();
+            switch (period)
             {
                 case "year":
-                    TotalSalaryForWholeYear = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.Year.ToString(), conditionTotal, conditionAverage);
-                    return TotalSalaryForWholeYear;
+                    if (typeOfStats == "Total salary")
+                    {
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.Year.ToString(), "Total salary", "None");
+                    }
+                    else if (typeOfStats == "Average salary")
+                    {
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.Year.ToString(), "Total salary", "Average");
+                    }
+                    else if (typeOfStats == "Total hours worked")
+                    {
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.Year.ToString(), "Total hours worked", "None");
+                    }
+                    else if (typeOfStats == "Average hours worked")
+                    {
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.Year.ToString(), "Total hours worked", "Average");
+                    }
+                return EmpStats;
                 case "month":
-                    TotalSalaryForWholeYear = dbMediator.GetOverallEmpStatTotalSalaryForMonth(date, conditionTotal, conditionAverage);
-                    return TotalSalaryForWholeYear;
+                    if (typeOfStats == "Total salary")
+                    {
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForMonth(date, "Total salary", "None");
+                    }
+                    else if (typeOfStats == "Average salary")
+                    {
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForMonth(date, "Total salary", "Average");
+                    }
+                    else if (typeOfStats == "Total hours worked")
+                    {
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForMonth(date, "Total hours worked", "None");
+                    }
+                    else if (typeOfStats == "Average hours worked")
+                    {
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForMonth(date, "Total hours worked", "Average");
+                    }
+               return EmpStats;
+             //case "week":
+                    //if (typeOfStats == "Total salary")
+                    //{
+                    //    EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.ToString(), "Total salary", "None");
+                    //}
+                    //else if (typeOfStats == "Average salary")
+                    //{
+                    //    EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.ToString(), "Total salary", "Average");
+                    //}
+                    //else if (typeOfStats == "Total hours worked")
+                    //{
+                    //    EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.ToString(), "Total hours worked", "None");
+                    //}
+                    //else if (typeOfStats == "Average hours worked")
+                    //{
+                    //    EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.ToString(), "Total hours worked", "Average");
+                    //}
+                    //return EmpStats;
             }
-            return TotalSalaryForWholeYear;
+
+            return EmpStats;
         }
+
+        
 
        
         

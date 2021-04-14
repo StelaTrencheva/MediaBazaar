@@ -21,6 +21,8 @@ namespace MediaBazaar
             this.manageEmployees = new EmployeeManager();
             this.currentEmp = currentEmp;
             userInterface1.SendInfo(currentEmp);
+            HideAllInterfaces();
+            userInterface1.Show();
         }
         private void PaintAllButtons()
         {

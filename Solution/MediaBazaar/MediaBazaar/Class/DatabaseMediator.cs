@@ -664,7 +664,7 @@ namespace MediaBazaar
                     int month = Convert.ToInt32(reader["month"]);
                     double hours = Convert.ToDouble(reader["assignedHours"]);
                     double wage = Convert.ToDouble(reader["wage"]);
-                    if (conditionTotal == "TotalSalary")
+                    if (conditionTotal == "Total salary")
                     {
                         for (int i = 1; i < 13; i++)
                         {
@@ -675,7 +675,7 @@ namespace MediaBazaar
                             }
                         }
                     }
-                    else if(conditionTotal == "TotalHoursWorked")
+                    else if(conditionTotal == "Total hours worked")
                     {
                         for (int i = 1; i < 13; i++)
                         {
@@ -692,7 +692,7 @@ namespace MediaBazaar
             finally
             {
                 this.dbConnection.Close();
-                if(conditionAvg=="Average")
+                if(conditionAvg == "Average")
                 {
                     for (int i = 0; i < 12; i++)
                     {
@@ -733,7 +733,7 @@ namespace MediaBazaar
                     int day = Convert.ToInt32(reader["day"]);
                     double hours = Convert.ToDouble(reader["assignedHours"]);
                     double wage = Convert.ToDouble(reader["wage"]);
-                    if (conditionTotal == "TotalSalary")
+                    if (conditionTotal == "Total salary")
                     {
                         for (int i = 1; i < days + 1; i++)
                         {
@@ -744,7 +744,7 @@ namespace MediaBazaar
                             }
                         }
                     }
-                    else if (conditionTotal == "TotalHoursWorked")
+                    else if (conditionTotal == "Total hours worked")
                     {
                         for (int i = 1; i < days + 1; i++)
                         {

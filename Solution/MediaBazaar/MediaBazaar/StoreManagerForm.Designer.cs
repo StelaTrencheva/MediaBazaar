@@ -38,8 +38,8 @@ namespace MediaBazaar
             this.btnStoreMLogOut = new System.Windows.Forms.Button();
             this.btnStoreM = new System.Windows.Forms.Button();
             this.productStatisticInterface1 = new MediaBazaar.ProductStatisticInterface();
-            this.employeeStatistics1 = new MediaBazaar.EmployeeStatistics();
             this.userInterface1 = new MediaBazaar.UserInterface();
+            this.employeeStatistics1 = new MediaBazaar.EmployeeStatistics();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -55,7 +55,7 @@ namespace MediaBazaar
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(206, 528);
+            this.panel1.Size = new System.Drawing.Size(206, 786);
             this.panel1.TabIndex = 44;
             // 
             // btnStoreMEmployeeStatistic
@@ -136,17 +136,8 @@ namespace MediaBazaar
             this.productStatisticInterface1.Location = new System.Drawing.Point(213, 0);
             this.productStatisticInterface1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.productStatisticInterface1.Name = "productStatisticInterface1";
-            this.productStatisticInterface1.Size = new System.Drawing.Size(902, 530);
+            this.productStatisticInterface1.Size = new System.Drawing.Size(1129, 786);
             this.productStatisticInterface1.TabIndex = 47;
-            // 
-            // employeeStatistics1
-            // 
-            this.employeeStatistics1.BackColor = System.Drawing.Color.Transparent;
-            this.employeeStatistics1.Location = new System.Drawing.Point(213, 0);
-            this.employeeStatistics1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.employeeStatistics1.Name = "employeeStatistics1";
-            this.employeeStatistics1.Size = new System.Drawing.Size(890, 530);
-            this.employeeStatistics1.TabIndex = 46;
             // 
             // userInterface1
             // 
@@ -156,16 +147,24 @@ namespace MediaBazaar
             this.userInterface1.TabIndex = 48;
             this.userInterface1.Load += new System.EventHandler(this.userInterface1_Load);
             // 
+            // employeeStatistics1
+            // 
+            this.employeeStatistics1.BackColor = System.Drawing.Color.Transparent;
+            this.employeeStatistics1.Location = new System.Drawing.Point(213, 1);
+            this.employeeStatistics1.Name = "employeeStatistics1";
+            this.employeeStatistics1.Size = new System.Drawing.Size(1129, 785);
+            this.employeeStatistics1.TabIndex = 49;
+            // 
             // StoreManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1126, 528);
+            this.ClientSize = new System.Drawing.Size(1340, 786);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.userInterface1);
             this.Controls.Add(this.productStatisticInterface1);
             this.Controls.Add(this.employeeStatistics1);
-            this.Controls.Add(this.userInterface1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "StoreManagerForm";
@@ -187,8 +186,8 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnStoreM;
         private System.Windows.Forms.Button btnStoreMStockStatistic;
         private System.Windows.Forms.Button btnStoreMEmployeeStatistic;
-        private EmployeeStatistics employeeStatistics1;
         private ProductStatisticInterface productStatisticInterface1;
         private UserInterface userInterface1;
+        private EmployeeStatistics employeeStatistics1;
     }
 }
