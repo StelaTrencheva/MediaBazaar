@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tbcEmployeeStatistics = new System.Windows.Forms.TabControl();
             this.tbpAllEmployees = new System.Windows.Forms.TabPage();
             this.lblChartTitle = new System.Windows.Forms.Label();
@@ -54,10 +54,11 @@
             this.lblEmpStat = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbpSpecificEmployee = new System.Windows.Forms.TabPage();
+            this.gbxChart = new System.Windows.Forms.GroupBox();
             this.rdbtnDay = new System.Windows.Forms.RadioButton();
+            this.rdbtnYear = new System.Windows.Forms.RadioButton();
             this.rdbtnWeek = new System.Windows.Forms.RadioButton();
             this.rdbtnMonth = new System.Windows.Forms.RadioButton();
-            this.rdbtnYear = new System.Windows.Forms.RadioButton();
             this.chartutilizationOfAnEmployee = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.gbxEmpInformation = new System.Windows.Forms.GroupBox();
             this.lblTotalSalaryPerYear = new System.Windows.Forms.Label();
@@ -81,14 +82,13 @@
             this.lblPeriodOfTime = new System.Windows.Forms.Label();
             this.btnShowStatistics = new System.Windows.Forms.Button();
             this.lblChooseAnEmployee = new System.Windows.Forms.Label();
-            this.gbxChart = new System.Windows.Forms.GroupBox();
             this.tbcEmployeeStatistics.SuspendLayout();
             this.tbpAllEmployees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartStatistics)).BeginInit();
             this.tbpSpecificEmployee.SuspendLayout();
+            this.gbxChart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartutilizationOfAnEmployee)).BeginInit();
             this.gbxEmpInformation.SuspendLayout();
-            this.gbxChart.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbcEmployeeStatistics
@@ -161,7 +161,7 @@
             // 
             this.rbtnWeek.AutoSize = true;
             this.rbtnWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rbtnWeek.Location = new System.Drawing.Point(967, 34);
+            this.rbtnWeek.Location = new System.Drawing.Point(928, 31);
             this.rbtnWeek.Name = "rbtnWeek";
             this.rbtnWeek.Size = new System.Drawing.Size(72, 24);
             this.rbtnWeek.TabIndex = 25;
@@ -204,7 +204,7 @@
             // 
             this.rbtnMonth.AutoSize = true;
             this.rbtnMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rbtnMonth.Location = new System.Drawing.Point(835, 34);
+            this.rbtnMonth.Location = new System.Drawing.Point(802, 31);
             this.rbtnMonth.Name = "rbtnMonth";
             this.rbtnMonth.Size = new System.Drawing.Size(76, 24);
             this.rbtnMonth.TabIndex = 22;
@@ -217,7 +217,7 @@
             this.rbtnYear.AutoSize = true;
             this.rbtnYear.Checked = true;
             this.rbtnYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rbtnYear.Location = new System.Drawing.Point(712, 34);
+            this.rbtnYear.Location = new System.Drawing.Point(691, 31);
             this.rbtnYear.Name = "rbtnYear";
             this.rbtnYear.Size = new System.Drawing.Size(64, 24);
             this.rbtnYear.TabIndex = 21;
@@ -228,34 +228,34 @@
             // 
             // chartStatistics
             // 
-            chartArea7.IsSameFontSizeForAllAxes = true;
-            chartArea7.Name = "ChartArea1";
-            this.chartStatistics.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.chartStatistics.Legends.Add(legend7);
+            chartArea1.IsSameFontSizeForAllAxes = true;
+            chartArea1.Name = "ChartArea1";
+            this.chartStatistics.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartStatistics.Legends.Add(legend1);
             this.chartStatistics.Location = new System.Drawing.Point(2, 247);
             this.chartStatistics.Name = "chartStatistics";
-            series19.ChartArea = "ChartArea1";
-            series19.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            series19.IsVisibleInLegend = false;
-            series19.Legend = "Legend1";
-            series19.Name = "Total salary";
-            series20.ChartArea = "ChartArea1";
-            series20.IsVisibleInLegend = false;
-            series20.Legend = "Legend1";
-            series20.Name = "Average salary";
-            series21.ChartArea = "ChartArea1";
-            series21.IsVisibleInLegend = false;
-            series21.Legend = "Legend1";
-            series21.Name = "Total hours worked";
-            series22.ChartArea = "ChartArea1";
-            series22.IsVisibleInLegend = false;
-            series22.Legend = "Legend1";
-            series22.Name = "Average hours worked";
-            this.chartStatistics.Series.Add(series19);
-            this.chartStatistics.Series.Add(series20);
-            this.chartStatistics.Series.Add(series21);
-            this.chartStatistics.Series.Add(series22);
+            series1.ChartArea = "ChartArea1";
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            series1.IsVisibleInLegend = false;
+            series1.Legend = "Legend1";
+            series1.Name = "Total salary";
+            series2.ChartArea = "ChartArea1";
+            series2.IsVisibleInLegend = false;
+            series2.Legend = "Legend1";
+            series2.Name = "Average salary";
+            series3.ChartArea = "ChartArea1";
+            series3.IsVisibleInLegend = false;
+            series3.Legend = "Legend1";
+            series3.Name = "Total hours worked";
+            series4.ChartArea = "ChartArea1";
+            series4.IsVisibleInLegend = false;
+            series4.Legend = "Legend1";
+            series4.Name = "Average hours worked";
+            this.chartStatistics.Series.Add(series1);
+            this.chartStatistics.Series.Add(series2);
+            this.chartStatistics.Series.Add(series3);
+            this.chartStatistics.Series.Add(series4);
             this.chartStatistics.Size = new System.Drawing.Size(1111, 406);
             this.chartStatistics.TabIndex = 20;
             this.chartStatistics.Text = "chart1";
@@ -325,6 +325,22 @@
             this.tbpSpecificEmployee.Text = "Employee statistics";
             this.tbpSpecificEmployee.UseVisualStyleBackColor = true;
             // 
+            // gbxChart
+            // 
+            this.gbxChart.BackColor = System.Drawing.Color.LightBlue;
+            this.gbxChart.Controls.Add(this.rdbtnDay);
+            this.gbxChart.Controls.Add(this.rdbtnYear);
+            this.gbxChart.Controls.Add(this.rdbtnWeek);
+            this.gbxChart.Controls.Add(this.rdbtnMonth);
+            this.gbxChart.Controls.Add(this.chartutilizationOfAnEmployee);
+            this.gbxChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.gbxChart.Location = new System.Drawing.Point(400, 228);
+            this.gbxChart.Name = "gbxChart";
+            this.gbxChart.Size = new System.Drawing.Size(688, 502);
+            this.gbxChart.TabIndex = 21;
+            this.gbxChart.TabStop = false;
+            this.gbxChart.Text = "Actual hours worked (in blue) vs. Contractual hours (in yellow)";
+            // 
             // rdbtnDay
             // 
             this.rdbtnDay.AutoSize = true;
@@ -336,6 +352,20 @@
             this.rdbtnDay.Text = "Day";
             this.rdbtnDay.UseVisualStyleBackColor = true;
             this.rdbtnDay.CheckedChanged += new System.EventHandler(this.rdbtnDay_CheckedChanged);
+            // 
+            // rdbtnYear
+            // 
+            this.rdbtnYear.AutoSize = true;
+            this.rdbtnYear.Checked = true;
+            this.rdbtnYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rdbtnYear.Location = new System.Drawing.Point(552, 148);
+            this.rdbtnYear.Name = "rdbtnYear";
+            this.rdbtnYear.Size = new System.Drawing.Size(64, 24);
+            this.rdbtnYear.TabIndex = 16;
+            this.rdbtnYear.TabStop = true;
+            this.rdbtnYear.Text = "Year";
+            this.rdbtnYear.UseVisualStyleBackColor = true;
+            this.rdbtnYear.CheckedChanged += new System.EventHandler(this.rdbtnYear_CheckedChanged);
             // 
             // rdbtnWeek
             // 
@@ -361,44 +391,30 @@
             this.rdbtnMonth.UseVisualStyleBackColor = true;
             this.rdbtnMonth.CheckedChanged += new System.EventHandler(this.rdbtnMonth_CheckedChanged);
             // 
-            // rdbtnYear
-            // 
-            this.rdbtnYear.AutoSize = true;
-            this.rdbtnYear.Checked = true;
-            this.rdbtnYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rdbtnYear.Location = new System.Drawing.Point(552, 148);
-            this.rdbtnYear.Name = "rdbtnYear";
-            this.rdbtnYear.Size = new System.Drawing.Size(64, 24);
-            this.rdbtnYear.TabIndex = 16;
-            this.rdbtnYear.TabStop = true;
-            this.rdbtnYear.Text = "Year";
-            this.rdbtnYear.UseVisualStyleBackColor = true;
-            this.rdbtnYear.CheckedChanged += new System.EventHandler(this.rdbtnYear_CheckedChanged);
-            // 
             // chartutilizationOfAnEmployee
             // 
             this.chartutilizationOfAnEmployee.BackColor = System.Drawing.Color.Transparent;
-            chartArea8.Name = "ChartArea1";
-            this.chartutilizationOfAnEmployee.ChartAreas.Add(chartArea8);
-            legend8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            legend8.IsTextAutoFit = false;
-            legend8.Name = "Legend1";
-            this.chartutilizationOfAnEmployee.Legends.Add(legend8);
+            chartArea2.Name = "ChartArea1";
+            this.chartutilizationOfAnEmployee.ChartAreas.Add(chartArea2);
+            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            this.chartutilizationOfAnEmployee.Legends.Add(legend2);
             this.chartutilizationOfAnEmployee.Location = new System.Drawing.Point(13, 40);
             this.chartutilizationOfAnEmployee.Name = "chartutilizationOfAnEmployee";
             this.chartutilizationOfAnEmployee.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series23.ChartArea = "ChartArea1";
-            series23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            series23.Legend = "Legend1";
-            series23.LegendText = "Actual hours worked";
-            series23.Name = "Actual hours worked";
-            series24.ChartArea = "ChartArea1";
-            series24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            series24.Legend = "Legend1";
-            series24.LegendText = "Contractual hours";
-            series24.Name = "Contractual hours";
-            this.chartutilizationOfAnEmployee.Series.Add(series23);
-            this.chartutilizationOfAnEmployee.Series.Add(series24);
+            series5.ChartArea = "ChartArea1";
+            series5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            series5.Legend = "Legend1";
+            series5.LegendText = "Actual hours worked";
+            series5.Name = "Actual hours worked";
+            series6.ChartArea = "ChartArea1";
+            series6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            series6.Legend = "Legend1";
+            series6.LegendText = "Contractual hours";
+            series6.Name = "Contractual hours";
+            this.chartutilizationOfAnEmployee.Series.Add(series5);
+            this.chartutilizationOfAnEmployee.Series.Add(series6);
             this.chartutilizationOfAnEmployee.Size = new System.Drawing.Size(669, 462);
             this.chartutilizationOfAnEmployee.TabIndex = 15;
             this.chartutilizationOfAnEmployee.Text = "chart1";
@@ -625,22 +641,6 @@
             this.lblChooseAnEmployee.TabIndex = 0;
             this.lblChooseAnEmployee.Text = "Choose an employee:";
             // 
-            // gbxChart
-            // 
-            this.gbxChart.BackColor = System.Drawing.Color.LightBlue;
-            this.gbxChart.Controls.Add(this.rdbtnDay);
-            this.gbxChart.Controls.Add(this.rdbtnYear);
-            this.gbxChart.Controls.Add(this.rdbtnWeek);
-            this.gbxChart.Controls.Add(this.rdbtnMonth);
-            this.gbxChart.Controls.Add(this.chartutilizationOfAnEmployee);
-            this.gbxChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gbxChart.Location = new System.Drawing.Point(400, 228);
-            this.gbxChart.Name = "gbxChart";
-            this.gbxChart.Size = new System.Drawing.Size(688, 502);
-            this.gbxChart.TabIndex = 21;
-            this.gbxChart.TabStop = false;
-            this.gbxChart.Text = "Actual hours worked (in blue) vs. Contractual hours (in yellow)";
-            // 
             // EmployeeStatistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -656,11 +656,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartStatistics)).EndInit();
             this.tbpSpecificEmployee.ResumeLayout(false);
             this.tbpSpecificEmployee.PerformLayout();
+            this.gbxChart.ResumeLayout(false);
+            this.gbxChart.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartutilizationOfAnEmployee)).EndInit();
             this.gbxEmpInformation.ResumeLayout(false);
             this.gbxEmpInformation.PerformLayout();
-            this.gbxChart.ResumeLayout(false);
-            this.gbxChart.PerformLayout();
             this.ResumeLayout(false);
 
         }

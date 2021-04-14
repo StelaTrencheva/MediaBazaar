@@ -181,6 +181,13 @@ namespace MediaBazaar
                     chartStatistics.Series[TypeOfStats].Points.AddXY(i + 1, EmpStats[i]);
                 }
             }
+            else if(periodOverviewStats == "week")
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    chartStatistics.Series[TypeOfStats].Points.AddXY(day[i], EmpStats[i]);
+                }
+            }
         }
         public void ClearEmpStatsChart()
         {

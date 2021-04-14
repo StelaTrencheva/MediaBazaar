@@ -515,6 +515,7 @@ namespace MediaBazaar
             }
         }
 
+        //DatabaseMediatorEmployeeStatistics
         public int GetEmployeeAssignedHoursForStatPerDay(int id, string date)
         {
             string sqlStatement = " select IF(es.times IS NULL, 0, es.times) as assignedHours, e.id from mb_employee e left join " +
@@ -702,6 +703,75 @@ namespace MediaBazaar
             }
             return TotalSalaryPerMonths;
         }
+        public List<double> GetOverallEmpStatTotalSalaryForWeek(DateTime date, string conditionTotal, string conditionAvg)
+        {
+            string sqlStatement = "SELECT IFNULL((em.employeeID),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(DAY FROM sh.date) AS day " +
+                "FROM `mb_shift_with_assigned_employee` as em " +
+                "INNER JOIN `mb_shift` as sh " +
+                "ON sh.id = em.shiftID " +
+                "INNER JOIN `mb_employee`as emp " +
+                "ON em.employeeID = emp.id " +
+                "WHERE EXTRACT(MONTH FROM sh.date) = @month AND EXTRACT(WEEK FROM sh.date) = EXTRACT(WEEK FROM @week) " +
+                "GROUP BY day";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.dbConnection);
+            sqlCommand.Parameters.AddWithValue("@month", date.Month.ToString());
+            sqlCommand.Parameters.AddWithValue("@week", date.ToString());
+            List<double> TotalSalaryPerWeek = new List<double>();
+            List<double> counter = new List<double>();
+            for (int j = 0; j < 7; j++)
+            {
+                TotalSalaryPerWeek.Add(0);
+                counter.Add(1);
+            }
+            try
+            {
+                MySqlDataReader reader;
+                dbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int day = Convert.ToInt32(reader["day"]);
+                    double hours = Convert.ToDouble(reader["assignedHours"]);
+                    double wage = Convert.ToDouble(reader["wage"]);
+                    if (conditionTotal == "Total salary")
+                    {
+                        for (int i = 1; i < 8; i++)
+                        {
+                            if (i == day)
+                            {
+                                TotalSalaryPerWeek[i - 1] += (hours * wage * 4);
+                                counter[i - 1] += 1;
+                            }
+                        }
+                    }
+                    else if (conditionTotal == "Total hours worked")
+                    {
+                        for (int i = 1; i < 8; i++)
+                        {
+                            if (i == day)
+                            {
+                                TotalSalaryPerWeek[i - 1] += (hours);
+                                counter[i - 1] += 1;
+                            }
+                        }
+                    }
+
+                }
+            }
+            finally
+            {
+                this.dbConnection.Close();
+                if (conditionAvg == "Average")
+                {
+                    for (int i = 0; i < 7; i++)
+                    {
+                        TotalSalaryPerWeek[i] /= counter[i];
+                    }
+                }
+            }
+            return TotalSalaryPerWeek;
+        }
         public List<double> GetOverallEmpStatTotalSalaryForMonth(DateTime date, string conditionTotal, string conditionAvg)
         {
             string sqlStatement = "SELECT IFNULL((em.employeeID),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(DAY FROM sh.date) AS day " +
@@ -771,10 +841,10 @@ namespace MediaBazaar
             }
             return TotalSalaryPerMonths;
         }
-       
-       
+        //EndOfDatabaseMediatorEmployeeStatistics
 
-        
+
+
         private string sqlExceptionMessage(string originalExceptionMessage)//WORKING!!
         {
             return (

@@ -107,24 +107,24 @@ namespace MediaBazaar
                         EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForMonth(date, "Total hours worked", "Average");
                     }
                     return EmpStats;
-                    //case "week":
-                    //if (typeOfStats == "Total salary")
-                    //{
-                    //    EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.ToString(), "Total salary", "None");
-                    //}
-                    //else if (typeOfStats == "Average salary")
-                    //{
-                    //    EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.ToString(), "Total salary", "Average");
-                    //}
-                    //else if (typeOfStats == "Total hours worked")
-                    //{
-                    //    EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.ToString(), "Total hours worked", "None");
-                    //}
-                    //else if (typeOfStats == "Average hours worked")
-                    //{
-                    //    EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.ToString(), "Total hours worked", "Average");
-                    //}
-                    //return EmpStats;
+                case "week":
+                    if (typeOfStats == "Total salary")
+                    {
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(date, "Total salary", "None");
+                    }
+                    else if (typeOfStats == "Average salary")
+                    {
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(date, "Total salary", "Average");
+                    }
+                    else if (typeOfStats == "Total hours worked")
+                    {
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(date, "Total hours worked", "None");
+                    }
+                    else if (typeOfStats == "Average hours worked")
+                    {
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(date, "Total hours worked", "Average");
+                    }
+                    return EmpStats;
             }
 
             return EmpStats;
