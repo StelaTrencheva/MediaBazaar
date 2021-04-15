@@ -14,7 +14,7 @@ namespace MediaBazaar
         //ADD DEPARTMENT
         public bool AddDepartment(string name, int id)
         {
-            string sqlStatement = "INSERT INTO `test` (`dept_name`, `dept_manager_id`) VALUES (@n, @i);";
+            string sqlStatement = "INSERT INTO `mb_department` (`dept_name`, `dept_manager_id`) VALUES (@n, @i);";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
             sqlCommand.Parameters.AddWithValue("@n", name);
             sqlCommand.Parameters.AddWithValue("@i", id);
@@ -44,10 +44,11 @@ namespace MediaBazaar
                 DbConnection.Close();
             }
         }
+
         //GET DEPARTMENT
         public List<Department> GetDepartment()
         {
-            string sqlStatement = "SELECT d.code, d.dept_name, d.dept_manager_id, e.fname, e.lname FROM test AS d INNER JOIN" +
+            string sqlStatement = "SELECT d.code, d.dept_name, d.dept_manager_id, e.fname, e.lname FROM mb_department AS d INNER JOIN" +
                 " mb_employee AS e ON d.dept_manager_id = e.id";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
             List<Department> d = new List<Department>();
