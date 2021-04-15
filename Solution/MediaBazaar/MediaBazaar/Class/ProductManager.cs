@@ -9,6 +9,7 @@ namespace MediaBazaar
     public class ProductManager
     {
         DBMediatorProduct dbMediator;
+        
 
         public ProductManager()
         {
@@ -23,17 +24,11 @@ namespace MediaBazaar
         public bool AddProductToDB(string brand, string type, string model, string description, string category,
             string subcategory, decimal costPrice, decimal salePrice, int amountInStore, int amountInWarehouse)
         {
-            if (brand == "" || type == "" || model == "" || description == "" || category == "" || subcategory == "" || costPrice <= 0 || salePrice <= 0 || amountInStore <= 0 || amountInWarehouse <= 0)
-            {
-                throw new FormatException();
-            }
-            if (costPrice >= salePrice)
-            {
-                throw new IncorrectPricingException();
-            }
+            Product product = new Product(0,brand, type, model, description, category, subcategory, costPrice, salePrice,
+                amountInStore, amountInWarehouse);
             foreach (Product i in GetAllProducts())
             {
-                if (i.Model == model && i.Brand == brand)
+                if (i.Model.ToLower() == model.ToLower() && i.Brand.ToLower() == brand.ToLower())
                 {
                     throw new RepeatingObjectException();
                 }

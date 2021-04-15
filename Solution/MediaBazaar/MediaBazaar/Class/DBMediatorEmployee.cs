@@ -32,7 +32,7 @@ namespace MediaBazaar
 
                     Employee employee = new Employee(Convert.ToInt32(EmployeeReader["id"]), EmployeeReader["bsn"].ToString(),
                     EmployeeReader["fname"].ToString(), EmployeeReader["lname"].ToString(), gender,
-                    EmployeeReader["email"].ToString(), EmployeeReader["uname"].ToString(), EmployeeReader["pwd"].ToString(),
+                    EmployeeReader["email"].ToString(), EmployeeReader["uname"].ToString(),
                     Convert.ToDateTime(EmployeeReader["birthdate"].ToString()), EmployeeReader["street"].ToString(),
                     EmployeeReader["streetnumber"].ToString(), EmployeeReader["zipcode"].ToString(), EmployeeReader["town"].ToString(),
                     EmployeeReader["country"].ToString(), Convert.ToDateTime(EmployeeReader["firstworkingday"].ToString()),
@@ -72,7 +72,7 @@ namespace MediaBazaar
                     Enum.TryParse(EmployeeReader["gender"].ToString(), out Gender gender);
                     emp.Add(new Employee(Convert.ToInt32(EmployeeReader["id"]), EmployeeReader["bsn"].ToString(),
                     EmployeeReader["fname"].ToString(), EmployeeReader["lname"].ToString(), gender,
-                    EmployeeReader["email"].ToString(), EmployeeReader["uname"].ToString(), EmployeeReader["pwd"].ToString(),
+                    EmployeeReader["email"].ToString(), EmployeeReader["uname"].ToString(),
                     Convert.ToDateTime(EmployeeReader["birthdate"].ToString()), EmployeeReader["street"].ToString(),
                     EmployeeReader["streetnumber"].ToString(), EmployeeReader["zipcode"].ToString(), EmployeeReader["town"].ToString(),
                     EmployeeReader["country"].ToString(), Convert.ToDateTime(EmployeeReader["firstworkingday"].ToString()),
@@ -134,11 +134,11 @@ namespace MediaBazaar
                 }
                 return false;
             }
-            catch (MySqlException e)
-            {
-                return false;
-            }
-            catch (Exception e)
+            //catch (MySqlException)
+            //{
+            //    return false;
+            //}
+            catch (Exception)
             {
                 return false;
             }

@@ -33,15 +33,6 @@ namespace MediaBazaar
             {
                 MessageBox.Show("Your input is not valid");
                 return;
-            }else if (oldPass != employee.Password)
-            { 
-                MessageBox.Show("Wrong password!");
-                return;
-            }
-            else if (newPass == employee.Password)
-            { 
-                MessageBox.Show("This password is already used!");
-                return;
             }else if (newPass != repeatOldPass)
             { 
                 MessageBox.Show("Your repeat password does not match your new password!");

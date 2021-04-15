@@ -135,6 +135,7 @@ namespace MediaBazaar
                   firstWorkingDay,  emergencyPhoneNumber,  iban,  hourlyWage, contract,  position))
                 {
                     MessageBox.Show("Success!");
+                    manageEmployees.UpdateEmployees();
                     UpdateListBoxAllEmployees();
                     UpdateListBoxEmployee();
                 }
@@ -175,7 +176,7 @@ namespace MediaBazaar
                     }else if (manageEmployees.DeleteEmployeeFromDb(emp.Id))
                     {
                         MessageBox.Show("The employee is deleted");
-
+                        manageEmployees.DeleteEmployee(emp);
                     }
                     else
                     {

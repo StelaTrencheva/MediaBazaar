@@ -8,7 +8,6 @@ namespace MediaBazaar
 {
     public class EmployeeManager
     {
-        //private Employee employee;
         private List<Employee> employees;
         private DBMediatorEmployee dbMediator;
 
@@ -17,17 +16,17 @@ namespace MediaBazaar
             employees = new List<Employee>();
             dbMediator = new DBMediatorEmployee();
         }
+
         public bool AddEmployeeToDb(string bsn, string firstName, string lastName, Gender gender, string email, string username,  DateTime birthDay,
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
              DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, ContractType contract, EmployeeType position)
         {
-            if (bsn == "" || firstName == "" || lastName == "" || email == "" || username == "" || addrStreet == "" || addrStreetNumber == "" || addrZipcode == "" || addrTown == "" || addrCountry == "" || emergencyPhoneNumber == "" || iban == "")
-            {
-                throw new NullReferenceException();
-            }
+            employees.Add(new Employee(0,bsn, firstName, lastName, gender, email, username, birthDay,
+                 addrStreet, addrStreetNumber, addrZipcode, addrTown, addrCountry,
+                  firstWorkingDay, emergencyPhoneNumber, iban, hourlyWage,DateTime.Now, contract, position));
             foreach (Employee emp in GetListOFAllEmployees())
             {
-                if (emp.BSN == bsn)
+                if (emp.BSN.ToLower() == bsn.ToLower())
                 {
                     throw new RepeatingObjectException();
                 }
@@ -36,42 +35,10 @@ namespace MediaBazaar
                                           addrStreet, addrStreetNumber, addrZipcode, addrTown, addrCountry,
                                           firstWorkingDay, emergencyPhoneNumber, iban, hourlyWage, contract, position);
         }
-
-        /*public bool AddEmployeeToList(int id, string bsn, string firstName, string lastName, string address, string email, string username,string password, DateTime birthDay,
-            string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
-             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, DateTime contractStartDate, ContractType contract, EmployeeType position)
-        {
-            foreach(Employee emp in employees)
-            {
-                if(emp.BSN == bsn||emp.Id == id)
-                {
-                    return false;
-                }
-            }
-            employees.Add(employee = new Employee(id,bsn,  firstName,  lastName,   email,  username,
-            password,  birthDay,  addrStreet,  addrStreetNumber,  addrZipcode,  addrTown,  addrCountry, firstWorkingDay,  emergencyPhoneNumber, iban,
-            hourlyWage,  contractStartDate,  contract, position));
-            return true;
-        }*/
-        
         public List<Employee> GetEmployees()
         {
             return this.employees;
         }
-
-        //public Employee FindEmployee(int id)
-        //{
-        //   foreach(Employee emp in employees)
-        //    {
-        //        if(emp.Id == id)
-        //        {
-        //            return emp;
-        //        }
-        //    }
-        //    return null;
-        //}
-
-
         public bool ChangePassword(string password, int id)
         {
             return dbMediator.ChangePassword(password, id);
@@ -84,8 +51,14 @@ namespace MediaBazaar
 
         public List<Employee> GetListOFAllEmployees()
         {
-            return dbMediator.GetEmployees();
+            this.employees = dbMediator.GetEmployees();
+            return employees;
         }
+        public void DeleteEmployee(Employee emp)
+        {
+            employees.Remove(emp);
+        }
+
         public Employee Login(string username,string password)
         {
             return dbMediator.FindMatchingLoginInfo(username, password);
@@ -101,4 +74,34 @@ namespace MediaBazaar
             return dbMediator.ChangeWorkContract(contract, employee);
         }
     }
+
 }
+
+
+/*public bool AddEmployeeToList(int id, string bsn, string firstName, string lastName, string address, string email, string username,string password, DateTime birthDay,
+    string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
+     DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, DateTime contractStartDate, ContractType contract, EmployeeType position)
+{
+    foreach(Employee emp in employees)
+    {
+        if(emp.BSN == bsn||emp.Id == id)
+        {
+            return false;
+        }
+    }
+    employees.Add(employee = new Employee(id,bsn,  firstName,  lastName,   email,  username,
+    password,  birthDay,  addrStreet,  addrStreetNumber,  addrZipcode,  addrTown,  addrCountry, firstWorkingDay,  emergencyPhoneNumber, iban,
+    hourlyWage,  contractStartDate,  contract, position));
+    return true;
+}*/
+//public Employee FindEmployee(int id)
+//{
+//   foreach(Employee emp in employees)
+//    {
+//        if(emp.Id == id)
+//        {
+//            return emp;
+//        }
+//    }
+//    return null;
+//}

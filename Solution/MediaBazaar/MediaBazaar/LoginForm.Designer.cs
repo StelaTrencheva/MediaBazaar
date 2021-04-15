@@ -47,10 +47,10 @@ namespace MediaBazaar
             // pictureBox1
             // 
             this.pictureBox1.Image = global::MediaBazaar.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 26);
+            this.pictureBox1.Location = new System.Drawing.Point(11, 21);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(536, 436);
+            this.pictureBox1.Size = new System.Drawing.Size(476, 349);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -58,18 +58,18 @@ namespace MediaBazaar
             // lbLine
             // 
             this.lbLine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lbLine.Location = new System.Drawing.Point(616, 26);
+            this.lbLine.Location = new System.Drawing.Point(548, 21);
             this.lbLine.Name = "lbLine";
-            this.lbLine.Size = new System.Drawing.Size(1, 435);
+            this.lbLine.Size = new System.Drawing.Size(1, 348);
             this.lbLine.TabIndex = 1;
             // 
             // lbPassword
             // 
             this.lbPassword.AutoSize = true;
             this.lbPassword.Font = new System.Drawing.Font("Monotype Corsiva", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPassword.Location = new System.Drawing.Point(776, 198);
+            this.lbPassword.Location = new System.Drawing.Point(690, 158);
             this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(134, 39);
+            this.lbPassword.Size = new System.Drawing.Size(116, 33);
             this.lbPassword.TabIndex = 2;
             this.lbPassword.Text = "Password";
             // 
@@ -77,19 +77,19 @@ namespace MediaBazaar
             // 
             this.lbUsername.AutoSize = true;
             this.lbUsername.Font = new System.Drawing.Font("Monotype Corsiva", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUsername.Location = new System.Drawing.Point(776, 100);
+            this.lbUsername.Location = new System.Drawing.Point(690, 80);
             this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(139, 39);
+            this.lbUsername.Size = new System.Drawing.Size(118, 33);
             this.lbUsername.TabIndex = 4;
             this.lbUsername.Text = "Username";
             // 
             // btnLogIn
             // 
             this.btnLogIn.BackColor = System.Drawing.Color.SlateGray;
-            this.btnLogIn.Location = new System.Drawing.Point(784, 311);
+            this.btnLogIn.Location = new System.Drawing.Point(697, 249);
             this.btnLogIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogIn.Name = "btnLogIn";
-            this.btnLogIn.Size = new System.Drawing.Size(130, 42);
+            this.btnLogIn.Size = new System.Drawing.Size(116, 34);
             this.btnLogIn.TabIndex = 5;
             this.btnLogIn.Text = "Log in";
             this.btnLogIn.UseVisualStyleBackColor = false;
@@ -97,26 +97,27 @@ namespace MediaBazaar
             // 
             // tbUserName
             // 
-            this.tbUserName.Location = new System.Drawing.Point(767, 151);
+            this.tbUserName.Location = new System.Drawing.Point(682, 121);
             this.tbUserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbUserName.Name = "tbUserName";
-            this.tbUserName.Size = new System.Drawing.Size(163, 26);
+            this.tbUserName.Size = new System.Drawing.Size(145, 22);
             this.tbUserName.TabIndex = 6;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(767, 252);
+            this.tbPassword.Location = new System.Drawing.Point(682, 202);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(163, 26);
+            this.tbPassword.Size = new System.Drawing.Size(145, 22);
             this.tbPassword.TabIndex = 7;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 470);
+            this.button1.Location = new System.Drawing.Point(11, 376);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 40);
+            this.button1.Size = new System.Drawing.Size(79, 32);
             this.button1.TabIndex = 8;
             this.button1.Text = "HR";
             this.button1.UseVisualStyleBackColor = true;
@@ -124,9 +125,10 @@ namespace MediaBazaar
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(107, 470);
+            this.button2.Location = new System.Drawing.Point(95, 376);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(89, 40);
+            this.button2.Size = new System.Drawing.Size(79, 32);
             this.button2.TabIndex = 9;
             this.button2.Text = "StoreMana";
             this.button2.UseVisualStyleBackColor = true;
@@ -134,9 +136,10 @@ namespace MediaBazaar
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(202, 470);
+            this.button3.Location = new System.Drawing.Point(180, 376);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(89, 40);
+            this.button3.Size = new System.Drawing.Size(79, 32);
             this.button3.TabIndex = 10;
             this.button3.Text = "Dep.Man";
             this.button3.UseVisualStyleBackColor = true;
@@ -144,9 +147,10 @@ namespace MediaBazaar
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(297, 470);
+            this.button4.Location = new System.Drawing.Point(264, 376);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(89, 40);
+            this.button4.Size = new System.Drawing.Size(79, 32);
             this.button4.TabIndex = 11;
             this.button4.Text = "StockMan";
             this.button4.UseVisualStyleBackColor = true;
@@ -154,9 +158,10 @@ namespace MediaBazaar
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(392, 470);
+            this.button5.Location = new System.Drawing.Point(348, 376);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(89, 40);
+            this.button5.Size = new System.Drawing.Size(79, 32);
             this.button5.TabIndex = 12;
             this.button5.Text = "StockWork";
             this.button5.UseVisualStyleBackColor = true;
@@ -164,10 +169,10 @@ namespace MediaBazaar
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1115, 522);
+            this.ClientSize = new System.Drawing.Size(991, 418);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -181,7 +186,6 @@ namespace MediaBazaar
             this.Controls.Add(this.lbLine);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

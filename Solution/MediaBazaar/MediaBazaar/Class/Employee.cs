@@ -15,7 +15,6 @@ namespace MediaBazaar
         private Gender gender;
         private string email;
         private string username;
-        private string password;
         private DateTime birthDay;
         private string addrStreet;
         private string addrStreetNumber;
@@ -73,11 +72,6 @@ namespace MediaBazaar
         {
             get { return this.username; }
             set { this.username = value; }
-        }
-        public string Password
-        {
-            get { return this.password; }
-            set { this.password = value; }
         }
         public string Birthday
         {
@@ -141,10 +135,14 @@ namespace MediaBazaar
         }
  
 
-        public Employee( int id, string bsn, string firstName, string lastName, Gender gender, string email, string username, string password, DateTime birthDay, 
+        public Employee( int id, string bsn, string firstName, string lastName, Gender gender, string email, string username, DateTime birthDay, 
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
              DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, DateTime contractStartDate, ContractType contract, EmployeeType position)
         {
+            if (bsn == "" || firstName == "" || lastName == "" || email == "" || username == "" || addrStreet == "" || addrStreetNumber == "" || addrZipcode == "" || addrTown == "" || addrCountry == "" || emergencyPhoneNumber == "" || iban == "")
+            {
+                throw new NullReferenceException();
+            }
             this.id = id;
             this.bsn = bsn;
             this.firstName = firstName;
@@ -157,7 +155,6 @@ namespace MediaBazaar
             this.addrCountry = addrCountry;
             this.email = email;
             this.Username = username;
-            this.Password = password;
             this.birthDay = birthDay;
             this.firstWorkingDay = firstWorkingDay;
             this.emergencyPhoneNumber = emergencyPhoneNumber;
@@ -167,7 +164,7 @@ namespace MediaBazaar
             this.contract = contract;
             this.position = position;
             
-        }//Struct
+        }
         public string GetAddress()
         {
             return $"{addrStreet} {addrStreetNumber}; {addrZipcode}; {addrCountry}, {addrTown}";

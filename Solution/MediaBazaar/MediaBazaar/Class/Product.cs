@@ -46,7 +46,14 @@ namespace MediaBazaar
             string category, string subcategory, decimal costPrice, decimal salePrice, int amountInStore,
             int amountInWarehouse)
         {
-
+            if (brand == "" || type == "" || model == "" || description == "" || category == "" || subcategory == "" || costPrice <= 0 || salePrice <= 0 || amountInStore <= 0 || amountInWarehouse <= 0)
+            {
+                throw new FormatException();
+            }
+            if (costPrice >= salePrice)
+            {
+                throw new IncorrectPricingException();
+            }
             this.pNumber = pNumber;
             this.brand = brand;
             this.type = type;
