@@ -35,7 +35,7 @@ namespace MediaBazaar
 
         public override string ToString()
         {
-            return $"{this.name} - {this.mngFName} {this.mngLName}";
+            return $"{this.name} --- Assign to: {this.mngFName} {this.mngLName}";
         }
     }
 }

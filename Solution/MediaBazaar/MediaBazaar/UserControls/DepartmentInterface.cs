@@ -42,6 +42,7 @@ namespace MediaBazaar
             foreach (Department i in this.deptMngr.GetDepartments())
             {
                 lbxDepartments.Items.Add(i);
+                lbxDepartments.Items.Add("");
             }
         }
 

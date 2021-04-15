@@ -32,14 +32,14 @@ namespace MediaBazaar
             this.tclDepartment = new System.Windows.Forms.TabControl();
             this.tpAddDepartment = new System.Windows.Forms.TabPage();
             this.gbxAddDepartment = new System.Windows.Forms.GroupBox();
+            this.cbxDManager = new System.Windows.Forms.ComboBox();
+            this.lblDManager = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tbxName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lbxDepartments = new System.Windows.Forms.ListBox();
             this.lblDepartments = new System.Windows.Forms.Label();
-            this.tpAssignEmployeeToDepartment = new System.Windows.Forms.TabPage();
-            this.lblDManager = new System.Windows.Forms.Label();
-            this.cbxDManager = new System.Windows.Forms.ComboBox();
+            this.tpAssignPCategories = new System.Windows.Forms.TabPage();
             this.tclDepartment.SuspendLayout();
             this.tpAddDepartment.SuspendLayout();
             this.gbxAddDepartment.SuspendLayout();
@@ -48,7 +48,7 @@ namespace MediaBazaar
             // tclDepartment
             // 
             this.tclDepartment.Controls.Add(this.tpAddDepartment);
-            this.tclDepartment.Controls.Add(this.tpAssignEmployeeToDepartment);
+            this.tclDepartment.Controls.Add(this.tpAssignPCategories);
             this.tclDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tclDepartment.Location = new System.Drawing.Point(3, 3);
             this.tclDepartment.Name = "tclDepartment";
@@ -84,6 +84,25 @@ namespace MediaBazaar
             this.gbxAddDepartment.TabIndex = 2;
             this.gbxAddDepartment.TabStop = false;
             this.gbxAddDepartment.Text = "Add department";
+            // 
+            // cbxDManager
+            // 
+            this.cbxDManager.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxDManager.FormattingEnabled = true;
+            this.cbxDManager.Location = new System.Drawing.Point(200, 115);
+            this.cbxDManager.Name = "cbxDManager";
+            this.cbxDManager.Size = new System.Drawing.Size(245, 28);
+            this.cbxDManager.TabIndex = 4;
+            // 
+            // lblDManager
+            // 
+            this.lblDManager.AutoSize = true;
+            this.lblDManager.Location = new System.Drawing.Point(6, 123);
+            this.lblDManager.Name = "lblDManager";
+            this.lblDManager.Size = new System.Drawing.Size(172, 20);
+            this.lblDManager.TabIndex = 3;
+            this.lblDManager.Text = "Department manager:";
+            this.lblDManager.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnAdd
             // 
@@ -131,35 +150,16 @@ namespace MediaBazaar
             this.lblDepartments.Text = "Departments";
             this.lblDepartments.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tpAssignEmployeeToDepartment
+            // tpAssignPCategories
             // 
-            this.tpAssignEmployeeToDepartment.BackColor = System.Drawing.Color.Lavender;
-            this.tpAssignEmployeeToDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tpAssignEmployeeToDepartment.Location = new System.Drawing.Point(4, 34);
-            this.tpAssignEmployeeToDepartment.Name = "tpAssignEmployeeToDepartment";
-            this.tpAssignEmployeeToDepartment.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAssignEmployeeToDepartment.Size = new System.Drawing.Size(1115, 741);
-            this.tpAssignEmployeeToDepartment.TabIndex = 1;
-            this.tpAssignEmployeeToDepartment.Text = "Assign employee to department";
-            // 
-            // lblDManager
-            // 
-            this.lblDManager.AutoSize = true;
-            this.lblDManager.Location = new System.Drawing.Point(6, 123);
-            this.lblDManager.Name = "lblDManager";
-            this.lblDManager.Size = new System.Drawing.Size(172, 20);
-            this.lblDManager.TabIndex = 3;
-            this.lblDManager.Text = "Department manager:";
-            this.lblDManager.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cbxDManager
-            // 
-            this.cbxDManager.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxDManager.FormattingEnabled = true;
-            this.cbxDManager.Location = new System.Drawing.Point(200, 115);
-            this.cbxDManager.Name = "cbxDManager";
-            this.cbxDManager.Size = new System.Drawing.Size(245, 28);
-            this.cbxDManager.TabIndex = 4;
+            this.tpAssignPCategories.BackColor = System.Drawing.Color.Lavender;
+            this.tpAssignPCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tpAssignPCategories.Location = new System.Drawing.Point(4, 34);
+            this.tpAssignPCategories.Name = "tpAssignPCategories";
+            this.tpAssignPCategories.Padding = new System.Windows.Forms.Padding(3);
+            this.tpAssignPCategories.Size = new System.Drawing.Size(1115, 741);
+            this.tpAssignPCategories.TabIndex = 1;
+            this.tpAssignPCategories.Text = "Assign product categories";
             // 
             // DepartmentInterface
             // 
@@ -186,7 +186,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.ListBox lbxDepartments;
         private System.Windows.Forms.Label lblDepartments;
-        private System.Windows.Forms.TabPage tpAssignEmployeeToDepartment;
+        private System.Windows.Forms.TabPage tpAssignPCategories;
         private System.Windows.Forms.ComboBox cbxDManager;
         private System.Windows.Forms.Label lblDManager;
     }
