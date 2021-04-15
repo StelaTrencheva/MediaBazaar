@@ -75,6 +75,5 @@ namespace MediaBazaar
             HideAllInterfaces();
             departmentInterface1.Show();
         }
-
     }
 }

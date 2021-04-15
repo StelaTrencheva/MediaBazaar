@@ -11,9 +11,8 @@ namespace MediaBazaar
         private int id;
         private ShiftType type;
         private DateTime date;
-
+        private int assignableEmployees;
         private List<Employee> assignedEmployees;
-        private List<Employee> availableEmployees;
         public int Id
         {
             get { return this.id; }
@@ -27,58 +26,56 @@ namespace MediaBazaar
         {
             get { return this.date; }
         }
-        public Shift(int id, ShiftType shiftType, DateTime date, List<Employee> assignedEmployees, List<Employee> availableEmployees)
+        public int AssignableEmployees
+        {
+            get { return this.assignableEmployees; }
+            set { this.assignableEmployees = value; }
+        }
+        public Shift(int id, ShiftType shiftType, DateTime date, List<Employee> assignedEmployees, int assignableEmployees)
         {
             this.id = id;
             this.type = shiftType;
             this.date = date;
             this.assignedEmployees = assignedEmployees;
-            this.availableEmployees = availableEmployees;
+            this.assignableEmployees = assignableEmployees;
+
         }
 
         public List<Employee> GetAssignedEmployees()
         {
             return this.assignedEmployees;
         }
-        public List<Employee> GetAvailableEmployees()
-        {
 
-            return this.availableEmployees;
-        }
-        public List<int> GetAvailableEmployeesIds()
+        public List<int> GetAssignedEmployeesIds()
         {
             List<int> ids = new List<int>();
-            foreach (Employee e in availableEmployees)
+            foreach (Employee employee in this.assignedEmployees)
             {
-                ids.Add(e.Id);
+                ids.Add(employee.Id);
+            }
+            if (ids.Count == 0)
+            {
+                ids.Add(-1);
             }
             return ids;
         }
-        private Employee FindEmployee(string bsn, List<Employee> listOfEmployees)
+        public void AssignEmployee(Employee employee)
         {
-            foreach (Employee employee in listOfEmployees)
+            assignedEmployees.Add(employee);
+
+        }
+        public bool RemoveEmployee(int employeeId)
+        {
+            foreach (Employee employee in assignedEmployees)
             {
-                if (employee.BSN == bsn)
+                if (employee.Id == employeeId)
                 {
-                    return employee;
+                    assignedEmployees.Remove(employee);
+                    return true;
                 }
             }
-            return null;
-        }
-        public Employee AssignEmployee(string bsn)
-        {
-            Employee foundEmployee = FindEmployee(bsn, availableEmployees);
-            assignedEmployees.Add(foundEmployee);
-            availableEmployees.Remove(foundEmployee);
-            return foundEmployee;
-        }
 
-        public Employee RemoveEmployee(string bsn)
-        {
-            Employee foundEmployee = FindEmployee(bsn, assignedEmployees);
-            availableEmployees.Add(foundEmployee);
-            assignedEmployees.Remove(foundEmployee);
-            return foundEmployee;
+            return false;
 
         }
     }

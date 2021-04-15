@@ -84,6 +84,7 @@
     <Compile Include="Class\DBMediatorEmployee.cs" />
     <Compile Include="Class\DBMediatorEmpStatistic.cs" />
     <Compile Include="Class\DBMediatorProduct.cs" />
+    <Compile Include="Class\DBMediatorShifts.cs" />
     <Compile Include="Class\Department.cs" />
     <Compile Include="Class\ProductManager.cs" />
     <Compile Include="Class\DepartmentManager.cs" />
@@ -160,6 +161,7 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\EmpStatisticManager.cs" />
+    <Compile Include="UserControls\ShiftManager.cs" />
     <Compile Include="UserControls\UserInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
