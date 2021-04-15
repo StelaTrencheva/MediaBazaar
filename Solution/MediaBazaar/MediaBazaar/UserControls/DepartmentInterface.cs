@@ -12,18 +12,34 @@ namespace MediaBazaar
 {
     public partial class DepartmentInterface : UserControl
     {
-        private DepartmentManager dept;
+        private DepartmentManager deptMngr;
+        private EmployeeManager empMng;
         public DepartmentInterface()
         {
             InitializeComponent();
-            this.dept = new DepartmentManager();
+            this.deptMngr = new DepartmentManager();
+            this.empMng = new EmployeeManager();
             this.DisplayDepartments();
+            this.DisplayDepartmentManagers();
+        }
+
+        private void DisplayDepartmentManagers()
+        {
+            cbxDManager.Items.Clear();
+            foreach(Employee emp in this.empMng.GetListOFAllEmployees())
+            {
+                if(emp.Position == EmployeeType.DEPARTMENT_MANAGER)
+                {
+                    cbxDManager.Items.Add(emp.GetNames());
+                }
+            }
+            cbxDManager.SelectedIndex = 0;
         }
 
         private void DisplayDepartments()
         {
             lbxDepartments.Items.Clear();
-            foreach (Department i in this.dept.GetDepartments())
+            foreach (Department i in this.deptMngr.GetDepartments())
             {
                 lbxDepartments.Items.Add(i);
             }
@@ -33,26 +49,29 @@ namespace MediaBazaar
         {
             try
             {
-                if (tbxName.Text == "")
+                foreach (Employee emp in this.empMng.GetListOFAllEmployees())
                 {
-                    MessageBox.Show("Please fill in the name.");
-                    this.DisplayDepartments();
-                }
-                else
-                {
-                    this.dept.AddDepartment(tbxName.Text);
-                    MessageBox.Show("Succesfully added");
-                    this.DisplayDepartments();
+                    if (cbxDManager.SelectedItem.ToString() == emp.GetNames())
+                    {
+                        this.deptMngr.AddDepartment(tbxName.Text, emp.Id, emp.FirstName, emp.LastName);
+                        MessageBox.Show("Succesfully added");
+                        this.DisplayDepartments();
+                    }
                 }
             }
-            catch (FormatException)
+            catch (NullReferenceException)
             {
-                MessageBox.Show("Please fill the fields with the correct format");
+                MessageBox.Show("Please fill in the name.");
             }
-            catch(Exception exce)
+            catch (RepeatingObjectException)
+            {
+                MessageBox.Show("This department manager is already assign");
+            }
+            catch (Exception exce)
             {
                 MessageBox.Show(exce.ToString());
             }
+            
 
             tbxName.Clear();
         }

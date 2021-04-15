@@ -174,5 +174,10 @@ namespace MediaBazaar
             return $"Id: {id}\t  {firstName} {lastName} - {position}";
         }
 
+        public string GetNames()
+        {
+            return $"ID: {this.id} {this.firstName} {this.lastName}";
+        }
+
     }
 }

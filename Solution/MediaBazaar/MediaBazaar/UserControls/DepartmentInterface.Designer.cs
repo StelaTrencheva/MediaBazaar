@@ -38,6 +38,8 @@ namespace MediaBazaar
             this.lbxDepartments = new System.Windows.Forms.ListBox();
             this.lblDepartments = new System.Windows.Forms.Label();
             this.tpAssignEmployeeToDepartment = new System.Windows.Forms.TabPage();
+            this.lblDManager = new System.Windows.Forms.Label();
+            this.cbxDManager = new System.Windows.Forms.ComboBox();
             this.tclDepartment.SuspendLayout();
             this.tpAddDepartment.SuspendLayout();
             this.gbxAddDepartment.SuspendLayout();
@@ -71,19 +73,21 @@ namespace MediaBazaar
             // gbxAddDepartment
             // 
             this.gbxAddDepartment.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.gbxAddDepartment.Controls.Add(this.cbxDManager);
+            this.gbxAddDepartment.Controls.Add(this.lblDManager);
             this.gbxAddDepartment.Controls.Add(this.btnAdd);
             this.gbxAddDepartment.Controls.Add(this.tbxName);
             this.gbxAddDepartment.Controls.Add(this.lblName);
             this.gbxAddDepartment.Location = new System.Drawing.Point(26, 75);
             this.gbxAddDepartment.Name = "gbxAddDepartment";
-            this.gbxAddDepartment.Size = new System.Drawing.Size(452, 166);
+            this.gbxAddDepartment.Size = new System.Drawing.Size(452, 233);
             this.gbxAddDepartment.TabIndex = 2;
             this.gbxAddDepartment.TabStop = false;
             this.gbxAddDepartment.Text = "Add department";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(10, 107);
+            this.btnAdd.Location = new System.Drawing.Point(10, 168);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(436, 31);
             this.btnAdd.TabIndex = 2;
@@ -93,18 +97,18 @@ namespace MediaBazaar
             // 
             // tbxName
             // 
-            this.tbxName.Location = new System.Drawing.Point(10, 74);
+            this.tbxName.Location = new System.Drawing.Point(200, 74);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(436, 27);
+            this.tbxName.Size = new System.Drawing.Size(246, 27);
             this.tbxName.TabIndex = 1;
             // 
             // lblName
             // 
-            this.lblName.Location = new System.Drawing.Point(11, 33);
+            this.lblName.Location = new System.Drawing.Point(6, 71);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(435, 30);
+            this.lblName.Size = new System.Drawing.Size(188, 30);
             this.lblName.TabIndex = 0;
-            this.lblName.Text = "Name";
+            this.lblName.Text = "Name:";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbxDepartments
@@ -138,6 +142,25 @@ namespace MediaBazaar
             this.tpAssignEmployeeToDepartment.TabIndex = 1;
             this.tpAssignEmployeeToDepartment.Text = "Assign employee to department";
             // 
+            // lblDManager
+            // 
+            this.lblDManager.AutoSize = true;
+            this.lblDManager.Location = new System.Drawing.Point(6, 123);
+            this.lblDManager.Name = "lblDManager";
+            this.lblDManager.Size = new System.Drawing.Size(172, 20);
+            this.lblDManager.TabIndex = 3;
+            this.lblDManager.Text = "Department manager:";
+            this.lblDManager.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cbxDManager
+            // 
+            this.cbxDManager.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxDManager.FormattingEnabled = true;
+            this.cbxDManager.Location = new System.Drawing.Point(200, 115);
+            this.cbxDManager.Name = "cbxDManager";
+            this.cbxDManager.Size = new System.Drawing.Size(245, 28);
+            this.cbxDManager.TabIndex = 4;
+            // 
             // DepartmentInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -164,5 +187,7 @@ namespace MediaBazaar
         private System.Windows.Forms.ListBox lbxDepartments;
         private System.Windows.Forms.Label lblDepartments;
         private System.Windows.Forms.TabPage tpAssignEmployeeToDepartment;
+        private System.Windows.Forms.ComboBox cbxDManager;
+        private System.Windows.Forms.Label lblDManager;
     }
 }

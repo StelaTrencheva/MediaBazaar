@@ -161,7 +161,7 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\EmpStatisticManager.cs" />
-    <Compile Include="UserControls\ShiftManager.cs" />
+    <Compile Include="Class\ShiftManager.cs" />
     <Compile Include="UserControls\UserInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
