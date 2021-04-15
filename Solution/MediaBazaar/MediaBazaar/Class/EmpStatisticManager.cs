@@ -73,6 +73,8 @@ namespace MediaBazaar
         public List<double> ShowOverallStatistics(string typeOfStats, string period, DateTime date)
         {
             List<double> EmpStats = new List<double>();
+            List<DateTime> DaysOfTHeWeek = GetDaysOfWeek(date);
+            int WeekNumber = GetWeekNumber(date);
             switch (period)
             {
                 case "year":
@@ -114,19 +116,19 @@ namespace MediaBazaar
                 case "week":
                     if (typeOfStats == "Total salary")
                     {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(GetWeekNumber(date), date, "Total salary", "None");
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(DaysOfTHeWeek,WeekNumber, date, "Total salary", "None");
                     }
                     else if (typeOfStats == "Average salary")
                     {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(GetWeekNumber(date), date, "Total salary", "Average");
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(DaysOfTHeWeek,WeekNumber, date, "Total salary", "Average");
                     }
                     else if (typeOfStats == "Total hours worked")
                     {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(GetWeekNumber(date), date, "Total hours worked", "None");
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(DaysOfTHeWeek,WeekNumber, date, "Total hours worked", "None");
                     }
                     else if (typeOfStats == "Average hours worked")
                     {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(GetWeekNumber(date), date, "Total hours worked", "Average");
+                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total hours worked", "Average");
                     }
                     return EmpStats;
             }
@@ -135,6 +137,26 @@ namespace MediaBazaar
         public int GetWeekNumber(DateTime date)
         {
             return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+        }
+        public List<DateTime> GetDaysOfWeek(DateTime date)
+        {
+            DateTime startDate = date;
+            DateTime endDate = startDate.AddDays(7);
+            List<DateTime> dates = new List<DateTime>();
+            for (DateTime i = startDate; i > date.AddDays(-7); i = i.AddDays(-1))
+            {
+                if(GetWeekNumber(i.AddDays(-1))!= GetWeekNumber(date))
+                {
+                    startDate = i;
+                    endDate = startDate.AddDays(7);
+                    break;
+                }
+            }
+            for (DateTime i = startDate; i < endDate; i = i.AddDays(1))
+            {
+                dates.Add(i);
+            }
+            return dates;
         }
     }
 }

@@ -284,7 +284,7 @@
             this.dtDateStatistic.Name = "dtDateStatistic";
             this.dtDateStatistic.Size = new System.Drawing.Size(340, 27);
             this.dtDateStatistic.TabIndex = 17;
-            this.dtDateStatistic.Value = new System.DateTime(2021, 3, 22, 12, 44, 54, 0);
+            this.dtDateStatistic.Value = new System.DateTime(2021, 4, 15, 0, 0, 0, 0);
             this.dtDateStatistic.ValueChanged += new System.EventHandler(this.dtDateStatistic_ValueChanged);
             // 
             // lblEmpStat

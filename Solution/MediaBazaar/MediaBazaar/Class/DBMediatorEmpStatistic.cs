@@ -266,7 +266,7 @@ namespace MediaBazaar
             }
             return TotalSalaryPerMonths;
         }
-        public List<double> GetOverallEmpStatTotalSalaryForWeek(int week, DateTime date, string conditionTotal, string conditionAvg)
+        public List<double> GetOverallEmpStatTotalSalaryForWeek(List<DateTime> DaysOfTheWeek ,int week, DateTime date, string conditionTotal, string conditionAvg)
         {
             string sqlStatement = "SELECT IFNULL((em.employeeID),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(DAY FROM sh.date) AS day " +
             "FROM `mb_shift_with_assigned_employee` as em " +
@@ -294,29 +294,34 @@ namespace MediaBazaar
 
                 while (reader.Read())
                 {
-                    int day = Convert.ToInt32(reader["day"]);
+                    //DateTime dayy = Convert.ToDateTime(reader["day"]);
+                    string day = reader["day"].ToString() ;
                     double hours = Convert.ToDouble(reader["assignedHours"]);
                     double wage = Convert.ToDouble(reader["wage"]);
                     if (conditionTotal == "Total salary")
                     {
-                        for (int i = 1; i < date.Day; i++)
+                        int h = 0;
+                        for (DateTime i = DaysOfTheWeek[0]; i < DaysOfTheWeek[6]; i = i.AddDays(1))
                         {
-                            if (i == day)
+                            if (i.Day.ToString() == day)
                             {
-                                TotalSalaryPerWeek[i - 1] += (hours * wage * 4);
-                                counter[i - 1] += 1;
+                                TotalSalaryPerWeek[h] += (hours * wage * 4);
+                                counter[h] += 1;
                             }
+                            h++;
                         }
                     }
                     else if (conditionTotal == "Total hours worked")
                     {
-                        for (int i = 1; i < 8; i++)
+                        int h = 0;
+                        for (DateTime i = DaysOfTheWeek[0]; i < DaysOfTheWeek[6]; i = i.AddDays(1))
                         {
-                            if (i == day)
+                            if (i.Day.ToString() == day)
                             {
-                                TotalSalaryPerWeek[i - 1] += (hours);
-                                counter[i - 1] += 1;
+                                TotalSalaryPerWeek[h] += (hours);
+                                counter[h] += 1;
                             }
+                            h++;
                         }
                     }
 
@@ -327,9 +332,11 @@ namespace MediaBazaar
                 this.DbConnection.Close();
                 if (conditionAvg == "Average")
                 {
-                    for (int i = 0; i < 7; i++)
+                    int h = 0;
+                    for (DateTime i = DaysOfTheWeek[0]; i < DaysOfTheWeek[6]; i = i.AddDays(1))
                     {
-                        TotalSalaryPerWeek[i] /= counter[i];
+                        TotalSalaryPerWeek[h] /= counter[h];
+                        h++;
                     }
                 }
             }
