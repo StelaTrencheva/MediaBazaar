@@ -54,7 +54,7 @@ namespace MediaBazaar
                 {
                     if (cbxDManager.SelectedItem.ToString() == emp.GetNames)
                     {
-                        this.deptMngr.AddDepartment(tbxName.Text, emp.Id, emp.FirstName, emp.LastName);
+                        this.deptMngr.AddDepartment(new Department(0, tbxName.Text, emp.Id, emp.FirstName, emp.LastName));
                         MessageBox.Show("Succesfully added");
                         this.DisplayDepartments();
                     }
@@ -66,7 +66,7 @@ namespace MediaBazaar
             }
             catch (RepeatingObjectException)
             {
-                MessageBox.Show("This department manager or this name already exists or is assign");
+                MessageBox.Show("This department manager is already assign or\nthis department name already exists.");
             }
             catch (Exception exce)
             {

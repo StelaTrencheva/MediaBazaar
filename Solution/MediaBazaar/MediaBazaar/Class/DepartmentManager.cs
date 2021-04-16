@@ -16,15 +16,14 @@ namespace MediaBazaar
             this.dbMediator = new DBMediatorDepartment();
         }
 
-        public void AddDepartment(string name, int id, string fname, string lname)
+        public void AddDepartment(Department newDept)
         {
-            this.dept = new Department(0, name, id, fname, lname);
-            if (dbMediator.CheckIfExists(id,name))
+            if (dbMediator.CheckIfExists(newDept.Dept_mng_id, newDept.Name))
             {
                 throw new RepeatingObjectException();
             }
             
-            this.dbMediator.AddDepartment(name, id);
+            this.dbMediator.AddDepartment(newDept.Name, newDept.Dept_mng_id);
         }
 
         public List<Department> GetDepartments()

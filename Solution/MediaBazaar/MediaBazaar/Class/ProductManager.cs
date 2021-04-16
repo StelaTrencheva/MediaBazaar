@@ -21,20 +21,15 @@ namespace MediaBazaar
             return this.dbMediator.GetProducts();
         }
 
-        public bool AddProductToDB(string brand, string type, string model, string description, string category,
-            string subcategory, decimal costPrice, decimal salePrice, int amountInStore, int amountInWarehouse)
+        public bool AddProductToDB(Product newProd)
         {
-            Product product = new Product(0,brand, type, model, description, category, subcategory, costPrice, salePrice,
-                amountInStore, amountInWarehouse);
 
-            if (dbMediator.CheckIfExists(model, brand))
+            if (dbMediator.CheckIfExists(newProd.Model, newProd.Brand))
             {
                 throw new ArgumentException();
             }
 
-
-            return this.dbMediator.AddProduct(brand, type, model, description, category, subcategory, costPrice, salePrice,
-                amountInStore, amountInWarehouse);
+            return this.dbMediator.AddProduct(newProd);
         }
         public bool DeleteAProduct(int id)
         {
