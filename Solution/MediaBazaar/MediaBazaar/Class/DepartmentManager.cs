@@ -18,11 +18,12 @@ namespace MediaBazaar
 
         public void AddDepartment(string name, int id, string fname, string lname)
         {
+            this.dept = new Department(0, name, id, fname, lname);
             if (dbMediator.CheckIfExists(id,name))
             {
                 throw new RepeatingObjectException();
             }
-            this.dept = new Department(0, name, id, fname, lname);
+            
             this.dbMediator.AddDepartment(name, id);
         }
 
