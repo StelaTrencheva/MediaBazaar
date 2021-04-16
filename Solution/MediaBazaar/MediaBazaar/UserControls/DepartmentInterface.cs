@@ -66,7 +66,7 @@ namespace MediaBazaar
             }
             catch (RepeatingObjectException)
             {
-                MessageBox.Show("This department manager or this name already exists or is assign");
+                MessageBox.Show("This department manager is already assign or\nthis department name already exists.");
             }
             catch (Exception exce)
             {
