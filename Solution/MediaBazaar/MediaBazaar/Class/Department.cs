@@ -23,7 +23,7 @@ namespace MediaBazaar
         {
             if(name == "")
             {
-                throw new NullReferenceException();
+                throw new ArgumentException();
             }
 
             this.code = code;

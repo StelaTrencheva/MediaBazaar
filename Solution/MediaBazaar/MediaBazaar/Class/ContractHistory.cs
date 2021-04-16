@@ -12,6 +12,12 @@ namespace MediaBazaar
         ContractType contract;
         DateTime startdate;
         DateTime lastdate;
+
+        public ContractType Contract
+        {
+            get { return contract; }
+        }
+
         //Constructor
         public ContractHistory(int empid, ContractType contract, DateTime startdate, DateTime lastdate)
         {
@@ -23,6 +29,17 @@ namespace MediaBazaar
         public override string ToString()
         {
             return $"{contract} From: {startdate.ToString("yyyy-MM-dd")} To: {lastdate.ToString("yyyy-MM-dd")}";
+        }
+        public bool DateIfBetween(DateTime date)
+        {
+            if (startdate < date && date > lastdate)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

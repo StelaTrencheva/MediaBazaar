@@ -26,13 +26,13 @@ namespace MediaBazaar
         {
             Product product = new Product(0,brand, type, model, description, category, subcategory, costPrice, salePrice,
                 amountInStore, amountInWarehouse);
-            foreach (Product i in GetAllProducts())
+
+            if (dbMediator.CheckIfExists(model, brand))
             {
-                if (i.Model.ToLower() == model.ToLower() && i.Brand.ToLower() == brand.ToLower())
-                {
-                    throw new RepeatingObjectException();
-                }
+                throw new ArgumentException();
             }
+
+
             return this.dbMediator.AddProduct(brand, type, model, description, category, subcategory, costPrice, salePrice,
                 amountInStore, amountInWarehouse);
         }

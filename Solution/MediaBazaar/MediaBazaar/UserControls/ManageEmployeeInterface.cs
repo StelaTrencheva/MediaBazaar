@@ -149,7 +149,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show("Please fill all the fields");
             }
-            catch (RepeatingObjectException)
+            catch (ArgumentException)
             {
                 MessageBox.Show("This bsn already exist");
             }

@@ -138,7 +138,7 @@ namespace MediaBazaar
             //{
             //    return false;
             //}
-            catch (Exception)
+            catch (Exception )
             {
                 return false;
             }
@@ -245,6 +245,40 @@ namespace MediaBazaar
             }
             catch (Exception e)
             {  
+                return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+        public bool CheckIfExists(string bsn)
+        {
+            //SELECT pNum FROM mb_product WHERE model = 'EasyDrill 1200 12V' AND brand = 'Bosch';
+            string sqlStatement = "SELECT bsn FROM mb_employee WHERE bsn = @B;";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection); ;
+            sqlCommand.Parameters.AddWithValue("@B", bsn);
+
+            try
+            {
+                DbConnection.Open();
+                Object test = sqlCommand.ExecuteScalar();
+
+                if (test != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (MySqlException)
+            {
+                return false;
+            }
+            catch (Exception)
+            {
                 return false;
             }
             finally

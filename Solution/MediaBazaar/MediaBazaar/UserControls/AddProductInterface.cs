@@ -58,7 +58,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show("The sale price can not be smaller than the cost price");
             }
-            catch (RepeatingObjectException)
+            catch (ArgumentException)
             {
                 MessageBox.Show("This product already exist");
             }

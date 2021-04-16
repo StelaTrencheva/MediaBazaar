@@ -22,7 +22,7 @@ namespace MediaBazaar
         public List<Employee> GetListOfAllEmployees()
         {
             employeeManager = new EmployeeManager();
-            return employeeManager.GetEmployees(); ;
+            return employeeManager.GetListOFAllEmployees();
         }
 
 

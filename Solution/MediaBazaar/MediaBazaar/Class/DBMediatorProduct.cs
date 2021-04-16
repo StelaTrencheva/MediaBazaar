@@ -125,6 +125,44 @@ namespace MediaBazaar
                 DbConnection.Close();
             }
         }
+        public bool CheckIfExists(string model, string brand)
+        {
+            //SELECT pNum FROM mb_product WHERE model = 'EasyDrill 1200 12V' AND brand = 'Bosch';
+            string sqlStatement = "SELECT pNum FROM mb_product WHERE model = @M AND brand = @B;";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection); ;
+            sqlCommand.Parameters.AddWithValue("@M", model);
+            sqlCommand.Parameters.AddWithValue("@B", brand);
+
+            try
+            {
+                DbConnection.Open();
+                Object test = sqlCommand.ExecuteScalar();
+
+                if (test != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (MySqlException e)
+            {
+                //MessageBox.Show(sqlExceptionMessage(e.Message));
+                return false;
+            }
+            catch (Exception e)
+            {
+                //MessageBox.Show(sqlExceptionMessage(e.Message));
+                return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
 
     }
 }

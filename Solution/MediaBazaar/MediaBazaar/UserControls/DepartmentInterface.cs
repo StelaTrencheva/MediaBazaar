@@ -60,13 +60,13 @@ namespace MediaBazaar
                     }
                 }
             }
-            catch (NullReferenceException)
+            catch (ArgumentException)
             {
                 MessageBox.Show("Please fill in the name.");
             }
             catch (RepeatingObjectException)
             {
-                MessageBox.Show("This department manager is already assign");
+                MessageBox.Show("This department manager or this name already exists or is assign");
             }
             catch (Exception exce)
             {

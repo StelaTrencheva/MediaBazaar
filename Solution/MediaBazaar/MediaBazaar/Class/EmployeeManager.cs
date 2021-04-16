@@ -21,16 +21,14 @@ namespace MediaBazaar
             string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
              DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, ContractType contract, EmployeeType position)
         {
+            if (dbMediator.CheckIfExists(bsn))
+            {
+                throw new ArgumentException();
+            }
+
             employees.Add(new Employee(0,bsn, firstName, lastName, gender, email, username, birthDay,
                  addrStreet, addrStreetNumber, addrZipcode, addrTown, addrCountry,
                   firstWorkingDay, emergencyPhoneNumber, iban, hourlyWage,DateTime.Now, contract, position));
-            foreach (Employee emp in GetListOFAllEmployees())
-            {
-                if (emp.BSN.ToLower() == bsn.ToLower())
-                {
-                    throw new RepeatingObjectException();
-                }
-            }
             return dbMediator.AddEmployee(bsn, firstName, lastName, gender, email, username,  birthDay,
                                           addrStreet, addrStreetNumber, addrZipcode, addrTown, addrCountry,
                                           firstWorkingDay, emergencyPhoneNumber, iban, hourlyWage, contract, position);

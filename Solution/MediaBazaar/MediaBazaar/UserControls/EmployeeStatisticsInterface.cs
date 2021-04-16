@@ -25,6 +25,7 @@ namespace MediaBazaar
 
         private void EmployeeStatistics_Load(object sender, EventArgs e)
         {
+            lbxEmployees.Items.Clear();
             foreach (Employee emp in empStatistics.GetListOfAllEmployees())
             {
                 lbxEmployees.Items.Add(emp.GetEmployeeNames);

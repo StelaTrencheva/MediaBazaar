@@ -75,5 +75,39 @@ namespace MediaBazaar
                 DbConnection.Close();
             }
         }
+        public bool CheckIfExists(int id,string name)
+        {
+            string sqlStatement = "SELECT dept_manager_id  FROM mb_department WHERE dept_manager_id  = @I OR dept_name = @N;";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection); ;
+            sqlCommand.Parameters.AddWithValue("@I", id);
+            sqlCommand.Parameters.AddWithValue("@N", name);
+
+            try
+            {
+                DbConnection.Open();
+                Object test = sqlCommand.ExecuteScalar();
+
+                if (test != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (MySqlException)
+            {
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
     }
 }
