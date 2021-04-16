@@ -8,30 +8,27 @@ namespace MediaBazaar
 {
     public class EmployeeManager
     {
+        //Instance variables
         private List<Employee> employees;
         private DBMediatorEmployee dbMediator;
 
+        //Constructor
         public EmployeeManager()
         {
             employees = new List<Employee>();
             dbMediator = new DBMediatorEmployee();
         }
 
-        public bool AddEmployeeToDb(string bsn, string firstName, string lastName, Gender gender, string email, string username,  DateTime birthDay,
-            string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
-             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, ContractType contract, EmployeeType position)
+        //Methods
+        public bool AddEmployeeToDb(Employee newEmp)
         {
-            if (dbMediator.CheckIfExists(bsn))
+            if (dbMediator.CheckIfExists(newEmp.BSN))
             {
                 throw new ArgumentException();
             }
 
-            employees.Add(new Employee(0,bsn, firstName, lastName, gender, email, username, birthDay,
-                 addrStreet, addrStreetNumber, addrZipcode, addrTown, addrCountry,
-                  firstWorkingDay, emergencyPhoneNumber, iban, hourlyWage,DateTime.Now, contract, position));
-            return dbMediator.AddEmployee(bsn, firstName, lastName, gender, email, username,  birthDay,
-                                          addrStreet, addrStreetNumber, addrZipcode, addrTown, addrCountry,
-                                          firstWorkingDay, emergencyPhoneNumber, iban, hourlyWage, contract, position);
+            employees.Add(newEmp);
+            return dbMediator.AddEmployee(newEmp);
         }
         public List<Employee> GetEmployees()
         {
@@ -45,8 +42,6 @@ namespace MediaBazaar
         {
             return dbMediator.DeleteEmployee(id);
         }
-        
-
         public List<Employee> GetListOFAllEmployees()
         {
             this.employees = dbMediator.GetEmployees();
@@ -56,13 +51,10 @@ namespace MediaBazaar
         {
             employees.Remove(emp);
         }
-
         public Employee Login(string username,string password)
         {
             return dbMediator.FindMatchingLoginInfo(username, password);
         }
-
-        
         public void UpdateEmployees()
         {
             this.employees = dbMediator.GetEmployees();

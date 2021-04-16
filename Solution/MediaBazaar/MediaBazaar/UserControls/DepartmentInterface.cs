@@ -30,7 +30,7 @@ namespace MediaBazaar
             {
                 if(emp.Position == EmployeeType.DEPARTMENT_MANAGER)
                 {
-                    cbxDManager.Items.Add(emp.GetNames());
+                    cbxDManager.Items.Add(emp.GetNames);
                 }
             }
             cbxDManager.SelectedIndex = 0;
@@ -52,7 +52,7 @@ namespace MediaBazaar
             {
                 foreach (Employee emp in this.empMng.GetListOFAllEmployees())
                 {
-                    if (cbxDManager.SelectedItem.ToString() == emp.GetNames())
+                    if (cbxDManager.SelectedItem.ToString() == emp.GetNames)
                     {
                         this.deptMngr.AddDepartment(tbxName.Text, emp.Id, emp.FirstName, emp.LastName);
                         MessageBox.Show("Succesfully added");

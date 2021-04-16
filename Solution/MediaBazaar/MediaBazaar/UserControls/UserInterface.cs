@@ -52,7 +52,7 @@ namespace MediaBazaar
             lblHRAdminContractType.Text = $"Contract type: {employee.Contract}";
             lblHRAdminPhoneNum.Text = $"Phone number: {employee.PhoneNumber}";
             lblHRAdminEmail.Text = $"Email: {employee.Email}";
-            lblHRAdminAddress.Text = $"Address: {employee.GetAddress()}";
+            lblHRAdminAddress.Text = $"Address: {employee.GetAddress}";
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)

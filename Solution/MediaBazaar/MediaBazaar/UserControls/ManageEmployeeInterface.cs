@@ -110,29 +110,28 @@ namespace MediaBazaar
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            try { 
-                string FName = tbxFName.Text.ToString();
-                string LName = tbxLName.Text.ToString();
-                Gender gender = (Gender)(cbxGender.SelectedIndex);
-                string bsn = tbxBSN.Text.ToString();
-                string email = tbxEmail.Text.ToString();
-                string username = tbxUsername.Text.ToString();
-                DateTime birthDay = dtpDateOfBirth.Value;
-                string addrStreet = tbxStreet.Text.ToString();
-                string addrStreetNumber = tbxHouseNumber.Text.ToString();
-                string addrZipcode = tbxZipCode.Text.ToString();
-                string addrTown = tbxTown.Text.ToString();
-                string addrCountry = tbxCountry.Text.ToString();
-                DateTime firstWorkingDay = dtpDateFWD.Value;
-                string emergencyPhoneNumber = tbxEmTelNum.Text.ToString();
-                string iban = tbxBankAccNum.Text.ToString();
-                double hourlyWage = double.Parse(tbxHourlyWage.Text);
-                ContractType contract = (ContractType)(cbxContractType.SelectedIndex);
-                EmployeeType position = (EmployeeType)(cbxTypeOfEmployee.SelectedIndex);
-
-                if (manageEmployees.AddEmployeeToDb( bsn, FName, LName, gender,  email,  username,   birthDay,
-                 addrStreet,  addrStreetNumber,  addrZipcode,  addrTown,  addrCountry,
-                  firstWorkingDay,  emergencyPhoneNumber,  iban,  hourlyWage, contract,  position))
+            try {
+                Employee newEmp = new Employee(0, tbxBSN.Text.ToString(),
+                                                tbxFName.Text.ToString(),
+                                                tbxLName.Text.ToString(),
+                                                ((Gender)cbxGender.SelectedIndex),
+                                                tbxEmail.Text.ToString(),
+                                                tbxUsername.Text.ToString(),
+                                                dtpDateOfBirth.Value,
+                                                tbxStreet.Text.ToString(),
+                                                tbxHouseNumber.Text.ToString(),
+                                                tbxZipCode.Text.ToString(),
+                                                tbxTown.Text.ToString(),
+                                                tbxCountry.Text.ToString(),
+                                                dtpDateFWD.Value,
+                                                tbxEmTelNum.Text.ToString(),
+                                                tbxBankAccNum.Text.ToString(),
+                                                double.Parse(tbxHourlyWage.Text),
+                                                DateTime.Now,
+                                                (ContractType)(cbxContractType.SelectedIndex),
+                                                (EmployeeType)(cbxTypeOfEmployee.SelectedIndex)
+                                                );
+                if (manageEmployees.AddEmployeeToDb(newEmp))
                 {
                     MessageBox.Show("Success!");
                     manageEmployees.UpdateEmployees();

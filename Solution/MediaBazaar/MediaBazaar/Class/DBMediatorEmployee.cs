@@ -9,8 +9,10 @@ namespace MediaBazaar
 {
     class DBMediatorEmployee: DBMediator
     {
+        //Constructor
         public DBMediatorEmployee() : base() { }
 
+        //Methods
         public Employee FindMatchingLoginInfo(string username, string password)
         {
             string sqlStatement = "SELECT * FROM `mb_employee` WHERE uname = @u AND pwd= @p";
@@ -44,7 +46,11 @@ namespace MediaBazaar
                 else
                     return null;
             }
-            catch (MySqlException e)
+            catch (MySqlException)
+            {
+                return null;
+            }
+            catch (Exception)
             {
                 return null;
             }
@@ -54,7 +60,7 @@ namespace MediaBazaar
             }
 
         }
-        public List<Employee> GetEmployees()//WORKING!!
+        public List<Employee> GetEmployees()
         {
             string sqlStatement = "SELECT * FROM mb_employee";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
@@ -82,7 +88,7 @@ namespace MediaBazaar
                 }
                 return emp;
             }
-            catch (MySqlException e)
+            catch (MySqlException)
             {
                 return emp;
             }
@@ -92,35 +98,32 @@ namespace MediaBazaar
             }
 
         }
-        public bool AddEmployee(string bsn, string firstName, string lastName, Gender gender, string email, string username, DateTime birthDay,
-            string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
-             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, ContractType contract, EmployeeType position)
+        public bool AddEmployee(Employee newEmp)
         {
             string sqlStatement = "INSERT INTO mb_employee (bsn, fname, lname, gender, email, uname, pwd, birthdate, street, streetnumber, zipcode, town, country, firstworkingday, emergphonenumber, iban, hourlywage, contractstartdate, contracttype, position)" +
                 "VALUES(@1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16, @17, @18, @19, @20);";
 
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
-            string g = firstWorkingDay.ToString("d");
-            sqlCommand.Parameters.AddWithValue("@1", bsn);
-            sqlCommand.Parameters.AddWithValue("@2", firstName);
-            sqlCommand.Parameters.AddWithValue("@3", lastName);
-            sqlCommand.Parameters.AddWithValue("@4", gender.ToString());
-            sqlCommand.Parameters.AddWithValue("@5", email);
-            sqlCommand.Parameters.AddWithValue("@6", username);
+            sqlCommand.Parameters.AddWithValue("@1", newEmp.BSN);
+            sqlCommand.Parameters.AddWithValue("@2", newEmp.FirstName);
+            sqlCommand.Parameters.AddWithValue("@3", newEmp.LastName);
+            sqlCommand.Parameters.AddWithValue("@4", newEmp.Gender.ToString());
+            sqlCommand.Parameters.AddWithValue("@5", newEmp.Email);
+            sqlCommand.Parameters.AddWithValue("@6", newEmp.Username);
             sqlCommand.Parameters.AddWithValue("@7", 0000);
-            sqlCommand.Parameters.AddWithValue("@8", birthDay.ToString("yyyy-MM-dd"));
-            sqlCommand.Parameters.AddWithValue("@9", addrStreet);
-            sqlCommand.Parameters.AddWithValue("@10", addrStreetNumber);
-            sqlCommand.Parameters.AddWithValue("@11", addrZipcode);
-            sqlCommand.Parameters.AddWithValue("@12", addrTown);
-            sqlCommand.Parameters.AddWithValue("@13", addrCountry);
-            sqlCommand.Parameters.AddWithValue("@14", firstWorkingDay.ToString("yyyy-MM-dd"));
-            sqlCommand.Parameters.AddWithValue("@15", emergencyPhoneNumber);
-            sqlCommand.Parameters.AddWithValue("@16", iban);
-            sqlCommand.Parameters.AddWithValue("@17", hourlyWage);
-            sqlCommand.Parameters.AddWithValue("@18", DateTime.Now.ToString("yyyy-MM-dd"));
-            sqlCommand.Parameters.AddWithValue("@19", contract.ToString());
-            sqlCommand.Parameters.AddWithValue("@20", position.ToString());
+            sqlCommand.Parameters.AddWithValue("@8", newEmp.Birthday);
+            sqlCommand.Parameters.AddWithValue("@9", newEmp.Street);
+            sqlCommand.Parameters.AddWithValue("@10", newEmp.StreetNumber);
+            sqlCommand.Parameters.AddWithValue("@11", newEmp.Zipcode);
+            sqlCommand.Parameters.AddWithValue("@12", newEmp.Town);
+            sqlCommand.Parameters.AddWithValue("@13", newEmp.Country);
+            sqlCommand.Parameters.AddWithValue("@14", newEmp.FirstWorkingDay);
+            sqlCommand.Parameters.AddWithValue("@15", newEmp.PhoneNumber);
+            sqlCommand.Parameters.AddWithValue("@16", newEmp.Iban);
+            sqlCommand.Parameters.AddWithValue("@17", newEmp.HourlyWage);
+            sqlCommand.Parameters.AddWithValue("@18", newEmp.ContractStartDate);
+            sqlCommand.Parameters.AddWithValue("@19", newEmp.Contract);
+            sqlCommand.Parameters.AddWithValue("@20", newEmp.Position);
             try
             {
                 int n = 0;
@@ -138,7 +141,7 @@ namespace MediaBazaar
             //{
             //    return false;
             //}
-            catch (Exception )
+            catch (Exception)
             {
                 return false;
             }
@@ -164,11 +167,11 @@ namespace MediaBazaar
                 }
                 return false;
             }
-            catch (MySqlException e)
+            catch (MySqlException)
             {
                 return false;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
@@ -207,11 +210,11 @@ namespace MediaBazaar
                 }
                 return false;
             }
-            catch (MySqlException e)
+            catch (MySqlException)
             {
                 return false;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
@@ -239,11 +242,11 @@ namespace MediaBazaar
                 }
                 return false;
             }
-            catch (MySqlException e)
+            catch (MySqlException)
             {
                 return false;
             }
-            catch (Exception e)
+            catch (Exception)
             {  
                 return false;
             }
@@ -254,7 +257,6 @@ namespace MediaBazaar
         }
         public bool CheckIfExists(string bsn)
         {
-            //SELECT pNum FROM mb_product WHERE model = 'EasyDrill 1200 12V' AND brand = 'Bosch';
             string sqlStatement = "SELECT bsn FROM mb_employee WHERE bsn = @B;";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection); ;
             sqlCommand.Parameters.AddWithValue("@B", bsn);

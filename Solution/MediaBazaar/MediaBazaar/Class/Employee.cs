@@ -8,6 +8,7 @@ namespace MediaBazaar
 {
     public class Employee
     {
+        //Instance variables
         private int id;
         private string bsn;
         private string firstName;
@@ -28,7 +29,8 @@ namespace MediaBazaar
         private DateTime contractStartDate;
         private ContractType contract;
         private EmployeeType position;
-        
+
+        //Properties
         public int Id
         {
             get { return this.id; }
@@ -104,13 +106,22 @@ namespace MediaBazaar
             get { return this.contract; }
             set { this.contract = value; }
         }
-       public double HourlyWage
+        public double HourlyWage
         {
             get { return this.hourlyWage; }
         }
         public string Iban
         {
             get { return iban; }
+        }
+
+        public string GetNames
+        {
+            get { return $"ID: {this.id} {this.firstName} {this.lastName}"; }
+        }
+        public string GetAddress
+        {
+            get { return $"{addrStreet} {addrStreetNumber}; {addrZipcode}; {addrCountry}, {addrTown}"; }
         }
         public string GetEmployeeNames
         {
@@ -122,27 +133,35 @@ namespace MediaBazaar
         }
         public string EmployeeFullInfo
         {
-            get 
-            { return $"ID: {this.Id}-{this.firstName} {this.lastName} - {this.gender} - {this.Position} \r\n" +
-                    $"Address: {this.addrStreet} {this.addrStreetNumber}, {this.addrTown}, {this.addrCountry} \r\n" +
-                    $"First working day: {this.firstWorkingDay.ToString("dd-MM-yyyy")},\r\n" + /*Contract start date:{this.contractStartDate.ToString("dd-MM-yyyy")}*/
-                $"Hourly wage: {this.hourlyWage}, Phone number: {this.emergencyPhoneNumber}";
+            get
+            {
+                return $"ID: {this.Id}-{this.firstName} {this.lastName} - {this.gender} - {this.Position} \r\n" +
+                      $"Address: {this.addrStreet} {this.addrStreetNumber}, {this.addrTown}, {this.addrCountry} \r\n" +
+                      $"First working day: {this.firstWorkingDay.ToString("dd-MM-yyyy")},\r\n" +
+                  $"Hourly wage: {this.hourlyWage}, Phone number: {this.emergencyPhoneNumber}";
             }
         }
         public string GetTotalSalaryPerTimeUnit
         {
             get { return $"{this.hourlyWage}/Day"; }
         }
- 
 
-        public Employee( int id, string bsn, string firstName, string lastName, Gender gender, string email, string username, DateTime birthDay, 
-            string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
-             DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, DateTime contractStartDate, ContractType contract, EmployeeType position)
+        //Constructor
+        public Employee(int id, string bsn, string firstName, string lastName,
+                         Gender gender, string email, string username, DateTime birthDay,
+                         string addrStreet, string addrStreetNumber, string addrZipcode,
+                         string addrTown, string addrCountry, DateTime firstWorkingDay,
+                         string emergencyPhoneNumber, string iban, double hourlyWage,
+                         DateTime contractStartDate, ContractType contract, EmployeeType position)
         {
-            if (bsn == "" || firstName == "" || lastName == "" || email == "" || username == "" || addrStreet == "" || addrStreetNumber == "" || addrZipcode == "" || addrTown == "" || addrCountry == "" || emergencyPhoneNumber == "" || iban == "")
+
+            if (bsn == "" || firstName == "" || lastName == "" || email == "" || username == "" ||
+                addrStreet == "" || addrStreetNumber == "" || addrZipcode == "" || addrTown == "" ||
+                addrCountry == "" || emergencyPhoneNumber == "" || iban == "")
             {
                 throw new NullReferenceException();
             }
+
             this.id = id;
             this.bsn = bsn;
             this.firstName = firstName;
@@ -163,21 +182,12 @@ namespace MediaBazaar
             this.contractStartDate = contractStartDate;
             this.contract = contract;
             this.position = position;
-            
         }
-        public string GetAddress()
-        {
-            return $"{addrStreet} {addrStreetNumber}; {addrZipcode}; {addrCountry}, {addrTown}";
-        }
+
+        //Method/s
         public override string ToString()
         {
             return $"Id: {id}\t  {firstName} {lastName} - {position}";
         }
-
-        public string GetNames()
-        {
-            return $"ID: {this.id} {this.firstName} {this.lastName}";
-        }
-
     }
 }
