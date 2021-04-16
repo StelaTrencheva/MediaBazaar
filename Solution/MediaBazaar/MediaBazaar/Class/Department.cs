@@ -16,7 +16,22 @@ namespace MediaBazaar
 
         public int Dept_mng_id
         {
-            get { return dept_mng_id; }
+            get { return this.dept_mng_id; }
+        }
+
+        public string Name
+        {
+            get { return this.name; }
+        }
+
+        public string MngFName
+        {
+            get { return this.mngFName; }
+        }
+
+        public string MngLName
+        {
+            get { return this.mngLName; }
         }
 
         public Department(int code, string name, int dept_mng_id, string mngFName, string mngLName)

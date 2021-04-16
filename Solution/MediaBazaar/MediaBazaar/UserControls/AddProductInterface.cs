@@ -28,31 +28,30 @@ namespace MediaBazaar
         {
             try
             {
-                string catergory = tbxProductCategory.Text;
-                string subCategory = tbxProductSubCategory.Text;
-                string type = tbxProductType.Text;
-                string brand = tbxProductBrand.Text;
-                string model = tbxProductModel.Text;
-                string description = tbxProductDescription.Text;
-                decimal costPrice = Convert.ToDecimal(tbxProductCostPrice.Text);
-                decimal salesPrice = Convert.ToDecimal(tbxProductSalesPrice.Text);
-                int amountInStore = Convert.ToInt32(tbxProductAmountInStore.Text);
-                int amountInWarehouse = Convert.ToInt32(tbxProductAmountInWarehouse.Text);
 
-                if (pManager.AddProductToDB(brand, type, model, description, catergory, subCategory, costPrice, 
-                    salesPrice, amountInStore, amountInWarehouse))
+                if (pManager.AddProductToDB(new Product(0,
+                                                        tbxProductBrand.Text,
+                                                        tbxProductType.Text,
+                                                        tbxProductModel.Text,
+                                                        tbxProductDescription.Text,
+                                                        tbxProductCategory.Text,
+                                                        tbxProductSubCategory.Text,
+                                                        Convert.ToDecimal(tbxProductCostPrice.Text),
+                                                        Convert.ToDecimal(tbxProductSalesPrice.Text),
+                                                        Convert.ToInt32(tbxProductAmountInStore.Text),
+                                                        Convert.ToInt32(tbxProductAmountInWarehouse.Text))))
                 {
                     MessageBox.Show("Success!");
                     UpdateListBoxAllProducts();
                 }
                 else
                 {
-                    MessageBox.Show("Try again");
+                    MessageBox.Show("One of the field is too long");
                 }
             }
             catch (FormatException)
             {
-                MessageBox.Show("Please fill the fields with the correct format");
+                MessageBox.Show("Please fill all the fields and\nfill the fields with the correct format");
             }
             catch (IncorrectPricingException)
             {

@@ -54,7 +54,7 @@ namespace MediaBazaar
                 {
                     if (cbxDManager.SelectedItem.ToString() == emp.GetNames())
                     {
-                        this.deptMngr.AddDepartment(tbxName.Text, emp.Id, emp.FirstName, emp.LastName);
+                        this.deptMngr.AddDepartment(new Department(0, tbxName.Text, emp.Id, emp.FirstName, emp.LastName));
                         MessageBox.Show("Succesfully added");
                         this.DisplayDepartments();
                     }

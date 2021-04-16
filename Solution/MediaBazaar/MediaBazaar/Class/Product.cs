@@ -38,9 +38,9 @@ namespace MediaBazaar
 
         public decimal CostPrice { get { return this.costPrice; } }
 
-        public decimal AmountInStore { get { return this.amountInStore; } }
+        public int AmountInStore { get { return this.amountInStore; } }
 
-        public decimal AmountInWarehouse { get { return this.amountInWarehouse; } }
+        public int AmountInWarehouse { get { return this.amountInWarehouse; } }
 
         public Product(int pNumber, string brand, string type, string model, string description,
             string category, string subcategory, decimal costPrice, decimal salePrice, int amountInStore,
