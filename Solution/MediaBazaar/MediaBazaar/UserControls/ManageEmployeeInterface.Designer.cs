@@ -241,6 +241,7 @@ namespace MediaBazaar
             // 
             // lblEmployees
             // 
+            this.lblEmployees.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold);
             this.lblEmployees.Location = new System.Drawing.Point(3, 2);
             this.lblEmployees.Name = "lblEmployees";
             this.lblEmployees.Size = new System.Drawing.Size(1101, 54);

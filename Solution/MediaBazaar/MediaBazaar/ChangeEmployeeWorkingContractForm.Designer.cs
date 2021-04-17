@@ -34,7 +34,8 @@
             this.lblChangeContract = new System.Windows.Forms.Label();
             this.cbbChangeCOntract = new System.Windows.Forms.ComboBox();
             this.btnChangeContract = new System.Windows.Forms.Button();
-            this.txbEmployeeInfo = new System.Windows.Forms.RichTextBox();
+            this.lboxContractHistory = new System.Windows.Forms.ListBox();
+            this.lblContractHistory = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             this.lblCurrentContract.Location = new System.Drawing.Point(34, 302);
             this.lblCurrentContract.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCurrentContract.Name = "lblCurrentContract";
-            this.lblCurrentContract.Size = new System.Drawing.Size(173, 26);
+            this.lblCurrentContract.Size = new System.Drawing.Size(148, 24);
             this.lblCurrentContract.TabIndex = 2;
             this.lblCurrentContract.Text = "Current contract:";
             // 
@@ -63,7 +64,7 @@
             this.tbxCurrentContract.Location = new System.Drawing.Point(242, 298);
             this.tbxCurrentContract.Name = "tbxCurrentContract";
             this.tbxCurrentContract.ReadOnly = true;
-            this.tbxCurrentContract.Size = new System.Drawing.Size(449, 32);
+            this.tbxCurrentContract.Size = new System.Drawing.Size(449, 28);
             this.tbxCurrentContract.TabIndex = 3;
             // 
             // lblChangeContract
@@ -71,7 +72,7 @@
             this.lblChangeContract.AutoSize = true;
             this.lblChangeContract.Location = new System.Drawing.Point(34, 358);
             this.lblChangeContract.Name = "lblChangeContract";
-            this.lblChangeContract.Size = new System.Drawing.Size(177, 26);
+            this.lblChangeContract.Size = new System.Drawing.Size(153, 24);
             this.lblChangeContract.TabIndex = 4;
             this.lblChangeContract.Text = "Change contract:";
             // 
@@ -85,7 +86,7 @@
             "Left"});
             this.cbbChangeCOntract.Location = new System.Drawing.Point(242, 355);
             this.cbbChangeCOntract.Name = "cbbChangeCOntract";
-            this.cbbChangeCOntract.Size = new System.Drawing.Size(449, 34);
+            this.cbbChangeCOntract.Size = new System.Drawing.Size(449, 30);
             this.cbbChangeCOntract.TabIndex = 5;
             // 
             // btnChangeContract
@@ -99,22 +100,32 @@
             this.btnChangeContract.UseVisualStyleBackColor = false;
             this.btnChangeContract.Click += new System.EventHandler(this.btnChangeContract_Click);
             // 
-            // txbEmployeeInfo
+            // lboxContractHistory
             // 
-            this.txbEmployeeInfo.Location = new System.Drawing.Point(242, 33);
-            this.txbEmployeeInfo.Name = "txbEmployeeInfo";
-            this.txbEmployeeInfo.ReadOnly = true;
-            this.txbEmployeeInfo.Size = new System.Drawing.Size(449, 241);
-            this.txbEmployeeInfo.TabIndex = 7;
-            this.txbEmployeeInfo.Text = "";
+            this.lboxContractHistory.FormattingEnabled = true;
+            this.lboxContractHistory.ItemHeight = 22;
+            this.lboxContractHistory.Location = new System.Drawing.Point(242, 91);
+            this.lboxContractHistory.Name = "lboxContractHistory";
+            this.lboxContractHistory.Size = new System.Drawing.Size(449, 180);
+            this.lboxContractHistory.TabIndex = 7;
+            // 
+            // lblContractHistory
+            // 
+            this.lblContractHistory.AutoSize = true;
+            this.lblContractHistory.Location = new System.Drawing.Point(385, 42);
+            this.lblContractHistory.Name = "lblContractHistory";
+            this.lblContractHistory.Size = new System.Drawing.Size(138, 24);
+            this.lblContractHistory.TabIndex = 8;
+            this.lblContractHistory.Text = "Contract history";
             // 
             // ChangeEmployeeWorkingContractForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(741, 502);
-            this.Controls.Add(this.txbEmployeeInfo);
+            this.Controls.Add(this.lblContractHistory);
+            this.Controls.Add(this.lboxContractHistory);
             this.Controls.Add(this.btnChangeContract);
             this.Controls.Add(this.cbbChangeCOntract);
             this.Controls.Add(this.lblChangeContract);
@@ -140,7 +151,8 @@
         private System.Windows.Forms.TextBox tbxCurrentContract;
         private System.Windows.Forms.Label lblChangeContract;
         private System.Windows.Forms.Button btnChangeContract;
-        private System.Windows.Forms.RichTextBox txbEmployeeInfo;
         private System.Windows.Forms.ComboBox cbbChangeCOntract;
+        private System.Windows.Forms.ListBox lboxContractHistory;
+        private System.Windows.Forms.Label lblContractHistory;
     }
 }

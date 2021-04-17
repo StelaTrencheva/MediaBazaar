@@ -28,7 +28,16 @@ namespace MediaBazaar
         }
         public override string ToString()
         {
-            return $"{contract} From: {startdate.ToString("yyyy-MM-dd")} To: {lastdate.ToString("yyyy-MM-dd")}";
+            if (contract==ContractType.FLEX|| contract == ContractType.LEFT)
+            {
+                return $"{contract} \t\tFrom: {startdate.ToString("yyyy-MM-dd")}     To: {lastdate.ToString("yyyy-MM-dd")}";
+            }
+            else
+            {
+                return $"{contract} \tFrom: {startdate.ToString("yyyy-MM-dd")}     To: {lastdate.ToString("yyyy-MM-dd")}";
+            }
+
+            
         }
         public bool DateIfBetween(DateTime date)
         {
