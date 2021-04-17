@@ -67,9 +67,10 @@ namespace MediaBazaar
         {
             get { return this.lastName; }
         }
-
-        public Gender Gender { get { return this.gender; } }
-
+        public Gender Gender 
+        { 
+            get { return this.gender; } 
+        }
         public string Username
         {
             get { return this.username; }

@@ -36,8 +36,8 @@ namespace MediaBazaar
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnHRAdminLogOut = new System.Windows.Forms.Button();
             this.btnHRAdminAccount = new System.Windows.Forms.Button();
-            this.userInterface1 = new MediaBazaar.UserInterface();
             this.manageEmployeeInterface1 = new MediaBazaar.ManageEmployeeInterface();
+            this.userInterface1 = new MediaBazaar.UserInterface();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -121,6 +121,13 @@ namespace MediaBazaar
             this.btnHRAdminAccount.UseVisualStyleBackColor = false;
             this.btnHRAdminAccount.Click += new System.EventHandler(this.btnHRAdminAccount_Click);
             // 
+            // manageEmployeeInterface1
+            // 
+            this.manageEmployeeInterface1.Location = new System.Drawing.Point(211, 0);
+            this.manageEmployeeInterface1.Name = "manageEmployeeInterface1";
+            this.manageEmployeeInterface1.Size = new System.Drawing.Size(1117, 760);
+            this.manageEmployeeInterface1.TabIndex = 32;
+            // 
             // userInterface1
             // 
             this.userInterface1.Location = new System.Drawing.Point(212, 0);
@@ -129,13 +136,6 @@ namespace MediaBazaar
             this.userInterface1.Size = new System.Drawing.Size(1196, 717);
             this.userInterface1.TabIndex = 31;
             this.userInterface1.Load += new System.EventHandler(this.userInterface1_Load);
-            // 
-            // manageEmployeeInterface1
-            // 
-            this.manageEmployeeInterface1.Location = new System.Drawing.Point(211, 0);
-            this.manageEmployeeInterface1.Name = "manageEmployeeInterface1";
-            this.manageEmployeeInterface1.Size = new System.Drawing.Size(1121, 747);
-            this.manageEmployeeInterface1.TabIndex = 32;
             // 
             // HRAdminForm
             // 
