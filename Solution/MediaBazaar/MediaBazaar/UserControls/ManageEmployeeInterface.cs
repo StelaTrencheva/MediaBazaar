@@ -15,12 +15,13 @@ namespace MediaBazaar
         EmployeeManager manageEmployees;
         ChangeEmployeeWorkingContractForm changeContractForm;
         EmployeeFullInfoForm employeeFullInfoForm;
+        EditEmployeeForm EditEmployeeForm;
         public ManageEmployeeInterface()
         {
             InitializeComponent();
             manageEmployees = new EmployeeManager();
         }
-       
+
 
         private void ManageEmployeeInterface_Load(object sender, EventArgs e)
         {
@@ -43,13 +44,13 @@ namespace MediaBazaar
             lbxViewEmployees.Items.Clear();
             foreach (Employee emp in manageEmployees.GetEmployees())
             {
-                if (emp.Contract!=ContractType.LEFT)
+                if (emp.Contract != ContractType.LEFT)
                 {
                     lbxViewEmployees.Items.Add(emp.ToString());
                     lbxViewEmployees.Items.Add("");
                 }
             }
-            if (lbxViewEmployees.Items.Count<0)
+            if (lbxViewEmployees.Items.Count < 0)
             {
                 lbxViewEmployees.Items.Add("There is no active Employees");
             }
@@ -88,15 +89,15 @@ namespace MediaBazaar
 
         private void btnViewDetails_Click(object sender, EventArgs e)
         {
-            if(lbxDisplayEMployees.SelectedItem == null)
+            if (lbxDisplayEMployees.SelectedItem == null)
             {
                 MessageBox.Show("Please select an employee");
                 return;
             }
-            
+
             foreach (Employee emp in manageEmployees.GetListOFAllEmployees())
             {
-               if(emp.GetInfo == lbxDisplayEMployees.SelectedItem.ToString())
+                if (emp.GetInfo == lbxDisplayEMployees.SelectedItem.ToString())
                 {
                     changeContractForm = new ChangeEmployeeWorkingContractForm(emp);
                     changeContractForm.ShowDialog();
@@ -110,7 +111,8 @@ namespace MediaBazaar
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 Employee newEmp = new Employee(0, tbxBSN.Text.ToString(),
                                                 tbxFName.Text.ToString(),
                                                 tbxLName.Text.ToString(),
@@ -140,11 +142,11 @@ namespace MediaBazaar
                 }
                 else { MessageBox.Show("Try again"); }
             }
-            catch(FormatException)
+            catch (FormatException)
             {
                 MessageBox.Show("Please fill the fields with the correct format");
             }
-            catch (NullReferenceException )
+            catch (NullReferenceException)
             {
                 MessageBox.Show("Please fill all the fields");
             }
@@ -152,7 +154,7 @@ namespace MediaBazaar
             {
                 MessageBox.Show("This bsn already exist");
             }
-            catch(Exception exce)
+            catch (Exception exce)
             {
                 MessageBox.Show(exce.ToString());
             }
@@ -172,7 +174,8 @@ namespace MediaBazaar
                     if (emp.Id == 2 || emp.Id == 3 || emp.Id == 4 || emp.Id == 6 || emp.Id == 8 || emp.Id == 28)
                     {
                         MessageBox.Show("You can not delete this user");
-                    }else if (manageEmployees.DeleteEmployeeFromDb(emp.Id))
+                    }
+                    else if (manageEmployees.DeleteEmployeeFromDb(emp.Id))
                     {
                         MessageBox.Show("The employee is deleted");
                         manageEmployees.DeleteEmployee(emp);
@@ -199,27 +202,38 @@ namespace MediaBazaar
                     lbxViewEmployees.Items.Add("");
                 }
             }
-            
+
         }
 
         private void btnFullInfo_Click(object sender, EventArgs e)
         {
-            if (lbxViewEmployees.SelectedItem == null|| lbxViewEmployees.SelectedItem.ToString()=="")
+            Employee emp= GetSelectedEmployee();
+            if (emp == null)
+            {
+                return;
+            }
+            employeeFullInfoForm = new EmployeeFullInfoForm(emp);
+            employeeFullInfoForm.ShowDialog();
+            employeeFullInfoForm.Close();
+
+        }
+        public Employee GetSelectedEmployee()
+        {
+            if (lbxViewEmployees.SelectedItem == null || lbxViewEmployees.SelectedItem.ToString() == "")
             {
                 MessageBox.Show("Please select an employee");
+                return null;
             }
-            else 
+            else
             {
                 foreach (Employee emp in manageEmployees.GetEmployees())
                 {
                     if (lbxViewEmployees.SelectedItem.ToString() == emp.ToString())
                     {
-                        employeeFullInfoForm = new EmployeeFullInfoForm(emp);
-                        employeeFullInfoForm.ShowDialog();
-                        employeeFullInfoForm.Close();
-                        return;
+                        return emp;
                     }
                 }
+                return null;
             }
         }
 
@@ -238,6 +252,10 @@ namespace MediaBazaar
             UpdateListBoxFiredEmployees();
         }
 
+        private void btnEditEmployee_Click(object sender, EventArgs e)
+        {
 
+            //EditEmployeeForm = new EditEmployeeForm();
+        }
     }
 }

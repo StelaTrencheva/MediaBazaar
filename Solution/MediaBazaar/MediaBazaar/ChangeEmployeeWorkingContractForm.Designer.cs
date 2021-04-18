@@ -36,6 +36,7 @@
             this.btnChangeContract = new System.Windows.Forms.Button();
             this.lboxContractHistory = new System.Windows.Forms.ListBox();
             this.lblContractHistory = new System.Windows.Forms.Label();
+            this.lblEmpName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,12 +112,22 @@
             // 
             // lblContractHistory
             // 
-            this.lblContractHistory.AutoSize = true;
-            this.lblContractHistory.Location = new System.Drawing.Point(385, 42);
+            this.lblContractHistory.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold);
+            this.lblContractHistory.Location = new System.Drawing.Point(246, 9);
             this.lblContractHistory.Name = "lblContractHistory";
-            this.lblContractHistory.Size = new System.Drawing.Size(138, 24);
+            this.lblContractHistory.Size = new System.Drawing.Size(445, 42);
             this.lblContractHistory.TabIndex = 8;
             this.lblContractHistory.Text = "Contract history";
+            this.lblContractHistory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblEmpName
+            // 
+            this.lblEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblEmpName.Location = new System.Drawing.Point(242, 51);
+            this.lblEmpName.Name = "lblEmpName";
+            this.lblEmpName.Size = new System.Drawing.Size(449, 37);
+            this.lblEmpName.TabIndex = 9;
+            this.lblEmpName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ChangeEmployeeWorkingContractForm
             // 
@@ -124,6 +135,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(741, 502);
+            this.Controls.Add(this.lblEmpName);
             this.Controls.Add(this.lblContractHistory);
             this.Controls.Add(this.lboxContractHistory);
             this.Controls.Add(this.btnChangeContract);
@@ -133,9 +145,11 @@
             this.Controls.Add(this.lblCurrentContract);
             this.Controls.Add(this.pictureBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "ChangeEmployeeWorkingContractForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChangeEmployeeWorkingContract";
             this.Load += new System.EventHandler(this.ChangeEmployeeWorkingContract_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
@@ -154,5 +168,6 @@
         private System.Windows.Forms.ComboBox cbbChangeCOntract;
         private System.Windows.Forms.ListBox lboxContractHistory;
         private System.Windows.Forms.Label lblContractHistory;
+        private System.Windows.Forms.Label lblEmpName;
     }
 }

@@ -23,6 +23,7 @@ namespace MediaBazaar
             contractHistoryManager = new ContractHistoryManager(currentEmployee.Id);
             PictureBoxUpdate();
             UpdateContractHistory();
+            lblEmpName.Text = currentEmployee.GetEmployeeNames;
         }
         private void UpdateContractHistory()
         {
