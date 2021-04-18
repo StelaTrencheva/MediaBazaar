@@ -131,20 +131,22 @@ namespace MediaBazaar
 
         public List<double> GetOverallEmpStatTotalSalaryForYear(string year, string conditionTotal, string conditionAvg)
         {
-            string sqlStatement = "SELECT IFNULL((em.employeeID),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(MONTH FROM sh.date) AS month " +
+            string sqlStatement = "SELECT IFNULL(Count(*),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(MONTH FROM sh.date) AS month " +
                                   "FROM `mb_shift_with_assigned_employee` as em  " +
                                   "INNER JOIN `mb_shift` as sh " +
                                   "ON sh.id = em.shiftID " +
                                   "INNER JOIN `mb_employee`as emp " +
                                   "ON em.employeeID = emp.id " +
                                   "WHERE EXTRACT(YEAR FROM sh.date) = @year " +
-                                  "GROUP BY EXTRACT(DAY FROM sh.date), month";
+                                  "GROUP BY month, emp.id";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
             sqlCommand.Parameters.AddWithValue("@year", year);
             List<double> TotalSalaryPerMonths = new List<double>();
+            List<int> Months = new List<int>();
             List<double> counter = new List<double>();
-            for (int i = 0; i < 12; i++)
+            for (int i = 1; i < 13; i++)
             {
+                Months.Add(i);
                 TotalSalaryPerMonths.Add(0);
                 counter.Add(1);
             }
@@ -161,24 +163,28 @@ namespace MediaBazaar
                     double wage = Convert.ToDouble(reader["wage"]);
                     if (conditionTotal == "Total salary")
                     {
-                        for (int i = 1; i < 13; i++)
+                        foreach (int m in Months)
                         {
-                            if (i == month)
+                            if (m == month)
                             {
-                                TotalSalaryPerMonths[i - 1] += (hours * wage * 4);
-                                counter[i - 1] += 1;
+                                TotalSalaryPerMonths[m - 1] += (hours * wage * 4);
+                                counter[m - 1] += 1;
                             }
+
                         }
+
+
                     }
                     else if (conditionTotal == "Total hours worked")
                     {
-                        for (int i = 1; i < 13; i++)
+                        foreach (int m in Months)
                         {
-                            if (i == month)
+                            if (m == month)
                             {
-                                TotalSalaryPerMonths[i - 1] += (hours);
-                                counter[i - 1] += 1;
+                                TotalSalaryPerMonths[m - 1] += (hours);
+                                counter[m - 1] += 1;
                             }
+
                         }
                     }
 
@@ -199,21 +205,23 @@ namespace MediaBazaar
         }
         public List<double> GetOverallEmpStatTotalSalaryForMonth(DateTime date, string conditionTotal, string conditionAvg)
         {
-            string sqlStatement = "SELECT IFNULL((em.employeeID),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(DAY FROM sh.date) AS day " +
+            string sqlStatement = "SELECT IFNULL(Count(*),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(DAY FROM sh.date) AS day " +
                 "FROM `mb_shift_with_assigned_employee` as em " +
                 "INNER JOIN `mb_shift` as sh " +
                 "ON sh.id = em.shiftID " +
                 "INNER JOIN `mb_employee`as emp " +
                 "ON em.employeeID = emp.id " +
                 "WHERE EXTRACT(MONTH FROM sh.date) = @month " +
-                "GROUP BY day";
+                "GROUP BY day, emp.id";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
             sqlCommand.Parameters.AddWithValue("@month", date.Month.ToString());
             List<double> TotalSalaryPerMonths = new List<double>();
+            List<int> Days = new List<int>();
             List<double> counter = new List<double>();
             int days = DateTime.DaysInMonth(date.Year, date.Month);
-            for (int j = 0; j < days; j++)
+            for (int j = 1; j < days + 1; j++)
             {
+                Days.Add(j);
                 TotalSalaryPerMonths.Add(0);
                 counter.Add(1);
             }
@@ -230,24 +238,26 @@ namespace MediaBazaar
                     double wage = Convert.ToDouble(reader["wage"]);
                     if (conditionTotal == "Total salary")
                     {
-                        for (int i = 1; i < days + 1; i++)
+                        foreach (int d in Days)
                         {
-                            if (i == day)
+                            if (d == day)
                             {
-                                TotalSalaryPerMonths[i - 1] += (hours * wage * 4);
-                                counter[i - 1] += 1;
+                                TotalSalaryPerMonths[d - 1] += (hours * wage * 4);
+                                counter[d - 1] += 1;
                             }
+
                         }
                     }
                     else if (conditionTotal == "Total hours worked")
                     {
-                        for (int i = 1; i < days + 1; i++)
+                        foreach (int d in Days)
                         {
-                            if (i == day)
+                            if (d == day)
                             {
-                                TotalSalaryPerMonths[i - 1] += (hours);
-                                counter[i - 1] += 1;
+                                TotalSalaryPerMonths[d - 1] += (hours);
+                                counter[d - 1] += 1;
                             }
+
                         }
                     }
 
@@ -266,22 +276,22 @@ namespace MediaBazaar
             }
             return TotalSalaryPerMonths;
         }
-        public List<double> GetOverallEmpStatTotalSalaryForWeek(List<DateTime> DaysOfTheWeek ,int week, DateTime date, string conditionTotal, string conditionAvg)
+        public List<double> GetOverallEmpStatTotalSalaryForWeek(List<DateTime> DaysOfTheWeek, int week, DateTime date, string conditionTotal, string conditionAvg)
         {
-            string sqlStatement = "SELECT IFNULL((em.employeeID),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(DAY FROM sh.date) AS day " +
+            string sqlStatement = "SELECT IFNULL(Count(*),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(DAY FROM sh.date) AS day " +
             "FROM `mb_shift_with_assigned_employee` as em " +
             "INNER JOIN `mb_shift` as sh " +
             "ON sh.id = em.shiftID " +
             "INNER JOIN `mb_employee`as emp " +
             "ON em.employeeID = emp.id " +
             "WHERE EXTRACT(MONTH FROM sh.date) = @month AND EXTRACT(WEEK FROM sh.date) = @week " +
-            "GROUP BY day";
+            "GROUP BY day, emp.id";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
             sqlCommand.Parameters.AddWithValue("@month", date.Month.ToString());
             sqlCommand.Parameters.AddWithValue("@week", week);
             List<double> TotalSalaryPerWeek = new List<double>();
             List<double> counter = new List<double>();
-            for (int j = 0; j < 7; j++)
+            for (int i = 0; i < 7; i++)
             {
                 TotalSalaryPerWeek.Add(0);
                 counter.Add(1);
@@ -295,33 +305,29 @@ namespace MediaBazaar
                 while (reader.Read())
                 {
                     //DateTime dayy = Convert.ToDateTime(reader["day"]);
-                    string day = reader["day"].ToString() ;
+                    string day = reader["day"].ToString();
                     double hours = Convert.ToDouble(reader["assignedHours"]);
                     double wage = Convert.ToDouble(reader["wage"]);
                     if (conditionTotal == "Total salary")
                     {
-                        int h = 0;
-                        for (DateTime i = DaysOfTheWeek[0]; i < DaysOfTheWeek[6]; i = i.AddDays(1))
+                        foreach (DateTime d in DaysOfTheWeek)
                         {
-                            if (i.Day.ToString() == day)
+                            if (d.Day.ToString() == day)
                             {
-                                TotalSalaryPerWeek[h] += (hours * wage * 4);
-                                counter[h] += 1;
+                                TotalSalaryPerWeek[DaysOfTheWeek.IndexOf(d)] += (hours * wage * 4);
+                                counter[DaysOfTheWeek.IndexOf(d)] += 1;
                             }
-                            h++;
                         }
                     }
                     else if (conditionTotal == "Total hours worked")
                     {
-                        int h = 0;
-                        for (DateTime i = DaysOfTheWeek[0]; i < DaysOfTheWeek[6]; i = i.AddDays(1))
+                        foreach (DateTime d in DaysOfTheWeek)
                         {
-                            if (i.Day.ToString() == day)
+                            if (d.Day.ToString() == day)
                             {
-                                TotalSalaryPerWeek[h] += (hours);
-                                counter[h] += 1;
+                                TotalSalaryPerWeek[DaysOfTheWeek.IndexOf(d)] += (hours);
+                                counter[DaysOfTheWeek.IndexOf(d)] += 1;
                             }
-                            h++;
                         }
                     }
 
@@ -332,11 +338,9 @@ namespace MediaBazaar
                 this.DbConnection.Close();
                 if (conditionAvg == "Average")
                 {
-                    int h = 0;
-                    for (DateTime i = DaysOfTheWeek[0]; i < DaysOfTheWeek[6]; i = i.AddDays(1))
+                    for (int h = 0; h < 7; h ++)
                     {
                         TotalSalaryPerWeek[h] /= counter[h];
-                        h++;
                     }
                 }
             }
