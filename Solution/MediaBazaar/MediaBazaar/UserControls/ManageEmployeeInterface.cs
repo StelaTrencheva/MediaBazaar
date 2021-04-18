@@ -80,6 +80,10 @@ namespace MediaBazaar
         }
         private void UpdateListBoxEmployee()
         {
+            lbxDisplayEMployees.CustomTabOffsets.Add(100);
+            lbxDisplayEMployees.UseCustomTabOffsets = true;
+
+
             lbxDisplayEMployees.Items.Clear();
             foreach (Employee emp in manageEmployees.GetEmployees())
             {
@@ -254,8 +258,14 @@ namespace MediaBazaar
 
         private void btnEditEmployee_Click(object sender, EventArgs e)
         {
-
-            //EditEmployeeForm = new EditEmployeeForm();
+            Employee emp = GetSelectedEmployee();
+            if (emp == null)
+            {
+                return;
+            }
+            EditEmployeeForm = new EditEmployeeForm(emp);
+            EditEmployeeForm.ShowDialog();
+            EditEmployeeForm.Close();
         }
     }
 }

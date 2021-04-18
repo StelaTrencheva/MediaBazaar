@@ -63,8 +63,31 @@ namespace MediaBazaar
         {
             return dbMediator.ChangeWorkContract(contract, employee);
         }
+        public bool EditPersonalInfoDB(int id,string bsn,string fName,string lName,Gender gender,string email,DateTime birthday,string phoneNumber,string iban)
+        {
+            if (bsn == "" || fName == "" || lName == "" || email == "" || birthday >DateTime.Now|| phoneNumber == "" || iban == "" )
+            {
+                throw new FormatException();
+            }
+            return dbMediator.EditPersonalInfo(id, bsn, fName, lName, gender,email, birthday, phoneNumber, iban);
+        }
+        public bool EditAddressInfoInfoDB(int id,string street, string streetNumber, string zipcode, string town, string country)
+        {
+            if (street == "" || streetNumber == "" || zipcode == "" || town == "" || country == "")
+            {
+                throw new FormatException();
+            }
+            return dbMediator.EditAddressInfo( id,  street,  streetNumber,  zipcode,  town,  country);
+        }
+        public bool EditWorkInfoDB(int id,string username,DateTime firstWorkingDay, double hourlyWage,ContractType contract,EmployeeType position)
+        {
+            if (username == "" || hourlyWage <0)
+            {
+                throw new FormatException();
+            }
+            return dbMediator.EditWorkInfo(id, username, firstWorkingDay, hourlyWage, contract, position);
+        }
     }
-
 }
 
 

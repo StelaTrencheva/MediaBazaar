@@ -288,5 +288,127 @@ namespace MediaBazaar
                 DbConnection.Close();
             }
         }
+        public bool EditPersonalInfo(int id, string bsn, string fName, string lName, Gender gender, string email, DateTime birthday, string phoneNumber, string iban)
+        {
+
+
+            string sqlStatement = "UPDATE mb_employee SET bsn = @bsn, fname=@fname, lname=@lname, gender=@gender,email=@email,birthdate=@bday, emergphonenumber=@phonenumber, iban=@iban WHERE id = @i";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@i", id);
+            sqlCommand.Parameters.AddWithValue("@bsn", bsn);
+            sqlCommand.Parameters.AddWithValue("@fname", fName);
+            sqlCommand.Parameters.AddWithValue("@lname", lName);
+            sqlCommand.Parameters.AddWithValue("@gender", gender + 1);
+            sqlCommand.Parameters.AddWithValue("@email", email);
+            sqlCommand.Parameters.AddWithValue("@bday", birthday);
+            sqlCommand.Parameters.AddWithValue("@phonenumber", phoneNumber);
+            sqlCommand.Parameters.AddWithValue("@iban", iban);
+
+
+
+            try
+            {
+                int n = 0;
+
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+
+                if (n > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException)
+            {
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+        public bool EditWorkInfo(int id, string username, DateTime firstWorkingDay,double hourlywage, ContractType contractType, EmployeeType position)
+        {
+
+
+            string sqlStatement = "UPDATE mb_employee SET uname = @uname, firstworkingday=@fwd, hourlywage=@hourlywage, contracttype=@contracttype,position=@position WHERE id = @i";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@i", id);
+            sqlCommand.Parameters.AddWithValue("@uname", username);
+            sqlCommand.Parameters.AddWithValue("@fwd", firstWorkingDay);
+            sqlCommand.Parameters.AddWithValue("@hourlywage", hourlywage);
+            sqlCommand.Parameters.AddWithValue("@contracttype", contractType + 1);
+            sqlCommand.Parameters.AddWithValue("@position", position);
+
+            try
+            {
+                int n = 0;
+
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+
+                if (n > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException)
+            {
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+        public bool EditAddressInfo(int id, string street, string streetNumber, string zipcode, string town, string country)
+        {
+            string sqlStatement = "UPDATE mb_employee SET street = @street, streetnumber = @streetnumber, zipcode = @zipcode, town = @town , country = @country WHERE id = @i";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@i", id);
+            sqlCommand.Parameters.AddWithValue("@street", street);
+            sqlCommand.Parameters.AddWithValue("@streetnumber", streetNumber);
+            sqlCommand.Parameters.AddWithValue("@zipcode", zipcode);
+            sqlCommand.Parameters.AddWithValue("@town", town);
+            sqlCommand.Parameters.AddWithValue("@country", country);
+
+            try
+            {
+                int n = 0;
+
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+
+                if (n > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException)
+            {
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
+
     }
 }

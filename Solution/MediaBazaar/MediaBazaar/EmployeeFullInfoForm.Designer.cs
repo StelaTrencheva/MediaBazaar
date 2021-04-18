@@ -85,7 +85,7 @@ namespace MediaBazaar
             // 
             // lblViewInfo
             // 
-            this.lblViewInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblViewInfo.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold);
             this.lblViewInfo.Location = new System.Drawing.Point(12, 9);
             this.lblViewInfo.Name = "lblViewInfo";
             this.lblViewInfo.Size = new System.Drawing.Size(742, 45);
