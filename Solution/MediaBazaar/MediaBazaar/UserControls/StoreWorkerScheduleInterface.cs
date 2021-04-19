@@ -21,6 +21,8 @@ namespace MediaBazaar
         private Shift foundShift;
         private ListBox lbx = null;
         private Label lbl = null;
+        private List<DateTime> dates = new List<DateTime>();
+        private Dictionary<DateTime, List<Shift>> shifts = null;
         private void CreateFutureMonths()
         {
             for (int i = 0; i < 4; i++)
@@ -303,40 +305,52 @@ namespace MediaBazaar
 
         private void btnChangeSelectedWeek_Click(object sender, EventArgs e)
         {
-            lbViewSchedule.Visible = false;
+            DisplayAllPanelsInView(false);
             calendarDate.Visible = true;
+            dgvViewShifts.Rows.Clear();
         }
         private int GetWeekNumber(DateTime date)
         {
             return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
         }
-
-        
-
         private void tcStoreWorkerSchedule_SelectedIndexChanged(object sender, EventArgs e)
         {
             calendarDate.MinDate = today.AddMonths(-3);
             calendarDate.MaxDate = today.AddMonths(3);
+            DisplayAllPanelsInView(false);
         }
-
+        private void DisplayAllPanelsInView(bool visible)
+        {
+            pnlChangeWeek.Visible = visible;
+            pnlDisplayDate.Visible = visible;
+            dgvViewShifts.Visible = visible;
+        }
+        private void AddDefaultRows()
+        {
+            foreach (Day day in Enum.GetValues(typeof(DayOfWeek)))
+            {
+                dgvViewShifts.Rows.Add();
+                dgvViewShifts.Rows[(int)day].HeaderCell.Value = day.ToString();
+            }
+            
+        }
+        
         private void btnShowShifts_Click(object sender, EventArgs e)
         {
             calendarDate.Visible = false;
             DateTime selectedDate = calendarDate.SelectionRange.Start;
-
-            lbViewSchedule.Visible = true;
-            lbViewSchedule.Items.Clear();
-            btnChangeSelectedWeek.Visible = true;
+            DisplayAllPanelsInView(true);
+            AddDefaultRows();
             int weekNumberOfSelectedDate = GetWeekNumber(selectedDate);
             DateTime startDate = selectedDate;
             DateTime endDate = startDate.AddDays(7);
-            List<DateTime> dates = new List<DateTime>();
+            dates = new List<DateTime>();
             for (DateTime i = startDate; i > selectedDate.AddDays(-7); i = i.AddDays(-1))
             {
                 if (GetWeekNumber(i.AddDays(-1)) != weekNumberOfSelectedDate)
                 {
                     startDate = i;
-                    endDate = startDate.AddDays(7);
+                    endDate = startDate.AddDays(6);
                     break;
                 }
             }
@@ -344,25 +358,64 @@ namespace MediaBazaar
             {
                 dates.Add(i);
             }
-            lbWeek.Text = $"Week: {startDate.ToShortDateString()} - {endDate.ToShortDateString()}";
-            Dictionary<DateTime, List<Shift>> shifts = shiftManager.GetAllShiftsPerDates(dates);
-
+            ///
+            lblDisplayedDates.Text = $"Week: {startDate.ToShortDateString()} - {endDate.ToShortDateString()}";
+            shifts = shiftManager.GetAllShiftsPerDates(dates);
+            
             foreach (KeyValuePair<DateTime, List<Shift>> d in shifts)
-            {
-                string date = d.Key.ToString("yyyy-MM-dd");
-                lbViewSchedule.Items.Add("--> " + d.Key.ToShortDateString() + " - " + d.Key.DayOfWeek);
-                lbViewSchedule.Items.Add("\n");
-                foreach (Shift s in d.Value.OrderBy(x=>x.Type))
+            {                
+                foreach (Shift s in d.Value.OrderBy(x => x.Type))
                 {
-                    lbViewSchedule.Items.Add("\t" + s.Type.ToString());
-                    foreach (Employee employee in s.GetAssignedEmployees())
-                    {
-                        lbViewSchedule.Items.Add($"\t\t - {employee.Id}. {employee.GetEmployeeNames} - {employee.Contract}");
-                    }
+                    int rowIndex = dgvViewShifts.Rows.IndexOf(dgvViewShifts.Rows[(int)(d.Key.DayOfWeek)-1]);
+                    dgvViewShifts[$"cl{s.Type}",rowIndex].Value=$"{s.GetAssignedEmployees().Count} employees.";
+                    
                 }
-                lbViewSchedule.Items.Add("\n");
             }
 
+        }
+       
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            pnlDisplayEmployees.Visible = true;
+            int rowIndex = dgvViewShifts.CurrentCell.RowIndex;
+            int columnIndex = dgvViewShifts.CurrentCell.ColumnIndex;
+            Enum.TryParse(dgvViewShifts.Rows[rowIndex].HeaderCell.Value.ToString(), out DayOfWeek day);
+            string formatedDate = "";
+            foreach (DateTime date in dates)
+            {
+                if (date.DayOfWeek == day)
+                {
+                    formatedDate = date.ToString("yyyy-MM-dd");
+                }
+            }
+            Enum.TryParse(dgvViewShifts.Columns[columnIndex].HeaderText.ToString(), out ShiftType shiftType);
+            foreach (KeyValuePair<DateTime, List<Shift>> d in shifts)
+            {
+                foreach (Shift s in d.Value.OrderBy(x => x.Type))
+                {
+                    if (s.Type == shiftType && s.Date.ToString("yyyy-MM-dd") == formatedDate)
+                    {
+                        foreach (Employee employee in s.GetAssignedEmployees())
+                        {
+                            lbDisplayEmployees.Items.Add($"{employee.Id}. {employee.GetEmployeeNames}");
+                        }
+                    }
+
+                }
+            }
+        
+
+    }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            pnlDisplayEmployees.Visible = false;
+            lbDisplayEmployees.Items.Clear();
+        }
+
+        private void dgvViewShifts_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
         }
     }
 }
