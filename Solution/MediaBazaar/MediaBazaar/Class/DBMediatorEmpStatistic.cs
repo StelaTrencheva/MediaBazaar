@@ -181,7 +181,7 @@ namespace MediaBazaar
                         {
                             if (m == month)
                             {
-                                TotalSalaryPerMonths[m - 1] += (hours);
+                                TotalSalaryPerMonths[m - 1] += (hours*4);
                                 counter[m - 1] += 1;
                             }
 
@@ -254,7 +254,7 @@ namespace MediaBazaar
                         {
                             if (d == day)
                             {
-                                TotalSalaryPerMonths[d - 1] += (hours);
+                                TotalSalaryPerMonths[d - 1] += (hours*4);
                                 counter[d - 1] += 1;
                             }
 
@@ -304,7 +304,7 @@ namespace MediaBazaar
 
                 while (reader.Read())
                 {
-                    //DateTime dayy = Convert.ToDateTime(reader["day"]);
+
                     string day = reader["day"].ToString();
                     double hours = Convert.ToDouble(reader["assignedHours"]);
                     double wage = Convert.ToDouble(reader["wage"]);
@@ -325,7 +325,7 @@ namespace MediaBazaar
                         {
                             if (d.Day.ToString() == day)
                             {
-                                TotalSalaryPerWeek[DaysOfTheWeek.IndexOf(d)] += (hours);
+                                TotalSalaryPerWeek[DaysOfTheWeek.IndexOf(d)] += (hours*4);
                                 counter[DaysOfTheWeek.IndexOf(d)] += 1;
                             }
                         }

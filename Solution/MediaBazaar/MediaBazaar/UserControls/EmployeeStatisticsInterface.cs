@@ -68,7 +68,7 @@ namespace MediaBazaar
                 {
                     if (emp.GetEmployeeNames == lbxEmployees.SelectedItem.ToString())
                     {
-                        this.employee = emp; 
+                        this.employee = emp;
                         this.dateIndividualStats = dtpTimePeriod.Value;
                         FillEmployeeInformationCard();
                         FillEmployeeUtilizationChart();
@@ -81,42 +81,54 @@ namespace MediaBazaar
 
         public void FillEmployeeInformationCard()
         {
-            lblEmpNames.Text = employee.GetEmployeeNames;
-            lblEmpId.Text = employee.Id.ToString();
-            lblEmpContract.Text = employee.Contract.ToString();
-            lblEmpHourlyWage.Text = employee.HourlyWage.ToString();
-            lblEmpPosition.Text = employee.Position.ToString();
-            List<int> TotalAssignedHours = empStatistics.GetEmployeeHoursPerTimeUnit(employee.Id, dateIndividualStats);
-            lblTotalSalaryPerDay.Text = TotalAssignedHours[0].ToString() +" /day";
-            lblTotalSalaryPerWeek.Text = TotalAssignedHours[1].ToString() + " /week"; ;
-            lblTotalSalaryPerMonth.Text = TotalAssignedHours[2].ToString() + " /month"; ;
-            lblTotalSalaryPerYear.Text = TotalAssignedHours[3].ToString() + " /year"; ;
+            if (employee == null)
+            {
+                MessageBox.Show("Choose an employee from the list box.");
+            }
+            else
+            {
+                lblEmpNames.Text = employee.GetEmployeeNames;
+                lblEmpId.Text = employee.Id.ToString();
+                lblEmpContract.Text = employee.Contract.ToString();
+                lblEmpHourlyWage.Text = employee.HourlyWage.ToString();
+                lblEmpPosition.Text = employee.Position.ToString();
+                List<int> TotalAssignedHours = empStatistics.GetEmployeeHoursPerTimeUnit(employee.Id, dateIndividualStats);
+                lblTotalSalaryPerDay.Text = TotalAssignedHours[0].ToString() + " /day";
+                lblTotalSalaryPerWeek.Text = TotalAssignedHours[1].ToString() + " /week"; ;
+                lblTotalSalaryPerMonth.Text = TotalAssignedHours[2].ToString() + " /month"; ;
+                lblTotalSalaryPerYear.Text = TotalAssignedHours[3].ToString() + " /year"; ;
+            }
+
         }
 
         public void FillEmployeeUtilizationChart()
         {
-            ClearchartutilizationOfAnEmployee();
-            List<int> TotalAssignedHours = empStatistics.GetEmployeeHoursPerTimeUnit(employee.Id, dateIndividualStats);
-            List<double> ContractualHours = empStatistics.GetEmployeeContractualHours(employee.Contract.ToString());
-            if(rdbtnYear.Checked)
+            if (employee != null)
             {
-                chartutilizationOfAnEmployee.Series["Actual hours worked"].Points.AddXY(dateIndividualStats.Year.ToString(), TotalAssignedHours[3]);
-                chartutilizationOfAnEmployee.Series["Contractual hours"].Points.AddXY(dateIndividualStats.Year.ToString(), ContractualHours[3]);
-            }
-            else if(rdbtnMonth.Checked)
-            {
-                chartutilizationOfAnEmployee.Series["Actual hours worked"].Points.AddXY(dateIndividualStats.Month.ToString(), TotalAssignedHours[2]);
-                chartutilizationOfAnEmployee.Series["Contractual hours"].Points.AddXY(dateIndividualStats.Month.ToString(), ContractualHours[2]);
-            }
-            else if(rdbtnWeek.Checked)
-            {
-                chartutilizationOfAnEmployee.Series["Actual hours worked"].Points.AddXY("Week", TotalAssignedHours[1]);
-                chartutilizationOfAnEmployee.Series["Contractual hours"].Points.AddXY("Week", ContractualHours[1]);
-            }
-            else if (rdbtnDay.Checked)
-            {
-                chartutilizationOfAnEmployee.Series["Actual hours worked"].Points.AddXY(dateIndividualStats.Day.ToString(), TotalAssignedHours[0]);
-                chartutilizationOfAnEmployee.Series["Contractual hours"].Points.AddXY(dateIndividualStats.Day.ToString(), ContractualHours[0]);
+             
+                ClearchartutilizationOfAnEmployee();
+                List<int> TotalAssignedHours = empStatistics.GetEmployeeHoursPerTimeUnit(employee.Id, dateIndividualStats);
+                List<double> ContractualHours = empStatistics.GetEmployeeContractualHours(employee.Contract.ToString());
+                if (rdbtnYear.Checked)
+                {
+                    chartutilizationOfAnEmployee.Series["Actual hours worked"].Points.AddXY(dateIndividualStats.Year.ToString(), TotalAssignedHours[3]);
+                    chartutilizationOfAnEmployee.Series["Contractual hours"].Points.AddXY(dateIndividualStats.Year.ToString(), ContractualHours[3]);
+                }
+                else if (rdbtnMonth.Checked)
+                {
+                    chartutilizationOfAnEmployee.Series["Actual hours worked"].Points.AddXY(dateIndividualStats.Month.ToString(), TotalAssignedHours[2]);
+                    chartutilizationOfAnEmployee.Series["Contractual hours"].Points.AddXY(dateIndividualStats.Month.ToString(), ContractualHours[2]);
+                }
+                else if (rdbtnWeek.Checked)
+                {
+                    chartutilizationOfAnEmployee.Series["Actual hours worked"].Points.AddXY("Week", TotalAssignedHours[1]);
+                    chartutilizationOfAnEmployee.Series["Contractual hours"].Points.AddXY("Week", ContractualHours[1]);
+                }
+                else if (rdbtnDay.Checked)
+                {
+                    chartutilizationOfAnEmployee.Series["Actual hours worked"].Points.AddXY(dateIndividualStats.Day.ToString(), TotalAssignedHours[0]);
+                    chartutilizationOfAnEmployee.Series["Contractual hours"].Points.AddXY(dateIndividualStats.Day.ToString(), ContractualHours[0]);
+                }
             }
         }
         private void rdbtnYear_CheckedChanged(object sender, EventArgs e)
@@ -182,7 +194,7 @@ namespace MediaBazaar
                     chartStatistics.Series[TypeOfStats].Points.AddXY(i + 1, EmpStats[i]);
                 }
             }
-            else if(periodOverviewStats == "week")
+            else if (periodOverviewStats == "week")
             {
                 for (int i = 0; i < 7; i++)
                 {
@@ -242,6 +254,6 @@ namespace MediaBazaar
             ClearEmpStatsChart();
         }
 
-        
+
     }
 }

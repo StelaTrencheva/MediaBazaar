@@ -72,9 +72,6 @@ namespace MediaBazaar
             this.tboxIban = new System.Windows.Forms.TextBox();
             this.tboxBSN = new System.Windows.Forms.TextBox();
             this.tboxEmail = new System.Windows.Forms.TextBox();
-            this.rbtnPersonalInfo = new System.Windows.Forms.RadioButton();
-            this.rbtnAddress = new System.Windows.Forms.RadioButton();
-            this.rbtnWorkInfo = new System.Windows.Forms.RadioButton();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.pnlAddress.SuspendLayout();
             this.panelWorkInfo.SuspendLayout();
@@ -511,36 +508,6 @@ namespace MediaBazaar
             this.tboxEmail.Size = new System.Drawing.Size(180, 22);
             this.tboxEmail.TabIndex = 27;
             // 
-            // rbtnPersonalInfo
-            // 
-            this.rbtnPersonalInfo.AutoSize = true;
-            this.rbtnPersonalInfo.Location = new System.Drawing.Point(163, 120);
-            this.rbtnPersonalInfo.Name = "rbtnPersonalInfo";
-            this.rbtnPersonalInfo.Size = new System.Drawing.Size(17, 16);
-            this.rbtnPersonalInfo.TabIndex = 37;
-            this.rbtnPersonalInfo.UseVisualStyleBackColor = true;
-            this.rbtnPersonalInfo.CheckedChanged += new System.EventHandler(this.rbtnPersonalInfo_CheckedChanged);
-            // 
-            // rbtnAddress
-            // 
-            this.rbtnAddress.AutoSize = true;
-            this.rbtnAddress.Location = new System.Drawing.Point(562, 120);
-            this.rbtnAddress.Name = "rbtnAddress";
-            this.rbtnAddress.Size = new System.Drawing.Size(17, 16);
-            this.rbtnAddress.TabIndex = 38;
-            this.rbtnAddress.UseVisualStyleBackColor = true;
-            this.rbtnAddress.CheckedChanged += new System.EventHandler(this.rbtnAddress_CheckedChanged);
-            // 
-            // rbtnWorkInfo
-            // 
-            this.rbtnWorkInfo.AutoSize = true;
-            this.rbtnWorkInfo.Location = new System.Drawing.Point(931, 120);
-            this.rbtnWorkInfo.Name = "rbtnWorkInfo";
-            this.rbtnWorkInfo.Size = new System.Drawing.Size(17, 16);
-            this.rbtnWorkInfo.TabIndex = 39;
-            this.rbtnWorkInfo.UseVisualStyleBackColor = true;
-            this.rbtnWorkInfo.CheckedChanged += new System.EventHandler(this.rbtnWorkInfo_CheckedChanged);
-            // 
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -559,9 +526,6 @@ namespace MediaBazaar
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1132, 602);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.rbtnWorkInfo);
-            this.Controls.Add(this.rbtnAddress);
-            this.Controls.Add(this.rbtnPersonalInfo);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblPersonalInfo);
             this.Controls.Add(this.pnlAddress);
@@ -580,7 +544,6 @@ namespace MediaBazaar
             this.pnlPersonalInfo.ResumeLayout(false);
             this.pnlPersonalInfo.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -611,9 +574,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblPosition;
         private System.Windows.Forms.Label lblViewInfo;
         private System.Windows.Forms.Panel pnlPersonalInfo;
-        private System.Windows.Forms.RadioButton rbtnPersonalInfo;
-        private System.Windows.Forms.RadioButton rbtnAddress;
-        private System.Windows.Forms.RadioButton rbtnWorkInfo;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox tboxLName;
         private System.Windows.Forms.TextBox tboxFName;

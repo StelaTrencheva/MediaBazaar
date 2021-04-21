@@ -51,7 +51,7 @@ namespace MediaBazaar
         {
             employees.Remove(emp);
         }
-        public Employee Login(string username,string password)
+        public Employee Login(string username, string password)
         {
             return dbMediator.FindMatchingLoginInfo(username, password);
         }
@@ -63,34 +63,25 @@ namespace MediaBazaar
         {
             return dbMediator.ChangeWorkContract(contract, employee);
         }
-        public bool EditPersonalInfoDB(int id,string bsn,string fName,string lName,Gender gender,string email,DateTime birthday,string phoneNumber,string iban)
+        public bool UpdateEmployeeInfoDB(Employee newEmpInfo)
         {
-            if (bsn == "" || fName == "" || lName == "" || email == "" || birthday >DateTime.Now|| phoneNumber == "" || iban == "" )
-            {
-                throw new FormatException();
-            }
-            return dbMediator.EditPersonalInfo(id, bsn, fName, lName, gender,email, birthday, phoneNumber, iban);
+            return dbMediator.EditPersonalInfo(newEmpInfo);
         }
-        public bool EditAddressInfoInfoDB(int id,string street, string streetNumber, string zipcode, string town, string country)
-        {
-            if (street == "" || streetNumber == "" || zipcode == "" || town == "" || country == "")
-            {
-                throw new FormatException();
-            }
-            return dbMediator.EditAddressInfo( id,  street,  streetNumber,  zipcode,  town,  country);
-        }
-        public bool EditWorkInfoDB(int id,string username,DateTime firstWorkingDay, double hourlyWage,ContractType contract,EmployeeType position)
-        {
-            if (username == "" || hourlyWage <0)
-            {
-                throw new FormatException();
-            }
-            return dbMediator.EditWorkInfo(id, username, firstWorkingDay, hourlyWage, contract, position);
-        }
+
     }
 }
 
-
+//private Employee GetEmployee(int id)
+//{
+//    foreach (Employee employee in employees)
+//    {
+//        if (employee.Id == id)
+//        {
+//            return employee;
+//        }
+//    }
+//    return null;
+//}
 /*public bool AddEmployeeToList(int id, string bsn, string firstName, string lastName, string address, string email, string username,string password, DateTime birthDay,
     string addrStreet, string addrStreetNumber, string addrZipcode, string addrTown, string addrCountry,
      DateTime firstWorkingDay, string emergencyPhoneNumber, string iban, double hourlyWage, DateTime contractStartDate, ContractType contract, EmployeeType position)

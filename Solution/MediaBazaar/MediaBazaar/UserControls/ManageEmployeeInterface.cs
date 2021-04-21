@@ -266,6 +266,9 @@ namespace MediaBazaar
             EditEmployeeForm = new EditEmployeeForm(emp);
             EditEmployeeForm.ShowDialog();
             EditEmployeeForm.Close();
+            manageEmployees.UpdateEmployees();
+            UpdateListBoxAllEmployees();
+            UpdateListBoxEmployee();
         }
     }
 }

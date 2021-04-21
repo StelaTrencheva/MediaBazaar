@@ -288,24 +288,31 @@ namespace MediaBazaar
                 DbConnection.Close();
             }
         }
-        public bool EditPersonalInfo(int id, string bsn, string fName, string lName, Gender gender, string email, DateTime birthday, string phoneNumber, string iban)
+        public bool EditPersonalInfo(Employee newEmpInfo)
         {
-
-
-            string sqlStatement = "UPDATE mb_employee SET bsn = @bsn, fname=@fname, lname=@lname, gender=@gender,email=@email,birthdate=@bday, emergphonenumber=@phonenumber, iban=@iban WHERE id = @i";
+            string sqlStatement = "UPDATE mb_employee SET bsn = @bsn, fname=@fname, lname=@lname, gender=@gender,email=@email," +
+                                  "birthdate=@bday, emergphonenumber=@phonenumber, iban=@iban, uname = @uname, firstworkingday=@fwd, hourlywage=@hourlywage, " +
+                                  "contracttype=@contracttype,position=@position,street = @street, streetnumber = @streetnumber, zipcode = @zipcode, town = @town , country = @country WHERE id = @i";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
-            sqlCommand.Parameters.AddWithValue("@i", id);
-            sqlCommand.Parameters.AddWithValue("@bsn", bsn);
-            sqlCommand.Parameters.AddWithValue("@fname", fName);
-            sqlCommand.Parameters.AddWithValue("@lname", lName);
-            sqlCommand.Parameters.AddWithValue("@gender", gender + 1);
-            sqlCommand.Parameters.AddWithValue("@email", email);
-            sqlCommand.Parameters.AddWithValue("@bday", birthday);
-            sqlCommand.Parameters.AddWithValue("@phonenumber", phoneNumber);
-            sqlCommand.Parameters.AddWithValue("@iban", iban);
-
-
-
+            sqlCommand.Parameters.AddWithValue("@i", newEmpInfo.Id);
+            sqlCommand.Parameters.AddWithValue("@bsn", newEmpInfo.BSN);
+            sqlCommand.Parameters.AddWithValue("@fname", newEmpInfo.FirstName);
+            sqlCommand.Parameters.AddWithValue("@lname", newEmpInfo.LastName);
+            sqlCommand.Parameters.AddWithValue("@gender", newEmpInfo.Gender + 1);
+            sqlCommand.Parameters.AddWithValue("@email", newEmpInfo.Email);
+            sqlCommand.Parameters.AddWithValue("@bday", newEmpInfo.Birthday);
+            sqlCommand.Parameters.AddWithValue("@phonenumber", newEmpInfo.PhoneNumber);
+            sqlCommand.Parameters.AddWithValue("@iban", newEmpInfo.Iban);
+            sqlCommand.Parameters.AddWithValue("@uname", newEmpInfo.Username);
+            sqlCommand.Parameters.AddWithValue("@fwd", newEmpInfo.FirstWorkingDay);
+            sqlCommand.Parameters.AddWithValue("@hourlywage", newEmpInfo.HourlyWage);
+            sqlCommand.Parameters.AddWithValue("@contracttype", newEmpInfo.Contract + 1);
+            sqlCommand.Parameters.AddWithValue("@position", newEmpInfo.Position + 1);
+            sqlCommand.Parameters.AddWithValue("@street", newEmpInfo.Street);
+            sqlCommand.Parameters.AddWithValue("@streetnumber", newEmpInfo.StreetNumber);
+            sqlCommand.Parameters.AddWithValue("@zipcode", newEmpInfo.Zipcode);
+            sqlCommand.Parameters.AddWithValue("@town", newEmpInfo.Town);
+            sqlCommand.Parameters.AddWithValue("@country", newEmpInfo.Country);
             try
             {
                 int n = 0;
@@ -332,83 +339,5 @@ namespace MediaBazaar
                 DbConnection.Close();
             }
         }
-        public bool EditWorkInfo(int id, string username, DateTime firstWorkingDay,double hourlywage, ContractType contractType, EmployeeType position)
-        {
-
-
-            string sqlStatement = "UPDATE mb_employee SET uname = @uname, firstworkingday=@fwd, hourlywage=@hourlywage, contracttype=@contracttype,position=@position WHERE id = @i";
-            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
-            sqlCommand.Parameters.AddWithValue("@i", id);
-            sqlCommand.Parameters.AddWithValue("@uname", username);
-            sqlCommand.Parameters.AddWithValue("@fwd", firstWorkingDay);
-            sqlCommand.Parameters.AddWithValue("@hourlywage", hourlywage);
-            sqlCommand.Parameters.AddWithValue("@contracttype", contractType + 1);
-            sqlCommand.Parameters.AddWithValue("@position", position);
-
-            try
-            {
-                int n = 0;
-
-                DbConnection.Open();
-                n = sqlCommand.ExecuteNonQuery();
-
-                if (n > 0)
-                {
-                    return true;
-                }
-                return false;
-            }
-            catch (MySqlException)
-            {
-                return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                DbConnection.Close();
-            }
-        }
-        public bool EditAddressInfo(int id, string street, string streetNumber, string zipcode, string town, string country)
-        {
-            string sqlStatement = "UPDATE mb_employee SET street = @street, streetnumber = @streetnumber, zipcode = @zipcode, town = @town , country = @country WHERE id = @i";
-            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
-            sqlCommand.Parameters.AddWithValue("@i", id);
-            sqlCommand.Parameters.AddWithValue("@street", street);
-            sqlCommand.Parameters.AddWithValue("@streetnumber", streetNumber);
-            sqlCommand.Parameters.AddWithValue("@zipcode", zipcode);
-            sqlCommand.Parameters.AddWithValue("@town", town);
-            sqlCommand.Parameters.AddWithValue("@country", country);
-
-            try
-            {
-                int n = 0;
-
-                DbConnection.Open();
-                n = sqlCommand.ExecuteNonQuery();
-
-                if (n > 0)
-                {
-                    return true;
-                }
-                return false;
-            }
-            catch (MySqlException)
-            {
-                return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                DbConnection.Close();
-            }
-        }
-
-
     }
 }
