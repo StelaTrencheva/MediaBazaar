@@ -81,15 +81,7 @@ namespace MediaBazaar
 
         public void FillEmployeeInformationCard()
         {
-<<<<<<< HEAD
-            if (employee == null)
-            {
-                MessageBox.Show("Choose an employee from the list box.");
-            }
-            else
-=======
             if (employee != null)
->>>>>>> Veronika
             {
                 lblEmpNames.Text = employee.GetEmployeeNames;
                 lblEmpId.Text = employee.Id.ToString();
@@ -109,10 +101,6 @@ namespace MediaBazaar
         {
             if (employee != null)
             {
-<<<<<<< HEAD
-             
-=======
->>>>>>> Veronika
                 ClearchartutilizationOfAnEmployee();
                 List<int> TotalAssignedHours = empStatistics.GetEmployeeHoursPerTimeUnit(employee.Id, dateIndividualStats);
                 List<double> ContractualHours = empStatistics.GetEmployeeContractualHours(employee.Contract.ToString());
