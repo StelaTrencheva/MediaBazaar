@@ -20,21 +20,21 @@ namespace MediaBazaar
             this.deptMngr = new DepartmentManager();
             this.empMng = new EmployeeManager();
             this.DisplayDepartments();
-            this.DisplayDepartmentManagers();
+            //this.DisplayDepartmentManagers();
         }
 
-        private void DisplayDepartmentManagers()
-        {
-            cbxDManager.Items.Clear();
-            foreach(Employee emp in this.empMng.GetListOFAllEmployees())
-            {
-                if(emp.Position == EmployeeType.DEPARTMENT_MANAGER)
-                {
-                    cbxDManager.Items.Add(emp.GetNames);
-                }
-            }
-            cbxDManager.SelectedIndex = 0;
-        }
+        //private void DisplayDepartmentManagers()
+        //{
+        //    cbxDManager.Items.Clear();
+        //    foreach(Employee emp in this.empMng.GetListOFAllEmployees())
+        //    {
+        //        if(emp.Position == EmployeeType.DEPARTMENT_MANAGER)
+        //        {
+        //            cbxDManager.Items.Add(emp.GetNames);
+        //        }
+        //    }
+        //    cbxDManager.SelectedIndex = 0;
+        //}
 
         private void DisplayDepartments()
         {
@@ -50,15 +50,19 @@ namespace MediaBazaar
         {
             try
             {
-                foreach (Employee emp in this.empMng.GetListOFAllEmployees())
-                {
-                    if (cbxDManager.SelectedItem.ToString() == emp.GetNames)
-                    {
-                        this.deptMngr.AddDepartment(new Department(0, tbxName.Text, emp.Id, emp.FirstName, emp.LastName));
-                        MessageBox.Show("Succesfully added");
-                        this.DisplayDepartments();
-                    }
-                }
+                this.deptMngr.AddDepartment(new Department((int)nudCode.Value, tbxName.Text));
+                MessageBox.Show("Succesfully added");
+                this.DisplayDepartments();
+
+                //foreach (Employee emp in this.empMng.GetListOFAllEmployees())
+                //{
+                //    if (cbxDManager.SelectedItem.ToString() == emp.GetNames)
+                //    {
+                //        this.deptMngr.AddDepartment(new Department(0, tbxName.Text, emp.Id, emp.FirstName, emp.LastName));
+                //        MessageBox.Show("Succesfully added");
+                //        this.DisplayDepartments();
+                //    }
+                //}
             }
             catch (ArgumentException)
             {
@@ -66,7 +70,7 @@ namespace MediaBazaar
             }
             catch (RepeatingObjectException)
             {
-                MessageBox.Show("This department manager is already assign or\nthis department name already exists.");
+                MessageBox.Show("The code or the department name already exist.");
             }
             catch (Exception exce)
             {
@@ -75,6 +79,7 @@ namespace MediaBazaar
             
 
             tbxName.Clear();
+            nudCode.Value = 1000;
         }
     }
 }
