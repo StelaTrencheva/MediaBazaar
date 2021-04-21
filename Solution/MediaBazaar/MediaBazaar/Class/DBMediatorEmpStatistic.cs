@@ -12,13 +12,15 @@ namespace MediaBazaar
         public DBMediatorEmpStatistic() : base() { }
         public int GetEmployeeAssignedHoursForStatPerDay(int id, string date)
         {
-            string sqlStatement = " select IF(es.times IS NULL, 0, es.times) as assignedHours, e.id from mb_employee e left join " +
-                "(select count(*) as times, employeeID from mb_shift_with_assigned_employee where shiftID in " +
-                "(select id from mb_shift where EXTRACT(DAY FROM date) = @date ) group by employeeID) es ON es.employeeID = e.id" +
-                " where e.id like @i";
+            string sqlStatement = " SELECT IFNULL(Count(*),0) as assignedHours " +
+                "FROM `mb_shift_with_assigned_employee` as em  " +
+                "INNER JOIN `mb_employee`as emp " +
+                "ON em.employeeID = emp.id " +
+                "WHERE EXTRACT(DAY FROM em.date) = @date AND emp.id = @id " +
+                "GROUP BY emp.id";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
             sqlCommand.Parameters.AddWithValue("@date", date);
-            sqlCommand.Parameters.AddWithValue("@i", id.ToString());
+            sqlCommand.Parameters.AddWithValue("@id", id.ToString());
             int assignedHours = 0;
 
             try
@@ -39,15 +41,17 @@ namespace MediaBazaar
             }
             return assignedHours;
         }
-        public int GetEmployeeAssignedHoursForStatPerWeek(int id, string date)
+        public int GetEmployeeAssignedHoursForStatPerWeek(int id, int week)
         {
-            string sqlStatement = " select IF(es.times IS NULL, 0, es.times) as assignedHours, e.id from mb_employee e left join " +
-                "(select count(*) as times, employeeID from mb_shift_with_assigned_employee where shiftID in " +
-                "(select id from mb_shift where week(date, 1) = week(@date, 1)) group by employeeID) es ON es.employeeID = e.id" +
-                " where e.id like @i";
+            string sqlStatement = " SELECT IFNULL(Count(*),0) as assignedHours " +
+                "FROM `mb_shift_with_assigned_employee` as em  " +
+                "INNER JOIN `mb_employee`as emp " +
+                "ON em.employeeID = emp.id " +
+                "WHERE EXTRACT(WEEK FROM em.date) = @week AND emp.id = @id " +
+                "GROUP BY emp.id";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
-            sqlCommand.Parameters.AddWithValue("@date", date);
-            sqlCommand.Parameters.AddWithValue("@i", id.ToString());
+            sqlCommand.Parameters.AddWithValue("@week", week);
+            sqlCommand.Parameters.AddWithValue("@id", id.ToString());
             int assignedHours = 0;
 
             try
@@ -70,13 +74,15 @@ namespace MediaBazaar
         }
         public int GetEmployeeAssignedHoursForStatPerMonth(int id, string month)
         {
-            string sqlStatement = " select IF(es.times IS NULL, 0, es.times) as assignedHours, e.id from mb_employee e left join " +
-                "(select count(*) as times, employeeID from mb_shift_with_assigned_employee where shiftID in " +
-                "(select id from mb_shift where EXTRACT(MONTH FROM date) = @month ) group by employeeID) es ON es.employeeID = e.id" +
-                " where e.id like @i";
+            string sqlStatement = " SELECT IFNULL(Count(*),0) as assignedHours " +
+                "FROM `mb_shift_with_assigned_employee` as em  " +
+                "INNER JOIN `mb_employee`as emp " +
+                "ON em.employeeID = emp.id " +
+                "WHERE EXTRACT(MONTH FROM em.date) = @month AND emp.id = @id " +
+                "GROUP BY emp.id";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
             sqlCommand.Parameters.AddWithValue("@month", month);
-            sqlCommand.Parameters.AddWithValue("@i", id.ToString());
+            sqlCommand.Parameters.AddWithValue("@id", id.ToString());
             int assignedHours = 0;
 
             try
@@ -100,13 +106,15 @@ namespace MediaBazaar
 
         public int GetEmployeeAssignedHoursForStatPerYear(int id, string year)
         {
-            string sqlStatement = " select IF(es.times IS NULL, 0, es.times) as assignedHours, e.id from mb_employee e left join " +
-                "(select count(*) as times, employeeID from mb_shift_with_assigned_employee where shiftID in " +
-                "(select id from mb_shift where EXTRACT(YEAR FROM date) = @year ) group by employeeID) es ON es.employeeID = e.id" +
-                " where e.id like @i";
+            string sqlStatement = "SELECT IFNULL(Count(*),0) as assignedHours " +
+                                  "FROM `mb_shift_with_assigned_employee` AS em " +
+                                  "INNER JOIN `mb_employee`AS emp " +
+                                  "ON em.employeeID = emp.id " +
+                                  "WHERE EXTRACT(YEAR FROM em.date) = @year AND emp.id = @id " +
+                                  "GROUP BY emp.id";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
             sqlCommand.Parameters.AddWithValue("@year", year);
-            sqlCommand.Parameters.AddWithValue("@i", id.ToString());
+            sqlCommand.Parameters.AddWithValue("@id", id.ToString());
             int assignedHours = 0;
 
             try
@@ -134,7 +142,7 @@ namespace MediaBazaar
             string sqlStatement = "SELECT IFNULL(Count(*),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(MONTH FROM sh.date) AS month " +
                                   "FROM `mb_shift_with_assigned_employee` as em  " +
                                   "INNER JOIN `mb_shift` as sh " +
-                                  "ON sh.id = em.shiftID " +
+                                  "ON sh.shiftType = em.shiftType " +
                                   "INNER JOIN `mb_employee`as emp " +
                                   "ON em.employeeID = emp.id " +
                                   "WHERE EXTRACT(YEAR FROM sh.date) = @year " +
@@ -208,7 +216,7 @@ namespace MediaBazaar
             string sqlStatement = "SELECT IFNULL(Count(*),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(DAY FROM sh.date) AS day " +
                 "FROM `mb_shift_with_assigned_employee` as em " +
                 "INNER JOIN `mb_shift` as sh " +
-                "ON sh.id = em.shiftID " +
+                "ON sh.shiftType = em.shiftType " +
                 "INNER JOIN `mb_employee`as emp " +
                 "ON em.employeeID = emp.id " +
                 "WHERE EXTRACT(MONTH FROM sh.date) = @month " +
@@ -281,7 +289,7 @@ namespace MediaBazaar
             string sqlStatement = "SELECT IFNULL(Count(*),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(DAY FROM sh.date) AS day " +
             "FROM `mb_shift_with_assigned_employee` as em " +
             "INNER JOIN `mb_shift` as sh " +
-            "ON sh.id = em.shiftID " +
+            "ON sh.shiftType = em.shiftType " +
             "INNER JOIN `mb_employee`as emp " +
             "ON em.employeeID = emp.id " +
             "WHERE EXTRACT(MONTH FROM sh.date) = @month AND EXTRACT(WEEK FROM sh.date) = @week " +
@@ -338,7 +346,7 @@ namespace MediaBazaar
                 this.DbConnection.Close();
                 if (conditionAvg == "Average")
                 {
-                    for (int h = 0; h < 7; h ++)
+                    for (int h = 0; h < 7; h++)
                     {
                         TotalSalaryPerWeek[h] /= counter[h];
                     }
