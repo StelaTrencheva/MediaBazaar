@@ -18,13 +18,11 @@ namespace MediaBazaar.Class
             {
                 formattedDates.Add("'" + date.ToString("yyyy-MM-dd") + "'");
             }
-
-
-            string sqlStatement = "SELECT s.id as shiftID,s.*,e.id as employeeID, e.* FROM `mb_employee` as e right join mb_shift_with_assigned_employee as es on e.id=es.employeeID right join mb_shift as s on s.id=es.shiftID " +
-                "where date in (" + string.Join(",", formattedDates) + ") and e.position='STORE_WORKER' and e.contracttype!='LEFT' order by s.id";
+            string sqlStatement = "SELECT s.*,e.id as employeeID, e.* FROM `mb_employee` as e right join mb_shift_with_assigned_employee as es on e.id=es.employeeID " +
+                "right join mb_shift as s on s.date=es.date and s.shiftType=es.shiftType where s.date in (" + string.Join(",", formattedDates) + ") and e.position='STORE_WORKER' and e.contracttype!='LEFT'";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
 
-            Dictionary<DateTime, Dictionary<int, Shift>> shifts = new Dictionary<DateTime, Dictionary<int, Shift>>();
+            Dictionary<DateTime, Dictionary<KeyValuePair<ShiftType, DateTime>, Shift>> shifts = new Dictionary<DateTime, Dictionary<KeyValuePair<ShiftType, DateTime>, Shift>>();
             try
             {
                 MySqlDataReader shiftReader;
@@ -32,10 +30,11 @@ namespace MediaBazaar.Class
                 shiftReader = sqlCommand.ExecuteReader();
                 while (shiftReader.Read())
                 {
-                    int shiftId = Convert.ToInt32(shiftReader["shiftID"]);
+                    
                     DateTime date = DateTime.Parse(shiftReader["date"].ToString());
                     int assignableEmployees = Convert.ToInt32(shiftReader["assignableEmployees"]);
                     Enum.TryParse(shiftReader["shiftType"].ToString(), out ShiftType shiftType);
+
                     Enum.TryParse(shiftReader["contracttype"].ToString(), out ContractType contracttype);
                     Enum.TryParse(shiftReader["position"].ToString(), out EmployeeType position);
                     Enum.TryParse(shiftReader["gender"].ToString(), out Gender gender);
@@ -64,22 +63,22 @@ namespace MediaBazaar.Class
                         );
 
                     Shift shift;
-                    bool shiftAlreadyAdded = shifts.ContainsKey(date) && shifts[date].ContainsKey(shiftId);
+                    bool shiftAlreadyAdded = shifts.ContainsKey(date) && shifts[date].ContainsKey(new KeyValuePair<ShiftType, DateTime>(shiftType,date));
                     if (shiftAlreadyAdded)
                     {
-                        shift = shifts[date][shiftId];
+                        shift = shifts[date][new KeyValuePair<ShiftType, DateTime>(shiftType, date)];
                     }
                     else
                     {
                         if (!shifts.ContainsKey(date))
                         {
-                            shifts.Add(date, new Dictionary<int, Shift>());
+                            shifts.Add(date, new Dictionary< KeyValuePair<ShiftType, DateTime>, Shift>());
                         }
-                        shift = new Shift(shiftId, shiftType, date, new List<Employee>(), assignableEmployees);
+                        shift = new Shift(shiftType, date, new List<Employee>(), assignableEmployees);
                     }
 
                     shift.AssignEmployee(foundEmployee);
-                    shifts[date][shiftId] = shift;
+                    shifts[date][new KeyValuePair<ShiftType, DateTime>(shiftType, date)] = shift;
                 }
             }
             finally
@@ -108,32 +107,45 @@ namespace MediaBazaar.Class
             return new List<Shift>();
         }
 
-        public int AddShift(ShiftType shift, string date, int assignableEmployees)
+        public bool AddShift(Shift shift)
         {
-            string sqlStatement = "INSERT INTO `mb_shift`(`id`, `shiftType`, `date`,`assignableEmployees`) VALUES (id,@shift,@date,@assignableEmployees); SELECT LAST_INSERT_ID(); ";
+            string sqlStatement = "INSERT INTO `mb_shift`(`shiftType`, `date`,`assignableEmployees`) VALUES (@shiftType,@date,@assignableEmployees) on duplicate key update assignableEmployees=@assignableEmployees;";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
 
-            sqlCommand.Parameters.AddWithValue("@shift", shift.ToString());
-            sqlCommand.Parameters.AddWithValue("@date", date);
-            sqlCommand.Parameters.AddWithValue("@assignableEmployees", assignableEmployees);
+            sqlCommand.Parameters.AddWithValue("@shiftType", shift.Type.ToString());
+            sqlCommand.Parameters.AddWithValue("@date", shift.Date.ToString("yyyy-MM-dd"));
+            sqlCommand.Parameters.AddWithValue("@assignableEmployees", shift.AssignableEmployees);
             try
             {
                 DbConnection.Open();
-                int n = int.Parse(sqlCommand.ExecuteScalar().ToString());
-                return n;
-            }
+                int n = sqlCommand.ExecuteNonQuery();
 
+                if (n == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException e)
+            {
+                return false;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
             finally
             {
-                this.DbConnection.Close();
+                DbConnection.Close();
             }
 
         }
         public Employee AssignEmployeeToShift(Shift shift, int employeeId)
         {
-            string sqlStatement = "INSERT INTO `mb_shift_with_assigned_employee`(`shiftID`, `employeeID`) VALUES (@shiftId,@employeeId); SELECT * from mb_employee where id=@employeeId;";
+            string sqlStatement = "INSERT INTO `mb_shift_with_assigned_employee`(`shiftType`, `date`, `employeeID`) VALUES (@shiftType,@date,@employeeId);SELECT * from mb_employee where id=@employeeId;";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
-            sqlCommand.Parameters.AddWithValue("@shiftId", shift.Id);
+            sqlCommand.Parameters.AddWithValue("@shiftType", shift.Type.ToString());
+            sqlCommand.Parameters.AddWithValue("@date", shift.Date.ToString("yyyy-MM-dd"));
             sqlCommand.Parameters.AddWithValue("@employeeId", employeeId);
             Employee foundEmployee = null;
             try
@@ -180,9 +192,10 @@ namespace MediaBazaar.Class
         }
         public bool RemoveEmployeeFromShift(Shift shift, int employeeId)
         {
-            string sqlStatement = "DELETE FROM `mb_shift_with_assigned_employee` WHERE shiftID=@shiftId and employeeID=@employeeID";
+            string sqlStatement = "DELETE FROM `mb_shift_with_assigned_employee` WHERE employeeID=@employeeID and shiftType=@shiftType and date=@date";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
-            sqlCommand.Parameters.AddWithValue("@shiftId", shift.Id);
+            sqlCommand.Parameters.AddWithValue("@shiftType", shift.Type.ToString());
+            sqlCommand.Parameters.AddWithValue("@date", shift.Date.ToString("yyyy-MM-dd"));
             sqlCommand.Parameters.AddWithValue("@employeeId", employeeId);
             try
             {
@@ -208,42 +221,12 @@ namespace MediaBazaar.Class
                 DbConnection.Close();
             }
         }
-        public bool ChangeAssignableEmployees(Shift shift, int newValue)
-        {
-            string sqlStatement = "UPDATE mb_shift SET assignableEmployees = @newValue WHERE id = @shiftId";
-            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
-            sqlCommand.Parameters.AddWithValue("@shiftId", shift.Id);
-            sqlCommand.Parameters.AddWithValue("@newValue", newValue);
-            try
-            {
-                DbConnection.Open();
-                int n = sqlCommand.ExecuteNonQuery();
-
-                if (n == 1)
-                {
-                    return true;
-                }
-                return false;
-            }
-            catch (MySqlException e) { 
-            
-                return false;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-            finally
-            {
-                DbConnection.Close();
-            }
-        }
         public Dictionary<Employee, int> GetAvailableEmployees(Shift shift, string date)
         {
             string sqlStatement = " select IF(es.times IS NULL, 0, es.times*4) as assignedHours, e.* from mb_employee e left join " +
-                "(select count(*) as times, employeeID from mb_shift_with_assigned_employee where shiftID in " +
-                "(select id from mb_shift where week(date, 1) = week(@date, 1)) group by employeeID) es ON es.employeeID = e.id" +
-                " where e.id not in (" + string.Join(",", shift.GetAssignedEmployeesIds()) + ") and e.position='STORE_WORKER' and e.contracttype!='LEFT'";
+                "(select count(*) as times, employeeID from mb_shift_with_assigned_employee " +
+                "where week(date, 1) = week(@date, 1) group by employeeID)" +
+                " es ON es.employeeID = e.id where e.id not in (" + string.Join(",", shift.GetAssignedEmployeesIds()) + ") and e.position='STORE_WORKER' and e.contracttype!='LEFT'";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
             sqlCommand.Parameters.AddWithValue("@date", date);
             Dictionary<Employee, int> availableEmployees = new Dictionary<Employee, int>();

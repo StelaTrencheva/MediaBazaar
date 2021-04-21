@@ -8,15 +8,10 @@ namespace MediaBazaar
 {
     public class Shift
     {
-        private int id;
         private ShiftType type;
         private DateTime date;
         private int assignableEmployees;
         private List<Employee> assignedEmployees;
-        public int Id
-        {
-            get { return this.id; }
-        }
         public ShiftType Type
         {
             get { return this.type; }
@@ -31,9 +26,8 @@ namespace MediaBazaar
             get { return this.assignableEmployees; }
             set { this.assignableEmployees = value; }
         }
-        public Shift(int id, ShiftType shiftType, DateTime date, List<Employee> assignedEmployees, int assignableEmployees)
+        public Shift(ShiftType shiftType, DateTime date, List<Employee> assignedEmployees, int assignableEmployees)
         {
-            this.id = id;
             this.type = shiftType;
             this.date = date;
             this.assignedEmployees = assignedEmployees;

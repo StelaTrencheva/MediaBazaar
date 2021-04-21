@@ -381,12 +381,12 @@ namespace MediaBazaar
             this.dgvViewShifts.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvViewShifts.RowHeadersWidth = 150;
             this.dgvViewShifts.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvViewShifts.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.dgvViewShifts.RowTemplate.Height = 60;
             this.dgvViewShifts.RowTemplate.ReadOnly = true;
             this.dgvViewShifts.Size = new System.Drawing.Size(1103, 668);
             this.dgvViewShifts.TabIndex = 11;
             this.dgvViewShifts.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
-            this.dgvViewShifts.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvViewShifts_CellMouseEnter);
             // 
             // clMorning
             // 
@@ -687,10 +687,10 @@ namespace MediaBazaar
             this.rbMorningShift.Location = new System.Drawing.Point(16, 30);
             this.rbMorningShift.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbMorningShift.Name = "rbMorningShift";
-            this.rbMorningShift.Size = new System.Drawing.Size(134, 24);
+            this.rbMorningShift.Size = new System.Drawing.Size(129, 24);
             this.rbMorningShift.TabIndex = 86;
             this.rbMorningShift.TabStop = true;
-            this.rbMorningShift.Text = "Morning Shift:";
+            this.rbMorningShift.Text = "Morning Shift";
             this.rbMorningShift.UseVisualStyleBackColor = true;
             this.rbMorningShift.CheckedChanged += new System.EventHandler(this.rbMorningShift_CheckedChanged);
             // 

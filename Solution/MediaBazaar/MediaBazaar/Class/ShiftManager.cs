@@ -10,11 +10,9 @@ namespace MediaBazaar.UserControls
     public class ShiftManager
     {
         private DBMediatorShifts dbMediator;
-        private List<Shift> shifts;
         public ShiftManager()
         {
             dbMediator = new DBMediatorShifts();
-            shifts = new List<Shift>();
         }
         public Shift AddShift(ShiftType shiftType, string dateString)
         {
@@ -28,15 +26,13 @@ namespace MediaBazaar.UserControls
             {
                 assignableEmployees = 10;
             }
-
-            int n = dbMediator.AddShift(shiftType, dateString, assignableEmployees);
-            Shift newShift = new Shift(n, shiftType, date, new List<Employee>(), assignableEmployees);
-            shifts.Add(newShift);
+            Shift newShift = new Shift(shiftType, date, new List<Employee>(), assignableEmployees);
+            dbMediator.AddShift(newShift);
             return newShift;
         }
         public Shift GetShift(ShiftType shiftType, string date)
         {
-            foreach (Shift shift in shifts)
+            foreach (Shift shift in dbMediator.GetAllShiftsPerDate(DateTime.Parse(date)))
             {
                 if (shift.Type == shiftType && shift.Date == DateTime.Parse(date))
                 {
@@ -55,6 +51,7 @@ namespace MediaBazaar.UserControls
                 List<ShiftType> shiftTypes = new List<ShiftType>();
                 for (int i = 0; i < foundShifts.Count; i++)
                 {
+
                     shiftTypes.Add(foundShifts[i].Type);
                 }
                 foreach (ShiftType type in (ShiftType[])Enum.GetValues(typeof(ShiftType)))
@@ -65,13 +62,7 @@ namespace MediaBazaar.UserControls
                     }
                 }
             }
-            foreach (Shift shift in foundShifts)
-            {
-                if (!shifts.Contains(shift))
-                {
-                    shifts.Add(shift);
-                }
-            }
+            
             return foundShifts;
 
         }
@@ -88,7 +79,7 @@ namespace MediaBazaar.UserControls
             else
             {
                 shift.AssignableEmployees = newValue;
-                dbMediator.ChangeAssignableEmployees(shift, newValue);
+                dbMediator.AddShift(shift);
                 return true;
             }
         }
@@ -125,6 +116,14 @@ namespace MediaBazaar.UserControls
         public Dictionary<DateTime, List<Shift>> GetAllShiftsPerDates(List<DateTime> dates)
         {
             Dictionary<DateTime, List<Shift>> shifts = dbMediator.GetAllShiftsPerDates(dates);
+            foreach (DateTime date in dates)
+            {
+                if (!shifts.ContainsKey(date))
+                {
+                    shifts.Add(date, new List<Shift>());
+                }
+            }
+
 
             return shifts;
         }
