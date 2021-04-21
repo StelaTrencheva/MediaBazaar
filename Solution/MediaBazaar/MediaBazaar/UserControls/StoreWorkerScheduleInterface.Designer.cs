@@ -382,6 +382,7 @@ namespace MediaBazaar
             this.dgvViewShifts.RowHeadersWidth = 150;
             this.dgvViewShifts.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvViewShifts.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.dgvViewShifts.RowTemplate.DefaultCellStyle.NullValue = "0 emp. assigned";
             this.dgvViewShifts.RowTemplate.Height = 60;
             this.dgvViewShifts.RowTemplate.ReadOnly = true;
             this.dgvViewShifts.Size = new System.Drawing.Size(1103, 668);
