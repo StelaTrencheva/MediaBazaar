@@ -20,23 +20,11 @@ namespace MediaBazaar
             this.deptMngr = new DepartmentManager();
             this.empMng = new EmployeeManager();
             this.DisplayDepartments();
-            //this.DisplayDepartmentManagers();
+            this.DisplayDepartmentManagersInCbx();
+            this.DisplayDepartmentsInCbx();
         }
 
-        //private void DisplayDepartmentManagers()
-        //{
-        //    cbxDManager.Items.Clear();
-        //    foreach(Employee emp in this.empMng.GetListOFAllEmployees())
-        //    {
-        //        if(emp.Position == EmployeeType.DEPARTMENT_MANAGER)
-        //        {
-        //            cbxDManager.Items.Add(emp.GetNames);
-        //        }
-        //    }
-        //    cbxDManager.SelectedIndex = 0;
-        //}
-
-        private void DisplayDepartments()
+        private void DisplayDepartments()//DISPLAY ON THE DEPARMENT TAB WHEN CREATING A DEPARTMENT
         {
             lbxDepartments.Items.Clear();
             foreach (Department i in this.deptMngr.GetDepartments())
@@ -46,7 +34,7 @@ namespace MediaBazaar
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)//ADD DEPARTMENT
         {
             try
             {
@@ -80,6 +68,34 @@ namespace MediaBazaar
 
             tbxName.Clear();
             nudCode.Value = 1000;
+        }
+
+        private void DisplayDepartmentManagersInCbx()//DISPLAY DEPARTMENT MANAGER IN COMBOBOX IN ASSIGN DMANAGER TAB
+        {
+            cbxDManagers.Items.Clear();
+            foreach (Employee emp in this.empMng.GetListOFAllEmployees())
+            {
+                if (emp.Position == EmployeeType.DEPARTMENT_MANAGER)
+                {
+                    cbxDManagers.Items.Add(emp.GetNames);
+                }
+            }
+            cbxDManagers.SelectedIndex = 0;
+        }
+
+        private void DisplayDepartmentsInCbx()//DISPLAY DEPARTMENT IN COMBOBOX IN ASSIGN DMANAGER TAB
+        {
+            cbxDMDepartments.Items.Clear();
+            foreach (Department dept in this.deptMngr.GetDepartments())
+            {
+                cbxDMDepartments.Items.Add(dept);
+            }
+            cbxDMDepartments.SelectedIndex = 0;
+        }
+
+        private void btnAssignDM_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

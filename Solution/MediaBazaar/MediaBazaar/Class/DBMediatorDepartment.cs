@@ -137,6 +137,7 @@ namespace MediaBazaar
         //    }
         //}
 
+        //CHECK IF CODE & DEPARTMENT NAME EXIST
         public bool CheckIfExists(int code,string name)
         {
             string sqlStatement = "SELECT code FROM mb_department WHERE code = @c OR dept_name = @n;";
