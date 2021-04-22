@@ -23,7 +23,6 @@ namespace MediaBazaar
         }
         private void UpdateInfo()
         {
-            tboxBSN.Text = currentEmp.BSN;
             tboxFName.Text = currentEmp.FirstName;
             tboxLName.Text = currentEmp.LastName;
             cbxGender.SelectedIndex = Convert.ToInt32(currentEmp.Gender);
@@ -37,7 +36,6 @@ namespace MediaBazaar
             tboxTown.Text = currentEmp.Town;
             tboxCountry.Text = currentEmp.Country;
             tboxUsername.Text = currentEmp.Username;
-            dtpDateFWD.Value = Convert.ToDateTime(currentEmp.FirstWorkingDay);
             tboxHourlyWage.Text = currentEmp.HourlyWage.ToString();
             cbxContractType.SelectedIndex = Convert.ToInt32(currentEmp.Contract);
             cbxTypeOfEmployee.SelectedIndex = Convert.ToInt32(currentEmp.Position);
@@ -48,9 +46,9 @@ namespace MediaBazaar
         {
             try
             {
-                Employee empNewInfo = new Employee(currentEmp.Id, tboxBSN.Text, tboxFName.Text, tboxLName.Text, (Gender)cbxGender.SelectedIndex,
+                Employee empNewInfo = new Employee(currentEmp.Id, currentEmp.BSN, tboxFName.Text, tboxLName.Text, (Gender)cbxGender.SelectedIndex,
                                                   tboxEmail.Text, tboxUsername.Text, dtpDateOfBirth.Value, tboxStreet.Text, tboxStreetNumber.Text, 
-                                                  tboxZipcode.Text, tboxTown.Text, tboxCountry.Text, dtpDateFWD.Value, tboxPhoneNumber.Text, tboxIban.Text,
+                                                  tboxZipcode.Text, tboxTown.Text, tboxCountry.Text,Convert.ToDateTime(currentEmp.FirstWorkingDay), tboxPhoneNumber.Text, tboxIban.Text,
                                                   Convert.ToDouble(tboxHourlyWage.Text),Convert.ToDateTime(currentEmp.ContractStartDate),
                                                   (ContractType)cbxContractType.SelectedIndex, (EmployeeType)cbxTypeOfEmployee.SelectedIndex);
 

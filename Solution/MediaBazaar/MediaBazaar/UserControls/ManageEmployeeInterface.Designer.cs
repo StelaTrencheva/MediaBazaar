@@ -81,9 +81,9 @@ namespace MediaBazaar
             this.lblLName = new System.Windows.Forms.Label();
             this.lblFName = new System.Windows.Forms.Label();
             this.tpChangeCOntract = new System.Windows.Forms.TabPage();
+            this.lblChooseEmployee = new System.Windows.Forms.Label();
             this.btnViewDetails = new System.Windows.Forms.Button();
             this.lbxDisplayEMployees = new System.Windows.Forms.ListBox();
-            this.lblChooseEmployee = new System.Windows.Forms.Label();
             this.tcManageEmployee.SuspendLayout();
             this.tpAllEmployees.SuspendLayout();
             this.tpRegister.SuspendLayout();
@@ -104,7 +104,7 @@ namespace MediaBazaar
             // 
             // tpAllEmployees
             // 
-            this.tpAllEmployees.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.tpAllEmployees.BackColor = System.Drawing.Color.LightBlue;
             this.tpAllEmployees.Controls.Add(this.rbtnActiveEmployees);
             this.tpAllEmployees.Controls.Add(this.rbtnFiredEmployees);
             this.tpAllEmployees.Controls.Add(this.rbtnAllEmployees);
@@ -128,7 +128,7 @@ namespace MediaBazaar
             this.rbtnActiveEmployees.AutoSize = true;
             this.rbtnActiveEmployees.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
             this.rbtnActiveEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rbtnActiveEmployees.Location = new System.Drawing.Point(193, 79);
+            this.rbtnActiveEmployees.Location = new System.Drawing.Point(875, 141);
             this.rbtnActiveEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtnActiveEmployees.Name = "rbtnActiveEmployees";
             this.rbtnActiveEmployees.Size = new System.Drawing.Size(51, 38);
@@ -143,7 +143,7 @@ namespace MediaBazaar
             this.rbtnFiredEmployees.AutoSize = true;
             this.rbtnFiredEmployees.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
             this.rbtnFiredEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rbtnFiredEmployees.Location = new System.Drawing.Point(366, 79);
+            this.rbtnFiredEmployees.Location = new System.Drawing.Point(997, 141);
             this.rbtnFiredEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtnFiredEmployees.Name = "rbtnFiredEmployees";
             this.rbtnFiredEmployees.Size = new System.Drawing.Size(45, 38);
@@ -158,7 +158,7 @@ namespace MediaBazaar
             this.rbtnAllEmployees.AutoSize = true;
             this.rbtnAllEmployees.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
             this.rbtnAllEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rbtnAllEmployees.Location = new System.Drawing.Point(54, 79);
+            this.rbtnAllEmployees.Location = new System.Drawing.Point(782, 141);
             this.rbtnAllEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtnAllEmployees.Name = "rbtnAllEmployees";
             this.rbtnAllEmployees.Size = new System.Drawing.Size(27, 38);
@@ -173,7 +173,7 @@ namespace MediaBazaar
             this.btnEditEmployee.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnEditEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditEmployee.Location = new System.Drawing.Point(788, 435);
+            this.btnEditEmployee.Location = new System.Drawing.Point(782, 435);
             this.btnEditEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditEmployee.Name = "btnEditEmployee";
             this.btnEditEmployee.Size = new System.Drawing.Size(260, 63);
@@ -186,7 +186,7 @@ namespace MediaBazaar
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(1008, 138);
+            this.label1.Location = new System.Drawing.Point(257, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 24);
             this.label1.TabIndex = 84;
@@ -194,7 +194,7 @@ namespace MediaBazaar
             // 
             // tbSearch
             // 
-            this.tbSearch.Location = new System.Drawing.Point(788, 135);
+            this.tbSearch.Location = new System.Drawing.Point(39, 90);
             this.tbSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(260, 28);
@@ -206,7 +206,7 @@ namespace MediaBazaar
             this.btnFullInfo.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnFullInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFullInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFullInfo.Location = new System.Drawing.Point(788, 272);
+            this.btnFullInfo.Location = new System.Drawing.Point(782, 272);
             this.btnFullInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFullInfo.Name = "btnFullInfo";
             this.btnFullInfo.Size = new System.Drawing.Size(260, 63);
@@ -220,7 +220,7 @@ namespace MediaBazaar
             this.btnRemoveEmployee.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnRemoveEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveEmployee.Location = new System.Drawing.Point(788, 607);
+            this.btnRemoveEmployee.Location = new System.Drawing.Point(782, 607);
             this.btnRemoveEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRemoveEmployee.Name = "btnRemoveEmployee";
             this.btnRemoveEmployee.Size = new System.Drawing.Size(260, 63);
@@ -231,14 +231,14 @@ namespace MediaBazaar
             // 
             // lbxViewEmployees
             // 
-            this.lbxViewEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lbxViewEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxViewEmployees.FormattingEnabled = true;
             this.lbxViewEmployees.HorizontalScrollbar = true;
-            this.lbxViewEmployees.ItemHeight = 16;
+            this.lbxViewEmployees.ItemHeight = 18;
             this.lbxViewEmployees.Location = new System.Drawing.Point(39, 138);
             this.lbxViewEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbxViewEmployees.Name = "lbxViewEmployees";
-            this.lbxViewEmployees.Size = new System.Drawing.Size(668, 532);
+            this.lbxViewEmployees.Size = new System.Drawing.Size(668, 526);
             this.lbxViewEmployees.TabIndex = 2;
             // 
             // lblEmployees
@@ -370,6 +370,7 @@ namespace MediaBazaar
             this.cbxTypeOfEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTypeOfEmployee.FormattingEnabled = true;
             this.cbxTypeOfEmployee.Items.AddRange(new object[] {
+            "CASHIER",
             "STORE_WORKER",
             "STOCK_WORKER",
             "DEPARTMENT_MANAGER",
@@ -650,6 +651,16 @@ namespace MediaBazaar
             this.tpChangeCOntract.TabIndex = 1;
             this.tpChangeCOntract.Text = "Change contract";
             // 
+            // lblChooseEmployee
+            // 
+            this.lblChooseEmployee.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold);
+            this.lblChooseEmployee.Location = new System.Drawing.Point(9, 31);
+            this.lblChooseEmployee.Name = "lblChooseEmployee";
+            this.lblChooseEmployee.Size = new System.Drawing.Size(1095, 31);
+            this.lblChooseEmployee.TabIndex = 79;
+            this.lblChooseEmployee.Text = "Choose an employee";
+            this.lblChooseEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btnViewDetails
             // 
             this.btnViewDetails.BackColor = System.Drawing.Color.LightSlateGray;
@@ -674,16 +685,6 @@ namespace MediaBazaar
             this.lbxDisplayEMployees.Name = "lbxDisplayEMployees";
             this.lbxDisplayEMployees.Size = new System.Drawing.Size(1096, 444);
             this.lbxDisplayEMployees.TabIndex = 0;
-            // 
-            // lblChooseEmployee
-            // 
-            this.lblChooseEmployee.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold);
-            this.lblChooseEmployee.Location = new System.Drawing.Point(9, 31);
-            this.lblChooseEmployee.Name = "lblChooseEmployee";
-            this.lblChooseEmployee.Size = new System.Drawing.Size(1095, 31);
-            this.lblChooseEmployee.TabIndex = 79;
-            this.lblChooseEmployee.Text = "Choose an employee";
-            this.lblChooseEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ManageEmployeeInterface
             // 

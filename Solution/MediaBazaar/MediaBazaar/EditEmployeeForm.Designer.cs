@@ -33,7 +33,6 @@ namespace MediaBazaar
             this.lblStreet = new System.Windows.Forms.Label();
             this.lblCountry = new System.Windows.Forms.Label();
             this.lblTown = new System.Windows.Forms.Label();
-            this.lblBSN = new System.Windows.Forms.Label();
             this.lblFName = new System.Windows.Forms.Label();
             this.lblLName = new System.Windows.Forms.Label();
             this.lblGender = new System.Windows.Forms.Label();
@@ -54,13 +53,11 @@ namespace MediaBazaar
             this.lblHourlyWage = new System.Windows.Forms.Label();
             this.lblContractType = new System.Windows.Forms.Label();
             this.panelWorkInfo = new System.Windows.Forms.Panel();
-            this.dtpDateFWD = new System.Windows.Forms.DateTimePicker();
             this.cbxContractType = new System.Windows.Forms.ComboBox();
             this.cbxTypeOfEmployee = new System.Windows.Forms.ComboBox();
             this.tboxHourlyWage = new System.Windows.Forms.TextBox();
             this.tboxUsername = new System.Windows.Forms.TextBox();
             this.lblUName = new System.Windows.Forms.Label();
-            this.lblFirstWorkingDay = new System.Windows.Forms.Label();
             this.lblPosition = new System.Windows.Forms.Label();
             this.lblViewInfo = new System.Windows.Forms.Label();
             this.pnlPersonalInfo = new System.Windows.Forms.Panel();
@@ -70,7 +67,6 @@ namespace MediaBazaar
             this.tboxFName = new System.Windows.Forms.TextBox();
             this.tboxPhoneNumber = new System.Windows.Forms.TextBox();
             this.tboxIban = new System.Windows.Forms.TextBox();
-            this.tboxBSN = new System.Windows.Forms.TextBox();
             this.tboxEmail = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.pnlAddress.SuspendLayout();
@@ -118,21 +114,11 @@ namespace MediaBazaar
             this.lblTown.TabIndex = 20;
             this.lblTown.Text = "Town:";
             // 
-            // lblBSN
-            // 
-            this.lblBSN.AutoSize = true;
-            this.lblBSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBSN.Location = new System.Drawing.Point(13, 19);
-            this.lblBSN.Name = "lblBSN";
-            this.lblBSN.Size = new System.Drawing.Size(43, 18);
-            this.lblBSN.TabIndex = 4;
-            this.lblBSN.Text = "BSN:";
-            // 
             // lblFName
             // 
             this.lblFName.AutoSize = true;
             this.lblFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFName.Location = new System.Drawing.Point(13, 50);
+            this.lblFName.Location = new System.Drawing.Point(11, 19);
             this.lblFName.Name = "lblFName";
             this.lblFName.Size = new System.Drawing.Size(82, 18);
             this.lblFName.TabIndex = 5;
@@ -142,7 +128,7 @@ namespace MediaBazaar
             // 
             this.lblLName.AutoSize = true;
             this.lblLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLName.Location = new System.Drawing.Point(13, 81);
+            this.lblLName.Location = new System.Drawing.Point(11, 50);
             this.lblLName.Name = "lblLName";
             this.lblLName.Size = new System.Drawing.Size(81, 18);
             this.lblLName.TabIndex = 6;
@@ -152,7 +138,7 @@ namespace MediaBazaar
             // 
             this.lblGender.AutoSize = true;
             this.lblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(13, 112);
+            this.lblGender.Location = new System.Drawing.Point(11, 81);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(61, 18);
             this.lblGender.TabIndex = 7;
@@ -162,7 +148,7 @@ namespace MediaBazaar
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(13, 143);
+            this.lblEmail.Location = new System.Drawing.Point(11, 112);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(49, 18);
             this.lblEmail.TabIndex = 8;
@@ -182,7 +168,7 @@ namespace MediaBazaar
             // 
             this.lblBirthday.AutoSize = true;
             this.lblBirthday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBirthday.Location = new System.Drawing.Point(13, 174);
+            this.lblBirthday.Location = new System.Drawing.Point(11, 143);
             this.lblBirthday.Name = "lblBirthday";
             this.lblBirthday.Size = new System.Drawing.Size(65, 18);
             this.lblBirthday.TabIndex = 10;
@@ -265,7 +251,7 @@ namespace MediaBazaar
             // 
             this.lblIban.AutoSize = true;
             this.lblIban.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIban.Location = new System.Drawing.Point(13, 236);
+            this.lblIban.Location = new System.Drawing.Point(11, 205);
             this.lblIban.Name = "lblIban";
             this.lblIban.Size = new System.Drawing.Size(39, 18);
             this.lblIban.TabIndex = 13;
@@ -274,9 +260,9 @@ namespace MediaBazaar
             // lblWorkInfo
             // 
             this.lblWorkInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWorkInfo.Location = new System.Drawing.Point(779, 78);
+            this.lblWorkInfo.Location = new System.Drawing.Point(769, 78);
             this.lblWorkInfo.Name = "lblWorkInfo";
-            this.lblWorkInfo.Size = new System.Drawing.Size(334, 25);
+            this.lblWorkInfo.Size = new System.Drawing.Size(351, 25);
             this.lblWorkInfo.TabIndex = 35;
             this.lblWorkInfo.Text = "Work information:";
             this.lblWorkInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -285,7 +271,7 @@ namespace MediaBazaar
             // 
             this.lblPhoneNumber.AutoSize = true;
             this.lblPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhoneNumber.Location = new System.Drawing.Point(13, 205);
+            this.lblPhoneNumber.Location = new System.Drawing.Point(11, 174);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
             this.lblPhoneNumber.Size = new System.Drawing.Size(109, 18);
             this.lblPhoneNumber.TabIndex = 12;
@@ -295,7 +281,7 @@ namespace MediaBazaar
             // 
             this.lblHourlyWage.AutoSize = true;
             this.lblHourlyWage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHourlyWage.Location = new System.Drawing.Point(16, 82);
+            this.lblHourlyWage.Location = new System.Drawing.Point(16, 52);
             this.lblHourlyWage.Name = "lblHourlyWage";
             this.lblHourlyWage.Size = new System.Drawing.Size(94, 18);
             this.lblHourlyWage.TabIndex = 14;
@@ -305,7 +291,7 @@ namespace MediaBazaar
             // 
             this.lblContractType.AutoSize = true;
             this.lblContractType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContractType.Location = new System.Drawing.Point(16, 114);
+            this.lblContractType.Location = new System.Drawing.Point(16, 84);
             this.lblContractType.Name = "lblContractType";
             this.lblContractType.Size = new System.Drawing.Size(105, 18);
             this.lblContractType.TabIndex = 15;
@@ -314,27 +300,18 @@ namespace MediaBazaar
             // panelWorkInfo
             // 
             this.panelWorkInfo.BackColor = System.Drawing.Color.AliceBlue;
-            this.panelWorkInfo.Controls.Add(this.dtpDateFWD);
             this.panelWorkInfo.Controls.Add(this.cbxContractType);
             this.panelWorkInfo.Controls.Add(this.cbxTypeOfEmployee);
             this.panelWorkInfo.Controls.Add(this.tboxHourlyWage);
             this.panelWorkInfo.Controls.Add(this.tboxUsername);
             this.panelWorkInfo.Controls.Add(this.lblUName);
-            this.panelWorkInfo.Controls.Add(this.lblFirstWorkingDay);
             this.panelWorkInfo.Controls.Add(this.lblHourlyWage);
             this.panelWorkInfo.Controls.Add(this.lblPosition);
             this.panelWorkInfo.Controls.Add(this.lblContractType);
-            this.panelWorkInfo.Location = new System.Drawing.Point(779, 142);
+            this.panelWorkInfo.Location = new System.Drawing.Point(769, 142);
             this.panelWorkInfo.Name = "panelWorkInfo";
-            this.panelWorkInfo.Size = new System.Drawing.Size(334, 304);
+            this.panelWorkInfo.Size = new System.Drawing.Size(351, 304);
             this.panelWorkInfo.TabIndex = 36;
-            // 
-            // dtpDateFWD
-            // 
-            this.dtpDateFWD.Location = new System.Drawing.Point(152, 47);
-            this.dtpDateFWD.Name = "dtpDateFWD";
-            this.dtpDateFWD.Size = new System.Drawing.Size(169, 22);
-            this.dtpDateFWD.TabIndex = 95;
             // 
             // cbxContractType
             // 
@@ -345,10 +322,10 @@ namespace MediaBazaar
             "EIGHTYPERCENT",
             "FLEX",
             "LEFT"});
-            this.cbxContractType.Location = new System.Drawing.Point(152, 113);
+            this.cbxContractType.Location = new System.Drawing.Point(152, 83);
             this.cbxContractType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxContractType.Name = "cbxContractType";
-            this.cbxContractType.Size = new System.Drawing.Size(169, 24);
+            this.cbxContractType.Size = new System.Drawing.Size(178, 24);
             this.cbxContractType.TabIndex = 96;
             // 
             // cbxTypeOfEmployee
@@ -357,29 +334,30 @@ namespace MediaBazaar
             this.cbxTypeOfEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.4F);
             this.cbxTypeOfEmployee.FormattingEnabled = true;
             this.cbxTypeOfEmployee.Items.AddRange(new object[] {
+            "CASHIER",
             "STORE_WORKER",
             "STOCK_WORKER",
             "DEPARTMENT_MANAGER",
             "STORE_MANAGER",
             "STOCK_MANAGER",
             "HR"});
-            this.cbxTypeOfEmployee.Location = new System.Drawing.Point(152, 145);
+            this.cbxTypeOfEmployee.Location = new System.Drawing.Point(152, 115);
             this.cbxTypeOfEmployee.Name = "cbxTypeOfEmployee";
-            this.cbxTypeOfEmployee.Size = new System.Drawing.Size(169, 23);
+            this.cbxTypeOfEmployee.Size = new System.Drawing.Size(178, 23);
             this.cbxTypeOfEmployee.TabIndex = 97;
             // 
             // tboxHourlyWage
             // 
-            this.tboxHourlyWage.Location = new System.Drawing.Point(152, 80);
+            this.tboxHourlyWage.Location = new System.Drawing.Point(152, 50);
             this.tboxHourlyWage.Name = "tboxHourlyWage";
-            this.tboxHourlyWage.Size = new System.Drawing.Size(169, 22);
+            this.tboxHourlyWage.Size = new System.Drawing.Size(178, 22);
             this.tboxHourlyWage.TabIndex = 43;
             // 
             // tboxUsername
             // 
             this.tboxUsername.Location = new System.Drawing.Point(152, 17);
             this.tboxUsername.Name = "tboxUsername";
-            this.tboxUsername.Size = new System.Drawing.Size(169, 22);
+            this.tboxUsername.Size = new System.Drawing.Size(178, 22);
             this.tboxUsername.TabIndex = 41;
             // 
             // lblUName
@@ -392,21 +370,11 @@ namespace MediaBazaar
             this.lblUName.TabIndex = 9;
             this.lblUName.Text = "Username:";
             // 
-            // lblFirstWorkingDay
-            // 
-            this.lblFirstWorkingDay.AutoSize = true;
-            this.lblFirstWorkingDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstWorkingDay.Location = new System.Drawing.Point(16, 50);
-            this.lblFirstWorkingDay.Name = "lblFirstWorkingDay";
-            this.lblFirstWorkingDay.Size = new System.Drawing.Size(124, 18);
-            this.lblFirstWorkingDay.TabIndex = 11;
-            this.lblFirstWorkingDay.Text = "First working day:";
-            // 
             // lblPosition
             // 
             this.lblPosition.AutoSize = true;
             this.lblPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPosition.Location = new System.Drawing.Point(16, 146);
+            this.lblPosition.Location = new System.Drawing.Point(16, 116);
             this.lblPosition.Name = "lblPosition";
             this.lblPosition.Size = new System.Drawing.Size(106, 18);
             this.lblPosition.TabIndex = 16;
@@ -431,9 +399,7 @@ namespace MediaBazaar
             this.pnlPersonalInfo.Controls.Add(this.tboxFName);
             this.pnlPersonalInfo.Controls.Add(this.tboxPhoneNumber);
             this.pnlPersonalInfo.Controls.Add(this.tboxIban);
-            this.pnlPersonalInfo.Controls.Add(this.tboxBSN);
             this.pnlPersonalInfo.Controls.Add(this.tboxEmail);
-            this.pnlPersonalInfo.Controls.Add(this.lblBSN);
             this.pnlPersonalInfo.Controls.Add(this.lblFName);
             this.pnlPersonalInfo.Controls.Add(this.lblLName);
             this.pnlPersonalInfo.Controls.Add(this.lblGender);
@@ -454,56 +420,49 @@ namespace MediaBazaar
             "MALE",
             "FEMALE",
             "OTHER"});
-            this.cbxGender.Location = new System.Drawing.Point(135, 111);
+            this.cbxGender.Location = new System.Drawing.Point(133, 80);
             this.cbxGender.Name = "cbxGender";
             this.cbxGender.Size = new System.Drawing.Size(180, 24);
             this.cbxGender.TabIndex = 98;
             // 
             // dtpDateOfBirth
             // 
-            this.dtpDateOfBirth.Location = new System.Drawing.Point(135, 171);
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(133, 140);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(180, 22);
             this.dtpDateOfBirth.TabIndex = 94;
             // 
             // tboxLName
             // 
-            this.tboxLName.Location = new System.Drawing.Point(135, 80);
+            this.tboxLName.Location = new System.Drawing.Point(133, 49);
             this.tboxLName.Name = "tboxLName";
             this.tboxLName.Size = new System.Drawing.Size(180, 22);
             this.tboxLName.TabIndex = 25;
             // 
             // tboxFName
             // 
-            this.tboxFName.Location = new System.Drawing.Point(135, 49);
+            this.tboxFName.Location = new System.Drawing.Point(133, 18);
             this.tboxFName.Name = "tboxFName";
             this.tboxFName.Size = new System.Drawing.Size(180, 22);
             this.tboxFName.TabIndex = 24;
             // 
             // tboxPhoneNumber
             // 
-            this.tboxPhoneNumber.Location = new System.Drawing.Point(135, 204);
+            this.tboxPhoneNumber.Location = new System.Drawing.Point(133, 173);
             this.tboxPhoneNumber.Name = "tboxPhoneNumber";
             this.tboxPhoneNumber.Size = new System.Drawing.Size(180, 22);
             this.tboxPhoneNumber.TabIndex = 29;
             // 
             // tboxIban
             // 
-            this.tboxIban.Location = new System.Drawing.Point(135, 235);
+            this.tboxIban.Location = new System.Drawing.Point(133, 204);
             this.tboxIban.Name = "tboxIban";
             this.tboxIban.Size = new System.Drawing.Size(180, 22);
             this.tboxIban.TabIndex = 30;
             // 
-            // tboxBSN
-            // 
-            this.tboxBSN.Location = new System.Drawing.Point(135, 18);
-            this.tboxBSN.Name = "tboxBSN";
-            this.tboxBSN.Size = new System.Drawing.Size(180, 22);
-            this.tboxBSN.TabIndex = 23;
-            // 
             // tboxEmail
             // 
-            this.tboxEmail.Location = new System.Drawing.Point(135, 142);
+            this.tboxEmail.Location = new System.Drawing.Point(133, 111);
             this.tboxEmail.Name = "tboxEmail";
             this.tboxEmail.Size = new System.Drawing.Size(180, 22);
             this.tboxEmail.TabIndex = 27;
@@ -553,7 +512,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblStreet;
         private System.Windows.Forms.Label lblCountry;
         private System.Windows.Forms.Label lblTown;
-        private System.Windows.Forms.Label lblBSN;
         private System.Windows.Forms.Label lblFName;
         private System.Windows.Forms.Label lblLName;
         private System.Windows.Forms.Label lblGender;
@@ -570,14 +528,12 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblContractType;
         private System.Windows.Forms.Panel panelWorkInfo;
         private System.Windows.Forms.Label lblUName;
-        private System.Windows.Forms.Label lblFirstWorkingDay;
         private System.Windows.Forms.Label lblPosition;
         private System.Windows.Forms.Label lblViewInfo;
         private System.Windows.Forms.Panel pnlPersonalInfo;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox tboxLName;
         private System.Windows.Forms.TextBox tboxFName;
-        private System.Windows.Forms.TextBox tboxBSN;
         private System.Windows.Forms.TextBox tboxHourlyWage;
         private System.Windows.Forms.TextBox tboxUsername;
         private System.Windows.Forms.TextBox tboxCountry;
@@ -588,7 +544,6 @@ namespace MediaBazaar
         private System.Windows.Forms.TextBox tboxIban;
         private System.Windows.Forms.TextBox tboxPhoneNumber;
         private System.Windows.Forms.TextBox tboxEmail;
-        private System.Windows.Forms.DateTimePicker dtpDateFWD;
         private System.Windows.Forms.ComboBox cbxContractType;
         private System.Windows.Forms.ComboBox cbxTypeOfEmployee;
         private System.Windows.Forms.ComboBox cbxGender;

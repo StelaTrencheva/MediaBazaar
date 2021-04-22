@@ -122,8 +122,8 @@ namespace MediaBazaar
             sqlCommand.Parameters.AddWithValue("@16", newEmp.Iban);
             sqlCommand.Parameters.AddWithValue("@17", newEmp.HourlyWage);
             sqlCommand.Parameters.AddWithValue("@18", newEmp.ContractStartDate);
-            sqlCommand.Parameters.AddWithValue("@19", newEmp.Contract);
-            sqlCommand.Parameters.AddWithValue("@20", newEmp.Position);
+            sqlCommand.Parameters.AddWithValue("@19", newEmp.Contract.ToString());
+            sqlCommand.Parameters.AddWithValue("@20", newEmp.Position.ToString());
             try
             {
                 int n = 0;
@@ -141,7 +141,7 @@ namespace MediaBazaar
             //{
             //    return false;
             //}
-            catch (Exception)
+            catch (Exception exe)
             {
                 return false;
             }
