@@ -105,6 +105,7 @@ namespace MediaBazaar
             this.lbxAvailableStoreWorkers.Name = "lbxAvailableStoreWorkers";
             this.lbxAvailableStoreWorkers.Size = new System.Drawing.Size(719, 124);
             this.lbxAvailableStoreWorkers.TabIndex = 5;
+            this.lbxAvailableStoreWorkers.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lbxAvailableStoreWorkers_DrawItem);
             // 
             // btnRemove
             // 

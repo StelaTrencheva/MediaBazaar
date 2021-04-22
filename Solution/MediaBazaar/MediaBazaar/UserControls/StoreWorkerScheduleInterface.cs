@@ -1,14 +1,9 @@
-﻿using MySql.Data.MySqlClient;
-using MySql.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MediaBazaar.UserControls;
 
@@ -285,12 +280,24 @@ namespace MediaBazaar
                     }
                     else
                     {
-                        selectedUser = Convert.ToInt32(lbxAvailableStoreWorkers.SelectedItem.ToString().Substring(0, lbxAvailableStoreWorkers.SelectedItem.ToString().IndexOf('.')));
-                        if (shiftManager.AssignEmployeeToShift(foundShift, selectedUser))
+                        string selectedItem = lbxAvailableStoreWorkers.SelectedItem.ToString();
+                        selectedUser = Convert.ToInt32(selectedItem.Substring(0, selectedItem.IndexOf('.')));
+                        int selectedUserAssignedHours = Convert.ToInt32(selectedItem.Substring(selectedItem.LastIndexOf('-')+2, selectedItem.Length-24- (selectedItem.LastIndexOf('-') + 2)));
+                        Employee assignedEmployee = shiftManager.AssignEmployeeToShift(foundShift, selectedUser);
+                        if (assignedEmployee!=null)
                         {
-                            MessageBox.Show("Employee was assigned successfully!");
-                            UpdateAvailableEmployees(foundShift);
-                            UpdateShifts(lbx, foundShift, lbl);
+                            if ((assignedEmployee.Contract == ContractType.FULLTIME && selectedUserAssignedHours == 40) || (assignedEmployee.Contract == ContractType.EIGHTYPERCENT && selectedUserAssignedHours == 32))
+                            {
+                                MessageBox.Show("This employee was assigned with more than the contractual hours they have to work for the week!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Employee was assigned successfully!");
+                            }
+                                
+                                UpdateAvailableEmployees(foundShift);
+                                UpdateShifts(lbx, foundShift, lbl);
+                            
                         }
                         else
                         {
@@ -428,6 +435,31 @@ namespace MediaBazaar
             lbDisplayEmployees.Items.Clear();
         }
 
-        
+        // have to be changed
+        private void lbxAvailableStoreWorkers_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            //// Draw the background of the ListBox control for each item.
+            //e.DrawBackground();
+            //// Define the default color of the brush as black.
+            //Brush myBrush = Brushes.Red;
+            //switch (e.Index)
+            //{
+            //    case 0:
+            //        myBrush = Brushes.Red;
+            //        break;
+            //    case 1:
+            //        myBrush = Brushes.Orange;
+            //        break;
+            //    case 2:
+            //        myBrush = Brushes.Purple;
+            //        break;
+            //}
+            //// Draw the current item text based on the current Font 
+            //// and the custom brush settings.
+            //e.Graphics.DrawString(lbxAvailableStoreWorkers.Items[e.Index].ToString(),
+            //    e.Font, myBrush, e.Bounds, StringFormat.GenericDefault);
+            //// If the ListBox has focus, draw a focus rectangle around the selected item.
+            //e.DrawFocusRectangle();
+        }
     }
 }

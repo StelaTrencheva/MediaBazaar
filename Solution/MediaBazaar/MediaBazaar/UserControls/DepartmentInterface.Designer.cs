@@ -40,9 +40,12 @@ namespace MediaBazaar
             this.lbxDepartments = new System.Windows.Forms.ListBox();
             this.lblDepartments = new System.Windows.Forms.Label();
             this.tpAssignPCategories = new System.Windows.Forms.TabPage();
+            this.lblCode = new System.Windows.Forms.Label();
+            this.nudCode = new System.Windows.Forms.NumericUpDown();
             this.tclDepartment.SuspendLayout();
             this.tpAddDepartment.SuspendLayout();
             this.gbxAddDepartment.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCode)).BeginInit();
             this.SuspendLayout();
             // 
             // tclDepartment
@@ -59,6 +62,8 @@ namespace MediaBazaar
             // tpAddDepartment
             // 
             this.tpAddDepartment.BackColor = System.Drawing.Color.Lavender;
+            this.tpAddDepartment.Controls.Add(this.cbxDManager);
+            this.tpAddDepartment.Controls.Add(this.lblDManager);
             this.tpAddDepartment.Controls.Add(this.gbxAddDepartment);
             this.tpAddDepartment.Controls.Add(this.lbxDepartments);
             this.tpAddDepartment.Controls.Add(this.lblDepartments);
@@ -73,8 +78,8 @@ namespace MediaBazaar
             // gbxAddDepartment
             // 
             this.gbxAddDepartment.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.gbxAddDepartment.Controls.Add(this.cbxDManager);
-            this.gbxAddDepartment.Controls.Add(this.lblDManager);
+            this.gbxAddDepartment.Controls.Add(this.nudCode);
+            this.gbxAddDepartment.Controls.Add(this.lblCode);
             this.gbxAddDepartment.Controls.Add(this.btnAdd);
             this.gbxAddDepartment.Controls.Add(this.tbxName);
             this.gbxAddDepartment.Controls.Add(this.lblName);
@@ -89,7 +94,7 @@ namespace MediaBazaar
             // 
             this.cbxDManager.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDManager.FormattingEnabled = true;
-            this.cbxDManager.Location = new System.Drawing.Point(200, 115);
+            this.cbxDManager.Location = new System.Drawing.Point(217, 415);
             this.cbxDManager.Name = "cbxDManager";
             this.cbxDManager.Size = new System.Drawing.Size(245, 28);
             this.cbxDManager.TabIndex = 4;
@@ -97,7 +102,7 @@ namespace MediaBazaar
             // lblDManager
             // 
             this.lblDManager.AutoSize = true;
-            this.lblDManager.Location = new System.Drawing.Point(6, 123);
+            this.lblDManager.Location = new System.Drawing.Point(23, 423);
             this.lblDManager.Name = "lblDManager";
             this.lblDManager.Size = new System.Drawing.Size(172, 20);
             this.lblDManager.TabIndex = 3;
@@ -116,14 +121,14 @@ namespace MediaBazaar
             // 
             // tbxName
             // 
-            this.tbxName.Location = new System.Drawing.Point(200, 74);
+            this.tbxName.Location = new System.Drawing.Point(200, 121);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(246, 27);
             this.tbxName.TabIndex = 1;
             // 
             // lblName
             // 
-            this.lblName.Location = new System.Drawing.Point(6, 71);
+            this.lblName.Location = new System.Drawing.Point(6, 118);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(188, 30);
             this.lblName.TabIndex = 0;
@@ -161,6 +166,37 @@ namespace MediaBazaar
             this.tpAssignPCategories.TabIndex = 1;
             this.tpAssignPCategories.Text = "Assign product categories";
             // 
+            // lblCode
+            // 
+            this.lblCode.Location = new System.Drawing.Point(6, 73);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Size = new System.Drawing.Size(188, 30);
+            this.lblCode.TabIndex = 3;
+            this.lblCode.Text = "Code";
+            this.lblCode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // nudCode
+            // 
+            this.nudCode.Location = new System.Drawing.Point(200, 73);
+            this.nudCode.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudCode.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nudCode.Name = "nudCode";
+            this.nudCode.Size = new System.Drawing.Size(246, 27);
+            this.nudCode.TabIndex = 4;
+            this.nudCode.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            // 
             // DepartmentInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -170,8 +206,10 @@ namespace MediaBazaar
             this.Size = new System.Drawing.Size(1129, 785);
             this.tclDepartment.ResumeLayout(false);
             this.tpAddDepartment.ResumeLayout(false);
+            this.tpAddDepartment.PerformLayout();
             this.gbxAddDepartment.ResumeLayout(false);
             this.gbxAddDepartment.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCode)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -189,5 +227,7 @@ namespace MediaBazaar
         private System.Windows.Forms.TabPage tpAssignPCategories;
         private System.Windows.Forms.ComboBox cbxDManager;
         private System.Windows.Forms.Label lblDManager;
+        private System.Windows.Forms.NumericUpDown nudCode;
+        private System.Windows.Forms.Label lblCode;
     }
 }

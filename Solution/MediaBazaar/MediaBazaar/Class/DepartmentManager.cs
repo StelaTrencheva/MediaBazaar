@@ -9,7 +9,6 @@ namespace MediaBazaar
     public class DepartmentManager
     {
         DBMediatorDepartment dbMediator;
-        Department dept;
 
         public DepartmentManager()
         {
@@ -18,12 +17,12 @@ namespace MediaBazaar
 
         public void AddDepartment(Department newDept)
         {
-            if (dbMediator.CheckIfExists(newDept.Dept_mng_id, newDept.Name))
+            if (dbMediator.CheckIfExists(newDept.Code, newDept.Name))
             {
                 throw new RepeatingObjectException();
             }
             
-            this.dbMediator.AddDepartment(newDept.Name, newDept.Dept_mng_id);
+            this.dbMediator.AddDepartment(newDept.Code, newDept.Name);
         }
 
         public List<Department> GetDepartments()
