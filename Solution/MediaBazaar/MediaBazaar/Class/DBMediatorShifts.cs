@@ -223,10 +223,10 @@ namespace MediaBazaar.Class
         }
         public Dictionary<Employee, int> GetAvailableEmployees(Shift shift, string date)
         {
-            string sqlStatement = " select IF(es.times IS NULL, 0, es.times*4) as assignedHours, e.* from mb_employee e left join " +
-                "(select count(*) as times, employeeID from mb_shift_with_assigned_employee " +
-                "where week(date, 1) = week(@date, 1) group by employeeID)" +
-                " es ON es.employeeID = e.id where e.id not in (" + string.Join(",", shift.GetAssignedEmployeesIds()) + ") and e.position='STORE_WORKER' and e.contracttype!='LEFT'";
+            string sqlStatement = "select IF(es.times IS NULL, 0, es.times*4) as assignedHours,IF(esd.times_day IS NULL, 0, esd.times_day*4) as assignedHoursPerDay, e.* from mb_employee e left join " +
+                "(select count(*) as times, employeeID from mb_shift_with_assigned_employee where week(date, 1) = week(@date, 1) group by employeeID)es ON es.employeeID = e.id left join" +
+                "(select count(*) as times_day, employeeID from mb_shift_with_assigned_employee where date = @date group by employeeID)esd ON esd.employeeID = e.id" +
+                " where e.id not in (" + string.Join(",", shift.GetAssignedEmployeesIds()) + ") and e.position='STORE_WORKER' and e.contracttype!='LEFT'";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
             sqlCommand.Parameters.AddWithValue("@date", date);
             Dictionary<Employee, int> availableEmployees = new Dictionary<Employee, int>();
@@ -237,33 +237,36 @@ namespace MediaBazaar.Class
                 shiftReader = sqlCommand.ExecuteReader();
                 while (shiftReader.Read())
                 {
-                    Enum.TryParse(shiftReader["contracttype"].ToString(), out ContractType contracttype);
-                    Enum.TryParse(shiftReader["position"].ToString(), out EmployeeType position);
-                    Enum.TryParse(shiftReader["gender"].ToString(), out Gender gender);
-                    Employee foundEmployee = new Employee
-                        (
-                           Convert.ToInt32(shiftReader["id"]),
-                           shiftReader["bsn"].ToString(),
-                           shiftReader["fname"].ToString(),
-                           shiftReader["lname"].ToString(),
-                           gender,
-                           shiftReader["email"].ToString(),
-                           shiftReader["uname"].ToString(),
-                           DateTime.Parse(shiftReader["birthdate"].ToString()),
-                           shiftReader["street"].ToString(),
-                           shiftReader["streetnumber"].ToString(),
-                           shiftReader["zipcode"].ToString(),
-                           shiftReader["town"].ToString(),
-                           shiftReader["country"].ToString(),
-                           DateTime.Parse(shiftReader["firstworkingday"].ToString()),
-                           shiftReader["emergphonenumber"].ToString(),
-                           shiftReader["iban"].ToString(),
-                           Convert.ToDouble(shiftReader["hourlywage"]),
-                           Convert.ToDateTime(shiftReader["contractstartdate"].ToString()),
-                           contracttype,
-                           position
-                        );
-                    availableEmployees.Add(foundEmployee, Convert.ToInt32(shiftReader["assignedHours"]));
+                    if (Convert.ToInt32(shiftReader["assignedHoursPerDay"]) < 12)
+                    {                    
+                        Enum.TryParse(shiftReader["contracttype"].ToString(), out ContractType contracttype);
+                        Enum.TryParse(shiftReader["position"].ToString(), out EmployeeType position);
+                        Enum.TryParse(shiftReader["gender"].ToString(), out Gender gender);
+                        Employee foundEmployee = new Employee
+                            (
+                               Convert.ToInt32(shiftReader["id"]),
+                               shiftReader["bsn"].ToString(),
+                               shiftReader["fname"].ToString(),
+                               shiftReader["lname"].ToString(),
+                               gender,
+                               shiftReader["email"].ToString(),
+                               shiftReader["uname"].ToString(),
+                               DateTime.Parse(shiftReader["birthdate"].ToString()),
+                               shiftReader["street"].ToString(),
+                               shiftReader["streetnumber"].ToString(),
+                               shiftReader["zipcode"].ToString(),
+                               shiftReader["town"].ToString(),
+                               shiftReader["country"].ToString(),
+                               DateTime.Parse(shiftReader["firstworkingday"].ToString()),
+                               shiftReader["emergphonenumber"].ToString(),
+                               shiftReader["iban"].ToString(),
+                               Convert.ToDouble(shiftReader["hourlywage"]),
+                               Convert.ToDateTime(shiftReader["contractstartdate"].ToString()),
+                               contracttype,
+                               position
+                            );
+                        availableEmployees.Add(foundEmployee, Convert.ToInt32(shiftReader["assignedHours"]));
+                    }
                 }
             }
             finally

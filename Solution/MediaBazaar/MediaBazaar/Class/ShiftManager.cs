@@ -83,7 +83,7 @@ namespace MediaBazaar.UserControls
                 return true;
             }
         }
-        public bool AssignEmployeeToShift(Shift shift, int employeeId)
+        public Employee AssignEmployeeToShift(Shift shift, int employeeId)
         {
             Employee assignedEmployeee = null;
             if (GetAssignableEmployeesLeft(shift) > 0)
@@ -92,10 +92,10 @@ namespace MediaBazaar.UserControls
                 if (assignedEmployeee != null)
                 {
                     shift.AssignEmployee(assignedEmployeee);
-                    return true;
+                    return assignedEmployeee;
                 }
             }
-            return false;
+            return null;
         }
         public bool RemoveEmployeeFromShift(Shift shift, int employeeId)
         {
