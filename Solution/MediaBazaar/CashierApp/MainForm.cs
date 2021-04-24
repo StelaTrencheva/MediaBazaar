@@ -26,7 +26,7 @@ namespace CashierApp
         }
         private void AllProducts()
         {
-            lboxProducts.CustomTabOffsets.Add(40);
+            lboxProducts.CustomTabOffsets.Add(36);
             lboxProducts.UseCustomTabOffsets = true;
             lboxProducts.Items.Clear();
             foreach (Product product in productManager.GetAllProducts())
@@ -77,7 +77,6 @@ namespace CashierApp
                 lboxProducts.Items.Add("");
             }
         }
-
 
     }
 }
