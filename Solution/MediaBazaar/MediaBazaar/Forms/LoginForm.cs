@@ -69,10 +69,9 @@ namespace MediaBazaar
                 form.ShowDialog();
                 this.Close();
             }
-            else if (currentEmp.Position == EmployeeType.STORE_WORKER)
+            else
             {
-                //When the login information of a stock worker is correct
-                MessageBox.Show($"Hello {currentEmp.FirstName}! You dont have access to the application.\nSoon you will have access to the website.");
+                MessageBox.Show("You dont have access to the application");
             }
         }
 

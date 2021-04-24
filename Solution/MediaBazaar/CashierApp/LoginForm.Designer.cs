@@ -35,6 +35,7 @@ namespace CashierApp
             this.lbUsername = new System.Windows.Forms.Label();
             this.lbPassword = new System.Windows.Forms.Label();
             this.lbLine = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbPassword
@@ -64,6 +65,7 @@ namespace CashierApp
             this.btnLogIn.TabIndex = 11;
             this.btnLogIn.Text = "Log in";
             this.btnLogIn.UseVisualStyleBackColor = false;
+            this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
             // 
             // lbUsername
             // 
@@ -93,12 +95,23 @@ namespace CashierApp
             this.lbLine.Size = new System.Drawing.Size(1, 348);
             this.lbLine.TabIndex = 8;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(719, 282);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(995, 422);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUserName);
             this.Controls.Add(this.btnLogIn);
@@ -109,7 +122,7 @@ namespace CashierApp
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
+            this.Text = "Cashier app";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,6 +136,7 @@ namespace CashierApp
         private System.Windows.Forms.Label lbUsername;
         private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.Label lbLine;
+        private System.Windows.Forms.Button button1;
     }
 }
 

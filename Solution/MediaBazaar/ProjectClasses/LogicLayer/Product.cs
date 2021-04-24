@@ -41,6 +41,7 @@ namespace ProjectClasses
         public int AmountInStore { get { return this.amountInStore; } }
 
         public int AmountInWarehouse { get { return this.amountInWarehouse; } }
+        public string GetName { get { return $"{this.pNumber}--{this.brand} {this.model}"; } }
 
         public Product(int pNumber, string brand, string type, string model, string description,
             string category, string subcategory, decimal costPrice, decimal salePrice, int amountInStore,
