@@ -40,21 +40,23 @@ namespace MediaBazaar
             this.lbxDepartments = new System.Windows.Forms.ListBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.tpAssignDManager = new System.Windows.Forms.TabPage();
+            this.lbxDepartmentsAndDM = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAssignDM = new System.Windows.Forms.Button();
+            this.lblDMAssignTo = new System.Windows.Forms.Label();
             this.lblDManager = new System.Windows.Forms.Label();
-            this.cbxDManagers = new System.Windows.Forms.ComboBox();
             this.lblDepartments = new System.Windows.Forms.Label();
+            this.cbxDManagers = new System.Windows.Forms.ComboBox();
             this.cbxDMDepartments = new System.Windows.Forms.ComboBox();
             this.tpAssignPCategories = new System.Windows.Forms.TabPage();
-            this.lblDMAssignTo = new System.Windows.Forms.Label();
-            this.lbxDepartmentsAndDM = new System.Windows.Forms.ListBox();
-            this.btnAssignDM = new System.Windows.Forms.Button();
+            this.lbxDepartmentsAndPCategory = new System.Windows.Forms.ListBox();
             this.tclDepartment.SuspendLayout();
             this.tpDepartment.SuspendLayout();
             this.gbxAddDepartment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCode)).BeginInit();
             this.tpAssignDManager.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tpAssignPCategories.SuspendLayout();
             this.SuspendLayout();
             // 
             // tclDepartment
@@ -188,6 +190,16 @@ namespace MediaBazaar
             this.tpAssignDManager.TabIndex = 1;
             this.tpAssignDManager.Text = "Assign department manager";
             // 
+            // lbxDepartmentsAndDM
+            // 
+            this.lbxDepartmentsAndDM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbxDepartmentsAndDM.FormattingEnabled = true;
+            this.lbxDepartmentsAndDM.ItemHeight = 25;
+            this.lbxDepartmentsAndDM.Location = new System.Drawing.Point(159, 146);
+            this.lbxDepartmentsAndDM.Name = "lbxDepartmentsAndDM";
+            this.lbxDepartmentsAndDM.Size = new System.Drawing.Size(776, 529);
+            this.lbxDepartmentsAndDM.TabIndex = 1;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightBlue;
@@ -202,6 +214,27 @@ namespace MediaBazaar
             this.panel1.Size = new System.Drawing.Size(1103, 89);
             this.panel1.TabIndex = 0;
             // 
+            // btnAssignDM
+            // 
+            this.btnAssignDM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAssignDM.Location = new System.Drawing.Point(897, 34);
+            this.btnAssignDM.Name = "btnAssignDM";
+            this.btnAssignDM.Size = new System.Drawing.Size(121, 35);
+            this.btnAssignDM.TabIndex = 3;
+            this.btnAssignDM.Text = "Assign";
+            this.btnAssignDM.UseVisualStyleBackColor = true;
+            this.btnAssignDM.Click += new System.EventHandler(this.btnAssignDM_Click);
+            // 
+            // lblDMAssignTo
+            // 
+            this.lblDMAssignTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDMAssignTo.Location = new System.Drawing.Point(350, 37);
+            this.lblDMAssignTo.Name = "lblDMAssignTo";
+            this.lblDMAssignTo.Size = new System.Drawing.Size(150, 28);
+            this.lblDMAssignTo.TabIndex = 2;
+            this.lblDMAssignTo.Text = "Assign to";
+            this.lblDMAssignTo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblDManager
             // 
             this.lblDManager.AutoSize = true;
@@ -212,15 +245,6 @@ namespace MediaBazaar
             this.lblDManager.TabIndex = 2;
             this.lblDManager.Text = "Department manager";
             // 
-            // cbxDManagers
-            // 
-            this.cbxDManagers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxDManagers.FormattingEnabled = true;
-            this.cbxDManagers.Location = new System.Drawing.Point(104, 37);
-            this.cbxDManagers.Name = "cbxDManagers";
-            this.cbxDManagers.Size = new System.Drawing.Size(240, 28);
-            this.cbxDManagers.TabIndex = 1;
-            // 
             // lblDepartments
             // 
             this.lblDepartments.AutoSize = true;
@@ -230,6 +254,15 @@ namespace MediaBazaar
             this.lblDepartments.Size = new System.Drawing.Size(106, 20);
             this.lblDepartments.TabIndex = 1;
             this.lblDepartments.Text = "Departments";
+            // 
+            // cbxDManagers
+            // 
+            this.cbxDManagers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxDManagers.FormattingEnabled = true;
+            this.cbxDManagers.Location = new System.Drawing.Point(104, 37);
+            this.cbxDManagers.Name = "cbxDManagers";
+            this.cbxDManagers.Size = new System.Drawing.Size(240, 28);
+            this.cbxDManagers.TabIndex = 1;
             // 
             // cbxDMDepartments
             // 
@@ -242,6 +275,7 @@ namespace MediaBazaar
             // 
             // tpAssignPCategories
             // 
+            this.tpAssignPCategories.Controls.Add(this.lbxDepartmentsAndPCategory);
             this.tpAssignPCategories.Location = new System.Drawing.Point(4, 34);
             this.tpAssignPCategories.Name = "tpAssignPCategories";
             this.tpAssignPCategories.Size = new System.Drawing.Size(1115, 741);
@@ -249,36 +283,14 @@ namespace MediaBazaar
             this.tpAssignPCategories.Text = "Assign product categories";
             this.tpAssignPCategories.UseVisualStyleBackColor = true;
             // 
-            // lblDMAssignTo
+            // lbxDepartmentsAndPCategory
             // 
-            this.lblDMAssignTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDMAssignTo.Location = new System.Drawing.Point(350, 37);
-            this.lblDMAssignTo.Name = "lblDMAssignTo";
-            this.lblDMAssignTo.Size = new System.Drawing.Size(150, 28);
-            this.lblDMAssignTo.TabIndex = 2;
-            this.lblDMAssignTo.Text = "Assign to";
-            this.lblDMAssignTo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbxDepartmentsAndDM
-            // 
-            this.lbxDepartmentsAndDM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbxDepartmentsAndDM.FormattingEnabled = true;
-            this.lbxDepartmentsAndDM.ItemHeight = 25;
-            this.lbxDepartmentsAndDM.Location = new System.Drawing.Point(159, 146);
-            this.lbxDepartmentsAndDM.Name = "lbxDepartmentsAndDM";
-            this.lbxDepartmentsAndDM.Size = new System.Drawing.Size(776, 529);
-            this.lbxDepartmentsAndDM.TabIndex = 1;
-            // 
-            // btnAssignDM
-            // 
-            this.btnAssignDM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAssignDM.Location = new System.Drawing.Point(897, 34);
-            this.btnAssignDM.Name = "btnAssignDM";
-            this.btnAssignDM.Size = new System.Drawing.Size(121, 35);
-            this.btnAssignDM.TabIndex = 3;
-            this.btnAssignDM.Text = "Assign";
-            this.btnAssignDM.UseVisualStyleBackColor = true;
-            this.btnAssignDM.Click += new System.EventHandler(this.btnAssignDM_Click);
+            this.lbxDepartmentsAndPCategory.FormattingEnabled = true;
+            this.lbxDepartmentsAndPCategory.ItemHeight = 25;
+            this.lbxDepartmentsAndPCategory.Location = new System.Drawing.Point(44, 64);
+            this.lbxDepartmentsAndPCategory.Name = "lbxDepartmentsAndPCategory";
+            this.lbxDepartmentsAndPCategory.Size = new System.Drawing.Size(518, 329);
+            this.lbxDepartmentsAndPCategory.TabIndex = 0;
             // 
             // DepartmentInterface
             // 
@@ -296,6 +308,7 @@ namespace MediaBazaar
             this.tpAssignDManager.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tpAssignPCategories.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -322,5 +335,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label lblDMAssignTo;
         private System.Windows.Forms.ListBox lbxDepartmentsAndDM;
         private System.Windows.Forms.Button btnAssignDM;
+        private System.Windows.Forms.ListBox lbxDepartmentsAndPCategory;
     }
 }

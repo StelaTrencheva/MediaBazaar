@@ -13,6 +13,8 @@ namespace ProjectClasses
         private int dept_mng_id;
         private string mngFName;
         private string mngLName;
+        private int product_num;
+        private string category;
 
         public int Dept_mng_id
         {
@@ -64,6 +66,19 @@ namespace ProjectClasses
             this.mngLName = mngLName;
         }
 
+        public Department(int code, string name, int product_num, string category)
+        {
+            if (name == "")
+            {
+                throw new ArgumentException();
+            }
+
+            this.code = code;
+            this.name = name;
+            this.product_num = product_num;
+            this.category = category;
+        }
+
         public override string ToString()
         {
             return $"Code: {this.code} - {this.name}";
@@ -71,7 +86,12 @@ namespace ProjectClasses
 
         public string DisplayAssignDManager()
         {
-            return $"Code: {this.code} - {this.name} - {this.mngFName} {this.mngLName}";
+            return $"Code: {this.code} - {this.name} -\t {this.mngFName} {this.mngLName}";
+        }
+
+        public string DisplayAssignPCategory()
+        {
+            return $"{this.name} - {this.category}";
         }
     }
 }

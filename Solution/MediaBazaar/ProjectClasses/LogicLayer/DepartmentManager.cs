@@ -29,5 +29,15 @@ namespace ProjectClasses
         {
             return this.dbMediator.GetDepartment();
         }
+
+        public List<Department> GetDepartmentsWithDManagers()
+        {
+            return this.dbMediator.GetDepartmentWithDManager();
+        }
+
+        public List<Department> GetDepartmentsWithPCategories()
+        {
+            return this.dbMediator.GetDepartmentWithPCategory();
+        }
     }
 }
