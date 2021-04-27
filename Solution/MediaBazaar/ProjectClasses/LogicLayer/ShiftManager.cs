@@ -109,7 +109,7 @@ namespace ProjectClasses
         {
             Dictionary<Employee, int> availableEmployees = new Dictionary<Employee, int>();
             availableEmployees = dbMediator.GetAvailableEmployees(shift, date);
-            return availableEmployees;
+            return availableEmployees.OrderBy(x=>x.Key.Id).ToDictionary((keyItem) => keyItem.Key, (valueItem) => valueItem.Value);
         }
 
         public Dictionary<DateTime, List<Shift>> GetAllShiftsPerDates(List<DateTime> dates)

@@ -124,7 +124,14 @@ namespace MediaBazaar
 
             foreach (KeyValuePair<Employee, int> employee in availableEmployees)
             {
-                lbxAvailableStoreWorkers.Items.Add($"{employee.Key.Id}. {employee.Key.FirstName} - {employee.Key.LastName} - {employee.Key.Contract} - {employee.Value}h assigned for the week.");
+                ListViewItem newItem = new ListViewItem($"{employee.Key.Id}. {employee.Key.FirstName} - {employee.Key.LastName} - {employee.Key.Contract} - {employee.Value}h assigned for the week.");
+                lbxAvailableStoreWorkers.Items.Add(newItem);
+
+                if ((employee.Key.Contract == ContractType.FULLTIME && employee.Value >= 40) || (employee.Key.Contract == ContractType.EIGHTYPERCENT && employee.Value >= 32))
+                {
+                    lbxAvailableStoreWorkers.Items[lbxAvailableStoreWorkers.Items.IndexOf(newItem)].BackColor = System.Drawing.ColorTranslator.FromHtml("#FF686B");
+                }
+
             }
         }
 
@@ -274,13 +281,13 @@ namespace MediaBazaar
                 GetSelectedShift(checkedButton);
                 try
                 {
-                    if (lbxAvailableStoreWorkers.SelectedIndex == -1)
+                    if (lbxAvailableStoreWorkers.Items.IndexOf(lbxAvailableStoreWorkers.SelectedItems[0]) == -1)
                     {
                         MessageBox.Show("Please select a store worker from the available store workers for the selected shift!");
                     }
                     else
                     {
-                        string selectedItem = lbxAvailableStoreWorkers.SelectedItem.ToString();
+                        string selectedItem = lbxAvailableStoreWorkers.SelectedItems[0].Text;
                         selectedUser = Convert.ToInt32(selectedItem.Substring(0, selectedItem.IndexOf('.')));
                         int selectedUserAssignedHours = Convert.ToInt32(selectedItem.Substring(selectedItem.LastIndexOf('-')+2, selectedItem.Length-24- (selectedItem.LastIndexOf('-') + 2)));
                         Employee assignedEmployee = shiftManager.AssignEmployeeToShift(foundShift, selectedUser);
@@ -371,7 +378,6 @@ namespace MediaBazaar
             {
                 dates.Add(i);
             }
-            ///
             lblDisplayedDates.Text = $"Week: {startDate.ToShortDateString()} - {endDate.ToShortDateString()}";
             shifts = shiftManager.GetAllShiftsPerDates(dates);
             
@@ -391,7 +397,7 @@ namespace MediaBazaar
                     }
                     if (s.GetAssignedEmployees().Count == 0)
                     {
-                        dgvViewShifts.Rows[rowIndex].Cells[$"cl{s.Type}"].Style.BackColor = System.Drawing.ColorTranslator.FromHtml("#AC1A00");
+                        dgvViewShifts.Rows[rowIndex].Cells[$"cl{s.Type}"].Style.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF686B");
                     }
                     dgvViewShifts[$"cl{s.Type}",rowIndex].Value=$"{s.GetAssignedEmployees().Count}/{s.AssignableEmployees} emp. assigned";
                 }
@@ -435,31 +441,6 @@ namespace MediaBazaar
             lbDisplayEmployees.Items.Clear();
         }
 
-        // have to be changed
-        private void lbxAvailableStoreWorkers_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            //// Draw the background of the ListBox control for each item.
-            //e.DrawBackground();
-            //// Define the default color of the brush as black.
-            //Brush myBrush = Brushes.Red;
-            //switch (e.Index)
-            //{
-            //    case 0:
-            //        myBrush = Brushes.Red;
-            //        break;
-            //    case 1:
-            //        myBrush = Brushes.Orange;
-            //        break;
-            //    case 2:
-            //        myBrush = Brushes.Purple;
-            //        break;
-            //}
-            //// Draw the current item text based on the current Font 
-            //// and the custom brush settings.
-            //e.Graphics.DrawString(lbxAvailableStoreWorkers.Items[e.Index].ToString(),
-            //    e.Font, myBrush, e.Bounds, StringFormat.GenericDefault);
-            //// If the ListBox has focus, draw a focus rectangle around the selected item.
-            //e.DrawFocusRectangle();
-        }
+        
     }
 }

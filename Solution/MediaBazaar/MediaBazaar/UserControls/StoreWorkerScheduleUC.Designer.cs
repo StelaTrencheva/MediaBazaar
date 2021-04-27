@@ -29,9 +29,8 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.lbxAvailableStoreWorkers = new System.Windows.Forms.ListBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnRemove = new System.Windows.Forms.Button();
             this.cbMonth = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -82,6 +81,8 @@ namespace MediaBazaar
             this.rbMorningShift = new System.Windows.Forms.RadioButton();
             this.lbxAssignedEmployeesAfternoon = new System.Windows.Forms.ListBox();
             this.tcStoreWorkerSchedule = new System.Windows.Forms.TabControl();
+            this.lbxAvailableStoreWorkers = new System.Windows.Forms.ListView();
+            this.availableEmployees = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tpStoreWView.SuspendLayout();
             this.pnlDisplayEmployees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewShifts)).BeginInit();
@@ -93,19 +94,6 @@ namespace MediaBazaar
             this.gbOverview.SuspendLayout();
             this.tcStoreWorkerSchedule.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lbxAvailableStoreWorkers
-            // 
-            this.lbxAvailableStoreWorkers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbxAvailableStoreWorkers.FormattingEnabled = true;
-            this.lbxAvailableStoreWorkers.HorizontalScrollbar = true;
-            this.lbxAvailableStoreWorkers.ItemHeight = 20;
-            this.lbxAvailableStoreWorkers.Location = new System.Drawing.Point(11, 28);
-            this.lbxAvailableStoreWorkers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbxAvailableStoreWorkers.Name = "lbxAvailableStoreWorkers";
-            this.lbxAvailableStoreWorkers.Size = new System.Drawing.Size(719, 124);
-            this.lbxAvailableStoreWorkers.TabIndex = 5;
-            this.lbxAvailableStoreWorkers.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lbxAvailableStoreWorkers_DrawItem);
             // 
             // btnRemove
             // 
@@ -354,14 +342,14 @@ namespace MediaBazaar
             this.dgvViewShifts.AllowUserToResizeRows = false;
             this.dgvViewShifts.BackgroundColor = System.Drawing.Color.White;
             this.dgvViewShifts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Thistle;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvViewShifts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Thistle;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvViewShifts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvViewShifts.ColumnHeadersHeight = 50;
             this.dgvViewShifts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clMorning,
@@ -372,14 +360,14 @@ namespace MediaBazaar
             this.dgvViewShifts.Location = new System.Drawing.Point(6, 98);
             this.dgvViewShifts.Name = "dgvViewShifts";
             this.dgvViewShifts.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvViewShifts.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvViewShifts.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvViewShifts.RowHeadersWidth = 150;
             this.dgvViewShifts.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvViewShifts.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
@@ -720,6 +708,26 @@ namespace MediaBazaar
             this.tcStoreWorkerSchedule.TabIndex = 4;
             this.tcStoreWorkerSchedule.SelectedIndexChanged += new System.EventHandler(this.tcStoreWorkerSchedule_SelectedIndexChanged);
             // 
+            // lbxAvailableStoreWorkers
+            // 
+            this.lbxAvailableStoreWorkers.AutoArrange = false;
+            this.lbxAvailableStoreWorkers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.availableEmployees});
+            this.lbxAvailableStoreWorkers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.lbxAvailableStoreWorkers.HideSelection = false;
+            this.lbxAvailableStoreWorkers.Location = new System.Drawing.Point(12, 25);
+            this.lbxAvailableStoreWorkers.MultiSelect = false;
+            this.lbxAvailableStoreWorkers.Name = "lbxAvailableStoreWorkers";
+            this.lbxAvailableStoreWorkers.Size = new System.Drawing.Size(709, 167);
+            this.lbxAvailableStoreWorkers.TabIndex = 0;
+            this.lbxAvailableStoreWorkers.UseCompatibleStateImageBehavior = false;
+            this.lbxAvailableStoreWorkers.View = System.Windows.Forms.View.Details;
+            // 
+            // availableEmployees
+            // 
+            this.availableEmployees.Text = "";
+            this.availableEmployees.Width = 2000;
+            // 
             // StoreWorkerScheduleInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -749,8 +757,6 @@ namespace MediaBazaar
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox lbxAvailableStoreWorkers;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.ComboBox cbMonth;
         private System.Windows.Forms.Label label2;
@@ -801,5 +807,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ListBox lbDisplayEmployees;
         private System.Windows.Forms.Label lblAssignedEmployees;
+        private System.Windows.Forms.ListView lbxAvailableStoreWorkers;
+        private System.Windows.Forms.ColumnHeader availableEmployees;
     }
 }
