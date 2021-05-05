@@ -32,6 +32,23 @@ class DatabaseMediatior {
             return null;
         }
     }
+    public function GetSchedulePerWeek(int $employeeId,string $date)
+    {
+        $shifts=array();
+        $sql = 'SELECT * FROM `mb_shift_with_assigned_employee` WHERE mb_shift_with_assigned_employee.employeeID=:id and week(date, 1) = week(:date, 1);';
+        $sth = $this->conn->prepare($sql);
+        $sth->execute([
+            ':id' => $employeeId,
+            ':date' => $date
+        ]);
+        $result = $sth->fetchAll();
+        foreach ($result as $row) 
+        {
+            $shift= new Shift($row['shiftType'],$row['date']);
+            array_push($shifts,$shift);
+        }
+        return $shifts;
+    }
 
     public function LogInEmployee (string $uname, string $pwd)
     {

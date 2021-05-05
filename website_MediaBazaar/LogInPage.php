@@ -1,8 +1,9 @@
 <?php
  if(isset($_GET['error'])) 
  {
-   $error=$_GET['Fatal error'];   
+   $error=$_GET['error'];   
  }
+
 ?>
 <!doctype html>
 <html>

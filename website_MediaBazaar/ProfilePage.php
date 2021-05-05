@@ -1,17 +1,9 @@
 <?php
 require 'views/Header.php';
-require 'dataAccess/DatabaseMediator.php';
-require 'classes/Employee.php';
 $db=new DatabaseMediatior();
 $employee;
 $employeeId; 
-if(!is_numeric($_GET['employeeId'])){
-  header('Location: LogInPage.php');
-}else if($db->GetEmployee($_GET['employeeId']) == null){
-  header('Location: LogInPage.php');
-}
-else{
-  $employee=$db->GetEmployee($_GET['employeeId']);
+$employee=$db->GetEmployee($_GET['employeeId']);
   $employeeId=$employee->getId();
     $fname = $employee->getFname();
     $lname = $employee->getLname();
@@ -23,7 +15,7 @@ else{
     $town = $employee->getTown();
     $country = $employee->getCountry();
     $phone = $employee->getPhone();
-}
+
 ?>
 <!doctype html>
 <html>
@@ -31,7 +23,6 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="windows-1252" /> 
         <meta charset="UTF-8">
-        <link href="style/headerStyles.css"   type="text/css"   rel="stylesheet">
         <link href="style/ProfilePageStyle.css"   type="text/css"   rel="stylesheet">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"   type="text/css"   rel="stylesheet">
        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script> 

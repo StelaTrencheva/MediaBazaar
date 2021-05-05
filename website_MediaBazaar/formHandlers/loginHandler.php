@@ -1,5 +1,5 @@
 <?php
- require '../LogInPage.php';
+session_start();
  require '../dataAccess/DatabaseMediator.php';
  require '../classes/Employee.php';
  $errorMessage = [];
@@ -10,7 +10,13 @@
    
     $db = new DatabaseMediatior();
     $employee = $db->LogInEmployee( $username, $password );
+    if($employee==null){
+      $errorMessage= 'There is no user with this username or password!'; 
+      header('Location: ../LogInPage.php?error='.$errorMessage);
+      exit;
+    }
     $employeeId = $employee->getId();
+    $_SESSION["employeeId"] = $employeeId;
     header('Location: ../ProfilePage.php?employeeId='. $employeeId);
         exit;
   }

@@ -124,6 +124,10 @@ class Employee
     public function setIban($iban) {
         $this->iban = $iban;
       }
+      public function getPosition()
+    {
+        return $this->position;
+    }
    
 }
 ?>
