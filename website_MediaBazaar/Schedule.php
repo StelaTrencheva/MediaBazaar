@@ -1,7 +1,10 @@
 <?php
 require 'views/Header.php';
 $db=new DatabaseMediatior();
-if(!is_numeric($_GET['week'])){
+$employee=$db->GetEmployee($_GET['employeeId']);
+echo $employee->getPosition();
+if(!is_numeric($_GET['week'])||($employee->getPosition()!="STORE_WORKER" && $employee->getPosition()!="STOCK_WORKER" && $employee->getPosition()!="CASHIER")){
+  session_destroy();  
   header('Location: LogInPage.php');
   exit;
 }
@@ -18,7 +21,6 @@ else{
         array_push($daysOfWeek,$date);
     }
     $defaultShifts=['Morning','Afternoon','Evening','Night'];
-    $employee=$db->GetEmployee($_GET['employeeId']);
     $schedule=$db->GetSchedulePerWeek($employee->getId(),$date->format("Y-m-d"));
 }
 ?>
