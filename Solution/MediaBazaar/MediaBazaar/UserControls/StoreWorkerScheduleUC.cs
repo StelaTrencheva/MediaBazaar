@@ -313,9 +313,9 @@ namespace MediaBazaar
 
                     }
             }
-                catch (Exception ex)
+                catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("This employee is not available for this date and shift!");
             }
         }
         }

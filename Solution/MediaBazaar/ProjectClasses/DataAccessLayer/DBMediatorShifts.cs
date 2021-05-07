@@ -126,11 +126,11 @@ namespace ProjectClasses
                 }
                 return false;
             }
-            catch (MySqlException)
+            catch (MySqlException e)
             {
                 return false;
             }
-            catch (Exception )
+            catch (Exception)
             {
                 return false;
             }
