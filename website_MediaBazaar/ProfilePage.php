@@ -15,7 +15,12 @@ $employee=$db->GetEmployee($_GET['employeeId']);
     $town = $employee->getTown();
     $country = $employee->getCountry();
     $phone = $employee->getPhone();
-
+    $picture="other_.png";
+if($employee->getGender()=="MALE"){
+    $picture="male.png";
+}else if($employee->getGender()=="FEMALE"){
+    $picture="female.png";
+}
 ?>
 <!doctype html>
 <html>
@@ -35,7 +40,11 @@ $employee=$db->GetEmployee($_GET['employeeId']);
             <div class="card card1">
                 <div class="row justify-content-center my-auto">
                     <div class="col-md-8 col-10 my-5">
-                    <h3 class="text-white">Employee name & picture</h3> <small class="text-white"></small>
+                    <?php
+                    echo
+                    '<img src="photos/'.$picture.'" alt="profilePicture">';
+                    ?>
+                    
                     </div>
                 </div>
                 

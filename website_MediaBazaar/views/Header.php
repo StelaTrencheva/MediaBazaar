@@ -45,7 +45,7 @@ if(!is_numeric($_GET['employeeId'])||$_SESSION["employeeId"]!=$_GET['employeeId'
     $date=date("Y-m-d");
     $date=new DateTime($date);
     $week = $date->format("W");
-  }
+ }
     
 ?>
 <!DOCTYPE html>
@@ -63,6 +63,7 @@ if(!is_numeric($_GET['employeeId'])||$_SESSION["employeeId"]!=$_GET['employeeId'
   echo '<a href="ProfilePage.php?employeeId='.$_GET['employeeId'].'">Profile</a>';
   if($employee->getPosition()=="STORE_WORKER"||$employee->getPosition()=="STOCK_WORKER"||$employee->getPosition()=="CASHIER"){
       echo '<a href="Schedule.php?employeeId='.$_GET['employeeId'].'&week='.$week.'">Schedule</a>';
+      echo '<a href="Availability.php?employeeId='.$_GET['employeeId'].'">Availability</a>';
   }
   echo
   '<a>Contact</a>

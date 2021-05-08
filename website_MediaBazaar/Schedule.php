@@ -2,7 +2,6 @@
 require 'views/Header.php';
 $db=new DatabaseMediatior();
 $employee=$db->GetEmployee($_GET['employeeId']);
-echo $employee->getPosition();
 if(!is_numeric($_GET['week'])||($employee->getPosition()!="STORE_WORKER" && $employee->getPosition()!="STOCK_WORKER" && $employee->getPosition()!="CASHIER")){
   session_destroy();  
   header('Location: LogInPage.php');
@@ -37,7 +36,7 @@ else{
 </head> 
 <body>
 <div class="container px-4 py-5 mx-auto">
-    <div class="">   
+    <div>   
     <?php
     echo '<a href="Schedule.php?employeeId='.$employee->getId().'&week='.($week-1).'"><button type="button" class="btn btn-primary margin-10px-bottom"><</button></a>
     <a href="Schedule.php?employeeId='.$employee->getId().'&week='.($week+1).'"><button type="button" class="btn btn-primary margin-10px-bottom">></button></a>

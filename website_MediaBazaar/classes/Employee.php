@@ -128,6 +128,14 @@ class Employee
     {
         return $this->position;
     }
+    public function getGender()
+    {
+        return $this->gender;
+    }
+    public function getContract()
+    {
+        return $this->contract;
+    }
    
 }
 ?>

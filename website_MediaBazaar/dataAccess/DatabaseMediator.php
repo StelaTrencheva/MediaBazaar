@@ -117,7 +117,43 @@ class DatabaseMediatior {
             
             return null;
     }
+    public function AddShift(Shift $shift)
+    {
+        $sql = 'INSERT INTO `mb_shift`(`shiftType`, `date`,`assignableEmployees`) VALUES (:shiftType,:shiftDate,:assignableEmployees) on duplicate key update assignableEmployees=:assignableEmployees';
+            $sth = $this->conn->prepare($sql);
+            $sth->execute([
+                ':shiftType' => $shift->getType(),
+                ':shiftDate' => $shift->getDate(),
+                ':assignableEmployees' => $shift->getAssignableEmployees()
+            ]);
+            
+            return null;
+    }
 
+    public function AddAvailability(Shift $shift, int $id)
+    {
+        $sql = 'INSERT INTO `mb_employee_availability`(`employeeID`, `shiftType`, `date`) VALUES (:id,:shiftType,:shiftDate) on duplicate key update employeeID=:id,shiftType=:shiftType, `date`=:shiftDate;';
+            $sth = $this->conn->prepare($sql);
+            $sth->execute([
+                ':shiftType' => $shift->getType(),
+                ':shiftDate' => $shift->getDate(),
+                ':id' => $id
+            ]);
+            
+            return null;
+    }
+    public function DeleteAvailability(Shift $shift, int $id)
+    {
+        $sql = 'DELETE FROM `mb_employee_availability` WHERE employeeID=:id and shiftType=:shiftType and date=:shiftDate';
+            $sth = $this->conn->prepare($sql);
+            $sth->execute([
+                ':shiftType' => $shift->getType(),
+                ':shiftDate' => $shift->getDate(),
+                ':id' => $id
+            ]);
+            
+            return null;
+    }
 
 
 }
