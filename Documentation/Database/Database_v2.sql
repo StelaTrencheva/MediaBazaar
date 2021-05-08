@@ -3,14 +3,20 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: studmysql01.fhict.local
--- Generation Time: Apr 26, 2021 at 12:52 AM
--- Server version: 5.7.26-log
+-- Generation Time:  8 май 2021 в 15:15
+-- Версия на сървъра: 5.7.26-log
 -- PHP Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `dbi467491`
@@ -19,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mb_contract_history`
+-- Структура на таблица `mb_contract_history`
 --
 
 CREATE TABLE `mb_contract_history` (
@@ -31,7 +37,7 @@ CREATE TABLE `mb_contract_history` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `mb_contract_history`
+-- Схема на данните от таблица `mb_contract_history`
 --
 
 INSERT INTO `mb_contract_history` (`id`, `empid`, `contract`, `startdate`, `lastdate`) VALUES
@@ -62,7 +68,7 @@ INSERT INTO `mb_contract_history` (`id`, `empid`, `contract`, `startdate`, `last
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mb_department`
+-- Структура на таблица `mb_department`
 --
 
 CREATE TABLE `mb_department` (
@@ -71,7 +77,7 @@ CREATE TABLE `mb_department` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `mb_department`
+-- Схема на данните от таблица `mb_department`
 --
 
 INSERT INTO `mb_department` (`code`, `dept_name`) VALUES
@@ -84,7 +90,7 @@ INSERT INTO `mb_department` (`code`, `dept_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mb_dept_with_assigned_dmanager`
+-- Структура на таблица `mb_dept_with_assigned_dmanager`
 --
 
 CREATE TABLE `mb_dept_with_assigned_dmanager` (
@@ -93,7 +99,7 @@ CREATE TABLE `mb_dept_with_assigned_dmanager` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `mb_dept_with_assigned_dmanager`
+-- Схема на данните от таблица `mb_dept_with_assigned_dmanager`
 --
 
 INSERT INTO `mb_dept_with_assigned_dmanager` (`dept_code`, `dmanager_id`) VALUES
@@ -104,7 +110,7 @@ INSERT INTO `mb_dept_with_assigned_dmanager` (`dept_code`, `dmanager_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mb_dept_with_assigned_product`
+-- Структура на таблица `mb_dept_with_assigned_product`
 --
 
 CREATE TABLE `mb_dept_with_assigned_product` (
@@ -113,7 +119,7 @@ CREATE TABLE `mb_dept_with_assigned_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `mb_dept_with_assigned_product`
+-- Схема на данните от таблица `mb_dept_with_assigned_product`
 --
 
 INSERT INTO `mb_dept_with_assigned_product` (`dept_code`, `product_num`) VALUES
@@ -135,7 +141,7 @@ INSERT INTO `mb_dept_with_assigned_product` (`dept_code`, `product_num`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mb_employee`
+-- Структура на таблица `mb_employee`
 --
 
 CREATE TABLE `mb_employee` (
@@ -163,7 +169,7 @@ CREATE TABLE `mb_employee` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `mb_employee`
+-- Схема на данните от таблица `mb_employee`
 --
 
 INSERT INTO `mb_employee` (`id`, `bsn`, `fname`, `lname`, `gender`, `email`, `uname`, `pwd`, `birthdate`, `street`, `streetnumber`, `zipcode`, `town`, `country`, `firstworkingday`, `emergphonenumber`, `iban`, `hourlywage`, `contractstartdate`, `contracttype`, `position`) VALUES
@@ -190,7 +196,50 @@ INSERT INTO `mb_employee` (`id`, `bsn`, `fname`, `lname`, `gender`, `email`, `un
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mb_product`
+-- Структура на таблица `mb_employee_availability`
+--
+
+CREATE TABLE `mb_employee_availability` (
+  `employeeID` int(10) NOT NULL,
+  `shiftType` enum('Morning','Afternoon','Evening','Night') NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Схема на данните от таблица `mb_employee_availability`
+--
+
+INSERT INTO `mb_employee_availability` (`employeeID`, `shiftType`, `date`) VALUES
+(57, 'Morning', '2021-05-07'),
+(7, 'Morning', '2021-05-17'),
+(7, 'Morning', '2021-05-18'),
+(7, 'Morning', '2021-05-19'),
+(7, 'Morning', '2021-05-20'),
+(7, 'Morning', '2021-05-21'),
+(7, 'Morning', '2021-05-22'),
+(7, 'Morning', '2021-05-23'),
+(7, 'Morning', '2021-05-25'),
+(7, 'Morning', '2021-05-29'),
+(7, 'Afternoon', '2021-05-21'),
+(7, 'Afternoon', '2021-05-22'),
+(7, 'Afternoon', '2021-05-23'),
+(7, 'Afternoon', '2021-05-24'),
+(7, 'Afternoon', '2021-05-26'),
+(7, 'Afternoon', '2021-05-27'),
+(7, 'Afternoon', '2021-05-28'),
+(7, 'Afternoon', '2021-05-29'),
+(7, 'Evening', '2021-05-21'),
+(7, 'Evening', '2021-05-22'),
+(7, 'Evening', '2021-05-29'),
+(7, 'Night', '2021-05-25'),
+(7, 'Night', '2021-05-26'),
+(7, 'Night', '2021-05-27'),
+(7, 'Night', '2021-05-30');
+
+-- --------------------------------------------------------
+
+--
+-- Структура на таблица `mb_product`
 --
 
 CREATE TABLE `mb_product` (
@@ -208,7 +257,7 @@ CREATE TABLE `mb_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `mb_product`
+-- Схема на данните от таблица `mb_product`
 --
 
 INSERT INTO `mb_product` (`pNum`, `brand`, `type`, `model`, `description`, `category`, `sub_category`, `cost_price`, `sales_price`, `amount_in_store`, `amount_in_warehouse`) VALUES
@@ -233,7 +282,7 @@ INSERT INTO `mb_product` (`pNum`, `brand`, `type`, `model`, `description`, `cate
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mb_receipt`
+-- Структура на таблица `mb_receipt`
 --
 
 CREATE TABLE `mb_receipt` (
@@ -247,7 +296,7 @@ CREATE TABLE `mb_receipt` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mb_shift`
+-- Структура на таблица `mb_shift`
 --
 
 CREATE TABLE `mb_shift` (
@@ -257,7 +306,7 @@ CREATE TABLE `mb_shift` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `mb_shift`
+-- Схема на данните от таблица `mb_shift`
 --
 
 INSERT INTO `mb_shift` (`shiftType`, `date`, `assignableEmployees`) VALUES
@@ -270,8 +319,32 @@ INSERT INTO `mb_shift` (`shiftType`, `date`, `assignableEmployees`) VALUES
 ('Morning', '2021-04-26', 5),
 ('Morning', '2021-04-27', 5),
 ('Morning', '2021-04-28', 5),
+('Morning', '2021-04-29', 5),
+('Morning', '2021-04-30', 10),
+('Morning', '2021-05-01', 10),
 ('Morning', '2021-05-02', 10),
 ('Morning', '2021-05-03', 5),
+('Morning', '2021-05-04', 5),
+('Morning', '2021-05-05', 5),
+('Morning', '2021-05-06', 5),
+('Morning', '2021-05-07', 10),
+('Morning', '2021-05-08', 10),
+('Morning', '2021-05-09', 10),
+('Morning', '2021-05-10', 5),
+('Morning', '2021-05-17', 5),
+('Morning', '2021-05-18', 5),
+('Morning', '2021-05-19', 5),
+('Morning', '2021-05-20', 5),
+('Morning', '2021-05-21', 10),
+('Morning', '2021-05-22', 10),
+('Morning', '2021-05-23', 10),
+('Morning', '2021-05-24', 5),
+('Morning', '2021-05-25', 5),
+('Morning', '2021-05-29', 10),
+('Morning', '2021-06-03', 5),
+('Morning', '2021-06-04', 10),
+('Morning', '2021-06-05', 10),
+('Morning', '2021-06-13', 10),
 ('Afternoon', '2021-04-21', 10),
 ('Afternoon', '2021-04-22', 10),
 ('Afternoon', '2021-04-23', 10),
@@ -280,8 +353,34 @@ INSERT INTO `mb_shift` (`shiftType`, `date`, `assignableEmployees`) VALUES
 ('Afternoon', '2021-04-26', 10),
 ('Afternoon', '2021-04-27', 10),
 ('Afternoon', '2021-04-28', 10),
+('Afternoon', '2021-04-29', 10),
+('Afternoon', '2021-04-30', 10),
+('Afternoon', '2021-05-01', 10),
 ('Afternoon', '2021-05-02', 10),
 ('Afternoon', '2021-05-03', 10),
+('Afternoon', '2021-05-04', 10),
+('Afternoon', '2021-05-05', 10),
+('Afternoon', '2021-05-06', 10),
+('Afternoon', '2021-05-07', 10),
+('Afternoon', '2021-05-08', 10),
+('Afternoon', '2021-05-09', 10),
+('Afternoon', '2021-05-10', 10),
+('Afternoon', '2021-05-17', 10),
+('Afternoon', '2021-05-18', 10),
+('Afternoon', '2021-05-19', 10),
+('Afternoon', '2021-05-20', 10),
+('Afternoon', '2021-05-21', 10),
+('Afternoon', '2021-05-22', 10),
+('Afternoon', '2021-05-23', 10),
+('Afternoon', '2021-05-24', 10),
+('Afternoon', '2021-05-26', 10),
+('Afternoon', '2021-05-27', 10),
+('Afternoon', '2021-05-28', 10),
+('Afternoon', '2021-05-29', 10),
+('Afternoon', '2021-06-03', 10),
+('Afternoon', '2021-06-04', 10),
+('Afternoon', '2021-06-05', 10),
+('Afternoon', '2021-06-13', 10),
 ('Evening', '2021-04-19', 10),
 ('Evening', '2021-04-21', 5),
 ('Evening', '2021-04-22', 10),
@@ -291,8 +390,28 @@ INSERT INTO `mb_shift` (`shiftType`, `date`, `assignableEmployees`) VALUES
 ('Evening', '2021-04-26', 10),
 ('Evening', '2021-04-27', 10),
 ('Evening', '2021-04-28', 10),
+('Evening', '2021-04-29', 10),
+('Evening', '2021-04-30', 10),
+('Evening', '2021-05-01', 10),
 ('Evening', '2021-05-02', 10),
 ('Evening', '2021-05-03', 10),
+('Evening', '2021-05-04', 10),
+('Evening', '2021-05-05', 10),
+('Evening', '2021-05-06', 10),
+('Evening', '2021-05-07', 10),
+('Evening', '2021-05-08', 10),
+('Evening', '2021-05-09', 10),
+('Evening', '2021-05-10', 10),
+('Evening', '2021-05-17', 10),
+('Evening', '2021-05-18', 10),
+('Evening', '2021-05-19', 10),
+('Evening', '2021-05-21', 10),
+('Evening', '2021-05-22', 10),
+('Evening', '2021-05-29', 10),
+('Evening', '2021-06-03', 10),
+('Evening', '2021-06-04', 10),
+('Evening', '2021-06-05', 10),
+('Evening', '2021-06-13', 10),
 ('Night', '2021-04-21', 2),
 ('Night', '2021-04-22', 5),
 ('Night', '2021-04-23', 10),
@@ -301,14 +420,34 @@ INSERT INTO `mb_shift` (`shiftType`, `date`, `assignableEmployees`) VALUES
 ('Night', '2021-04-26', 5),
 ('Night', '2021-04-27', 5),
 ('Night', '2021-04-28', 5),
+('Night', '2021-04-29', 5),
+('Night', '2021-04-30', 10),
+('Night', '2021-05-01', 10),
 ('Night', '2021-05-02', 10),
 ('Night', '2021-05-03', 5),
-('Night', '2021-05-17', 5);
+('Night', '2021-05-04', 5),
+('Night', '2021-05-05', 5),
+('Night', '2021-05-06', 5),
+('Night', '2021-05-07', 10),
+('Night', '2021-05-08', 10),
+('Night', '2021-05-09', 10),
+('Night', '2021-05-10', 5),
+('Night', '2021-05-17', 5),
+('Night', '2021-05-18', 5),
+('Night', '2021-05-19', 5),
+('Night', '2021-05-25', 5),
+('Night', '2021-05-26', 5),
+('Night', '2021-05-27', 5),
+('Night', '2021-05-30', 10),
+('Night', '2021-06-03', 5),
+('Night', '2021-06-04', 10),
+('Night', '2021-06-05', 10),
+('Night', '2021-06-13', 10);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mb_shift_with_assigned_employee`
+-- Структура на таблица `mb_shift_with_assigned_employee`
 --
 
 CREATE TABLE `mb_shift_with_assigned_employee` (
@@ -318,43 +457,16 @@ CREATE TABLE `mb_shift_with_assigned_employee` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `mb_shift_with_assigned_employee`
+-- Схема на данните от таблица `mb_shift_with_assigned_employee`
 --
 
 INSERT INTO `mb_shift_with_assigned_employee` (`shiftType`, `date`, `employeeID`) VALUES
-('Morning', '2021-04-21', 6),
-('Morning', '2021-04-22', 6),
-('Morning', '2021-04-24', 6),
-('Afternoon', '2021-04-21', 6),
-('Afternoon', '2021-04-22', 6),
-('Afternoon', '2021-04-23', 6),
-('Afternoon', '2021-04-24', 6),
-('Evening', '2021-04-22', 6),
-('Evening', '2021-04-23', 6),
-('Evening', '2021-04-24', 6),
-('Night', '2021-04-23', 6),
-('Morning', '2021-04-21', 7),
-('Morning', '2021-04-23', 7),
-('Afternoon', '2021-04-23', 7),
-('Evening', '2021-04-24', 7),
-('Night', '2021-04-21', 7),
-('Morning', '2021-04-21', 40),
-('Morning', '2021-04-22', 40),
-('Afternoon', '2021-04-22', 40),
-('Afternoon', '2021-04-23', 40),
-('Night', '2021-04-22', 40),
-('Night', '2021-04-23', 40),
-('Afternoon', '2021-04-21', 57),
-('Evening', '2021-04-21', 57),
-('Night', '2021-04-24', 57),
-('Morning', '2021-04-24', 61),
-('Afternoon', '2021-04-21', 74),
-('Night', '2021-04-21', 74);
+('Morning', '2021-05-07', 57);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mb_sold_product`
+-- Структура на таблица `mb_sold_product`
 --
 
 CREATE TABLE `mb_sold_product` (
@@ -397,6 +509,13 @@ ALTER TABLE `mb_employee`
   ADD UNIQUE KEY `bsn` (`bsn`);
 
 --
+-- Indexes for table `mb_employee_availability`
+--
+ALTER TABLE `mb_employee_availability`
+  ADD PRIMARY KEY (`employeeID`,`shiftType`,`date`),
+  ADD KEY `shiftType` (`shiftType`,`date`);
+
+--
 -- Indexes for table `mb_product`
 --
 ALTER TABLE `mb_product`
@@ -420,7 +539,7 @@ ALTER TABLE `mb_shift`
 --
 ALTER TABLE `mb_shift_with_assigned_employee`
   ADD PRIMARY KEY (`shiftType`,`date`,`employeeID`),
-  ADD KEY `employeeID` (`employeeID`);
+  ADD KEY `mb_shift_with_assigned_employee_ibfk_1` (`employeeID`);
 
 --
 -- Indexes for table `mb_sold_product`
@@ -444,7 +563,7 @@ ALTER TABLE `mb_contract_history`
 -- AUTO_INCREMENT for table `mb_employee`
 --
 ALTER TABLE `mb_employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `mb_product`
@@ -465,39 +584,50 @@ ALTER TABLE `mb_sold_product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Ограничения за дъмпнати таблици
 --
 
 --
--- Constraints for table `mb_contract_history`
+-- Ограничения за таблица `mb_contract_history`
 --
 ALTER TABLE `mb_contract_history`
   ADD CONSTRAINT `contracthistoryFK` FOREIGN KEY (`empid`) REFERENCES `mb_employee` (`id`);
 
 --
--- Constraints for table `mb_dept_with_assigned_dmanager`
+-- Ограничения за таблица `mb_dept_with_assigned_dmanager`
 --
 ALTER TABLE `mb_dept_with_assigned_dmanager`
   ADD CONSTRAINT `dept_codeFK` FOREIGN KEY (`dept_code`) REFERENCES `mb_department` (`code`),
   ADD CONSTRAINT `dmanager_idFK` FOREIGN KEY (`dmanager_id`) REFERENCES `mb_employee` (`id`);
 
 --
--- Constraints for table `mb_receipt`
+-- Ограничения за таблица `mb_employee_availability`
+--
+ALTER TABLE `mb_employee_availability`
+  ADD CONSTRAINT `mb_employee_availability_ibfk_1` FOREIGN KEY (`employeeID`) REFERENCES `mb_employee` (`id`),
+  ADD CONSTRAINT `mb_employee_availability_ibfk_2` FOREIGN KEY (`shiftType`,`date`) REFERENCES `mb_shift` (`shiftType`, `date`);
+
+--
+-- Ограничения за таблица `mb_receipt`
 --
 ALTER TABLE `mb_receipt`
   ADD CONSTRAINT `empidFK` FOREIGN KEY (`empid`) REFERENCES `mb_employee` (`id`);
 
 --
--- Constraints for table `mb_shift_with_assigned_employee`
+-- Ограничения за таблица `mb_shift_with_assigned_employee`
 --
 ALTER TABLE `mb_shift_with_assigned_employee`
-  ADD CONSTRAINT `mb_shift_with_assigned_employee_ibfk_1` FOREIGN KEY (`employeeID`) REFERENCES `mb_employee` (`id`),
-  ADD CONSTRAINT `mb_shift_with_assigned_employee_ibfk_2` FOREIGN KEY (`shiftType`,`date`) REFERENCES `mb_shift` (`shiftType`, `date`);
+  ADD CONSTRAINT `mb_shift_with_assigned_employee_ibfk_1` FOREIGN KEY (`employeeID`) REFERENCES `mb_employee_availability` (`employeeID`),
+  ADD CONSTRAINT `mb_shift_with_assigned_employee_ibfk_2` FOREIGN KEY (`shiftType`,`date`) REFERENCES `mb_employee_availability` (`shiftType`, `date`);
 
 --
--- Constraints for table `mb_sold_product`
+-- Ограничения за таблица `mb_sold_product`
 --
 ALTER TABLE `mb_sold_product`
   ADD CONSTRAINT `productidFK` FOREIGN KEY (`productid`) REFERENCES `mb_product` (`pNum`),
   ADD CONSTRAINT `receiptidFK` FOREIGN KEY (`receiptid`) REFERENCES `mb_receipt` (`id`);
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
