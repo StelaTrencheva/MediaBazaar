@@ -4,10 +4,10 @@ session_start();
  require '../classes/Employee.php';
  require '../classes/Shift.php';
  $errorMessage = [];
- if(($_POST['week'])!="Choose...")
+ if(isset($_GET['week'])&& is_numeric($_GET['week']))
 {
     
-    $week=($_POST['week']);
+    $week=($_GET['week']);
     $db = new DatabaseMediatior();
     $employee=$db->GetEmployee($_SESSION["employeeId"]);
     $employeeId=$employee->getId();
@@ -33,7 +33,7 @@ session_start();
     }
     if(($markedShifts<10 && $employee->getContract()=="FULLTIME")||($markedShifts<8 && $employee->getContract()=="EIGHTYPERCENT")){
         $errorMessage= 'Please select at least the minimum amount of shifts depending on your contract!'; 
-        header('Location: ../Availability.php?employeeId='.$_SESSION['employeeId'].'&error='.$errorMessage);
+        header('Location: ../Availability.php?employeeId='.$_SESSION['employeeId'].'&week='.$week.'&error='.$errorMessage);
         exit;
     }
 
