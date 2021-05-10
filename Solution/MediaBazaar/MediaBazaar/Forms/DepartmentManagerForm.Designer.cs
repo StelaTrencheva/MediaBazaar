@@ -39,7 +39,6 @@ namespace MediaBazaar
             this.btnDepartmentMAccount = new System.Windows.Forms.Button();
             this.storeWorkerScheduleInterface = new MediaBazaar.StoreWorkerScheduleInterface();
             this.userInterface1 = new MediaBazaar.UserInterface();
-            this.departmentInterface1 = new MediaBazaar.DepartmentInterface();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -134,6 +133,7 @@ namespace MediaBazaar
             // storeWorkerScheduleInterface
             // 
             this.storeWorkerScheduleInterface.Location = new System.Drawing.Point(208, 0);
+            this.storeWorkerScheduleInterface.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.storeWorkerScheduleInterface.Name = "storeWorkerScheduleInterface";
             this.storeWorkerScheduleInterface.Size = new System.Drawing.Size(1128, 785);
             this.storeWorkerScheduleInterface.TabIndex = 41;
@@ -146,23 +146,15 @@ namespace MediaBazaar
             this.userInterface1.TabIndex = 40;
             this.userInterface1.Load += new System.EventHandler(this.userInterface1_Load);
             // 
-            // departmentInterface1
-            // 
-            this.departmentInterface1.Location = new System.Drawing.Point(212, 0);
-            this.departmentInterface1.Name = "departmentInterface1";
-            this.departmentInterface1.Size = new System.Drawing.Size(1129, 785);
-            this.departmentInterface1.TabIndex = 39;
-            // 
             // DepartmentManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1340, 792);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.storeWorkerScheduleInterface);
             this.Controls.Add(this.userInterface1);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.departmentInterface1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "DepartmentManagerForm";
@@ -184,7 +176,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnDepartmentMLogOut;
         private System.Windows.Forms.Button btnDepartmentMAccount;
         private System.Windows.Forms.Button btnDepartment;
-        private DepartmentInterface departmentInterface1;
         private UserInterface userInterface1;
         private StoreWorkerScheduleInterface storeWorkerScheduleInterface;
     }

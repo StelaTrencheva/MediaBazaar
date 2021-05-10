@@ -17,12 +17,22 @@ namespace ProjectClasses
 
         public void AddDepartment(Department newDept)
         {
-            if (dbMediator.CheckIfExists(newDept.Code, newDept.Name))
+            if (dbMediator.CheckIfDeptExist(newDept.Code, newDept.Name))
             {
                 throw new RepeatingObjectException();
             }
             
             this.dbMediator.AddDepartment(newDept.Code, newDept.Name);
+        }
+
+        public void AssignDManagerToDept(Department newDept)
+        {
+            if (dbMediator.CheckIfDManagerToDeptExists(newDept.Code, newDept.Dept_mng_id))
+            {
+                throw new RepeatingObjectException();
+            }
+
+            this.dbMediator.AssignDManagerToDept(newDept.Code, newDept.Dept_mng_id);
         }
 
         public List<Department> GetDepartments()

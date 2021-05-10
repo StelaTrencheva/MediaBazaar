@@ -45,38 +45,39 @@ namespace ProjectClasses
             }
         }
 
-        //public bool AddDepartment(string name, int id)
-        //{
-        //    string sqlStatement = "INSERT INTO `mb_department` (`dept_name`, `dept_manager_id`) VALUES (@n, @i);";
-        //    MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
-        //    sqlCommand.Parameters.AddWithValue("@n", name);
-        //    sqlCommand.Parameters.AddWithValue("@i", id);
+        //ASSING DEPARTMENT MANAGER TO DEPARTMENT
+        public bool AssignDManagerToDept(int code, int id)
+        {
+            string sqlStatement = "INSERT INTO `mb_dept_with_assigned_dmanager` (`dept_code`, `dmanager_id`) VALUES (@c, @i);";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@c", code);
+            sqlCommand.Parameters.AddWithValue("@i", id);
 
-        //    try
-        //    {
-        //        int n = 0;
+            try
+            {
+                int n = 0;
 
-        //        DbConnection.Open();
-        //        n = sqlCommand.ExecuteNonQuery();
-        //        if (n == 1)
-        //        {
-        //            return true;
-        //        }
-        //        return false;
-        //    }
-        //    catch (MySqlException e)
-        //    {
-        //        return false;
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return false;
-        //    }
-        //    finally
-        //    {
-        //        DbConnection.Close();
-        //    }
-        //}
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+                if (n == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException)
+            {
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
 
         //GET DEPARTMENT CREATED DEPARTMENT
         public List<Department> GetDepartment()
@@ -171,8 +172,8 @@ namespace ProjectClasses
             }
         }
 
-        //CHECK IF CODE & DEPARTMENT NAME EXIST
-        public bool CheckIfExists(int code,string name)
+        //CHECK IF THE CREATED DEPARTMENT EXIST
+        public bool CheckIfDeptExist(int code, string name)
         {
             string sqlStatement = "SELECT code FROM mb_department WHERE code = @c OR dept_name = @n;";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection); ;
@@ -207,39 +208,40 @@ namespace ProjectClasses
             }
         }
 
-        //public bool CheckIfExists(int id, string name)
-        //{
-        //    string sqlStatement = "SELECT dept_mng_id FROM mb_department WHERE dept_mng_id = @i OR dept_name = @n;";
-        //    MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection); ;
-        //    sqlCommand.Parameters.AddWithValue("@i", id);
-        //    sqlCommand.Parameters.AddWithValue("@n", name);
+        //CHECK IF THE ASSINGN DEPARTMENT MANAGER TO DEPARTMENT EXIST
+        public bool CheckIfDManagerToDeptExists(int code, int id)
+        {
+            string sqlStatement = "SELECT dept_code FROM mb_dept_with_assigned_dmanager WHERE dept_code = @c OR dmanager_id = @i";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection); ;
+            sqlCommand.Parameters.AddWithValue("@c", code);
+            sqlCommand.Parameters.AddWithValue("@i", id);
 
-        //    try
-        //    {
-        //        DbConnection.Open();
-        //        Object test = sqlCommand.ExecuteScalar();
+            try
+            {
+                DbConnection.Open();
+                Object test = sqlCommand.ExecuteScalar();
 
-        //        if (test != null)
-        //        {
-        //            return true;
-        //        }
-        //        else
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //    catch (MySqlException)
-        //    {
-        //        return false;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return false;
-        //    }
-        //    finally
-        //    {
-        //        DbConnection.Close();
-        //    }
-        //}
-     }
+                if (test != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (MySqlException)
+            {
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+    }
 }

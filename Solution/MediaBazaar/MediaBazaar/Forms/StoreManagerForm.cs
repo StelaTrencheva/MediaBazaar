@@ -30,12 +30,14 @@ namespace MediaBazaar
             btnStoreMEmployeeStatistic.BackColor = Color.SlateGray;
             btnStoreMStockStatistic.BackColor = Color.SlateGray;
             btnStoreM.BackColor = Color.SlateGray;
+            btnDepartment.BackColor = Color.SlateGray;
         }
         private void HideAllInterfaces()
         {
             employeeStatistics1.Hide();
             productStatisticInterface1.Hide();
             userInterface1.Hide();
+            departmentInterface1.Hide();
         }
         private void btnStoreMLogOut_Click(object sender, EventArgs e)
         {
@@ -76,6 +78,14 @@ namespace MediaBazaar
             btnStoreM.BackColor = Color.White;
             HideAllInterfaces();
             userInterface1.Show();
+        }
+
+        private void btnDepartment_Click(object sender, EventArgs e)
+        {
+            PaintAllButtons();
+            btnDepartment.BackColor = Color.White;
+            HideAllInterfaces();
+            departmentInterface1.Show();
         }
     }
 }

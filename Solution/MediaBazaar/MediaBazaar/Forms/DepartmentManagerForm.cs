@@ -41,7 +41,6 @@ namespace MediaBazaar
         {
             userInterface1.Hide();
             storeWorkerScheduleInterface.Hide();
-            departmentInterface1.Hide();
         }
         private void btnDepartmentMSchedule_Click(object sender, EventArgs e)
         {
@@ -74,7 +73,6 @@ namespace MediaBazaar
             PaintAllButtons();
             btnDepartment.BackColor = Color.White;
             HideAllInterfaces();
-            departmentInterface1.Show();
         }
     }
 }

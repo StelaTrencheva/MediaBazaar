@@ -109,7 +109,22 @@ namespace MediaBazaar
 
         private void btnAssignDM_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Department d = (Department)cbxDMDepartments.SelectedItem;
+                foreach (Employee emp in this.empMng.GetListOFAllEmployees())
+                {
+                    if (cbxDManagers.SelectedItem.ToString() == emp.GetNames)
+                    {
+                        this.deptMngr.AssignDManagerToDept(new Department(d.Code, d.Name, emp.Id, emp.FirstName, emp.LastName));
+                    }
+                }
+                this.DisplayDepartmentsWithDManagers();
+            }
+            catch (RepeatingObjectException)
+            {
+                MessageBox.Show("the department or department manager is already assign.");
+            }
         }
     }
 }

@@ -54,11 +54,6 @@ namespace ProjectClasses
 
         public Department(int code, string name, int dept_mng_id, string mngFName, string mngLName)
         {
-            if (name == "")
-            {
-                throw new ArgumentException();
-            }
-
             this.code = code;
             this.name = name;
             this.dept_mng_id = dept_mng_id;
