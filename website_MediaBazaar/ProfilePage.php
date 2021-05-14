@@ -59,8 +59,7 @@ if($employee->getGender()=="MALE"){
                         <div class="form-group"> <h3 class="form-control-label text-muted">Adress:</h3> <h5 class="text-dark">'.$street.' '.$streetNum.' '.$zipcode.' 
                         '.$town.', '.$country.'</h5> </div>
                         <div class="form-group"> <h3 class="form-control-label text-muted">Phone:</h3> <h5 class="text-dark">'.$phone.'</h5> </div>';
-                        ?>
-                        <div class="row justify-content-center my-3 px-3"> <button class="btn-block btn-color">Edit account.</button> </div>
+                         ?>
                 </div>
             </div>
         </div>

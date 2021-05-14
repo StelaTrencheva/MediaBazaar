@@ -25,7 +25,6 @@ else if (isset($_GET['contact']))
     $schedule = "inactive";
     $contact = "active";
 }
-
 $db=new DatabaseMediatior();
 if(!isset($_SESSION["employeeId"])){
   header('Location: LogInPage.php');
@@ -67,6 +66,7 @@ if(!is_numeric($_GET['employeeId'])||$_SESSION["employeeId"]!=$_GET['employeeId'
   }
   echo
   '<a>Contact</a>
+   <a href="EditProfile.php?employeeId='.$_GET['employeeId'].'">Edit profile</a>
    <a href="LogOutPage.php">Log out</a>';
   ?>
 </div>

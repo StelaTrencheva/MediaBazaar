@@ -101,9 +101,17 @@ class Employee
     {
         return $this->addrStreet;
     }
+    public function setStreet($street)
+    {
+        $this->addrStreet = $street;
+    }
     public function getStreetNumber()
     {
         return $this->addrStreetNumber ;
+    }
+    public function setStreetNumber($streetNumber)
+    {
+        $this->addrStreetNumber = $streetNumber;
     }
     public function getZipcode()
     {
@@ -113,9 +121,17 @@ class Employee
     {
         return $this->addrTown ;
     }
+    public function setTown($town)
+    {
+        $this->addrTown = $town;
+    }
     public function getCountry()
     {
         return $this->addrCountry;
+    }
+    public function setCountry($country)
+    {
+        $this->addrCountry = $country;
     }
       public function getIban()
     {

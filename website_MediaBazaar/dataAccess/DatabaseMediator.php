@@ -113,12 +113,23 @@ class DatabaseMediatior {
             
             return null;
     }
-    public function UpdateNames(string $fname, int $id)
+    public function UpdateFirstName(string $fname, int $id)
     {
         $sql = 'UPDATE mb_employee SET fname = :fname WHERE id = :id ;';
             $sth = $this->conn->prepare($sql);
             $sth->execute([
                 ':fname' => $fname,
+                ':id' => $id
+            ]);
+            
+            return null;
+    }
+    public function UpdateLastName(string $lname, int $id)
+    {
+        $sql = 'UPDATE mb_employee SET lname = :lname WHERE id = :id ;';
+            $sth = $this->conn->prepare($sql);
+            $sth->execute([
+                ':lname' => $lname,
                 ':id' => $id
             ]);
             
@@ -130,6 +141,61 @@ class DatabaseMediatior {
             $sth = $this->conn->prepare($sql);
             $sth->execute([
                 ':email' => $email,
+                ':id' => $id
+            ]);
+            
+            return null;
+    }
+    public function UpdateStreet(string $street, int $id)
+    {
+        $sql = 'UPDATE mb_employee SET street = :street WHERE id = :id ;';
+            $sth = $this->conn->prepare($sql);
+            $sth->execute([
+                ':street' => $street,
+                ':id' => $id
+            ]);
+            
+            return null;
+    }
+    public function UpdateStreetNumber(string $streetnumber, int $id)
+    {
+        $sql = 'UPDATE mb_employee SET streetnumber = :streetnumber WHERE id = :id ;';
+            $sth = $this->conn->prepare($sql);
+            $sth->execute([
+                ':streetnumber' => $streetnumber,
+                ':id' => $id
+            ]);
+            
+            return null;
+    }
+    public function UpdateTown(string $town, int $id)
+    {
+        $sql = 'UPDATE mb_employee SET town = :town WHERE id = :id ;';
+            $sth = $this->conn->prepare($sql);
+            $sth->execute([
+                ':town' => $town,
+                ':id' => $id
+            ]);
+            
+            return null;
+    }
+    public function UpdateCountry(string $country, int $id)
+    {
+        $sql = 'UPDATE mb_employee SET country = :country WHERE id = :id ;';
+            $sth = $this->conn->prepare($sql);
+            $sth->execute([
+                ':country' => $country,
+                ':id' => $id
+            ]);
+            
+            return null;
+    }
+    public function UpdatePhone(string $emergphonenumber, int $id)
+    {
+        $sql = 'UPDATE mb_employee SET emergphonenumber = :emergphonenumber WHERE id = :id ;';
+            $sth = $this->conn->prepare($sql);
+            $sth->execute([
+                ':emergphonenumber' => $emergphonenumber,
                 ':id' => $id
             ]);
             
