@@ -21,7 +21,6 @@ namespace MediaBazaar
         {
             InitializeComponent();
             empStatistics = new EmpStatisticManager();
-
         }
 
         private void EmployeeStatistics_Load(object sender, EventArgs e)
@@ -31,6 +30,7 @@ namespace MediaBazaar
             {
                 lbxEmployees.Items.Add(emp.GetEmployeeNames);
             }
+            
 
 
         }

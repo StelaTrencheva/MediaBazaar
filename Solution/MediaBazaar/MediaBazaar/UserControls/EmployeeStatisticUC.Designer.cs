@@ -44,8 +44,6 @@
             this.btnRemoveStats = new System.Windows.Forms.Button();
             this.btnShowStats = new System.Windows.Forms.Button();
             this.rbtnWeek = new System.Windows.Forms.RadioButton();
-            this.cbbSortEmployees = new System.Windows.Forms.ComboBox();
-            this.lblSortEmployees = new System.Windows.Forms.Label();
             this.rbtnMonth = new System.Windows.Forms.RadioButton();
             this.rbtnYear = new System.Windows.Forms.RadioButton();
             this.chartStatistics = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -108,8 +106,6 @@
             this.tbpAllEmployees.Controls.Add(this.btnRemoveStats);
             this.tbpAllEmployees.Controls.Add(this.btnShowStats);
             this.tbpAllEmployees.Controls.Add(this.rbtnWeek);
-            this.tbpAllEmployees.Controls.Add(this.cbbSortEmployees);
-            this.tbpAllEmployees.Controls.Add(this.lblSortEmployees);
             this.tbpAllEmployees.Controls.Add(this.rbtnMonth);
             this.tbpAllEmployees.Controls.Add(this.rbtnYear);
             this.tbpAllEmployees.Controls.Add(this.chartStatistics);
@@ -169,36 +165,6 @@
             this.rbtnWeek.Text = "Week";
             this.rbtnWeek.UseVisualStyleBackColor = true;
             this.rbtnWeek.CheckedChanged += new System.EventHandler(this.rbtnWeek_CheckedChanged);
-            // 
-            // cbbSortEmployees
-            // 
-            this.cbbSortEmployees.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.cbbSortEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cbbSortEmployees.Items.AddRange(new object[] {
-            "Position HR",
-            "Position store manager",
-            "Position stock manager",
-            "Position department manager",
-            "Position store worker",
-            "Position depot worker",
-            "Contract fulltime",
-            "Contract eightypercent",
-            "Contract flex",
-            "All employees"});
-            this.cbbSortEmployees.Location = new System.Drawing.Point(271, 144);
-            this.cbbSortEmployees.Name = "cbbSortEmployees";
-            this.cbbSortEmployees.Size = new System.Drawing.Size(340, 28);
-            this.cbbSortEmployees.TabIndex = 24;
-            // 
-            // lblSortEmployees
-            // 
-            this.lblSortEmployees.AutoSize = true;
-            this.lblSortEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblSortEmployees.Location = new System.Drawing.Point(34, 144);
-            this.lblSortEmployees.Name = "lblSortEmployees";
-            this.lblSortEmployees.Size = new System.Drawing.Size(181, 24);
-            this.lblSortEmployees.TabIndex = 23;
-            this.lblSortEmployees.Text = "Filter employees on:";
             // 
             // rbtnMonth
             // 
@@ -682,9 +648,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartStatistics;
         private System.Windows.Forms.RadioButton rbtnYear;
         private System.Windows.Forms.RadioButton rbtnMonth;
-        private System.Windows.Forms.Label lblSortEmployees;
         private System.Windows.Forms.RadioButton rbtnWeek;
-        private System.Windows.Forms.ComboBox cbbSortEmployees;
         private System.Windows.Forms.Button btnRemoveStats;
         private System.Windows.Forms.Button btnShowStats;
         private System.Windows.Forms.Label lblChartTitle;
