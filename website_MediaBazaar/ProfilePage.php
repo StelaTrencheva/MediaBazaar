@@ -1,6 +1,7 @@
 <?php
 require 'views/Header.php';
 $db=new DatabaseMediatior();
+$error;
 $employee;
 $employeeId; 
 $employee=$db->GetEmployee($_GET['employeeId']);
@@ -20,6 +21,10 @@ if($employee->getGender()=="MALE"){
     $picture="male.png";
 }else if($employee->getGender()=="FEMALE"){
     $picture="female.png";
+}
+if (!isset($_GET['error']) && $employee->getPassword()=="0000")
+{
+    $error='You have to change your password.';
 }
 ?>
 <!doctype html>
@@ -43,8 +48,15 @@ if($employee->getGender()=="MALE"){
                     <?php
                     echo
                     '<img src="photos/'.$picture.'" alt="profilePicture">';
+                    if (isset($_GET['error'])) {
+                    $error = $_GET['error'];
+                    echo '<div class ="alert alert-primary" role="alert"> Warning: ' . $error . '</div>';
+                    }
+                    if(isset($error) && !isset($_GET['error']))
+                    {
+                        echo '<div class ="alert alert-primary" role="alert"> Warning: ' . $error . '</div>';
+                    }
                     ?>
-                    
                     </div>
                 </div>
                 

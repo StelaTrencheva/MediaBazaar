@@ -43,13 +43,11 @@ if($employee->getGender()=="MALE"){
                     <?php
                     echo
                     '<img src="photos/'.$picture.'" alt="profilePicture">';
-                    ?>
-                     <?php
-                if (isset($_GET['error'])) {
+                    if (isset($_GET['error'])) {
                     $error = $_GET['error'];
                     echo '<div class ="alert alert-primary" role="alert"> Error occured: ' . $error . '</div>';
-                }
-                ?>
+                     }
+                    ?>
                     </div>
                 </div>
                 

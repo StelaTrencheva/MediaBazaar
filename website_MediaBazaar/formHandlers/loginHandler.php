@@ -17,7 +17,14 @@ session_start();
     }
     $employeeId = $employee->getId();
     $_SESSION["employeeId"] = $employeeId;
-    header('Location: ../ProfilePage.php?employeeId='. $employeeId);
+    if($employee->getPassword()=="0000"){
+      $errorMessage= 'You have to change your password.'; 
+      header('Location: ../ProfilePage.php?employeeId='.$_SESSION['employeeId'].'&error='.$errorMessage);
+    }
+    else{
+      header('Location: ../ProfilePage.php?employeeId='. $employeeId);
+    }
+    
         exit;
   }
   else
