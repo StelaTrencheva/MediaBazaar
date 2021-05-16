@@ -16,6 +16,7 @@ $employee=$db->GetEmployee($_GET['employeeId']);
     $town = $employee->getTown();
     $country = $employee->getCountry();
     $phone = $employee->getPhone();
+    $position = $employee->getPosition();
     $picture="other_.png";
 if($employee->getGender()=="MALE"){
     $picture="male.png";
@@ -68,6 +69,7 @@ if (!isset($_GET['error']) && $employee->getPassword()=="0000")
                         <?php
                         echo '<div class="form-group"> <h3 class="form-control-label text-muted">Name(s):</h3> <h5 class="text-dark" >'.$fname.' '.$lname.'</h5> </div>
                         <div class="form-group"> <h3 class="form-control-label text-muted">Email:</h3> <h5 class="text-dark">'.$email.'</h5> </div>
+                        <div class="form-group"> <h3 class="form-control-label text-muted">Position:</h3> <h5 class="text-dark">'.$position.'</h5> </div>
                         <div class="form-group"> <h3 class="form-control-label text-muted">Adress:</h3> <h5 class="text-dark">'.$street.' '.$streetNum.' '.$zipcode.' 
                         '.$town.', '.$country.'</h5> </div>
                         <div class="form-group"> <h3 class="form-control-label text-muted">Phone:</h3> <h5 class="text-dark">'.$phone.'</h5> </div>';
