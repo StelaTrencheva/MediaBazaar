@@ -305,7 +305,7 @@
             this.gbxChart.Size = new System.Drawing.Size(688, 502);
             this.gbxChart.TabIndex = 21;
             this.gbxChart.TabStop = false;
-            this.gbxChart.Text = "Actual hours worked (in blue) vs. Contractual hours (in yellow)";
+            this.gbxChart.Text = "Actual hours worked (in blue) vs. Contractual hours (in green)";
             // 
             // rdbtnDay
             // 
