@@ -33,7 +33,7 @@ namespace MediaBazaar
             foreach (Department i in this.deptMngr.GetDepartments())
             {
                 lbxDepartments.Items.Add(i.ToString());
-                lbxDepartments.Items.Add("");
+                //lbxDepartments.Items.Add("");
             }
         }
 
@@ -45,7 +45,7 @@ namespace MediaBazaar
             foreach (Department i in this.deptMngr.GetDepartmentsWithDManagers())
             {
                 lbxDepartmentsAndDM.Items.Add(i.DisplayAssignDManager());
-                lbxDepartmentsAndDM.Items.Add("");
+                //lbxDepartmentsAndDM.Items.Add("");
             }
         }
 
@@ -55,7 +55,7 @@ namespace MediaBazaar
             foreach (Department i in this.deptMngr.GetDepartmentsWithPCategories())
             {
                 lbxDepartmentsAndPCategory.Items.Add(i.DisplayAssignPCategory());
-                lbxDepartmentsAndPCategory.Items.Add("");
+                //lbxDepartmentsAndPCategory.Items.Add("");
             }
         }
 
@@ -66,6 +66,7 @@ namespace MediaBazaar
                 this.deptMngr.AddDepartment(new Department((int)nudCode.Value, tbxName.Text));
                 MessageBox.Show("Succesfully added");
                 this.DisplayDepartments();
+                this.DisplayDepartmentsInCbx();
             }
             catch (ArgumentException)
             {
