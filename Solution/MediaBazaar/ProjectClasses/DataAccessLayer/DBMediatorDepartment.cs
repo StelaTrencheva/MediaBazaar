@@ -79,6 +79,40 @@ namespace ProjectClasses
             }
         }
 
+        //DELETE DEPARTMENT
+        public bool DeleteDepartment(int id)
+        {
+            string sqlStatement = "DELETE FROM `mb_department` WHERE code= @i";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection); ;
+            sqlCommand.Parameters.AddWithValue("@i", id);
+            try
+            {
+                int n = 0;
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+
+                if (n == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException e)
+            {
+                //MessageBox.Show(sqlExceptionMessage(e.Message));
+                return false;
+            }
+            catch (Exception e)
+            {
+                //MessageBox.Show(sqlExceptionMessage(e.Message));
+                return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
         //GET DEPARTMENT CREATED DEPARTMENT
         public List<Department> GetDepartment()
         {
