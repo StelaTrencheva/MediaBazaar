@@ -55,6 +55,8 @@
     <Compile Include="Enum\ShiftType.cs" />
     <Compile Include="Exceptions\IncorrectPricingException.cs" />
     <Compile Include="Exceptions\RepeatingObjectException.cs" />
+    <Compile Include="LogicLayer\SoldProduct.cs" />
+    <Compile Include="LogicLayer\BasketManager.cs" />
     <Compile Include="LogicLayer\ContractHistory.cs" />
     <Compile Include="LogicLayer\ContractHistoryManager.cs" />
     <Compile Include="LogicLayer\Department.cs" />
