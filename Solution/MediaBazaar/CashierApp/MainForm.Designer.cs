@@ -51,10 +51,10 @@ namespace CashierApp
             this.tbProductPrice = new System.Windows.Forms.TextBox();
             this.lbTotalPrice = new System.Windows.Forms.Label();
             this.gbFinishOrder = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnCashRegister = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.nudProductQuantity)).BeginInit();
             this.gbProducts.SuspendLayout();
             this.gbBasket.SuspendLayout();
@@ -324,31 +324,17 @@ namespace CashierApp
             this.gbFinishOrder.TabStop = false;
             this.gbFinishOrder.Text = "Finish order";
             // 
-            // btnConfirm
+            // radioButton2
             // 
-            this.btnConfirm.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnConfirm.BackColor = System.Drawing.Color.Bisque;
-            this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnConfirm.Location = new System.Drawing.Point(62, 187);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(205, 46);
-            this.btnConfirm.TabIndex = 99;
-            this.btnConfirm.Text = "Confirm purchase";
-            this.btnConfirm.UseVisualStyleBackColor = false;
-            // 
-            // btnCashRegister
-            // 
-            this.btnCashRegister.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCashRegister.BackColor = System.Drawing.Color.Ivory;
-            this.btnCashRegister.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCashRegister.Location = new System.Drawing.Point(1244, 553);
-            this.btnCashRegister.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCashRegister.Name = "btnCashRegister";
-            this.btnCashRegister.Size = new System.Drawing.Size(168, 44);
-            this.btnCashRegister.TabIndex = 99;
-            this.btnCashRegister.Text = "Cash register";
-            this.btnCashRegister.UseVisualStyleBackColor = false;
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.radioButton2.Location = new System.Drawing.Point(189, 145);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(49, 40);
+            this.radioButton2.TabIndex = 101;
+            this.radioButton2.Text = "Card";
+            this.radioButton2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
             // 
@@ -364,17 +350,32 @@ namespace CashierApp
             this.radioButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // btnConfirm
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.radioButton2.Location = new System.Drawing.Point(189, 145);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(49, 40);
-            this.radioButton2.TabIndex = 101;
-            this.radioButton2.Text = "Card";
-            this.radioButton2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.btnConfirm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnConfirm.BackColor = System.Drawing.Color.Bisque;
+            this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnConfirm.Location = new System.Drawing.Point(62, 187);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(205, 46);
+            this.btnConfirm.TabIndex = 99;
+            this.btnConfirm.Text = "Confirm purchase";
+            this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // btnCashRegister
+            // 
+            this.btnCashRegister.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCashRegister.BackColor = System.Drawing.Color.Ivory;
+            this.btnCashRegister.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCashRegister.Location = new System.Drawing.Point(1244, 553);
+            this.btnCashRegister.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCashRegister.Name = "btnCashRegister";
+            this.btnCashRegister.Size = new System.Drawing.Size(168, 44);
+            this.btnCashRegister.TabIndex = 99;
+            this.btnCashRegister.Text = "Cash register";
+            this.btnCashRegister.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 

@@ -13,7 +13,10 @@ namespace ProjectClasses
 
         public List<ContractHistory> GetContractHystory(int id)
         {
-            string sqlStatement = "SELECT empid,contract,startdate,lastdate FROM `mb_contract_history` INNER JOIN mb_employee ON empid = mb_employee.id where empid = @id;";
+            string sqlStatement = "SELECT empid,contract,startdate,lastdate FROM `mb_contract_history` " +
+                                    "INNER JOIN mb_employee " +
+                                    "ON empid = mb_employee.id " +
+                                    "where empid = @id;";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
             sqlCommand.Parameters.AddWithValue("@id", id);
 

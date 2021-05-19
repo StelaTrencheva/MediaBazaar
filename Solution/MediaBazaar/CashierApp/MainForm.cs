@@ -139,5 +139,9 @@ namespace CashierApp
             tbProductPrice.Text = (productManager.GetPriceFromNames(tbSelectedItem.Text) * nudProductQuantity.Value).ToString();
         }
 
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
