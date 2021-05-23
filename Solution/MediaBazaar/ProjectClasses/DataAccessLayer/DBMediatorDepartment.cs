@@ -46,12 +46,12 @@ namespace ProjectClasses
         }
 
         //ASSING DEPARTMENT MANAGER TO DEPARTMENT
-        public bool AssignDManagerToDept(int code, int id)
+        public bool AssignDManagerToDept(int code, int managerId)
         {
             string sqlStatement = "INSERT INTO `mb_dept_with_assigned_dmanager` (`dept_code`, `dmanager_id`) VALUES (@c, @i);";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
             sqlCommand.Parameters.AddWithValue("@c", code);
-            sqlCommand.Parameters.AddWithValue("@i", id);
+            sqlCommand.Parameters.AddWithValue("@i", managerId);
 
             try
             {
@@ -271,6 +271,252 @@ namespace ProjectClasses
             catch (Exception)
             {
                 return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
+        //NEW
+        //ADD CATEGORY
+        public bool AddCategory(int deptId, string name)
+        {
+            string sqlStatement = "INSERT INTO `mb_dept_category` (dept_id, name) VALUES (@deptId, @name);";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@deptId", deptId);
+            sqlCommand.Parameters.AddWithValue("@name", name);
+
+            try
+            {
+                int n = 0;
+
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+                if (n == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException e)
+            {
+                return false;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
+        //ADD Subcategory
+        public bool AddSubcategory(int deptId, string catName, string name)
+        {
+            string sqlStatement = "INSERT INTO `mb_dept_subcategory` ( `cat_id`, `name`) VALUES " +
+                "((SELECT id FROM mb_dept_category where dept_id=@deptId AND name = @catName), @name);";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@deptId", deptId);
+            sqlCommand.Parameters.AddWithValue("@catName", catName);
+            sqlCommand.Parameters.AddWithValue("@name", name);
+
+            try
+            {
+                int n = 0;
+
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+                if (n == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException e)
+            {
+                return false;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
+        //DELETE Category
+        public bool DeleteCategory(int deptId, string name)
+        {
+            string sqlStatement = "DELETE FROM `mb_dept_category` WHERE dept_id=@deptId and name = @name";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection); ;
+            sqlCommand.Parameters.AddWithValue("@deptId", deptId);
+            sqlCommand.Parameters.AddWithValue("@name", name);
+            try
+            {
+                int n = 0;
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+
+                if (n == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException e)
+            {
+                //MessageBox.Show(sqlExceptionMessage(e.Message));
+                return false;
+            }
+            catch (Exception e)
+            {
+                //MessageBox.Show(sqlExceptionMessage(e.Message));
+                return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
+        //DELETE Subcategory
+        public bool DeleteSubcategory(int deptId, string catName, string name)
+        {
+            string sqlStatement = "DELETE FROM `mb_dept_subcategory` WHERE cat_id = " +
+                "(SELECT c.id FROM mb_dept_category as c WHERE dept_id = @deptId AND name = @catName) AND name = @name";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection); ;
+            sqlCommand.Parameters.AddWithValue("@deptId", deptId);
+            sqlCommand.Parameters.AddWithValue("@catName", catName);
+            sqlCommand.Parameters.AddWithValue("@name", name);
+            try
+            {
+                int n = 0;
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+
+                if (n == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException e)
+            {
+                //MessageBox.Show(sqlExceptionMessage(e.Message));
+                return false;
+            }
+            catch (Exception e)
+            {
+                //MessageBox.Show(sqlExceptionMessage(e.Message));
+                return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
+        //Get Dept Managers
+        public List<Employee> GetDepartmentEmployees(int deptId)
+        {
+            string sqlStatement = "SELECT * FROM `mb_employee` WHERE id IN (select dmanager_id FROM mb_department_dmanager where dept_code = @id)";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@id", deptId);
+            List<Employee> managers = new List<Employee>();
+            try
+            {
+                MySqlDataReader EmployeeReader;
+                DbConnection.Open();
+
+                EmployeeReader = sqlCommand.ExecuteReader();
+                while (EmployeeReader.Read())
+                {
+                    Enum.TryParse(EmployeeReader["contracttype"].ToString(), out ContractType contracttype);
+                    Enum.TryParse(EmployeeReader["position"].ToString(), out EmployeeType position);
+                    Enum.TryParse(EmployeeReader["gender"].ToString(), out Gender gender);
+                    managers.Add(new Employee(Convert.ToInt32(EmployeeReader["id"]), EmployeeReader["bsn"].ToString(),
+                    EmployeeReader["fname"].ToString(), EmployeeReader["lname"].ToString(), gender,
+                    EmployeeReader["email"].ToString(), EmployeeReader["uname"].ToString(),
+                    Convert.ToDateTime(EmployeeReader["birthdate"].ToString()), EmployeeReader["street"].ToString(),
+                    EmployeeReader["streetnumber"].ToString(), EmployeeReader["zipcode"].ToString(), EmployeeReader["town"].ToString(),
+                    EmployeeReader["country"].ToString(), Convert.ToDateTime(EmployeeReader["firstworkingday"].ToString()),
+                    EmployeeReader["emergphonenumber"].ToString(), EmployeeReader["iban"].ToString(),
+                    Convert.ToDouble(EmployeeReader["hourlywage"]),
+                    Convert.ToDateTime(EmployeeReader["contractstartdate"].ToString()), contracttype, position));
+                }
+                return managers;
+            }
+            catch (MySqlException)
+            {
+                return managers;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+
+        }
+
+        //Get Department categories
+        public List<string> GetDepartmentCategories(int deptId)
+        {
+            string sqlStatement = "SELECT name FROM `mb_dept_category` WHERE dept_id = @id";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@id", deptId);
+            List<string> categories = new List<string>();
+
+            try
+            {
+                MySqlDataReader reader;
+                DbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    categories.Add((string)reader["name"]);
+                }
+                return categories;
+            }
+            catch (MySqlException e)
+            {
+                return categories;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
+        //Get Department subcategories
+        public List<string> GetDepartmentSubcategories(int deptId, string category)
+        {
+            string sqlStatement = "SELECT name FROM `mb_dept_subcategory` WHERE cat_id = " +
+                "(SELECT c.id FROM mb_dept_category as c WHERE dept_id = @dept_id AND name = @cat)";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@dept_id", deptId);
+            sqlCommand.Parameters.AddWithValue("@cat", category);
+            List<string> categories = new List<string>();
+
+            try
+            {
+                MySqlDataReader reader;
+                DbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    categories.Add((string)reader["name"]);
+                }
+                return categories;
+            }
+            catch (MySqlException e)
+            {
+                return categories;
             }
             finally
             {

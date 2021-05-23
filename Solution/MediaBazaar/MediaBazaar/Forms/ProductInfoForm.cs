@@ -24,8 +24,8 @@ namespace MediaBazaar
         private void UpdateLabel()
         {
             lblProductNumber.Text += $" {product.PNumber}";
-            lblCategory.Text += $" {product.Category}";
-            lblSubCategory.Text += $" {product.Subcategory}";
+            //lblCategory.Text += $" {product.Category}";
+            //lblSubCategory.Text += $" {product.Subcategory}";
             lblType.Text += $" {product.Type}";
             lblBrand.Text += $" {product.Brand}";
             lblModel.Text += $" {product.Model}";

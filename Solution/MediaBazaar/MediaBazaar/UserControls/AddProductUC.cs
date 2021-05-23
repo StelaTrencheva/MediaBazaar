@@ -25,6 +25,12 @@ namespace MediaBazaar
             UpdateListBoxAllProducts();
         }
 
+        private void prepareListBox()
+        {
+            lbxProductDisplay.CustomTabOffsets.Add(100);
+            lbxProductDisplay.UseCustomTabOffsets = true;
+        }
+
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
             try
@@ -35,8 +41,6 @@ namespace MediaBazaar
                                                         tbxProductType.Text,
                                                         tbxProductModel.Text,
                                                         tbxProductDescription.Text,
-                                                        tbxProductCategory.Text,
-                                                        tbxProductSubCategory.Text,
                                                         Convert.ToDecimal(tbxProductCostPrice.Text),
                                                         Convert.ToDecimal(tbxProductSalesPrice.Text),
                                                         Convert.ToInt32(tbxProductAmountInStore.Text),
@@ -124,7 +128,5 @@ namespace MediaBazaar
                 }
             }
         }
-
-
     }
 }

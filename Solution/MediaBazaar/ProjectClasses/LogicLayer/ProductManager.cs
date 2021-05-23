@@ -28,33 +28,36 @@ namespace ProjectClasses
             products = this.dbMediator.GetProducts();
             return products;
         }
-        public List<string> GetCategories()
-        {
-            List<string> categories = new List<string>();
-            foreach (Product product in products)
-            {
-                if (!(categories.Contains(product.Category)))
-                {
-                    categories.Add(product.Category);
-                }
-            }
-            return categories;
-        }
-        public List<string> GetSubCategories(string category)
-        {
-            List<string> subCategories = new List<string>();
-            foreach (Product product in products)
-            {
-                if (product.Category==category)
-                {
-                    if (!(subCategories.Contains(product.Subcategory)))
-                    {
-                        subCategories.Add(product.Subcategory);
-                    }
-                }
-            }
-            return subCategories;
-        }
+
+        //public List<string> GetCategories()
+        //{
+        //    List<string> categories = new List<string>();
+        //    foreach (Product product in products)
+        //    {
+        //        if (!(categories.Contains(product.Category)))
+        //        {
+        //            categories.Add(product.Category);
+        //        }
+        //    }
+        //    return categories;
+        //}
+
+        //public List<string> GetSubCategories(string category)
+        //{
+        //    List<string> subCategories = new List<string>();
+        //    foreach (Product product in products)
+        //    {
+        //        if (product.Category==category)
+        //        {
+        //            if (!(subCategories.Contains(product.Subcategory)))
+        //            {
+        //                subCategories.Add(product.Subcategory);
+        //            }
+        //        }
+        //    }
+        //    return subCategories;
+        //}
+
         public string GetNameFromToString(string productToString)
         {
             foreach (Product product in products)
@@ -66,6 +69,7 @@ namespace ProjectClasses
             }
             return "";
         }
+
         public Product GetProductFromName(string productNames)
         {
             foreach (Product product in products)
@@ -77,6 +81,7 @@ namespace ProjectClasses
             }
             return null;
         }
+
         public decimal GetPriceFromNames(string productNames)
         {
             foreach (Product product in products)
@@ -88,38 +93,41 @@ namespace ProjectClasses
             }
             return 0;
         }
-        public List<Product> GetProductsFromCategory(string category)
-        {
-            if (category == "All")
-            {
-                return products;
-            }
-            List<Product> prod = new List<Product>();
-            foreach (Product product in products)
-            {
-                if (product.Category == category)
-                {
-                    prod.Add(product);
-                }
-            }
-            return prod;
-        }
-        public List<Product> GetProductsFromSubCategory(string category, string subCategory)
-        {
-            if (category == "All")
-            {
-                return products;
-            }
-            List<Product> prod = new List<Product>();
-            foreach (Product product in products)
-            {
-                if (product.Category == category)
-                {
-                    prod.Add(product);
-                }
-            }
-            return prod;
-        }
+
+        //public List<Product> GetProductsFromCategory(string category)
+        //{
+        //    if (category == "All")
+        //    {
+        //        return products;
+        //    }
+        //    List<Product> prod = new List<Product>();
+        //    foreach (Product product in products)
+        //    {
+        //        if (product.Category == category)
+        //        {
+        //            prod.Add(product);
+        //        }
+        //    }
+        //    return prod;
+        //}
+
+        //public List<Product> GetProductsFromSubCategory(string category, string subCategory)
+        //{
+        //    if (category == "All")
+        //    {
+        //        return products;
+        //    }
+        //    List<Product> prod = new List<Product>();
+        //    foreach (Product product in products)
+        //    {
+        //        if (product.Category == category)
+        //        {
+        //            prod.Add(product);
+        //        }
+        //    }
+        //    return prod;
+        //}
+
         public bool AddProductToDB(Product newProd)
         {
 
@@ -130,6 +138,7 @@ namespace ProjectClasses
 
             return this.dbMediator.AddProduct(newProd);
         }
+
         public bool DeleteAProduct(int id)
         {
             return dbMediator.DeleteProduct(id);
