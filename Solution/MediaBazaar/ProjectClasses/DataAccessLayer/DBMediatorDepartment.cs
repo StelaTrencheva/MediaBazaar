@@ -143,68 +143,68 @@ namespace ProjectClasses
         }
 
         //GET DEPARTMENT WTH DEPARTMENT MANAGER
-        public List<Department> GetDepartmentWithDManager()
-        {
-            string sqlStatement = "SELECT a.dept_code, d.dept_name, a.dmanager_id, e.fname, e.lname FROM mb_department AS d " +
-                "INNER JOIN mb_dept_with_assigned_dmanager AS a ON d.code = a.dept_code " +
-                "INNER JOIN mb_employee AS e ON a.dmanager_id = e.id";
-            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
-            List<Department> d = new List<Department>();
+        //public List<Department> GetDepartmentWithDManager()
+        //{
+        //    string sqlStatement = "SELECT a.dept_code, d.dept_name, a.dmanager_id, e.fname, e.lname FROM mb_department AS d " +
+        //        "INNER JOIN mb_dept_with_assigned_dmanager AS a ON d.code = a.dept_code " +
+        //        "INNER JOIN mb_employee AS e ON a.dmanager_id = e.id";
+        //    MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+        //    List<Department> d = new List<Department>();
 
-            try
-            {
-                MySqlDataReader reader;
-                DbConnection.Open();
-                reader = sqlCommand.ExecuteReader();
+        //    try
+        //    {
+        //        MySqlDataReader reader;
+        //        DbConnection.Open();
+        //        reader = sqlCommand.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    d.Add(new Department((int)reader["dept_code"], (string)reader["dept_name"], (int)reader["dmanager_id"],
-                        (string)reader["fname"], (string)reader["lname"]));
-                }
-                return d;
-            }
-            catch (MySqlException e)
-            {
-                return d;
-            }
-            finally
-            {
-                DbConnection.Close();
-            }
-        }
+        //        while (reader.Read())
+        //        {
+        //            d.Add(new Department((int)reader["dept_code"], (string)reader["dept_name"], (int)reader["dmanager_id"],
+        //                (string)reader["fname"], (string)reader["lname"]));
+        //        }
+        //        return d;
+        //    }
+        //    catch (MySqlException e)
+        //    {
+        //        return d;
+        //    }
+        //    finally
+        //    {
+        //        DbConnection.Close();
+        //    }
+        //}
 
         //GET DEPARTMENT WITH PRODUCT CATEGORY
-        public List<Department> GetDepartmentWithPCategory()
-        {
-            string sqlStatement = "SELECT a.dept_code, d.dept_name, a.product_num, p.category FROM mb_department AS d " +
-                "INNER JOIN mb_dept_with_assigned_product AS a ON d.code = a.dept_code INNER JOIN mb_product AS p " +
-                "ON a.product_num = p.pNum";
-            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
-            List<Department> d = new List<Department>();
+        //public List<Department> GetDepartmentWithPCategory()
+        //{
+        //    string sqlStatement = "SELECT a.dept_code, d.dept_name, a.product_num, p.category FROM mb_department AS d " +
+        //        "INNER JOIN mb_dept_with_assigned_product AS a ON d.code = a.dept_code INNER JOIN mb_product AS p " +
+        //        "ON a.product_num = p.pNum";
+        //    MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+        //    List<Department> d = new List<Department>();
 
-            try
-            {
-                MySqlDataReader reader;
-                DbConnection.Open();
-                reader = sqlCommand.ExecuteReader();
+        //    try
+        //    {
+        //        MySqlDataReader reader;
+        //        DbConnection.Open();
+        //        reader = sqlCommand.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    d.Add(new Department((int)reader["dept_code"], (string)reader["dept_name"], (int)reader["product_num"],
-                        (string)reader["category"]));
-                }
-                return d;
-            }
-            catch (MySqlException e)
-            {
-                return d;
-            }
-            finally
-            {
-                DbConnection.Close();
-            }
-        }
+        //        while (reader.Read())
+        //        {
+        //            d.Add(new Department((int)reader["dept_code"], (string)reader["dept_name"], (int)reader["product_num"],
+        //                (string)reader["category"]));
+        //        }
+        //        return d;
+        //    }
+        //    catch (MySqlException e)
+        //    {
+        //        return d;
+        //    }
+        //    finally
+        //    {
+        //        DbConnection.Close();
+        //    }
+        //}
 
         //CHECK IF THE CREATED DEPARTMENT EXIST
         public bool CheckIfDeptExist(int code, string name)
@@ -422,7 +422,7 @@ namespace ProjectClasses
         }
 
         //Get Dept Managers
-        public List<Employee> GetDepartmentEmployees(int deptId)
+        public List<Employee> GetDepartmentManagers(int deptId)
         {
             string sqlStatement = "SELECT * FROM `mb_employee` WHERE id IN (select dmanager_id FROM mb_department_dmanager where dept_code = @id)";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);

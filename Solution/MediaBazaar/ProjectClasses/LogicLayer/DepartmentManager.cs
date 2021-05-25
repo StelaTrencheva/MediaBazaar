@@ -25,14 +25,14 @@ namespace ProjectClasses
             this.dbMediator.AddDepartment(newDept.Code, newDept.Name);
         }
 
-        public void AssignDManagerToDept(Department newDept)
+        public void AssignDManagerToDept(Department newDept, int mngId)
         {
-            if (dbMediator.CheckIfDManagerToDeptExists(newDept.Code, newDept.Dept_mng_id))
+            if (dbMediator.CheckIfDManagerToDeptExists(newDept.Code, mngId))
             {
                 throw new RepeatingObjectException();
             }
 
-            this.dbMediator.AssignDManagerToDept(newDept.Code, newDept.Dept_mng_id);
+            this.dbMediator.AssignDManagerToDept(newDept.Code, mngId);
         }
 
         public List<Department> GetDepartments()
@@ -40,14 +40,46 @@ namespace ProjectClasses
             return this.dbMediator.GetDepartment();
         }
 
-        public List<Department> GetDepartmentsWithDManagers()
+        //public List<Department> GetDepartmentsWithDManagers()
+        //{
+        //    return this.dbMediator.GetDepartmentWithDManager();
+        //}
+
+        //public List<Department> GetDepartmentsWithPCategories()
+        //{
+        //    return this.dbMediator.GetDepartmentWithPCategory();
+        //}
+
+        public bool AddCategoryDB(int deptId, string name)
         {
-            return this.dbMediator.GetDepartmentWithDManager();
+            return dbMediator.AddCategory(deptId, name);
+        }
+        public bool AddSubcategoryDB(int deptId, string catName, string name)
+        {
+            return dbMediator.AddSubcategory(deptId, catName, name);
+        }
+        public bool DeleteCategoryDB(int deptId, string name)
+        {
+            return dbMediator.DeleteCategory(deptId, name);
+        }
+        public bool DeleteSubcategoryDB(int deptId, string catName, string name)
+        {
+            return dbMediator.DeleteSubcategory(deptId, catName, name);
         }
 
-        public List<Department> GetDepartmentsWithPCategories()
+        public List<Employee> GetDepartmentManagersDB(int deptId)
         {
-            return this.dbMediator.GetDepartmentWithPCategory();
+            return dbMediator.GetDepartmentManagers(deptId);
+        }
+
+        public List<string> GetDepartmentCategorieDB(int deptId)
+        {
+            return dbMediator.GetDepartmentCategories(deptId);
+        }
+
+        public List<string> GetDepartmentSubcategories(int deptId, string category)
+        {
+            return dbMediator.GetDepartmentSubcategories(deptId, category);
         }
     }
 }

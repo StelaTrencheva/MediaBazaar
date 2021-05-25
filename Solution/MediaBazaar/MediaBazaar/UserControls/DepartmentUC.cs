@@ -39,24 +39,24 @@ namespace MediaBazaar
 
         private void DisplayDepartmentsWithDManagers()//DISPLAY ON ASSING DEPARTMENT MANAGER TAB
         {
-            lbxDepartmentsAndDM.CustomTabOffsets.Add(150);
-            lbxDepartmentsAndDM.UseCustomTabOffsets = true;
-            lbxDepartmentsAndDM.Items.Clear();
-            foreach (Department i in this.deptMngr.GetDepartmentsWithDManagers())
-            {
-                lbxDepartmentsAndDM.Items.Add(i.DisplayAssignDManager());
-                //lbxDepartmentsAndDM.Items.Add("");
-            }
+            //lbxDepartmentsAndDM.CustomTabOffsets.Add(150);
+            //lbxDepartmentsAndDM.UseCustomTabOffsets = true;
+            //lbxDepartmentsAndDM.Items.Clear();
+            //foreach (Department i in this.deptMngr.GetDepartmentsWithDManagers())
+            //{
+            //    lbxDepartmentsAndDM.Items.Add(i.DisplayAssignDManager());
+            //    //lbxDepartmentsAndDM.Items.Add("");
+            //}
         }
 
         private void DisplayDepartmentsWithPCategories()//DISPLAY ON ASSIGN PRODUCT CATEGORY
         {
-            lbxDepartmentsAndPCategory.Items.Clear();
-            foreach (Department i in this.deptMngr.GetDepartmentsWithPCategories())
-            {
-                lbxDepartmentsAndPCategory.Items.Add(i.DisplayAssignPCategory());
-                //lbxDepartmentsAndPCategory.Items.Add("");
-            }
+            //lbxDepartmentsAndPCategory.Items.Clear();
+            //foreach (Department i in this.deptMngr.GetDepartmentsWithPCategories())
+            //{
+            //    lbxDepartmentsAndPCategory.Items.Add(i.DisplayAssignPCategory());
+            //    //lbxDepartmentsAndPCategory.Items.Add("");
+            //}
         }
 
         private void btnAdd_Click(object sender, EventArgs e)//ADD DEPARTMENT
@@ -112,12 +112,12 @@ namespace MediaBazaar
         {
             try
             {
-                Department d = (Department)cbxDMDepartments.SelectedItem;
+                //Department d = (Department)cbxDMDepartments.SelectedItem;
                 foreach (Employee emp in this.empMng.GetListOFAllEmployees())
                 {
                     if (cbxDManagers.SelectedItem.ToString() == emp.GetNames)
                     {
-                        this.deptMngr.AssignDManagerToDept(new Department(d.Code, d.Name, emp.Id, emp.FirstName, emp.LastName));
+                        //this.deptMngr.AssignDManagerToDept(new Department(d.Code, d.Name, emp.Id, emp.FirstName, emp.LastName));
                     }
                 }
                 this.DisplayDepartmentsWithDManagers();
