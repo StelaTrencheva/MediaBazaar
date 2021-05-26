@@ -29,6 +29,7 @@ namespace CashierApp
         /// </summary>
         private void InitializeComponent()
         {
+
             this.lboxProducts = new System.Windows.Forms.ListBox();
             this.cbDepartment = new System.Windows.Forms.ComboBox();
             this.cbCategory = new System.Windows.Forms.ComboBox();
@@ -84,6 +85,7 @@ namespace CashierApp
             this.cbDepartment.Name = "cbDepartment";
             this.cbDepartment.Size = new System.Drawing.Size(215, 28);
             this.cbDepartment.TabIndex = 1;
+            this.cbDepartment.SelectedIndexChanged += new System.EventHandler(this.cbDepartment_SelectedIndexChanged);
             // 
             // cbCategory
             // 

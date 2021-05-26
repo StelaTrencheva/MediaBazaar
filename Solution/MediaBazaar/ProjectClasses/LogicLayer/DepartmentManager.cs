@@ -9,11 +9,14 @@ namespace ProjectClasses
     public class DepartmentManager
     {
         DBMediatorDepartment dbMediator;
+        List<Department> departments;
 
         public DepartmentManager()
         {
             this.dbMediator = new DBMediatorDepartment();
+            departments = new List<Department>();
         }
+
 
         public void AddDepartment(Department newDept)
         {
@@ -21,7 +24,7 @@ namespace ProjectClasses
             {
                 throw new RepeatingObjectException();
             }
-            
+
             this.dbMediator.AddDepartment(newDept.Code, newDept.Name);
         }
 
@@ -37,7 +40,8 @@ namespace ProjectClasses
 
         public List<Department> GetDepartments()
         {
-            return this.dbMediator.GetDepartment();
+            departments = this.dbMediator.GetDepartment();
+            return departments;
         }
 
         //public List<Department> GetDepartmentsWithDManagers()
@@ -49,6 +53,17 @@ namespace ProjectClasses
         //{
         //    return this.dbMediator.GetDepartmentWithPCategory();
         //}
+        public int GetDepartmentCode(string deptName)
+        {
+            foreach (Department depart in departments)
+            {
+                if (depart.Name== deptName)
+                {
+                    return depart.Code;
+                }
+            }
+            return 0;
+        }
 
         public bool AddCategoryDB(int deptId, string name)
         {

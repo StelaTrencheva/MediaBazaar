@@ -235,7 +235,7 @@ namespace ProjectClasses
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
             sqlCommand.Parameters.AddWithValue("@id", dept_id);
             sqlCommand.Parameters.AddWithValue("@cat", category);
-            sqlCommand.Parameters.AddWithValue("@cat", subcategory);
+            sqlCommand.Parameters.AddWithValue("@subcat", subcategory);
             List<Product> p = new List<Product>();
 
             try

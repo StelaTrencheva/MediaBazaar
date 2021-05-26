@@ -143,5 +143,20 @@ namespace ProjectClasses
         {
             return dbMediator.DeleteProduct(id);
         }
+        public List<Product> GetProductsFromDepartmentDB(int dept_id)
+        {
+            this.products = dbMediator.GetProductsFromDepartment(dept_id);
+            return products;
+        }
+        public List<Product> GetProductsFromDepartmentCategoryDB(int dept_id, string category)
+        {
+            this.products = dbMediator.GetProductsFromDepartmentCategory( dept_id,  category);
+            return products;
+        }
+        public List<Product> GetProductsFromSubcategoryDB(int dept_id, string category, string subcategory)
+        {
+            this.products = dbMediator.GetProductsFromSubcategory(dept_id,  category,  subcategory);
+            return products;
+        }
     }
 }
