@@ -58,6 +58,8 @@ namespace MediaBazaar
             this.tbxProductBrand = new System.Windows.Forms.TextBox();
             this.tbxProductDescription = new System.Windows.Forms.TextBox();
             this.lblProductDescription = new System.Windows.Forms.Label();
+            this.tbxBarcode = new System.Windows.Forms.TextBox();
+            this.lbBarcode = new System.Windows.Forms.Label();
             this.tcProducts.SuspendLayout();
             this.tpAllProducts.SuspendLayout();
             this.tpAddProduct.SuspendLayout();
@@ -142,6 +144,8 @@ namespace MediaBazaar
             // tpAddProduct
             // 
             this.tpAddProduct.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tpAddProduct.Controls.Add(this.tbxBarcode);
+            this.tpAddProduct.Controls.Add(this.lbBarcode);
             this.tpAddProduct.Controls.Add(this.lblTitle);
             this.tpAddProduct.Controls.Add(this.lblProductCategory);
             this.tpAddProduct.Controls.Add(this.btnAddProduct);
@@ -357,7 +361,7 @@ namespace MediaBazaar
             // 
             // tbxProductDescription
             // 
-            this.tbxProductDescription.Location = new System.Drawing.Point(199, 343);
+            this.tbxProductDescription.Location = new System.Drawing.Point(199, 379);
             this.tbxProductDescription.Multiline = true;
             this.tbxProductDescription.Name = "tbxProductDescription";
             this.tbxProductDescription.Size = new System.Drawing.Size(793, 64);
@@ -365,12 +369,30 @@ namespace MediaBazaar
             // 
             // lblProductDescription
             // 
-            this.lblProductDescription.Location = new System.Drawing.Point(199, 321);
+            this.lblProductDescription.Location = new System.Drawing.Point(199, 343);
             this.lblProductDescription.Name = "lblProductDescription";
-            this.lblProductDescription.Size = new System.Drawing.Size(793, 19);
+            this.lblProductDescription.Size = new System.Drawing.Size(793, 33);
             this.lblProductDescription.TabIndex = 12;
             this.lblProductDescription.Text = "Description:";
             this.lblProductDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbxBarcode
+            // 
+            this.tbxBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxBarcode.Location = new System.Drawing.Point(868, 316);
+            this.tbxBarcode.Name = "tbxBarcode";
+            this.tbxBarcode.Size = new System.Drawing.Size(124, 24);
+            this.tbxBarcode.TabIndex = 25;
+            // 
+            // lbBarcode
+            // 
+            this.lbBarcode.AutoSize = true;
+            this.lbBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBarcode.Location = new System.Drawing.Point(705, 316);
+            this.lbBarcode.Name = "lbBarcode";
+            this.lbBarcode.Size = new System.Drawing.Size(68, 18);
+            this.lbBarcode.TabIndex = 24;
+            this.lbBarcode.Text = "Barcode:";
             // 
             // AddProductInterface
             // 
@@ -419,5 +441,7 @@ namespace MediaBazaar
         private System.Windows.Forms.TextBox tbxProductBrand;
         private System.Windows.Forms.TextBox tbxProductDescription;
         private System.Windows.Forms.Label lblProductDescription;
+        private System.Windows.Forms.TextBox tbxBarcode;
+        private System.Windows.Forms.Label lbBarcode;
     }
 }

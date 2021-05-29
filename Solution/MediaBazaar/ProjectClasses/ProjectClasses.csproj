@@ -49,9 +49,11 @@
     <Compile Include="DataAccessLayer\DBMediatorEmpStatistic.cs" />
     <Compile Include="DataAccessLayer\DBMediatorProduct.cs" />
     <Compile Include="DataAccessLayer\DBMediatorShifts.cs" />
+    <Compile Include="DataAccessLayer\DBMediatorSoldProduct.cs" />
     <Compile Include="Enum\ContractType.cs" />
     <Compile Include="Enum\EmployeeType.cs" />
     <Compile Include="Enum\Gender.cs" />
+    <Compile Include="Enum\PaymentType.cs" />
     <Compile Include="Enum\ShiftType.cs" />
     <Compile Include="Exceptions\IncorrectPricingException.cs" />
     <Compile Include="Exceptions\RepeatingObjectException.cs" />

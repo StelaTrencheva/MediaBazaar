@@ -42,7 +42,15 @@ namespace ProjectClasses
             this.quantity += quantity;
             this.price = this.quantity * product.SalePrice;
         }
-
+        public void DecreaseQuanity()
+        {
+            if (quantity>=0)
+            {
+                this.quantity --;
+            }
+            
+            this.price = this.quantity * product.SalePrice;
+        }
         public override string ToString()
         {
             return $"{quantity}pieces {product.GetName}.";

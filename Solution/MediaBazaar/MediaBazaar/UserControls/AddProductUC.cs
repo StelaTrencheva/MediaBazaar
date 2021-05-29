@@ -23,6 +23,7 @@ namespace MediaBazaar
         private void AddProductInterface_Load(object sender, EventArgs e)
         {
             UpdateListBoxAllProducts();
+            prepareListBox();
         }
 
         private void prepareListBox()
@@ -41,6 +42,7 @@ namespace MediaBazaar
                                                         tbxProductType.Text,
                                                         tbxProductModel.Text,
                                                         tbxProductDescription.Text,
+                                                        tbxBarcode.Text,
                                                         Convert.ToDecimal(tbxProductCostPrice.Text),
                                                         Convert.ToDecimal(tbxProductSalesPrice.Text),
                                                         Convert.ToInt32(tbxProductAmountInStore.Text),

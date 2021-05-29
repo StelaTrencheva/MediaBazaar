@@ -28,36 +28,6 @@ namespace ProjectClasses
             products = this.dbMediator.GetProducts();
             return products;
         }
-
-        //public List<string> GetCategories()
-        //{
-        //    List<string> categories = new List<string>();
-        //    foreach (Product product in products)
-        //    {
-        //        if (!(categories.Contains(product.Category)))
-        //        {
-        //            categories.Add(product.Category);
-        //        }
-        //    }
-        //    return categories;
-        //}
-
-        //public List<string> GetSubCategories(string category)
-        //{
-        //    List<string> subCategories = new List<string>();
-        //    foreach (Product product in products)
-        //    {
-        //        if (product.Category==category)
-        //        {
-        //            if (!(subCategories.Contains(product.Subcategory)))
-        //            {
-        //                subCategories.Add(product.Subcategory);
-        //            }
-        //        }
-        //    }
-        //    return subCategories;
-        //}
-
         public string GetNameFromToString(string productToString)
         {
             foreach (Product product in products)
@@ -145,18 +115,29 @@ namespace ProjectClasses
         }
         public List<Product> GetProductsFromDepartmentDB(int dept_id)
         {
-            this.products = dbMediator.GetProductsFromDepartment(dept_id);
-            return products;
+            //this.products = dbMediator.GetProductsFromDepartment(dept_id);
+            return dbMediator.GetProductsFromDepartment(dept_id);
         }
         public List<Product> GetProductsFromDepartmentCategoryDB(int dept_id, string category)
         {
-            this.products = dbMediator.GetProductsFromDepartmentCategory( dept_id,  category);
-            return products;
+            //this.products = dbMediator.GetProductsFromDepartmentCategory( dept_id,  category);
+            return dbMediator.GetProductsFromDepartmentCategory(dept_id, category);
         }
         public List<Product> GetProductsFromSubcategoryDB(int dept_id, string category, string subcategory)
         {
-            this.products = dbMediator.GetProductsFromSubcategory(dept_id,  category,  subcategory);
-            return products;
+            //this.products = dbMediator.GetProductsFromSubcategory(dept_id,  category,  subcategory);
+            return dbMediator.GetProductsFromSubcategory(dept_id, category, subcategory);
+        }
+        public Product GetProductByBarcode(string barcode)
+        {
+            foreach (Product product in products)
+            {
+                if (product.Barcode == barcode)
+                {
+                    return product;
+                }
+            }
+            return null;
         }
     }
 }

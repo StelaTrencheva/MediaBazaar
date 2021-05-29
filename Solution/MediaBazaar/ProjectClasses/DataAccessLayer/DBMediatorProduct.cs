@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectClasses
 {
-    class DBMediatorProduct: DBMediator
+    class DBMediatorProduct : DBMediator
     {
         public DBMediatorProduct() : base() { }
 
@@ -27,7 +27,7 @@ namespace ProjectClasses
                 while (reader.Read())
                 {
                     p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
-                        (string)reader["description"], (decimal)reader["cost_price"], (decimal)reader["sales_price"], 
+                        (string)reader["description"], (string)reader["barcode"], (decimal)reader["cost_price"], (decimal)reader["sales_price"],
                         (int)reader["amount_in_store"], (int)reader["amount_in_warehouse"]));
                 }
                 return p;
@@ -45,16 +45,15 @@ namespace ProjectClasses
         //ADD PRODUCT
         public bool AddProduct(Product newProd)
         {
-            string sqlStatement = "INSERT INTO mb_product (brand, type, model, description, cost_price, " +
-                "sales_price, amount_in_store, amount_in_warehouse) VALUES (@br, @ty, @mo, @de, @cp, @sp, @as, @aw)";
+            string sqlStatement = "INSERT INTO mb_product (brand, type, model, description,barcode, cost_price, " +
+                "sales_price, amount_in_store, amount_in_warehouse) VALUES (@br, @ty, @mo, @de,@ba, @cp, @sp, @as, @aw)";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
 
             sqlCommand.Parameters.AddWithValue("@br", newProd.Brand);
             sqlCommand.Parameters.AddWithValue("@ty", newProd.Type);
             sqlCommand.Parameters.AddWithValue("@mo", newProd.Model);
             sqlCommand.Parameters.AddWithValue("@de", newProd.Description);
-            //sqlCommand.Parameters.AddWithValue("@ca", newProd.Category);
-            //sqlCommand.Parameters.AddWithValue("@sc", newProd.Subcategory);
+            sqlCommand.Parameters.AddWithValue("@ba", newProd.Barcode);
             sqlCommand.Parameters.AddWithValue("@cp", newProd.CostPrice);
             sqlCommand.Parameters.AddWithValue("@sp", newProd.SalePrice);
             sqlCommand.Parameters.AddWithValue("@as", newProd.AmountInStore);
@@ -176,7 +175,7 @@ namespace ProjectClasses
                 while (reader.Read())
                 {
                     p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
-                        (string)reader["description"],
+                        (string)reader["description"], (string)reader["barcode"],
                         (decimal)reader["cost_price"], (decimal)reader["sales_price"], (int)reader["amount_in_store"],
                         (int)reader["amount_in_warehouse"]));
                 }
@@ -211,7 +210,7 @@ namespace ProjectClasses
                 while (reader.Read())
                 {
                     p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
-                        (string)reader["description"],
+                        (string)reader["description"], (string)reader["barcode"],
                         (decimal)reader["cost_price"], (decimal)reader["sales_price"], (int)reader["amount_in_store"],
                         (int)reader["amount_in_warehouse"]));
                 }
@@ -247,7 +246,7 @@ namespace ProjectClasses
                 while (reader.Read())
                 {
                     p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
-                        (string)reader["description"],
+                        (string)reader["description"], (string)reader["barcode"],
                         (decimal)reader["cost_price"], (decimal)reader["sales_price"], (int)reader["amount_in_store"],
                         (int)reader["amount_in_warehouse"]));
                 }

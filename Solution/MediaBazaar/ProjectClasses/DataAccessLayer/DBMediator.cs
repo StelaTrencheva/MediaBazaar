@@ -14,6 +14,7 @@ namespace ProjectClasses
         private string database = "dbi467491";
         private string uid = "dbi467491";
         private string password = "bulcari";
+
         public MySqlConnection DbConnection
         {
             get { return dbConnection; }

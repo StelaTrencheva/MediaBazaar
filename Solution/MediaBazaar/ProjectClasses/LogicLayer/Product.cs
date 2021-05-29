@@ -12,9 +12,8 @@ namespace ProjectClasses
         private string brand;
         private string type;
         private string model;
+        private string barcode;
         private string description;
-        //private string category;
-        //private string subcategory;
         private decimal costPrice;
         private decimal salePrice;
         private int amountInStore;
@@ -29,10 +28,7 @@ namespace ProjectClasses
         public string Model { get { return this.model; } }
 
         public string Description { get { return this.description; } }
-
-        //public string Category { get { return this.category; } }
-
-        //public string Subcategory { get { return this.subcategory; } }
+        public string Barcode{ get { return this.barcode; } }
 
         public decimal SalePrice { get { return this.salePrice; } }
 
@@ -44,10 +40,10 @@ namespace ProjectClasses
 
         public string GetName { get { return $"{this.pNumber}--{this.brand} {this.model}"; } }
 
-        public Product(int pNumber, string brand, string type, string model, string description, decimal costPrice, 
+        public Product(int pNumber, string brand, string type, string model, string description,string barcode, decimal costPrice,
             decimal salePrice, int amountInStore, int amountInWarehouse)
         {
-            if (brand == "" || type == "" || model == "" || description == "" || /*category == "" || subcategory == "" ||*/ 
+            if (brand == "" || type == "" || model == "" || description == "" ||
                 costPrice <= 0 || salePrice <= 0 || amountInStore <= 0 || amountInWarehouse <= 0)
             {
                 throw new FormatException();
@@ -63,8 +59,7 @@ namespace ProjectClasses
             this.type = type;
             this.model = model;
             this.description = description;
-            //this.category = category;
-            //this.subcategory = subcategory;
+            this.barcode = barcode;
             this.costPrice = costPrice;
             this.salePrice = salePrice;
             this.amountInStore = amountInStore;

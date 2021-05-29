@@ -29,14 +29,11 @@ namespace CashierApp
         /// </summary>
         private void InitializeComponent()
         {
-
             this.lboxProducts = new System.Windows.Forms.ListBox();
             this.cbDepartment = new System.Windows.Forms.ComboBox();
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.cbSubCategory = new System.Windows.Forms.ComboBox();
             this.lbWelcome = new System.Windows.Forms.Label();
-            this.lbSerchEmoji = new System.Windows.Forms.Label();
-            this.tbSearch = new System.Windows.Forms.TextBox();
             this.lbSubCategory = new System.Windows.Forms.Label();
             this.lbCategory = new System.Windows.Forms.Label();
             this.lbDepartment = new System.Windows.Forms.Label();
@@ -48,12 +45,15 @@ namespace CashierApp
             this.lbCurrentProduct = new System.Windows.Forms.Label();
             this.tbFinalPrice = new System.Windows.Forms.TextBox();
             this.gbBasket = new System.Windows.Forms.GroupBox();
+            this.btnClearBascet = new System.Windows.Forms.Button();
+            this.btnRemoveProduct = new System.Windows.Forms.Button();
+            this.btnRemovePiece = new System.Windows.Forms.Button();
             this.lbProductPrice = new System.Windows.Forms.Label();
             this.tbProductPrice = new System.Windows.Forms.TextBox();
             this.lbTotalPrice = new System.Windows.Forms.Label();
             this.gbFinishOrder = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbtnCard = new System.Windows.Forms.RadioButton();
+            this.rbtnCash = new System.Windows.Forms.RadioButton();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnCashRegister = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudProductQuantity)).BeginInit();
@@ -121,26 +121,6 @@ namespace CashierApp
             this.lbWelcome.Text = "Have a good day";
             this.lbWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lbSerchEmoji
-            // 
-            this.lbSerchEmoji.AutoSize = true;
-            this.lbSerchEmoji.BackColor = System.Drawing.SystemColors.Window;
-            this.lbSerchEmoji.Location = new System.Drawing.Point(599, 43);
-            this.lbSerchEmoji.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbSerchEmoji.Name = "lbSerchEmoji";
-            this.lbSerchEmoji.Size = new System.Drawing.Size(25, 20);
-            this.lbSerchEmoji.TabIndex = 86;
-            this.lbSerchEmoji.Text = "🔍";
-            // 
-            // tbSearch
-            // 
-            this.tbSearch.Location = new System.Drawing.Point(416, 40);
-            this.tbSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(215, 27);
-            this.tbSearch.TabIndex = 85;
-            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
-            // 
             // lbSubCategory
             // 
             this.lbSubCategory.Location = new System.Drawing.Point(416, 187);
@@ -182,7 +162,7 @@ namespace CashierApp
             this.lboxBasket.Location = new System.Drawing.Point(26, 222);
             this.lboxBasket.Margin = new System.Windows.Forms.Padding(2);
             this.lboxBasket.Name = "lboxBasket";
-            this.lboxBasket.Size = new System.Drawing.Size(356, 292);
+            this.lboxBasket.Size = new System.Drawing.Size(356, 256);
             this.lboxBasket.TabIndex = 91;
             // 
             // nudProductQuantity
@@ -190,9 +170,20 @@ namespace CashierApp
             this.nudProductQuantity.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.nudProductQuantity.Location = new System.Drawing.Point(149, 88);
             this.nudProductQuantity.Margin = new System.Windows.Forms.Padding(2);
+            this.nudProductQuantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudProductQuantity.Name = "nudProductQuantity";
+            this.nudProductQuantity.ReadOnly = true;
             this.nudProductQuantity.Size = new System.Drawing.Size(128, 27);
             this.nudProductQuantity.TabIndex = 92;
+            this.nudProductQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudProductQuantity.ValueChanged += new System.EventHandler(this.nudProductQuantity_ValueChanged);
             // 
             // tbSelectedItem
@@ -228,10 +219,8 @@ namespace CashierApp
             this.gbProducts.Controls.Add(this.cbCategory);
             this.gbProducts.Controls.Add(this.cbSubCategory);
             this.gbProducts.Controls.Add(this.lbDepartment);
-            this.gbProducts.Controls.Add(this.lbSerchEmoji);
             this.gbProducts.Controls.Add(this.lbCategory);
             this.gbProducts.Controls.Add(this.lbSubCategory);
-            this.gbProducts.Controls.Add(this.tbSearch);
             this.gbProducts.Location = new System.Drawing.Point(26, 85);
             this.gbProducts.Name = "gbProducts";
             this.gbProducts.Size = new System.Drawing.Size(649, 542);
@@ -265,6 +254,9 @@ namespace CashierApp
             this.gbBasket.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbBasket.Controls.Add(this.btnClearBascet);
+            this.gbBasket.Controls.Add(this.btnRemoveProduct);
+            this.gbBasket.Controls.Add(this.btnRemovePiece);
             this.gbBasket.Controls.Add(this.lbProductPrice);
             this.gbBasket.Controls.Add(this.tbProductPrice);
             this.gbBasket.Controls.Add(this.lbCurrentProduct);
@@ -278,6 +270,48 @@ namespace CashierApp
             this.gbBasket.TabIndex = 97;
             this.gbBasket.TabStop = false;
             this.gbBasket.Text = "Basket";
+            // 
+            // btnClearBascet
+            // 
+            this.btnClearBascet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClearBascet.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnClearBascet.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClearBascet.Location = new System.Drawing.Point(279, 495);
+            this.btnClearBascet.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClearBascet.Name = "btnClearBascet";
+            this.btnClearBascet.Size = new System.Drawing.Size(103, 42);
+            this.btnClearBascet.TabIndex = 101;
+            this.btnClearBascet.Text = "Clear";
+            this.btnClearBascet.UseVisualStyleBackColor = false;
+            this.btnClearBascet.Click += new System.EventHandler(this.btnClearBascet_Click);
+            // 
+            // btnRemoveProduct
+            // 
+            this.btnRemoveProduct.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnRemoveProduct.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnRemoveProduct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRemoveProduct.Location = new System.Drawing.Point(149, 495);
+            this.btnRemoveProduct.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRemoveProduct.Name = "btnRemoveProduct";
+            this.btnRemoveProduct.Size = new System.Drawing.Size(103, 42);
+            this.btnRemoveProduct.TabIndex = 100;
+            this.btnRemoveProduct.Text = "Product";
+            this.btnRemoveProduct.UseVisualStyleBackColor = false;
+            this.btnRemoveProduct.Click += new System.EventHandler(this.btnRemoveProduct_Click);
+            // 
+            // btnRemovePiece
+            // 
+            this.btnRemovePiece.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRemovePiece.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnRemovePiece.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRemovePiece.Location = new System.Drawing.Point(26, 495);
+            this.btnRemovePiece.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRemovePiece.Name = "btnRemovePiece";
+            this.btnRemovePiece.Size = new System.Drawing.Size(103, 42);
+            this.btnRemovePiece.TabIndex = 99;
+            this.btnRemovePiece.Text = "1 Piece";
+            this.btnRemovePiece.UseVisualStyleBackColor = false;
+            this.btnRemovePiece.Click += new System.EventHandler(this.btnRemovePiece_Click);
             // 
             // lbProductPrice
             // 
@@ -314,8 +348,8 @@ namespace CashierApp
             // gbFinishOrder
             // 
             this.gbFinishOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbFinishOrder.Controls.Add(this.radioButton2);
-            this.gbFinishOrder.Controls.Add(this.radioButton1);
+            this.gbFinishOrder.Controls.Add(this.rbtnCard);
+            this.gbFinishOrder.Controls.Add(this.rbtnCash);
             this.gbFinishOrder.Controls.Add(this.btnConfirm);
             this.gbFinishOrder.Controls.Add(this.lbTotalPrice);
             this.gbFinishOrder.Controls.Add(this.tbFinalPrice);
@@ -326,31 +360,31 @@ namespace CashierApp
             this.gbFinishOrder.TabStop = false;
             this.gbFinishOrder.Text = "Finish order";
             // 
-            // radioButton2
+            // rbtnCard
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.radioButton2.Location = new System.Drawing.Point(189, 145);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(49, 40);
-            this.radioButton2.TabIndex = 101;
-            this.radioButton2.Text = "Card";
-            this.radioButton2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbtnCard.AutoSize = true;
+            this.rbtnCard.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.rbtnCard.Location = new System.Drawing.Point(189, 145);
+            this.rbtnCard.Name = "rbtnCard";
+            this.rbtnCard.Size = new System.Drawing.Size(49, 40);
+            this.rbtnCard.TabIndex = 101;
+            this.rbtnCard.Text = "Card";
+            this.rbtnCard.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.rbtnCard.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbtnCash
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(92, 145);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(52, 40);
-            this.radioButton1.TabIndex = 100;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Cash";
-            this.radioButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbtnCash.AutoSize = true;
+            this.rbtnCash.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.rbtnCash.Checked = true;
+            this.rbtnCash.Location = new System.Drawing.Point(92, 145);
+            this.rbtnCash.Name = "rbtnCash";
+            this.rbtnCash.Size = new System.Drawing.Size(52, 40);
+            this.rbtnCash.TabIndex = 100;
+            this.rbtnCash.TabStop = true;
+            this.rbtnCash.Text = "Cash";
+            this.rbtnCash.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.rbtnCash.UseVisualStyleBackColor = true;
             // 
             // btnConfirm
             // 
@@ -401,7 +435,6 @@ namespace CashierApp
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.nudProductQuantity)).EndInit();
             this.gbProducts.ResumeLayout(false);
-            this.gbProducts.PerformLayout();
             this.gbBasket.ResumeLayout(false);
             this.gbBasket.PerformLayout();
             this.gbFinishOrder.ResumeLayout(false);
@@ -417,8 +450,6 @@ namespace CashierApp
         private System.Windows.Forms.ComboBox cbCategory;
         private System.Windows.Forms.ComboBox cbSubCategory;
         private System.Windows.Forms.Label lbWelcome;
-        private System.Windows.Forms.Label lbSerchEmoji;
-        private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label lbSubCategory;
         private System.Windows.Forms.Label lbCategory;
         private System.Windows.Forms.Label lbDepartment;
@@ -436,7 +467,10 @@ namespace CashierApp
         private System.Windows.Forms.GroupBox gbFinishOrder;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button btnCashRegister;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbtnCard;
+        private System.Windows.Forms.RadioButton rbtnCash;
+        private System.Windows.Forms.Button btnClearBascet;
+        private System.Windows.Forms.Button btnRemoveProduct;
+        private System.Windows.Forms.Button btnRemovePiece;
     }
 }
