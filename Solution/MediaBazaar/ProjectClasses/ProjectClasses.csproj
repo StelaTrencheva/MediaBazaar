@@ -48,6 +48,7 @@
     <Compile Include="DataAccessLayer\DBMediatorEmployee.cs" />
     <Compile Include="DataAccessLayer\DBMediatorEmpStatistic.cs" />
     <Compile Include="DataAccessLayer\DBMediatorProduct.cs" />
+    <Compile Include="DataAccessLayer\DBMediatorRestockRequest.cs" />
     <Compile Include="DataAccessLayer\DBMediatorShifts.cs" />
     <Compile Include="DataAccessLayer\DBMediatorSoldProduct.cs" />
     <Compile Include="Enum\ContractType.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Enum\ShiftType.cs" />
     <Compile Include="Exceptions\IncorrectPricingException.cs" />
     <Compile Include="Exceptions\RepeatingObjectException.cs" />
+    <Compile Include="LogicLayer\RestockRequestManager.cs" />
     <Compile Include="LogicLayer\SoldProduct.cs" />
     <Compile Include="LogicLayer\BasketManager.cs" />
     <Compile Include="LogicLayer\ContractHistory.cs" />
