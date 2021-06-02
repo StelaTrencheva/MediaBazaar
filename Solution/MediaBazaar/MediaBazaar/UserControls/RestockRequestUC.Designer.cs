@@ -47,9 +47,9 @@ namespace MediaBazaar
             this.btnAcceptRequest = new System.Windows.Forms.Button();
             this.btnDenyRequest = new System.Windows.Forms.Button();
             this.gbxStore = new System.Windows.Forms.GroupBox();
-            this.numSendAmount = new System.Windows.Forms.NumericUpDown();
-            this.lblSendToStore = new System.Windows.Forms.Label();
             this.btnStoreSend = new System.Windows.Forms.Button();
+            this.lblSendToStore = new System.Windows.Forms.Label();
+            this.numSendAmount = new System.Windows.Forms.NumericUpDown();
             this.txbRequestedAmount = new System.Windows.Forms.TextBox();
             this.lblSendRequestToTheSupplier = new System.Windows.Forms.Label();
             this.gbxSupplier = new System.Windows.Forms.GroupBox();
@@ -263,23 +263,6 @@ namespace MediaBazaar
             this.gbxStore.TabIndex = 7;
             this.gbxStore.TabStop = false;
             // 
-            // numSendAmount
-            // 
-            this.numSendAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numSendAmount.Location = new System.Drawing.Point(236, 39);
-            this.numSendAmount.Name = "numSendAmount";
-            this.numSendAmount.Size = new System.Drawing.Size(100, 30);
-            this.numSendAmount.TabIndex = 1;
-            // 
-            // lblSendToStore
-            // 
-            this.lblSendToStore.AutoSize = true;
-            this.lblSendToStore.Location = new System.Drawing.Point(27, 39);
-            this.lblSendToStore.Name = "lblSendToStore";
-            this.lblSendToStore.Size = new System.Drawing.Size(131, 50);
-            this.lblSendToStore.TabIndex = 6;
-            this.lblSendToStore.Text = "Send items to\r\nthe store:";
-            // 
             // btnStoreSend
             // 
             this.btnStoreSend.BackColor = System.Drawing.SystemColors.Control;
@@ -291,6 +274,23 @@ namespace MediaBazaar
             this.btnStoreSend.Text = "Send";
             this.btnStoreSend.UseVisualStyleBackColor = false;
             this.btnStoreSend.Click += new System.EventHandler(this.btnStoreSend_Click);
+            // 
+            // lblSendToStore
+            // 
+            this.lblSendToStore.AutoSize = true;
+            this.lblSendToStore.Location = new System.Drawing.Point(27, 39);
+            this.lblSendToStore.Name = "lblSendToStore";
+            this.lblSendToStore.Size = new System.Drawing.Size(131, 50);
+            this.lblSendToStore.TabIndex = 6;
+            this.lblSendToStore.Text = "Send items to\r\nthe store:";
+            // 
+            // numSendAmount
+            // 
+            this.numSendAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numSendAmount.Location = new System.Drawing.Point(236, 39);
+            this.numSendAmount.Name = "numSendAmount";
+            this.numSendAmount.Size = new System.Drawing.Size(100, 30);
+            this.numSendAmount.TabIndex = 1;
             // 
             // txbRequestedAmount
             // 
@@ -314,8 +314,9 @@ namespace MediaBazaar
             this.gbxSupplier.Controls.Add(this.btnSendSupplierRequest);
             this.gbxSupplier.Controls.Add(this.lblSendRequestToTheSupplier);
             this.gbxSupplier.Controls.Add(this.txbRequestedAmount);
+            this.gbxSupplier.Enabled = false;
             this.gbxSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gbxSupplier.Location = new System.Drawing.Point(39, 604);
+            this.gbxSupplier.Location = new System.Drawing.Point(580, 461);
             this.gbxSupplier.Name = "gbxSupplier";
             this.gbxSupplier.Size = new System.Drawing.Size(516, 128);
             this.gbxSupplier.TabIndex = 8;

@@ -22,6 +22,7 @@ namespace MediaBazaar
             lbxRestockRequests.DrawMode = DrawMode.OwnerDrawFixed;
             lbxRestockRequests.DrawItem += new DrawItemEventHandler(lbxRestockRequests_DrawItem_1);
             this.UpdateRestockRequests();
+            
         }
 
         public void UpdateRestockRequests()
@@ -31,11 +32,20 @@ namespace MediaBazaar
             btnDenyRequest.BackColor = Color.White;
             btnAcceptRequest.BackColor = Color.White;
             gbxStore.Visible = false;
-            gbxSupplier.Visible = true;
+            gbxSupplier.Enabled = false;
+            this.ClearInfoLabels();
             lbxRestockRequests.Items.Clear();
             foreach (var product in requestManager.GetAllRequestedProducts())
             {
-                lbxRestockRequests.Items.Add($"{product.Key.Type} - {product.Key.Brand}");
+                if(product.Value!=0)
+                {
+                    lbxRestockRequests.Items.Add($"{product.Key.Type} - {product.Key.Brand}");
+                }
+                else
+                {
+                    requestManager.DeleteRestockRequest(product.Key.PNumber);
+                }
+                
             }
         }
 
@@ -43,7 +53,9 @@ namespace MediaBazaar
         {
             btnAcceptRequest.Visible = true;
             btnDenyRequest.Visible = false;
+            gbxSupplier.Enabled = true;
             this.ClearGroupBoxes();
+            
             foreach (var product in requestManager.GetAllRequestedProducts())
             {
                 if (lbxRestockRequests.Items[prevIndex].ToString() == $"{product.Key.Type} - {product.Key.Brand}")
@@ -65,6 +77,15 @@ namespace MediaBazaar
                     }
                 }
             }
+        }
+
+        public void ClearInfoLabels()
+        {
+            lblProductTypeAndModel.Text = "Type and model";
+            lblProductBrand.Text = "Brand";
+            lblRequestedAmount.Text = "0";
+            lblAmountInStore.Text = "0";
+            lblAmountInWarehouse.Text = "0";
         }
 
         private void lbxRestockRequests_MouseMove(object sender, MouseEventArgs e)
@@ -163,12 +184,14 @@ namespace MediaBazaar
                     {
                         gbxStore.Visible = true;
                         numSendAmount.Maximum = product.Key.AmountInWarehouse;
+                        numSendAmount.Value = product.Key.AmountInWarehouse;
                         txbRequestedAmount.Text = "40";
                     }
                     else if (product.Key.AmountInWarehouse >= product.Value && product.Key.AmountInWarehouse != 0)
                     {
                         gbxStore.Visible = true;
                         numSendAmount.Maximum = product.Value;
+                        numSendAmount.Value = product.Value;
                     }
                 }
             }
@@ -189,6 +212,13 @@ namespace MediaBazaar
                 {
                     requestManager.SendStockToStore(product.Key.PNumber, (product.Key.AmountInStore + Convert.ToInt32(numSendAmount.Value)), (product.Key.AmountInWarehouse - Convert.ToInt32(numSendAmount.Value)));
                     requestManager.UpdateRestockRequest(product.Key.PNumber, product.Value - Convert.ToInt32(numSendAmount.Value));
+                    lblRequestedAmount.Text = $"{product.Value - Convert.ToInt32(numSendAmount.Value)}";
+                    lblAmountInStore.Text = $"{product.Key.AmountInStore + Convert.ToInt32(numSendAmount.Value)}";
+                    lblAmountInWarehouse.Text = $"{product.Key.AmountInWarehouse - Convert.ToInt32(numSendAmount.Value)}";
+                    if(product.Value - Convert.ToInt32(numSendAmount.Value) == 0)
+                    {
+                        this.UpdateRestockRequests();
+                    }
                     numSendAmount.Value = 0;
                 }
             }
