@@ -22,7 +22,7 @@ namespace MediaBazaar
             lbxRestockRequests.DrawMode = DrawMode.OwnerDrawFixed;
             lbxRestockRequests.DrawItem += new DrawItemEventHandler(lbxRestockRequests_DrawItem_1);
             this.UpdateRestockRequests();
-            
+
         }
 
         public void UpdateRestockRequests()
@@ -37,7 +37,7 @@ namespace MediaBazaar
             lbxRestockRequests.Items.Clear();
             foreach (var product in requestManager.GetAllRequestedProducts())
             {
-                if(product.Value!=0)
+                if (product.Value != 0)
                 {
                     lbxRestockRequests.Items.Add($"{product.Key.Type} - {product.Key.Brand}");
                 }
@@ -45,7 +45,7 @@ namespace MediaBazaar
                 {
                     requestManager.DeleteRestockRequest(product.Key.PNumber);
                 }
-                
+
             }
         }
 
@@ -53,9 +53,8 @@ namespace MediaBazaar
         {
             btnAcceptRequest.Visible = true;
             btnDenyRequest.Visible = false;
-            gbxSupplier.Enabled = true;
             this.ClearGroupBoxes();
-            
+
             foreach (var product in requestManager.GetAllRequestedProducts())
             {
                 if (lbxRestockRequests.Items[prevIndex].ToString() == $"{product.Key.Type} - {product.Key.Brand}")
@@ -75,6 +74,17 @@ namespace MediaBazaar
                         pnlAmountInWarehouse.BackColor = Color.YellowGreen;
                         lblStockMessage.Text = "The request can be proceed!";
                     }
+                    lblSendRequestToTheSupplier.Text = "Send request to \r\n the supplier:";
+                    gbxSupplier.Enabled = true;
+                    foreach (var request in requestManager.GetAllSupplierRequests())
+                    {
+                        if (request.Key.PNumber == product.Key.PNumber)
+                        {
+                            lblSendRequestToTheSupplier.Text = "Request already \r\n sent";
+                            gbxSupplier.Enabled = false;
+                        }
+                    }
+
                 }
             }
         }
@@ -215,7 +225,7 @@ namespace MediaBazaar
                     lblRequestedAmount.Text = $"{product.Value - Convert.ToInt32(numSendAmount.Value)}";
                     lblAmountInStore.Text = $"{product.Key.AmountInStore + Convert.ToInt32(numSendAmount.Value)}";
                     lblAmountInWarehouse.Text = $"{product.Key.AmountInWarehouse - Convert.ToInt32(numSendAmount.Value)}";
-                    if(product.Value - Convert.ToInt32(numSendAmount.Value) == 0)
+                    if (product.Value - Convert.ToInt32(numSendAmount.Value) == 0)
                     {
                         this.UpdateRestockRequests();
                     }
@@ -234,9 +244,11 @@ namespace MediaBazaar
                     MessageBox.Show("After the stock manager's approval the request will be send to the supplier.");
                     numSendAmount.Value = 0;
                     txbRequestedAmount.Text = String.Empty;
+                    lblSendRequestToTheSupplier.Text = "Request already \r\n sent";
+                    gbxSupplier.Enabled = false;
                 }
             }
-            
+
         }
     }
 }
