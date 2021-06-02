@@ -80,34 +80,40 @@ namespace CashierApp
             // 
             this.cbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDepartment.FormattingEnabled = true;
-            this.cbDepartment.Location = new System.Drawing.Point(416, 107);
+            this.cbDepartment.Location = new System.Drawing.Point(416, 63);
             this.cbDepartment.Margin = new System.Windows.Forms.Padding(2);
             this.cbDepartment.Name = "cbDepartment";
             this.cbDepartment.Size = new System.Drawing.Size(215, 28);
             this.cbDepartment.TabIndex = 1;
+            this.cbDepartment.TabStop = false;
             this.cbDepartment.SelectedIndexChanged += new System.EventHandler(this.cbDepartment_SelectedIndexChanged);
+            this.cbDepartment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbDepartment_KeyPress);
             // 
             // cbCategory
             // 
             this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(416, 157);
+            this.cbCategory.Location = new System.Drawing.Point(416, 113);
             this.cbCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(215, 28);
             this.cbCategory.TabIndex = 2;
+            this.cbCategory.TabStop = false;
             this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
+            this.cbCategory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbCategory_KeyPress);
             // 
             // cbSubCategory
             // 
             this.cbSubCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSubCategory.FormattingEnabled = true;
-            this.cbSubCategory.Location = new System.Drawing.Point(416, 214);
+            this.cbSubCategory.Location = new System.Drawing.Point(416, 170);
             this.cbSubCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbSubCategory.Name = "cbSubCategory";
             this.cbSubCategory.Size = new System.Drawing.Size(215, 28);
             this.cbSubCategory.TabIndex = 3;
+            this.cbSubCategory.TabStop = false;
             this.cbSubCategory.SelectedIndexChanged += new System.EventHandler(this.cbSubCategory_SelectedIndexChanged);
+            this.cbSubCategory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbSubCategory_KeyPress);
             // 
             // lbWelcome
             // 
@@ -123,7 +129,7 @@ namespace CashierApp
             // 
             // lbSubCategory
             // 
-            this.lbSubCategory.Location = new System.Drawing.Point(416, 187);
+            this.lbSubCategory.Location = new System.Drawing.Point(416, 143);
             this.lbSubCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSubCategory.Name = "lbSubCategory";
             this.lbSubCategory.Size = new System.Drawing.Size(214, 25);
@@ -133,7 +139,7 @@ namespace CashierApp
             // 
             // lbCategory
             // 
-            this.lbCategory.Location = new System.Drawing.Point(416, 136);
+            this.lbCategory.Location = new System.Drawing.Point(416, 92);
             this.lbCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbCategory.Name = "lbCategory";
             this.lbCategory.Size = new System.Drawing.Size(214, 20);
@@ -143,7 +149,7 @@ namespace CashierApp
             // 
             // lbDepartment
             // 
-            this.lbDepartment.Location = new System.Drawing.Point(416, 84);
+            this.lbDepartment.Location = new System.Drawing.Point(416, 40);
             this.lbDepartment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbDepartment.Name = "lbDepartment";
             this.lbDepartment.Size = new System.Drawing.Size(214, 20);
@@ -446,9 +452,6 @@ namespace CashierApp
         #endregion
 
         private System.Windows.Forms.ListBox lboxProducts;
-        private System.Windows.Forms.ComboBox cbDepartment;
-        private System.Windows.Forms.ComboBox cbCategory;
-        private System.Windows.Forms.ComboBox cbSubCategory;
         private System.Windows.Forms.Label lbWelcome;
         private System.Windows.Forms.Label lbSubCategory;
         private System.Windows.Forms.Label lbCategory;
@@ -472,5 +475,8 @@ namespace CashierApp
         private System.Windows.Forms.Button btnClearBascet;
         private System.Windows.Forms.Button btnRemoveProduct;
         private System.Windows.Forms.Button btnRemovePiece;
+        private System.Windows.Forms.ComboBox cbDepartment;
+        private System.Windows.Forms.ComboBox cbCategory;
+        private System.Windows.Forms.ComboBox cbSubCategory;
     }
 }
