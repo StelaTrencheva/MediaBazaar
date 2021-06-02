@@ -39,6 +39,7 @@ namespace CashierApp
         {
             if (e.KeyChar == (char)Keys.Return)
             {
+                this.Focus();
                 searchtext = "";
                 Test();
                 e.Handled = true;
@@ -60,14 +61,16 @@ namespace CashierApp
             else
             {
                 searchtext = "";
-                Test();
+                AllProducts();
             }
 
             if (c == (char)Keys.Return)
             {
+
                 ScanedProductToBasket(barcode);
                 barcode = "";
                 searchtext = "";
+                lboxBasket.Focus();
             }
 
             return base.ProcessCmdKey(ref msg, keyData);
@@ -187,11 +190,11 @@ namespace CashierApp
             }
             basketManager.ClearBascet();
             updateBasket();
-
         }
 
         private void cbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
+            searchtext = "";
             if (cbDepartment.SelectedItem.ToString() == "All")
             {
                 AllProducts();
@@ -205,22 +208,24 @@ namespace CashierApp
         }
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
+            searchtext = "";
             if (cbCategory.SelectedItem.ToString() == "All")
             {
                 clearSubCategories();
-                updateProductsByDepartment();
+                //updateProductsByDepartment();
             }
             else
             {
-                updateProductsByCategory();
                 updateSubCategories();
+                updateProductsByCategory();
             }
         }
         private void cbSubCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
+            searchtext = "";
             if (cbSubCategory.SelectedItem.ToString() == "All")
             {
-                //updateProductsByDepartment();
+                updateProductsByDepartment();
             }
             else
             {
@@ -340,6 +345,19 @@ namespace CashierApp
         {
             basketManager.ClearBascet();
             updateBasket();
+        }
+
+        private void cbDepartment_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+        private void cbCategory_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+        private void cbSubCategory_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

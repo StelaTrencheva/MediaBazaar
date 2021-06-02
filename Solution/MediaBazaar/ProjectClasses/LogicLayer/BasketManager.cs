@@ -38,6 +38,7 @@ namespace ProjectClasses
                 }
             }
             basket.Add(product);
+            return;
         }
         public decimal GetTotalPrice()
         {
@@ -90,16 +91,14 @@ namespace ProjectClasses
             }
             return null;
         }
-        public bool ExecuteOrder(int empID,PaymentType type)
+        public void ExecuteOrder(int empID,PaymentType type)
         {
             if (basket.Count==0)
             {
-                return false;
+                return;
             }
-            decimal test = GetTotalPrice();
-            bool status= dbMediator.ExecuteOrder(empID,Basket,type, test);
+            dbMediator.updateItems(empID,Basket,type);
             this.basket.Clear();
-            return status;
         }
     }
 }
