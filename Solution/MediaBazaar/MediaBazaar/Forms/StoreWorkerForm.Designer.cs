@@ -36,6 +36,7 @@
             this.btnStoreWLogOut = new System.Windows.Forms.Button();
             this.btnStoreWAccount = new System.Windows.Forms.Button();
             this.userInterface1 = new MediaBazaar.UserInterface();
+            this.storeWorkerRestockRequest1 = new MediaBazaar.StoreWorkerRestockRequest();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -64,6 +65,7 @@
             this.btnStoreWorkerRestockRequest.TabIndex = 3;
             this.btnStoreWorkerRestockRequest.Text = "Restock request";
             this.btnStoreWorkerRestockRequest.UseVisualStyleBackColor = false;
+            this.btnStoreWorkerRestockRequest.Click += new System.EventHandler(this.btnStoreWorkerRestockRequest_Click);
             // 
             // pbxLogo
             // 
@@ -119,6 +121,14 @@
             this.userInterface1.Size = new System.Drawing.Size(1121, 747);
             this.userInterface1.TabIndex = 54;
             // 
+            // storeWorkerRestockRequest1
+            // 
+            this.storeWorkerRestockRequest1.BackColor = System.Drawing.Color.LightBlue;
+            this.storeWorkerRestockRequest1.Location = new System.Drawing.Point(207, 0);
+            this.storeWorkerRestockRequest1.Name = "storeWorkerRestockRequest1";
+            this.storeWorkerRestockRequest1.Size = new System.Drawing.Size(1121, 747);
+            this.storeWorkerRestockRequest1.TabIndex = 55;
+            // 
             // StoreWorkerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -127,6 +137,7 @@
             this.ClientSize = new System.Drawing.Size(1340, 786);
             this.Controls.Add(this.userInterface1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.storeWorkerRestockRequest1);
             this.Name = "StoreWorkerForm";
             this.Text = "StoreWorkerForm";
             this.panel1.ResumeLayout(false);
@@ -145,5 +156,6 @@
         private System.Windows.Forms.Button btnStoreWLogOut;
         private System.Windows.Forms.Button btnStoreWAccount;
         private UserInterface userInterface1;
+        private StoreWorkerRestockRequest storeWorkerRestockRequest1;
     }
 }
