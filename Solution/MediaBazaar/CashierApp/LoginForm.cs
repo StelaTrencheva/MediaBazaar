@@ -32,10 +32,10 @@ namespace CashierApp
             else if (currentEmp.Position == EmployeeType.CASHIER)
             {
                 //When the login information of a HR is correct
-                MainForm form = new MainForm(currentEmp);
+                MainForm form = new MainForm(currentEmp,this);
                 this.Hide();
                 form.ShowDialog();
-                this.Close();
+                clearTextBoxes();
             }
             else
             {
@@ -47,6 +47,11 @@ namespace CashierApp
         {
             tbUserName.Text = "Tony001";
             tbPassword.Text = "0";
+        }
+        private void clearTextBoxes()
+        {
+            tbPassword.Text = "";
+            tbUserName.Text = "";
         }
     }
 }

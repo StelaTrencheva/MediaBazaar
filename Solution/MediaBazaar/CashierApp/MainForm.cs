@@ -20,8 +20,10 @@ namespace CashierApp
         BasketManager basketManager;
         string barcode;
         string searchtext;
+        DateTime startSesion;
+        LoginForm loginForm;
 
-        public MainForm(Employee currentEmp)
+        public MainForm(Employee currentEmp, LoginForm form)
         {
             InitializeComponent();
             this.currentEmp = currentEmp;
@@ -33,6 +35,10 @@ namespace CashierApp
             SetComboboxes();
             barcode = "";
             searchtext = "";
+            startSesion = DateTime.Now;
+            Bounds = Screen.PrimaryScreen.Bounds;
+            FormBorderStyle = FormBorderStyle.None;
+            loginForm = form;
         }
         //TEST
         private void CheckEnterKeyPress(object sender, KeyPressEventArgs e)
@@ -44,6 +50,7 @@ namespace CashierApp
                 Test();
                 e.Handled = true;
             }
+            
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -81,12 +88,19 @@ namespace CashierApp
             Product scannedProduct = productManager.GetProductByBarcode(barcode);
             if (scannedProduct == null)
             {
-                SystemSounds.Exclamation.Play();
+                statusBox.Image = Properties.Resources.RedBarcode;
+                statusBox.Show();
+                timer.Start();
                 return;
             }
-            basketManager.AddProduct(new SoldProduct(scannedProduct, 1));
-            updateBasket();
-
+            else
+            {
+                statusBox.Image = Properties.Resources.GreenBarcode;
+                statusBox.Show();
+                timer.Start();
+                basketManager.AddProduct(new SoldProduct(scannedProduct, 1));
+                updateBasket();
+            }
         }
         private void AllProducts()
         {
@@ -346,18 +360,36 @@ namespace CashierApp
             basketManager.ClearBascet();
             updateBasket();
         }
+        private void comboBoxes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
 
-        private void cbDepartment_KeyPress(object sender, KeyPressEventArgs e)
+        private void timer_Tick(object sender, EventArgs e)
         {
-            e.Handled = true;
+            statusBox.Hide();
+            timer.Stop();
         }
-        private void cbCategory_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void btnLogOut_Click(object sender, EventArgs e)
         {
-            e.Handled = true;
+            closeSesion();
+            this.Hide();
+            loginForm.Show();
+            this.Close();
         }
-        private void cbSubCategory_KeyPress(object sender, KeyPressEventArgs e)
+        private void closeSesion()
         {
-            e.Handled = true;
+            Stack<string> sesionInfo = basketManager.GetSesionInfoDB(startSesion, currentEmp.Id);
+            if (sesionInfo == null)
+            {
+                MessageBox.Show("There is a problem with the database :(","Employee sesion info");
+                return;
+            }
+            string totalAmount = sesionInfo.Pop();
+            string numberProducts = sesionInfo.Pop();
+            string numberOrders = sesionInfo.Pop();
+            MessageBox.Show($"Number of orders:{numberOrders}\nTotal products:  {numberProducts}\nTotal amount:  {totalAmount}", $"Employee sesion info");
         }
     }
 }

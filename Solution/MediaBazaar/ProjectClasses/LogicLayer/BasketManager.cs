@@ -100,5 +100,9 @@ namespace ProjectClasses
             dbMediator.updateItems(empID,Basket,type);
             this.basket.Clear();
         }
+        public Stack<string> GetSesionInfoDB(DateTime sesionStartTime, int empId)
+        {
+            return dbMediator.GetSesionInformation(sesionStartTime, empId);
+        }
     }
 }

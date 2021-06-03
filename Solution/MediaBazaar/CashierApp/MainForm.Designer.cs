@@ -29,6 +29,7 @@ namespace CashierApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lboxProducts = new System.Windows.Forms.ListBox();
             this.cbDepartment = new System.Windows.Forms.ComboBox();
             this.cbCategory = new System.Windows.Forms.ComboBox();
@@ -55,11 +56,14 @@ namespace CashierApp
             this.rbtnCard = new System.Windows.Forms.RadioButton();
             this.rbtnCash = new System.Windows.Forms.RadioButton();
             this.btnConfirm = new System.Windows.Forms.Button();
-            this.btnCashRegister = new System.Windows.Forms.Button();
+            this.statusBox = new System.Windows.Forms.PictureBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.btnLogOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudProductQuantity)).BeginInit();
             this.gbProducts.SuspendLayout();
             this.gbBasket.SuspendLayout();
             this.gbFinishOrder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.statusBox)).BeginInit();
             this.SuspendLayout();
             // 
             // lboxProducts
@@ -72,7 +76,7 @@ namespace CashierApp
             this.lboxProducts.Location = new System.Drawing.Point(21, 40);
             this.lboxProducts.Margin = new System.Windows.Forms.Padding(2);
             this.lboxProducts.Name = "lboxProducts";
-            this.lboxProducts.Size = new System.Drawing.Size(391, 472);
+            this.lboxProducts.Size = new System.Drawing.Size(391, 436);
             this.lboxProducts.TabIndex = 0;
             this.lboxProducts.SelectedIndexChanged += new System.EventHandler(this.lboxProducts_SelectedIndexChanged);
             // 
@@ -87,7 +91,7 @@ namespace CashierApp
             this.cbDepartment.TabIndex = 1;
             this.cbDepartment.TabStop = false;
             this.cbDepartment.SelectedIndexChanged += new System.EventHandler(this.cbDepartment_SelectedIndexChanged);
-            this.cbDepartment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbDepartment_KeyPress);
+            this.cbDepartment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxes_KeyPress);
             // 
             // cbCategory
             // 
@@ -100,7 +104,7 @@ namespace CashierApp
             this.cbCategory.TabIndex = 2;
             this.cbCategory.TabStop = false;
             this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
-            this.cbCategory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbCategory_KeyPress);
+            this.cbCategory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxes_KeyPress);
             // 
             // cbSubCategory
             // 
@@ -113,7 +117,7 @@ namespace CashierApp
             this.cbSubCategory.TabIndex = 3;
             this.cbSubCategory.TabStop = false;
             this.cbSubCategory.SelectedIndexChanged += new System.EventHandler(this.cbSubCategory_SelectedIndexChanged);
-            this.cbSubCategory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbSubCategory_KeyPress);
+            this.cbSubCategory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxes_KeyPress);
             // 
             // lbWelcome
             // 
@@ -168,7 +172,7 @@ namespace CashierApp
             this.lboxBasket.Location = new System.Drawing.Point(26, 222);
             this.lboxBasket.Margin = new System.Windows.Forms.Padding(2);
             this.lboxBasket.Name = "lboxBasket";
-            this.lboxBasket.Size = new System.Drawing.Size(356, 256);
+            this.lboxBasket.Size = new System.Drawing.Size(356, 220);
             this.lboxBasket.TabIndex = 91;
             // 
             // nudProductQuantity
@@ -229,7 +233,7 @@ namespace CashierApp
             this.gbProducts.Controls.Add(this.lbSubCategory);
             this.gbProducts.Location = new System.Drawing.Point(26, 85);
             this.gbProducts.Name = "gbProducts";
-            this.gbProducts.Size = new System.Drawing.Size(649, 542);
+            this.gbProducts.Size = new System.Drawing.Size(649, 515);
             this.gbProducts.TabIndex = 95;
             this.gbProducts.TabStop = false;
             this.gbProducts.Text = "Select a product";
@@ -272,7 +276,7 @@ namespace CashierApp
             this.gbBasket.Controls.Add(this.tbSelectedItem);
             this.gbBasket.Location = new System.Drawing.Point(681, 85);
             this.gbBasket.Name = "gbBasket";
-            this.gbBasket.Size = new System.Drawing.Size(413, 542);
+            this.gbBasket.Size = new System.Drawing.Size(413, 515);
             this.gbBasket.TabIndex = 97;
             this.gbBasket.TabStop = false;
             this.gbBasket.Text = "Basket";
@@ -282,7 +286,7 @@ namespace CashierApp
             this.btnClearBascet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClearBascet.BackColor = System.Drawing.Color.OrangeRed;
             this.btnClearBascet.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnClearBascet.Location = new System.Drawing.Point(279, 495);
+            this.btnClearBascet.Location = new System.Drawing.Point(279, 468);
             this.btnClearBascet.Margin = new System.Windows.Forms.Padding(2);
             this.btnClearBascet.Name = "btnClearBascet";
             this.btnClearBascet.Size = new System.Drawing.Size(103, 42);
@@ -296,7 +300,7 @@ namespace CashierApp
             this.btnRemoveProduct.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnRemoveProduct.BackColor = System.Drawing.Color.OrangeRed;
             this.btnRemoveProduct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRemoveProduct.Location = new System.Drawing.Point(149, 495);
+            this.btnRemoveProduct.Location = new System.Drawing.Point(149, 468);
             this.btnRemoveProduct.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoveProduct.Name = "btnRemoveProduct";
             this.btnRemoveProduct.Size = new System.Drawing.Size(103, 42);
@@ -310,7 +314,7 @@ namespace CashierApp
             this.btnRemovePiece.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRemovePiece.BackColor = System.Drawing.Color.OrangeRed;
             this.btnRemovePiece.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRemovePiece.Location = new System.Drawing.Point(26, 495);
+            this.btnRemovePiece.Location = new System.Drawing.Point(26, 468);
             this.btnRemovePiece.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemovePiece.Name = "btnRemovePiece";
             this.btnRemovePiece.Size = new System.Drawing.Size(103, 42);
@@ -406,18 +410,35 @@ namespace CashierApp
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // btnCashRegister
+            // statusBox
             // 
-            this.btnCashRegister.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCashRegister.BackColor = System.Drawing.Color.Ivory;
-            this.btnCashRegister.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCashRegister.Location = new System.Drawing.Point(1244, 553);
-            this.btnCashRegister.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCashRegister.Name = "btnCashRegister";
-            this.btnCashRegister.Size = new System.Drawing.Size(168, 44);
-            this.btnCashRegister.TabIndex = 99;
-            this.btnCashRegister.Text = "Cash register";
-            this.btnCashRegister.UseVisualStyleBackColor = false;
+            this.statusBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.statusBox.Location = new System.Drawing.Point(1299, 499);
+            this.statusBox.Name = "statusBox";
+            this.statusBox.Size = new System.Drawing.Size(124, 101);
+            this.statusBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.statusBox.TabIndex = 101;
+            this.statusBox.TabStop = false;
+            // 
+            // timer
+            // 
+            this.timer.Interval = 2500;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLogOut.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.Location = new System.Drawing.Point(26, 619);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(140, 46);
+            this.btnLogOut.TabIndex = 102;
+            this.btnLogOut.Text = "Log out";
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // MainForm
             // 
@@ -427,7 +448,8 @@ namespace CashierApp
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1480, 677);
-            this.Controls.Add(this.btnCashRegister);
+            this.Controls.Add(this.btnLogOut);
+            this.Controls.Add(this.statusBox);
             this.Controls.Add(this.gbFinishOrder);
             this.Controls.Add(this.gbBasket);
             this.Controls.Add(this.gbProducts);
@@ -445,6 +467,7 @@ namespace CashierApp
             this.gbBasket.PerformLayout();
             this.gbFinishOrder.ResumeLayout(false);
             this.gbFinishOrder.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.statusBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -469,7 +492,6 @@ namespace CashierApp
         private System.Windows.Forms.TextBox tbProductPrice;
         private System.Windows.Forms.GroupBox gbFinishOrder;
         private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.Button btnCashRegister;
         private System.Windows.Forms.RadioButton rbtnCard;
         private System.Windows.Forms.RadioButton rbtnCash;
         private System.Windows.Forms.Button btnClearBascet;
@@ -478,5 +500,8 @@ namespace CashierApp
         private System.Windows.Forms.ComboBox cbDepartment;
         private System.Windows.Forms.ComboBox cbCategory;
         private System.Windows.Forms.ComboBox cbSubCategory;
+        private System.Windows.Forms.PictureBox statusBox;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }
