@@ -10,7 +10,7 @@ namespace ProjectClasses
     {
         private int code;
         private string name;
-        private List<Employee> managers;
+        //private List<Employee> managers;
 
         public int Code
         {
@@ -20,23 +20,28 @@ namespace ProjectClasses
         public string Name
         {
             get { return this.name; }
+            set 
+            {
+                if (value == "")
+                {
+                    throw new ArgumentException();
+                }
+                char[] text = value.ToLower().ToCharArray();
+                text[0] = char.ToUpper(text[0]);
+                this.name = new string(text);
+            }
         }
 
-        public List<Employee> Managers
-        {
-            get { return this.managers; }
-            set { managers = value; }
-        }
+        //public List<Employee> Managers
+        //{
+        //    get { return this.managers; }
+        //    set { managers = value; }
+        //}
 
         public Department(int code, string name)
         {
-            if( name == "")
-            {
-                throw new ArgumentException();
-            }
-
             this.code = code;
-            this.name = name;
+            this.Name = name;
         }
 
         public override string ToString()

@@ -63,7 +63,7 @@ namespace MediaBazaar
         {
             try
             {
-                this.deptMngr.AddDepartment(new Department((int)nudCode.Value, tbxName.Text));
+                this.deptMngr.AddDepartment(new Department((int)nudDepartmentCode.Value, tbxDepartmentName.Text));
                 MessageBox.Show("Succesfully added");
                 this.DisplayDepartments();
                 this.DisplayDepartmentsInCbx();
@@ -81,8 +81,8 @@ namespace MediaBazaar
                 MessageBox.Show(exce.ToString());
             }
             
-            tbxName.Clear();
-            nudCode.Value = 1000;
+            tbxDepartmentName.Clear();
+            nudDepartmentCode.Value = 1000;
         }
 
         private void DisplayDepartmentManagersInCbx()//DISPLAY DEPARTMENT MANAGER IN COMBOBOX IN ASSIGN DMANAGER TAB
@@ -125,6 +125,60 @@ namespace MediaBazaar
             catch (RepeatingObjectException)
             {
                 MessageBox.Show("the department or department manager is already assign.");
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if(lbxDepartments.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a department.");
+            }
+            else
+            {
+                foreach(Department dept in this.deptMngr.GetDepartments())
+                {
+                    if(lbxDepartments.SelectedItem.ToString() == dept.ToString())
+                    {
+                        this.deptMngr.DeleteDepartment(dept);
+                        MessageBox.Show("Successfully deleted.");
+                        this.DisplayDepartments();
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if(lbxDepartments.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a department.");
+            }
+            else
+            {
+                foreach(Department dept in this.deptMngr.GetDepartments())
+                {
+                    if(lbxDepartments.SelectedItem.ToString() == dept.ToString())
+                    {
+                        ModifyDepartment modifyDept = new ModifyDepartment(dept, deptMngr);
+                        modifyDept.ShowDialog();
+                        break;
+                    }
+                }
+            }
+            this.DisplayDepartments();
+        }
+
+        private void tbxSearchDepartment_TextChanged(object sender, EventArgs e)
+        {
+            lbxDepartments.Items.Clear();
+            foreach(Department dept in this.deptMngr.GetDepartments())
+            {
+                if (dept.ToString().ToLower().Contains(tbxSearchDepartment.Text))
+                {
+                    lbxDepartments.Items.Add(dept);
+                }
             }
         }
     }

@@ -12,7 +12,7 @@ namespace ProjectClasses
         public DBMediatorDepartment() : base() { }
 
         //ADD DEPARTMENT
-        public bool AddDepartment(int code, string name)
+        public Department AddDepartment(int code,string name)
         {
             string sqlStatement = "INSERT INTO `mb_department` (code, dept_name) VALUES (@c, @n);";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
@@ -22,22 +22,21 @@ namespace ProjectClasses
             try
             {
                 int n = 0;
-
                 DbConnection.Open();
                 n = sqlCommand.ExecuteNonQuery();
                 if (n == 1)
                 {
-                    return true;
+                    return new Department(code, name);
                 }
-                return false;
+                return null;
             }
-            catch (MySqlException e)
+            catch (MySqlException)
             {
-                return false;
+                return null;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                return false;
+                return null;
             }
             finally
             {
@@ -56,7 +55,6 @@ namespace ProjectClasses
             try
             {
                 int n = 0;
-
                 DbConnection.Open();
                 n = sqlCommand.ExecuteNonQuery();
                 if (n == 1)
@@ -80,7 +78,7 @@ namespace ProjectClasses
         }
 
         //DELETE DEPARTMENT
-        public bool DeleteDepartment(int id)
+        public void DeleteDepartment(int id)
         {
             string sqlStatement = "DELETE FROM `mb_department` WHERE code= @i";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection); ;
@@ -91,21 +89,21 @@ namespace ProjectClasses
                 DbConnection.Open();
                 n = sqlCommand.ExecuteNonQuery();
 
-                if (n == 1)
-                {
-                    return true;
-                }
-                return false;
+                //if (n == 1)
+                //{
+                //    return true;
+                //}
+                //return false;
             }
-            catch (MySqlException e)
+            catch (MySqlException)
             {
                 //MessageBox.Show(sqlExceptionMessage(e.Message));
-                return false;
+                //return false;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 //MessageBox.Show(sqlExceptionMessage(e.Message));
-                return false;
+                //return false;
             }
             finally
             {
@@ -135,6 +133,25 @@ namespace ProjectClasses
             catch (MySqlException e)
             {
                 return d;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
+        public void UpdateDepartment(int code, string name)
+        {
+            string sqlStatement = "UPDATE `mb_department` SET `dept_name` = @n WHERE `code` = @c";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@n", name);
+            sqlCommand.Parameters.AddWithValue("@c", code);
+
+            try
+            {
+                int n = 0;
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
             }
             finally
             {
