@@ -21,6 +21,8 @@ namespace MediaBazaar
             requestManager = new RestockRequestManager();
             lbxRestockRequests.DrawMode = DrawMode.OwnerDrawFixed;
             lbxRestockRequests.DrawItem += new DrawItemEventHandler(lbxRestockRequests_DrawItem_1);
+            lbxStockInWarehouse.DrawMode = DrawMode.OwnerDrawFixed;
+            lbxStockInWarehouse.DrawItem += new DrawItemEventHandler(lbxStockInWarehouse_DrawItem);
             this.UpdateRestockRequests();
 
         }
@@ -35,6 +37,7 @@ namespace MediaBazaar
             gbxSupplier.Enabled = false;
             this.ClearInfoLabels();
             lbxRestockRequests.Items.Clear();
+            lbxStockInWarehouse.Items.Clear();
             foreach (var product in requestManager.GetAllRequestedProducts())
             {
                 if (product.Value != 0)
@@ -45,12 +48,20 @@ namespace MediaBazaar
                 {
                     requestManager.DeleteRestockRequest(product.Key.PNumber);
                 }
-
+            }
+            foreach(Product product in requestManager.GetListOfAllProducts())
+            {
+                lbxStockInWarehouse.Items.Add($"{product.Type} - {product.Brand}");
             }
         }
 
         private void lbxRestockRequests_DoubleClick(object sender, EventArgs e)
         {
+            lblRequestedAmount.Visible = true;
+            lblAmountInStore.Visible = true;
+            pnlAmountInStore.Visible = true;
+            lblStockInStoreLabel.Visible = true;
+            lblAmount.Visible = true;
             btnAcceptRequest.Visible = true;
             btnDenyRequest.Visible = false;
             this.ClearGroupBoxes();
@@ -74,7 +85,7 @@ namespace MediaBazaar
                         pnlAmountInWarehouse.BackColor = Color.YellowGreen;
                         lblStockMessage.Text = "The request can be proceed!";
                     }
-                    lblSendRequestToTheSupplier.Text = "Send request to \r\n the supplier:";
+                    lblSendRequestToTheSupplier.Text = "Send request to \r\nthe supplier:";
                     gbxSupplier.Enabled = true;
                     foreach (var request in requestManager.GetAllSupplierRequests())
                     {
@@ -84,7 +95,6 @@ namespace MediaBazaar
                             gbxSupplier.Enabled = false;
                         }
                     }
-
                 }
             }
         }
@@ -116,7 +126,6 @@ namespace MediaBazaar
 
         private void lbxRestockRequests_DrawItem_1(object sender, DrawItemEventArgs e)
         {
-
             e.DrawBackground();
             Graphics g = e.Graphics;
             Color c;
@@ -189,7 +198,6 @@ namespace MediaBazaar
             {
                 if (lblProductTypeAndModel.Text == $"{product.Key.Type} ({product.Key.Model})")
                 {
-
                     if (product.Key.AmountInWarehouse < product.Value && product.Key.AmountInWarehouse != 0)
                     {
                         gbxStore.Visible = true;
@@ -249,6 +257,82 @@ namespace MediaBazaar
                 }
             }
 
+        }
+
+        private void lbxStockInWarehouse_DoubleClick(object sender, EventArgs e)
+        {
+            lblRequestedAmount.Visible = true;
+            lblAmountInStore.Visible = true;
+            pnlAmountInStore.Visible = true;
+            lblStockInStoreLabel.Visible = true;
+            lblAmount.Visible = true;
+            foreach (Product product in requestManager.GetListOfAllProducts())
+            {
+                if (lbxStockInWarehouse.Items[prevIndex].ToString() == $"{product.Type} - {product.Brand}")
+                {
+                    lblProductTypeAndModel.Text = $"{product.Type} ({product.Model})";
+                    lblProductBrand.Text = $"{product.Brand}";
+                    lblAmountInWarehouse.Text = $"{product.AmountInWarehouse}";
+                    pnlAmountInWarehouse.BackColor = Color.YellowGreen;
+                    lblRequestedAmount.Visible = false;
+                    lblAmountInStore.Visible = false;
+                    pnlAmountInStore.Visible = false;
+                    lblStockInStoreLabel.Visible = false;
+                    lblAmount.Visible = false;
+                    btnAcceptRequest.Visible = false;
+                    lblSendRequestToTheSupplier.Text = "Send request to \r\nthe supplier:";
+                    gbxSupplier.Enabled = true;
+                    foreach (var requestedProduct in requestManager.GetAllSupplierRequests())
+                    {
+                        if (requestedProduct.Key.PNumber == product.PNumber)
+                        {
+                            gbxSupplier.Enabled = false;
+                            lblSendRequestToTheSupplier.Text = "Request already \r\nsent";
+                        }
+                    }
+                }
+            }
+        }
+
+        private void lbxStockInWarehouse_MouseMove(object sender, MouseEventArgs e)
+        {
+            int index = lbxStockInWarehouse.IndexFromPoint(lbxStockInWarehouse.PointToClient(Cursor.Position));
+            if (index != prevIndex)
+            {
+                prevIndex = index;
+                lbxStockInWarehouse.Invalidate();
+            }
+        }
+
+        private void lbxStockInWarehouse_MouseLeave(object sender, EventArgs e)
+        {
+            prevIndex = -1;
+            lbxStockInWarehouse.Invalidate();
+        }
+
+        private void lbxStockInWarehouse_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            Graphics g = e.Graphics;
+            Color c;
+            if (e.Index == prevIndex)
+            {
+                c = Color.YellowGreen;
+            }
+            else
+            {
+                c = Color.LightBlue;
+            }
+            using (SolidBrush brsh = new SolidBrush(c))
+            {
+                g.FillRectangle(brsh, e.Bounds);
+            }
+            using (SolidBrush brsh = new SolidBrush(e.ForeColor))
+            {
+                g.DrawString(lbxStockInWarehouse.Items[e.Index].ToString(), e.Font,
+                 brsh, e.Bounds, StringFormat.GenericDefault);
+            }
+            e.DrawFocusRectangle();
         }
     }
 }
