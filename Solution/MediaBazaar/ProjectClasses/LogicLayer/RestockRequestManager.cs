@@ -22,6 +22,11 @@ namespace ProjectClasses
             this.supplierRequests = GetAllSupplierRequests();
         }
 
+        public void CreateCreateStockRequest(int pNum, int pQuantity)
+        {
+            this.dbMediatorRestockRequest.CreateRestockRequest(pNum, pQuantity);
+        }
+
         public Dictionary<Product, int> GetAllRequestedProducts()
         {
             requestedProducts = dbMediatorRestockRequest.GetListOfRequestedProducts();

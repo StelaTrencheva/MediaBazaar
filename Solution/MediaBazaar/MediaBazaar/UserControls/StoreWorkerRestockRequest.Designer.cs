@@ -44,6 +44,7 @@
             this.btnAdjustMinStock = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.gbxSendRestockRequest = new System.Windows.Forms.GroupBox();
+            this.txbRestockRequesrtAmount = new System.Windows.Forms.TextBox();
             this.btnStoreSend = new System.Windows.Forms.Button();
             this.lblSendToStore = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -53,7 +54,6 @@
             this.tbpBelowMinimum = new System.Windows.Forms.TabPage();
             this.tbpAboveMinimum = new System.Windows.Forms.TabPage();
             this.lbxProductsAboveMinimum = new System.Windows.Forms.ListBox();
-            this.txbRestockRequesrtAmount = new System.Windows.Forms.TextBox();
             this.gbxRestocRProductInformation.SuspendLayout();
             this.pnlMinimumStock.SuspendLayout();
             this.pnlAmountInStore.SuspendLayout();
@@ -196,6 +196,7 @@
             this.gbxMinimumStockInStore.Controls.Add(this.lblMinimumStock);
             this.gbxMinimumStockInStore.Controls.Add(this.btnAdjustMinStock);
             this.gbxMinimumStockInStore.Controls.Add(this.textBox1);
+            this.gbxMinimumStockInStore.Enabled = false;
             this.gbxMinimumStockInStore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.gbxMinimumStockInStore.Location = new System.Drawing.Point(574, 387);
             this.gbxMinimumStockInStore.Name = "gbxMinimumStockInStore";
@@ -235,6 +236,13 @@
             this.gbxSendRestockRequest.TabIndex = 10;
             this.gbxSendRestockRequest.TabStop = false;
             // 
+            // txbRestockRequesrtAmount
+            // 
+            this.txbRestockRequesrtAmount.Location = new System.Drawing.Point(224, 36);
+            this.txbRestockRequesrtAmount.Name = "txbRestockRequesrtAmount";
+            this.txbRestockRequesrtAmount.Size = new System.Drawing.Size(108, 30);
+            this.txbRestockRequesrtAmount.TabIndex = 8;
+            // 
             // btnStoreSend
             // 
             this.btnStoreSend.BackColor = System.Drawing.SystemColors.Control;
@@ -245,6 +253,7 @@
             this.btnStoreSend.TabIndex = 7;
             this.btnStoreSend.Text = "Send";
             this.btnStoreSend.UseVisualStyleBackColor = false;
+            this.btnStoreSend.Click += new System.EventHandler(this.btnStoreSend_Click);
             // 
             // lblSendToStore
             // 
@@ -333,13 +342,6 @@
             this.lbxProductsAboveMinimum.DoubleClick += new System.EventHandler(this.lbxProductsAboveMinimum_DoubleClick);
             this.lbxProductsAboveMinimum.MouseLeave += new System.EventHandler(this.lbxProductsAboveMinimum_MouseLeave);
             this.lbxProductsAboveMinimum.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbxProductsAboveMinimum_MouseMove);
-            // 
-            // txbRestockRequesrtAmount
-            // 
-            this.txbRestockRequesrtAmount.Location = new System.Drawing.Point(224, 36);
-            this.txbRestockRequesrtAmount.Name = "txbRestockRequesrtAmount";
-            this.txbRestockRequesrtAmount.Size = new System.Drawing.Size(108, 30);
-            this.txbRestockRequesrtAmount.TabIndex = 8;
             // 
             // StoreWorkerRestockRequest
             // 

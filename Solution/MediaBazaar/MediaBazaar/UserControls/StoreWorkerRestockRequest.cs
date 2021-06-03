@@ -46,10 +46,20 @@ namespace MediaBazaar
 
         private void lbxCreateRestockRequests_DoubleClick(object sender, EventArgs e)
         {
+            gbxSendRestockRequest.Enabled = true;
+            lblSendToStore.Text = "Send restock \r\nrequest: ";
             foreach (Product product in requestManager.GetListOfAllProducts())
             {
                 if ((lbxProductsBelowMinimum.Items[prevIndex].ToString() == $"{product.Type} ({product.Model})") && product.AmountInStore < 50)
                 {
+                    foreach (var requestedProduct in requestManager.GetAllRequestedProducts())
+                    {
+                        if (requestedProduct.Key.PNumber == product.PNumber)
+                        {
+                            gbxSendRestockRequest.Enabled = false;
+                            lblSendToStore.Text = "Request already \r\nsent";
+                        }
+                    }
                     lblProductBrand.Text = $"{product.Brand}";
                     lblProductTypeAndModel.Text = $"{product.Type} ({product.Model})";
                     lblAmountInStore.Text = $"{product.AmountInStore}";
@@ -59,15 +69,44 @@ namespace MediaBazaar
         }
         private void lbxProductsAboveMinimum_DoubleClick(object sender, EventArgs e)
         {
+            gbxSendRestockRequest.Enabled = true;
+            lblSendToStore.Text = "Send restock \r\nrequest: ";
             foreach (Product product in requestManager.GetListOfAllProducts())
             {
                 if ((lbxProductsAboveMinimum.Items[prevIndex].ToString() == $"{product.Type} ({product.Model})") && product.AmountInStore >= 50)
                 {
+                    foreach (var requestedProduct in requestManager.GetAllRequestedProducts())
+                    {
+                        if (requestedProduct.Key.PNumber == product.PNumber)
+                        {
+                            gbxSendRestockRequest.Enabled = false;
+                            lblSendToStore.Text = "Request already \r\nsent";
+                        }
+                    }
                     lblProductBrand.Text = $"{product.Brand}";
                     lblProductTypeAndModel.Text = $"{product.Type} ({product.Model})";
                     lblAmountInStore.Text = $"{product.AmountInStore}";
                     pnlMinimumStock.BackColor = Color.YellowGreen;
-
+                }
+            }
+        }
+        private void btnStoreSend_Click(object sender, EventArgs e)
+        {
+            if (txbRestockRequesrtAmount.Text.ToString() == String.Empty)
+            {
+                MessageBox.Show("Invalid quantity input. Restock request not sent.");
+            }
+            else
+            {
+                foreach (Product product in requestManager.GetListOfAllProducts())
+                {
+                    if ((lblProductTypeAndModel.Text == $"{product.Type} ({product.Model})") && (lblProductBrand.Text == $"{product.Brand}"))
+                    {
+                        requestManager.CreateCreateStockRequest(product.PNumber, Convert.ToInt32(txbRestockRequesrtAmount.Text));
+                        gbxSendRestockRequest.Enabled = false;
+                        lblSendToStore.Text = "Request already \r\nsent";
+                        txbRestockRequesrtAmount.Text = String.Empty;
+                    }
                 }
             }
         }
@@ -152,5 +191,7 @@ namespace MediaBazaar
             }
             e.DrawFocusRectangle();
         }
+
+
     }
 }

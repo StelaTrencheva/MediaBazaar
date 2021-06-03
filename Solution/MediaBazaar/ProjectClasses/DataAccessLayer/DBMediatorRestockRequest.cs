@@ -11,6 +11,32 @@ namespace ProjectClasses
     {
         public DBMediatorRestockRequest() : base() { }
 
+
+        public void CreateRestockRequest(int pNum, int pQuantity)
+        {
+            string sqlStatement = "INSERT INTO `mb_restock_request` VALUES(@pNum, @pQuantity)";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+
+            sqlCommand.Parameters.AddWithValue("@pNum", pNum);
+            sqlCommand.Parameters.AddWithValue("@pQuantity", pQuantity);
+
+            try
+            {
+                int n = 0;
+
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
         public Dictionary<Product, int> GetListOfRequestedProducts()
         {
             string sqlStatement = "SELECT *, r.pQuantity as quantity FROM `mb_product` as p " +
