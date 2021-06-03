@@ -36,7 +36,7 @@ namespace MediaBazaar
                 {
                     lbxProductsBelowMinimum.Items.Add($"{product.Type} ({product.Model})");
                 }
-                else
+                else if (product.AmountInStore >= 50)
                 {
                     lbxProductsAboveMinimum.Items.Add($"{product.Type} ({product.Model})");
                 }
@@ -48,14 +48,12 @@ namespace MediaBazaar
         {
             foreach (Product product in requestManager.GetListOfAllProducts())
             {
-                if (lbxProductsBelowMinimum.Items[prevIndex].ToString() == $"{product.Type} ({product.Model})")
+                if ((lbxProductsBelowMinimum.Items[prevIndex].ToString() == $"{product.Type} ({product.Model})") && product.AmountInStore < 50)
                 {
                     lblProductBrand.Text = $"{product.Brand}";
                     lblProductTypeAndModel.Text = $"{product.Type} ({product.Model})";
                     lblAmountInStore.Text = $"{product.AmountInStore}";
                     pnlMinimumStock.BackColor = Color.OrangeRed;
-
-
                 }
             }
         }
@@ -63,7 +61,7 @@ namespace MediaBazaar
         {
             foreach (Product product in requestManager.GetListOfAllProducts())
             {
-                if (lbxProductsBelowMinimum.Items[prevIndex].ToString() == $"{product.Type} ({product.Model})")
+                if ((lbxProductsAboveMinimum.Items[prevIndex].ToString() == $"{product.Type} ({product.Model})") && product.AmountInStore >= 50)
                 {
                     lblProductBrand.Text = $"{product.Brand}";
                     lblProductTypeAndModel.Text = $"{product.Type} ({product.Model})";

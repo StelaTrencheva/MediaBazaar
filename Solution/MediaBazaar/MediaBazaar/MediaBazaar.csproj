@@ -91,6 +91,12 @@
     <Compile Include="Forms\ModifyDepartment.Designer.cs">
       <DependentUpon>ModifyDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\StoreWorkerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StoreWorkerForm.Designer.cs">
+      <DependentUpon>StoreWorkerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\DepartmentUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -224,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ModifyDepartment.resx">
       <DependentUpon>ModifyDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StoreWorkerForm.resx">
+      <DependentUpon>StoreWorkerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DepartmentUC.resx">
       <DependentUpon>DepartmentUC.cs</DependentUpon>

@@ -24,7 +24,7 @@ namespace MediaBazaar
         }
         private void PaintAllButtons()
         {
-            btnStoreWorkerRestockRequest.BackColor = Color.SlateGray;
+            btnStoreWRestockRequest.BackColor = Color.SlateGray;
             btnStoreWAccount.BackColor = Color.SlateGray;
             btnStoreWLogOut.BackColor = Color.SlateGray;
         }
@@ -32,14 +32,6 @@ namespace MediaBazaar
         {
             userInterface1.Hide();
             storeWorkerRestockRequest1.Hide();
-        }
-
-        private void btnStoreWLogOut_Click(object sender, EventArgs e)
-        {
-            LoginForm form = new LoginForm();
-            this.Hide();
-            form.ShowDialog();
-            this.Close();
         }
 
         private void btnStoreWAccount_Click(object sender, EventArgs e)
@@ -50,10 +42,18 @@ namespace MediaBazaar
             userInterface1.Show();
         }
 
-        private void btnStoreWorkerRestockRequest_Click(object sender, EventArgs e)
+        private void btnStoreWLogOut_Click(object sender, EventArgs e)
+        {
+            LoginForm form = new LoginForm();
+            this.Hide();
+            form.ShowDialog();
+            this.Close();
+        }
+
+        private void btnStoreWRestockRequest_Click(object sender, EventArgs e)
         {
             PaintAllButtons();
-            btnStoreWorkerRestockRequest.BackColor = Color.White;
+            btnStoreWRestockRequest.BackColor = Color.White;
             HideAllInterfaces();
             storeWorkerRestockRequest1.Show();
         }

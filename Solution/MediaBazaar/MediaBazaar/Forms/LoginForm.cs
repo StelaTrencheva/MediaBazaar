@@ -72,9 +72,9 @@ namespace MediaBazaar
             else if (currentEmp.Position == EmployeeType.STORE_WORKER)
             {
                 //When the login information of a store worker is correct
-                //StoreWorkerForm form = new StoreWorkerForm(currentEmp);
+                StoreWorkerForm form = new StoreWorkerForm(currentEmp);
                 this.Hide();
-                //form.ShowDialog();
+                form.ShowDialog();
                 this.Close();
             }
             else
