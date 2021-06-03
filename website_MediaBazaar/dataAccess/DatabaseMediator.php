@@ -1,9 +1,13 @@
 <?php
 class DatabaseMediatior {
-    private $username = 'dbi467491';
-    private $password = 'bulcari';
-    private $host = 'studmysql01.fhict.local';
-    private $dbName = 'dbi467491';
+    // private $username = 'dbi467491';
+    // private $password = 'bulcari';
+    // private $host = 'studmysql01.fhict.local';
+    // private $dbName = 'dbi467491';
+    private $username = 'root';
+    private $password = '';
+    private $host = 'localhost';
+    private $dbName = 'mediabazaar';
     private $conn;
 
     public function __construct() {

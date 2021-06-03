@@ -39,16 +39,6 @@ if ($employee->getPosition() != "STORE_WORKER" && $employee->getPosition() != "S
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <?php
-    if($employee->getContract()=="FLEX"){
-        echo '<script src="script/availability_script_flex.js"></script>';
-    }else if($employee->getContract()=="FULLTIME"){
-        echo '<script src="script/availability_script_fulltime.js"></script>';
-    }else if($employee->getContract()=="EIGHTYPERCENT"){
-        echo '<script src="script/availability_script_eighty.js"></script>';
-    }
-    
-    ?>
 </head>
 
 <body>
@@ -64,13 +54,8 @@ if ($employee->getPosition() != "STORE_WORKER" && $employee->getPosition() != "S
                 }
                 ?>
                 <p>Hi colleague!</p>
-                <p>With this form you state on a weekly basis which days you are available to work. It is important that you always fill in the form on time. This way we can make a good planning and ensure that you get as many services as possible.</p>
-                <p class="bold"> When do I have to fill in the form? </p>
-                <p>You can fill in the form up to 6 weeks in advance, but the sooner the better. The deadline is always a maximum of 1 week in advance. Example: you submit your availability for week 3 before week 2 starts, so before Sunday 23:59 in week 1. </p>
-                <ul>
-                    <li>If you have full contract - mark <b>at least 10</b> available shifts (at least 5 days with 2 shifts each day)</li>
-                    <li>If you have 80% contract - mark <b>at least 8</b> available shifts (at least 3 days with 2 shifts each day and 2 days with 1 shift)</li>
-                </ul>
+                <p>You can request a holiday here! The department manager will review it and accept or decline it!</p>
+                
             </div>
             <div class="d-flex flex-lg-row flex-column-reverse">
                 <div class="container margin-10px-top margin-10px-bottom">
@@ -114,14 +99,12 @@ if ($employee->getPosition() != "STORE_WORKER" && $employee->getPosition() != "S
                                             $status = 1;
                                             echo
                                             '<div class="form-check form-check-inline">
-                                        
                                         <input class="form-check-input '.$daysOfWeek[$i].'" type="checkbox" name="' . $daysOfWeek[$i] . '-' . $defaultShifts[$j] . '" checked>
                                         <label class="form-check-label" for="inlineCheckbox1">' . $shift->getType() . '</label></div>';
                                         }
                                     }
                                     if ($status == 0) {
                                         echo '<div class="form-check form-check-inline">
-                                
                                 <input class="form-check-input '.$daysOfWeek[$i].'" type="checkbox" name="' . $daysOfWeek[$i] . '-' . $defaultShifts[$j] . '">
                                 <label class="form-check-label" for="inlineCheckbox1">' . $defaultShifts[$j] . '</label></div>';
                                     }
@@ -131,7 +114,7 @@ if ($employee->getPosition() != "STORE_WORKER" && $employee->getPosition() != "S
                         }
                         ?>
                     </div>
-                    <a><button type="submit" class="btn btn-primary" id="submit_availability">Submit</button></a>
+                    <a><button type="submit" class="btn btn-primary">Submit</button></a>
                     </form>
 
                 </div>

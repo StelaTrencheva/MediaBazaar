@@ -69,6 +69,14 @@ namespace MediaBazaar
                 form.ShowDialog();
                 this.Close();
             }
+            else if (currentEmp.Position == EmployeeType.STORE_WORKER)
+            {
+                //When the login information of a store worker is correct
+                //StoreWorkerForm form = new StoreWorkerForm(currentEmp);
+                this.Hide();
+                //form.ShowDialog();
+                this.Close();
+            }
             else
             {
                 MessageBox.Show("You dont have access to the application");
