@@ -112,6 +112,10 @@ namespace ProjectClasses
                     sesionInfo.Push(reader["Total"].ToString());
                 }
             }
+            catch (MySqlException)
+            {
+                //list conection
+            }
             finally
             {
                 this.DbConnection.Close();

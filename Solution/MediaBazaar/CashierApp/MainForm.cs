@@ -14,7 +14,7 @@ namespace CashierApp
 {
     public partial class MainForm : Form
     {
-        Employee currentEmp;
+        Employee currentEmp;//Last login date
         ProductManager productManager;
         DepartmentManager departmentManager;
         BasketManager basketManager;
@@ -130,7 +130,7 @@ namespace CashierApp
         //TEST
         private void Test()
         {
-            cbDepartment.SelectedIndex = 0;
+             cbDepartment.SelectedIndex = 0;
             lboxProducts.Items.Clear();
             foreach (Product product in productManager.GetAllProducts())
             {
