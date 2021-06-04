@@ -49,7 +49,7 @@ namespace MediaBazaar
                     requestManager.DeleteRestockRequest(product.Key.PNumber);
                 }
             }
-            foreach(Product product in requestManager.GetListOfAllProducts())
+            foreach (Product product in requestManager.GetListOfAllProducts())
             {
                 lbxStockInWarehouse.Items.Add($"{product.Type} - {product.Brand}");
             }
@@ -88,6 +88,7 @@ namespace MediaBazaar
                     lblSendRequestToTheSupplier.Text = "Send request to \r\nthe supplier:";
                     gbxSupplier.Enabled = true;
                     foreach (var request in requestManager.GetAllSupplierRequests())
+                    //if (requestManager.GetAllSupplierRequests().ContainsKey(product.Key)) - does not work 
                     {
                         if (request.Key.PNumber == product.Key.PNumber)
                         {
