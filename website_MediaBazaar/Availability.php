@@ -45,7 +45,7 @@ if ($employee->getPosition() != "STORE_WORKER" && $employee->getPosition() != "S
     }else if($employee->getContract()=="FULLTIME"){
         echo '<script src="script/availability_script_fulltime.js"></script>';
     }else if($employee->getContract()=="EIGHTYPERCENT"){
-        echo '<script src="script/availability_script_eighty.js"></script>';
+        echo '<script src="script/availability_script_eightyPercent.js"></script>';
     }
     
     ?>
@@ -99,8 +99,10 @@ if ($employee->getPosition() != "STORE_WORKER" && $employee->getPosition() != "S
                             ?>
                         </div>
                     </div>
-                    <div class="form-group col-md-6" id="selectedShifts">
-                        <?php
+                    <?php
+                    if($week!=null){
+                        echo '
+                    <div class="form-group col-md-6" id="selectedShifts">';
                         for ($i = 0; $i < 7; $i++) {
                             echo '<h6 class="bold margin-10px-top">' . $daysOfWeek[$i] . '</h6>';
                             for ($j = 0; $j < count($defaultShifts); $j++) {
@@ -128,10 +130,11 @@ if ($employee->getPosition() != "STORE_WORKER" && $employee->getPosition() != "S
                                     $status = 0;
                                 }
                             }
-                        }
-                        ?>
+                        }echo'
                     </div>
-                    <a><button type="submit" class="btn btn-primary" id="submit_availability">Submit</button></a>
+                    <a><button type="submit" class="btn btn-primary" id="submit_availability">Submit</button></a>';
+                    }
+                    ?>
                     </form>
 
                 </div>

@@ -115,6 +115,12 @@
     <Compile Include="Forms\ProductInfoForm.Designer.cs">
       <DependentUpon>ProductInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\HolidayRequestsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HolidayRequestsUC.Designer.cs">
+      <DependentUpon>HolidayRequestsUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\RestockRequestUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProductInfoForm.resx">
       <DependentUpon>ProductInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HolidayRequestsUC.resx">
+      <DependentUpon>HolidayRequestsUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\RestockRequestUC.resx">
       <DependentUpon>RestockRequestUC.cs</DependentUpon>
