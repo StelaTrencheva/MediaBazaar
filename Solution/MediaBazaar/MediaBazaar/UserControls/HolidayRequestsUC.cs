@@ -18,17 +18,167 @@ namespace MediaBazaar.UserControls
         {
             InitializeComponent();
             hm = new HolidayManager();
-            updateRequestedHolidays();
+            UpdateRequestedHolidays();
             dtpStartDate.MinDate = DateTime.Today;
             dtpEndDate.MinDate = DateTime.Today;
 
         }
-        private void updateRequestedHolidays()
+        private void UpdateRequestedHolidays()
         {
             lbRequestedHolidays.Items.Clear();
             foreach (Holiday requestedHoliday in hm.GetRequestedHolidays())
             {
                lbRequestedHolidays.Items.Add(requestedHoliday);
+            }
+        }
+        private void ClearFields()
+        {
+            tbEmployeeBSN.Text = "";
+            dtpStartDate.Value = DateTime.Today;
+            dtpEndDate.Value = DateTime.Today;
+        }
+        private void ShowAllHolidays()
+        {
+            cbSort.SelectedIndex = 0;
+            lbHolidays.Items.Clear();
+            foreach (Holiday holiday in hm.GetHolidays())
+            {
+                lbHolidays.Items.Add(holiday);
+            }
+        }
+        private void UpdateHolidays()
+        {
+            if (cbSort.SelectedItem.ToString() == "All")
+            {
+                ShowAllHolidays();
+            }
+            else if (cbSort.SelectedItem.ToString() == "By employee")
+            {
+                SortHolidaysByEmployee();
+
+            }
+            else if (cbSort.SelectedItem.ToString() == "By start date")
+            {
+                SortHolidaysByStartDate();
+            }
+        }
+        private void btnDeleteHoliday_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lbHolidays.SelectedItem == null)
+                {
+                    throw new ArgumentException();
+                }
+                hm.DeleteHoliday(Convert.ToInt32(lbHolidays.SelectedItem.ToString().Substring(0, lbHolidays.SelectedItem.ToString().IndexOf('.'))));
+                UpdateHolidays();
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                btnDeleteHoliday.Visible = false;
+            }
+        }
+
+        private void tcHolidays_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tcHolidays.SelectedTab == tpViewHolidays)
+            {
+                ShowAllHolidays();
+                btnDeleteHoliday.Visible = false;
+            }
+            else
+            {
+                ClearFields();
+                btnDenyHolidayRequest.Visible = false;
+                UpdateRequestedHolidays();
+            }
+        }
+        private void btnRegisterNewHoliday_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                string employeeBSN = tbEmployeeBSN.Text;
+                DateTime startDate = dtpStartDate.Value;
+                DateTime endDate = dtpEndDate.Value;
+                DateTime requestedTime = DateTime.Now;
+                Holiday newHoliday = new Holiday(1, employeeBSN, startDate, endDate, requestedTime);
+                hm.RegisterNewHoliday(newHoliday);
+                MessageBox.Show($"The new holiday for employee with BSN: {employeeBSN} was registered!");
+                UpdateRequestedHolidays();
+                ClearFields();
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (ExistingHolidayException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                btnDenyHolidayRequest.Visible = false;
+            }
+        }
+
+        private void dtpStartDate_ValueChanged_1(object sender, EventArgs e)
+        {
+            dtpEndDate.MinDate = dtpStartDate.Value;
+        }
+
+        private void btnDenyHolidayRequest_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lbRequestedHolidays.SelectedItem == null)
+                {
+                    throw new ArgumentException();
+                }
+                hm.DenyRequestedHoliday(Convert.ToInt32(lbRequestedHolidays.SelectedItem.ToString().Substring(0, lbRequestedHolidays.SelectedItem.ToString().IndexOf('.'))));
+                UpdateRequestedHolidays();
+                ClearFields();
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (NotExistingHolidayException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                btnDenyHolidayRequest.Visible = false;
+            }
+        }
+
+        private void lbRequestedHolidays_DoubleClick(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (lbRequestedHolidays.SelectedItem == null)
+                {
+                    throw new ArgumentException();
+                }
+                btnDenyHolidayRequest.Visible = true;
+                Holiday foundHoliday = hm.GetRequestedHolidayById(Convert.ToInt32(lbRequestedHolidays.SelectedItem.ToString().Substring(0, lbRequestedHolidays.SelectedItem.ToString().IndexOf('.'))));
+                ClearFields();
+                tbEmployeeBSN.Text = foundHoliday.EmployeeBsn;
+                dtpEndDate.Value = foundHoliday.EndDate;
+                dtpStartDate.Value = foundHoliday.StartDate;
+            }
+            catch (NotExistingHolidayException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -44,7 +194,7 @@ namespace MediaBazaar.UserControls
             }
             else
             {
-                updateRequestedHolidays();
+                UpdateRequestedHolidays();
             }
         }
 
@@ -60,91 +210,34 @@ namespace MediaBazaar.UserControls
             }
             else
             {
-                updateRequestedHolidays();
+                UpdateRequestedHolidays();
             }
         }
 
-        private void lbRequestedHolidays_DoubleClick(object sender, EventArgs e)
+        private void lbHolidays_DoubleClick(object sender, EventArgs e)
         {
-            
-            try
-            {
-                if (lbRequestedHolidays.SelectedItem == null)
-            {
-                throw new ArgumentException();
-            }
-                btnDenyHolidayRequest.Visible = true;
-                Holiday foundHoliday = hm.GetRequestedHolidayById(Convert.ToInt32(lbRequestedHolidays.SelectedItem.ToString().Substring(0, lbRequestedHolidays.SelectedItem.ToString().IndexOf('.'))));
-                ClearFields();
-                tbEmployeeBSN.Text = foundHoliday.EmployeeBsn;
-                dtpEndDate.Value = foundHoliday.EndDate;
-                dtpStartDate.Value = foundHoliday.StartDate;
-            }
-            catch(NotExistingHolidayException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            catch(ArgumentException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            btnDeleteHoliday.Visible = true;
         }
 
-        private void btnDenyHolidayRequest_Click(object sender, EventArgs e)
+        private void SortHolidaysByEmployee()
         {
-            try
+            lbHolidays.Items.Clear();
+            foreach (Holiday holiday in hm.GetHolidaysByEmployee())
             {
-                if (lbRequestedHolidays.SelectedItem == null)
-                {
-                    throw new ArgumentException();
-                }
-                hm.DenyRequestedHoliday(Convert.ToInt32(lbRequestedHolidays.SelectedItem.ToString().Substring(0, lbRequestedHolidays.SelectedItem.ToString().IndexOf('.'))));
-                updateRequestedHolidays();
-                ClearFields();
-            }
-            catch (NotExistingHolidayException ex)
-            {
-                MessageBox.Show(ex.Message);
+                lbHolidays.Items.Add(holiday);
             }
         }
-        private void ClearFields()
+        private void SortHolidaysByStartDate()
         {
-            tbEmployeeBSN.Text = "";
-            dtpStartDate.Value = DateTime.Today;
-            dtpEndDate.Value = DateTime.Today;
-        }
-        private void btnRegisterNewHoliday_Click(object sender, EventArgs e)
-        {
-            try
+            lbHolidays.Items.Clear();
+            foreach (Holiday holiday in hm.GetHolidaysByStartDate())
             {
-                string employeeBSN = tbEmployeeBSN.Text;
-                DateTime startDate = dtpStartDate.Value;
-                DateTime endDate = dtpEndDate.Value;
-                DateTime requestedTime = DateTime.Now;
-                Holiday newHoliday = new Holiday(1,employeeBSN,startDate,endDate,requestedTime);
-                hm.RegisterNewHoliday(newHoliday);
-                MessageBox.Show($"The new holiday for employee with BSN: {employeeBSN} was registered!");
-                updateRequestedHolidays();
-                ClearFields();
-            }
-            catch(ArgumentException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            catch(ExistingHolidayException ex)
-            {
-                MessageBox.Show(ex.Message);
+                lbHolidays.Items.Add(holiday);
             }
         }
-
-        private void dtpStartDate_ValueChanged(object sender, EventArgs e)
+        private void cbSort_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dtpEndDate.MinDate = dtpStartDate.Value;
-            
-        }
-
-        private void dtpEndDate_ValueChanged(object sender, EventArgs e)
-        {
+            UpdateHolidays();
         }
     }
 }

@@ -21,6 +21,10 @@ namespace ProjectClasses.LogicLayer
         {
             return dbMediator.GetRequestedHolidays().ToArray();
         }
+        public Holiday[] GetHolidays()
+        {
+            return dbMediator.GetHolidays().ToArray();
+        }
         public Holiday[] GetRequestedHolidaysByRequestedTime()
         {
             return dbMediator.GetRequestedHolidays().OrderBy(x => x.RequestedDate).ToArray();
@@ -28,6 +32,14 @@ namespace ProjectClasses.LogicLayer
         public Holiday[] GetRequestedHolidaysByEmployee()
         {
             return dbMediator.GetRequestedHolidays().OrderBy(x => x.EmployeeBsn).ToArray();
+        }
+        public Holiday[] GetHolidaysByEmployee()
+        {
+            return dbMediator.GetHolidays().OrderBy(x => x.EmployeeBsn).ToArray();
+        }
+        public Holiday[] GetHolidaysByStartDate()
+        {
+            return dbMediator.GetHolidays().OrderBy(x => x.StartDate).ToArray();
         }
         public Holiday GetRequestedHolidayById(int id)
         {
@@ -42,6 +54,14 @@ namespace ProjectClasses.LogicLayer
         public void DenyRequestedHoliday(int id)
         {
             if (dbMediator.RemoveRequestedHoliday(id)== false)
+            {
+                throw new NotExistingHolidayException("There is no requested holiday with this ID!");
+            }
+
+        }
+        public void DeleteHoliday(int id)
+        {
+            if (dbMediator.DeleteHoliday(id) == false)
             {
                 throw new NotExistingHolidayException("There is no requested holiday with this ID!");
             }

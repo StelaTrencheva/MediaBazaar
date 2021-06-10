@@ -42,9 +42,68 @@ namespace ProjectClasses.DataAccessLayer
             }
             return requestedHolidays;
         }
+        public List<Holiday> GetHolidays()
+        {
+            string sqlStatement = "SELECT e.bsn,hr.id, hr.start_date,hr.end_date FROM mb_holidays as hr inner join mb_employee as e on hr.employeeID=e.id;";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
+            List<Holiday> holidays = new List<Holiday>();
+            try
+            {
+                MySqlDataReader shiftReader;
+                DbConnection.Open();
+                shiftReader = sqlCommand.ExecuteReader();
+                while (shiftReader.Read())
+                {
+                    Holiday foundHoliday = new Holiday
+                        (
+                           Convert.ToInt32(shiftReader["id"]),
+                           shiftReader["bsn"].ToString(),
+                           DateTime.Parse(shiftReader["start_date"].ToString()),
+                           DateTime.Parse(shiftReader["end_date"].ToString()),
+                           DateTime.Now
+                        );
+                    holidays.Add(foundHoliday);
+
+                }
+            }
+            finally
+            {
+                this.DbConnection.Close();
+
+            }
+            return holidays;
+        }
         public bool RemoveRequestedHoliday(int id)
         {
             string sqlStatement = "DELETE FROM `mb_holiday_request` WHERE id=@id";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@id", id);
+            try
+            {
+                DbConnection.Open();
+                int n = sqlCommand.ExecuteNonQuery();
+                if (n == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException)
+            {
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+        public bool DeleteHoliday(int id)
+        {
+            string sqlStatement = "DELETE FROM `mb_holidays` WHERE id=@id";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
             sqlCommand.Parameters.AddWithValue("@id", id);
             try
