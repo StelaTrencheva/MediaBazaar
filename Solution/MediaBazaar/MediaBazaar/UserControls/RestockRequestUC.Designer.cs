@@ -57,6 +57,9 @@ namespace MediaBazaar
             this.tbpRestockRequests = new System.Windows.Forms.TabPage();
             this.tbpStockInWarehouse = new System.Windows.Forms.TabPage();
             this.lbxStockInWarehouse = new System.Windows.Forms.ListBox();
+            this.tbpRestockRequest = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tbpStockRecieving = new System.Windows.Forms.TabPage();
             this.gbxProductInformation.SuspendLayout();
             this.pnlAmountInWarehouse.SuspendLayout();
             this.pnlAmountInStore.SuspendLayout();
@@ -66,15 +69,17 @@ namespace MediaBazaar
             this.tbcntrlProductsInWarehouse.SuspendLayout();
             this.tbpRestockRequests.SuspendLayout();
             this.tbpStockInWarehouse.SuspendLayout();
+            this.tbpRestockRequest.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblRestockRequest
             // 
             this.lblRestockRequest.AutoSize = true;
-            this.lblRestockRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblRestockRequest.Location = new System.Drawing.Point(31, 24);
+            this.lblRestockRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblRestockRequest.Location = new System.Drawing.Point(22, 18);
             this.lblRestockRequest.Name = "lblRestockRequest";
-            this.lblRestockRequest.Size = new System.Drawing.Size(233, 32);
+            this.lblRestockRequest.Size = new System.Drawing.Size(199, 29);
             this.lblRestockRequest.TabIndex = 0;
             this.lblRestockRequest.Text = "Restock requests";
             // 
@@ -90,10 +95,10 @@ namespace MediaBazaar
             this.gbxProductInformation.Controls.Add(this.pnlAmountInStore);
             this.gbxProductInformation.Controls.Add(this.lblProductBrand);
             this.gbxProductInformation.Controls.Add(this.lblProductTypeAndModel);
-            this.gbxProductInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gbxProductInformation.Location = new System.Drawing.Point(579, 65);
+            this.gbxProductInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.gbxProductInformation.Location = new System.Drawing.Point(564, 35);
             this.gbxProductInformation.Name = "gbxProductInformation";
-            this.gbxProductInformation.Size = new System.Drawing.Size(517, 381);
+            this.gbxProductInformation.Size = new System.Drawing.Size(517, 368);
             this.gbxProductInformation.TabIndex = 3;
             this.gbxProductInformation.TabStop = false;
             // 
@@ -132,7 +137,7 @@ namespace MediaBazaar
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(295, 205);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(163, 29);
+            this.label3.Size = new System.Drawing.Size(135, 25);
             this.label3.TabIndex = 7;
             this.label3.Text = "In warehouse:";
             // 
@@ -141,7 +146,7 @@ namespace MediaBazaar
             this.lblAmount.AutoSize = true;
             this.lblAmount.Location = new System.Drawing.Point(30, 142);
             this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(222, 29);
+            this.lblAmount.Size = new System.Drawing.Size(182, 25);
             this.lblAmount.TabIndex = 6;
             this.lblAmount.Text = "Requested amount:";
             // 
@@ -150,7 +155,7 @@ namespace MediaBazaar
             this.lblStockInStoreLabel.AutoSize = true;
             this.lblStockInStoreLabel.Location = new System.Drawing.Point(30, 205);
             this.lblStockInStoreLabel.Name = "lblStockInStoreLabel";
-            this.lblStockInStoreLabel.Size = new System.Drawing.Size(98, 29);
+            this.lblStockInStoreLabel.Size = new System.Drawing.Size(82, 25);
             this.lblStockInStoreLabel.TabIndex = 5;
             this.lblStockInStoreLabel.Text = "In store:";
             // 
@@ -159,7 +164,7 @@ namespace MediaBazaar
             this.lblStockMessage.AutoSize = true;
             this.lblStockMessage.Location = new System.Drawing.Point(30, 325);
             this.lblStockMessage.Name = "lblStockMessage";
-            this.lblStockMessage.Size = new System.Drawing.Size(31, 29);
+            this.lblStockMessage.Size = new System.Drawing.Size(27, 25);
             this.lblStockMessage.TabIndex = 4;
             this.lblStockMessage.Text = "...";
             // 
@@ -187,7 +192,7 @@ namespace MediaBazaar
             this.lblProductBrand.AutoSize = true;
             this.lblProductBrand.Location = new System.Drawing.Point(30, 84);
             this.lblProductBrand.Name = "lblProductBrand";
-            this.lblProductBrand.Size = new System.Drawing.Size(83, 29);
+            this.lblProductBrand.Size = new System.Drawing.Size(69, 25);
             this.lblProductBrand.TabIndex = 1;
             this.lblProductBrand.Text = "Brand ";
             // 
@@ -196,7 +201,7 @@ namespace MediaBazaar
             this.lblProductTypeAndModel.AutoSize = true;
             this.lblProductTypeAndModel.Location = new System.Drawing.Point(30, 31);
             this.lblProductTypeAndModel.Name = "lblProductTypeAndModel";
-            this.lblProductTypeAndModel.Size = new System.Drawing.Size(188, 29);
+            this.lblProductTypeAndModel.Size = new System.Drawing.Size(153, 25);
             this.lblProductTypeAndModel.TabIndex = 0;
             this.lblProductTypeAndModel.Text = "Type and model";
             // 
@@ -221,7 +226,7 @@ namespace MediaBazaar
             // 
             this.btnAcceptRequest.BackColor = System.Drawing.SystemColors.Control;
             this.btnAcceptRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAcceptRequest.Location = new System.Drawing.Point(51, 364);
+            this.btnAcceptRequest.Location = new System.Drawing.Point(36, 360);
             this.btnAcceptRequest.Name = "btnAcceptRequest";
             this.btnAcceptRequest.Size = new System.Drawing.Size(218, 43);
             this.btnAcceptRequest.TabIndex = 5;
@@ -236,7 +241,7 @@ namespace MediaBazaar
             this.btnDenyRequest.BackColor = System.Drawing.SystemColors.Control;
             this.btnDenyRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnDenyRequest.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDenyRequest.Location = new System.Drawing.Point(322, 364);
+            this.btnDenyRequest.Location = new System.Drawing.Point(307, 360);
             this.btnDenyRequest.Name = "btnDenyRequest";
             this.btnDenyRequest.Size = new System.Drawing.Size(218, 43);
             this.btnDenyRequest.TabIndex = 6;
@@ -253,9 +258,9 @@ namespace MediaBazaar
             this.gbxStore.Controls.Add(this.lblSendToStore);
             this.gbxStore.Controls.Add(this.numSendAmount);
             this.gbxStore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gbxStore.Location = new System.Drawing.Point(39, 455);
+            this.gbxStore.Location = new System.Drawing.Point(565, 543);
             this.gbxStore.Name = "gbxStore";
-            this.gbxStore.Size = new System.Drawing.Size(516, 134);
+            this.gbxStore.Size = new System.Drawing.Size(516, 122);
             this.gbxStore.TabIndex = 7;
             this.gbxStore.TabStop = false;
             // 
@@ -263,7 +268,7 @@ namespace MediaBazaar
             // 
             this.btnStoreSend.BackColor = System.Drawing.SystemColors.Control;
             this.btnStoreSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnStoreSend.Location = new System.Drawing.Point(376, 70);
+            this.btnStoreSend.Location = new System.Drawing.Point(376, 59);
             this.btnStoreSend.Name = "btnStoreSend";
             this.btnStoreSend.Size = new System.Drawing.Size(103, 43);
             this.btnStoreSend.TabIndex = 7;
@@ -312,7 +317,7 @@ namespace MediaBazaar
             this.gbxSupplier.Controls.Add(this.txbRequestedAmount);
             this.gbxSupplier.Enabled = false;
             this.gbxSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gbxSupplier.Location = new System.Drawing.Point(580, 461);
+            this.gbxSupplier.Location = new System.Drawing.Point(564, 409);
             this.gbxSupplier.Name = "gbxSupplier";
             this.gbxSupplier.Size = new System.Drawing.Size(516, 128);
             this.gbxSupplier.TabIndex = 8;
@@ -334,8 +339,8 @@ namespace MediaBazaar
             // 
             this.tbcntrlProductsInWarehouse.Controls.Add(this.tbpRestockRequests);
             this.tbcntrlProductsInWarehouse.Controls.Add(this.tbpStockInWarehouse);
-            this.tbcntrlProductsInWarehouse.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbcntrlProductsInWarehouse.Location = new System.Drawing.Point(39, 65);
+            this.tbcntrlProductsInWarehouse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbcntrlProductsInWarehouse.Location = new System.Drawing.Point(24, 53);
             this.tbcntrlProductsInWarehouse.Name = "tbcntrlProductsInWarehouse";
             this.tbcntrlProductsInWarehouse.SelectedIndex = 0;
             this.tbcntrlProductsInWarehouse.Size = new System.Drawing.Size(516, 282);
@@ -344,10 +349,10 @@ namespace MediaBazaar
             // tbpRestockRequests
             // 
             this.tbpRestockRequests.Controls.Add(this.lbxRestockRequests);
-            this.tbpRestockRequests.Location = new System.Drawing.Point(4, 38);
+            this.tbpRestockRequests.Location = new System.Drawing.Point(4, 34);
             this.tbpRestockRequests.Name = "tbpRestockRequests";
             this.tbpRestockRequests.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpRestockRequests.Size = new System.Drawing.Size(508, 240);
+            this.tbpRestockRequests.Size = new System.Drawing.Size(508, 244);
             this.tbpRestockRequests.TabIndex = 0;
             this.tbpRestockRequests.Text = "Restock requests";
             this.tbpRestockRequests.UseVisualStyleBackColor = true;
@@ -355,10 +360,10 @@ namespace MediaBazaar
             // tbpStockInWarehouse
             // 
             this.tbpStockInWarehouse.Controls.Add(this.lbxStockInWarehouse);
-            this.tbpStockInWarehouse.Location = new System.Drawing.Point(4, 38);
+            this.tbpStockInWarehouse.Location = new System.Drawing.Point(4, 34);
             this.tbpStockInWarehouse.Name = "tbpStockInWarehouse";
             this.tbpStockInWarehouse.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpStockInWarehouse.Size = new System.Drawing.Size(508, 240);
+            this.tbpStockInWarehouse.Size = new System.Drawing.Size(508, 244);
             this.tbpStockInWarehouse.TabIndex = 1;
             this.tbpStockInWarehouse.Text = "Stock in warehouse";
             this.tbpStockInWarehouse.UseVisualStyleBackColor = true;
@@ -379,17 +384,50 @@ namespace MediaBazaar
             this.lbxStockInWarehouse.MouseLeave += new System.EventHandler(this.lbxStockInWarehouse_MouseLeave);
             this.lbxStockInWarehouse.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbxStockInWarehouse_MouseMove);
             // 
+            // tbpRestockRequest
+            // 
+            this.tbpRestockRequest.Controls.Add(this.tabPage1);
+            this.tbpRestockRequest.Controls.Add(this.tbpStockRecieving);
+            this.tbpRestockRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbpRestockRequest.Location = new System.Drawing.Point(3, 4);
+            this.tbpRestockRequest.Name = "tbpRestockRequest";
+            this.tbpRestockRequest.SelectedIndex = 0;
+            this.tbpRestockRequest.Size = new System.Drawing.Size(1115, 740);
+            this.tbpRestockRequest.TabIndex = 10;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.lblRestockRequest);
+            this.tabPage1.Controls.Add(this.gbxProductInformation);
+            this.tabPage1.Controls.Add(this.gbxSupplier);
+            this.tabPage1.Controls.Add(this.tbcntrlProductsInWarehouse);
+            this.tabPage1.Controls.Add(this.gbxStore);
+            this.tabPage1.Controls.Add(this.btnAcceptRequest);
+            this.tabPage1.Controls.Add(this.btnDenyRequest);
+            this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tabPage1.Location = new System.Drawing.Point(4, 38);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1107, 698);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Restock request";
+            // 
+            // tbpStockRecieving
+            // 
+            this.tbpStockRecieving.Location = new System.Drawing.Point(4, 38);
+            this.tbpStockRecieving.Name = "tbpStockRecieving";
+            this.tbpStockRecieving.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpStockRecieving.Size = new System.Drawing.Size(1107, 698);
+            this.tbpStockRecieving.TabIndex = 1;
+            this.tbpStockRecieving.Text = "Stock recieving";
+            this.tbpStockRecieving.UseVisualStyleBackColor = true;
+            // 
             // RestockRequestInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tbcntrlProductsInWarehouse);
-            this.Controls.Add(this.gbxSupplier);
-            this.Controls.Add(this.gbxStore);
-            this.Controls.Add(this.btnDenyRequest);
-            this.Controls.Add(this.btnAcceptRequest);
-            this.Controls.Add(this.gbxProductInformation);
-            this.Controls.Add(this.lblRestockRequest);
+            this.Controls.Add(this.tbpRestockRequest);
             this.Name = "RestockRequestInterface";
             this.Size = new System.Drawing.Size(1121, 747);
             this.gbxProductInformation.ResumeLayout(false);
@@ -406,8 +444,10 @@ namespace MediaBazaar
             this.tbcntrlProductsInWarehouse.ResumeLayout(false);
             this.tbpRestockRequests.ResumeLayout(false);
             this.tbpStockInWarehouse.ResumeLayout(false);
+            this.tbpRestockRequest.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -441,5 +481,8 @@ namespace MediaBazaar
         private System.Windows.Forms.TabPage tbpRestockRequests;
         private System.Windows.Forms.TabPage tbpStockInWarehouse;
         private System.Windows.Forms.ListBox lbxStockInWarehouse;
+        private System.Windows.Forms.TabControl tbpRestockRequest;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tbpStockRecieving;
     }
 }

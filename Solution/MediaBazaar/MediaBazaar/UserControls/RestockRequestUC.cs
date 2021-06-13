@@ -63,7 +63,7 @@ namespace MediaBazaar
             lblStockInStoreLabel.Visible = true;
             lblAmount.Visible = true;
             btnAcceptRequest.Visible = true;
-            btnDenyRequest.Visible = false;
+            btnDenyRequest.Visible = true;
             this.ClearGroupBoxes();
 
             foreach (var product in requestManager.GetAllRequestedProducts())
@@ -263,6 +263,7 @@ namespace MediaBazaar
         private void lbxStockInWarehouse_DoubleClick(object sender, EventArgs e)
         {
             lblRequestedAmount.Visible = true;
+            btnDenyRequest.Visible = false;
             lblAmountInStore.Visible = true;
             pnlAmountInStore.Visible = true;
             lblStockInStoreLabel.Visible = true;
