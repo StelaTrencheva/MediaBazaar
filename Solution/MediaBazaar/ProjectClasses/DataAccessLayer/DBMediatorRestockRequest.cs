@@ -115,6 +115,30 @@ namespace ProjectClasses
                 DbConnection.Close();
             }
         }
+        public void RecieveStockInWarehouse(int pNum, int warehouseStock)
+        {
+            string sqlStatement = "UPDATE `mb_product` SET amount_in_warehouse = @warehouseStock WHERE pNum = @pNum";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+
+            sqlCommand.Parameters.AddWithValue("@pNum", pNum);
+            sqlCommand.Parameters.AddWithValue("@warehouseStock", warehouseStock);
+
+            try
+            {
+                int n = 0;
+
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
 
 
         public void UpdateRequestedQuantity(int pNum, int stock)
