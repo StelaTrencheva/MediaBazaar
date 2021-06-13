@@ -85,14 +85,16 @@ namespace MediaBazaar.UserControls
 
         private void tcHolidays_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             if (tcHolidays.SelectedTab == tpViewHolidays)
             {
                 ShowAllHolidays();
                 btnDeleteHoliday.Visible = false;
+                ClearFields();
             }
             else
             {
-                ClearFields();
+
                 btnDenyHolidayRequest.Visible = false;
                 UpdateRequestedHolidays();
             }
@@ -239,5 +241,7 @@ namespace MediaBazaar.UserControls
         {
             UpdateHolidays();
         }
+
+        
     }
 }
