@@ -55,7 +55,10 @@ namespace ProjectClasses
         {
             dbMediatorRestockRequest.SendSupplierRequest(pNum, stock);
         }
-
+        public void DeleteSupplierRequest(int pNum)
+        {
+            dbMediatorRestockRequest.DeleteSupplierRequest(pNum);
+        }
         public void DeleteRestockRequest(int pNum)
         {
             dbMediatorRestockRequest.DeleteRestockRequest(pNum);

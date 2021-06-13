@@ -250,11 +250,11 @@ namespace MediaBazaar
 
         private void btnSendSupplierRequest_Click(object sender, EventArgs e)
         {
-            foreach (var product in requestManager.GetAllRequestedProducts())
+            foreach (Product product in requestManager.GetListOfAllProducts())
             {
-                if (lblProductTypeAndModel.Text == $"{product.Key.Type} ({product.Key.Model})")
+                if (lblProductTypeAndModel.Text == $"{product.Type} ({product.Model})")
                 {
-                    requestManager.SendSupplierRequest(product.Key.PNumber, Convert.ToInt32(txbRequestedAmount.Text));
+                    requestManager.SendSupplierRequest(product.PNumber, Convert.ToInt32(txbRequestedAmount.Text));
                     MessageBox.Show("After the stock manager's approval the request will be send to the supplier.");
                     numSendAmount.Value = 0;
                     txbRequestedAmount.Text = String.Empty;
