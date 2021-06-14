@@ -23,6 +23,8 @@ namespace MediaBazaar
             lbxRestockRequests.DrawItem += new DrawItemEventHandler(lbxRestockRequests_DrawItem_1);
             lbxStockInWarehouse.DrawMode = DrawMode.OwnerDrawFixed;
             lbxStockInWarehouse.DrawItem += new DrawItemEventHandler(lbxStockInWarehouse_DrawItem);
+            lbxStockInSystem.DrawMode = DrawMode.OwnerDrawFixed;
+            lbxStockInSystem.DrawItem += new DrawItemEventHandler(lbxStockInSystem_DrawItem);
             this.UpdateRestockRequests();
 
         }
@@ -35,9 +37,11 @@ namespace MediaBazaar
             btnAcceptRequest.BackColor = Color.White;
             gbxStore.Visible = false;
             gbxSupplier.Enabled = false;
+            gbxRecievingStock.Enabled = false;
             this.ClearInfoLabels();
             lbxRestockRequests.Items.Clear();
             lbxStockInWarehouse.Items.Clear();
+            lbxStockInSystem.Items.Clear();
             foreach (var product in requestManager.GetAllRequestedProducts())
             {
                 if (product.Value != 0)
@@ -52,6 +56,7 @@ namespace MediaBazaar
             foreach (Product product in requestManager.GetListOfAllProducts())
             {
                 lbxStockInWarehouse.Items.Add($"{product.Type} - {product.Brand}");
+                lbxStockInSystem.Items.Add($"{product.Type} - {product.Brand}");
             }
         }
 
@@ -63,7 +68,7 @@ namespace MediaBazaar
             lblStockInStoreLabel.Visible = true;
             lblAmount.Visible = true;
             btnAcceptRequest.Visible = true;
-            btnDenyRequest.Visible = false;
+            btnDenyRequest.Visible = true;
             this.ClearGroupBoxes();
 
             foreach (var product in requestManager.GetAllRequestedProducts())
@@ -245,11 +250,11 @@ namespace MediaBazaar
 
         private void btnSendSupplierRequest_Click(object sender, EventArgs e)
         {
-            foreach (var product in requestManager.GetAllRequestedProducts())
+            foreach (Product product in requestManager.GetListOfAllProducts())
             {
-                if (lblProductTypeAndModel.Text == $"{product.Key.Type} ({product.Key.Model})")
+                if (lblProductTypeAndModel.Text == $"{product.Type} ({product.Model})")
                 {
-                    requestManager.SendSupplierRequest(product.Key.PNumber, Convert.ToInt32(txbRequestedAmount.Text));
+                    requestManager.SendSupplierRequest(product.PNumber, Convert.ToInt32(txbRequestedAmount.Text));
                     MessageBox.Show("After the stock manager's approval the request will be send to the supplier.");
                     numSendAmount.Value = 0;
                     txbRequestedAmount.Text = String.Empty;
@@ -263,6 +268,7 @@ namespace MediaBazaar
         private void lbxStockInWarehouse_DoubleClick(object sender, EventArgs e)
         {
             lblRequestedAmount.Visible = true;
+            btnDenyRequest.Visible = false;
             lblAmountInStore.Visible = true;
             pnlAmountInStore.Visible = true;
             lblStockInStoreLabel.Visible = true;
@@ -335,5 +341,101 @@ namespace MediaBazaar
             }
             e.DrawFocusRectangle();
         }
+
+
+        private void lbxStockInSystem_DoubleClick(object sender, EventArgs e)
+        {
+            foreach (Product product in requestManager.GetListOfAllProducts())
+            {
+                if (lbxStockInSystem.Items[prevIndex].ToString() == $"{product.Type} - {product.Brand}")
+                {
+                    lblRecievingSBrand.Text = product.Brand.ToString();
+                    lblRecievingSTypeAndModel.Text = $"{product.Type} ({product.Model})";
+                    gbxRecievingStock.Enabled = true;
+                }
+            }
+        }
+        private void btnRecieveStock_Click(object sender, EventArgs e)
+        {
+            // requestManager.RecieveStockInWarehouse()
+            foreach (Product product in requestManager.GetListOfAllProducts())
+            {
+                if (lblRecievingSTypeAndModel.Text.ToString() == $"{product.Type} ({product.Model})")
+                {
+                    requestManager.RecieveStockInWarehouse(product.PNumber, Convert.ToInt32(txbAmountOfRecievedStock.Text));
+                    txbAmountOfRecievedStock.Text = "00";
+                }
+            }
+        }
+        private void lbxStockInSystem_MouseMove(object sender, MouseEventArgs e)
+        {
+            int index = lbxStockInSystem.IndexFromPoint(lbxStockInSystem.PointToClient(Cursor.Position));
+            if (index != prevIndex)
+            {
+                prevIndex = index;
+                lbxStockInSystem.Invalidate();
+            }
+        }
+
+        private void lbxStockInSystem_MouseLeave(object sender, EventArgs e)
+        {
+            prevIndex = -1;
+            lbxStockInSystem.Invalidate();
+        }
+
+        private void lbxStockInSystem_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            Graphics g = e.Graphics;
+            Color c;
+            if (e.Index == prevIndex)
+            {
+                c = Color.YellowGreen;
+            }
+            else
+            {
+                c = Color.LightBlue;
+            }
+            using (SolidBrush brsh = new SolidBrush(c))
+            {
+                g.FillRectangle(brsh, e.Bounds);
+            }
+            using (SolidBrush brsh = new SolidBrush(e.ForeColor))
+            {
+                g.DrawString(lbxStockInSystem.Items[e.Index].ToString(), e.Font,
+                 brsh, e.Bounds, StringFormat.GenericDefault);
+            }
+            e.DrawFocusRectangle();
+        }
+
+
+
+        private void txbFindProduct_TextChanged(object sender, EventArgs e)
+        {
+            lbxStockInSystem.Items.Clear();
+            string productName = txbFindProduct.Text.ToString().ToLower();
+            if (String.IsNullOrEmpty(productName))
+            {
+                foreach (Product product in requestManager.GetListOfAllProducts())
+                { lbxStockInSystem.Items.Add($"{product.Type} - {product.Brand}"); }
+            }
+            foreach (Product product in requestManager.GetListOfAllProducts())
+            {
+                if (product.Type.ToLower().Contains(productName))
+                {
+                    lbxStockInSystem.Items.Add($"{product.Type} - {product.Brand}");
+                }
+                else if (product.Brand.ToLower().Contains(productName))
+                {
+                    lbxStockInSystem.Items.Add($"{product.Type} - {product.Brand}");
+                }
+                else if (product.PNumber.ToString().Contains(productName))
+                {
+                    lbxStockInSystem.Items.Add($"{product.Type} - {product.Brand}");
+                }
+            }
+        }
+
+
     }
 }

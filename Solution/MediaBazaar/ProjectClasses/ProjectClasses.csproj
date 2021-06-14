@@ -48,6 +48,7 @@
     <Compile Include="DataAccessLayer\DBMediatorDepartment.cs" />
     <Compile Include="DataAccessLayer\DBMediatorEmployee.cs" />
     <Compile Include="DataAccessLayer\DBMediatorEmpStatistic.cs" />
+    <Compile Include="DataAccessLayer\DBMediatorHoliday.cs" />
     <Compile Include="DataAccessLayer\DBMediatorProduct.cs" />
     <Compile Include="DataAccessLayer\DBMediatorRestockRequest.cs" />
     <Compile Include="DataAccessLayer\DBMediatorShifts.cs" />
@@ -57,8 +58,12 @@
     <Compile Include="Enum\Gender.cs" />
     <Compile Include="Enum\PaymentType.cs" />
     <Compile Include="Enum\ShiftType.cs" />
+    <Compile Include="Exceptions\ExistingHolidayException.cs" />
     <Compile Include="Exceptions\IncorrectPricingException.cs" />
     <Compile Include="Exceptions\RepeatingObjectException.cs" />
+    <Compile Include="LogicLayer\Holiday.cs" />
+    <Compile Include="LogicLayer\HolidayManager.cs" />
+    <Compile Include="Exceptions\NotExistingHolidayException.cs" />
     <Compile Include="LogicLayer\RestockRequestManager.cs" />
     <Compile Include="LogicLayer\SoldProduct.cs" />
     <Compile Include="LogicLayer\BasketManager.cs" />

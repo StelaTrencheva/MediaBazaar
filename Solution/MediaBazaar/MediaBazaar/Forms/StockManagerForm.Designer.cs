@@ -31,15 +31,17 @@ namespace MediaBazaar
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockManagerForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnViewSupplierRequests = new System.Windows.Forms.Button();
             this.btnStockMAddProduct = new System.Windows.Forms.Button();
             this.btnStockMSchedule = new System.Windows.Forms.Button();
             this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnStockMLogOut = new System.Windows.Forms.Button();
             this.btnStockMAccount = new System.Windows.Forms.Button();
-            this.stockWorkerScheduleInterface1 = new MediaBazaar.StockWorkerScheduleInterface();
             this.addProductInterface1 = new MediaBazaar.AddProductInterface();
             this.userInterface1 = new MediaBazaar.UserInterface();
+            this.stockWorkerScheduleInterface1 = new MediaBazaar.StockWorkerScheduleInterface();
+            this.stockManagerSupplierRequest1 = new MediaBazaar.StockManagerSupplierRequest();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -48,6 +50,7 @@ namespace MediaBazaar
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnViewSupplierRequests);
             this.panel1.Controls.Add(this.btnStockMAddProduct);
             this.panel1.Controls.Add(this.btnStockMSchedule);
             this.panel1.Controls.Add(this.pbxLogo);
@@ -58,12 +61,25 @@ namespace MediaBazaar
             this.panel1.Size = new System.Drawing.Size(206, 786);
             this.panel1.TabIndex = 43;
             // 
+            // btnViewSupplierRequests
+            // 
+            this.btnViewSupplierRequests.BackColor = System.Drawing.Color.SlateGray;
+            this.btnViewSupplierRequests.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewSupplierRequests.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewSupplierRequests.Location = new System.Drawing.Point(21, 310);
+            this.btnViewSupplierRequests.Name = "btnViewSupplierRequests";
+            this.btnViewSupplierRequests.Size = new System.Drawing.Size(155, 59);
+            this.btnViewSupplierRequests.TabIndex = 5;
+            this.btnViewSupplierRequests.Text = "Supplier requests";
+            this.btnViewSupplierRequests.UseVisualStyleBackColor = false;
+            this.btnViewSupplierRequests.Click += new System.EventHandler(this.btnViewSupplierRequests_Click);
+            // 
             // btnStockMAddProduct
             // 
             this.btnStockMAddProduct.BackColor = System.Drawing.Color.SlateGray;
             this.btnStockMAddProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStockMAddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStockMAddProduct.Location = new System.Drawing.Point(20, 293);
+            this.btnStockMAddProduct.Location = new System.Drawing.Point(21, 235);
             this.btnStockMAddProduct.Name = "btnStockMAddProduct";
             this.btnStockMAddProduct.Size = new System.Drawing.Size(155, 59);
             this.btnStockMAddProduct.TabIndex = 4;
@@ -76,7 +92,7 @@ namespace MediaBazaar
             this.btnStockMSchedule.BackColor = System.Drawing.Color.SlateGray;
             this.btnStockMSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStockMSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStockMSchedule.Location = new System.Drawing.Point(20, 186);
+            this.btnStockMSchedule.Location = new System.Drawing.Point(21, 159);
             this.btnStockMSchedule.Name = "btnStockMSchedule";
             this.btnStockMSchedule.Size = new System.Drawing.Size(155, 59);
             this.btnStockMSchedule.TabIndex = 3;
@@ -131,13 +147,6 @@ namespace MediaBazaar
             this.btnStockMAccount.UseVisualStyleBackColor = false;
             this.btnStockMAccount.Click += new System.EventHandler(this.btnStockMAccount_Click);
             // 
-            // stockWorkerScheduleInterface1
-            // 
-            this.stockWorkerScheduleInterface1.Location = new System.Drawing.Point(212, 0);
-            this.stockWorkerScheduleInterface1.Name = "stockWorkerScheduleInterface1";
-            this.stockWorkerScheduleInterface1.Size = new System.Drawing.Size(1121, 747);
-            this.stockWorkerScheduleInterface1.TabIndex = 48;
-            // 
             // addProductInterface1
             // 
             this.addProductInterface1.Location = new System.Drawing.Point(213, 1);
@@ -152,12 +161,27 @@ namespace MediaBazaar
             this.userInterface1.Size = new System.Drawing.Size(1121, 747);
             this.userInterface1.TabIndex = 50;
             // 
+            // stockWorkerScheduleInterface1
+            // 
+            this.stockWorkerScheduleInterface1.Location = new System.Drawing.Point(212, 0);
+            this.stockWorkerScheduleInterface1.Name = "stockWorkerScheduleInterface1";
+            this.stockWorkerScheduleInterface1.Size = new System.Drawing.Size(1121, 747);
+            this.stockWorkerScheduleInterface1.TabIndex = 48;
+            // 
+            // stockManagerSupplierRequest1
+            // 
+            this.stockManagerSupplierRequest1.Location = new System.Drawing.Point(204, 0);
+            this.stockManagerSupplierRequest1.Name = "stockManagerSupplierRequest1";
+            this.stockManagerSupplierRequest1.Size = new System.Drawing.Size(1129, 785);
+            this.stockManagerSupplierRequest1.TabIndex = 51;
+            // 
             // StockManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1340, 786);
+            this.Controls.Add(this.stockManagerSupplierRequest1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.addProductInterface1);
             this.Controls.Add(this.userInterface1);
@@ -187,5 +211,7 @@ namespace MediaBazaar
         private StockWorkerScheduleInterface stockWorkerScheduleInterface1;
         private AddProductInterface addProductInterface1;
         private UserInterface userInterface1;
+        private System.Windows.Forms.Button btnViewSupplierRequests;
+        private StockManagerSupplierRequest stockManagerSupplierRequest1;
     }
 }

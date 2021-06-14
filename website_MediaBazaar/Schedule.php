@@ -21,6 +21,7 @@ else{
     }
     $defaultShifts=['Morning','Afternoon','Evening','Night'];
     $schedule=$db->GetSchedulePerWeek($employee->getId(),$date->format("Y-m-d"));
+    $holidays=$db->GetHolidaysPerEmployeeID($employee->getId());
 }
 ?>
 <!doctype html>
@@ -28,7 +29,7 @@ else{
 <head>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="style/Schedule.css" type="text/css" rel="stylesheet">
+    <link href="style/ScheduleStyle.css" type="text/css" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     
@@ -76,6 +77,7 @@ else{
                                                     if($shift->getType()==$defaultShifts[$i]&&$shift->getDate()==$daysOfWeek[$j]->format('Y-m-d')){
                                                             echo
                                                             '<span class="bg-blue padding-5px-tb padding-15px-lr border-radius-5 margin-10px-top margin-10px-bottom text-white font-size16 xs-font-size13">Assigned</span>';
+                                                            
                                                             switch($defaultShifts[$i]){
                                                                 case "Morning":{
                                                                     echo '<div class="margin-10px-top text-light-gray">08:00-12:00</div>';
@@ -92,6 +94,14 @@ else{
                                                             }        
                                                     }
                                                 }
+                                                
+                                                foreach($holidays as $holiday){
+                                                    if($daysOfWeek[$j]>=$holiday->getStartDate()&&$daysOfWeek[$j]<=$holiday->getEndDate()){
+                                                        echo
+                                                        '<span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-top margin-10px-bottom text-white font-size16 xs-font-size13">Holiday</span>';
+                                                    }
+                                                }
+
                                                 echo '</td>';
                                                     
                                             }

@@ -42,6 +42,10 @@ namespace ProjectClasses
         {
             dbMediatorRestockRequest.SendStockToStore(pNum, stock, WarehouseStock);
         }
+        public void RecieveStockInWarehouse(int pNum, int WarehouseStock)
+        {
+            dbMediatorRestockRequest.RecieveStockInWarehouse(pNum, WarehouseStock);
+        }
         public void UpdateRestockRequest(int pNum, int stockReq)
         {
             dbMediatorRestockRequest.UpdateRequestedQuantity(pNum, stockReq);
@@ -51,7 +55,10 @@ namespace ProjectClasses
         {
             dbMediatorRestockRequest.SendSupplierRequest(pNum, stock);
         }
-
+        public void DeleteSupplierRequest(int pNum)
+        {
+            dbMediatorRestockRequest.DeleteSupplierRequest(pNum);
+        }
         public void DeleteRestockRequest(int pNum)
         {
             dbMediatorRestockRequest.DeleteRestockRequest(pNum);
