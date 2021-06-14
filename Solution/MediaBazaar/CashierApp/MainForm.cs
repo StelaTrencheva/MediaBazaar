@@ -31,26 +31,27 @@ namespace CashierApp
             this.basketManager = new BasketManager();
             this.departmentManager = new DepartmentManager();
             productManager.UpdateProducts();
-            AllProducts();
-            SetComboboxes();
+            setComboboxes();
             barcode = "";
             searchtext = "";
             startSesion = DateTime.Now;
-            Bounds = Screen.PrimaryScreen.Bounds;
-            FormBorderStyle = FormBorderStyle.None;
+            //Bounds = Screen.PrimaryScreen.Bounds;
+            //FormBorderStyle = FormBorderStyle.None;
             loginForm = form;
         }
-        //TEST
+
+        /// <summary>
+        /// Scanner and search input process & Key-enter handling
+        /// </summary>
         private void CheckEnterKeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Return)
             {
                 this.Focus();
                 searchtext = "";
-                Test();
+                searchTextChanged();
                 e.Handled = true;
             }
-            
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -63,14 +64,13 @@ namespace CashierApp
             if (char.IsLetterOrDigit(c))
             {
                 searchtext += c;
-                Test();
+                searchTextChanged();
             }
             else
             {
                 searchtext = "";
                 AllProducts();
             }
-
             if (c == (char)Keys.Return)
             {
 
@@ -82,7 +82,6 @@ namespace CashierApp
 
             return base.ProcessCmdKey(ref msg, keyData);
         }
-        //TEST
         private void ScanedProductToBasket(string barcode)
         {
             Product scannedProduct = productManager.GetProductByBarcode(barcode);
@@ -102,6 +101,29 @@ namespace CashierApp
                 updateBasket();
             }
         }
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            statusBox.Hide();
+            timer.Stop();
+        }
+        private void comboBoxes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+        private void searchTextChanged()
+        {
+            cbDepartment.SelectedIndex = 0;
+            lboxProducts.Items.Clear();
+            foreach (Product product in productManager.GetAllProducts())
+            {
+                if (product.ToString().ToLower().Contains(searchtext.ToLower()))
+                {
+                    lboxProducts.Items.Add(product.ToString());
+                    lboxProducts.Items.Add("");
+                }
+            }
+        }
+
         private void AllProducts()
         {
             lboxProducts.CustomTabOffsets.Add(36);
@@ -113,35 +135,6 @@ namespace CashierApp
                 lboxProducts.Items.Add("");
             }
         }
-        private void SetComboboxes()
-        {
-            clearDepartments();
-            clearCategories();
-            clearSubCategories();
-            setCbDepartments();
-        }
-        private void setCbDepartments()
-        {
-            foreach (Department department in departmentManager.GetDepartments())
-            {
-                cbDepartment.Items.Add(department.Name);
-            }
-        }
-        //TEST
-        private void Test()
-        {
-             cbDepartment.SelectedIndex = 0;
-            lboxProducts.Items.Clear();
-            foreach (Product product in productManager.GetAllProducts())
-            {
-                if (product.ToString().ToLower().Contains(searchtext.ToLower()))
-                {
-                    lboxProducts.Items.Add(product.ToString());
-                    lboxProducts.Items.Add("");
-                }
-            }
-        }
-        //TEST
 
         private void lboxProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -152,8 +145,6 @@ namespace CashierApp
             tbSelectedItem.Text = productManager.GetNameFromToString(lboxProducts.SelectedItem.ToString());
             updatetbProductPrice();
         }
-
-
 
         private void btnAddToBasket_Click(object sender, EventArgs e)
         {
@@ -206,58 +197,80 @@ namespace CashierApp
             updateBasket();
         }
 
+        
+        /// <summary>
+        /// Used for filtering products by Department-Category-Subcategory
+        /// </summary>
         private void cbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
             searchtext = "";
-            if (cbDepartment.SelectedItem.ToString() == "All")
+            if (cbDepartment.SelectedIndex == 0)
             {
+                clearCBCategories();
                 AllProducts();
-                clearCategories();
             }
             else
             {
-                updateCategories(getDeptCode());
+                updateCBCategories();
             }
 
         }
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             searchtext = "";
-            if (cbCategory.SelectedItem.ToString() == "All")
+            if (cbCategory.SelectedIndex == 0)
             {
-                clearSubCategories();
-                //updateProductsByDepartment();
+                clearCBSubCategories();
             }
             else
             {
-                updateSubCategories();
-                updateProductsByCategory();
+                updateCBSubCategories();
             }
         }
         private void cbSubCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             searchtext = "";
-            if (cbSubCategory.SelectedItem.ToString() == "All")
+            if (cbSubCategory.SelectedIndex == 0)
             {
-                updateProductsByDepartment();
+                updateProducts();
             }
             else
             {
                 updateProductsBySubCategory();
             }
         }
-        private void updateSubCategories()
+        private void updateProducts()
         {
-            clearSubCategories();
-            foreach (string category in departmentManager.GetDepartmentSubcategories(getDeptCode(), cbCategory.SelectedItem.ToString()))
+            if (cbCategory.SelectedIndex == 0)
             {
-                cbSubCategory.Items.Add(category);
+                if (cbDepartment.SelectedIndex != 0)
+                {
+                    updateProductsByDepartment();
+                }
+                else
+                {
+                    AllProducts();
+                }
+            }
+            else
+            {
+                updateProductsByCategory();
+            }
+        }
+        private void updateProductsByDepartment()
+        {
+            lboxProducts.Items.Clear();
+            foreach (Product product in productManager.GetProductsFromDepartmentDB(getDeptCode()))
+            {
+                lboxProducts.Items.Add(product);
+                lboxProducts.Items.Add("");
             }
         }
         private void updateProductsByCategory()
         {
             lboxProducts.Items.Clear();
-            foreach (Product product in productManager.GetProductsFromDepartmentCategoryDB(getDeptCode(), cbCategory.SelectedItem.ToString()))
+            foreach (Product product in productManager.GetProductsFromDepartmentCategoryDB(getDeptCode(),
+                                                                                           cbCategory.SelectedItem.ToString()))
             {
                 lboxProducts.Items.Add(product);
                 lboxProducts.Items.Add("");
@@ -266,61 +279,72 @@ namespace CashierApp
         private void updateProductsBySubCategory()
         {
             lboxProducts.Items.Clear();
-            foreach (Product product in productManager.GetProductsFromSubcategoryDB(getDeptCode(), cbCategory.SelectedItem.ToString(), cbSubCategory.SelectedItem.ToString()))
+            foreach (Product product in productManager.GetProductsFromSubcategoryDB(getDeptCode(),
+                                                                                    cbCategory.SelectedItem.ToString(),
+                                                                                    cbSubCategory.SelectedItem.ToString()))
             {
                 lboxProducts.Items.Add(product);
                 lboxProducts.Items.Add("");
             }
         }
-        private void updateCategories(int deptCode)
+        private void setCBDepartments()
         {
-            clearCategories();
-            foreach (string category in departmentManager.GetDepartmentCategorieDB(deptCode))
+            foreach (Department department in departmentManager.GetDepartments())
+            {
+                cbDepartment.Items.Add(department.Name);
+            }
+        }
+        private void updateCBCategories()
+        {
+            clearCBCategories();
+            foreach (string category in departmentManager.GetDepartmentCategorieDB(getDeptCode()))
             {
                 cbCategory.Items.Add(category);
             }
         }
-        private void updateProductsByDepartment()
+        private void updateCBSubCategories()
         {
-            if (cbDepartment.SelectedItem.ToString() != "All")
+            clearCBSubCategories();
+            foreach (string category in departmentManager.GetDepartmentSubcategories(getDeptCode(),
+                                                                                     cbCategory.SelectedItem.ToString()))
             {
-                int code = getDeptCode();
-                lboxProducts.Items.Clear();
-                foreach (Product product in productManager.GetProductsFromDepartmentDB(code))
-                {
-                    lboxProducts.Items.Add(product);
-                    lboxProducts.Items.Add("");
-                }
-                //updateCategories(code);
-            }
-            else
-            {
-                AllProducts();
+                cbSubCategory.Items.Add(category);
             }
         }
         private int getDeptCode()
         {
             return departmentManager.GetDepartmentCode(cbDepartment.SelectedItem.ToString());
         }
-        private void clearDepartments()
+        private void clearCBDepartments()
         {
             cbDepartment.Items.Clear();
             cbDepartment.Items.Add("All");
             cbDepartment.SelectedIndex = 0;
         }
-        private void clearCategories()
+        private void clearCBCategories()
         {
             cbCategory.Items.Clear();
             cbCategory.Items.Add("All");
             cbCategory.SelectedIndex = 0;
         }
-        private void clearSubCategories()
+        private void clearCBSubCategories()
         {
             cbSubCategory.Items.Clear();
             cbSubCategory.Items.Add("All");
             cbSubCategory.SelectedIndex = 0;
         }
+        private void setComboboxes()
+        {
+            clearCBDepartments();
+            clearCBCategories();
+            clearCBSubCategories();
+            setCBDepartments();
+        }
 
+
+        /// <summary>
+        /// Used for remove actions for Basket listbox
+        /// </summary>
         private void btnRemovePiece_Click(object sender, EventArgs e)
         {
             if (lboxBasket.SelectedItem == null)
@@ -328,16 +352,15 @@ namespace CashierApp
                 MessageBox.Show("Please select a product");
                 return;
             }
-            string barcode = basketManager.GetProductBarcode(lboxBasket.SelectedItem.ToString());
+            string barcode = basketManager.GetProductBarcode(strProduct: lboxBasket.SelectedItem.ToString());
             if (barcode == null)
             {
-                MessageBox.Show("This product can not be found in the system");
+                MessageBox.Show("This product can not be found in the system.\n Restart the application");
                 return;
             }
             basketManager.RemovePiece(barcode);
             updateBasket();
         }
-
         private void btnRemoveProduct_Click(object sender, EventArgs e)
         {
             if (lboxBasket.SelectedItem == null)
@@ -345,32 +368,25 @@ namespace CashierApp
                 MessageBox.Show("Please select a product");
                 return;
             }
-            string barcode = basketManager.GetProductBarcode(lboxBasket.SelectedItem.ToString());
+            string barcode = basketManager.GetProductBarcode(strProduct: lboxBasket.SelectedItem.ToString());
             if (barcode == null)
             {
-                MessageBox.Show("This product can not be found in the system");
+                MessageBox.Show("This product can not be found in the system\n Restart the application");
                 return;
             }
             basketManager.RemoveProduct(barcode);
             updateBasket();
         }
-
         private void btnClearBascet_Click(object sender, EventArgs e)
         {
             basketManager.ClearBascet();
             updateBasket();
         }
-        private void comboBoxes_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = true;
-        }
+       
 
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            statusBox.Hide();
-            timer.Stop();
-        }
-
+        /// <summary>
+        /// Actions to logout
+        /// </summary>
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             closeSesion();
@@ -383,7 +399,7 @@ namespace CashierApp
             Stack<string> sesionInfo = basketManager.GetSesionInfoDB(startSesion, currentEmp.Id);
             if (sesionInfo == null)
             {
-                MessageBox.Show("There is a problem with the database :(","Employee sesion info");
+                MessageBox.Show("There is a problem with the database, contact the tehnical team", "Employee sesion info");
                 return;
             }
             string totalAmount = sesionInfo.Pop();
