@@ -35,8 +35,8 @@ namespace CashierApp
             barcode = "";
             searchtext = "";
             startSesion = DateTime.Now;
-            //Bounds = Screen.PrimaryScreen.Bounds;
-            //FormBorderStyle = FormBorderStyle.None;
+            Bounds = Screen.PrimaryScreen.Bounds;
+            FormBorderStyle = FormBorderStyle.None;
             loginForm = form;
         }
 
@@ -138,22 +138,20 @@ namespace CashierApp
 
         private void lboxProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lboxProducts.SelectedItem == null || lboxProducts.SelectedItem.ToString() == "")
-            {
-                return;
-            }
-            tbSelectedItem.Text = productManager.GetNameFromToString(lboxProducts.SelectedItem.ToString());
+            //if (lboxProducts.SelectedItem == null || lboxProducts.SelectedItem.ToString() == "")
+            //{
+            //    return;
+            //}
             updatetbProductPrice();
         }
 
         private void btnAddToBasket_Click(object sender, EventArgs e)
         {
-            if (tbSelectedItem.Text == "")
+            if (lboxProducts.SelectedItem == null || lboxProducts.SelectedItem.ToString() == "")
             {
-                MessageBox.Show("Please select a product");
                 return;
             }
-            Product newProd = productManager.GetProductFromName(tbSelectedItem.Text);
+            Product newProd = productManager.GetNameFromToString(lboxProducts.SelectedItem.ToString());
             if (newProd == null)
             {
                 MessageBox.Show("This product can not be found in the system");
@@ -179,7 +177,11 @@ namespace CashierApp
         }
         private void updatetbProductPrice()
         {
-            tbProductPrice.Text = (productManager.GetPriceFromNames(tbSelectedItem.Text) * nudProductQuantity.Value).ToString();
+            if (lboxProducts.SelectedItem == null || lboxProducts.SelectedItem.ToString() == "")
+            {
+                return;
+            }
+            tbProductPrice.Text = (productManager.GetPriceFromNames(lboxProducts.SelectedItem.ToString()) * nudProductQuantity.Value).ToString();
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)

@@ -28,16 +28,16 @@ namespace ProjectClasses
             products = this.dbMediator.GetProducts();
             return products;
         }
-        public string GetNameFromToString(string productToString)
+        public Product GetNameFromToString(string productToString)
         {
             foreach (Product product in products)
             {
                 if (product.ToString() == productToString)
                 {
-                    return product.GetName;
+                    return product;
                 }
             }
-            return "";
+            return null;
         }
 
         public Product GetProductFromName(string productNames)
@@ -56,7 +56,7 @@ namespace ProjectClasses
         {
             foreach (Product product in products)
             {
-                if (product.GetName == productNames)
+                if (product.ToString() == productNames)
                 {
                     return product.SalePrice;
                 }
