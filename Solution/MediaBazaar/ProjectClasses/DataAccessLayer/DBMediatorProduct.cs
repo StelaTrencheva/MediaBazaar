@@ -261,5 +261,86 @@ namespace ProjectClasses
                 DbConnection.Close();
             }
         }
+
+        public void RegisterSoldProduct(int pNum, int pSoldQuantity)
+        {
+            string sqlStatement = "INSERT INTO `mb_sold_product` VALUES(@pNum, @pSoldQuantity)";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+
+            sqlCommand.Parameters.AddWithValue("@pNum", pNum);
+            sqlCommand.Parameters.AddWithValue("@pSoldQuantity", pSoldQuantity);
+
+            try
+            {
+                int n = 0;
+
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+        public void UpdateSoldProductQuantity(int pNum, int pSoldQuantity)
+        {
+            string sqlStatement = "UPDATE `mb_sold_product` SET pSoldQuantity= @pSoldQuantity WHERE pNum = @pNum";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+
+            sqlCommand.Parameters.AddWithValue("@pNum", pNum);
+            sqlCommand.Parameters.AddWithValue("@pSoldQuantity", pSoldQuantity);
+
+            try
+            {
+                int n = 0;
+
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+        public Dictionary<Product, int> GetListOfSoldProducts()
+        {
+            string sqlStatement = "SELECT *, r.pSoldQuantity as quantity FROM `mb_product` as p " +
+                                  "INNER JOIN `mb_sold_product` as r " +
+                                  "ON r.pNum = p.pNum";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            Dictionary<Product, int> p = new Dictionary<Product, int>();
+
+            try
+            {
+                MySqlDataReader reader;
+                DbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
+                        (string)reader["description"], (string)reader["barcode"], (decimal)reader["cost_price"], (decimal)reader["sales_price"],
+                        (int)reader["amount_in_store"], (int)reader["amount_in_warehouse"]), (int)reader["quantity"]);
+                }
+                return p;
+            }
+            catch (MySqlException e)
+            {
+                return p;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
     }
 }

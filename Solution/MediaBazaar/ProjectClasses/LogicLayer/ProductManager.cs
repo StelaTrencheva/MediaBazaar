@@ -10,6 +10,7 @@ namespace ProjectClasses
     {
         DBMediatorProduct dbMediator;
         List<Product> products;
+        Dictionary<Product, int> soldProducts;
 
 
         public ProductManager()
@@ -138,6 +139,22 @@ namespace ProjectClasses
                 }
             }
             return null;
+        }
+
+        public void RegisterSoldProduct(int pNum, int pSoldQuantity)
+        {
+            dbMediator.RegisterSoldProduct(pNum, pSoldQuantity);
+        }
+
+        public void UpdateSoldProductQuantity(int pNum, int pSoldQuantity)
+        {
+            dbMediator.UpdateSoldProductQuantity(pNum, pSoldQuantity);
+        }
+
+        public Dictionary<Product, int> GetListOfSoldProducts()
+        {
+            soldProducts = dbMediator.GetListOfSoldProducts();
+            return soldProducts;
         }
     }
 }

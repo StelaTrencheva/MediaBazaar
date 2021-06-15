@@ -362,7 +362,7 @@ namespace MediaBazaar
             {
                 if (lblRecievingSTypeAndModel.Text.ToString() == $"{product.Type} ({product.Model})")
                 {
-                    requestManager.RecieveStockInWarehouse(product.PNumber, Convert.ToInt32(txbAmountOfRecievedStock.Text));
+                    requestManager.RecieveStockInWarehouse(product.PNumber, (product.AmountInWarehouse + Convert.ToInt32(txbAmountOfRecievedStock.Text)));
                     txbAmountOfRecievedStock.Text = "00";
                 }
             }

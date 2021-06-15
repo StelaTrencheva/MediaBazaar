@@ -111,7 +111,7 @@
             this.lblSupplierRequestAmount.Name = "lblSupplierRequestAmount";
             this.lblSupplierRequestAmount.Size = new System.Drawing.Size(39, 29);
             this.lblSupplierRequestAmount.TabIndex = 5;
-            this.lblSupplierRequestAmount.Text = "50";
+            this.lblSupplierRequestAmount.Text = "00";
             // 
             // lblProductBrand
             // 
