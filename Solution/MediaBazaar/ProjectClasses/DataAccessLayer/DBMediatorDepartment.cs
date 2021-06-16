@@ -78,11 +78,11 @@ namespace ProjectClasses
         }
 
         //DELETE DEPARTMENT
-        public void DeleteDepartment(int id)
+        public void DeleteDepartment(int code)
         {
-            string sqlStatement = "DELETE FROM `mb_department` WHERE code= @i";
+            string sqlStatement = "DELETE FROM `mb_department` WHERE code= @c";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection); ;
-            sqlCommand.Parameters.AddWithValue("@i", id);
+            sqlCommand.Parameters.AddWithValue("@c", code);
             try
             {
                 int n = 0;
@@ -111,7 +111,7 @@ namespace ProjectClasses
             }
         }
 
-        //GET DEPARTMENT CREATED DEPARTMENT
+        //GET DEPARTMENT
         public List<Department> GetDepartment()
         {
             string sqlStatement = "SELECT code, dept_name FROM mb_department";
@@ -140,6 +140,7 @@ namespace ProjectClasses
             }
         }
 
+        //MODIFY DEPARTMENT
         public void UpdateDepartment(int code, string name)
         {
             string sqlStatement = "UPDATE `mb_department` SET `dept_name` = @n WHERE `code` = @c";

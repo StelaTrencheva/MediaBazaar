@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LogicLayer\AssignDepartmentManagerDepartment.cs" />
+    <Compile Include="LogicLayer\AssignStoreWorkerDepartment.cs" />
     <Compile Include="DataAccessLayer\DBMediator.cs" />
     <Compile Include="DataAccessLayer\DBMediatorContractHistory.cs" />
     <Compile Include="DataAccessLayer\DBMediatorDepartment.cs" />
@@ -52,6 +54,9 @@
     <Compile Include="DataAccessLayer\DBMediatorRestockRequest.cs" />
     <Compile Include="DataAccessLayer\DBMediatorShifts.cs" />
     <Compile Include="DataAccessLayer\DBMediatorSoldProduct.cs" />
+    <Compile Include="DataAccessLayer\DBMediatorAssignPersonDepartment.cs" />
+    <Compile Include="LogicLayer\AssignPersonDepartment.cs" />
+    <Compile Include="LogicLayer\AssignPersonDepartmentManager.cs" />
     <Compile Include="Enum\ContractType.cs" />
     <Compile Include="Enum\EmployeeType.cs" />
     <Compile Include="Enum\Gender.cs" />

@@ -31,7 +31,30 @@ namespace MediaBazaar
         {
             this.tclDepartment = new System.Windows.Forms.TabControl();
             this.tpDepartment = new System.Windows.Forms.TabPage();
+            this.gbxSubCategory = new System.Windows.Forms.GroupBox();
+            this.lblSearchSubCategory = new System.Windows.Forms.Label();
+            this.gbxAddSubCategory = new System.Windows.Forms.GroupBox();
+            this.btnSubCategory = new System.Windows.Forms.Button();
+            this.tbxSubCategory = new System.Windows.Forms.TextBox();
+            this.lblSubCategoryName = new System.Windows.Forms.Label();
+            this.lbxSubCategory = new System.Windows.Forms.ListBox();
+            this.tbxSearchSubCategory = new System.Windows.Forms.TextBox();
+            this.gbxSelectSubCategory = new System.Windows.Forms.GroupBox();
+            this.btnUpdateSubCategory = new System.Windows.Forms.Button();
+            this.btnDeleteSubCategory = new System.Windows.Forms.Button();
+            this.gbxCategory = new System.Windows.Forms.GroupBox();
+            this.lblSearchCategory = new System.Windows.Forms.Label();
+            this.gbxAddCategory = new System.Windows.Forms.GroupBox();
+            this.btnAddCategory = new System.Windows.Forms.Button();
+            this.tbxCategoryName = new System.Windows.Forms.TextBox();
+            this.lblCategoryName = new System.Windows.Forms.Label();
+            this.lbxCategory = new System.Windows.Forms.ListBox();
+            this.tbxSearchCategory = new System.Windows.Forms.TextBox();
+            this.gbxSelectCategory = new System.Windows.Forms.GroupBox();
+            this.btnUpadteCategory = new System.Windows.Forms.Button();
+            this.btnDeleteCategory = new System.Windows.Forms.Button();
             this.gbxDepartment = new System.Windows.Forms.GroupBox();
+            this.lblSearchDepartment = new System.Windows.Forms.Label();
             this.gbxAddDepartment = new System.Windows.Forms.GroupBox();
             this.nudDepartmentCode = new System.Windows.Forms.NumericUpDown();
             this.lblDepartmentCode = new System.Windows.Forms.Label();
@@ -54,31 +77,15 @@ namespace MediaBazaar
             this.cbxDMDepartments = new System.Windows.Forms.ComboBox();
             this.tpAssignPCategories = new System.Windows.Forms.TabPage();
             this.lbxDepartmentsAndPCategory = new System.Windows.Forms.ListBox();
-            this.lblSearchDepartment = new System.Windows.Forms.Label();
-            this.gbxCategory = new System.Windows.Forms.GroupBox();
-            this.lblSearchCategory = new System.Windows.Forms.Label();
-            this.gbxAddCategory = new System.Windows.Forms.GroupBox();
-            this.btnAddCategory = new System.Windows.Forms.Button();
-            this.tbxCategoryName = new System.Windows.Forms.TextBox();
-            this.lblCategoryName = new System.Windows.Forms.Label();
-            this.lbxCategory = new System.Windows.Forms.ListBox();
-            this.tbxSearchCategory = new System.Windows.Forms.TextBox();
-            this.gbxSelectCategory = new System.Windows.Forms.GroupBox();
-            this.btnUpadteCategory = new System.Windows.Forms.Button();
-            this.btnDeleteCategory = new System.Windows.Forms.Button();
-            this.gbxSubCategory = new System.Windows.Forms.GroupBox();
-            this.lblSearchSubCategory = new System.Windows.Forms.Label();
-            this.gbxAddSubCategory = new System.Windows.Forms.GroupBox();
-            this.btnSubCategory = new System.Windows.Forms.Button();
-            this.tbxSubCategory = new System.Windows.Forms.TextBox();
-            this.lblSubCategoryName = new System.Windows.Forms.Label();
-            this.lbxSubCategory = new System.Windows.Forms.ListBox();
-            this.tbxSearchSubCategory = new System.Windows.Forms.TextBox();
-            this.gbxSelectSubCategory = new System.Windows.Forms.GroupBox();
-            this.btnUpdateSubCategory = new System.Windows.Forms.Button();
-            this.btnDeleteSubCategory = new System.Windows.Forms.Button();
+            this.btnAssignDepartmentManager = new System.Windows.Forms.Button();
             this.tclDepartment.SuspendLayout();
             this.tpDepartment.SuspendLayout();
+            this.gbxSubCategory.SuspendLayout();
+            this.gbxAddSubCategory.SuspendLayout();
+            this.gbxSelectSubCategory.SuspendLayout();
+            this.gbxCategory.SuspendLayout();
+            this.gbxAddCategory.SuspendLayout();
+            this.gbxSelectCategory.SuspendLayout();
             this.gbxDepartment.SuspendLayout();
             this.gbxAddDepartment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDepartmentCode)).BeginInit();
@@ -86,12 +93,6 @@ namespace MediaBazaar
             this.tpAssignDManager.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tpAssignPCategories.SuspendLayout();
-            this.gbxCategory.SuspendLayout();
-            this.gbxAddCategory.SuspendLayout();
-            this.gbxSelectCategory.SuspendLayout();
-            this.gbxSubCategory.SuspendLayout();
-            this.gbxAddSubCategory.SuspendLayout();
-            this.gbxSelectSubCategory.SuspendLayout();
             this.SuspendLayout();
             // 
             // tclDepartment
@@ -120,6 +121,226 @@ namespace MediaBazaar
             this.tpDepartment.TabIndex = 0;
             this.tpDepartment.Text = "Department";
             // 
+            // gbxSubCategory
+            // 
+            this.gbxSubCategory.Controls.Add(this.lblSearchSubCategory);
+            this.gbxSubCategory.Controls.Add(this.gbxAddSubCategory);
+            this.gbxSubCategory.Controls.Add(this.lbxSubCategory);
+            this.gbxSubCategory.Controls.Add(this.tbxSearchSubCategory);
+            this.gbxSubCategory.Controls.Add(this.gbxSelectSubCategory);
+            this.gbxSubCategory.Location = new System.Drawing.Point(557, 351);
+            this.gbxSubCategory.Name = "gbxSubCategory";
+            this.gbxSubCategory.Size = new System.Drawing.Size(536, 310);
+            this.gbxSubCategory.TabIndex = 10;
+            this.gbxSubCategory.TabStop = false;
+            this.gbxSubCategory.Text = "SubCategory";
+            // 
+            // lblSearchSubCategory
+            // 
+            this.lblSearchSubCategory.Location = new System.Drawing.Point(9, 23);
+            this.lblSearchSubCategory.Name = "lblSearchSubCategory";
+            this.lblSearchSubCategory.Size = new System.Drawing.Size(186, 30);
+            this.lblSearchSubCategory.TabIndex = 5;
+            this.lblSearchSubCategory.Text = "Search SubCategory";
+            this.lblSearchSubCategory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // gbxAddSubCategory
+            // 
+            this.gbxAddSubCategory.BackColor = System.Drawing.Color.LightBlue;
+            this.gbxAddSubCategory.Controls.Add(this.btnSubCategory);
+            this.gbxAddSubCategory.Controls.Add(this.tbxSubCategory);
+            this.gbxAddSubCategory.Controls.Add(this.lblSubCategoryName);
+            this.gbxAddSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxAddSubCategory.Location = new System.Drawing.Point(230, 177);
+            this.gbxAddSubCategory.Name = "gbxAddSubCategory";
+            this.gbxAddSubCategory.Size = new System.Drawing.Size(289, 120);
+            this.gbxAddSubCategory.TabIndex = 2;
+            this.gbxAddSubCategory.TabStop = false;
+            this.gbxAddSubCategory.Text = "Add subcategory";
+            // 
+            // btnSubCategory
+            // 
+            this.btnSubCategory.Location = new System.Drawing.Point(22, 77);
+            this.btnSubCategory.Name = "btnSubCategory";
+            this.btnSubCategory.Size = new System.Drawing.Size(252, 31);
+            this.btnSubCategory.TabIndex = 2;
+            this.btnSubCategory.Text = "Add";
+            this.btnSubCategory.UseVisualStyleBackColor = true;
+            // 
+            // tbxSubCategory
+            // 
+            this.tbxSubCategory.Location = new System.Drawing.Point(148, 35);
+            this.tbxSubCategory.Name = "tbxSubCategory";
+            this.tbxSubCategory.Size = new System.Drawing.Size(126, 27);
+            this.tbxSubCategory.TabIndex = 1;
+            // 
+            // lblSubCategoryName
+            // 
+            this.lblSubCategoryName.Location = new System.Drawing.Point(22, 32);
+            this.lblSubCategoryName.Name = "lblSubCategoryName";
+            this.lblSubCategoryName.Size = new System.Drawing.Size(120, 30);
+            this.lblSubCategoryName.TabIndex = 0;
+            this.lblSubCategoryName.Text = "Name:";
+            this.lblSubCategoryName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbxSubCategory
+            // 
+            this.lbxSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbxSubCategory.FormattingEnabled = true;
+            this.lbxSubCategory.ItemHeight = 22;
+            this.lbxSubCategory.Location = new System.Drawing.Point(9, 59);
+            this.lbxSubCategory.Name = "lbxSubCategory";
+            this.lbxSubCategory.Size = new System.Drawing.Size(510, 114);
+            this.lbxSubCategory.TabIndex = 1;
+            // 
+            // tbxSearchSubCategory
+            // 
+            this.tbxSearchSubCategory.Location = new System.Drawing.Point(201, 23);
+            this.tbxSearchSubCategory.Name = "tbxSearchSubCategory";
+            this.tbxSearchSubCategory.Size = new System.Drawing.Size(318, 27);
+            this.tbxSearchSubCategory.TabIndex = 6;
+            // 
+            // gbxSelectSubCategory
+            // 
+            this.gbxSelectSubCategory.BackColor = System.Drawing.Color.LightBlue;
+            this.gbxSelectSubCategory.Controls.Add(this.btnUpdateSubCategory);
+            this.gbxSelectSubCategory.Controls.Add(this.btnDeleteSubCategory);
+            this.gbxSelectSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxSelectSubCategory.Location = new System.Drawing.Point(9, 178);
+            this.gbxSelectSubCategory.Name = "gbxSelectSubCategory";
+            this.gbxSelectSubCategory.Size = new System.Drawing.Size(215, 119);
+            this.gbxSelectSubCategory.TabIndex = 5;
+            this.gbxSelectSubCategory.TabStop = false;
+            this.gbxSelectSubCategory.Text = "Select a subcategory to";
+            // 
+            // btnUpdateSubCategory
+            // 
+            this.btnUpdateSubCategory.Location = new System.Drawing.Point(22, 63);
+            this.btnUpdateSubCategory.Name = "btnUpdateSubCategory";
+            this.btnUpdateSubCategory.Size = new System.Drawing.Size(171, 31);
+            this.btnUpdateSubCategory.TabIndex = 3;
+            this.btnUpdateSubCategory.Text = "Update/Modify";
+            this.btnUpdateSubCategory.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteSubCategory
+            // 
+            this.btnDeleteSubCategory.Location = new System.Drawing.Point(22, 26);
+            this.btnDeleteSubCategory.Name = "btnDeleteSubCategory";
+            this.btnDeleteSubCategory.Size = new System.Drawing.Size(171, 31);
+            this.btnDeleteSubCategory.TabIndex = 2;
+            this.btnDeleteSubCategory.Text = "Delete";
+            this.btnDeleteSubCategory.UseVisualStyleBackColor = true;
+            // 
+            // gbxCategory
+            // 
+            this.gbxCategory.Controls.Add(this.lblSearchCategory);
+            this.gbxCategory.Controls.Add(this.gbxAddCategory);
+            this.gbxCategory.Controls.Add(this.lbxCategory);
+            this.gbxCategory.Controls.Add(this.tbxSearchCategory);
+            this.gbxCategory.Controls.Add(this.gbxSelectCategory);
+            this.gbxCategory.Location = new System.Drawing.Point(15, 349);
+            this.gbxCategory.Name = "gbxCategory";
+            this.gbxCategory.Size = new System.Drawing.Size(536, 310);
+            this.gbxCategory.TabIndex = 9;
+            this.gbxCategory.TabStop = false;
+            this.gbxCategory.Text = "Category";
+            // 
+            // lblSearchCategory
+            // 
+            this.lblSearchCategory.Location = new System.Drawing.Point(9, 23);
+            this.lblSearchCategory.Name = "lblSearchCategory";
+            this.lblSearchCategory.Size = new System.Drawing.Size(186, 30);
+            this.lblSearchCategory.TabIndex = 5;
+            this.lblSearchCategory.Text = "Search Category";
+            this.lblSearchCategory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // gbxAddCategory
+            // 
+            this.gbxAddCategory.BackColor = System.Drawing.Color.LightBlue;
+            this.gbxAddCategory.Controls.Add(this.btnAddCategory);
+            this.gbxAddCategory.Controls.Add(this.tbxCategoryName);
+            this.gbxAddCategory.Controls.Add(this.lblCategoryName);
+            this.gbxAddCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxAddCategory.Location = new System.Drawing.Point(230, 177);
+            this.gbxAddCategory.Name = "gbxAddCategory";
+            this.gbxAddCategory.Size = new System.Drawing.Size(289, 120);
+            this.gbxAddCategory.TabIndex = 2;
+            this.gbxAddCategory.TabStop = false;
+            this.gbxAddCategory.Text = "Add category";
+            // 
+            // btnAddCategory
+            // 
+            this.btnAddCategory.Location = new System.Drawing.Point(22, 77);
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.Size = new System.Drawing.Size(252, 31);
+            this.btnAddCategory.TabIndex = 2;
+            this.btnAddCategory.Text = "Add";
+            this.btnAddCategory.UseVisualStyleBackColor = true;
+            // 
+            // tbxCategoryName
+            // 
+            this.tbxCategoryName.Location = new System.Drawing.Point(148, 35);
+            this.tbxCategoryName.Name = "tbxCategoryName";
+            this.tbxCategoryName.Size = new System.Drawing.Size(126, 27);
+            this.tbxCategoryName.TabIndex = 1;
+            // 
+            // lblCategoryName
+            // 
+            this.lblCategoryName.Location = new System.Drawing.Point(22, 32);
+            this.lblCategoryName.Name = "lblCategoryName";
+            this.lblCategoryName.Size = new System.Drawing.Size(120, 30);
+            this.lblCategoryName.TabIndex = 0;
+            this.lblCategoryName.Text = "Name:";
+            this.lblCategoryName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbxCategory
+            // 
+            this.lbxCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbxCategory.FormattingEnabled = true;
+            this.lbxCategory.ItemHeight = 22;
+            this.lbxCategory.Location = new System.Drawing.Point(9, 59);
+            this.lbxCategory.Name = "lbxCategory";
+            this.lbxCategory.Size = new System.Drawing.Size(510, 114);
+            this.lbxCategory.TabIndex = 1;
+            // 
+            // tbxSearchCategory
+            // 
+            this.tbxSearchCategory.Location = new System.Drawing.Point(201, 23);
+            this.tbxSearchCategory.Name = "tbxSearchCategory";
+            this.tbxSearchCategory.Size = new System.Drawing.Size(318, 27);
+            this.tbxSearchCategory.TabIndex = 6;
+            // 
+            // gbxSelectCategory
+            // 
+            this.gbxSelectCategory.BackColor = System.Drawing.Color.LightBlue;
+            this.gbxSelectCategory.Controls.Add(this.btnUpadteCategory);
+            this.gbxSelectCategory.Controls.Add(this.btnDeleteCategory);
+            this.gbxSelectCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxSelectCategory.Location = new System.Drawing.Point(9, 178);
+            this.gbxSelectCategory.Name = "gbxSelectCategory";
+            this.gbxSelectCategory.Size = new System.Drawing.Size(215, 119);
+            this.gbxSelectCategory.TabIndex = 5;
+            this.gbxSelectCategory.TabStop = false;
+            this.gbxSelectCategory.Text = "Select a category to";
+            // 
+            // btnUpadteCategory
+            // 
+            this.btnUpadteCategory.Location = new System.Drawing.Point(22, 63);
+            this.btnUpadteCategory.Name = "btnUpadteCategory";
+            this.btnUpadteCategory.Size = new System.Drawing.Size(171, 31);
+            this.btnUpadteCategory.TabIndex = 3;
+            this.btnUpadteCategory.Text = "Update/Modify";
+            this.btnUpadteCategory.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteCategory
+            // 
+            this.btnDeleteCategory.Location = new System.Drawing.Point(22, 26);
+            this.btnDeleteCategory.Name = "btnDeleteCategory";
+            this.btnDeleteCategory.Size = new System.Drawing.Size(171, 31);
+            this.btnDeleteCategory.TabIndex = 2;
+            this.btnDeleteCategory.Text = "Delete";
+            this.btnDeleteCategory.UseVisualStyleBackColor = true;
+            // 
             // gbxDepartment
             // 
             this.gbxDepartment.Controls.Add(this.lblSearchDepartment);
@@ -133,6 +354,15 @@ namespace MediaBazaar
             this.gbxDepartment.TabIndex = 8;
             this.gbxDepartment.TabStop = false;
             this.gbxDepartment.Text = "Department";
+            // 
+            // lblSearchDepartment
+            // 
+            this.lblSearchDepartment.Location = new System.Drawing.Point(9, 23);
+            this.lblSearchDepartment.Name = "lblSearchDepartment";
+            this.lblSearchDepartment.Size = new System.Drawing.Size(186, 30);
+            this.lblSearchDepartment.TabIndex = 5;
+            this.lblSearchDepartment.Text = "Search department";
+            this.lblSearchDepartment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gbxAddDepartment
             // 
@@ -228,12 +458,13 @@ namespace MediaBazaar
             // gbxDeleteDepartment
             // 
             this.gbxDeleteDepartment.BackColor = System.Drawing.Color.LightBlue;
+            this.gbxDeleteDepartment.Controls.Add(this.btnAssignDepartmentManager);
             this.gbxDeleteDepartment.Controls.Add(this.btnDepartmentUpdate);
             this.gbxDeleteDepartment.Controls.Add(this.btnDepartmentDelete);
             this.gbxDeleteDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxDeleteDepartment.Location = new System.Drawing.Point(422, 194);
+            this.gbxDeleteDepartment.Location = new System.Drawing.Point(743, 26);
             this.gbxDeleteDepartment.Name = "gbxDeleteDepartment";
-            this.gbxDeleteDepartment.Size = new System.Drawing.Size(315, 119);
+            this.gbxDeleteDepartment.Size = new System.Drawing.Size(315, 162);
             this.gbxDeleteDepartment.TabIndex = 5;
             this.gbxDeleteDepartment.TabStop = false;
             this.gbxDeleteDepartment.Text = "Select a department to";
@@ -373,234 +604,15 @@ namespace MediaBazaar
             this.lbxDepartmentsAndPCategory.Size = new System.Drawing.Size(518, 328);
             this.lbxDepartmentsAndPCategory.TabIndex = 0;
             // 
-            // lblSearchDepartment
+            // btnAssignDepartmentManager
             // 
-            this.lblSearchDepartment.Location = new System.Drawing.Point(9, 23);
-            this.lblSearchDepartment.Name = "lblSearchDepartment";
-            this.lblSearchDepartment.Size = new System.Drawing.Size(186, 30);
-            this.lblSearchDepartment.TabIndex = 5;
-            this.lblSearchDepartment.Text = "Search department";
-            this.lblSearchDepartment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // gbxCategory
-            // 
-            this.gbxCategory.Controls.Add(this.lblSearchCategory);
-            this.gbxCategory.Controls.Add(this.gbxAddCategory);
-            this.gbxCategory.Controls.Add(this.lbxCategory);
-            this.gbxCategory.Controls.Add(this.tbxSearchCategory);
-            this.gbxCategory.Controls.Add(this.gbxSelectCategory);
-            this.gbxCategory.Location = new System.Drawing.Point(15, 349);
-            this.gbxCategory.Name = "gbxCategory";
-            this.gbxCategory.Size = new System.Drawing.Size(536, 310);
-            this.gbxCategory.TabIndex = 9;
-            this.gbxCategory.TabStop = false;
-            this.gbxCategory.Text = "Category";
-            // 
-            // lblSearchCategory
-            // 
-            this.lblSearchCategory.Location = new System.Drawing.Point(9, 23);
-            this.lblSearchCategory.Name = "lblSearchCategory";
-            this.lblSearchCategory.Size = new System.Drawing.Size(186, 30);
-            this.lblSearchCategory.TabIndex = 5;
-            this.lblSearchCategory.Text = "Search Category";
-            this.lblSearchCategory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // gbxAddCategory
-            // 
-            this.gbxAddCategory.BackColor = System.Drawing.Color.LightBlue;
-            this.gbxAddCategory.Controls.Add(this.btnAddCategory);
-            this.gbxAddCategory.Controls.Add(this.tbxCategoryName);
-            this.gbxAddCategory.Controls.Add(this.lblCategoryName);
-            this.gbxAddCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxAddCategory.Location = new System.Drawing.Point(230, 177);
-            this.gbxAddCategory.Name = "gbxAddCategory";
-            this.gbxAddCategory.Size = new System.Drawing.Size(289, 120);
-            this.gbxAddCategory.TabIndex = 2;
-            this.gbxAddCategory.TabStop = false;
-            this.gbxAddCategory.Text = "Add category";
-            // 
-            // btnAddCategory
-            // 
-            this.btnAddCategory.Location = new System.Drawing.Point(22, 77);
-            this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(252, 31);
-            this.btnAddCategory.TabIndex = 2;
-            this.btnAddCategory.Text = "Add";
-            this.btnAddCategory.UseVisualStyleBackColor = true;
-            // 
-            // tbxCategoryName
-            // 
-            this.tbxCategoryName.Location = new System.Drawing.Point(148, 35);
-            this.tbxCategoryName.Name = "tbxCategoryName";
-            this.tbxCategoryName.Size = new System.Drawing.Size(126, 27);
-            this.tbxCategoryName.TabIndex = 1;
-            // 
-            // lblCategoryName
-            // 
-            this.lblCategoryName.Location = new System.Drawing.Point(22, 32);
-            this.lblCategoryName.Name = "lblCategoryName";
-            this.lblCategoryName.Size = new System.Drawing.Size(120, 30);
-            this.lblCategoryName.TabIndex = 0;
-            this.lblCategoryName.Text = "Name:";
-            this.lblCategoryName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbxCategory
-            // 
-            this.lbxCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbxCategory.FormattingEnabled = true;
-            this.lbxCategory.ItemHeight = 22;
-            this.lbxCategory.Location = new System.Drawing.Point(9, 59);
-            this.lbxCategory.Name = "lbxCategory";
-            this.lbxCategory.Size = new System.Drawing.Size(510, 114);
-            this.lbxCategory.TabIndex = 1;
-            // 
-            // tbxSearchCategory
-            // 
-            this.tbxSearchCategory.Location = new System.Drawing.Point(201, 23);
-            this.tbxSearchCategory.Name = "tbxSearchCategory";
-            this.tbxSearchCategory.Size = new System.Drawing.Size(318, 27);
-            this.tbxSearchCategory.TabIndex = 6;
-            // 
-            // gbxSelectCategory
-            // 
-            this.gbxSelectCategory.BackColor = System.Drawing.Color.LightBlue;
-            this.gbxSelectCategory.Controls.Add(this.btnUpadteCategory);
-            this.gbxSelectCategory.Controls.Add(this.btnDeleteCategory);
-            this.gbxSelectCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxSelectCategory.Location = new System.Drawing.Point(9, 178);
-            this.gbxSelectCategory.Name = "gbxSelectCategory";
-            this.gbxSelectCategory.Size = new System.Drawing.Size(215, 119);
-            this.gbxSelectCategory.TabIndex = 5;
-            this.gbxSelectCategory.TabStop = false;
-            this.gbxSelectCategory.Text = "Select a category to";
-            // 
-            // btnUpadteCategory
-            // 
-            this.btnUpadteCategory.Location = new System.Drawing.Point(22, 63);
-            this.btnUpadteCategory.Name = "btnUpadteCategory";
-            this.btnUpadteCategory.Size = new System.Drawing.Size(171, 31);
-            this.btnUpadteCategory.TabIndex = 3;
-            this.btnUpadteCategory.Text = "Update/Modify";
-            this.btnUpadteCategory.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteCategory
-            // 
-            this.btnDeleteCategory.Location = new System.Drawing.Point(22, 26);
-            this.btnDeleteCategory.Name = "btnDeleteCategory";
-            this.btnDeleteCategory.Size = new System.Drawing.Size(171, 31);
-            this.btnDeleteCategory.TabIndex = 2;
-            this.btnDeleteCategory.Text = "Delete";
-            this.btnDeleteCategory.UseVisualStyleBackColor = true;
-            // 
-            // gbxSubCategory
-            // 
-            this.gbxSubCategory.Controls.Add(this.lblSearchSubCategory);
-            this.gbxSubCategory.Controls.Add(this.gbxAddSubCategory);
-            this.gbxSubCategory.Controls.Add(this.lbxSubCategory);
-            this.gbxSubCategory.Controls.Add(this.tbxSearchSubCategory);
-            this.gbxSubCategory.Controls.Add(this.gbxSelectSubCategory);
-            this.gbxSubCategory.Location = new System.Drawing.Point(557, 351);
-            this.gbxSubCategory.Name = "gbxSubCategory";
-            this.gbxSubCategory.Size = new System.Drawing.Size(536, 310);
-            this.gbxSubCategory.TabIndex = 10;
-            this.gbxSubCategory.TabStop = false;
-            this.gbxSubCategory.Text = "SubCategory";
-            // 
-            // lblSearchSubCategory
-            // 
-            this.lblSearchSubCategory.Location = new System.Drawing.Point(9, 23);
-            this.lblSearchSubCategory.Name = "lblSearchSubCategory";
-            this.lblSearchSubCategory.Size = new System.Drawing.Size(186, 30);
-            this.lblSearchSubCategory.TabIndex = 5;
-            this.lblSearchSubCategory.Text = "Search SubCategory";
-            this.lblSearchSubCategory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // gbxAddSubCategory
-            // 
-            this.gbxAddSubCategory.BackColor = System.Drawing.Color.LightBlue;
-            this.gbxAddSubCategory.Controls.Add(this.btnSubCategory);
-            this.gbxAddSubCategory.Controls.Add(this.tbxSubCategory);
-            this.gbxAddSubCategory.Controls.Add(this.lblSubCategoryName);
-            this.gbxAddSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxAddSubCategory.Location = new System.Drawing.Point(230, 177);
-            this.gbxAddSubCategory.Name = "gbxAddSubCategory";
-            this.gbxAddSubCategory.Size = new System.Drawing.Size(289, 120);
-            this.gbxAddSubCategory.TabIndex = 2;
-            this.gbxAddSubCategory.TabStop = false;
-            this.gbxAddSubCategory.Text = "Add subcategory";
-            // 
-            // btnSubCategory
-            // 
-            this.btnSubCategory.Location = new System.Drawing.Point(22, 77);
-            this.btnSubCategory.Name = "btnSubCategory";
-            this.btnSubCategory.Size = new System.Drawing.Size(252, 31);
-            this.btnSubCategory.TabIndex = 2;
-            this.btnSubCategory.Text = "Add";
-            this.btnSubCategory.UseVisualStyleBackColor = true;
-            // 
-            // tbxSubCategory
-            // 
-            this.tbxSubCategory.Location = new System.Drawing.Point(148, 35);
-            this.tbxSubCategory.Name = "tbxSubCategory";
-            this.tbxSubCategory.Size = new System.Drawing.Size(126, 27);
-            this.tbxSubCategory.TabIndex = 1;
-            // 
-            // lblSubCategoryName
-            // 
-            this.lblSubCategoryName.Location = new System.Drawing.Point(22, 32);
-            this.lblSubCategoryName.Name = "lblSubCategoryName";
-            this.lblSubCategoryName.Size = new System.Drawing.Size(120, 30);
-            this.lblSubCategoryName.TabIndex = 0;
-            this.lblSubCategoryName.Text = "Name:";
-            this.lblSubCategoryName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbxSubCategory
-            // 
-            this.lbxSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbxSubCategory.FormattingEnabled = true;
-            this.lbxSubCategory.ItemHeight = 22;
-            this.lbxSubCategory.Location = new System.Drawing.Point(9, 59);
-            this.lbxSubCategory.Name = "lbxSubCategory";
-            this.lbxSubCategory.Size = new System.Drawing.Size(510, 114);
-            this.lbxSubCategory.TabIndex = 1;
-            // 
-            // tbxSearchSubCategory
-            // 
-            this.tbxSearchSubCategory.Location = new System.Drawing.Point(201, 23);
-            this.tbxSearchSubCategory.Name = "tbxSearchSubCategory";
-            this.tbxSearchSubCategory.Size = new System.Drawing.Size(318, 27);
-            this.tbxSearchSubCategory.TabIndex = 6;
-            // 
-            // gbxSelectSubCategory
-            // 
-            this.gbxSelectSubCategory.BackColor = System.Drawing.Color.LightBlue;
-            this.gbxSelectSubCategory.Controls.Add(this.btnUpdateSubCategory);
-            this.gbxSelectSubCategory.Controls.Add(this.btnDeleteSubCategory);
-            this.gbxSelectSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxSelectSubCategory.Location = new System.Drawing.Point(9, 178);
-            this.gbxSelectSubCategory.Name = "gbxSelectSubCategory";
-            this.gbxSelectSubCategory.Size = new System.Drawing.Size(215, 119);
-            this.gbxSelectSubCategory.TabIndex = 5;
-            this.gbxSelectSubCategory.TabStop = false;
-            this.gbxSelectSubCategory.Text = "Select a subcategory to";
-            // 
-            // btnUpdateSubCategory
-            // 
-            this.btnUpdateSubCategory.Location = new System.Drawing.Point(22, 63);
-            this.btnUpdateSubCategory.Name = "btnUpdateSubCategory";
-            this.btnUpdateSubCategory.Size = new System.Drawing.Size(171, 31);
-            this.btnUpdateSubCategory.TabIndex = 3;
-            this.btnUpdateSubCategory.Text = "Update/Modify";
-            this.btnUpdateSubCategory.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteSubCategory
-            // 
-            this.btnDeleteSubCategory.Location = new System.Drawing.Point(22, 26);
-            this.btnDeleteSubCategory.Name = "btnDeleteSubCategory";
-            this.btnDeleteSubCategory.Size = new System.Drawing.Size(171, 31);
-            this.btnDeleteSubCategory.TabIndex = 2;
-            this.btnDeleteSubCategory.Text = "Delete";
-            this.btnDeleteSubCategory.UseVisualStyleBackColor = true;
+            this.btnAssignDepartmentManager.Location = new System.Drawing.Point(22, 100);
+            this.btnAssignDepartmentManager.Name = "btnAssignDepartmentManager";
+            this.btnAssignDepartmentManager.Size = new System.Drawing.Size(276, 31);
+            this.btnAssignDepartmentManager.TabIndex = 4;
+            this.btnAssignDepartmentManager.Text = "Assign department manager";
+            this.btnAssignDepartmentManager.UseVisualStyleBackColor = true;
+            this.btnAssignDepartmentManager.Click += new System.EventHandler(this.btnAssignDepartmentManager_Click);
             // 
             // DepartmentInterface
             // 
@@ -612,6 +624,16 @@ namespace MediaBazaar
             this.Size = new System.Drawing.Size(1129, 785);
             this.tclDepartment.ResumeLayout(false);
             this.tpDepartment.ResumeLayout(false);
+            this.gbxSubCategory.ResumeLayout(false);
+            this.gbxSubCategory.PerformLayout();
+            this.gbxAddSubCategory.ResumeLayout(false);
+            this.gbxAddSubCategory.PerformLayout();
+            this.gbxSelectSubCategory.ResumeLayout(false);
+            this.gbxCategory.ResumeLayout(false);
+            this.gbxCategory.PerformLayout();
+            this.gbxAddCategory.ResumeLayout(false);
+            this.gbxAddCategory.PerformLayout();
+            this.gbxSelectCategory.ResumeLayout(false);
             this.gbxDepartment.ResumeLayout(false);
             this.gbxDepartment.PerformLayout();
             this.gbxAddDepartment.ResumeLayout(false);
@@ -622,16 +644,6 @@ namespace MediaBazaar
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tpAssignPCategories.ResumeLayout(false);
-            this.gbxCategory.ResumeLayout(false);
-            this.gbxCategory.PerformLayout();
-            this.gbxAddCategory.ResumeLayout(false);
-            this.gbxAddCategory.PerformLayout();
-            this.gbxSelectCategory.ResumeLayout(false);
-            this.gbxSubCategory.ResumeLayout(false);
-            this.gbxSubCategory.PerformLayout();
-            this.gbxAddSubCategory.ResumeLayout(false);
-            this.gbxAddSubCategory.PerformLayout();
-            this.gbxSelectSubCategory.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -686,5 +698,6 @@ namespace MediaBazaar
         private System.Windows.Forms.GroupBox gbxSelectSubCategory;
         private System.Windows.Forms.Button btnUpdateSubCategory;
         private System.Windows.Forms.Button btnDeleteSubCategory;
+        private System.Windows.Forms.Button btnAssignDepartmentManager;
     }
 }

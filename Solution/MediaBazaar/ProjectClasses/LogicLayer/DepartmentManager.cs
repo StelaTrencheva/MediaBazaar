@@ -49,9 +49,9 @@ namespace ProjectClasses
             return departments;
         }
 
-        public void UpdateDepartment(int code, string name)
+        public void UpdateDepartment(Department newDept)
         {
-            this.dbMediator.UpdateDepartment(code, name);
+            this.dbMediator.UpdateDepartment(newDept.Code, newDept.Name);
         }
 
         //public List<Department> GetDepartmentsWithDManagers()
@@ -64,6 +64,7 @@ namespace ProjectClasses
         //    return this.dbMediator.GetDepartmentWithPCategory();
         //}
 
+        //fix these stuff after.
         public int GetDepartmentCode(string deptName)
         {
             foreach (Department depart in departments)

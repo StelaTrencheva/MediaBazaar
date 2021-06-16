@@ -37,6 +37,7 @@ namespace MediaBazaar
             }
         }
 
+        //MIGHT DELETE THIS
         private void DisplayDepartmentsWithDManagers()//DISPLAY ON ASSING DEPARTMENT MANAGER TAB
         {
             //lbxDepartmentsAndDM.CustomTabOffsets.Add(150);
@@ -49,6 +50,7 @@ namespace MediaBazaar
             //}
         }
 
+        //MIGHT DELETE THIS
         private void DisplayDepartmentsWithPCategories()//DISPLAY ON ASSIGN PRODUCT CATEGORY
         {
             //lbxDepartmentsAndPCategory.Items.Clear();
@@ -85,6 +87,7 @@ namespace MediaBazaar
             nudDepartmentCode.Value = 1000;
         }
 
+        //MIGHT DELETE THIS
         private void DisplayDepartmentManagersInCbx()//DISPLAY DEPARTMENT MANAGER IN COMBOBOX IN ASSIGN DMANAGER TAB
         {
             cbxDManagers.Items.Clear();
@@ -95,9 +98,10 @@ namespace MediaBazaar
                     cbxDManagers.Items.Add(emp.GetNames);
                 }
             }
-            cbxDManagers.SelectedIndex = 0;
+            //cbxDManagers.SelectedIndex = 0;
         }
 
+        //MIGHT DELETE THIS
         private void DisplayDepartmentsInCbx()//DISPLAY DEPARTMENT IN COMBOBOX IN ASSIGN DMANAGER TAB
         {
             cbxDMDepartments.Items.Clear();
@@ -105,9 +109,10 @@ namespace MediaBazaar
             {
                 cbxDMDepartments.Items.Add(dept);
             }
-            cbxDMDepartments.SelectedIndex = 0;
+            //cbxDMDepartments.SelectedIndex = 0;
         }
 
+        //MIGHT DELETE THIS
         private void btnAssignDM_Click(object sender, EventArgs e)
         {
             try
@@ -128,6 +133,7 @@ namespace MediaBazaar
             }
         }
 
+        //NEW STUFF ADDED
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if(lbxDepartments.SelectedItem == null)
@@ -180,6 +186,28 @@ namespace MediaBazaar
                     lbxDepartments.Items.Add(dept);
                 }
             }
+        }
+
+        private void btnAssignDepartmentManager_Click(object sender, EventArgs e)
+        {
+            if (lbxDepartments.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a department.");
+            }
+            else
+            {
+                foreach (Department dept in this.deptMngr.GetDepartments())
+                {
+                    if (lbxDepartments.SelectedItem.ToString() == dept.ToString())
+                    {
+                        AssignDepartmentManagerToDepartment assignDepartmentManagerToDepartment = 
+                            new AssignDepartmentManagerToDepartment(dept);
+                        assignDepartmentManagerToDepartment.ShowDialog();
+                        break;
+                    }
+                }
+            }
+            this.DisplayDepartments();
         }
     }
 }

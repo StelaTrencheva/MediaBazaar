@@ -34,7 +34,7 @@ namespace MediaBazaar
         {
             tbxCode.Text = this.dept.Code.ToString();
             this.dept.Name = tbxName.Text;
-            this.deptMngr.UpdateDepartment(Convert.ToInt32(tbxCode.Text), this.dept.Name);
+            this.deptMngr.UpdateDepartment(new Department(Convert.ToInt32(tbxCode.Text), this.dept.Name));
             this.Close();
         }
     }

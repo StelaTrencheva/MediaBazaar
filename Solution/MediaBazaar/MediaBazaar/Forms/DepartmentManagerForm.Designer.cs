@@ -37,8 +37,10 @@ namespace MediaBazaar
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnDepartmentMLogOut = new System.Windows.Forms.Button();
             this.btnDepartmentMAccount = new System.Windows.Forms.Button();
+            this.assignStoreWorkerToDepartmentUC1 = new MediaBazaar.AssignStoreWorkerToDepartmentUC();
             this.storeWorkerScheduleInterface = new MediaBazaar.StoreWorkerScheduleInterface();
             this.userInterface1 = new MediaBazaar.UserInterface();
+            this.unAssignDepartmentManagerUC1 = new MediaBazaar.UnAssignDepartmentManagerUC();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -130,6 +132,13 @@ namespace MediaBazaar
             this.btnDepartmentMAccount.UseVisualStyleBackColor = false;
             this.btnDepartmentMAccount.Click += new System.EventHandler(this.btnDepartmentMAccount_Click);
             // 
+            // assignStoreWorkerToDepartmentUC1
+            // 
+            this.assignStoreWorkerToDepartmentUC1.Location = new System.Drawing.Point(213, 0);
+            this.assignStoreWorkerToDepartmentUC1.Name = "assignStoreWorkerToDepartmentUC1";
+            this.assignStoreWorkerToDepartmentUC1.Size = new System.Drawing.Size(1129, 812);
+            this.assignStoreWorkerToDepartmentUC1.TabIndex = 42;
+            // 
             // storeWorkerScheduleInterface
             // 
             this.storeWorkerScheduleInterface.Location = new System.Drawing.Point(208, 0);
@@ -146,12 +155,21 @@ namespace MediaBazaar
             this.userInterface1.TabIndex = 40;
             this.userInterface1.Load += new System.EventHandler(this.userInterface1_Load);
             // 
+            // unAssignDepartmentManagerUC1
+            // 
+            this.unAssignDepartmentManagerUC1.Location = new System.Drawing.Point(213, 0);
+            this.unAssignDepartmentManagerUC1.Name = "unAssignDepartmentManagerUC1";
+            this.unAssignDepartmentManagerUC1.Size = new System.Drawing.Size(1129, 812);
+            this.unAssignDepartmentManagerUC1.TabIndex = 43;
+            // 
             // DepartmentManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1340, 792);
+            this.Controls.Add(this.unAssignDepartmentManagerUC1);
+            this.Controls.Add(this.assignStoreWorkerToDepartmentUC1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.storeWorkerScheduleInterface);
             this.Controls.Add(this.userInterface1);
@@ -178,5 +196,7 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnDepartment;
         private UserInterface userInterface1;
         private StoreWorkerScheduleInterface storeWorkerScheduleInterface;
+        private AssignStoreWorkerToDepartmentUC assignStoreWorkerToDepartmentUC1;
+        private UnAssignDepartmentManagerUC unAssignDepartmentManagerUC1;
     }
 }

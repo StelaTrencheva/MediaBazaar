@@ -13,14 +13,14 @@ namespace MediaBazaar
 {
     public partial class DepartmentManagerForm : Form
     {
-        private EmployeeManager manageEmployees;
         private Employee currentEmp;
+        private AssignPersonDepartmentManager assignPersonDepartmentManager;
 
         public DepartmentManagerForm(Employee currentEmp)
         {
             InitializeComponent();
-            this.manageEmployees = new EmployeeManager();
             this.currentEmp = currentEmp;
+            this.assignPersonDepartmentManager = new AssignPersonDepartmentManager();
             userInterface1.SendInfo(currentEmp);
         }
         private void PaintAllButtons()
@@ -41,6 +41,8 @@ namespace MediaBazaar
         {
             userInterface1.Hide();
             storeWorkerScheduleInterface.Hide();
+            assignStoreWorkerToDepartmentUC1.Hide();
+            unAssignDepartmentManagerUC1.Hide();
         }
         private void btnDepartmentMSchedule_Click(object sender, EventArgs e)
         {
@@ -73,6 +75,18 @@ namespace MediaBazaar
             PaintAllButtons();
             btnDepartment.BackColor = Color.White;
             HideAllInterfaces();
+
+            if (this.assignPersonDepartmentManager.CheckIfDepartmentManagerExist(this.currentEmp.Id))
+            {
+                assignStoreWorkerToDepartmentUC1.SendInfo(this.currentEmp,
+                    this.assignPersonDepartmentManager.GetAssignDepartment(currentEmp.Id));
+                assignStoreWorkerToDepartmentUC1.Show();
+            }
+            else
+            {
+                HideAllInterfaces();
+                unAssignDepartmentManagerUC1.Show();
+            }
         }
     }
 }

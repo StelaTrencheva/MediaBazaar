@@ -79,6 +79,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AssignDepartmentManagerToDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AssignDepartmentManagerToDepartment.Designer.cs">
+      <DependentUpon>AssignDepartmentManagerToDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AssignStoreWorkerToDepartmentUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AssignStoreWorkerToDepartmentUC.Designer.cs">
+      <DependentUpon>AssignStoreWorkerToDepartmentUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +108,12 @@
     </Compile>
     <Compile Include="Forms\StoreWorkerForm.Designer.cs">
       <DependentUpon>StoreWorkerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UnAssignDepartmentManagerUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UnAssignDepartmentManagerUC.Designer.cs">
+      <DependentUpon>UnAssignDepartmentManagerUC.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\DepartmentUC.cs">
       <SubType>UserControl</SubType>
@@ -225,6 +243,12 @@
     <Compile Include="UserControls\StoreWorkerScheduleUC.Designer.cs">
       <DependentUpon>StoreWorkerScheduleUC.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AssignDepartmentManagerToDepartment.resx">
+      <DependentUpon>AssignDepartmentManagerToDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AssignStoreWorkerToDepartmentUC.resx">
+      <DependentUpon>AssignStoreWorkerToDepartmentUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditEmployeeForm.resx">
       <DependentUpon>EditEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StoreWorkerForm.resx">
       <DependentUpon>StoreWorkerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UnAssignDepartmentManagerUC.resx">
+      <DependentUpon>UnAssignDepartmentManagerUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DepartmentUC.resx">
       <DependentUpon>DepartmentUC.cs</DependentUpon>
