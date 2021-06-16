@@ -261,60 +261,14 @@ namespace ProjectClasses
                 DbConnection.Close();
             }
         }
-
-        public void RegisterSoldProduct(int pNum, int pSoldQuantity)
-        {
-            string sqlStatement = "INSERT INTO `mb_sold_product` VALUES(@pNum, @pSoldQuantity)";
-            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
-
-            sqlCommand.Parameters.AddWithValue("@pNum", pNum);
-            sqlCommand.Parameters.AddWithValue("@pSoldQuantity", pSoldQuantity);
-
-            try
-            {
-                int n = 0;
-
-                DbConnection.Open();
-                n = sqlCommand.ExecuteNonQuery();
-
-            }
-            catch (Exception e)
-            {
-            }
-            finally
-            {
-                DbConnection.Close();
-            }
-        }
-        public void UpdateSoldProductQuantity(int pNum, int pSoldQuantity)
-        {
-            string sqlStatement = "UPDATE `mb_sold_product` SET pSoldQuantity= @pSoldQuantity WHERE pNum = @pNum";
-            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
-
-            sqlCommand.Parameters.AddWithValue("@pNum", pNum);
-            sqlCommand.Parameters.AddWithValue("@pSoldQuantity", pSoldQuantity);
-
-            try
-            {
-                int n = 0;
-
-                DbConnection.Open();
-                n = sqlCommand.ExecuteNonQuery();
-
-            }
-            catch (Exception e)
-            {
-            }
-            finally
-            {
-                DbConnection.Close();
-            }
-        }
+        
         public Dictionary<Product, int> GetListOfSoldProducts()
         {
-            string sqlStatement = "SELECT *, r.pSoldQuantity as quantity FROM `mb_product` as p " +
-                                  "INNER JOIN `mb_sold_product` as r " +
-                                  "ON r.pNum = p.pNum";
+            string sqlStatement = "SELECT p.pNum, p.brand, p.type, p.model, p.description, p.barcode, p.subcat_id, p.cost_price, p.sales_price, p.amount_in_store, p.amount_in_warehouse, sum(r.quantity) as quantity " +
+                                  "FROM `mb_product` AS p " +
+                                  "INNER JOIN `mb_receipt_line` AS r " +
+                                  "ON r.productid = p.pNum " +
+                                  "GROUP by p.pNum";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
             Dictionary<Product, int> p = new Dictionary<Product, int>();
 
@@ -328,7 +282,7 @@ namespace ProjectClasses
                 {
                     p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
                         (string)reader["description"], (string)reader["barcode"], (decimal)reader["cost_price"], (decimal)reader["sales_price"],
-                        (int)reader["amount_in_store"], (int)reader["amount_in_warehouse"]), (int)reader["quantity"]);
+                        (int)reader["amount_in_store"], (int)reader["amount_in_warehouse"]), Convert.ToInt32(reader["quantity"]));
                 }
                 return p;
             }
