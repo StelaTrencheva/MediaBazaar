@@ -40,7 +40,6 @@ namespace MediaBazaar
                 {
                     lbxProductsAboveMinimum.Items.Add($"{product.Type} ({product.Model})");
                 }
-
             }
         }
 

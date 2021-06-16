@@ -65,12 +65,7 @@ namespace ProjectClasses
             this.amountInStore = amountInStore;
             this.amountInWarehouse = amountInWarehouse;
         }
-        public string GetStatistic(int quantity)
-        {
-            return $"Product number: {PNumber} - {Brand} {Model} - Total revenue: " +
-                    $"{SalePrice * quantity} Total profit: {(SalePrice * quantity) - (CostPrice * quantity)} " +
-                    $"- for {quantity} Quantity";
-        }
+       
         public override string ToString()
         {
             return $" Product number: {this.pNumber}.\t{this.brand} {this.model}.";

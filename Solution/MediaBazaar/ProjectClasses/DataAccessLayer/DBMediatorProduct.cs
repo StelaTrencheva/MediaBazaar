@@ -261,5 +261,40 @@ namespace ProjectClasses
                 DbConnection.Close();
             }
         }
+        
+        public Dictionary<Product, int> GetListOfSoldProducts()
+        {
+            string sqlStatement = "SELECT p.pNum, p.brand, p.type, p.model, p.description, p.barcode, p.subcat_id, p.cost_price, p.sales_price, p.amount_in_store, p.amount_in_warehouse, sum(r.quantity) as quantity " +
+                                  "FROM `mb_product` AS p " +
+                                  "INNER JOIN `mb_receipt_line` AS r " +
+                                  "ON r.productid = p.pNum " +
+                                  "GROUP by p.pNum";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            Dictionary<Product, int> p = new Dictionary<Product, int>();
+
+            try
+            {
+                MySqlDataReader reader;
+                DbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
+                        (string)reader["description"], (string)reader["barcode"], (decimal)reader["cost_price"], (decimal)reader["sales_price"],
+                        (int)reader["amount_in_store"], (int)reader["amount_in_warehouse"]), Convert.ToInt32(reader["quantity"]));
+                }
+                return p;
+            }
+            catch (MySqlException e)
+            {
+                return p;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
     }
 }

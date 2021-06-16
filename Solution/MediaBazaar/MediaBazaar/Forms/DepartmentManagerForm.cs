@@ -29,6 +29,7 @@ namespace MediaBazaar
             btnDepartmentMSchedule.BackColor = Color.SlateGray;
             btnDepartmentMLogOut.BackColor = Color.SlateGray;
             btnDepartment.BackColor = Color.SlateGray;
+            btnHolidayRequests.BackColor = Color.SlateGray;
         }
         private void btnDepartmentMLogOut_Click(object sender, EventArgs e)
         {
@@ -41,6 +42,7 @@ namespace MediaBazaar
         {
             userInterface1.Hide();
             storeWorkerScheduleInterface.Hide();
+            holidayRequestsUC.Hide();
             assignStoreWorkerToDepartmentUC1.Hide();
             unAssignDepartmentManagerUC1.Hide();
         }
@@ -87,6 +89,15 @@ namespace MediaBazaar
                 HideAllInterfaces();
                 unAssignDepartmentManagerUC1.Show();
             }
+        }
+
+        private void btnHolidayRequests_Click(object sender, EventArgs e)
+        {
+            PaintAllButtons();
+            btnHolidayRequests.BackColor = Color.White;
+            HideAllInterfaces();
+            holidayRequestsUC.Visible = true;
+            holidayRequestsUC.BringToFront();
         }
     }
 }

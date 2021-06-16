@@ -133,6 +133,12 @@
     <Compile Include="Forms\ProductInfoForm.Designer.cs">
       <DependentUpon>ProductInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\HolidayRequestsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HolidayRequestsUC.Designer.cs">
+      <DependentUpon>HolidayRequestsUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\RestockRequestUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -180,6 +186,12 @@
     </Compile>
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StockManagerSupplierRequest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\StockManagerSupplierRequest.Designer.cs">
+      <DependentUpon>StockManagerSupplierRequest.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\StoreWorkerRestockRequest.cs">
       <SubType>UserControl</SubType>
@@ -270,6 +282,9 @@
     <EmbeddedResource Include="Forms\ProductInfoForm.resx">
       <DependentUpon>ProductInfoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HolidayRequestsUC.resx">
+      <DependentUpon>HolidayRequestsUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\RestockRequestUC.resx">
       <DependentUpon>RestockRequestUC.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\StockManagerSupplierRequest.resx">
+      <DependentUpon>StockManagerSupplierRequest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StoreWorkerRestockRequest.resx">
       <DependentUpon>StoreWorkerRestockRequest.cs</DependentUpon>

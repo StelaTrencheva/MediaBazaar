@@ -230,7 +230,7 @@
             this.gbxSendRestockRequest.Controls.Add(this.btnStoreSend);
             this.gbxSendRestockRequest.Controls.Add(this.lblSendToStore);
             this.gbxSendRestockRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gbxSendRestockRequest.Location = new System.Drawing.Point(29, 387);
+            this.gbxSendRestockRequest.Location = new System.Drawing.Point(575, 541);
             this.gbxSendRestockRequest.Name = "gbxSendRestockRequest";
             this.gbxSendRestockRequest.Size = new System.Drawing.Size(516, 134);
             this.gbxSendRestockRequest.TabIndex = 10;
@@ -299,7 +299,7 @@
             this.tabControl2.Controls.Add(this.tbpBelowMinimum);
             this.tabControl2.Controls.Add(this.tbpAboveMinimum);
             this.tabControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabControl2.Location = new System.Drawing.Point(29, 77);
+            this.tabControl2.Location = new System.Drawing.Point(29, 85);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(516, 287);

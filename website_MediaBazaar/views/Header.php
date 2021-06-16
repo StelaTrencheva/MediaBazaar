@@ -3,6 +3,7 @@ session_start();
 require 'dataAccess/DatabaseMediator.php';
 require 'classes/Employee.php';
 require 'classes/Shift.php';
+require 'classes/Holiday.php';
 $profile = "active";
 $schedule = "inactive";
 $contact = "inactive";
@@ -63,7 +64,7 @@ if(!is_numeric($_GET['employeeId'])||$_SESSION["employeeId"]!=$_GET['employeeId'
   if($employee->getPosition()=="STORE_WORKER"||$employee->getPosition()=="STOCK_WORKER"||$employee->getPosition()=="CASHIER"){
       echo '<a href="Schedule.php?employeeId='.$_GET['employeeId'].'&week='.$week.'">Schedule</a>';
       echo '<a href="Availability.php?employeeId='.$_GET['employeeId'].'">Availability</a>';
-      echo '<a href="Request_holiday.php?employeeId='.$_GET['employeeId'].'&week='.$week.'">Request Holiday</a>';
+      echo '<a href="RequestHoliday.php?employeeId='.$_GET['employeeId'].'">Request Holiday</a>';
   }
   echo
   '<a>Contact</a>

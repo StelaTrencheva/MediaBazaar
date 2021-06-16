@@ -53,7 +53,22 @@ class DatabaseMediatior {
         }
         return $shifts;
     }
-
+    public function GetHolidaysPerEmployeeID(int $employeeId)
+    {
+        $holidays=array();
+        $sql = 'SELECT * FROM `mb_holidays` WHERE employeeID=:id';
+        $sth = $this->conn->prepare($sql);
+        $sth->execute([
+            ':id' => $employeeId
+        ]);
+        $result = $sth->fetchAll();
+        foreach ($result as $row) 
+        {
+            $holiday= new Holiday($row['id'],$row['employeeID'],$row['start_date'],$row['end_date'],date('Y-m-d'));
+            array_push($holidays,$holiday);
+        }
+        return $holidays;
+    }
     public function GetAvailabilityPerWeek(int $employeeId,int $week)
     {
         $shifts=array();
@@ -242,7 +257,69 @@ class DatabaseMediatior {
             
             return null;
     }
-
+    public function RequestHoliday(int $employeeId, string $start_date,string $end_date,string $requested_time)
+    {
+        $sql = 'INSERT INTO `mb_holiday_request`(`id`,`employeeID`, `start_date`, `end_date`, `requested_date`) VALUES (id,:employeeId,:start_date,:end_date,:requested_time)';
+            $sth = $this->conn->prepare($sql);
+            $sth->execute([
+                ':employeeId' => $employeeId,
+                ':start_date' => $start_date,
+                ':end_date' => $end_date,
+                ':requested_time' => $requested_time
+            ]);
+            
+            return null;
+    }
+    public function GetRequestedHoliday(int $employeeId, string $start_date,string $end_date)
+    {
+        $sql = 'SELECT * FROM `mb_holiday_request` where employeeID=:employeeId and start_date=:start_date and end_date=:end_date';
+        $sth = $this->conn->prepare($sql);
+        $sth->execute([
+            ':employeeId' => $employeeId,
+            ':start_date' => $start_date,
+            ':end_date' => $end_date,
+        ]);
+        if( $sth->rowCount() == 1 )
+        {
+            $result = $sth->fetch();
+            $holiday = new Holiday($result['id'],$result['employeeID'],$result['start_date'],$result['end_date'],$result['requested_date']);
+            return $holiday;
+        }else {
+            return null;
+        }
+    }
+    public function GetHoliday(int $employeeId, string $start_date,string $end_date)
+    {
+        $sql = 'SELECT * FROM `mb_holidays` where employeeID=:employeeId and start_date<=:start_date and end_date>=:end_date';
+        $sth = $this->conn->prepare($sql);
+        $sth->execute([
+            ':employeeId' => $employeeId,
+            ':start_date' => $start_date,
+            ':end_date' => $end_date,
+        ]);
+        if( $sth->rowCount() == 1 )
+        {
+            $result = $sth->fetch();
+            return 1;
+        }else {
+            return null;
+        }
+    }
+    public function GetAllRequestedHolidays()
+    {
+        $holidays=array();
+        $sql = 'SELECT * FROM  mb_holiday_request';
+        $sth = $this->conn->prepare($sql);
+        $sth->execute([
+        ]);
+        $result = $sth->fetchAll();
+        foreach ($result as $row) 
+        {   
+            $holiday = new Holiday($row['id'],$row['employeeID'],$row['start_date'],$row['end_date'],$row['requested_date']);
+            array_push($holidays,$holiday);
+        }
+        return $holidays;
+    }
 
 }
 ?>
