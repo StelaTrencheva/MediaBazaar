@@ -31,10 +31,8 @@ namespace MediaBazaar
 
         public void UpdateRestockRequests()
         {
-            btnAcceptRequest.Visible = false;
             btnDenyRequest.Visible = false;
             btnDenyRequest.BackColor = Color.White;
-            btnAcceptRequest.BackColor = Color.White;
             gbxStore.Visible = false;
             gbxSupplier.Enabled = false;
             gbxRecievingStock.Enabled = false;
@@ -67,7 +65,6 @@ namespace MediaBazaar
             pnlAmountInStore.Visible = true;
             lblStockInStoreLabel.Visible = true;
             lblAmount.Visible = true;
-            btnAcceptRequest.Visible = true;
             btnDenyRequest.Visible = true;
             this.ClearGroupBoxes();
 
@@ -100,6 +97,25 @@ namespace MediaBazaar
                             lblSendRequestToTheSupplier.Text = "Request already \r\n sent";
                             gbxSupplier.Enabled = false;
                         }
+                    }
+                }
+            }
+            foreach (var product in requestManager.GetAllRequestedProducts())
+            {
+                if (lblProductTypeAndModel.Text == $"{product.Key.Type} ({product.Key.Model})")
+                {
+                    if (product.Key.AmountInWarehouse < product.Value && product.Key.AmountInWarehouse != 0)
+                    {
+                        gbxStore.Visible = true;
+                        numSendAmount.Maximum = product.Key.AmountInWarehouse;
+                        numSendAmount.Value = product.Key.AmountInWarehouse;
+                        txbRequestedAmount.Text = "40";
+                    }
+                    else if (product.Key.AmountInWarehouse >= product.Value && product.Key.AmountInWarehouse != 0)
+                    {
+                        gbxStore.Visible = true;
+                        numSendAmount.Maximum = product.Value;
+                        numSendAmount.Value = product.Value;
                     }
                 }
             }
@@ -160,11 +176,6 @@ namespace MediaBazaar
 
         }
 
-        private void btnAcceptRequest_MouseHover(object sender, EventArgs e)
-        {
-            btnAcceptRequest.BackColor = Color.LightSkyBlue;
-        }
-
         private void btnDenyRequest_MouseHover(object sender, EventArgs e)
         {
             btnDenyRequest.BackColor = Color.LightSkyBlue;
@@ -173,11 +184,6 @@ namespace MediaBazaar
         private void btnDenyRequest_MouseLeave(object sender, EventArgs e)
         {
             btnDenyRequest.BackColor = Color.White;
-        }
-
-        private void btnAcceptRequest_MouseLeave(object sender, EventArgs e)
-        {
-            btnAcceptRequest.BackColor = Color.White;
         }
 
         private void btnDenyRequest_Click(object sender, EventArgs e)
@@ -190,37 +196,8 @@ namespace MediaBazaar
                 }
             }
             this.UpdateRestockRequests();
-            btnAcceptRequest.BackColor = Color.White;
 
         }
-
-        private void btnAcceptRequest_Click(object sender, EventArgs e)
-        {
-            btnDenyRequest.BackColor = Color.White;
-            btnAcceptRequest.BackColor = Color.LightSkyBlue;
-            btnDenyRequest.Visible = true;
-
-            foreach (var product in requestManager.GetAllRequestedProducts())
-            {
-                if (lblProductTypeAndModel.Text == $"{product.Key.Type} ({product.Key.Model})")
-                {
-                    if (product.Key.AmountInWarehouse < product.Value && product.Key.AmountInWarehouse != 0)
-                    {
-                        gbxStore.Visible = true;
-                        numSendAmount.Maximum = product.Key.AmountInWarehouse;
-                        numSendAmount.Value = product.Key.AmountInWarehouse;
-                        txbRequestedAmount.Text = "40";
-                    }
-                    else if (product.Key.AmountInWarehouse >= product.Value && product.Key.AmountInWarehouse != 0)
-                    {
-                        gbxStore.Visible = true;
-                        numSendAmount.Maximum = product.Value;
-                        numSendAmount.Value = product.Value;
-                    }
-                }
-            }
-        }
-
         public void ClearGroupBoxes()
         {
             numSendAmount.Value = 0;
@@ -286,7 +263,6 @@ namespace MediaBazaar
                     pnlAmountInStore.Visible = false;
                     lblStockInStoreLabel.Visible = false;
                     lblAmount.Visible = false;
-                    btnAcceptRequest.Visible = false;
                     lblSendRequestToTheSupplier.Text = "Send request to \r\nthe supplier:";
                     gbxSupplier.Enabled = true;
                     foreach (var requestedProduct in requestManager.GetAllSupplierRequests())

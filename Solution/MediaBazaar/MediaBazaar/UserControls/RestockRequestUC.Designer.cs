@@ -43,7 +43,6 @@ namespace MediaBazaar
             this.lblProductBrand = new System.Windows.Forms.Label();
             this.lblProductTypeAndModel = new System.Windows.Forms.Label();
             this.lbxRestockRequests = new System.Windows.Forms.ListBox();
-            this.btnAcceptRequest = new System.Windows.Forms.Button();
             this.btnDenyRequest = new System.Windows.Forms.Button();
             this.gbxStore = new System.Windows.Forms.GroupBox();
             this.btnStoreSend = new System.Windows.Forms.Button();
@@ -237,20 +236,6 @@ namespace MediaBazaar
             this.lbxRestockRequests.MouseLeave += new System.EventHandler(this.lbxRestockRequests_MouseLeave);
             this.lbxRestockRequests.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lbxRestockRequests_MouseMove);
             // 
-            // btnAcceptRequest
-            // 
-            this.btnAcceptRequest.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAcceptRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAcceptRequest.Location = new System.Drawing.Point(42, 360);
-            this.btnAcceptRequest.Name = "btnAcceptRequest";
-            this.btnAcceptRequest.Size = new System.Drawing.Size(218, 43);
-            this.btnAcceptRequest.TabIndex = 5;
-            this.btnAcceptRequest.Text = "View request";
-            this.btnAcceptRequest.UseVisualStyleBackColor = false;
-            this.btnAcceptRequest.Click += new System.EventHandler(this.btnAcceptRequest_Click);
-            this.btnAcceptRequest.MouseLeave += new System.EventHandler(this.btnAcceptRequest_MouseLeave);
-            this.btnAcceptRequest.MouseHover += new System.EventHandler(this.btnAcceptRequest_MouseHover);
-            // 
             // btnDenyRequest
             // 
             this.btnDenyRequest.BackColor = System.Drawing.SystemColors.Control;
@@ -418,7 +403,6 @@ namespace MediaBazaar
             this.tabPage1.Controls.Add(this.gbxSupplier);
             this.tabPage1.Controls.Add(this.tbcntrlProductsInWarehouse);
             this.tabPage1.Controls.Add(this.gbxStore);
-            this.tabPage1.Controls.Add(this.btnAcceptRequest);
             this.tabPage1.Controls.Add(this.btnDenyRequest);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabPage1.Location = new System.Drawing.Point(4, 38);
@@ -606,7 +590,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblAmount;
         private System.Windows.Forms.Label lblStockInStoreLabel;
-        private System.Windows.Forms.Button btnAcceptRequest;
         private System.Windows.Forms.Button btnDenyRequest;
         private System.Windows.Forms.GroupBox gbxStore;
         private System.Windows.Forms.Label lblSendToStore;
