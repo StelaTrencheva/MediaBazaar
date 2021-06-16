@@ -42,7 +42,7 @@
             this.lblMinimumStock = new System.Windows.Forms.Label();
             this.gbxMinimumStockInStore = new System.Windows.Forms.GroupBox();
             this.btnAdjustMinStock = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbMinimumAmountInStore = new System.Windows.Forms.TextBox();
             this.gbxSendRestockRequest = new System.Windows.Forms.GroupBox();
             this.txbRestockRequesrtAmount = new System.Windows.Forms.TextBox();
             this.btnStoreSend = new System.Windows.Forms.Button();
@@ -195,8 +195,7 @@
             this.gbxMinimumStockInStore.BackColor = System.Drawing.Color.White;
             this.gbxMinimumStockInStore.Controls.Add(this.lblMinimumStock);
             this.gbxMinimumStockInStore.Controls.Add(this.btnAdjustMinStock);
-            this.gbxMinimumStockInStore.Controls.Add(this.textBox1);
-            this.gbxMinimumStockInStore.Enabled = false;
+            this.gbxMinimumStockInStore.Controls.Add(this.txbMinimumAmountInStore);
             this.gbxMinimumStockInStore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.gbxMinimumStockInStore.Location = new System.Drawing.Point(574, 387);
             this.gbxMinimumStockInStore.Name = "gbxMinimumStockInStore";
@@ -214,14 +213,15 @@
             this.btnAdjustMinStock.TabIndex = 8;
             this.btnAdjustMinStock.Text = "Adjust";
             this.btnAdjustMinStock.UseVisualStyleBackColor = false;
+            this.btnAdjustMinStock.Click += new System.EventHandler(this.btnAdjustMinStock_Click);
             // 
-            // textBox1
+            // txbMinimumAmountInStore
             // 
-            this.textBox1.Location = new System.Drawing.Point(230, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(108, 30);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "50";
+            this.txbMinimumAmountInStore.Location = new System.Drawing.Point(230, 36);
+            this.txbMinimumAmountInStore.Name = "txbMinimumAmountInStore";
+            this.txbMinimumAmountInStore.Size = new System.Drawing.Size(108, 30);
+            this.txbMinimumAmountInStore.TabIndex = 0;
+            this.txbMinimumAmountInStore.Text = "50";
             // 
             // gbxSendRestockRequest
             // 
@@ -387,7 +387,7 @@
         private System.Windows.Forms.Label lblMinimumStock;
         private System.Windows.Forms.GroupBox gbxMinimumStockInStore;
         private System.Windows.Forms.Button btnAdjustMinStock;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbMinimumAmountInStore;
         private System.Windows.Forms.GroupBox gbxSendRestockRequest;
         private System.Windows.Forms.Button btnStoreSend;
         private System.Windows.Forms.Label lblSendToStore;

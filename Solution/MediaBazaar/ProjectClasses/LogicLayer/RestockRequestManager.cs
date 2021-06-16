@@ -64,6 +64,11 @@ namespace ProjectClasses
             dbMediatorRestockRequest.DeleteRestockRequest(pNum);
         }
 
+        public void UpdateMinimumAmountOfStockInStore(int pNum, int minimumStock)
+        {
+            dbMediatorProduct.UpdateMinimumAmountOfStockInStore(pNum, minimumStock);
+        }
+
         public List<Product> GetListOfAllProducts()
         {
             products = dbMediatorProduct.GetProducts();

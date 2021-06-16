@@ -63,6 +63,7 @@ namespace MediaBazaar
                     lblProductTypeAndModel.Text = $"{product.Type} ({product.Model})";
                     lblAmountInStore.Text = $"{product.AmountInStore}";
                     pnlMinimumStock.BackColor = Color.OrangeRed;
+                    txbMinimumAmountInStore.Text = $"{product.MinimumAmountInStore}";
                 }
             }
         }
@@ -191,6 +192,19 @@ namespace MediaBazaar
             e.DrawFocusRectangle();
         }
 
+        private void btnAdjustMinStock_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txbMinimumAmountInStore.Text))
+            {
+                foreach (Product product in requestManager.GetListOfAllProducts())
+                {
+                    if ((lblProductTypeAndModel.Text == $"{product.Type} ({product.Model})") && (lblProductBrand.Text == $"{product.Brand}"))
+                    {
+                        requestManager.UpdateMinimumAmountOfStockInStore(product.PNumber, Convert.ToInt32(txbMinimumAmountInStore.Text));
+                    }
+                }
+            }
 
+        }
     }
 }

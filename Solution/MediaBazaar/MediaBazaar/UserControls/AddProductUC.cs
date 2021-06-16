@@ -46,7 +46,8 @@ namespace MediaBazaar
                                                         Convert.ToDecimal(tbxProductCostPrice.Text),
                                                         Convert.ToDecimal(tbxProductSalesPrice.Text),
                                                         Convert.ToInt32(tbxProductAmountInStore.Text),
-                                                        Convert.ToInt32(tbxProductAmountInWarehouse.Text))))
+                                                        Convert.ToInt32(tbxProductAmountInWarehouse.Text),
+                                                        50)))
                 {
                     MessageBox.Show("Success!");
                     UpdateListBoxAllProducts();

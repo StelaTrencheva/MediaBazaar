@@ -28,7 +28,7 @@ namespace ProjectClasses
                 {
                     p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
                         (string)reader["description"], (string)reader["barcode"], (decimal)reader["cost_price"], (decimal)reader["sales_price"],
-                        (int)reader["amount_in_store"], (int)reader["amount_in_warehouse"]));
+                        (int)reader["amount_in_store"], (int)reader["amount_in_warehouse"], (int)reader["minimum_amount_in_store"]));
                 }
                 return p;
             }
@@ -177,7 +177,7 @@ namespace ProjectClasses
                     p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
                         (string)reader["description"], (string)reader["barcode"],
                         (decimal)reader["cost_price"], (decimal)reader["sales_price"], (int)reader["amount_in_store"],
-                        (int)reader["amount_in_warehouse"]));
+                        (int)reader["amount_in_warehouse"], (int)reader["minimum_amount_in_store"]));
                 }
                 return p;
             }
@@ -212,7 +212,7 @@ namespace ProjectClasses
                     p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
                         (string)reader["description"], (string)reader["barcode"],
                         (decimal)reader["cost_price"], (decimal)reader["sales_price"], (int)reader["amount_in_store"],
-                        (int)reader["amount_in_warehouse"]));
+                        (int)reader["amount_in_warehouse"], (int)reader["minimum_amount_in_store"]));
                 }
                 return p;
             }
@@ -248,7 +248,7 @@ namespace ProjectClasses
                     p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
                         (string)reader["description"], (string)reader["barcode"],
                         (decimal)reader["cost_price"], (decimal)reader["sales_price"], (int)reader["amount_in_store"],
-                        (int)reader["amount_in_warehouse"]));
+                        (int)reader["amount_in_warehouse"], (int)reader["minimum_amount_in_store"]));
                 }
                 return p;
             }
@@ -282,7 +282,7 @@ namespace ProjectClasses
                 {
                     p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
                         (string)reader["description"], (string)reader["barcode"], (decimal)reader["cost_price"], (decimal)reader["sales_price"],
-                        (int)reader["amount_in_store"], (int)reader["amount_in_warehouse"]), Convert.ToInt32(reader["quantity"]));
+                        (int)reader["amount_in_store"], (int)reader["amount_in_warehouse"], (int)reader["minimum_amount_in_store"]), Convert.ToInt32(reader["quantity"]));
                 }
                 return p;
             }
@@ -294,6 +294,33 @@ namespace ProjectClasses
             {
                 DbConnection.Close();
             }
+        }
+
+        public void UpdateMinimumAmountOfStockInStore(int pNum, int stock)
+        {
+            //
+                string sqlStatement = "UPDATE `mb_product` SET minimum_amount_in_store = @stock WHERE pNum = @pNum";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+
+            sqlCommand.Parameters.AddWithValue("@pNum", pNum);
+            sqlCommand.Parameters.AddWithValue("@stock", stock);
+
+            try
+            {
+                int n = 0;
+
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+
         }
 
     }

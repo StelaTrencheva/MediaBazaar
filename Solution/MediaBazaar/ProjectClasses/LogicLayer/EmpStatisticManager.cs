@@ -10,7 +10,6 @@ namespace ProjectClasses
     public class EmpStatisticManager
     {
         //Employee employee;
-        List<Employee> ListOfAllEmployees;
         EmployeeManager employeeManager;
         DBMediatorEmpStatistic dbMediator;
         

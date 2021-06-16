@@ -18,6 +18,7 @@ namespace ProjectClasses
         private decimal salePrice;
         private int amountInStore;
         private int amountInWarehouse;
+        private int minimumAmountInStore;
 
         public int PNumber { get { return this.pNumber; } }
 
@@ -38,10 +39,12 @@ namespace ProjectClasses
 
         public int AmountInWarehouse { get { return this.amountInWarehouse; } }
 
+        public int MinimumAmountInStore { get { return this.minimumAmountInStore; } }
+
         public string GetName { get { return $"{this.pNumber}--{this.brand} {this.model}"; } }
 
         public Product(int pNumber, string brand, string type, string model, string description,string barcode, decimal costPrice,
-            decimal salePrice, int amountInStore, int amountInWarehouse)
+            decimal salePrice, int amountInStore, int amountInWarehouse, int minimumAmountInStore)
         {
             if (brand == "" || type == "" || model == "" || description == "" ||
                 costPrice <= 0 || salePrice <= 0 || amountInStore <= 0 || amountInWarehouse <= 0)
@@ -64,6 +67,7 @@ namespace ProjectClasses
             this.salePrice = salePrice;
             this.amountInStore = amountInStore;
             this.amountInWarehouse = amountInWarehouse;
+            this.minimumAmountInStore = minimumAmountInStore;
         }
        
         public override string ToString()

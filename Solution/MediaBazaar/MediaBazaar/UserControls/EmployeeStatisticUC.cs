@@ -10,7 +10,6 @@ namespace MediaBazaar
     {
         Employee employee;
         EmpStatisticManager empStatistics;
-        List<int> EmployeeID;
         string TypeOfStats = "Total salary";
         string periodOverviewStats = "year";
         DateTime dateOverviewStats = DateTime.Now;
