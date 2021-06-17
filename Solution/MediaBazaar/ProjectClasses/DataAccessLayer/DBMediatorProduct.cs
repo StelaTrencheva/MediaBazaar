@@ -46,7 +46,7 @@ namespace ProjectClasses
         public bool AddProduct(Product newProd)
         {
             string sqlStatement = "INSERT INTO mb_product (brand, type, model, description,barcode, cost_price, " +
-                "sales_price, amount_in_store, amount_in_warehouse) VALUES (@br, @ty, @mo, @de,@ba, @cp, @sp, @as, @aw)";
+                "sales_price, amount_in_store, amount_in_warehouse, minimum_amount_in_store, supplier_phone_number, supplier_email) VALUES (@br, @ty, @mo, @de,@ba, @cp, @sp, @as, @aw, @ma, @spn, @se)";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
 
             sqlCommand.Parameters.AddWithValue("@br", newProd.Brand);
@@ -58,6 +58,9 @@ namespace ProjectClasses
             sqlCommand.Parameters.AddWithValue("@sp", newProd.SalePrice);
             sqlCommand.Parameters.AddWithValue("@as", newProd.AmountInStore);
             sqlCommand.Parameters.AddWithValue("@aw", newProd.AmountInWarehouse);
+            sqlCommand.Parameters.AddWithValue("@ma", newProd.MinimumAmountInStore);
+            sqlCommand.Parameters.AddWithValue("@spn", newProd.SupplierPhoneNumber);
+            sqlCommand.Parameters.AddWithValue("@se", newProd.SupplierEmail);
 
             try
             {
@@ -264,7 +267,7 @@ namespace ProjectClasses
         
         public Dictionary<Product, int> GetListOfSoldProducts()
         {
-            string sqlStatement = "SELECT p.pNum, p.brand, p.type, p.model, p.description, p.barcode, p.subcat_id, p.cost_price, p.sales_price, p.amount_in_store, p.amount_in_warehouse, sum(r.quantity) as quantity " +
+            string sqlStatement = "SELECT p.pNum, p.brand, p.type, p.model, p.description, p.barcode, p.subcat_id, p.cost_price, p.sales_price, p.amount_in_store, p.amount_in_warehouse, p.minimum_amount_in_store, p.supplier_phone_number, p.supplier_email, sum(r.quantity) as quantity " +
                                   "FROM `mb_product` AS p " +
                                   "INNER JOIN `mb_receipt_line` AS r " +
                                   "ON r.productid = p.pNum " +
