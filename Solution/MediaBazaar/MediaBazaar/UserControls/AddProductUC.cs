@@ -47,7 +47,9 @@ namespace MediaBazaar
                                                         Convert.ToDecimal(tbxProductSalesPrice.Text),
                                                         Convert.ToInt32(tbxProductAmountInStore.Text),
                                                         Convert.ToInt32(tbxProductAmountInWarehouse.Text),
-                                                        50)))
+                                                        50, 
+                                                        txbSupplierPhone.Text, 
+                                                        txbSupplierEmail.Text)))
                 {
                     MessageBox.Show("Success!");
                     UpdateListBoxAllProducts();
@@ -130,6 +132,11 @@ namespace MediaBazaar
                     }
                 }
             }
+        }
+
+        private void tpAddProduct_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

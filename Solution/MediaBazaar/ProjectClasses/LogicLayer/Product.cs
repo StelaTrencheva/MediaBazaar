@@ -19,6 +19,8 @@ namespace ProjectClasses
         private int amountInStore;
         private int amountInWarehouse;
         private int minimumAmountInStore;
+        private string supplierPhoneNumber;
+        private string supplierEmail;
 
         public int PNumber { get { return this.pNumber; } }
 
@@ -41,13 +43,17 @@ namespace ProjectClasses
 
         public int MinimumAmountInStore { get { return this.minimumAmountInStore; } }
 
+        public string SupplierPhoneNumber { get { return this.supplierPhoneNumber; } }
+
+        public string SupplierEmail { get { return this.supplierEmail; } }
+
         public string GetName { get { return $"{this.pNumber}--{this.brand} {this.model}"; } }
 
         public Product(int pNumber, string brand, string type, string model, string description,string barcode, decimal costPrice,
-            decimal salePrice, int amountInStore, int amountInWarehouse, int minimumAmountInStore)
+            decimal salePrice, int amountInStore, int amountInWarehouse, int minimumAmountInStore, string supplierPhoneNumber, string supplierEmail)
         {
-            if (brand == "" || type == "" || model == "" || description == "" ||
-                costPrice <= 0 || salePrice <= 0 || amountInStore <= 0 || amountInWarehouse <= 0)
+            if (brand == "" || type == "" || model == "" || description == "" || supplierPhoneNumber == ""|| supplierEmail == "" ||
+                costPrice <= 0 || salePrice <= 0 || amountInStore <= 0 || amountInWarehouse <= 0 || minimumAmountInStore <=0)
             {
                 throw new FormatException();
             }
@@ -68,6 +74,8 @@ namespace ProjectClasses
             this.amountInStore = amountInStore;
             this.amountInWarehouse = amountInWarehouse;
             this.minimumAmountInStore = minimumAmountInStore;
+            this.supplierPhoneNumber = supplierPhoneNumber;
+            this.supplierEmail = supplierEmail;
         }
        
         public override string ToString()

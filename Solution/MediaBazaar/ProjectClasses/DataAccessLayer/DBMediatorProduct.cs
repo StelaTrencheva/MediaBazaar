@@ -28,7 +28,7 @@ namespace ProjectClasses
                 {
                     p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
                         (string)reader["description"], (string)reader["barcode"], (decimal)reader["cost_price"], (decimal)reader["sales_price"],
-                        (int)reader["amount_in_store"], (int)reader["amount_in_warehouse"], (int)reader["minimum_amount_in_store"]));
+                        (int)reader["amount_in_store"], (int)reader["amount_in_warehouse"], (int)reader["minimum_amount_in_store"], (string)reader["supplier_phone_number"], (string)reader["supplier_email"]));
                 }
                 return p;
             }
@@ -177,7 +177,7 @@ namespace ProjectClasses
                     p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
                         (string)reader["description"], (string)reader["barcode"],
                         (decimal)reader["cost_price"], (decimal)reader["sales_price"], (int)reader["amount_in_store"],
-                        (int)reader["amount_in_warehouse"], (int)reader["minimum_amount_in_store"]));
+                        (int)reader["amount_in_warehouse"], (int)reader["minimum_amount_in_store"], (string)reader["supplier_phone_number"], (string)reader["supplier_email"]));
                 }
                 return p;
             }
@@ -212,7 +212,7 @@ namespace ProjectClasses
                     p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
                         (string)reader["description"], (string)reader["barcode"],
                         (decimal)reader["cost_price"], (decimal)reader["sales_price"], (int)reader["amount_in_store"],
-                        (int)reader["amount_in_warehouse"], (int)reader["minimum_amount_in_store"]));
+                        (int)reader["amount_in_warehouse"], (int)reader["minimum_amount_in_store"], (string)reader["supplier_phone_number"], (string)reader["supplier_email"]));
                 }
                 return p;
             }
@@ -248,7 +248,7 @@ namespace ProjectClasses
                     p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
                         (string)reader["description"], (string)reader["barcode"],
                         (decimal)reader["cost_price"], (decimal)reader["sales_price"], (int)reader["amount_in_store"],
-                        (int)reader["amount_in_warehouse"], (int)reader["minimum_amount_in_store"]));
+                        (int)reader["amount_in_warehouse"], (int)reader["minimum_amount_in_store"], (string)reader["supplier_phone_number"], (string)reader["supplier_email"]));
                 }
                 return p;
             }
@@ -282,7 +282,7 @@ namespace ProjectClasses
                 {
                     p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
                         (string)reader["description"], (string)reader["barcode"], (decimal)reader["cost_price"], (decimal)reader["sales_price"],
-                        (int)reader["amount_in_store"], (int)reader["amount_in_warehouse"], (int)reader["minimum_amount_in_store"]), Convert.ToInt32(reader["quantity"]));
+                        (int)reader["amount_in_store"], (int)reader["amount_in_warehouse"], (int)reader["minimum_amount_in_store"], (string)reader["supplier_phone_number"], (string)reader["supplier_email"]), Convert.ToInt32(reader["quantity"]));
                 }
                 return p;
             }

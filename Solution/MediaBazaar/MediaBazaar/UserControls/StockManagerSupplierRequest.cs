@@ -42,7 +42,7 @@ namespace MediaBazaar
                     lblProductTypeAndModel.Text = request.Key.Type + request.Key.Model;
                     lblProductBrand.Text = request.Key.Brand;
                     lblSupplierRequestAmount.Text = request.Value.ToString();
-                    //btnProceedRequest.Enabled = true;
+                    btnProceedRequest.Enabled = true;
                     btnDenyRequest.Enabled = true;
                 }
             }
