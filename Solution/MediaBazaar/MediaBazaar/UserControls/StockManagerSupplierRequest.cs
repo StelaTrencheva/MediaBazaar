@@ -27,6 +27,7 @@ namespace MediaBazaar
         {
             btnProceedRequest.Enabled = false;
             btnDenyRequest.Enabled = false;
+            gbxSupplierContact.Visible = false;
             lbxSupplierRequests.Items.Clear();
             foreach (var request in requestManager.GetAllSupplierRequests())
             {
@@ -50,7 +51,16 @@ namespace MediaBazaar
 
         private void btnProceedRequest_Click(object sender, EventArgs e)
         {
-
+            gbxSupplierContact.Visible = true;
+            foreach (var request in requestManager.GetAllSupplierRequests())
+            {
+                if (lblProductTypeAndModel.Text.ToString() == request.Key.Type + request.Key.Model)
+                {
+                    lblSupplierPhone.Text = request.Key.SupplierPhoneNumber;
+                    lblSupplierEmail.Text = request.Key.SupplierEmail;
+                    rtxbEmailContent.Text = "Hello, \r\n \r\n \r\n Kind regards, \r\n Media Bazaar.";
+                }
+            }
         }
 
         private void btnDenyRequest_Click(object sender, EventArgs e)
