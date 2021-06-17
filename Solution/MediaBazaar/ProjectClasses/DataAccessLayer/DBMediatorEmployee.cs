@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectClasses
 {
-    class DBMediatorEmployee: DBMediator
+    class DBMediatorEmployee : DBMediator
     {
         //Constructor
         public DBMediatorEmployee() : base() { }
@@ -15,7 +15,11 @@ namespace ProjectClasses
         //Methods
         public Employee FindMatchingLoginInfo(string username, string password)
         {
-            string sqlStatement = "SELECT * FROM `mb_employee` WHERE uname = @u AND pwd= @p";
+            string sqlStatement = $"SELECT e.* , IF(now() >= c.startdate and now() < c.lastdate, c.contract, 'LEFT') AS 'contracttype', " +
+                $"IF(now() >= c.startdate and now() < c.lastdate, c.startdate, '1/1/0001 12:00:00') AS 'contractstartdate' " +
+                $"FROM `mb_employee` as e LEFT JOIN mb_employee_contract AS c on e.id = c.empid " +
+                $"WHERE lastdate IN(SELECT max(c2.lastdate) FROM mb_employee_contract AS c2 WHERE c2.empid = c.empid)" +
+                $"AND uname = @u AND pwd= @p group by e.id";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
             List<Employee> emp = new List<Employee>();
             try
@@ -62,7 +66,10 @@ namespace ProjectClasses
         }
         public List<Employee> GetEmployees()
         {
-            string sqlStatement = "SELECT * FROM mb_employee";
+            string sqlStatement = $"SELECT e.* , IF(now() >= c.startdate and now() < c.lastdate, c.contract, 'LEFT') AS 'contracttype', " +
+                $"IF(now() >= c.startdate and now() < c.lastdate, c.startdate, '1/1/0001 12:00:00') AS 'contractstartdate' FROM `mb_employee` as e " +
+                $"LEFT JOIN mb_employee_contract AS c on e.id = c.empid WHERE lastdate IN(SELECT max(c2.lastdate) " +
+                $"FROM mb_employee_contract AS c2 WHERE c2.empid = c.empid) group by e.id";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
             List<Employee> emp = new List<Employee>();
             try
@@ -100,48 +107,136 @@ namespace ProjectClasses
         }
         public bool AddEmployee(Employee newEmp)
         {
-            string sqlStatement = "INSERT INTO mb_employee (bsn, fname, lname, gender, email, uname, pwd, birthdate, street, streetnumber, zipcode, town, country, firstworkingday, emergphonenumber, iban, hourlywage, contractstartdate, contracttype, position)" +
-                "VALUES(@1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16, @17, @18, @19, @20);";
+            MySqlTransaction tr = null;
+            try
+            {
+                DbConnection.Open();
+                tr = this.DbConnection.BeginTransaction();
 
-            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
-            sqlCommand.Parameters.AddWithValue("@1", newEmp.BSN);
-            sqlCommand.Parameters.AddWithValue("@2", newEmp.FirstName);
-            sqlCommand.Parameters.AddWithValue("@3", newEmp.LastName);
-            sqlCommand.Parameters.AddWithValue("@4", newEmp.Gender.ToString());
-            sqlCommand.Parameters.AddWithValue("@5", newEmp.Email);
-            sqlCommand.Parameters.AddWithValue("@6", newEmp.Username);
-            sqlCommand.Parameters.AddWithValue("@7", 0000);
-            sqlCommand.Parameters.AddWithValue("@8", newEmp.Birthday);
-            sqlCommand.Parameters.AddWithValue("@9", newEmp.Street);
-            sqlCommand.Parameters.AddWithValue("@10", newEmp.StreetNumber);
-            sqlCommand.Parameters.AddWithValue("@11", newEmp.Zipcode);
-            sqlCommand.Parameters.AddWithValue("@12", newEmp.Town);
-            sqlCommand.Parameters.AddWithValue("@13", newEmp.Country);
-            sqlCommand.Parameters.AddWithValue("@14", newEmp.FirstWorkingDay);
-            sqlCommand.Parameters.AddWithValue("@15", newEmp.PhoneNumber);
-            sqlCommand.Parameters.AddWithValue("@16", newEmp.Iban);
-            sqlCommand.Parameters.AddWithValue("@17", newEmp.HourlyWage);
-            sqlCommand.Parameters.AddWithValue("@18", newEmp.ContractStartDate);
-            sqlCommand.Parameters.AddWithValue("@19", newEmp.Contract.ToString());
-            sqlCommand.Parameters.AddWithValue("@20", newEmp.Position.ToString());
+                MySqlCommand cmd = new MySqlCommand
+                {
+                    Connection = DbConnection,
+                    Transaction = tr,
+                };
+                cmd.CommandText = "INSERT INTO mb_employee (bsn, fname, lname, gender, email, uname, pwd, birthdate, street, streetnumber, zipcode, town, country, firstworkingday, emergphonenumber, iban, hourlywage, position)" +
+                "VALUES(@1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16, @17, @18);";
+                cmd.Parameters.AddWithValue("@1", newEmp.BSN);
+                cmd.Parameters.AddWithValue("@2", newEmp.FirstName);
+                cmd.Parameters.AddWithValue("@3", newEmp.LastName);
+                cmd.Parameters.AddWithValue("@4", newEmp.Gender.ToString());
+                cmd.Parameters.AddWithValue("@5", newEmp.Email);
+                cmd.Parameters.AddWithValue("@6", newEmp.Username);
+                cmd.Parameters.AddWithValue("@7", 0000);
+                cmd.Parameters.AddWithValue("@8", newEmp.Birthday);
+                cmd.Parameters.AddWithValue("@9", newEmp.Street);
+                cmd.Parameters.AddWithValue("@10", newEmp.StreetNumber);
+                cmd.Parameters.AddWithValue("@11", newEmp.Zipcode);
+                cmd.Parameters.AddWithValue("@12", newEmp.Town);
+                cmd.Parameters.AddWithValue("@13", newEmp.Country);
+                cmd.Parameters.AddWithValue("@14", newEmp.FirstWorkingDay);
+                cmd.Parameters.AddWithValue("@15", newEmp.PhoneNumber);
+                cmd.Parameters.AddWithValue("@16", newEmp.Iban);
+                cmd.Parameters.AddWithValue("@17", newEmp.HourlyWage);
+                cmd.Parameters.AddWithValue("@18", newEmp.Position.ToString());
+                if (cmd.ExecuteNonQuery() == 0)
+                {
+                    throw new Exception();
+                }
+
+                //newEmpId
+                int newEmpId;
+                cmd.CommandText = "SELECT MAX(id) FROM mb_employee";
+                object receitIdObject = cmd.ExecuteScalar();
+                if (receitIdObject != null)
+                {
+                    newEmpId = Convert.ToInt32(receitIdObject);
+                }
+                else
+                {
+                    throw new Exception();
+                }
+                cmd.CommandText = "INSERT INTO `mb_employee_contract`( `empid`, `contract`, `startdate`, `lastdate`) VALUES(@empid, @contract, @startdate, @lastdate);";
+                cmd.Parameters.AddWithValue("@empid", newEmpId);
+                cmd.Parameters.AddWithValue("@contract", newEmp.Contract + 1);
+                cmd.Parameters.AddWithValue("@startdate", DateTime.Now.ToString("yyyy-MM-dd"));
+                if (newEmp.Contract == ContractType.FULLTIME || newEmp.Contract == ContractType.LEFT)
+                {
+                    cmd.Parameters.AddWithValue("@lastdate", DateTime.Now.AddYears(10).ToString("yyyy-MM-dd"));
+                }
+                else
+                {
+                    DateTime test= DateTime.Now.AddYears(1);
+                    cmd.Parameters.AddWithValue("@lastdate", test.ToString("yyyy-MM-dd"));
+                }
+                if (cmd.ExecuteNonQuery() == 0)
+                {
+                    throw new Exception();
+                }
+                tr.Commit();
+                return true;
+            }
+            catch (Exception exe)
+            {
+                
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    return false;
+                }
+
+                return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+        public bool ChangeWorkContract(ContractType contract, Employee employee)
+        {
+            string sqlStatement2 = "INSERT INTO `mb_employee_contract`( `empid`, `contract`, `startdate`, `lastdate`) VALUES (@empid,@contract,@startdate,@lastdate)";
+            MySqlCommand sqlCommand2 = new MySqlCommand(sqlStatement2, DbConnection);
+            sqlCommand2.Parameters.AddWithValue("@empid", employee.Id);
+            sqlCommand2.Parameters.AddWithValue("@contract", contract + 1);
+            sqlCommand2.Parameters.AddWithValue("@startdate", DateTime.Now.ToString("yyyy-MM-dd"));
+            if (contract == ContractType.FULLTIME || contract == ContractType.LEFT)
+            {
+                DateTime test = DateTime.Now.AddYears(10);
+                sqlCommand2.Parameters.AddWithValue("@lastdate", test.ToString("yyyy-MM-dd"));
+            }
+            else
+            {
+                DateTime test = DateTime.Now.AddYears(1);
+                sqlCommand2.Parameters.AddWithValue("@lastdate", test.ToString("yyyy-MM-dd"));
+            }
+
+            string sqlStatement1 = "UPDATE `mb_employee_contract` SET " +
+                                  "lastdate =if(now() between startdate and lastdate,now(),lastdate) " +
+                                  "WHERE empid=@i";
+            MySqlCommand sqlCommand1 = new MySqlCommand(sqlStatement1, DbConnection);
+            sqlCommand1.Parameters.AddWithValue("@i", employee.Id);
+
             try
             {
                 int n = 0;
 
                 DbConnection.Open();
-                n = sqlCommand.ExecuteNonQuery();
+                n = sqlCommand1.ExecuteNonQuery();
+                sqlCommand2.ExecuteNonQuery();
 
-                if (n == 1)
+                if (n > 0)
                 {
                     return true;
                 }
                 return false;
             }
-            //catch (MySqlException)
-            //{
-            //    return false;
-            //}
-            catch (Exception exe)
+            catch (MySqlException)
+            {
+                return false;
+            }
+            catch (Exception)
             {
                 return false;
             }
@@ -162,49 +257,6 @@ namespace ProjectClasses
                 n = sqlCommand.ExecuteNonQuery();
 
                 if (n == 1)
-                {
-                    return true;
-                }
-                return false;
-            }
-            catch (MySqlException)
-            {
-                return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                DbConnection.Close();
-            }
-        }
-        public bool ChangeWorkContract(ContractType contract, Employee employee)
-        {
-            string sqlStatement1 = "INSERT INTO `mb_contract_history`( `empid`, `contract`, `startdate`, `lastdate`) VALUES (@empid,@contract,@startdate,@lastdate)";
-            MySqlCommand sqlCommand1 = new MySqlCommand(sqlStatement1, DbConnection);
-            sqlCommand1.Parameters.AddWithValue("@empid", employee.Id);
-            sqlCommand1.Parameters.AddWithValue("@contract", employee.Contract + 1);
-            sqlCommand1.Parameters.AddWithValue("@startdate", employee.ContractStartDate);
-            sqlCommand1.Parameters.AddWithValue("@lastdate", DateTime.Now.ToString("yyyy-MM-dd"));
-
-
-            string sqlStatement2 = "UPDATE mb_employee SET contracttype = @c, contractstartdate=@d	WHERE id = @i";
-            MySqlCommand sqlCommand2 = new MySqlCommand(sqlStatement2, DbConnection);
-            sqlCommand2.Parameters.AddWithValue("@c", contract + 1);
-            sqlCommand2.Parameters.AddWithValue("@i", employee.Id);
-            sqlCommand2.Parameters.AddWithValue("@d", DateTime.Now.ToString("yyyy-MM-dd"));
-
-            try
-            {
-                int n = 0;
-
-                DbConnection.Open();
-                n = sqlCommand1.ExecuteNonQuery();
-                n += sqlCommand2.ExecuteNonQuery();
-
-                if (n > 0)
                 {
                     return true;
                 }
@@ -247,7 +299,7 @@ namespace ProjectClasses
                 return false;
             }
             catch (Exception)
-            {  
+            {
                 return false;
             }
             finally
@@ -292,7 +344,7 @@ namespace ProjectClasses
         {
             string sqlStatement = "UPDATE mb_employee SET bsn = @bsn, fname=@fname, lname=@lname, gender=@gender,email=@email," +
                                   "birthdate=@bday, emergphonenumber=@phonenumber, iban=@iban, uname = @uname, firstworkingday=@fwd, hourlywage=@hourlywage, " +
-                                  "contracttype=@contracttype,position=@position,street = @street, streetnumber = @streetnumber, zipcode = @zipcode, town = @town , country = @country WHERE id = @i";
+                                  "position=@position,street = @street, streetnumber = @streetnumber, zipcode = @zipcode, town = @town , country = @country WHERE id = @i";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
             sqlCommand.Parameters.AddWithValue("@i", newEmpInfo.Id);
             sqlCommand.Parameters.AddWithValue("@bsn", newEmpInfo.BSN);
@@ -306,7 +358,6 @@ namespace ProjectClasses
             sqlCommand.Parameters.AddWithValue("@uname", newEmpInfo.Username);
             sqlCommand.Parameters.AddWithValue("@fwd", newEmpInfo.FirstWorkingDay);
             sqlCommand.Parameters.AddWithValue("@hourlywage", newEmpInfo.HourlyWage);
-            sqlCommand.Parameters.AddWithValue("@contracttype", newEmpInfo.Contract + 1);
             sqlCommand.Parameters.AddWithValue("@position", newEmpInfo.Position + 1);
             sqlCommand.Parameters.AddWithValue("@street", newEmpInfo.Street);
             sqlCommand.Parameters.AddWithValue("@streetnumber", newEmpInfo.StreetNumber);

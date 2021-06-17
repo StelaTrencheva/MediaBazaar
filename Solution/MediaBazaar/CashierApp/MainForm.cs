@@ -31,13 +31,13 @@ namespace CashierApp
             this.basketManager = new BasketManager();
             this.departmentManager = new DepartmentManager();
             productManager.UpdateProducts();
+            loginForm = form;
             setComboboxes();
             barcode = "";
             searchtext = "";
             startSesion = DateTime.Now;
             Bounds = Screen.PrimaryScreen.Bounds;
             FormBorderStyle = FormBorderStyle.None;
-            loginForm = form;
         }
 
         /// <summary>
@@ -138,10 +138,6 @@ namespace CashierApp
 
         private void lboxProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (lboxProducts.SelectedItem == null || lboxProducts.SelectedItem.ToString() == "")
-            //{
-            //    return;
-            //}
             updatetbProductPrice();
         }
 
