@@ -507,10 +507,11 @@ namespace ProjectClasses
                                   "ON e.id = s.employeeID " +
                                   "INNER JOIN `mb_department_storeworker` as d " +
                                   "ON e.id = d.storeworker_id " +
-                                  "WHERE EXTRACT(WEEK FROM s.date) = 20 AND d.dept_code = 2678 " +
+                                  "WHERE EXTRACT(WEEK FROM s.date) = @week AND d.dept_code = @deptCode " +
                                   "GROUP BY day, e.id";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
             sqlCommand.Parameters.AddWithValue("@week", week);
+            sqlCommand.Parameters.AddWithValue("@deptCode", deptCode);
             List<double> TotalSalaryPerWeek = new List<double>();
             List<double> counter = new List<double>();
             for (int i = 0; i < 7; i++)

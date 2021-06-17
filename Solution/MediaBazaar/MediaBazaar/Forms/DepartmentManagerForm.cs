@@ -104,10 +104,11 @@ namespace MediaBazaar
 
         private void btnDepartmentStatistics_Click(object sender, EventArgs e)
         {
-            //departmentManagerEmployeeStatistics1
+            
             PaintAllButtons();
             btnDepartmentStatistics.BackColor = Color.White;
             HideAllInterfaces();
+            departmentManagerEmployeeStatistics1.SetDepartmentCode(assignPersonDepartmentManager.GetAssignDepartment(currentEmp.Id).Code.ToString());
             departmentManagerEmployeeStatistics1.Visible = true;
             departmentManagerEmployeeStatistics1.BringToFront();
         }

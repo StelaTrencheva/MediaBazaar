@@ -14,6 +14,7 @@ namespace MediaBazaar
         string periodOverviewStats = "year";
         DateTime dateOverviewStats = DateTime.Now;
         DateTime dateIndividualStats = DateTime.Now;
+        string deptCode;
         string[] month = new string[12] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
         string[] day = new string[7] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
         public DepartmentManagerEmployeeStatistics()
@@ -22,10 +23,14 @@ namespace MediaBazaar
             empStatistics = new EmpStatisticManager();
         }
 
+        public void SetDepartmentCode(string departmentCode)
+        {
+            this.deptCode = departmentCode;
+        }
 
         public void ShowDepartmentStatistics()
         {
-            List<double> EmpStats = empStatistics.ShowDepartmentOverallStatistics(TypeOfStats, periodOverviewStats, dateOverviewStats, "2678");
+            List<double> EmpStats = empStatistics.ShowDepartmentOverallStatistics(TypeOfStats, periodOverviewStats, dateOverviewStats, deptCode);
             if (!String.IsNullOrEmpty(lblChartTitle.Text))
             {
                 lblChartTitle.Text += " x " + TypeOfStats;
