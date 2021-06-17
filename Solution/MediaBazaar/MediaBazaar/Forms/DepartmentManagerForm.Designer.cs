@@ -31,18 +31,18 @@ namespace MediaBazaar
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DepartmentManagerForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnHolidayRequests = new System.Windows.Forms.Button();
             this.btnDepartment = new System.Windows.Forms.Button();
             this.btnDepartmentMSchedule = new System.Windows.Forms.Button();
             this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnDepartmentMLogOut = new System.Windows.Forms.Button();
             this.btnDepartmentMAccount = new System.Windows.Forms.Button();
-            this.btnHolidayRequests = new System.Windows.Forms.Button();
-            this.holidayRequestsUC = new MediaBazaar.UserControls.HolidayRequestsUC();
             this.assignStoreWorkerToDepartmentUC1 = new MediaBazaar.AssignStoreWorkerToDepartmentUC();
             this.storeWorkerScheduleInterface = new MediaBazaar.StoreWorkerScheduleInterface();
             this.userInterface1 = new MediaBazaar.UserInterface();
             this.unAssignDepartmentManagerUC1 = new MediaBazaar.UnAssignDepartmentManagerUC();
+            this.btnDepartmentStatistics = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -51,6 +51,7 @@ namespace MediaBazaar
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnDepartmentStatistics);
             this.panel1.Controls.Add(this.btnHolidayRequests);
             this.panel1.Controls.Add(this.btnDepartment);
             this.panel1.Controls.Add(this.btnDepartmentMSchedule);
@@ -62,12 +63,25 @@ namespace MediaBazaar
             this.panel1.Size = new System.Drawing.Size(206, 792);
             this.panel1.TabIndex = 34;
             // 
+            // btnHolidayRequests
+            // 
+            this.btnHolidayRequests.BackColor = System.Drawing.Color.SlateGray;
+            this.btnHolidayRequests.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHolidayRequests.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHolidayRequests.Location = new System.Drawing.Point(23, 328);
+            this.btnHolidayRequests.Name = "btnHolidayRequests";
+            this.btnHolidayRequests.Size = new System.Drawing.Size(155, 67);
+            this.btnHolidayRequests.TabIndex = 5;
+            this.btnHolidayRequests.Text = "Holiday requests";
+            this.btnHolidayRequests.UseVisualStyleBackColor = false;
+            this.btnHolidayRequests.Click += new System.EventHandler(this.btnHolidayRequests_Click);
+            // 
             // btnDepartment
             // 
             this.btnDepartment.BackColor = System.Drawing.Color.SlateGray;
             this.btnDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDepartment.Location = new System.Drawing.Point(24, 282);
+            this.btnDepartment.Location = new System.Drawing.Point(24, 253);
             this.btnDepartment.Name = "btnDepartment";
             this.btnDepartment.Size = new System.Drawing.Size(155, 59);
             this.btnDepartment.TabIndex = 4;
@@ -135,27 +149,6 @@ namespace MediaBazaar
             this.btnDepartmentMAccount.UseVisualStyleBackColor = false;
             this.btnDepartmentMAccount.Click += new System.EventHandler(this.btnDepartmentMAccount_Click);
             // 
-            // btnHolidayRequests
-            // 
-            this.btnHolidayRequests.BackColor = System.Drawing.Color.SlateGray;
-            this.btnHolidayRequests.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHolidayRequests.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHolidayRequests.Location = new System.Drawing.Point(23, 387);
-            this.btnHolidayRequests.Name = "btnHolidayRequests";
-            this.btnHolidayRequests.Size = new System.Drawing.Size(155, 67);
-            this.btnHolidayRequests.TabIndex = 5;
-            this.btnHolidayRequests.Text = "Holiday requests";
-            this.btnHolidayRequests.UseVisualStyleBackColor = false;
-            this.btnHolidayRequests.Click += new System.EventHandler(this.btnHolidayRequests_Click);
-            // 
-            // holidayRequestsUC
-            // 
-            this.holidayRequestsUC.Location = new System.Drawing.Point(208, 3);
-            this.holidayRequestsUC.Name = "holidayRequestsUC";
-            this.holidayRequestsUC.Size = new System.Drawing.Size(1128, 785);
-            this.holidayRequestsUC.TabIndex = 42;
-            this.holidayRequestsUC.Visible = false;
-            // 
             // assignStoreWorkerToDepartmentUC1
             // 
             this.assignStoreWorkerToDepartmentUC1.Location = new System.Drawing.Point(213, 0);
@@ -186,6 +179,18 @@ namespace MediaBazaar
             this.unAssignDepartmentManagerUC1.Size = new System.Drawing.Size(1129, 812);
             this.unAssignDepartmentManagerUC1.TabIndex = 43;
             // 
+            // btnDepartmentStatistics
+            // 
+            this.btnDepartmentStatistics.BackColor = System.Drawing.Color.SlateGray;
+            this.btnDepartmentStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDepartmentStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDepartmentStatistics.Location = new System.Drawing.Point(23, 411);
+            this.btnDepartmentStatistics.Name = "btnDepartmentStatistics";
+            this.btnDepartmentStatistics.Size = new System.Drawing.Size(155, 59);
+            this.btnDepartmentStatistics.TabIndex = 6;
+            this.btnDepartmentStatistics.Text = "Statistics";
+            this.btnDepartmentStatistics.UseVisualStyleBackColor = false;
+            // 
             // DepartmentManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -194,7 +199,6 @@ namespace MediaBazaar
             this.ClientSize = new System.Drawing.Size(1340, 792);
             this.Controls.Add(this.unAssignDepartmentManagerUC1);
             this.Controls.Add(this.assignStoreWorkerToDepartmentUC1);
-            this.Controls.Add(this.holidayRequestsUC);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.storeWorkerScheduleInterface);
             this.Controls.Add(this.userInterface1);
@@ -225,5 +229,6 @@ namespace MediaBazaar
         private UnAssignDepartmentManagerUC unAssignDepartmentManagerUC1;
         private System.Windows.Forms.Button btnHolidayRequests;
         private UserControls.HolidayRequestsUC holidayRequestsUC;
+        private System.Windows.Forms.Button btnDepartmentStatistics;
     }
 }
