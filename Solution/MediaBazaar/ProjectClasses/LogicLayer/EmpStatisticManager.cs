@@ -134,6 +134,73 @@ namespace ProjectClasses
             }
             return EmpStats;
         }
+
+        public List<double> ShowDepartmentOverallStatistics(string typeOfStats, string period, DateTime date, string deptCode)
+        {
+            List<double> EmpStats = new List<double>();
+            List<DateTime> DaysOfTHeWeek = GetDaysOfWeek(date);
+            int WeekNumber = GetWeekNumber(date);
+            switch (period)
+            {
+                case "year":
+                    if (typeOfStats == "Total salary")
+                    {
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForYear(date.Year.ToString(), "Total salary", "None", deptCode);
+                    }
+                    else if (typeOfStats == "Average salary")
+                    {
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForYear(date.Year.ToString(), "Total salary", "Average", deptCode);
+                    }
+                    else if (typeOfStats == "Total hours worked")
+                    {
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForYear(date.Year.ToString(), "Total hours worked", "None", deptCode);
+                    }
+                    else if (typeOfStats == "Average hours worked")
+                    {
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForYear(date.Year.ToString(), "Total hours worked", "Average", deptCode);
+                    }
+                    return EmpStats;
+                case "month":
+                    if (typeOfStats == "Total salary")
+                    {
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForMonth(date, "Total salary", "None", deptCode);
+                    }
+                    else if (typeOfStats == "Average salary")
+                    {
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForMonth(date, "Total salary", "Average", deptCode);
+                    }
+                    else if (typeOfStats == "Total hours worked")
+                    {
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForMonth(date, "Total hours worked", "None", deptCode);
+                    }
+                    else if (typeOfStats == "Average hours worked")
+                    {
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForMonth(date, "Total hours worked", "Average", deptCode);
+                    }
+                    return EmpStats;
+                case "week":
+                    if (typeOfStats == "Total salary")
+                    {
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total salary", "None", deptCode);
+                    }
+                    else if (typeOfStats == "Average salary")
+                    {
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total salary", "Average", deptCode);
+                    }
+                    else if (typeOfStats == "Total hours worked")
+                    {
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total hours worked", "None", deptCode);
+                    }
+                    else if (typeOfStats == "Average hours worked")
+                    {
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total hours worked", "Average", deptCode);
+                    }
+                    return EmpStats;
+            }
+            return EmpStats;
+        }
+
+
         public int GetWeekNumber(DateTime date)
         {
             return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);

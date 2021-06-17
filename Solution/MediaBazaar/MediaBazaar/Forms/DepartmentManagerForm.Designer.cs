@@ -43,6 +43,7 @@ namespace MediaBazaar
             this.userInterface1 = new MediaBazaar.UserInterface();
             this.unAssignDepartmentManagerUC1 = new MediaBazaar.UnAssignDepartmentManagerUC();
             this.btnDepartmentStatistics = new System.Windows.Forms.Button();
+            this.departmentManagerEmployeeStatistics1 = new MediaBazaar.DepartmentManagerEmployeeStatistics();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -190,6 +191,14 @@ namespace MediaBazaar
             this.btnDepartmentStatistics.TabIndex = 6;
             this.btnDepartmentStatistics.Text = "Statistics";
             this.btnDepartmentStatistics.UseVisualStyleBackColor = false;
+            this.btnDepartmentStatistics.Click += new System.EventHandler(this.btnDepartmentStatistics_Click);
+            // 
+            // departmentManagerEmployeeStatistics1
+            // 
+            this.departmentManagerEmployeeStatistics1.Location = new System.Drawing.Point(206, 0);
+            this.departmentManagerEmployeeStatistics1.Name = "departmentManagerEmployeeStatistics1";
+            this.departmentManagerEmployeeStatistics1.Size = new System.Drawing.Size(1130, 785);
+            this.departmentManagerEmployeeStatistics1.TabIndex = 44;
             // 
             // DepartmentManagerForm
             // 
@@ -197,6 +206,7 @@ namespace MediaBazaar
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1340, 792);
+            this.Controls.Add(this.departmentManagerEmployeeStatistics1);
             this.Controls.Add(this.unAssignDepartmentManagerUC1);
             this.Controls.Add(this.assignStoreWorkerToDepartmentUC1);
             this.Controls.Add(this.panel1);
@@ -230,5 +240,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnHolidayRequests;
         private UserControls.HolidayRequestsUC holidayRequestsUC;
         private System.Windows.Forms.Button btnDepartmentStatistics;
+        private DepartmentManagerEmployeeStatistics departmentManagerEmployeeStatistics1;
     }
 }
