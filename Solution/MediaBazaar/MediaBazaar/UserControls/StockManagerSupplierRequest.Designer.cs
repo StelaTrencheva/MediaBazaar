@@ -40,10 +40,11 @@
             this.lbxSupplierRequests = new System.Windows.Forms.ListBox();
             this.lblViewSupplierRequests = new System.Windows.Forms.Label();
             this.gbxSupplierContact = new System.Windows.Forms.GroupBox();
-            this.lblSupplierPhone = new System.Windows.Forms.Label();
-            this.lblSupplierEmail = new System.Windows.Forms.Label();
-            this.rtxbEmailContent = new System.Windows.Forms.RichTextBox();
             this.btnSendEmail = new System.Windows.Forms.Button();
+            this.rtxbEmailContent = new System.Windows.Forms.RichTextBox();
+            this.lblSupplierEmail = new System.Windows.Forms.Label();
+            this.lblSupplierPhone = new System.Windows.Forms.Label();
+            this.txbEmailSubject = new System.Windows.Forms.TextBox();
             this.gbxSupplierRequestProductInfo.SuspendLayout();
             this.pnlMinimumStock.SuspendLayout();
             this.pnlViewSupplierRequests.SuspendLayout();
@@ -175,6 +176,7 @@
             // gbxSupplierContact
             // 
             this.gbxSupplierContact.BackColor = System.Drawing.Color.White;
+            this.gbxSupplierContact.Controls.Add(this.txbEmailSubject);
             this.gbxSupplierContact.Controls.Add(this.btnSendEmail);
             this.gbxSupplierContact.Controls.Add(this.rtxbEmailContent);
             this.gbxSupplierContact.Controls.Add(this.lblSupplierEmail);
@@ -186,32 +188,6 @@
             this.gbxSupplierContact.TabIndex = 15;
             this.gbxSupplierContact.TabStop = false;
             // 
-            // lblSupplierPhone
-            // 
-            this.lblSupplierPhone.AutoSize = true;
-            this.lblSupplierPhone.Location = new System.Drawing.Point(17, 33);
-            this.lblSupplierPhone.Name = "lblSupplierPhone";
-            this.lblSupplierPhone.Size = new System.Drawing.Size(178, 29);
-            this.lblSupplierPhone.TabIndex = 0;
-            this.lblSupplierPhone.Text = "Supplier phone";
-            // 
-            // lblSupplierEmail
-            // 
-            this.lblSupplierEmail.AutoSize = true;
-            this.lblSupplierEmail.Location = new System.Drawing.Point(17, 87);
-            this.lblSupplierEmail.Name = "lblSupplierEmail";
-            this.lblSupplierEmail.Size = new System.Drawing.Size(169, 29);
-            this.lblSupplierEmail.TabIndex = 1;
-            this.lblSupplierEmail.Text = "Supplier email";
-            // 
-            // rtxbEmailContent
-            // 
-            this.rtxbEmailContent.Location = new System.Drawing.Point(323, 30);
-            this.rtxbEmailContent.Name = "rtxbEmailContent";
-            this.rtxbEmailContent.Size = new System.Drawing.Size(687, 247);
-            this.rtxbEmailContent.TabIndex = 2;
-            this.rtxbEmailContent.Text = "";
-            // 
             // btnSendEmail
             // 
             this.btnSendEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -222,6 +198,40 @@
             this.btnSendEmail.TabIndex = 14;
             this.btnSendEmail.Text = "Send email";
             this.btnSendEmail.UseVisualStyleBackColor = true;
+            this.btnSendEmail.Click += new System.EventHandler(this.btnSendEmail_Click);
+            // 
+            // rtxbEmailContent
+            // 
+            this.rtxbEmailContent.Location = new System.Drawing.Point(22, 128);
+            this.rtxbEmailContent.Name = "rtxbEmailContent";
+            this.rtxbEmailContent.Size = new System.Drawing.Size(988, 149);
+            this.rtxbEmailContent.TabIndex = 2;
+            this.rtxbEmailContent.Text = "";
+            // 
+            // lblSupplierEmail
+            // 
+            this.lblSupplierEmail.AutoSize = true;
+            this.lblSupplierEmail.Location = new System.Drawing.Point(17, 30);
+            this.lblSupplierEmail.Name = "lblSupplierEmail";
+            this.lblSupplierEmail.Size = new System.Drawing.Size(169, 29);
+            this.lblSupplierEmail.TabIndex = 1;
+            this.lblSupplierEmail.Text = "Supplier email";
+            // 
+            // lblSupplierPhone
+            // 
+            this.lblSupplierPhone.AutoSize = true;
+            this.lblSupplierPhone.Location = new System.Drawing.Point(383, 30);
+            this.lblSupplierPhone.Name = "lblSupplierPhone";
+            this.lblSupplierPhone.Size = new System.Drawing.Size(178, 29);
+            this.lblSupplierPhone.TabIndex = 0;
+            this.lblSupplierPhone.Text = "Supplier phone";
+            // 
+            // txbEmailSubject
+            // 
+            this.txbEmailSubject.Location = new System.Drawing.Point(22, 88);
+            this.txbEmailSubject.Name = "txbEmailSubject";
+            this.txbEmailSubject.Size = new System.Drawing.Size(539, 34);
+            this.txbEmailSubject.TabIndex = 15;
             // 
             // StockManagerSupplierRequest
             // 
@@ -265,5 +275,6 @@
         private System.Windows.Forms.RichTextBox rtxbEmailContent;
         private System.Windows.Forms.Label lblSupplierEmail;
         private System.Windows.Forms.Label lblSupplierPhone;
+        private System.Windows.Forms.TextBox txbEmailSubject;
     }
 }

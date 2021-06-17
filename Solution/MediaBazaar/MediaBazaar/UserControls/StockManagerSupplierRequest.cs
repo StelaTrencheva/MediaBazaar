@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -36,6 +38,7 @@ namespace MediaBazaar
         }
         private void lbxSupplierRequests_DoubleClick(object sender, EventArgs e)
         {
+            gbxSupplierContact.Visible = false;
             foreach (var request in requestManager.GetAllSupplierRequests())
             {
                 if (lbxSupplierRequests.Items[prevIndex].ToString() == $"{request.Key.Type} - ({request.Key.Brand})")
@@ -123,6 +126,28 @@ namespace MediaBazaar
             e.DrawFocusRectangle();
         }
 
-        
+        private void btnSendEmail_Click(object sender, EventArgs e)
+        {
+            if (lblSupplierEmail.Text != "Supplier email" && !String.IsNullOrEmpty(txbEmailSubject.Text) && !String.IsNullOrEmpty(rtxbEmailContent.Text))
+            {
+                this.SendEmailToSupplier(lblSupplierEmail.Text, txbEmailSubject.Text, rtxbEmailContent.Text);
+                txbEmailSubject.Text = String.Empty;
+                rtxbEmailContent.Text = String.Empty;
+                MessageBox.Show("Email successfully sent!");
+            }
+            else { MessageBox.Show("Invalid input"); }
+
+        }
+        private void SendEmailToSupplier(string clientEmail, string emailSubject, string emailContent)
+        {
+            var smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential("mediabazaar.mail@gmail.com", "media@bazaar"),
+                EnableSsl = true,
+            };
+
+            smtpClient.Send("mediabazaar.mail@gmail.com", $"{clientEmail}", $"{emailSubject}", $"{emailContent}");
+        }
     }
 }
