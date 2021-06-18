@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using ProjectClasses;
+using ProjectClasses.LogicLayer;
 
 namespace MediaBazaar
 {
@@ -19,6 +20,7 @@ namespace MediaBazaar
         private List<DateTime> dates = new List<DateTime>();
         private Dictionary<DateTime, List<Shift>> shifts = null;
         private Color cellColor = Color.White;
+        private DepartmentManager dm;
 
         private void CreateFutureMonths()
         {
@@ -26,9 +28,9 @@ namespace MediaBazaar
             {
                 string month = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(today.Month + i);
                 cbMonth.Items.Add(month);
-                shiftManager = new ShiftManager();
-
             }
+            shiftManager = new ShiftManager();
+            dm = new DepartmentManager();
         }
         public StoreWorkerScheduleInterface()
         {
@@ -441,6 +443,65 @@ namespace MediaBazaar
             lbDisplayEmployees.Items.Clear();
         }
 
-        
+
+       // Automatic Schedule
+        private void btnDiscard_Click(object sender, EventArgs e)
+        {
+            DisplayAllPanelsInAutoSchedule(false);
+            pnlGenerateSchedule.Visible = true;
+        }
+        private void DisplayAllPanelsInAutoSchedule(bool visible)
+        {
+            pnlSelectedWeek.Visible = visible;
+            pnlManageCreatedSchedule.Visible = visible;
+            pnlSchedule.Visible = visible;
+        }
+        private void btnGenerateSchedule_Click(object sender, EventArgs e)
+        {
+            DisplayAllPanelsInAutoSchedule(true);
+            pnlGenerateSchedule.Visible = false;
+            DateTime selectedDate = monthCalendarAutoSchedule.SelectionRange.Start;
+            AddDefaultRows(dgvViewGeneratedSchedule);
+            Department department = new Department(Convert.ToInt32(cbxDepartment.SelectedItem.ToString().Substring(6, cbxDepartment.SelectedItem.ToString().IndexOf('-')-7)), cbxDepartment.SelectedItem.ToString().Substring(cbxDepartment.SelectedItem.ToString().IndexOf('-')+2,cbxDepartment.SelectedItem.ToString().Length- (cbxDepartment.SelectedItem.ToString().IndexOf('-') + 2)));
+
+            WeekSchedule newSchedule=shiftManager.CreateWeekSchedule(selectedDate,department);
+
+            lblSelectedWeekAndDepartment.Text = $"Week: {newSchedule.WeekStartDate.ToShortDateString()} - {newSchedule.WeekEndDate.ToShortDateString()} - Department: {newSchedule.Department.Name}";
+
+            foreach (EmployeeInSchedule item in newSchedule.EmployeesInScheduleManager.GetEmployeeInSchedules())
+            {
+                MessageBox.Show(item.ToString());
+            }
+        }
+        private void AddDefaultRows(DataGridView dgv)
+        {
+            dgv.Rows.Clear();
+            foreach (Day day in Enum.GetValues(typeof(DayOfWeek)))
+            {
+                dgv.Rows.Add();
+                dgv.Rows[(int)day].HeaderCell.Value = day.ToString();
+                dgv.Rows[(int)day].DefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF686B");
+            }
+
+        }
+
+        private void picInfo_MouseHover_1(object sender, EventArgs e)
+        {
+            lblInfo.Visible = true;
+        }
+
+        private void picInfo_MouseLeave(object sender, EventArgs e)
+        {
+            lblInfo.Visible = false;
+        }
+
+        private void cbxDepartment_Click(object sender, EventArgs e)
+        {
+            cbxDepartment.Items.Clear();
+            foreach (Department department in dm.GetDepartments())
+            {
+                cbxDepartment.Items.Add(department.ToString());
+            }
+        }
     }
 }

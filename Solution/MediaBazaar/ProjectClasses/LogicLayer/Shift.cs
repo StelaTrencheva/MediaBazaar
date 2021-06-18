@@ -26,12 +26,19 @@ namespace ProjectClasses
             get { return this.assignableEmployees; }
             set { this.assignableEmployees = value; }
         }
-        public Shift(ShiftType shiftType, DateTime date, List<Employee> assignedEmployees, int assignableEmployees)
+        public Shift(ShiftType shiftType, DateTime date, List<Employee> assignedEmployees)
         {
             this.type = shiftType;
             this.date = date;
             this.assignedEmployees = assignedEmployees;
-            this.assignableEmployees = assignableEmployees;
+            if ((shiftType == ShiftType.Morning || shiftType == ShiftType.Night) && (date.DayOfWeek != DayOfWeek.Friday && date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday))
+            {
+                this.assignableEmployees = 5;
+            }
+            else
+            {
+                this.assignableEmployees = 10;
+            }
 
         }
 
@@ -74,3 +81,4 @@ namespace ProjectClasses
         }
     }
 }
+

@@ -66,6 +66,8 @@
     <Compile Include="Exceptions\ExistingHolidayException.cs" />
     <Compile Include="Exceptions\IncorrectPricingException.cs" />
     <Compile Include="Exceptions\RepeatingObjectException.cs" />
+    <Compile Include="LogicLayer\EmployeeInSchedule.cs" />
+    <Compile Include="LogicLayer\EmployeeInScheduleManager.cs" />
     <Compile Include="LogicLayer\Holiday.cs" />
     <Compile Include="LogicLayer\HolidayManager.cs" />
     <Compile Include="Exceptions\NotExistingHolidayException.cs" />
@@ -83,6 +85,7 @@
     <Compile Include="LogicLayer\ProductManager.cs" />
     <Compile Include="LogicLayer\Shift.cs" />
     <Compile Include="LogicLayer\ShiftManager.cs" />
+    <Compile Include="LogicLayer\WeekSchedule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

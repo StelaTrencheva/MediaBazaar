@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectClasses.LogicLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,7 @@ namespace ProjectClasses
             {
                 assignableEmployees = 10;
             }
-            Shift newShift = new Shift(shiftType, date, new List<Employee>(), assignableEmployees);
+            Shift newShift = new Shift(shiftType, date, new List<Employee>());
             dbMediator.AddShift(newShift);
             return newShift;
         }
@@ -125,6 +126,12 @@ namespace ProjectClasses
 
 
             return shifts;
+        }
+        //AutomaticSchedule
+        public WeekSchedule CreateWeekSchedule(DateTime date,Department department)
+        {
+            WeekSchedule newSchedule = new WeekSchedule(date,department);
+            return newSchedule;
         }
     }
 }

@@ -74,7 +74,8 @@ namespace ProjectClasses
                         {
                             shifts.Add(date, new Dictionary< KeyValuePair<ShiftType, DateTime>, Shift>());
                         }
-                        shift = new Shift(shiftType, date, new List<Employee>(), assignableEmployees);
+                        //shift = new Shift(shiftType, date, new List<Employee>(), assignableEmployees);
+                        shift = new Shift(shiftType, date, new List<Employee>());
                     }
 
                     shift.AssignEmployee(foundEmployee);
