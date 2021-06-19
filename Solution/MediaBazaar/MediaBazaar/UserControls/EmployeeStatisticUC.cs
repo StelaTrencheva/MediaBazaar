@@ -29,9 +29,6 @@ namespace MediaBazaar
             {
                 lbxEmployees.Items.Add(emp.GetEmployeeNames);
             }
-            
-
-
         }
         private void tbpAllEmployees_Click(object sender, EventArgs e)
         {
@@ -47,13 +44,17 @@ namespace MediaBazaar
                 foreach (Employee emp in empStatistics.GetListOfAllEmployees())
                 { lbxEmployees.Items.Add(emp.GetEmployeeNames); }
             }
-            foreach (Employee emp in empStatistics.GetListOfAllEmployees())
+            else
             {
-                if (emp.GetEmployeeNames.ToLower().Contains(empName))
+                lbxEmployees.Items.Clear();
+                foreach (Employee emp in empStatistics.GetListOfAllEmployees())
                 {
-                    lbxEmployees.Items.Add(emp.GetEmployeeNames);
-                }
+                    if (emp.GetEmployeeNames.ToLower().Contains(empName))
+                    {
+                        lbxEmployees.Items.Add(emp.GetEmployeeNames);
+                    }
 
+                }
             }
         }
         private void btnShowStatistics_Click(object sender, EventArgs e)

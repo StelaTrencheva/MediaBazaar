@@ -111,5 +111,10 @@ namespace ProjectClasses
         {
             return dbMediator.GetDepartmentSubcategories(deptId, category);
         }
+
+        public List<Employee> GetAllStoreWorkersFormDepartment(string deptCode)
+        {
+            return dbMediator.GetStoreWorkersFromDepartment(deptCode);
+        }
     }
 }

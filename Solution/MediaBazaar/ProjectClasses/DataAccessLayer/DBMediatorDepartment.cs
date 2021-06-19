@@ -541,5 +541,48 @@ namespace ProjectClasses
                 DbConnection.Close();
             }
         }
+
+        public List<Employee> GetStoreWorkersFromDepartment(string deptCode)
+        {
+            string sqlStatement = "SELECT e.*, c.contract as contracttype, c.startdate as contractstartdate FROM `mb_department_storeworker` AS d " +
+                                  "INNER JOIN `mb_employee` AS e " +
+                                  "ON d.storeworker_id = e.id " +
+                                  "LEFT JOIN `mb_employee_contract` AS c on e.id = c.empid " +
+                                  "WHERE d.dept_code = @deptCode";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@deptCode", deptCode);
+            List<Employee> employees = new List<Employee>();
+            try
+            {
+                MySqlDataReader EmployeeReader;
+                DbConnection.Open();
+
+                EmployeeReader = sqlCommand.ExecuteReader();
+                while (EmployeeReader.Read())
+                {
+                    Enum.TryParse(EmployeeReader["contracttype"].ToString(), out ContractType contracttype);
+                    Enum.TryParse(EmployeeReader["position"].ToString(), out EmployeeType position);
+                    Enum.TryParse(EmployeeReader["gender"].ToString(), out Gender gender);
+                    employees.Add(new Employee(Convert.ToInt32(EmployeeReader["id"]), EmployeeReader["bsn"].ToString(),
+                    EmployeeReader["fname"].ToString(), EmployeeReader["lname"].ToString(), gender,
+                    EmployeeReader["email"].ToString(), EmployeeReader["uname"].ToString(),
+                    Convert.ToDateTime(EmployeeReader["birthdate"].ToString()), EmployeeReader["street"].ToString(),
+                    EmployeeReader["streetnumber"].ToString(), EmployeeReader["zipcode"].ToString(), EmployeeReader["town"].ToString(),
+                    EmployeeReader["country"].ToString(), Convert.ToDateTime(EmployeeReader["firstworkingday"].ToString()),
+                    EmployeeReader["emergphonenumber"].ToString(), EmployeeReader["iban"].ToString(),
+                    Convert.ToDouble(EmployeeReader["hourlywage"]),
+                    Convert.ToDateTime(EmployeeReader["contractstartdate"].ToString()), contracttype, position));
+                }
+                return employees;
+            }
+            catch (MySqlException)
+            {
+                return employees;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
     }
 }
