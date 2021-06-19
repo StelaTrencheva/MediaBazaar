@@ -14,6 +14,7 @@ namespace MediaBazaar
         string periodOverviewStats = "year";
         DateTime dateOverviewStats = DateTime.Now;
         DateTime dateIndividualStats = DateTime.Now;
+        string contract = "no contract";
         string[] month = new string[12] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
         string[] day = new string[7] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
         public EmployeeStatistics()
@@ -165,7 +166,7 @@ namespace MediaBazaar
         //chart 
         public void ShowOverallStatisticsForTotalSalary()
         {
-            List<double> EmpStats = empStatistics.ShowOverallStatistics(TypeOfStats, periodOverviewStats, dateOverviewStats);
+            List<double> EmpStats = empStatistics.ShowOverallStatistics(TypeOfStats, periodOverviewStats, dateOverviewStats, contract);
             if (!String.IsNullOrEmpty(lblChartTitle.Text))
             {
                 lblChartTitle.Text += " x " + TypeOfStats;
@@ -241,5 +242,11 @@ namespace MediaBazaar
             dateOverviewStats = dtDateStatistic.Value;
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            contract = cbbFilterByContract.SelectedItem.ToString();
+            ClearEmpStatsChart();
+            ShowOverallStatisticsForTotalSalary();
+        }
     }
 }

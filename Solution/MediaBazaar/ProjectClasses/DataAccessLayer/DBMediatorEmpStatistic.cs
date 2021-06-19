@@ -137,16 +137,35 @@ namespace ProjectClasses
             return assignedHours;
         }
 
-        public List<double> GetOverallEmpStatTotalSalaryForYear(string year, string conditionTotal, string conditionAvg)
+        public List<double> GetOverallEmpStatTotalSalaryForYear(string year, string conditionTotal, string conditionAvg, string contract)
         {
-            string sqlStatement = "SELECT IFNULL(Count(*),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(MONTH FROM em.date) AS month " +
+            string sqlStatementOne = "SELECT IFNULL(Count(*),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(MONTH FROM em.date) AS month " +
                                   "FROM `mb_shift_with_assigned_employee` as em  " +
                                   "INNER JOIN `mb_employee`as emp " +
                                   "ON em.employeeID = emp.id " +
                                   "WHERE EXTRACT(YEAR FROM em.date) = @year " +
                                   "GROUP BY month, emp.id";
-            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
-            sqlCommand.Parameters.AddWithValue("@year", year);
+
+            string sqlStatementTwo = "SELECT IFNULL(Count(*),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(MONTH FROM em.date) AS month " +
+                "FROM `mb_shift_with_assigned_employee` as em " +
+                "INNER JOIN `mb_employee`as emp " +
+                "ON em.employeeID = emp.id " +
+                "LEFT JOIN `mb_employee_contract` as c " +
+                "ON emp.id = c.empid " +
+                "WHERE EXTRACT(YEAR FROM em.date) = 2021 AND c.contract = @contract " +
+                "GROUP BY month, emp.id";
+            MySqlCommand sqlCommand;
+            if (contract == "no contract")
+            {
+                sqlCommand = new MySqlCommand(sqlStatementOne, this.DbConnection);
+                sqlCommand.Parameters.AddWithValue("@year", year);
+            }
+            else
+            {
+                sqlCommand = new MySqlCommand(sqlStatementTwo, this.DbConnection);
+                sqlCommand.Parameters.AddWithValue("@year", year);
+                sqlCommand.Parameters.AddWithValue("@contract", contract);
+            }
             List<double> TotalSalaryPerMonths = new List<double>();
             List<int> Months = new List<int>();
             List<double> counter = new List<double>();
@@ -209,16 +228,35 @@ namespace ProjectClasses
             }
             return TotalSalaryPerMonths;
         }
-        public List<double> GetOverallEmpStatTotalSalaryForMonth(DateTime date, string conditionTotal, string conditionAvg)
+        public List<double> GetOverallEmpStatTotalSalaryForMonth(DateTime date, string conditionTotal, string conditionAvg, string contract)
         {
-            string sqlStatement = "SELECT IFNULL(Count(*),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(DAY FROM em.date) AS day " +
+            string sqlStatementOne = "SELECT IFNULL(Count(*),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(DAY FROM em.date) AS day " +
                 "FROM `mb_shift_with_assigned_employee` as em " +
                 "INNER JOIN `mb_employee`as emp " +
                 "ON em.employeeID = emp.id " +
                 "WHERE EXTRACT(MONTH FROM em.date) = @month " +
                 "GROUP BY day, emp.id";
-            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
-            sqlCommand.Parameters.AddWithValue("@month", date.Month.ToString());
+
+            string sqlStatementTwo = "SELECT IFNULL(Count(*),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(DAY FROM em.date) AS day " +
+                "FROM `mb_shift_with_assigned_employee` as em " +
+                "INNER JOIN `mb_employee`as emp " +
+                "ON em.employeeID = emp.id " +
+                "LEFT JOIN `mb_employee_contract` as c " +
+                "ON emp.id = c.empid " +
+                "WHERE EXTRACT(MONTH FROM em.date) = @month AND c.contract = @contract " +
+                "GROUP BY day, emp.id";
+            MySqlCommand sqlCommand;
+            if (contract == "no contract")
+            {
+                sqlCommand = new MySqlCommand(sqlStatementOne, this.DbConnection);
+                sqlCommand.Parameters.AddWithValue("@month", date.Month.ToString());
+            }
+            else
+            {
+                sqlCommand = new MySqlCommand(sqlStatementTwo, this.DbConnection);
+                sqlCommand.Parameters.AddWithValue("@month", date.Month.ToString());
+                sqlCommand.Parameters.AddWithValue("@contract", contract);
+            }
             List<double> TotalSalaryPerMonths = new List<double>();
             List<int> Days = new List<int>();
             List<double> counter = new List<double>();
@@ -280,16 +318,36 @@ namespace ProjectClasses
             }
             return TotalSalaryPerMonths;
         }
-        public List<double> GetOverallEmpStatTotalSalaryForWeek(List<DateTime> DaysOfTheWeek, int week, DateTime date, string conditionTotal, string conditionAvg)
+        public List<double> GetOverallEmpStatTotalSalaryForWeek(List<DateTime> DaysOfTheWeek, int week, DateTime date, string conditionTotal, string conditionAvg, string contract)
         {
-            string sqlStatement = "SELECT IFNULL(Count(*),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(DAY FROM em.date) AS day " +
+            string sqlStatementOne = "SELECT IFNULL(Count(*),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(DAY FROM em.date) AS day " +
             "FROM `mb_shift_with_assigned_employee` as em " +
             "INNER JOIN `mb_employee`as emp " +
             "ON em.employeeID = emp.id " +
             "WHERE EXTRACT(WEEK FROM em.date) = @week " +
             "GROUP BY day, emp.id";
-            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, this.DbConnection);
-            sqlCommand.Parameters.AddWithValue("@week", week);
+
+            string sqlStatementTwo = "SELECT IFNULL(Count(*),0) as assignedHours, IFNULL((emp.hourlywage),0) as wage, EXTRACT(DAY FROM em.date) AS day  " +
+                "FROM `mb_shift_with_assigned_employee` as em " +
+                "INNER JOIN `mb_employee`as emp " +
+                "ON em.employeeID = emp.id " +
+                "LEFT JOIN `mb_employee_contract` as c " +
+                "ON emp.id = c.empid " +
+                "WHERE EXTRACT(WEEK FROM em.date) = @week AND c.contract = @contract " +
+                "GROUP BY day, emp.id";
+            MySqlCommand sqlCommand;
+            if (contract == "no contract")
+            {
+                sqlCommand = new MySqlCommand(sqlStatementOne, this.DbConnection);
+                sqlCommand.Parameters.AddWithValue("@week", week);
+            }
+            else
+            {
+                sqlCommand = new MySqlCommand(sqlStatementTwo, this.DbConnection);
+                sqlCommand.Parameters.AddWithValue("@week", week);
+                sqlCommand.Parameters.AddWithValue("@contract", contract);
+            }
+            
             List<double> TotalSalaryPerWeek = new List<double>();
             List<double> counter = new List<double>();
             for (int i = 0; i < 7; i++)
@@ -568,8 +626,6 @@ namespace ProjectClasses
             }
             return TotalSalaryPerWeek;
         }
-
-
 
     }
 }
