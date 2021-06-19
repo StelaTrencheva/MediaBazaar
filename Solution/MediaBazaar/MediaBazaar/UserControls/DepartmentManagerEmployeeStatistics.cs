@@ -239,21 +239,13 @@ namespace MediaBazaar
         private void cbbAllKindsOfStatistics_SelectedIndexChanged(object sender, EventArgs e)
         {
             TypeOfStats = cbbAllKindsOfStatistics.SelectedItem.ToString();
+            this.ClearEmpStatsChart();
+            ShowDepartmentStatistics();
         }
 
         private void dtDateStatistic_ValueChanged(object sender, EventArgs e)
         {
             dateOverviewStats = dtDateStatistic.Value;
-        }
-
-        private void btnShowStats_Click(object sender, EventArgs e)
-        {
-            ShowDepartmentStatistics();
-        }
-
-        private void btnRemoveStats_Click(object sender, EventArgs e)
-        {
-            this.ClearEmpStatsChart();
         }
 
         

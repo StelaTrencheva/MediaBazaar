@@ -41,8 +41,6 @@
             this.tbcEmployeeStatistics = new System.Windows.Forms.TabControl();
             this.tbpAllEmployees = new System.Windows.Forms.TabPage();
             this.lblChartTitle = new System.Windows.Forms.Label();
-            this.btnRemoveStats = new System.Windows.Forms.Button();
-            this.btnShowStats = new System.Windows.Forms.Button();
             this.rbtnWeek = new System.Windows.Forms.RadioButton();
             this.rbtnMonth = new System.Windows.Forms.RadioButton();
             this.rbtnYear = new System.Windows.Forms.RadioButton();
@@ -103,8 +101,6 @@
             // tbpAllEmployees
             // 
             this.tbpAllEmployees.Controls.Add(this.lblChartTitle);
-            this.tbpAllEmployees.Controls.Add(this.btnRemoveStats);
-            this.tbpAllEmployees.Controls.Add(this.btnShowStats);
             this.tbpAllEmployees.Controls.Add(this.rbtnWeek);
             this.tbpAllEmployees.Controls.Add(this.rbtnMonth);
             this.tbpAllEmployees.Controls.Add(this.rbtnYear);
@@ -130,28 +126,6 @@
             this.lblChartTitle.Name = "lblChartTitle";
             this.lblChartTitle.Size = new System.Drawing.Size(0, 24);
             this.lblChartTitle.TabIndex = 28;
-            // 
-            // btnRemoveStats
-            // 
-            this.btnRemoveStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnRemoveStats.Location = new System.Drawing.Point(571, 669);
-            this.btnRemoveStats.Name = "btnRemoveStats";
-            this.btnRemoveStats.Size = new System.Drawing.Size(340, 46);
-            this.btnRemoveStats.TabIndex = 27;
-            this.btnRemoveStats.Text = "Remove statistics";
-            this.btnRemoveStats.UseVisualStyleBackColor = true;
-            this.btnRemoveStats.Click += new System.EventHandler(this.btnRemoveStats_Click);
-            // 
-            // btnShowStats
-            // 
-            this.btnShowStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnShowStats.Location = new System.Drawing.Point(100, 669);
-            this.btnShowStats.Name = "btnShowStats";
-            this.btnShowStats.Size = new System.Drawing.Size(340, 46);
-            this.btnShowStats.TabIndex = 26;
-            this.btnShowStats.Text = "Show statistics";
-            this.btnShowStats.UseVisualStyleBackColor = true;
-            this.btnShowStats.Click += new System.EventHandler(this.btnShowStats_Click);
             // 
             // rbtnWeek
             // 
@@ -203,26 +177,34 @@
             this.chartStatistics.Name = "chartStatistics";
             series1.ChartArea = "ChartArea1";
             series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            series1.IsValueShownAsLabel = true;
             series1.IsVisibleInLegend = false;
+            series1.IsXValueIndexed = true;
             series1.Legend = "Legend1";
             series1.Name = "Total salary";
             series2.ChartArea = "ChartArea1";
+            series2.IsValueShownAsLabel = true;
             series2.IsVisibleInLegend = false;
+            series2.IsXValueIndexed = true;
             series2.Legend = "Legend1";
             series2.Name = "Average salary";
             series3.ChartArea = "ChartArea1";
+            series3.IsValueShownAsLabel = true;
             series3.IsVisibleInLegend = false;
+            series3.IsXValueIndexed = true;
             series3.Legend = "Legend1";
             series3.Name = "Total hours worked";
             series4.ChartArea = "ChartArea1";
+            series4.IsValueShownAsLabel = true;
             series4.IsVisibleInLegend = false;
+            series4.IsXValueIndexed = true;
             series4.Legend = "Legend1";
             series4.Name = "Average hours worked";
             this.chartStatistics.Series.Add(series1);
             this.chartStatistics.Series.Add(series2);
             this.chartStatistics.Series.Add(series3);
             this.chartStatistics.Series.Add(series4);
-            this.chartStatistics.Size = new System.Drawing.Size(1111, 406);
+            this.chartStatistics.Size = new System.Drawing.Size(1111, 498);
             this.chartStatistics.TabIndex = 20;
             this.chartStatistics.Text = "chart1";
             // 
@@ -371,11 +353,15 @@
             this.chartutilizationOfAnEmployee.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series5.ChartArea = "ChartArea1";
             series5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            series5.IsValueShownAsLabel = true;
+            series5.IsXValueIndexed = true;
             series5.Legend = "Legend1";
             series5.LegendText = "Actual hours worked";
             series5.Name = "Actual hours worked";
             series6.ChartArea = "ChartArea1";
             series6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            series6.IsValueShownAsLabel = true;
+            series6.IsXValueIndexed = true;
             series6.Legend = "Legend1";
             series6.LegendText = "Contractual hours";
             series6.Name = "Contractual hours";
@@ -649,8 +635,6 @@
         private System.Windows.Forms.RadioButton rbtnYear;
         private System.Windows.Forms.RadioButton rbtnMonth;
         private System.Windows.Forms.RadioButton rbtnWeek;
-        private System.Windows.Forms.Button btnRemoveStats;
-        private System.Windows.Forms.Button btnShowStats;
         private System.Windows.Forms.Label lblChartTitle;
         private System.Windows.Forms.GroupBox gbxEmpInformation;
         private System.Windows.Forms.Label lblEmpHourlyWage;
