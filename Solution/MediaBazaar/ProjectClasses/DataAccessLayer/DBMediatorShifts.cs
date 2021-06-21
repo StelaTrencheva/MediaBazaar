@@ -325,6 +325,50 @@ namespace ProjectClasses
                 DbConnection.Close();
             }
         }
+        public List<EmployeeInSchedule> GetAllFlexContractEmployees(int week,Department department)
+        {
+            // gets employee info and available shifts per employee
+            string sqlStatement = $"SELECT e.*,ec.contract as 'contracttype',ec.startdate as 'contractstartdate',ea.shiftType,ea.date FROM mb_employee_availability as ea inner join mb_employee e on ea.employeeID=e.id inner join mb_employee_contract ec on e.id=ec.empid where ec.startdate<now() and ec.lastdate>now() and week(ea.date,1)=@week and e.id not in (select mb_holidays.employeeID from mb_holidays where ea.date between mb_holidays.start_date and mb_holidays.end_date) and e.id not in(SELECT mb_department_storeworker.storeworker_id from mb_department_storeworker where mb_department_storeworker.dept_code=@department) and ec.contract='FLEX'";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@week", week);
+            sqlCommand.Parameters.AddWithValue("@department", department.Code);
+            Dictionary<int, EmployeeInSchedule> employeesInSchedule = new Dictionary<int, EmployeeInSchedule>();
+            try
+            {
+                MySqlDataReader EmployeeReader;
+                DbConnection.Open();
+
+                EmployeeReader = sqlCommand.ExecuteReader();
+                while (EmployeeReader.Read())
+                {
+                    Enum.TryParse(EmployeeReader["contracttype"].ToString(), out ContractType contracttype);
+                    Enum.TryParse(EmployeeReader["position"].ToString(), out EmployeeType position);
+                    Enum.TryParse(EmployeeReader["gender"].ToString(), out Gender gender);
+                    Enum.TryParse(EmployeeReader["shiftType"].ToString(), out ShiftType shiftType);
+                    Employee emp = new Employee(Convert.ToInt32(EmployeeReader["id"]), EmployeeReader["bsn"].ToString(),
+                    EmployeeReader["fname"].ToString(), EmployeeReader["lname"].ToString(), gender,
+                    EmployeeReader["email"].ToString(), EmployeeReader["uname"].ToString(),
+                    Convert.ToDateTime(EmployeeReader["birthdate"].ToString()), EmployeeReader["street"].ToString(),
+                    EmployeeReader["streetnumber"].ToString(), EmployeeReader["zipcode"].ToString(), EmployeeReader["town"].ToString(),
+                    EmployeeReader["country"].ToString(), Convert.ToDateTime(EmployeeReader["firstworkingday"].ToString()),
+                    EmployeeReader["emergphonenumber"].ToString(), EmployeeReader["iban"].ToString(),
+                    Convert.ToDouble(EmployeeReader["hourlywage"]),
+                    Convert.ToDateTime(EmployeeReader["contractstartdate"].ToString()), contracttype, position);
+                    Shift availableShift = new Shift(shiftType, Convert.ToDateTime(EmployeeReader["date"]), new List<Employee>());
+
+                    AddEmployeeInSchedule(employeesInSchedule, emp, availableShift);
+                }
+                return employeesInSchedule.Values.ToList();
+            }
+            catch (MySqlException)
+            {
+                return null;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
 
         private void AddEmployeeInSchedule(Dictionary<int, EmployeeInSchedule> employeesInSchedule, Employee employee, Shift shift)
         {

@@ -24,7 +24,17 @@ namespace ProjectClasses
         public int AssignableEmployees
         {
             get { return this.assignableEmployees; }
-            set { this.assignableEmployees = value; }
+            set
+            {
+                if (value < 0 ||( this.AssignableEmployees > value && this.GetAssignedEmployees().Count > value))
+                {
+                    throw new ArgumentException("Please enter a valid number!");
+                }
+                else
+                {
+                    this.assignableEmployees = value;
+                }
+            }
         }
         public Shift(ShiftType shiftType, DateTime date, List<Employee> assignedEmployees)
         {
@@ -62,8 +72,7 @@ namespace ProjectClasses
         }
         public void AssignEmployee(Employee employee)
         {
-            assignedEmployees.Add(employee);
-
+            this.assignedEmployees.Add(employee);
         }
         public bool RemoveEmployee(int employeeId)
         {

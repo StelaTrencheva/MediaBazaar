@@ -46,7 +46,7 @@ namespace ProjectClasses.LogicLayer
         {
             foreach (EmployeeInSchedule emp in employeesInDepartment)
             {
-                if (emp.Employee == employee)
+                if (emp.Employee.Id == employee.Id)
                 {
                     return GetAssignedHoursPerWeek(emp);
                 }
@@ -105,7 +105,22 @@ namespace ProjectClasses.LogicLayer
         {
             return shiftsInWeek.OrderBy(x => x.Date).ThenBy(x=>x.Type).ToList();
         }
-
+        public List<EmployeeInSchedule> GetAllAvailableEmployees(Shift shift)
+        {
+            List<EmployeeInSchedule> allAvailableEmployees = new List<EmployeeInSchedule>();
+            foreach (EmployeeInSchedule employee in dbMediator.GetAllFlexContractEmployees(this.weekNumber,this.department))
+            {
+                    allAvailableEmployees.Add(employee);
+            }
+            foreach (EmployeeInSchedule employeeInDepartment in employeesInDepartment)
+            {
+                if (!allAvailableEmployees.Contains(employeeInDepartment)&& !shift.GetAssignedEmployees().Contains(employeeInDepartment.Employee))
+                {
+                    allAvailableEmployees.Add(employeeInDepartment);
+                }
+            }
+            return allAvailableEmployees.OrderBy(x=>x.Employee.Id).ToList();
+        }
         public void ReorderList(List<EmployeeInSchedule> employees)
         {
             // sort by
@@ -144,10 +159,14 @@ namespace ProjectClasses.LogicLayer
             int employeeAssignedHoursPerWeek = 0;
             foreach (Shift shift1 in shiftsInWeek)
             {
-                if (shift1.GetAssignedEmployees().Contains(employeeInSchedule.Employee))
+                foreach (Employee employee in shift1.GetAssignedEmployees())
                 {
+                    if (employee.Id == employeeInSchedule.Employee.Id)
+                    {
                     employeeAssignedHoursPerWeek++;
+                    }
                 }
+               
             }
 
             return employeeAssignedHoursPerWeek * 4;
@@ -167,12 +186,13 @@ namespace ProjectClasses.LogicLayer
 
         private void FillSchedule()
         {
+            List<EmployeeInSchedule> employeesInDepartmentModifiedList = new List<EmployeeInSchedule>(employeesInDepartment);
             foreach(Shift shift in shiftsInWeek)
             {
-                ReorderList(employeesInDepartment);
+                ReorderList(employeesInDepartmentModifiedList);
                 List<EmployeeInSchedule> employeesReachedMaxWorkingHoursPerWeek = new List<EmployeeInSchedule>();
 
-                foreach(EmployeeInSchedule employee in employeesInDepartment)
+                foreach(EmployeeInSchedule employee in employeesInDepartmentModifiedList)
                 {
                     if (CanEmployeeBeAssignedToShift(employee, shift))
                     {
@@ -199,7 +219,7 @@ namespace ProjectClasses.LogicLayer
                 // remove all employees that have reached the maximum working hours
                 foreach(EmployeeInSchedule employee in employeesReachedMaxWorkingHoursPerWeek)
                 {
-                    employeesInDepartment.Remove(employee);
+                    employeesInDepartmentModifiedList.Remove(employee);
                 }
             }
         }
@@ -229,7 +249,7 @@ namespace ProjectClasses.LogicLayer
 
             return true;
         }
-        private bool HasEmployeeReachedWeeklyHoursLimit(EmployeeInSchedule employee)
+        public bool HasEmployeeReachedWeeklyHoursLimit(EmployeeInSchedule employee)
         {
             int assignedHours = GetAssignedHoursPerWeek(employee);
 
@@ -251,6 +271,32 @@ namespace ProjectClasses.LogicLayer
                 }
             }
 
+            return false;
+        }
+        public EmployeeInSchedule GetEmployeeFromAvailableEmployees(Shift shift,int employeeId)
+        {
+            foreach (EmployeeInSchedule employee in GetAllAvailableEmployees(shift))
+            {
+                if (employee.Employee.Id == employeeId)
+                {
+                    return employee;
+                }
+            }
+            return null;
+        }
+        public bool AssignEmployeeToShift(Shift shift,EmployeeInSchedule employee)
+        {
+            if (shift.AssignableEmployees - shift.GetAssignedEmployees().Count > 0 && !shift.GetAssignedEmployees().Contains(employee.Employee)&&employee!=null)
+            {
+                //foreach (Shift shift1 in employee.AvailableShifts)
+                //{
+                //    if (shift1.Date.Equals(shift.Date) && shift1.Type == shift.Type)
+                //    {
+                        shift.AssignEmployee(employee.Employee);
+                        return true;
+                //    }
+                //}
+            }
             return false;
         }
     }
