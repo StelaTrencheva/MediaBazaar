@@ -14,15 +14,19 @@ namespace MediaBazaar
     public partial class ProductStatisticInterface : UserControl
     {
         ProductManager pManager;
+        ProductStatisticsManager productStatsManager;
+        string typeOfStats = "Sold products";
         private int prevIndex = -1;
 
         public ProductStatisticInterface()
         {
             InitializeComponent();
             this.pManager = new ProductManager();
+            this.productStatsManager = new ProductStatisticsManager();
             UpdateListBoxAllProducts();
             lbxDisplayPRevenueProfit.DrawMode = DrawMode.OwnerDrawFixed;
             lbxDisplayPRevenueProfit.DrawItem += new DrawItemEventHandler(lbxDisplayPRevenueProfit_DrawItem);
+            this.UpdateChart();
         }
 
         public void UpdateListBoxAllProducts()
@@ -94,7 +98,37 @@ namespace MediaBazaar
             }
             e.DrawFocusRectangle();
         }
+        //----------------------Chart
 
+        public void UpdateChart()
+        {
+            if(typeOfStats == "Sold products")
+            {
+                foreach(var soldProduct in productStatsManager.GetTenMostSoldProductsQuantity())
+                {
+                    chartProductStatistics.Series[typeOfStats].Points.AddXY($"{soldProduct.Key.Type} ({soldProduct.Key.Model})", soldProduct.Value);
+                }
+            }
+            else if(typeOfStats == "Profitable products")
+            {
+                foreach (var soldProduct in productStatsManager.GetTenMostSoldProductsProfit())
+                {
+                    chartProductStatistics.Series[typeOfStats].Points.AddXY($"{soldProduct.Key.Type} ({soldProduct.Key.Model})", soldProduct.Value);
+                }
+            }
+        }
 
+        public void ClearChartStats()
+        {
+            chartProductStatistics.Series["Sold products"].Points.Clear();
+            chartProductStatistics.Series["Profitable products"].Points.Clear();
+        }
+
+        private void cbbTypeOfStats_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            typeOfStats = cbbTypeOfStats.SelectedItem.ToString();
+            this.ClearChartStats();
+            this.UpdateChart();
+        }
     }
 }

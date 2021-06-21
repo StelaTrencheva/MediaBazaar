@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccessLayer\DBMediatorProductStatistics.cs" />
     <Compile Include="Exceptions\NotEnoughEmmployeesException.cs" />
     <Compile Include="LogicLayer\AssignDepartmentManagerDepartment.cs" />
     <Compile Include="LogicLayer\AssignStoreWorkerDepartment.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="LogicLayer\Holiday.cs" />
     <Compile Include="LogicLayer\HolidayManager.cs" />
     <Compile Include="Exceptions\NotExistingHolidayException.cs" />
+    <Compile Include="LogicLayer\ProductStatisticsManager.cs" />
     <Compile Include="LogicLayer\RestockRequestManager.cs" />
     <Compile Include="LogicLayer\SoldProduct.cs" />
     <Compile Include="LogicLayer\BasketManager.cs" />
