@@ -13,6 +13,7 @@ namespace MediaBazaar
         DepartmentManager departmentManager;
         string TypeOfStats = "Total salary";
         string periodOverviewStats = "year";
+        string contract = "no contract";
         DateTime dateOverviewStats = DateTime.Now;
         DateTime dateIndividualStats = DateTime.Now;
         string deptCode;
@@ -171,7 +172,7 @@ namespace MediaBazaar
         }
         public void ShowDepartmentStatistics()
         {
-            List<double> EmpStats = empStatistics.ShowDepartmentOverallStatistics(TypeOfStats, periodOverviewStats, dateOverviewStats, deptCode);
+            List<double> EmpStats = empStatistics.ShowDepartmentOverallStatistics(TypeOfStats, periodOverviewStats, dateOverviewStats, deptCode, contract);
             if (!String.IsNullOrEmpty(lblChartTitle.Text))
             {
                 lblChartTitle.Text += " x " + TypeOfStats;
@@ -248,6 +249,11 @@ namespace MediaBazaar
             dateOverviewStats = dtDateStatistic.Value;
         }
 
-        
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            contract = cbbFilterByContract.SelectedItem.ToString();
+            this.ClearEmpStatsChart();
+            ShowDepartmentStatistics();
+        }
     }
 }
