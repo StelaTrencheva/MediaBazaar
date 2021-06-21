@@ -29,10 +29,10 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnRemove = new System.Windows.Forms.Button();
             this.cbMonth = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -86,6 +86,16 @@ namespace MediaBazaar
             this.lbxAssignedEmployeesAfternoon = new System.Windows.Forms.ListBox();
             this.tcStoreWorkerSchedule = new System.Windows.Forms.TabControl();
             this.tpAutomaticSchedule = new System.Windows.Forms.TabPage();
+            this.pnlDisplayAssignedEmployees = new System.Windows.Forms.Panel();
+            this.btnClosePanelAssignedEmployees = new System.Windows.Forms.Button();
+            this.lbxAssignedEmployees = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pnlSchedule = new System.Windows.Forms.Panel();
+            this.dgvViewGeneratedSchedule = new System.Windows.Forms.DataGridView();
+            this.clMorningSchedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clAfternoonSchedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clEveningSchedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clNightSchedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSelectedWeek = new System.Windows.Forms.Panel();
             this.lblSelectedWeekAndDepartment = new System.Windows.Forms.Label();
             this.pnlManageCreatedSchedule = new System.Windows.Forms.Panel();
@@ -99,12 +109,17 @@ namespace MediaBazaar
             this.monthCalendarAutoSchedule = new System.Windows.Forms.MonthCalendar();
             this.lblInfo = new System.Windows.Forms.Label();
             this.btnGenerateSchedule = new System.Windows.Forms.Button();
-            this.pnlSchedule = new System.Windows.Forms.Panel();
-            this.dgvViewGeneratedSchedule = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEditShift = new System.Windows.Forms.Button();
+            this.pnlEditShift = new System.Windows.Forms.Panel();
+            this.btnSaveShift = new System.Windows.Forms.Button();
+            this.btnCloseEditMode = new System.Windows.Forms.Button();
+            this.lbxAssignedEmployeesToShift = new System.Windows.Forms.ListBox();
+            this.lblSelectedShift = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.lbxAvailableEmployeesForShift = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.tpStoreWView.SuspendLayout();
             this.pnlDisplayEmployees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewShifts)).BeginInit();
@@ -116,12 +131,14 @@ namespace MediaBazaar
             this.gbOverview.SuspendLayout();
             this.tcStoreWorkerSchedule.SuspendLayout();
             this.tpAutomaticSchedule.SuspendLayout();
+            this.pnlDisplayAssignedEmployees.SuspendLayout();
+            this.pnlSchedule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvViewGeneratedSchedule)).BeginInit();
             this.pnlSelectedWeek.SuspendLayout();
             this.pnlManageCreatedSchedule.SuspendLayout();
             this.pnlGenerateSchedule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picInfo)).BeginInit();
-            this.pnlSchedule.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvViewGeneratedSchedule)).BeginInit();
+            this.pnlEditShift.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnRemove
@@ -371,14 +388,14 @@ namespace MediaBazaar
             this.dgvViewShifts.AllowUserToResizeRows = false;
             this.dgvViewShifts.BackgroundColor = System.Drawing.Color.White;
             this.dgvViewShifts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Thistle;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvViewShifts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Thistle;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvViewShifts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvViewShifts.ColumnHeadersHeight = 50;
             this.dgvViewShifts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clMorning,
@@ -389,14 +406,14 @@ namespace MediaBazaar
             this.dgvViewShifts.Location = new System.Drawing.Point(6, 98);
             this.dgvViewShifts.Name = "dgvViewShifts";
             this.dgvViewShifts.ReadOnly = true;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvViewShifts.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvViewShifts.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvViewShifts.RowHeadersWidth = 150;
             this.dgvViewShifts.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvViewShifts.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
@@ -750,7 +767,7 @@ namespace MediaBazaar
             this.tcStoreWorkerSchedule.Controls.Add(this.tpStoreWView);
             this.tcStoreWorkerSchedule.Controls.Add(this.tpAutomaticSchedule);
             this.tcStoreWorkerSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tcStoreWorkerSchedule.Location = new System.Drawing.Point(5, 2);
+            this.tcStoreWorkerSchedule.Location = new System.Drawing.Point(6, 2);
             this.tcStoreWorkerSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tcStoreWorkerSchedule.Name = "tcStoreWorkerSchedule";
             this.tcStoreWorkerSchedule.SelectedIndex = 0;
@@ -761,14 +778,142 @@ namespace MediaBazaar
             // tpAutomaticSchedule
             // 
             this.tpAutomaticSchedule.BackColor = System.Drawing.Color.Azure;
+            this.tpAutomaticSchedule.Controls.Add(this.pnlEditShift);
+            this.tpAutomaticSchedule.Controls.Add(this.pnlDisplayAssignedEmployees);
+            this.tpAutomaticSchedule.Controls.Add(this.pnlSchedule);
             this.tpAutomaticSchedule.Controls.Add(this.pnlSelectedWeek);
             this.tpAutomaticSchedule.Controls.Add(this.pnlGenerateSchedule);
-            this.tpAutomaticSchedule.Controls.Add(this.pnlSchedule);
             this.tpAutomaticSchedule.Location = new System.Drawing.Point(4, 34);
             this.tpAutomaticSchedule.Name = "tpAutomaticSchedule";
             this.tpAutomaticSchedule.Size = new System.Drawing.Size(1115, 771);
             this.tpAutomaticSchedule.TabIndex = 3;
             this.tpAutomaticSchedule.Text = "Automatic Schedule";
+            // 
+            // pnlDisplayAssignedEmployees
+            // 
+            this.pnlDisplayAssignedEmployees.Controls.Add(this.btnEditShift);
+            this.pnlDisplayAssignedEmployees.Controls.Add(this.btnClosePanelAssignedEmployees);
+            this.pnlDisplayAssignedEmployees.Controls.Add(this.lbxAssignedEmployees);
+            this.pnlDisplayAssignedEmployees.Controls.Add(this.label3);
+            this.pnlDisplayAssignedEmployees.Location = new System.Drawing.Point(278, 183);
+            this.pnlDisplayAssignedEmployees.Name = "pnlDisplayAssignedEmployees";
+            this.pnlDisplayAssignedEmployees.Size = new System.Drawing.Size(558, 470);
+            this.pnlDisplayAssignedEmployees.TabIndex = 106;
+            this.pnlDisplayAssignedEmployees.Visible = false;
+            // 
+            // btnClosePanelAssignedEmployees
+            // 
+            this.btnClosePanelAssignedEmployees.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnClosePanelAssignedEmployees.Location = new System.Drawing.Point(466, 15);
+            this.btnClosePanelAssignedEmployees.Name = "btnClosePanelAssignedEmployees";
+            this.btnClosePanelAssignedEmployees.Size = new System.Drawing.Size(75, 46);
+            this.btnClosePanelAssignedEmployees.TabIndex = 2;
+            this.btnClosePanelAssignedEmployees.Text = "X";
+            this.btnClosePanelAssignedEmployees.UseVisualStyleBackColor = false;
+            this.btnClosePanelAssignedEmployees.Click += new System.EventHandler(this.btnClosePanelAssignedEmployees_Click);
+            // 
+            // lbxAssignedEmployees
+            // 
+            this.lbxAssignedEmployees.FormattingEnabled = true;
+            this.lbxAssignedEmployees.ItemHeight = 25;
+            this.lbxAssignedEmployees.Location = new System.Drawing.Point(20, 78);
+            this.lbxAssignedEmployees.Name = "lbxAssignedEmployees";
+            this.lbxAssignedEmployees.Size = new System.Drawing.Size(521, 304);
+            this.lbxAssignedEmployees.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(180, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(196, 25);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Assigned Employees";
+            // 
+            // pnlSchedule
+            // 
+            this.pnlSchedule.Controls.Add(this.dgvViewGeneratedSchedule);
+            this.pnlSchedule.Location = new System.Drawing.Point(3, 95);
+            this.pnlSchedule.Name = "pnlSchedule";
+            this.pnlSchedule.Size = new System.Drawing.Size(1109, 676);
+            this.pnlSchedule.TabIndex = 112;
+            this.pnlSchedule.Visible = false;
+            // 
+            // dgvViewGeneratedSchedule
+            // 
+            this.dgvViewGeneratedSchedule.AllowUserToAddRows = false;
+            this.dgvViewGeneratedSchedule.AllowUserToDeleteRows = false;
+            this.dgvViewGeneratedSchedule.AllowUserToResizeColumns = false;
+            this.dgvViewGeneratedSchedule.AllowUserToResizeRows = false;
+            this.dgvViewGeneratedSchedule.BackgroundColor = System.Drawing.Color.White;
+            this.dgvViewGeneratedSchedule.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Thistle;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvViewGeneratedSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvViewGeneratedSchedule.ColumnHeadersHeight = 50;
+            this.dgvViewGeneratedSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clMorningSchedule,
+            this.clAfternoonSchedule,
+            this.clEveningSchedule,
+            this.clNightSchedule});
+            this.dgvViewGeneratedSchedule.GridColor = System.Drawing.Color.White;
+            this.dgvViewGeneratedSchedule.Location = new System.Drawing.Point(3, 1);
+            this.dgvViewGeneratedSchedule.Name = "dgvViewGeneratedSchedule";
+            this.dgvViewGeneratedSchedule.ReadOnly = true;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvViewGeneratedSchedule.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvViewGeneratedSchedule.RowHeadersWidth = 150;
+            this.dgvViewGeneratedSchedule.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvViewGeneratedSchedule.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.dgvViewGeneratedSchedule.RowTemplate.DefaultCellStyle.NullValue = "0 emp. assigned";
+            this.dgvViewGeneratedSchedule.RowTemplate.Height = 60;
+            this.dgvViewGeneratedSchedule.RowTemplate.ReadOnly = true;
+            this.dgvViewGeneratedSchedule.Size = new System.Drawing.Size(1103, 644);
+            this.dgvViewGeneratedSchedule.TabIndex = 101;
+            this.dgvViewGeneratedSchedule.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvViewGeneratedSchedule_CellMouseDoubleClick);
+            // 
+            // clMorningSchedule
+            // 
+            this.clMorningSchedule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clMorningSchedule.HeaderText = "Morning";
+            this.clMorningSchedule.MinimumWidth = 6;
+            this.clMorningSchedule.Name = "clMorningSchedule";
+            this.clMorningSchedule.ReadOnly = true;
+            // 
+            // clAfternoonSchedule
+            // 
+            this.clAfternoonSchedule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clAfternoonSchedule.HeaderText = "Afternoon";
+            this.clAfternoonSchedule.MinimumWidth = 6;
+            this.clAfternoonSchedule.Name = "clAfternoonSchedule";
+            this.clAfternoonSchedule.ReadOnly = true;
+            // 
+            // clEveningSchedule
+            // 
+            this.clEveningSchedule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clEveningSchedule.HeaderText = "Evening";
+            this.clEveningSchedule.MinimumWidth = 6;
+            this.clEveningSchedule.Name = "clEveningSchedule";
+            this.clEveningSchedule.ReadOnly = true;
+            // 
+            // clNightSchedule
+            // 
+            this.clNightSchedule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clNightSchedule.HeaderText = "Night";
+            this.clNightSchedule.MinimumWidth = 6;
+            this.clNightSchedule.Name = "clNightSchedule";
+            this.clNightSchedule.ReadOnly = true;
             // 
             // pnlSelectedWeek
             // 
@@ -918,89 +1063,128 @@ namespace MediaBazaar
             this.btnGenerateSchedule.UseVisualStyleBackColor = false;
             this.btnGenerateSchedule.Click += new System.EventHandler(this.btnGenerateSchedule_Click);
             // 
-            // pnlSchedule
+            // btnEditShift
             // 
-            this.pnlSchedule.Controls.Add(this.dgvViewGeneratedSchedule);
-            this.pnlSchedule.Location = new System.Drawing.Point(0, 92);
-            this.pnlSchedule.Name = "pnlSchedule";
-            this.pnlSchedule.Size = new System.Drawing.Size(1109, 676);
-            this.pnlSchedule.TabIndex = 112;
-            this.pnlSchedule.Visible = false;
+            this.btnEditShift.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnEditShift.Location = new System.Drawing.Point(163, 400);
+            this.btnEditShift.Name = "btnEditShift";
+            this.btnEditShift.Size = new System.Drawing.Size(240, 46);
+            this.btnEditShift.TabIndex = 3;
+            this.btnEditShift.Text = "Edit Shift";
+            this.btnEditShift.UseVisualStyleBackColor = false;
+            this.btnEditShift.Click += new System.EventHandler(this.btnEditShift_Click);
             // 
-            // dgvViewGeneratedSchedule
+            // pnlEditShift
             // 
-            this.dgvViewGeneratedSchedule.AllowUserToAddRows = false;
-            this.dgvViewGeneratedSchedule.AllowUserToDeleteRows = false;
-            this.dgvViewGeneratedSchedule.AllowUserToResizeColumns = false;
-            this.dgvViewGeneratedSchedule.AllowUserToResizeRows = false;
-            this.dgvViewGeneratedSchedule.BackgroundColor = System.Drawing.Color.White;
-            this.dgvViewGeneratedSchedule.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Thistle;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvViewGeneratedSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
-            this.dgvViewGeneratedSchedule.ColumnHeadersHeight = 50;
-            this.dgvViewGeneratedSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.dgvViewGeneratedSchedule.GridColor = System.Drawing.Color.White;
-            this.dgvViewGeneratedSchedule.Location = new System.Drawing.Point(6, 5);
-            this.dgvViewGeneratedSchedule.Name = "dgvViewGeneratedSchedule";
-            this.dgvViewGeneratedSchedule.ReadOnly = true;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvViewGeneratedSchedule.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
-            this.dgvViewGeneratedSchedule.RowHeadersWidth = 150;
-            this.dgvViewGeneratedSchedule.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvViewGeneratedSchedule.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            this.dgvViewGeneratedSchedule.RowTemplate.DefaultCellStyle.NullValue = "0 emp. assigned";
-            this.dgvViewGeneratedSchedule.RowTemplate.Height = 60;
-            this.dgvViewGeneratedSchedule.RowTemplate.ReadOnly = true;
-            this.dgvViewGeneratedSchedule.Size = new System.Drawing.Size(1103, 644);
-            this.dgvViewGeneratedSchedule.TabIndex = 101;
+            this.pnlEditShift.Controls.Add(this.label6);
+            this.pnlEditShift.Controls.Add(this.label5);
+            this.pnlEditShift.Controls.Add(this.lbxAvailableEmployeesForShift);
+            this.pnlEditShift.Controls.Add(this.button1);
+            this.pnlEditShift.Controls.Add(this.button2);
+            this.pnlEditShift.Controls.Add(this.btnSaveShift);
+            this.pnlEditShift.Controls.Add(this.btnCloseEditMode);
+            this.pnlEditShift.Controls.Add(this.lbxAssignedEmployeesToShift);
+            this.pnlEditShift.Controls.Add(this.lblSelectedShift);
+            this.pnlEditShift.Location = new System.Drawing.Point(3, 95);
+            this.pnlEditShift.Name = "pnlEditShift";
+            this.pnlEditShift.Size = new System.Drawing.Size(1106, 670);
+            this.pnlEditShift.TabIndex = 107;
+            this.pnlEditShift.Visible = false;
             // 
-            // dataGridViewTextBoxColumn1
+            // btnSaveShift
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Morning";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.btnSaveShift.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnSaveShift.Location = new System.Drawing.Point(846, 599);
+            this.btnSaveShift.Name = "btnSaveShift";
+            this.btnSaveShift.Size = new System.Drawing.Size(240, 46);
+            this.btnSaveShift.TabIndex = 3;
+            this.btnSaveShift.Text = "Save Shift";
+            this.btnSaveShift.UseVisualStyleBackColor = false;
             // 
-            // dataGridViewTextBoxColumn2
+            // btnCloseEditMode
             // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Afternoon";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.btnCloseEditMode.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnCloseEditMode.Location = new System.Drawing.Point(1011, 18);
+            this.btnCloseEditMode.Name = "btnCloseEditMode";
+            this.btnCloseEditMode.Size = new System.Drawing.Size(75, 46);
+            this.btnCloseEditMode.TabIndex = 2;
+            this.btnCloseEditMode.Text = "X";
+            this.btnCloseEditMode.UseVisualStyleBackColor = false;
+            this.btnCloseEditMode.Click += new System.EventHandler(this.btnCloseEditMode_Click);
             // 
-            // dataGridViewTextBoxColumn3
+            // lbxAssignedEmployeesToShift
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Evening";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.lbxAssignedEmployeesToShift.FormattingEnabled = true;
+            this.lbxAssignedEmployeesToShift.ItemHeight = 25;
+            this.lbxAssignedEmployeesToShift.Location = new System.Drawing.Point(20, 114);
+            this.lbxAssignedEmployeesToShift.Name = "lbxAssignedEmployeesToShift";
+            this.lbxAssignedEmployeesToShift.Size = new System.Drawing.Size(813, 204);
+            this.lbxAssignedEmployeesToShift.TabIndex = 1;
             // 
-            // dataGridViewTextBoxColumn4
+            // lblSelectedShift
             // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Night";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.lblSelectedShift.AutoSize = true;
+            this.lblSelectedShift.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSelectedShift.Location = new System.Drawing.Point(489, 35);
+            this.lblSelectedShift.Name = "lblSelectedShift";
+            this.lblSelectedShift.Size = new System.Drawing.Size(162, 29);
+            this.lblSelectedShift.TabIndex = 0;
+            this.lblSelectedShift.Text = "Selected Shift";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(900, 444);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(115, 54);
+            this.button1.TabIndex = 82;
+            this.button1.Text = "Assign";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.LightSlateGray;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.Location = new System.Drawing.Point(900, 185);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(115, 54);
+            this.button2.TabIndex = 81;
+            this.button2.Text = "Remove";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // lbxAvailableEmployeesForShift
+            // 
+            this.lbxAvailableEmployeesForShift.FormattingEnabled = true;
+            this.lbxAvailableEmployeesForShift.ItemHeight = 25;
+            this.lbxAvailableEmployeesForShift.Location = new System.Drawing.Point(20, 383);
+            this.lbxAvailableEmployeesForShift.Name = "lbxAvailableEmployeesForShift";
+            this.lbxAvailableEmployeesForShift.Size = new System.Drawing.Size(813, 204);
+            this.lbxAvailableEmployeesForShift.TabIndex = 83;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(15, 77);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(196, 25);
+            this.label5.TabIndex = 84;
+            this.label5.Text = "Assigned Employees";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(15, 343);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(194, 25);
+            this.label6.TabIndex = 85;
+            this.label6.Text = "Available Employees";
             // 
             // StoreWorkerScheduleInterface
             // 
@@ -1027,14 +1211,18 @@ namespace MediaBazaar
             this.gbOverview.PerformLayout();
             this.tcStoreWorkerSchedule.ResumeLayout(false);
             this.tpAutomaticSchedule.ResumeLayout(false);
+            this.pnlDisplayAssignedEmployees.ResumeLayout(false);
+            this.pnlDisplayAssignedEmployees.PerformLayout();
+            this.pnlSchedule.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvViewGeneratedSchedule)).EndInit();
             this.pnlSelectedWeek.ResumeLayout(false);
             this.pnlSelectedWeek.PerformLayout();
             this.pnlManageCreatedSchedule.ResumeLayout(false);
             this.pnlGenerateSchedule.ResumeLayout(false);
             this.pnlGenerateSchedule.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picInfo)).EndInit();
-            this.pnlSchedule.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvViewGeneratedSchedule)).EndInit();
+            this.pnlEditShift.ResumeLayout(false);
+            this.pnlEditShift.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1108,9 +1296,24 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnGenerateSchedule;
         private System.Windows.Forms.Panel pnlSchedule;
         private System.Windows.Forms.DataGridView dgvViewGeneratedSchedule;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clMorningSchedule;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clAfternoonSchedule;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clEveningSchedule;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clNightSchedule;
+        private System.Windows.Forms.Panel pnlDisplayAssignedEmployees;
+        private System.Windows.Forms.Button btnClosePanelAssignedEmployees;
+        private System.Windows.Forms.ListBox lbxAssignedEmployees;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnEditShift;
+        private System.Windows.Forms.Panel pnlEditShift;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ListBox lbxAvailableEmployeesForShift;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSaveShift;
+        private System.Windows.Forms.Button btnCloseEditMode;
+        private System.Windows.Forms.ListBox lbxAssignedEmployeesToShift;
+        private System.Windows.Forms.Label lblSelectedShift;
     }
 }

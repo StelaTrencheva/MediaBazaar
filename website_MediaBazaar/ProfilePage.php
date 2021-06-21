@@ -19,7 +19,7 @@ $employee=$db->GetEmployee($_GET['employeeId']);
     $position = $employee->getPosition();
     $picture="other_.png";
 if($employee->getGender()=="MALE"){
-    $picture="male.png";
+    $picture="Male.png";
 }else if($employee->getGender()=="FEMALE"){
     $picture="female.png";
 }

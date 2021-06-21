@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectClasses
 {
-    abstract class DBMediator
+    public abstract class DBMediator
     {
         private MySqlConnection dbConnection;
         private string server = "studmysql01.fhict.local";
