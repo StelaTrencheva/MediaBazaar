@@ -225,5 +225,20 @@ namespace ProjectClasses
         {
             return $"Id: {id}\t  {firstName} {lastName} - {position}";
         }
+        public int GetMaxContractualHours()
+        {
+            switch (this.Contract)
+            {
+                case ContractType.FULLTIME:
+                    {
+                        return 40;
+                    }
+                case ContractType.EIGHTYPERCENT:
+                    {
+                        return 32;
+                    }
+            }
+            return -1;
+        }
     }
 }

@@ -15,12 +15,31 @@ namespace ProjectClasses.LogicLayer
             this.employee = employee;
             availableShifts = new List<Shift>();
         }
+        public Employee Employee
+        {
+            get { return this.employee; }
+        }
+        public List<Shift> AvailableShifts
+        {
+            get { return this.availableShifts; }
+        }
         public void AddAvailability(Shift shift)
         {
             if (!availableShifts.Contains(shift))
             {
                 availableShifts.Add(shift);
             }
+        }
+        public bool CheckAvailableShift(Shift shift)
+        {
+            foreach (Shift shift1 in availableShifts)
+            {
+                if (shift.Type == shift1.Type && shift.Date == shift1.Date)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
         public string ToString()
         {

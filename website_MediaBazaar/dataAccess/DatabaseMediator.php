@@ -1,13 +1,13 @@
 <?php
 class DatabaseMediatior {
-    // private $username = 'dbi467491';
-    // private $password = 'bulcari';
-    // private $host = 'studmysql01.fhict.local';
-    // private $dbName = 'dbi467491';
-    private $username = 'root';
-    private $password = '';
-    private $host = 'localhost';
-    private $dbName = 'mediabazaar';
+    private $username ='dbi467491';
+    private $password ='bulcari';
+    private $host ='studmysql01.fhict.local';
+    private $dbName ='dbi467491';
+    // private $username = 'root';
+    // private $password = '';
+    // private $host = 'localhost';
+    // private $dbName = 'mediabazaar';
     private $conn;
 
     public function __construct() {
@@ -17,7 +17,7 @@ class DatabaseMediatior {
 
     public function GetEmployee(int $id)
     {
-        $sql = 'SELECT * FROM  mb_employee WHERE id = :id;';
+        $sql = 'SELECT e.*,ec.contract,ec.startdate,ec.lastdate FROM mb_employee as e inner join mb_employee_contract as ec on e.id=ec.empid WHERE e.id= :id and ec.startdate<now() and ec.lastdate>now()';
         $sth = $this->conn->prepare($sql);
         $sth->execute([
             ':id' => $id
@@ -27,7 +27,7 @@ class DatabaseMediatior {
             $result = $sth->fetch();
             $employee = new Employee($result['id'], $result['bsn'], $result['fname'], $result['lname'], $result['gender'], $result['email'], $result['uname'], $result['pwd']
             , $result['birthdate'], $result['street'], $result['streetnumber'], $result['zipcode'], $result['town'], $result['country'], 
-            $result['firstworkingday'], $result['emergphonenumber'], $result['iban'], $result['hourlywage'], $result['contractstartdate'], $result['contracttype'],
+            $result['firstworkingday'], $result['emergphonenumber'], $result['iban'], $result['hourlywage'], $result['startdate'], $result['contract'],
              $result['position']);   
             return $employee;    
         }
@@ -89,7 +89,7 @@ class DatabaseMediatior {
 
     public function LogInEmployee (string $uname, string $pwd)
     {
-         $sql = 'SELECT * FROM mb_employee WHERE uname = :uname AND pwd = :pwd;';
+         $sql = 'SELECT e.*,ec.contract,ec.startdate,ec.lastdate FROM mb_employee as e inner join mb_employee_contract as ec on e.id=ec.empid WHERE uname = :uname AND pwd =:pwd and ec.startdate<now() and ec.lastdate>now();';
             $sth = $this->conn->prepare($sql);
             $sth->execute([
                 ':uname' => $uname,
@@ -100,7 +100,7 @@ class DatabaseMediatior {
                 $result = $sth->fetch();
             $employee = new Employee($result['id'], $result['bsn'], $result['fname'], $result['lname'], $result['gender'], $result['email'], $result['uname'], $result['pwd']
             , $result['birthdate'], $result['street'], $result['streetnumber'], $result['zipcode'], $result['town'], $result['country'], 
-            $result['firstworkingday'], $result['emergphonenumber'], $result['iban'], $result['hourlywage'], $result['contractstartdate'], $result['contracttype'],
+            $result['firstworkingday'], $result['emergphonenumber'], $result['iban'], $result['hourlywage'], $result['startdate'], $result['contract'],
              $result['position']);    
             return $employee;    
             }
