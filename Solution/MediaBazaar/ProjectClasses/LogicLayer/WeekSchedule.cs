@@ -83,6 +83,35 @@ namespace ProjectClasses.LogicLayer
 
             FillSchedule();
         }
+        private void Initialize(DateTime selectedDate)
+        {
+            this.weekNumber = GetWeekNumber(selectedDate);
+            this.employeesInDepartment = dbMediator.GetStockWorkersAvailabilityPerWeekNumber(weekNumber);
+
+            DateTime startDate = selectedDate;
+            DateTime endDate = startDate.AddDays(7);
+            shiftsInWeek = new List<Shift>();
+
+            for (DateTime i = startDate; i > selectedDate.AddDays(-7); i = i.AddDays(-1))
+            {
+                if (GetWeekNumber(i.AddDays(-1)) != weekNumber)
+                {
+                    startDate = i;
+                    endDate = startDate.AddDays(6);
+                    break;
+                }
+            }
+
+            for (DateTime i = startDate; i <= endDate; i = i.AddDays(1))
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    shiftsInWeek.Add(new Shift((ShiftType)j, i, new List<Employee>()));
+                }
+            }
+
+            FillSchedule();
+        }
 
         public WeekSchedule(DateTime selectedDate, Department department, DBMediatorShifts dBMediator)
         {
@@ -93,9 +122,15 @@ namespace ProjectClasses.LogicLayer
         public WeekSchedule(DateTime selectedDate, Department department)
         {
             dbMediator = new DBMediatorShifts(DatabaseType.MAIN);
-            Initialize(selectedDate, department);
+            Initialize(selectedDate,department);
+            
         }
+        public WeekSchedule(DateTime date)
+        {
+            dbMediator = new DBMediatorShifts(DatabaseType.MAIN);
+            Initialize(date);
 
+        }
         private int GetWeekNumber(DateTime date)
         {
             return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
@@ -120,6 +155,22 @@ namespace ProjectClasses.LogicLayer
                 }
             }
             return allAvailableEmployees.OrderBy(x=>x.Employee.Id).ToList();
+        }
+        public List<EmployeeInSchedule> GetAllAvailableStockWorker(Shift shift)
+        {
+            List<EmployeeInSchedule> allAvailableEmployees = new List<EmployeeInSchedule>();
+            foreach (EmployeeInSchedule employee in dbMediator.GetAllFlexContractStockWorkers(this.weekNumber,shift.GetAssignedEmployeesIds()))
+            {
+                allAvailableEmployees.Add(employee);
+            }
+            foreach (EmployeeInSchedule employeeInDepartment in employeesInDepartment)
+            {
+                if (!allAvailableEmployees.Contains(employeeInDepartment) && !shift.GetAssignedEmployees().Contains(employeeInDepartment.Employee))
+                {
+                    allAvailableEmployees.Add(employeeInDepartment);
+                }
+            }
+            return allAvailableEmployees.OrderBy(x => x.Employee.Id).ToList();
         }
         private void ReorderList(List<EmployeeInSchedule> employees)
         {
@@ -273,16 +324,30 @@ namespace ProjectClasses.LogicLayer
 
             return false;
         }
-        public EmployeeInSchedule GetEmployeeFromAvailableEmployees(Shift shift,int employeeId)
+        public EmployeeInSchedule GetEmployeeFromAvailableEmployees(Shift shift,int employeeId,EmployeeType position)
         {
-            foreach (EmployeeInSchedule employee in GetAllAvailableEmployees(shift))
+            if (position == EmployeeType.STORE_WORKER)
             {
-                if (employee.Employee.Id == employeeId)
+                    foreach (EmployeeInSchedule employee in GetAllAvailableEmployees(shift))
                 {
-                    return employee;
+                    if (employee.Employee.Id == employeeId)
+                    {
+                        return employee;
+                    }
                 }
+                return null;
             }
-            return null;
+            else
+            {
+                foreach (EmployeeInSchedule employee in GetAllAvailableStockWorker(shift))
+                {
+                    if (employee.Employee.Id == employeeId)
+                    {
+                        return employee;
+                    }
+                }
+                return null;
+            }
         }
         public bool AssignEmployeeToShift(Shift shift,EmployeeInSchedule employee)
         {

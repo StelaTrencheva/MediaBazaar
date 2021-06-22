@@ -13,11 +13,8 @@ namespace MediaBazaar
 {
     public partial class StoreWorkerScheduleInterface : UserControl
     {
-        private DateTime today = DateTime.Today;
         private ShiftManager shiftManager;
-        private List<DateTime> dates = new List<DateTime>();
         private List<Shift> shifts = null;
-        private Color cellColor = Color.White;
         private DepartmentManager dm;
         private WeekSchedule newSchedule;
         private Shift currentSelectedShift;
@@ -217,41 +214,12 @@ namespace MediaBazaar
             tbMaxAssignableEmployees.Text = currentSelectedShift.AssignableEmployees.ToString();
         }
 
-        private void btnCloseEditMode_Click_1(object sender, EventArgs e)
-        {
-
-            btnDiscard.Enabled = true;
-            btnSave.Enabled = true;
-            pnlEditShift.Visible = false;
-            pnlDisplayAssignedEmployees.Visible = false;
-            UpdateDisplayOfShiftsInGrid();
-
-        }
-
         private void btnClosePanelAssignedEmployees_Click_1(object sender, EventArgs e)
         {
             pnlDisplayAssignedEmployees.Visible = false;
         }
 
-        private void btnChangeMaxAssignableEmployees_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                int newValue = Convert.ToInt32(tbMaxAssignableEmployees.Text);
-                currentSelectedShift.AssignableEmployees = newValue;
-                tbMaxAssignableEmployees.Text = newValue.ToString();
-            }
-            catch (FormatException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            catch (ArgumentException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btnRemoveEmployee_Click_1(object sender, EventArgs e)
+        private void btnRemoveEmployee_Click(object sender, EventArgs e)
         {
             int selectedUser;
             try
@@ -281,7 +249,7 @@ namespace MediaBazaar
             }
         }
 
-        private void btnAssignEmployee_Click(object sender, EventArgs e)
+        private void btnAssignEmployee_Click_1(object sender, EventArgs e)
         {
 
             int selectedUser;
@@ -294,7 +262,7 @@ namespace MediaBazaar
             {
                 string selectedItem = lbxAvailableEmployeesForShift.SelectedItems[0].Text;
                 selectedUser = Convert.ToInt32(selectedItem.Substring(0, selectedItem.IndexOf('.')));
-                EmployeeInSchedule foundEmployee = newSchedule.GetEmployeeFromAvailableEmployees(currentSelectedShift, selectedUser);
+                EmployeeInSchedule foundEmployee = newSchedule.GetEmployeeFromAvailableEmployees(currentSelectedShift, selectedUser,EmployeeType.STORE_WORKER);
                 if (newSchedule.AssignEmployeeToShift(currentSelectedShift, foundEmployee))
                 {
                     UpdateInfoInAutoSchedule();
@@ -305,6 +273,34 @@ namespace MediaBazaar
                 }
 
             }
+        }
+
+        private void btnChangeMaxAssignableEmployees_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int newValue = Convert.ToInt32(tbMaxAssignableEmployees.Text);
+                currentSelectedShift.AssignableEmployees = newValue;
+                tbMaxAssignableEmployees.Text = newValue.ToString();
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnCloseEditMode_Click(object sender, EventArgs e)
+        {
+            btnDiscard.Enabled = true;
+            btnSave.Enabled = true;
+            pnlEditShift.Visible = false;
+            pnlDisplayAssignedEmployees.Visible = false;
+            UpdateDisplayOfShiftsInGrid();
+
         }
     }
 }
