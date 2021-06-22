@@ -12,10 +12,10 @@ namespace ProjectClasses
         private DBMediatorAssignPersonDepartment dbMediator;
         //private List<AssignDepartmentManagerDepartment> dmd;
 
-        public AssignPersonDepartmentManager()
+        public AssignPersonDepartmentManager(DatabaseType databaseType)
         {
             this.assignPersonDepartments = new List<AssignPersonDepartment>();
-            this.dbMediator = new DBMediatorAssignPersonDepartment();
+            this.dbMediator = new DBMediatorAssignPersonDepartment(databaseType);
             //this.dmd = new List<AssignDepartmentManagerDepartment>();
         }
 

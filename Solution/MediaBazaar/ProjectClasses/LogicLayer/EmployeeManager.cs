@@ -13,10 +13,10 @@ namespace ProjectClasses
         private DBMediatorEmployee dbMediator;
 
         //Constructor
-        public EmployeeManager()
+        public EmployeeManager(DatabaseType databaseType)
         {
             employees = new List<Employee>();
-            dbMediator = new DBMediatorEmployee();
+            dbMediator = new DBMediatorEmployee(databaseType);
         }
 
         //Methods

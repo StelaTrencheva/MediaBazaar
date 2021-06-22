@@ -19,7 +19,7 @@ namespace MediaBazaar
         {
             InitializeComponent();
             this.currentEmp = currentEmp;
-            employeeManager = new EmployeeManager();
+            employeeManager = new EmployeeManager(DatabaseType.MAIN);
             UpdateInfo();
         }
         private void UpdateInfo()

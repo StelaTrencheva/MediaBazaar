@@ -18,7 +18,7 @@ namespace MediaBazaar
         public AddProductInterface()
         {
             InitializeComponent();
-            this.pManager = new ProductManager();
+            this.pManager = new ProductManager(DatabaseType.MAIN);
         }
         private void AddProductInterface_Load(object sender, EventArgs e)
         {

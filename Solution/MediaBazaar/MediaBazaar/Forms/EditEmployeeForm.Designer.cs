@@ -316,6 +316,7 @@ namespace MediaBazaar
             // cbxContractType
             // 
             this.cbxContractType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxContractType.Enabled = false;
             this.cbxContractType.FormattingEnabled = true;
             this.cbxContractType.Items.AddRange(new object[] {
             "FULLTIME",

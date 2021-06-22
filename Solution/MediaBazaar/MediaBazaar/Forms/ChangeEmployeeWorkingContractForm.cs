@@ -19,12 +19,17 @@ namespace MediaBazaar
         public ChangeEmployeeWorkingContractForm(Employee currentEmployee)
         {
             InitializeComponent();
-            employeeManager = new EmployeeManager();
+            employeeManager = new EmployeeManager(DatabaseType.MAIN);
             this.currentEmployee = currentEmployee;
-            contractHistoryManager = new ContractHistoryManager(currentEmployee.Id);
+            contractHistoryManager = new ContractHistoryManager(currentEmployee.Id, DatabaseType.MAIN);
             PictureBoxUpdate();
             UpdateContractHistory();
             lblEmpName.Text = currentEmployee.GetEmployeeNames;
+        }
+        private void ChangeEmployeeWorkingContract_Load(object sender, EventArgs e)
+        {
+            tbxCurrentContract.Text = currentEmployee.Contract.ToString();
+            cbbChangeCOntract.SelectedIndex = 0;
         }
         private void UpdateContractHistory()
         {
@@ -34,8 +39,6 @@ namespace MediaBazaar
                 lboxContractHistory.Items.Add(contract.ToString());
             }
         }
-
-
         private void PictureBoxUpdate()
         {
             if (currentEmployee.Gender == Gender.MALE)
@@ -49,13 +52,6 @@ namespace MediaBazaar
             {
                 pictureBox.Image = Properties.Resources.Other;
             }
-        }
-
-        private void ChangeEmployeeWorkingContract_Load(object sender, EventArgs e)
-        {
-            tbxCurrentContract.Text = currentEmployee.Contract.ToString();
-            lboxContractHistory.Text = currentEmployee.EmployeeFullInfo;
-            cbbChangeCOntract.SelectedIndex = 0;
         }
 
         private void btnChangeContract_Click(object sender, EventArgs e)

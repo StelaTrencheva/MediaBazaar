@@ -18,7 +18,7 @@ namespace MediaBazaar
         public StoreWorkerForm(Employee currentEmp)
         {
             InitializeComponent();
-            this.manageEmployees = new EmployeeManager();
+            this.manageEmployees = new EmployeeManager(DatabaseType.MAIN);
             this.currentEmp = currentEmp;
             userInterface1.SendInfo(currentEmp);
         }

@@ -425,7 +425,7 @@ namespace MediaBazaar
             this.tbpStockRecieving.Padding = new System.Windows.Forms.Padding(3);
             this.tbpStockRecieving.Size = new System.Drawing.Size(1107, 698);
             this.tbpStockRecieving.TabIndex = 1;
-            this.tbpStockRecieving.Text = "Stock recieving";
+            this.tbpStockRecieving.Text = "Stock receiving";
             // 
             // gbxRecievingStock
             // 
@@ -460,7 +460,7 @@ namespace MediaBazaar
             this.lblRecievedStock.Name = "lblRecievedStock";
             this.lblRecievedStock.Size = new System.Drawing.Size(158, 50);
             this.lblRecievedStock.TabIndex = 7;
-            this.lblRecievedStock.Text = "Recieve stock in \r\nwarehouse:";
+            this.lblRecievedStock.Text = "Receive stock in \r\nwarehouse:";
             // 
             // txbAmountOfRecievedStock
             // 
@@ -537,7 +537,7 @@ namespace MediaBazaar
             this.lblStockRecieving.Name = "lblStockRecieving";
             this.lblStockRecieving.Size = new System.Drawing.Size(208, 32);
             this.lblStockRecieving.TabIndex = 1;
-            this.lblStockRecieving.Text = "Stock recieving";
+            this.lblStockRecieving.Text = "Stock receiving";
             // 
             // RestockRequestInterface
             // 

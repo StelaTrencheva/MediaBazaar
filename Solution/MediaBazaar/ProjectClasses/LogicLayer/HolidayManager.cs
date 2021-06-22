@@ -12,10 +12,10 @@ namespace ProjectClasses.LogicLayer
     {
         private List<Holiday> holidays;
         private DBMediatorHoliday dbMediator;
-        public HolidayManager()
+        public HolidayManager(DatabaseType databaseType)
         {
             this.holidays = new List<Holiday>();
-            this.dbMediator = new DBMediatorHoliday();
+            this.dbMediator = new DBMediatorHoliday(databaseType);
         }
         public Holiday[] GetRequestedHolidays()
         {

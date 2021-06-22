@@ -17,7 +17,7 @@ namespace MediaBazaar
         public LoginForm()
         {
             InitializeComponent();
-            manageEmployees = new EmployeeManager();
+            manageEmployees = new EmployeeManager(DatabaseType.MAIN);
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)

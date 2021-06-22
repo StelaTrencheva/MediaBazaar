@@ -9,11 +9,11 @@ namespace ProjectClasses
 {
     class DBMediatorContractHistory : DBMediator
     {
-        public DBMediatorContractHistory() : base() { }
+        public DBMediatorContractHistory(DatabaseType databaseType) : base(databaseType) { }
 
         public List<ContractHistory> GetContractHystory(int id)
         {
-            string sqlStatement = "SELECT empid,contract,startdate,lastdate FROM `mb_contract_history` " +
+            string sqlStatement = "SELECT empid,contract,startdate,lastdate FROM `mb_employee_contract` " +
                                     "INNER JOIN mb_employee " +
                                     "ON empid = mb_employee.id " +
                                     "where empid = @id;";

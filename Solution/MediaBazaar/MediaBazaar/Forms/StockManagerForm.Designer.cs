@@ -42,6 +42,7 @@ namespace MediaBazaar
             this.userInterface1 = new MediaBazaar.UserInterface();
             this.stockWorkerScheduleInterface1 = new MediaBazaar.StockWorkerScheduleInterface();
             this.stockManagerSupplierRequest1 = new MediaBazaar.StockManagerSupplierRequest();
+            this.stockWorkerScheduleInterface = new MediaBazaar.StockWorkerScheduleInterface();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -58,7 +59,7 @@ namespace MediaBazaar
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(206, 786);
+            this.panel1.Size = new System.Drawing.Size(206, 785);
             this.panel1.TabIndex = 43;
             // 
             // btnViewSupplierRequests
@@ -175,12 +176,20 @@ namespace MediaBazaar
             this.stockManagerSupplierRequest1.Size = new System.Drawing.Size(1129, 785);
             this.stockManagerSupplierRequest1.TabIndex = 51;
             // 
+            // stockWorkerScheduleInterface
+            // 
+            this.stockWorkerScheduleInterface.Location = new System.Drawing.Point(215, 0);
+            this.stockWorkerScheduleInterface.Name = "stockWorkerScheduleInterface";
+            this.stockWorkerScheduleInterface.Size = new System.Drawing.Size(1129, 812);
+            this.stockWorkerScheduleInterface.TabIndex = 52;
+            // 
             // StockManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1340, 786);
+            this.ClientSize = new System.Drawing.Size(1340, 785);
+            this.Controls.Add(this.stockWorkerScheduleInterface);
             this.Controls.Add(this.stockManagerSupplierRequest1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.addProductInterface1);
@@ -213,5 +222,6 @@ namespace MediaBazaar
         private UserInterface userInterface1;
         private System.Windows.Forms.Button btnViewSupplierRequests;
         private StockManagerSupplierRequest stockManagerSupplierRequest1;
+        private StockWorkerScheduleInterface stockWorkerScheduleInterface;
     }
 }

@@ -10,7 +10,7 @@ namespace ProjectClasses.DataAccessLayer
 {
     class DBMediatorHoliday : DBMediator
     {
-        public DBMediatorHoliday() : base() { }
+        public DBMediatorHoliday(DatabaseType databaseType) : base(databaseType) { }
         public List<Holiday> GetRequestedHolidays()
         {
             string sqlStatement = "SELECT e.bsn,hr.id, hr.start_date,hr.end_date,hr.requested_date FROM mb_holiday_request as hr inner join mb_employee as e on hr.employeeID=e.id;";

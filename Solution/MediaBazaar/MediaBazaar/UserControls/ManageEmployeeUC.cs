@@ -20,7 +20,7 @@ namespace MediaBazaar
         public ManageEmployeeInterface()
         {
             InitializeComponent();
-            manageEmployees = new EmployeeManager();
+            manageEmployees = new EmployeeManager(DatabaseType.MAIN);
         }
 
 

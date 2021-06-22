@@ -40,6 +40,10 @@
             System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tbcEmployeeStatistics = new System.Windows.Forms.TabControl();
             this.tbpAllEmployees = new System.Windows.Forms.TabPage();
+            this.cbbFilterByPosition = new System.Windows.Forms.ComboBox();
+            this.lblFilterByPosition = new System.Windows.Forms.Label();
+            this.lblFilterByContract = new System.Windows.Forms.Label();
+            this.cbbFilterByContract = new System.Windows.Forms.ComboBox();
             this.lblChartTitle = new System.Windows.Forms.Label();
             this.rbtnWeek = new System.Windows.Forms.RadioButton();
             this.rbtnMonth = new System.Windows.Forms.RadioButton();
@@ -78,8 +82,6 @@
             this.lblPeriodOfTime = new System.Windows.Forms.Label();
             this.btnShowStatistics = new System.Windows.Forms.Button();
             this.lblChooseAnEmployee = new System.Windows.Forms.Label();
-            this.cbbFilterByContract = new System.Windows.Forms.ComboBox();
-            this.lblFilterByContract = new System.Windows.Forms.Label();
             this.tbcEmployeeStatistics.SuspendLayout();
             this.tbpAllEmployees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartStatistics)).BeginInit();
@@ -102,6 +104,8 @@
             // 
             // tbpAllEmployees
             // 
+            this.tbpAllEmployees.Controls.Add(this.cbbFilterByPosition);
+            this.tbpAllEmployees.Controls.Add(this.lblFilterByPosition);
             this.tbpAllEmployees.Controls.Add(this.lblFilterByContract);
             this.tbpAllEmployees.Controls.Add(this.cbbFilterByContract);
             this.tbpAllEmployees.Controls.Add(this.lblChartTitle);
@@ -122,11 +126,66 @@
             this.tbpAllEmployees.UseVisualStyleBackColor = true;
             this.tbpAllEmployees.Click += new System.EventHandler(this.tbpAllEmployees_Click);
             // 
+            // cbbFilterByPosition
+            // 
+            this.cbbFilterByPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbFilterByPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cbbFilterByPosition.FormattingEnabled = true;
+            this.cbbFilterByPosition.Items.AddRange(new object[] {
+            "all",
+            "HR",
+            "STORE_MANAGER",
+            "STOCK_MANAGER",
+            "STORE_WORKER",
+            "STOCK_WORKER",
+            ""});
+            this.cbbFilterByPosition.Location = new System.Drawing.Point(775, 111);
+            this.cbbFilterByPosition.Name = "cbbFilterByPosition";
+            this.cbbFilterByPosition.Size = new System.Drawing.Size(291, 28);
+            this.cbbFilterByPosition.TabIndex = 32;
+            this.cbbFilterByPosition.SelectedIndexChanged += new System.EventHandler(this.cbbFilterByPosition_SelectedIndexChanged);
+            // 
+            // lblFilterByPosition
+            // 
+            this.lblFilterByPosition.AutoSize = true;
+            this.lblFilterByPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblFilterByPosition.Location = new System.Drawing.Point(572, 112);
+            this.lblFilterByPosition.Name = "lblFilterByPosition";
+            this.lblFilterByPosition.Size = new System.Drawing.Size(151, 24);
+            this.lblFilterByPosition.TabIndex = 31;
+            this.lblFilterByPosition.Text = "Filter by position:";
+            // 
+            // lblFilterByContract
+            // 
+            this.lblFilterByContract.AutoSize = true;
+            this.lblFilterByContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblFilterByContract.Location = new System.Drawing.Point(34, 108);
+            this.lblFilterByContract.Name = "lblFilterByContract";
+            this.lblFilterByContract.Size = new System.Drawing.Size(152, 24);
+            this.lblFilterByContract.TabIndex = 30;
+            this.lblFilterByContract.Text = "Filter by contract:";
+            // 
+            // cbbFilterByContract
+            // 
+            this.cbbFilterByContract.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbFilterByContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cbbFilterByContract.FormattingEnabled = true;
+            this.cbbFilterByContract.Items.AddRange(new object[] {
+            "no contract",
+            "FULLTIME",
+            "EIGHTYPERCENT",
+            "FLEX"});
+            this.cbbFilterByContract.Location = new System.Drawing.Point(238, 108);
+            this.cbbFilterByContract.Name = "cbbFilterByContract";
+            this.cbbFilterByContract.Size = new System.Drawing.Size(291, 28);
+            this.cbbFilterByContract.TabIndex = 29;
+            this.cbbFilterByContract.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // lblChartTitle
             // 
             this.lblChartTitle.AutoSize = true;
             this.lblChartTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblChartTitle.Location = new System.Drawing.Point(96, 220);
+            this.lblChartTitle.Location = new System.Drawing.Point(99, 222);
             this.lblChartTitle.Name = "lblChartTitle";
             this.lblChartTitle.Size = new System.Drawing.Size(0, 24);
             this.lblChartTitle.TabIndex = 28;
@@ -134,10 +193,10 @@
             // rbtnWeek
             // 
             this.rbtnWeek.AutoSize = true;
-            this.rbtnWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rbtnWeek.Location = new System.Drawing.Point(928, 31);
+            this.rbtnWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rbtnWeek.Location = new System.Drawing.Point(872, 188);
             this.rbtnWeek.Name = "rbtnWeek";
-            this.rbtnWeek.Size = new System.Drawing.Size(72, 24);
+            this.rbtnWeek.Size = new System.Drawing.Size(85, 29);
             this.rbtnWeek.TabIndex = 25;
             this.rbtnWeek.TabStop = true;
             this.rbtnWeek.Text = "Week";
@@ -147,10 +206,10 @@
             // rbtnMonth
             // 
             this.rbtnMonth.AutoSize = true;
-            this.rbtnMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rbtnMonth.Location = new System.Drawing.Point(802, 31);
+            this.rbtnMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rbtnMonth.Location = new System.Drawing.Point(720, 188);
             this.rbtnMonth.Name = "rbtnMonth";
-            this.rbtnMonth.Size = new System.Drawing.Size(76, 24);
+            this.rbtnMonth.Size = new System.Drawing.Size(88, 29);
             this.rbtnMonth.TabIndex = 22;
             this.rbtnMonth.Text = "Month";
             this.rbtnMonth.UseVisualStyleBackColor = true;
@@ -160,10 +219,10 @@
             // 
             this.rbtnYear.AutoSize = true;
             this.rbtnYear.Checked = true;
-            this.rbtnYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rbtnYear.Location = new System.Drawing.Point(691, 31);
+            this.rbtnYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rbtnYear.Location = new System.Drawing.Point(576, 188);
             this.rbtnYear.Name = "rbtnYear";
-            this.rbtnYear.Size = new System.Drawing.Size(64, 24);
+            this.rbtnYear.Size = new System.Drawing.Size(74, 29);
             this.rbtnYear.TabIndex = 21;
             this.rbtnYear.TabStop = true;
             this.rbtnYear.Text = "Year";
@@ -177,7 +236,7 @@
             this.chartStatistics.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.chartStatistics.Legends.Add(legend3);
-            this.chartStatistics.Location = new System.Drawing.Point(2, 247);
+            this.chartStatistics.Location = new System.Drawing.Point(5, 249);
             this.chartStatistics.Name = "chartStatistics";
             series7.ChartArea = "ChartArea1";
             series7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -222,9 +281,9 @@
             "Average salary",
             "Total hours worked",
             "Average hours worked"});
-            this.cbbAllKindsOfStatistics.Location = new System.Drawing.Point(271, 87);
+            this.cbbAllKindsOfStatistics.Location = new System.Drawing.Point(775, 34);
             this.cbbAllKindsOfStatistics.Name = "cbbAllKindsOfStatistics";
-            this.cbbAllKindsOfStatistics.Size = new System.Drawing.Size(340, 28);
+            this.cbbAllKindsOfStatistics.Size = new System.Drawing.Size(291, 28);
             this.cbbAllKindsOfStatistics.TabIndex = 19;
             this.cbbAllKindsOfStatistics.SelectedIndexChanged += new System.EventHandler(this.cbbAllKindsOfStatistics_SelectedIndexChanged);
             // 
@@ -232,9 +291,9 @@
             // 
             this.dtDateStatistic.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dtDateStatistic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dtDateStatistic.Location = new System.Drawing.Point(271, 31);
+            this.dtDateStatistic.Location = new System.Drawing.Point(238, 32);
             this.dtDateStatistic.Name = "dtDateStatistic";
-            this.dtDateStatistic.Size = new System.Drawing.Size(340, 27);
+            this.dtDateStatistic.Size = new System.Drawing.Size(291, 27);
             this.dtDateStatistic.TabIndex = 17;
             this.dtDateStatistic.Value = new System.DateTime(2021, 4, 15, 0, 0, 0, 0);
             this.dtDateStatistic.ValueChanged += new System.EventHandler(this.dtDateStatistic_ValueChanged);
@@ -253,7 +312,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(34, 87);
+            this.label1.Location = new System.Drawing.Point(572, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(160, 24);
             this.label1.TabIndex = 8;
@@ -597,32 +656,6 @@
             this.lblChooseAnEmployee.TabIndex = 0;
             this.lblChooseAnEmployee.Text = "Choose an employee:";
             // 
-            // cbbFilterByContract
-            // 
-            this.cbbFilterByContract.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbFilterByContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cbbFilterByContract.FormattingEnabled = true;
-            this.cbbFilterByContract.Items.AddRange(new object[] {
-            "no contract",
-            "FULLTIME",
-            "EIGHTYPERCENT",
-            "FLEX"});
-            this.cbbFilterByContract.Location = new System.Drawing.Point(271, 143);
-            this.cbbFilterByContract.Name = "cbbFilterByContract";
-            this.cbbFilterByContract.Size = new System.Drawing.Size(340, 28);
-            this.cbbFilterByContract.TabIndex = 29;
-            this.cbbFilterByContract.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // lblFilterByContract
-            // 
-            this.lblFilterByContract.AutoSize = true;
-            this.lblFilterByContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblFilterByContract.Location = new System.Drawing.Point(34, 144);
-            this.lblFilterByContract.Name = "lblFilterByContract";
-            this.lblFilterByContract.Size = new System.Drawing.Size(152, 24);
-            this.lblFilterByContract.TabIndex = 30;
-            this.lblFilterByContract.Text = "Filter by contract:";
-            // 
             // EmployeeStatistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -690,5 +723,7 @@
         private System.Windows.Forms.GroupBox gbxChart;
         private System.Windows.Forms.Label lblFilterByContract;
         private System.Windows.Forms.ComboBox cbbFilterByContract;
+        private System.Windows.Forms.ComboBox cbbFilterByPosition;
+        private System.Windows.Forms.Label lblFilterByPosition;
     }
 }

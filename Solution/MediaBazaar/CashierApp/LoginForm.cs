@@ -17,7 +17,7 @@ namespace CashierApp
         public LoginForm()
         {
             InitializeComponent();
-            empManager = new EmployeeManager();
+            empManager = new EmployeeManager(DatabaseType.MAIN);
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)

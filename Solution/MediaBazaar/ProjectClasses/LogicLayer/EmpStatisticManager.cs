@@ -12,15 +12,17 @@ namespace ProjectClasses
         //Employee employee;
         EmployeeManager employeeManager;
         DBMediatorEmpStatistic dbMediator;
+        DatabaseType databaseType;
         
-        public EmpStatisticManager()
+        public EmpStatisticManager(DatabaseType databaseType)
         {
-            dbMediator = new DBMediatorEmpStatistic();
+            dbMediator = new DBMediatorEmpStatistic(databaseType);
+            this.databaseType = databaseType;
         }
 
         public List<Employee> GetListOfAllEmployees()
         {
-            employeeManager = new EmployeeManager();
+            employeeManager = new EmployeeManager(databaseType);
             return employeeManager.GetListOFAllEmployees();
         }
 
@@ -70,72 +72,80 @@ namespace ProjectClasses
         }
 
         // //Overview of EmpStatistics
-        public List<double> ShowOverallStatistics(string typeOfStats, string period, DateTime date, string contract)
+        public List<double> ShowOverallStatistics(string typeOfStats, string period, DateTime date, string contract, string position)
         {
             List<double> EmpStats = new List<double>();
-            List<DateTime> DaysOfTHeWeek = GetDaysOfWeek(date);
-            int WeekNumber = GetWeekNumber(date);
-            switch (period)
+            try 
             {
-                case "year":
-                    if (typeOfStats == "Total salary")
-                    {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.Year.ToString(), "Total salary", "None", contract);
-                    }
-                    else if (typeOfStats == "Average salary")
-                    {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.Year.ToString(), "Total salary", "Average", contract);
-                    }
-                    else if (typeOfStats == "Total hours worked")
-                    {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.Year.ToString(), "Total hours worked", "None", contract);
-                    }
-                    else if (typeOfStats == "Average hours worked")
-                    {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.Year.ToString(), "Total hours worked", "Average", contract);
-                    }
-                    return EmpStats;
-                case "month":
-                    if (typeOfStats == "Total salary")
-                    {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForMonth(date, "Total salary", "None", contract);
-                    }
-                    else if (typeOfStats == "Average salary")
-                    {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForMonth(date, "Total salary", "Average", contract);
-                    }
-                    else if (typeOfStats == "Total hours worked")
-                    {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForMonth(date, "Total hours worked", "None", contract);
-                    }
-                    else if (typeOfStats == "Average hours worked")
-                    {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForMonth(date, "Total hours worked", "Average", contract);
-                    }
-                    return EmpStats;
-                case "week":
-                    if (typeOfStats == "Total salary")
-                    {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(DaysOfTHeWeek,WeekNumber, date, "Total salary", "None", contract);
-                    }
-                    else if (typeOfStats == "Average salary")
-                    {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(DaysOfTHeWeek,WeekNumber, date, "Total salary", "Average", contract);
-                    }
-                    else if (typeOfStats == "Total hours worked")
-                    {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(DaysOfTHeWeek,WeekNumber, date, "Total hours worked", "None", contract);
-                    }
-                    else if (typeOfStats == "Average hours worked")
-                    {
-                        EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total hours worked", "Average", contract);
-                    }
-                    return EmpStats;
+                List<DateTime> DaysOfTHeWeek = GetDaysOfWeek(date);
+                int WeekNumber = GetWeekNumber(date);
+                switch (period)
+                {
+                    case "year":
+                        if (typeOfStats == "Total salary")
+                        {
+                            EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.Year.ToString(), "Total salary", "None", contract, position);
+                        }
+                        else if (typeOfStats == "Average salary")
+                        {
+                            EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.Year.ToString(), "Total salary", "Average", contract, position);
+                        }
+                        else if (typeOfStats == "Total hours worked")
+                        {
+                            EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.Year.ToString(), "Total hours worked", "None", contract, position);
+                        }
+                        else if (typeOfStats == "Average hours worked")
+                        {
+                            EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForYear(date.Year.ToString(), "Total hours worked", "Average", contract, position);
+                        }
+                        return EmpStats;
+                    case "month":
+                        if (typeOfStats == "Total salary")
+                        {
+                            EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForMonth(date, "Total salary", "None", contract, position);
+                        }
+                        else if (typeOfStats == "Average salary")
+                        {
+                            EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForMonth(date, "Total salary", "Average", contract, position);
+                        }
+                        else if (typeOfStats == "Total hours worked")
+                        {
+                            EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForMonth(date, "Total hours worked", "None", contract, position);
+                        }
+                        else if (typeOfStats == "Average hours worked")
+                        {
+                            EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForMonth(date, "Total hours worked", "Average", contract, position);
+                        }
+                        return EmpStats;
+                    case "week":
+                        if (typeOfStats == "Total salary")
+                        {
+                            EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total salary", "None", contract, position);
+                        }
+                        else if (typeOfStats == "Average salary")
+                        {
+                            EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total salary", "Average", contract, position);
+                        }
+                        else if (typeOfStats == "Total hours worked")
+                        {
+                            EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total hours worked", "None", contract, position);
+                        }
+                        else if (typeOfStats == "Average hours worked")
+                        {
+                            EmpStats = dbMediator.GetOverallEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total hours worked", "Average", contract, position);
+                        }
+                        return EmpStats;
+                }
+                
+            }
+            catch (Exception e)
+            {
+
             }
             return EmpStats;
         }
 
-        public List<double> ShowDepartmentOverallStatistics(string typeOfStats, string period, DateTime date, string deptCode)
+        public List<double> ShowDepartmentOverallStatistics(string typeOfStats, string period, DateTime date, string deptCode, string contract)
         {
             List<double> EmpStats = new List<double>();
             List<DateTime> DaysOfTHeWeek = GetDaysOfWeek(date);
@@ -145,55 +155,55 @@ namespace ProjectClasses
                 case "year":
                     if (typeOfStats == "Total salary")
                     {
-                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForYear(date.Year.ToString(), "Total salary", "None", deptCode);
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForYear(date.Year.ToString(), "Total salary", "None", deptCode, contract);
                     }
                     else if (typeOfStats == "Average salary")
                     {
-                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForYear(date.Year.ToString(), "Total salary", "Average", deptCode);
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForYear(date.Year.ToString(), "Total salary", "Average", deptCode, contract);
                     }
                     else if (typeOfStats == "Total hours worked")
                     {
-                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForYear(date.Year.ToString(), "Total hours worked", "None", deptCode);
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForYear(date.Year.ToString(), "Total hours worked", "None", deptCode, contract);
                     }
                     else if (typeOfStats == "Average hours worked")
                     {
-                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForYear(date.Year.ToString(), "Total hours worked", "Average", deptCode);
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForYear(date.Year.ToString(), "Total hours worked", "Average", deptCode, contract);
                     }
                     return EmpStats;
                 case "month":
                     if (typeOfStats == "Total salary")
                     {
-                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForMonth(date, "Total salary", "None", deptCode);
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForMonth(date, "Total salary", "None", deptCode, contract);
                     }
                     else if (typeOfStats == "Average salary")
                     {
-                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForMonth(date, "Total salary", "Average", deptCode);
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForMonth(date, "Total salary", "Average", deptCode, contract);
                     }
                     else if (typeOfStats == "Total hours worked")
                     {
-                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForMonth(date, "Total hours worked", "None", deptCode);
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForMonth(date, "Total hours worked", "None", deptCode, contract);
                     }
                     else if (typeOfStats == "Average hours worked")
                     {
-                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForMonth(date, "Total hours worked", "Average", deptCode);
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForMonth(date, "Total hours worked", "Average", deptCode, contract);
                     }
                     return EmpStats;
                 case "week":
                     if (typeOfStats == "Total salary")
                     {
-                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total salary", "None", deptCode);
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total salary", "None", deptCode, contract);
                     }
                     else if (typeOfStats == "Average salary")
                     {
-                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total salary", "Average", deptCode);
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total salary", "Average", deptCode, contract);
                     }
                     else if (typeOfStats == "Total hours worked")
                     {
-                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total hours worked", "None", deptCode);
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total hours worked", "None", deptCode, contract);
                     }
                     else if (typeOfStats == "Average hours worked")
                     {
-                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total hours worked", "Average", deptCode);
+                        EmpStats = dbMediator.GetDepartmentEmpStatTotalSalaryForWeek(DaysOfTHeWeek, WeekNumber, date, "Total hours worked", "Average", deptCode, contract);
                     }
                     return EmpStats;
             }

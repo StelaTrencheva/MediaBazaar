@@ -19,7 +19,7 @@ namespace MediaBazaar
         public StockManagerForm(Employee currentEmp)
         {
             InitializeComponent();
-            this.manageEmployees = new EmployeeManager();
+            this.manageEmployees = new EmployeeManager(DatabaseType.MAIN);
             this.currentEmp = currentEmp;
             userInterface1.SendInfo(currentEmp);
         }
@@ -35,7 +35,7 @@ namespace MediaBazaar
         {
             userInterface1.Hide();
             addProductInterface1.Hide();
-            stockWorkerScheduleInterface1.Hide();
+            stockWorkerScheduleInterface.Hide();
             stockManagerSupplierRequest1.Hide();
         }
         private void btnStockMLogOut_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace MediaBazaar
             PaintAllButtons();
             btnStockMSchedule.BackColor = Color.White;
             HideAllInterfaces();
-            stockWorkerScheduleInterface1.Show();
+            stockWorkerScheduleInterface.Show();
         }
 
         private void btnStockMAccount_Click(object sender, EventArgs e)

@@ -18,7 +18,7 @@ namespace MediaBazaar
         public StoreWorkerRestockRequest()
         {
             InitializeComponent();
-            requestManager = new RestockRequestManager();
+            requestManager = new RestockRequestManager(DatabaseType.MAIN);
             lbxProductsBelowMinimum.DrawMode = DrawMode.OwnerDrawFixed;
             lbxProductsBelowMinimum.DrawItem += new DrawItemEventHandler(lbxCreateRestockRequests_DrawItem);
             lbxProductsAboveMinimum.DrawMode = DrawMode.OwnerDrawFixed;
