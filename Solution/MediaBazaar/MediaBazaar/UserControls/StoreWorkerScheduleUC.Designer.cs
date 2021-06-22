@@ -29,36 +29,30 @@ namespace MediaBazaar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tpStoreWView = new System.Windows.Forms.TabPage();
-            this.pnlDisplayEmployees = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.lbDisplayEmployees = new System.Windows.Forms.ListBox();
-            this.lblAssignedEmployees = new System.Windows.Forms.Label();
-            this.dgvViewShifts = new System.Windows.Forms.DataGridView();
-            this.clMorning = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clAfternoon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clEvening = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clNight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbWeek = new System.Windows.Forms.Label();
-            this.calendarDate = new System.Windows.Forms.MonthCalendar();
-            this.lblViewInstructions = new System.Windows.Forms.Label();
-            this.btnShowShifts = new System.Windows.Forms.Button();
-            this.pnlDisplayDate = new System.Windows.Forms.Panel();
-            this.lblDisplayedDates = new System.Windows.Forms.Label();
-            this.pnlChangeWeek = new System.Windows.Forms.Panel();
-            this.btnChangeSelectedWeek = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcStoreWorkerSchedule = new System.Windows.Forms.TabControl();
-            this.tpAutomaticSchedule = new System.Windows.Forms.TabPage();
-            this.pnlDisplayAssignedEmployees = new System.Windows.Forms.Panel();
-            this.btnEditShift = new System.Windows.Forms.Button();
-            this.btnClosePanelAssignedEmployees = new System.Windows.Forms.Button();
-            this.lbxAssignedEmployees = new System.Windows.Forms.ListBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.tpSchedule = new System.Windows.Forms.TabPage();
+            this.pnlSelectedWeek = new System.Windows.Forms.Panel();
+            this.lblSelectedWeekAndDepartment = new System.Windows.Forms.Label();
+            this.pnlManageCreatedSchedule = new System.Windows.Forms.Panel();
+            this.btnDiscard = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.pnlGenerateSchedule = new System.Windows.Forms.Panel();
+            this.btnViewSchedule = new System.Windows.Forms.Button();
+            this.picInfo = new System.Windows.Forms.PictureBox();
+            this.lblWeek = new System.Windows.Forms.Label();
+            this.lblDepartment = new System.Windows.Forms.Label();
+            this.cbxDepartment = new System.Windows.Forms.ComboBox();
+            this.monthCalendarAutoSchedule = new System.Windows.Forms.MonthCalendar();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.btnGenerateSchedule = new System.Windows.Forms.Button();
             this.pnlSchedule = new System.Windows.Forms.Panel();
+            this.dgvViewGeneratedSchedule = new System.Windows.Forms.DataGridView();
+            this.clMorningSchedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clAfternoonSchedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clEveningSchedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clNightSchedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlEditShift = new System.Windows.Forms.Panel();
             this.lbxAvailableEmployeesForShift = new System.Windows.Forms.ListView();
             this.availableEmployees = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -73,264 +67,27 @@ namespace MediaBazaar
             this.btnCloseEditMode = new System.Windows.Forms.Button();
             this.lbxAssignedEmployeesToShift = new System.Windows.Forms.ListBox();
             this.lblSelectedShift = new System.Windows.Forms.Label();
-            this.dgvViewGeneratedSchedule = new System.Windows.Forms.DataGridView();
-            this.clMorningSchedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clAfternoonSchedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clEveningSchedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clNightSchedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlSelectedWeek = new System.Windows.Forms.Panel();
-            this.lblSelectedWeekAndDepartment = new System.Windows.Forms.Label();
-            this.pnlManageCreatedSchedule = new System.Windows.Forms.Panel();
-            this.btnDiscard = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.pnlGenerateSchedule = new System.Windows.Forms.Panel();
-            this.picInfo = new System.Windows.Forms.PictureBox();
-            this.lblWeek = new System.Windows.Forms.Label();
-            this.lblDepartment = new System.Windows.Forms.Label();
-            this.cbxDepartment = new System.Windows.Forms.ComboBox();
-            this.monthCalendarAutoSchedule = new System.Windows.Forms.MonthCalendar();
-            this.lblInfo = new System.Windows.Forms.Label();
-            this.btnGenerateSchedule = new System.Windows.Forms.Button();
-            this.tpStoreWView.SuspendLayout();
-            this.pnlDisplayEmployees.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvViewShifts)).BeginInit();
-            this.pnlDisplayDate.SuspendLayout();
-            this.pnlChangeWeek.SuspendLayout();
+            this.pnlDisplayAssignedEmployees = new System.Windows.Forms.Panel();
+            this.btnEditShift = new System.Windows.Forms.Button();
+            this.btnClosePanelAssignedEmployees = new System.Windows.Forms.Button();
+            this.lbxAssignedEmployees = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tcStoreWorkerSchedule.SuspendLayout();
-            this.tpAutomaticSchedule.SuspendLayout();
-            this.pnlDisplayAssignedEmployees.SuspendLayout();
-            this.pnlSchedule.SuspendLayout();
-            this.pnlEditShift.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvViewGeneratedSchedule)).BeginInit();
+            this.tpSchedule.SuspendLayout();
             this.pnlSelectedWeek.SuspendLayout();
             this.pnlManageCreatedSchedule.SuspendLayout();
             this.pnlGenerateSchedule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picInfo)).BeginInit();
+            this.pnlSchedule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvViewGeneratedSchedule)).BeginInit();
+            this.pnlEditShift.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.pnlDisplayAssignedEmployees.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tpStoreWView
-            // 
-            this.tpStoreWView.BackColor = System.Drawing.Color.Azure;
-            this.tpStoreWView.Controls.Add(this.pnlDisplayEmployees);
-            this.tpStoreWView.Controls.Add(this.dgvViewShifts);
-            this.tpStoreWView.Controls.Add(this.lbWeek);
-            this.tpStoreWView.Controls.Add(this.calendarDate);
-            this.tpStoreWView.Controls.Add(this.lblViewInstructions);
-            this.tpStoreWView.Controls.Add(this.btnShowShifts);
-            this.tpStoreWView.Controls.Add(this.pnlDisplayDate);
-            this.tpStoreWView.Location = new System.Drawing.Point(4, 34);
-            this.tpStoreWView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpStoreWView.Name = "tpStoreWView";
-            this.tpStoreWView.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpStoreWView.Size = new System.Drawing.Size(1115, 771);
-            this.tpStoreWView.TabIndex = 1;
-            this.tpStoreWView.Text = "View";
-            // 
-            // pnlDisplayEmployees
-            // 
-            this.pnlDisplayEmployees.Controls.Add(this.btnClose);
-            this.pnlDisplayEmployees.Controls.Add(this.lbDisplayEmployees);
-            this.pnlDisplayEmployees.Controls.Add(this.lblAssignedEmployees);
-            this.pnlDisplayEmployees.Location = new System.Drawing.Point(305, 184);
-            this.pnlDisplayEmployees.Name = "pnlDisplayEmployees";
-            this.pnlDisplayEmployees.Size = new System.Drawing.Size(558, 404);
-            this.pnlDisplayEmployees.TabIndex = 98;
-            this.pnlDisplayEmployees.Visible = false;
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnClose.Location = new System.Drawing.Point(466, 15);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 46);
-            this.btnClose.TabIndex = 2;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // lbDisplayEmployees
-            // 
-            this.lbDisplayEmployees.FormattingEnabled = true;
-            this.lbDisplayEmployees.ItemHeight = 25;
-            this.lbDisplayEmployees.Location = new System.Drawing.Point(20, 78);
-            this.lbDisplayEmployees.Name = "lbDisplayEmployees";
-            this.lbDisplayEmployees.Size = new System.Drawing.Size(521, 304);
-            this.lbDisplayEmployees.TabIndex = 1;
-            // 
-            // lblAssignedEmployees
-            // 
-            this.lblAssignedEmployees.AutoSize = true;
-            this.lblAssignedEmployees.Location = new System.Drawing.Point(180, 26);
-            this.lblAssignedEmployees.Name = "lblAssignedEmployees";
-            this.lblAssignedEmployees.Size = new System.Drawing.Size(196, 25);
-            this.lblAssignedEmployees.TabIndex = 0;
-            this.lblAssignedEmployees.Text = "Assigned Employees";
-            // 
-            // dgvViewShifts
-            // 
-            this.dgvViewShifts.AllowUserToAddRows = false;
-            this.dgvViewShifts.AllowUserToDeleteRows = false;
-            this.dgvViewShifts.AllowUserToResizeColumns = false;
-            this.dgvViewShifts.AllowUserToResizeRows = false;
-            this.dgvViewShifts.BackgroundColor = System.Drawing.Color.White;
-            this.dgvViewShifts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Thistle;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvViewShifts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvViewShifts.ColumnHeadersHeight = 50;
-            this.dgvViewShifts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clMorning,
-            this.clAfternoon,
-            this.clEvening,
-            this.clNight});
-            this.dgvViewShifts.GridColor = System.Drawing.Color.White;
-            this.dgvViewShifts.Location = new System.Drawing.Point(6, 98);
-            this.dgvViewShifts.Name = "dgvViewShifts";
-            this.dgvViewShifts.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvViewShifts.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvViewShifts.RowHeadersWidth = 150;
-            this.dgvViewShifts.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvViewShifts.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            this.dgvViewShifts.RowTemplate.DefaultCellStyle.NullValue = "0 emp. assigned";
-            this.dgvViewShifts.RowTemplate.Height = 60;
-            this.dgvViewShifts.RowTemplate.ReadOnly = true;
-            this.dgvViewShifts.Size = new System.Drawing.Size(1103, 668);
-            this.dgvViewShifts.TabIndex = 11;
-            this.dgvViewShifts.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
-            // 
-            // clMorning
-            // 
-            this.clMorning.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clMorning.HeaderText = "Morning";
-            this.clMorning.MinimumWidth = 6;
-            this.clMorning.Name = "clMorning";
-            this.clMorning.ReadOnly = true;
-            // 
-            // clAfternoon
-            // 
-            this.clAfternoon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clAfternoon.HeaderText = "Afternoon";
-            this.clAfternoon.MinimumWidth = 6;
-            this.clAfternoon.Name = "clAfternoon";
-            this.clAfternoon.ReadOnly = true;
-            // 
-            // clEvening
-            // 
-            this.clEvening.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clEvening.HeaderText = "Evening";
-            this.clEvening.MinimumWidth = 6;
-            this.clEvening.Name = "clEvening";
-            this.clEvening.ReadOnly = true;
-            // 
-            // clNight
-            // 
-            this.clNight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clNight.HeaderText = "Night";
-            this.clNight.MinimumWidth = 6;
-            this.clNight.Name = "clNight";
-            this.clNight.ReadOnly = true;
-            // 
-            // lbWeek
-            // 
-            this.lbWeek.AutoSize = true;
-            this.lbWeek.Location = new System.Drawing.Point(285, 46);
-            this.lbWeek.Name = "lbWeek";
-            this.lbWeek.Size = new System.Drawing.Size(0, 25);
-            this.lbWeek.TabIndex = 96;
-            // 
-            // calendarDate
-            // 
-            this.calendarDate.Location = new System.Drawing.Point(360, 135);
-            this.calendarDate.Name = "calendarDate";
-            this.calendarDate.TabIndex = 95;
-            // 
-            // lblViewInstructions
-            // 
-            this.lblViewInstructions.AutoSize = true;
-            this.lblViewInstructions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblViewInstructions.Location = new System.Drawing.Point(249, 402);
-            this.lblViewInstructions.Name = "lblViewInstructions";
-            this.lblViewInstructions.Size = new System.Drawing.Size(513, 20);
-            this.lblViewInstructions.TabIndex = 92;
-            this.lblViewInstructions.Text = "Select a date and the shifts assigned for the week will be displayed:";
-            // 
-            // btnShowShifts
-            // 
-            this.btnShowShifts.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnShowShifts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowShifts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnShowShifts.Location = new System.Drawing.Point(441, 470);
-            this.btnShowShifts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnShowShifts.Name = "btnShowShifts";
-            this.btnShowShifts.Size = new System.Drawing.Size(115, 43);
-            this.btnShowShifts.TabIndex = 91;
-            this.btnShowShifts.Text = "Show";
-            this.btnShowShifts.UseVisualStyleBackColor = false;
-            this.btnShowShifts.Click += new System.EventHandler(this.btnShowShifts_Click);
-            // 
-            // pnlDisplayDate
-            // 
-            this.pnlDisplayDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlDisplayDate.Controls.Add(this.lblDisplayedDates);
-            this.pnlDisplayDate.Controls.Add(this.pnlChangeWeek);
-            this.pnlDisplayDate.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlDisplayDate.Location = new System.Drawing.Point(3, 2);
-            this.pnlDisplayDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlDisplayDate.Name = "pnlDisplayDate";
-            this.pnlDisplayDate.Size = new System.Drawing.Size(1109, 91);
-            this.pnlDisplayDate.TabIndex = 97;
-            // 
-            // lblDisplayedDates
-            // 
-            this.lblDisplayedDates.AutoSize = true;
-            this.lblDisplayedDates.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblDisplayedDates.Location = new System.Drawing.Point(33, 25);
-            this.lblDisplayedDates.Name = "lblDisplayedDates";
-            this.lblDisplayedDates.Size = new System.Drawing.Size(103, 38);
-            this.lblDisplayedDates.TabIndex = 1;
-            this.lblDisplayedDates.Text = "label3";
-            // 
-            // pnlChangeWeek
-            // 
-            this.pnlChangeWeek.Controls.Add(this.btnChangeSelectedWeek);
-            this.pnlChangeWeek.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlChangeWeek.Location = new System.Drawing.Point(830, 0);
-            this.pnlChangeWeek.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlChangeWeek.Name = "pnlChangeWeek";
-            this.pnlChangeWeek.Size = new System.Drawing.Size(277, 89);
-            this.pnlChangeWeek.TabIndex = 0;
-            // 
-            // btnChangeSelectedWeek
-            // 
-            this.btnChangeSelectedWeek.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnChangeSelectedWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangeSelectedWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnChangeSelectedWeek.Location = new System.Drawing.Point(17, 25);
-            this.btnChangeSelectedWeek.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnChangeSelectedWeek.Name = "btnChangeSelectedWeek";
-            this.btnChangeSelectedWeek.Size = new System.Drawing.Size(240, 43);
-            this.btnChangeSelectedWeek.TabIndex = 94;
-            this.btnChangeSelectedWeek.Text = "Change week";
-            this.btnChangeSelectedWeek.UseVisualStyleBackColor = false;
-            this.btnChangeSelectedWeek.Click += new System.EventHandler(this.btnChangeSelectedWeek_Click);
             // 
             // tcStoreWorkerSchedule
             // 
-            this.tcStoreWorkerSchedule.Controls.Add(this.tpAutomaticSchedule);
-            this.tcStoreWorkerSchedule.Controls.Add(this.tpStoreWView);
+            this.tcStoreWorkerSchedule.Controls.Add(this.tpSchedule);
             this.tcStoreWorkerSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tcStoreWorkerSchedule.Location = new System.Drawing.Point(6, 2);
             this.tcStoreWorkerSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -338,72 +95,183 @@ namespace MediaBazaar
             this.tcStoreWorkerSchedule.SelectedIndex = 0;
             this.tcStoreWorkerSchedule.Size = new System.Drawing.Size(1123, 809);
             this.tcStoreWorkerSchedule.TabIndex = 4;
-            this.tcStoreWorkerSchedule.SelectedIndexChanged += new System.EventHandler(this.tcStoreWorkerSchedule_SelectedIndexChanged);
             // 
-            // tpAutomaticSchedule
+            // tpSchedule
             // 
-            this.tpAutomaticSchedule.BackColor = System.Drawing.Color.Azure;
-            this.tpAutomaticSchedule.Controls.Add(this.pnlDisplayAssignedEmployees);
-            this.tpAutomaticSchedule.Controls.Add(this.pnlSchedule);
-            this.tpAutomaticSchedule.Controls.Add(this.pnlSelectedWeek);
-            this.tpAutomaticSchedule.Controls.Add(this.pnlGenerateSchedule);
-            this.tpAutomaticSchedule.Location = new System.Drawing.Point(4, 34);
-            this.tpAutomaticSchedule.Name = "tpAutomaticSchedule";
-            this.tpAutomaticSchedule.Size = new System.Drawing.Size(1115, 771);
-            this.tpAutomaticSchedule.TabIndex = 3;
-            this.tpAutomaticSchedule.Text = "Automatic Schedule";
+            this.tpSchedule.BackColor = System.Drawing.Color.Azure;
+            this.tpSchedule.Controls.Add(this.pnlDisplayAssignedEmployees);
+            this.tpSchedule.Controls.Add(this.pnlSchedule);
+            this.tpSchedule.Controls.Add(this.pnlSelectedWeek);
+            this.tpSchedule.Controls.Add(this.pnlGenerateSchedule);
+            this.tpSchedule.Location = new System.Drawing.Point(4, 34);
+            this.tpSchedule.Name = "tpSchedule";
+            this.tpSchedule.Size = new System.Drawing.Size(1115, 771);
+            this.tpSchedule.TabIndex = 3;
+            this.tpSchedule.Text = "Schedule";
             // 
-            // pnlDisplayAssignedEmployees
+            // pnlSelectedWeek
             // 
-            this.pnlDisplayAssignedEmployees.Controls.Add(this.btnEditShift);
-            this.pnlDisplayAssignedEmployees.Controls.Add(this.btnClosePanelAssignedEmployees);
-            this.pnlDisplayAssignedEmployees.Controls.Add(this.lbxAssignedEmployees);
-            this.pnlDisplayAssignedEmployees.Controls.Add(this.label3);
-            this.pnlDisplayAssignedEmployees.Location = new System.Drawing.Point(278, 183);
-            this.pnlDisplayAssignedEmployees.Name = "pnlDisplayAssignedEmployees";
-            this.pnlDisplayAssignedEmployees.Size = new System.Drawing.Size(558, 470);
-            this.pnlDisplayAssignedEmployees.TabIndex = 106;
-            this.pnlDisplayAssignedEmployees.Visible = false;
+            this.pnlSelectedWeek.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlSelectedWeek.Controls.Add(this.lblSelectedWeekAndDepartment);
+            this.pnlSelectedWeek.Controls.Add(this.pnlManageCreatedSchedule);
+            this.pnlSelectedWeek.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSelectedWeek.Location = new System.Drawing.Point(0, 0);
+            this.pnlSelectedWeek.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlSelectedWeek.Name = "pnlSelectedWeek";
+            this.pnlSelectedWeek.Size = new System.Drawing.Size(1115, 91);
+            this.pnlSelectedWeek.TabIndex = 99;
+            this.pnlSelectedWeek.Visible = false;
             // 
-            // btnEditShift
+            // lblSelectedWeekAndDepartment
             // 
-            this.btnEditShift.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnEditShift.Location = new System.Drawing.Point(163, 400);
-            this.btnEditShift.Name = "btnEditShift";
-            this.btnEditShift.Size = new System.Drawing.Size(240, 46);
-            this.btnEditShift.TabIndex = 3;
-            this.btnEditShift.Text = "Edit Shift";
-            this.btnEditShift.UseVisualStyleBackColor = false;
-            this.btnEditShift.Click += new System.EventHandler(this.btnEditShift_Click);
+            this.lblSelectedWeekAndDepartment.AutoSize = true;
+            this.lblSelectedWeekAndDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSelectedWeekAndDepartment.Location = new System.Drawing.Point(17, 34);
+            this.lblSelectedWeekAndDepartment.Name = "lblSelectedWeekAndDepartment";
+            this.lblSelectedWeekAndDepartment.Size = new System.Drawing.Size(64, 25);
+            this.lblSelectedWeekAndDepartment.TabIndex = 1;
+            this.lblSelectedWeekAndDepartment.Text = "label3";
             // 
-            // btnClosePanelAssignedEmployees
+            // pnlManageCreatedSchedule
             // 
-            this.btnClosePanelAssignedEmployees.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnClosePanelAssignedEmployees.Location = new System.Drawing.Point(466, 15);
-            this.btnClosePanelAssignedEmployees.Name = "btnClosePanelAssignedEmployees";
-            this.btnClosePanelAssignedEmployees.Size = new System.Drawing.Size(75, 46);
-            this.btnClosePanelAssignedEmployees.TabIndex = 2;
-            this.btnClosePanelAssignedEmployees.Text = "X";
-            this.btnClosePanelAssignedEmployees.UseVisualStyleBackColor = false;
-            this.btnClosePanelAssignedEmployees.Click += new System.EventHandler(this.btnClosePanelAssignedEmployees_Click);
+            this.pnlManageCreatedSchedule.Controls.Add(this.btnDiscard);
+            this.pnlManageCreatedSchedule.Controls.Add(this.btnSave);
+            this.pnlManageCreatedSchedule.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlManageCreatedSchedule.Location = new System.Drawing.Point(738, 0);
+            this.pnlManageCreatedSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlManageCreatedSchedule.Name = "pnlManageCreatedSchedule";
+            this.pnlManageCreatedSchedule.Size = new System.Drawing.Size(375, 89);
+            this.pnlManageCreatedSchedule.TabIndex = 0;
             // 
-            // lbxAssignedEmployees
+            // btnDiscard
             // 
-            this.lbxAssignedEmployees.FormattingEnabled = true;
-            this.lbxAssignedEmployees.ItemHeight = 25;
-            this.lbxAssignedEmployees.Location = new System.Drawing.Point(20, 78);
-            this.lbxAssignedEmployees.Name = "lbxAssignedEmployees";
-            this.lbxAssignedEmployees.Size = new System.Drawing.Size(521, 304);
-            this.lbxAssignedEmployees.TabIndex = 1;
+            this.btnDiscard.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnDiscard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDiscard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnDiscard.Location = new System.Drawing.Point(192, 25);
+            this.btnDiscard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDiscard.Name = "btnDiscard";
+            this.btnDiscard.Size = new System.Drawing.Size(178, 43);
+            this.btnDiscard.TabIndex = 95;
+            this.btnDiscard.Text = "Discard";
+            this.btnDiscard.UseVisualStyleBackColor = false;
+            this.btnDiscard.Click += new System.EventHandler(this.btnDiscard_Click);
             // 
-            // label3
+            // btnSave
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(180, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(196, 25);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Assigned Employees";
+            this.btnSave.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSave.Location = new System.Drawing.Point(8, 25);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(178, 43);
+            this.btnSave.TabIndex = 94;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // pnlGenerateSchedule
+            // 
+            this.pnlGenerateSchedule.Controls.Add(this.btnViewSchedule);
+            this.pnlGenerateSchedule.Controls.Add(this.picInfo);
+            this.pnlGenerateSchedule.Controls.Add(this.lblWeek);
+            this.pnlGenerateSchedule.Controls.Add(this.lblDepartment);
+            this.pnlGenerateSchedule.Controls.Add(this.cbxDepartment);
+            this.pnlGenerateSchedule.Controls.Add(this.monthCalendarAutoSchedule);
+            this.pnlGenerateSchedule.Controls.Add(this.lblInfo);
+            this.pnlGenerateSchedule.Controls.Add(this.btnGenerateSchedule);
+            this.pnlGenerateSchedule.Location = new System.Drawing.Point(3, 95);
+            this.pnlGenerateSchedule.Name = "pnlGenerateSchedule";
+            this.pnlGenerateSchedule.Size = new System.Drawing.Size(1112, 673);
+            this.pnlGenerateSchedule.TabIndex = 105;
+            // 
+            // btnViewSchedule
+            // 
+            this.btnViewSchedule.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnViewSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnViewSchedule.Location = new System.Drawing.Point(577, 411);
+            this.btnViewSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnViewSchedule.Name = "btnViewSchedule";
+            this.btnViewSchedule.Size = new System.Drawing.Size(253, 59);
+            this.btnViewSchedule.TabIndex = 112;
+            this.btnViewSchedule.Text = "View Schedule";
+            this.btnViewSchedule.UseVisualStyleBackColor = false;
+            this.btnViewSchedule.Click += new System.EventHandler(this.btnViewSchedule_Click);
+            // 
+            // picInfo
+            // 
+            this.picInfo.Image = global::MediaBazaar.Properties.Resources.info;
+            this.picInfo.Location = new System.Drawing.Point(156, 512);
+            this.picInfo.Name = "picInfo";
+            this.picInfo.Size = new System.Drawing.Size(50, 46);
+            this.picInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picInfo.TabIndex = 111;
+            this.picInfo.TabStop = false;
+            this.picInfo.MouseLeave += new System.EventHandler(this.picInfo_MouseLeave);
+            this.picInfo.MouseHover += new System.EventHandler(this.picInfo_MouseHover_1);
+            // 
+            // lblWeek
+            // 
+            this.lblWeek.AutoSize = true;
+            this.lblWeek.Location = new System.Drawing.Point(249, 61);
+            this.lblWeek.Name = "lblWeek";
+            this.lblWeek.Size = new System.Drawing.Size(75, 25);
+            this.lblWeek.TabIndex = 110;
+            this.lblWeek.Text = "Week: ";
+            // 
+            // lblDepartment
+            // 
+            this.lblDepartment.AutoSize = true;
+            this.lblDepartment.Location = new System.Drawing.Point(249, 305);
+            this.lblDepartment.Name = "lblDepartment";
+            this.lblDepartment.Size = new System.Drawing.Size(119, 25);
+            this.lblDepartment.TabIndex = 109;
+            this.lblDepartment.Text = "Department:";
+            // 
+            // cbxDepartment
+            // 
+            this.cbxDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxDepartment.FormattingEnabled = true;
+            this.cbxDepartment.Location = new System.Drawing.Point(402, 305);
+            this.cbxDepartment.Name = "cbxDepartment";
+            this.cbxDepartment.Size = new System.Drawing.Size(377, 33);
+            this.cbxDepartment.TabIndex = 108;
+            this.cbxDepartment.Click += new System.EventHandler(this.cbxDepartment_Click);
+            // 
+            // monthCalendarAutoSchedule
+            // 
+            this.monthCalendarAutoSchedule.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
+            this.monthCalendarAutoSchedule.Location = new System.Drawing.Point(425, 61);
+            this.monthCalendarAutoSchedule.Name = "monthCalendarAutoSchedule";
+            this.monthCalendarAutoSchedule.ShowWeekNumbers = true;
+            this.monthCalendarAutoSchedule.TabIndex = 107;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfo.Location = new System.Drawing.Point(212, 522);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(633, 25);
+            this.lblInfo.TabIndex = 106;
+            this.lblInfo.Text = "Select a date and department and the schedule for week will be created:";
+            this.lblInfo.Visible = false;
+            // 
+            // btnGenerateSchedule
+            // 
+            this.btnGenerateSchedule.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnGenerateSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerateSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnGenerateSchedule.Location = new System.Drawing.Point(295, 411);
+            this.btnGenerateSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGenerateSchedule.Name = "btnGenerateSchedule";
+            this.btnGenerateSchedule.Size = new System.Drawing.Size(253, 59);
+            this.btnGenerateSchedule.TabIndex = 105;
+            this.btnGenerateSchedule.Text = "Generate Schedule";
+            this.btnGenerateSchedule.UseVisualStyleBackColor = false;
+            this.btnGenerateSchedule.Click += new System.EventHandler(this.btnGenerateSchedule_Click);
             // 
             // pnlSchedule
             // 
@@ -412,8 +280,84 @@ namespace MediaBazaar
             this.pnlSchedule.Location = new System.Drawing.Point(3, 95);
             this.pnlSchedule.Name = "pnlSchedule";
             this.pnlSchedule.Size = new System.Drawing.Size(1109, 676);
-            this.pnlSchedule.TabIndex = 112;
+            this.pnlSchedule.TabIndex = 114;
             this.pnlSchedule.Visible = false;
+            // 
+            // dgvViewGeneratedSchedule
+            // 
+            this.dgvViewGeneratedSchedule.AllowUserToAddRows = false;
+            this.dgvViewGeneratedSchedule.AllowUserToDeleteRows = false;
+            this.dgvViewGeneratedSchedule.AllowUserToResizeColumns = false;
+            this.dgvViewGeneratedSchedule.AllowUserToResizeRows = false;
+            this.dgvViewGeneratedSchedule.BackgroundColor = System.Drawing.Color.White;
+            this.dgvViewGeneratedSchedule.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Thistle;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvViewGeneratedSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.dgvViewGeneratedSchedule.ColumnHeadersHeight = 50;
+            this.dgvViewGeneratedSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clMorningSchedule,
+            this.clAfternoonSchedule,
+            this.clEveningSchedule,
+            this.clNightSchedule});
+            this.dgvViewGeneratedSchedule.GridColor = System.Drawing.Color.White;
+            this.dgvViewGeneratedSchedule.Location = new System.Drawing.Point(3, 1);
+            this.dgvViewGeneratedSchedule.Name = "dgvViewGeneratedSchedule";
+            this.dgvViewGeneratedSchedule.ReadOnly = true;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvViewGeneratedSchedule.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            this.dgvViewGeneratedSchedule.RowHeadersWidth = 150;
+            this.dgvViewGeneratedSchedule.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvViewGeneratedSchedule.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.dgvViewGeneratedSchedule.RowTemplate.DefaultCellStyle.NullValue = "0 emp. assigned";
+            this.dgvViewGeneratedSchedule.RowTemplate.Height = 60;
+            this.dgvViewGeneratedSchedule.RowTemplate.ReadOnly = true;
+            this.dgvViewGeneratedSchedule.Size = new System.Drawing.Size(1103, 644);
+            this.dgvViewGeneratedSchedule.TabIndex = 101;
+            this.dgvViewGeneratedSchedule.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvViewGeneratedSchedule_CellMouseDoubleClick_1);
+            // 
+            // clMorningSchedule
+            // 
+            this.clMorningSchedule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clMorningSchedule.HeaderText = "Morning";
+            this.clMorningSchedule.MinimumWidth = 6;
+            this.clMorningSchedule.Name = "clMorningSchedule";
+            this.clMorningSchedule.ReadOnly = true;
+            // 
+            // clAfternoonSchedule
+            // 
+            this.clAfternoonSchedule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clAfternoonSchedule.HeaderText = "Afternoon";
+            this.clAfternoonSchedule.MinimumWidth = 6;
+            this.clAfternoonSchedule.Name = "clAfternoonSchedule";
+            this.clAfternoonSchedule.ReadOnly = true;
+            // 
+            // clEveningSchedule
+            // 
+            this.clEveningSchedule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clEveningSchedule.HeaderText = "Evening";
+            this.clEveningSchedule.MinimumWidth = 6;
+            this.clEveningSchedule.Name = "clEveningSchedule";
+            this.clEveningSchedule.ReadOnly = true;
+            // 
+            // clNightSchedule
+            // 
+            this.clNightSchedule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clNightSchedule.HeaderText = "Night";
+            this.clNightSchedule.MinimumWidth = 6;
+            this.clNightSchedule.Name = "clNightSchedule";
+            this.clNightSchedule.ReadOnly = true;
             // 
             // pnlEditShift
             // 
@@ -429,7 +373,7 @@ namespace MediaBazaar
             this.pnlEditShift.Location = new System.Drawing.Point(3, 0);
             this.pnlEditShift.Name = "pnlEditShift";
             this.pnlEditShift.Size = new System.Drawing.Size(1106, 670);
-            this.pnlEditShift.TabIndex = 107;
+            this.pnlEditShift.TabIndex = 115;
             this.pnlEditShift.Visible = false;
             // 
             // lbxAvailableEmployeesForShift
@@ -478,7 +422,7 @@ namespace MediaBazaar
             this.btnChangeMaxAssignableEmployees.TabIndex = 95;
             this.btnChangeMaxAssignableEmployees.Text = "Change";
             this.btnChangeMaxAssignableEmployees.UseVisualStyleBackColor = false;
-            this.btnChangeMaxAssignableEmployees.Click += new System.EventHandler(this.btnChangeMaxAssignableEmployees_Click);
+            this.btnChangeMaxAssignableEmployees.Click += new System.EventHandler(this.btnChangeMaxAssignableEmployees_Click_1);
             // 
             // tbMaxAssignableEmployees
             // 
@@ -545,7 +489,7 @@ namespace MediaBazaar
             this.btnRemoveEmployee.TabIndex = 81;
             this.btnRemoveEmployee.Text = "Remove";
             this.btnRemoveEmployee.UseVisualStyleBackColor = false;
-            this.btnRemoveEmployee.Click += new System.EventHandler(this.btnRemoveEmployee_Click);
+            this.btnRemoveEmployee.Click += new System.EventHandler(this.btnRemoveEmployee_Click_1);
             // 
             // btnCloseEditMode
             // 
@@ -556,7 +500,7 @@ namespace MediaBazaar
             this.btnCloseEditMode.TabIndex = 2;
             this.btnCloseEditMode.Text = "X";
             this.btnCloseEditMode.UseVisualStyleBackColor = false;
-            this.btnCloseEditMode.Click += new System.EventHandler(this.btnCloseEditMode_Click);
+            this.btnCloseEditMode.Click += new System.EventHandler(this.btnCloseEditMode_Click_1);
             // 
             // lbxAssignedEmployeesToShift
             // 
@@ -577,229 +521,57 @@ namespace MediaBazaar
             this.lblSelectedShift.TabIndex = 0;
             this.lblSelectedShift.Text = "Selected Shift";
             // 
-            // dgvViewGeneratedSchedule
+            // pnlDisplayAssignedEmployees
             // 
-            this.dgvViewGeneratedSchedule.AllowUserToAddRows = false;
-            this.dgvViewGeneratedSchedule.AllowUserToDeleteRows = false;
-            this.dgvViewGeneratedSchedule.AllowUserToResizeColumns = false;
-            this.dgvViewGeneratedSchedule.AllowUserToResizeRows = false;
-            this.dgvViewGeneratedSchedule.BackgroundColor = System.Drawing.Color.White;
-            this.dgvViewGeneratedSchedule.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Thistle;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvViewGeneratedSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvViewGeneratedSchedule.ColumnHeadersHeight = 50;
-            this.dgvViewGeneratedSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clMorningSchedule,
-            this.clAfternoonSchedule,
-            this.clEveningSchedule,
-            this.clNightSchedule});
-            this.dgvViewGeneratedSchedule.GridColor = System.Drawing.Color.White;
-            this.dgvViewGeneratedSchedule.Location = new System.Drawing.Point(3, 1);
-            this.dgvViewGeneratedSchedule.Name = "dgvViewGeneratedSchedule";
-            this.dgvViewGeneratedSchedule.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvViewGeneratedSchedule.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvViewGeneratedSchedule.RowHeadersWidth = 150;
-            this.dgvViewGeneratedSchedule.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvViewGeneratedSchedule.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            this.dgvViewGeneratedSchedule.RowTemplate.DefaultCellStyle.NullValue = "0 emp. assigned";
-            this.dgvViewGeneratedSchedule.RowTemplate.Height = 60;
-            this.dgvViewGeneratedSchedule.RowTemplate.ReadOnly = true;
-            this.dgvViewGeneratedSchedule.Size = new System.Drawing.Size(1103, 644);
-            this.dgvViewGeneratedSchedule.TabIndex = 101;
-            this.dgvViewGeneratedSchedule.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvViewGeneratedSchedule_CellMouseDoubleClick);
+            this.pnlDisplayAssignedEmployees.Controls.Add(this.btnEditShift);
+            this.pnlDisplayAssignedEmployees.Controls.Add(this.btnClosePanelAssignedEmployees);
+            this.pnlDisplayAssignedEmployees.Controls.Add(this.lbxAssignedEmployees);
+            this.pnlDisplayAssignedEmployees.Controls.Add(this.label3);
+            this.pnlDisplayAssignedEmployees.Location = new System.Drawing.Point(278, 150);
+            this.pnlDisplayAssignedEmployees.Name = "pnlDisplayAssignedEmployees";
+            this.pnlDisplayAssignedEmployees.Size = new System.Drawing.Size(558, 470);
+            this.pnlDisplayAssignedEmployees.TabIndex = 115;
+            this.pnlDisplayAssignedEmployees.Visible = false;
             // 
-            // clMorningSchedule
+            // btnEditShift
             // 
-            this.clMorningSchedule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clMorningSchedule.HeaderText = "Morning";
-            this.clMorningSchedule.MinimumWidth = 6;
-            this.clMorningSchedule.Name = "clMorningSchedule";
-            this.clMorningSchedule.ReadOnly = true;
+            this.btnEditShift.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnEditShift.Location = new System.Drawing.Point(163, 400);
+            this.btnEditShift.Name = "btnEditShift";
+            this.btnEditShift.Size = new System.Drawing.Size(240, 46);
+            this.btnEditShift.TabIndex = 3;
+            this.btnEditShift.Text = "Edit Shift";
+            this.btnEditShift.UseVisualStyleBackColor = false;
+            this.btnEditShift.Click += new System.EventHandler(this.btnEditShift_Click_1);
             // 
-            // clAfternoonSchedule
+            // btnClosePanelAssignedEmployees
             // 
-            this.clAfternoonSchedule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clAfternoonSchedule.HeaderText = "Afternoon";
-            this.clAfternoonSchedule.MinimumWidth = 6;
-            this.clAfternoonSchedule.Name = "clAfternoonSchedule";
-            this.clAfternoonSchedule.ReadOnly = true;
+            this.btnClosePanelAssignedEmployees.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnClosePanelAssignedEmployees.Location = new System.Drawing.Point(466, 15);
+            this.btnClosePanelAssignedEmployees.Name = "btnClosePanelAssignedEmployees";
+            this.btnClosePanelAssignedEmployees.Size = new System.Drawing.Size(75, 46);
+            this.btnClosePanelAssignedEmployees.TabIndex = 2;
+            this.btnClosePanelAssignedEmployees.Text = "X";
+            this.btnClosePanelAssignedEmployees.UseVisualStyleBackColor = false;
+            this.btnClosePanelAssignedEmployees.Click += new System.EventHandler(this.btnClosePanelAssignedEmployees_Click_1);
             // 
-            // clEveningSchedule
+            // lbxAssignedEmployees
             // 
-            this.clEveningSchedule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clEveningSchedule.HeaderText = "Evening";
-            this.clEveningSchedule.MinimumWidth = 6;
-            this.clEveningSchedule.Name = "clEveningSchedule";
-            this.clEveningSchedule.ReadOnly = true;
+            this.lbxAssignedEmployees.FormattingEnabled = true;
+            this.lbxAssignedEmployees.ItemHeight = 25;
+            this.lbxAssignedEmployees.Location = new System.Drawing.Point(20, 78);
+            this.lbxAssignedEmployees.Name = "lbxAssignedEmployees";
+            this.lbxAssignedEmployees.Size = new System.Drawing.Size(521, 304);
+            this.lbxAssignedEmployees.TabIndex = 1;
             // 
-            // clNightSchedule
+            // label3
             // 
-            this.clNightSchedule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clNightSchedule.HeaderText = "Night";
-            this.clNightSchedule.MinimumWidth = 6;
-            this.clNightSchedule.Name = "clNightSchedule";
-            this.clNightSchedule.ReadOnly = true;
-            // 
-            // pnlSelectedWeek
-            // 
-            this.pnlSelectedWeek.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlSelectedWeek.Controls.Add(this.lblSelectedWeekAndDepartment);
-            this.pnlSelectedWeek.Controls.Add(this.pnlManageCreatedSchedule);
-            this.pnlSelectedWeek.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSelectedWeek.Location = new System.Drawing.Point(0, 0);
-            this.pnlSelectedWeek.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlSelectedWeek.Name = "pnlSelectedWeek";
-            this.pnlSelectedWeek.Size = new System.Drawing.Size(1115, 91);
-            this.pnlSelectedWeek.TabIndex = 99;
-            this.pnlSelectedWeek.Visible = false;
-            // 
-            // lblSelectedWeekAndDepartment
-            // 
-            this.lblSelectedWeekAndDepartment.AutoSize = true;
-            this.lblSelectedWeekAndDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblSelectedWeekAndDepartment.Location = new System.Drawing.Point(17, 34);
-            this.lblSelectedWeekAndDepartment.Name = "lblSelectedWeekAndDepartment";
-            this.lblSelectedWeekAndDepartment.Size = new System.Drawing.Size(64, 25);
-            this.lblSelectedWeekAndDepartment.TabIndex = 1;
-            this.lblSelectedWeekAndDepartment.Text = "label3";
-            // 
-            // pnlManageCreatedSchedule
-            // 
-            this.pnlManageCreatedSchedule.Controls.Add(this.btnDiscard);
-            this.pnlManageCreatedSchedule.Controls.Add(this.btnSave);
-            this.pnlManageCreatedSchedule.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlManageCreatedSchedule.Location = new System.Drawing.Point(738, 0);
-            this.pnlManageCreatedSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlManageCreatedSchedule.Name = "pnlManageCreatedSchedule";
-            this.pnlManageCreatedSchedule.Size = new System.Drawing.Size(375, 89);
-            this.pnlManageCreatedSchedule.TabIndex = 0;
-            // 
-            // btnDiscard
-            // 
-            this.btnDiscard.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnDiscard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDiscard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnDiscard.Location = new System.Drawing.Point(192, 25);
-            this.btnDiscard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDiscard.Name = "btnDiscard";
-            this.btnDiscard.Size = new System.Drawing.Size(178, 43);
-            this.btnDiscard.TabIndex = 95;
-            this.btnDiscard.Text = "Discard";
-            this.btnDiscard.UseVisualStyleBackColor = false;
-            this.btnDiscard.Click += new System.EventHandler(this.btnDiscard_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSave.Location = new System.Drawing.Point(8, 25);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(178, 43);
-            this.btnSave.TabIndex = 94;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
-            // 
-            // pnlGenerateSchedule
-            // 
-            this.pnlGenerateSchedule.Controls.Add(this.picInfo);
-            this.pnlGenerateSchedule.Controls.Add(this.lblWeek);
-            this.pnlGenerateSchedule.Controls.Add(this.lblDepartment);
-            this.pnlGenerateSchedule.Controls.Add(this.cbxDepartment);
-            this.pnlGenerateSchedule.Controls.Add(this.monthCalendarAutoSchedule);
-            this.pnlGenerateSchedule.Controls.Add(this.lblInfo);
-            this.pnlGenerateSchedule.Controls.Add(this.btnGenerateSchedule);
-            this.pnlGenerateSchedule.Location = new System.Drawing.Point(3, 95);
-            this.pnlGenerateSchedule.Name = "pnlGenerateSchedule";
-            this.pnlGenerateSchedule.Size = new System.Drawing.Size(1112, 673);
-            this.pnlGenerateSchedule.TabIndex = 105;
-            // 
-            // picInfo
-            // 
-            this.picInfo.Image = global::MediaBazaar.Properties.Resources.info;
-            this.picInfo.Location = new System.Drawing.Point(156, 512);
-            this.picInfo.Name = "picInfo";
-            this.picInfo.Size = new System.Drawing.Size(50, 46);
-            this.picInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picInfo.TabIndex = 111;
-            this.picInfo.TabStop = false;
-            this.picInfo.MouseLeave += new System.EventHandler(this.picInfo_MouseLeave);
-            this.picInfo.MouseHover += new System.EventHandler(this.picInfo_MouseHover_1);
-            // 
-            // lblWeek
-            // 
-            this.lblWeek.AutoSize = true;
-            this.lblWeek.Location = new System.Drawing.Point(249, 61);
-            this.lblWeek.Name = "lblWeek";
-            this.lblWeek.Size = new System.Drawing.Size(75, 25);
-            this.lblWeek.TabIndex = 110;
-            this.lblWeek.Text = "Week: ";
-            // 
-            // lblDepartment
-            // 
-            this.lblDepartment.AutoSize = true;
-            this.lblDepartment.Location = new System.Drawing.Point(249, 305);
-            this.lblDepartment.Name = "lblDepartment";
-            this.lblDepartment.Size = new System.Drawing.Size(119, 25);
-            this.lblDepartment.TabIndex = 109;
-            this.lblDepartment.Text = "Department:";
-            // 
-            // cbxDepartment
-            // 
-            this.cbxDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxDepartment.FormattingEnabled = true;
-            this.cbxDepartment.Location = new System.Drawing.Point(402, 305);
-            this.cbxDepartment.Name = "cbxDepartment";
-            this.cbxDepartment.Size = new System.Drawing.Size(377, 33);
-            this.cbxDepartment.TabIndex = 108;
-            this.cbxDepartment.Click += new System.EventHandler(this.cbxDepartment_Click);
-            // 
-            // monthCalendarAutoSchedule
-            // 
-            this.monthCalendarAutoSchedule.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
-            this.monthCalendarAutoSchedule.Location = new System.Drawing.Point(425, 61);
-            this.monthCalendarAutoSchedule.Name = "monthCalendarAutoSchedule";
-            this.monthCalendarAutoSchedule.ShowWeekNumbers = true;
-            this.monthCalendarAutoSchedule.TabIndex = 107;
-            // 
-            // lblInfo
-            // 
-            this.lblInfo.AutoSize = true;
-            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblInfo.Location = new System.Drawing.Point(212, 522);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(633, 25);
-            this.lblInfo.TabIndex = 106;
-            this.lblInfo.Text = "Select a date and department and the schedule for week will be created:";
-            this.lblInfo.Visible = false;
-            // 
-            // btnGenerateSchedule
-            // 
-            this.btnGenerateSchedule.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnGenerateSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerateSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnGenerateSchedule.Location = new System.Drawing.Point(425, 411);
-            this.btnGenerateSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGenerateSchedule.Name = "btnGenerateSchedule";
-            this.btnGenerateSchedule.Size = new System.Drawing.Size(253, 59);
-            this.btnGenerateSchedule.TabIndex = 105;
-            this.btnGenerateSchedule.Text = "Generate schedule";
-            this.btnGenerateSchedule.UseVisualStyleBackColor = false;
-            this.btnGenerateSchedule.Click += new System.EventHandler(this.btnGenerateSchedule_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(180, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(196, 25);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Assigned Employees";
             // 
             // StoreWorkerScheduleInterface
             // 
@@ -809,56 +581,29 @@ namespace MediaBazaar
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "StoreWorkerScheduleInterface";
             this.Size = new System.Drawing.Size(1129, 812);
-            this.tpStoreWView.ResumeLayout(false);
-            this.tpStoreWView.PerformLayout();
-            this.pnlDisplayEmployees.ResumeLayout(false);
-            this.pnlDisplayEmployees.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvViewShifts)).EndInit();
-            this.pnlDisplayDate.ResumeLayout(false);
-            this.pnlDisplayDate.PerformLayout();
-            this.pnlChangeWeek.ResumeLayout(false);
             this.tcStoreWorkerSchedule.ResumeLayout(false);
-            this.tpAutomaticSchedule.ResumeLayout(false);
-            this.pnlDisplayAssignedEmployees.ResumeLayout(false);
-            this.pnlDisplayAssignedEmployees.PerformLayout();
-            this.pnlSchedule.ResumeLayout(false);
-            this.pnlEditShift.ResumeLayout(false);
-            this.pnlEditShift.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvViewGeneratedSchedule)).EndInit();
+            this.tpSchedule.ResumeLayout(false);
             this.pnlSelectedWeek.ResumeLayout(false);
             this.pnlSelectedWeek.PerformLayout();
             this.pnlManageCreatedSchedule.ResumeLayout(false);
             this.pnlGenerateSchedule.ResumeLayout(false);
             this.pnlGenerateSchedule.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picInfo)).EndInit();
+            this.pnlSchedule.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvViewGeneratedSchedule)).EndInit();
+            this.pnlEditShift.ResumeLayout(false);
+            this.pnlEditShift.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.pnlDisplayAssignedEmployees.ResumeLayout(false);
+            this.pnlDisplayAssignedEmployees.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.TabPage tpStoreWView;
         private System.Windows.Forms.TabControl tcStoreWorkerSchedule;
-        private System.Windows.Forms.Label lbWeek;
-        private System.Windows.Forms.MonthCalendar calendarDate;
-        private System.Windows.Forms.Label lblViewInstructions;
-        private System.Windows.Forms.Button btnShowShifts;
-        private System.Windows.Forms.Panel pnlDisplayDate;
-        private System.Windows.Forms.Label lblDisplayedDates;
-        private System.Windows.Forms.Panel pnlChangeWeek;
-        private System.Windows.Forms.Button btnChangeSelectedWeek;
-        private System.Windows.Forms.DataGridView dgvViewShifts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clMorning;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clAfternoon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clEvening;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clNight;
-        private System.Windows.Forms.Panel pnlDisplayEmployees;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.ListBox lbDisplayEmployees;
-        private System.Windows.Forms.Label lblAssignedEmployees;
-        private System.Windows.Forms.ColumnHeader availableEmployees;
-        private System.Windows.Forms.TabPage tpAutomaticSchedule;
+        private System.Windows.Forms.TabPage tpSchedule;
         private System.Windows.Forms.Panel pnlSelectedWeek;
         private System.Windows.Forms.Label lblSelectedWeekAndDepartment;
         private System.Windows.Forms.Panel pnlManageCreatedSchedule;
@@ -872,18 +617,14 @@ namespace MediaBazaar
         private System.Windows.Forms.MonthCalendar monthCalendarAutoSchedule;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Button btnGenerateSchedule;
-        private System.Windows.Forms.Panel pnlSchedule;
-        private System.Windows.Forms.DataGridView dgvViewGeneratedSchedule;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clMorningSchedule;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clAfternoonSchedule;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clEveningSchedule;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clNightSchedule;
-        private System.Windows.Forms.Panel pnlDisplayAssignedEmployees;
-        private System.Windows.Forms.Button btnClosePanelAssignedEmployees;
-        private System.Windows.Forms.ListBox lbxAssignedEmployees;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnEditShift;
+        private System.Windows.Forms.Button btnViewSchedule;
         private System.Windows.Forms.Panel pnlEditShift;
+        private System.Windows.Forms.ListView lbxAvailableEmployeesForShift;
+        private System.Windows.Forms.ColumnHeader availableEmployees;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnChangeMaxAssignableEmployees;
+        private System.Windows.Forms.TextBox tbMaxAssignableEmployees;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAssignEmployee;
@@ -891,10 +632,16 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnCloseEditMode;
         private System.Windows.Forms.ListBox lbxAssignedEmployeesToShift;
         private System.Windows.Forms.Label lblSelectedShift;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnChangeMaxAssignableEmployees;
-        private System.Windows.Forms.TextBox tbMaxAssignableEmployees;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListView lbxAvailableEmployeesForShift;
+        private System.Windows.Forms.Panel pnlSchedule;
+        private System.Windows.Forms.DataGridView dgvViewGeneratedSchedule;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clMorningSchedule;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clAfternoonSchedule;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clEveningSchedule;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clNightSchedule;
+        private System.Windows.Forms.Panel pnlDisplayAssignedEmployees;
+        private System.Windows.Forms.Button btnEditShift;
+        private System.Windows.Forms.Button btnClosePanelAssignedEmployees;
+        private System.Windows.Forms.ListBox lbxAssignedEmployees;
+        private System.Windows.Forms.Label label3;
     }
 }
