@@ -20,7 +20,7 @@ namespace MediaBazaar
         public AssignDepartmentManagerToDepartment(Department department)
         {
             InitializeComponent();
-            this.dept = dept;
+            this.department = department;
             this.empoyeeManager = new EmployeeManager(DatabaseType.MAIN);
             this.assignPersonDepartmentManager = new AssignPersonDepartmentManager(DatabaseType.MAIN);
             this.DisplayAssignDepartmentManager();
