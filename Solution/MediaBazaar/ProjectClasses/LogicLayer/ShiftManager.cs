@@ -21,5 +21,18 @@ namespace ProjectClasses
             WeekSchedule newSchedule = new WeekSchedule(date,department);
             return newSchedule;
         }
+        public void SaveGeneratedSchedule(WeekSchedule schedule)
+        {
+            dbMediator.SaveSchedule(schedule);
+        }
+        public WeekSchedule GetSchedule(DateTime date,Department department)
+        {
+            WeekSchedule newSchedule = new WeekSchedule(date, department);
+            foreach (Shift shift in newSchedule.GetAllShifts())
+            {
+                shift.GetAssignedEmployees().Clear();
+            }
+            return dbMediator.FillSchedule(newSchedule);
+        }
     }
 }

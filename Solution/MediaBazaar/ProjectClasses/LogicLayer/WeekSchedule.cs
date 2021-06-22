@@ -121,7 +121,7 @@ namespace ProjectClasses.LogicLayer
             }
             return allAvailableEmployees.OrderBy(x=>x.Employee.Id).ToList();
         }
-        public void ReorderList(List<EmployeeInSchedule> employees)
+        private void ReorderList(List<EmployeeInSchedule> employees)
         {
             // sort by
             // 1. contract fulltime, 80% before flex

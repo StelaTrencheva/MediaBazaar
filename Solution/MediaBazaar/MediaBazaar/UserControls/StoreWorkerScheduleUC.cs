@@ -15,9 +15,6 @@ namespace MediaBazaar
     {
         private DateTime today = DateTime.Today;
         private ShiftManager shiftManager;
-        private Shift foundShift;
-        private ListBox lbx = null;
-        private Label lbl = null;
         private List<DateTime> dates = new List<DateTime>();
         private List<Shift> shifts = null;
         private Color cellColor = Color.White;
@@ -32,32 +29,6 @@ namespace MediaBazaar
             dm = new DepartmentManager();
             ShowDepartments();
         }
-       
-        // View Schedule
-        private void btnChangeSelectedWeek_Click(object sender, EventArgs e)
-        {
-            DisplayAllPanelsInView(false);
-            calendarDate.Visible = true;
-        }
-        private int GetWeekNumber(DateTime date)
-        {
-            return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
-        }
-        private void tcStoreWorkerSchedule_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            calendarDate.Visible = true;
-            calendarDate.MinDate = today.AddMonths(-3);
-            calendarDate.MaxDate = today.AddMonths(3);
-            DisplayAllPanelsInView(false);
-
-        }
-
-        private void DisplayAllPanelsInView(bool visible)
-        {
-            pnlChangeWeek.Visible = visible;
-            pnlDisplayDate.Visible = visible;
-            dgvViewShifts.Visible = visible;
-        }
         private void AddDefaultRows(DataGridView dgv)
         {
             dgv.Rows.Clear();
@@ -71,93 +42,6 @@ namespace MediaBazaar
 
         }
 
-        private void btnShowShifts_Click(object sender, EventArgs e)
-        {
-            calendarDate.Visible = false;
-            DateTime selectedDate = calendarDate.SelectionRange.Start;
-            DisplayAllPanelsInView(true);
-            AddDefaultRows(dgvViewShifts);
-            int weekNumberOfSelectedDate = GetWeekNumber(selectedDate);
-            DateTime startDate = selectedDate;
-            DateTime endDate = startDate.AddDays(7);
-            dates = new List<DateTime>();
-            for (DateTime i = startDate; i > selectedDate.AddDays(-7); i = i.AddDays(-1))
-            {
-                if (GetWeekNumber(i.AddDays(-1)) != weekNumberOfSelectedDate)
-                {
-                    startDate = i;
-                    endDate = startDate.AddDays(6);
-                    break;
-                }
-            }
-            for (DateTime i = startDate; i < endDate; i = i.AddDays(1))
-            {
-                dates.Add(i);
-            }
-            lblDisplayedDates.Text = $"Week: {startDate.ToShortDateString()} - {endDate.ToShortDateString()}";
-            //shifts = shiftManager.GetAllShiftsPerDates(dates);
-            
-            //foreach (KeyValuePair<DateTime, List<Shift>> d in shifts)
-            //{   
-            //    foreach (Shift s in d.Value.OrderBy(x => x.Type))
-            //    {
-            //        int rowIndex = dgvViewShifts.Rows.IndexOf(dgvViewShifts.Rows[(int)(d.Key.DayOfWeek)-1]);
-                    
-            //        if (s.AssignableEmployees == s.GetAssignedEmployees().Count)
-            //        {
-            //            dgvViewShifts.Rows[rowIndex].Cells[$"cl{s.Type}"].Style.BackColor = System.Drawing.ColorTranslator.FromHtml("#63A375");
-            //        }
-            //        if (s.GetAssignedEmployees().Count > 0 && s.GetAssignedEmployees().Count<s.AssignableEmployees)
-            //        {
-            //            dgvViewShifts.Rows[rowIndex].Cells[$"cl{s.Type}"].Style.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFB563");
-            //        }
-            //        if (s.GetAssignedEmployees().Count == 0)
-            //        {
-            //            dgvViewShifts.Rows[rowIndex].Cells[$"cl{s.Type}"].Style.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF686B");
-            //        }
-            //        dgvViewShifts[$"cl{s.Type}",rowIndex].Value=$"{s.GetAssignedEmployees().Count}/{s.AssignableEmployees} emp. assigned";
-            //    }
-            //}
-
-        }
-       
-
-        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            //pnlDisplayEmployees.Visible = true;
-            //int rowIndex = dgvViewShifts.CurrentCell.RowIndex;
-            //int columnIndex = dgvViewShifts.CurrentCell.ColumnIndex;
-            //Enum.TryParse(dgvViewShifts.Rows[rowIndex].HeaderCell.Value.ToString(), out DayOfWeek day);
-            //string formatedDate = "";
-            //foreach (DateTime date in dates)
-            //{
-            //    if (date.DayOfWeek == day)
-            //    {
-            //        formatedDate = date.ToString("yyyy-MM-dd");
-            //    }
-            //}
-            //Enum.TryParse(dgvViewShifts.Columns[columnIndex].HeaderText.ToString(), out ShiftType shiftType);
-            //Shift shift = shiftManager.GetShift(shiftType,formatedDate);
-            //if (shift.GetAssignedEmployees().Count == 0)
-            //{
-            //    lbDisplayEmployees.Items.Add($"0 out of {shift.AssignableEmployees} employees are assigned to this shift!");
-            //}
-            //else
-            //{
-            //    foreach (Employee employee in shift.GetAssignedEmployees())
-            //    {
-            //        lbDisplayEmployees.Items.Add($"{employee.Id}. {employee.GetEmployeeNames}");
-            //    }
-            //}
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            pnlDisplayEmployees.Visible = false;
-            lbDisplayEmployees.Items.Clear();
-        }
-
-
        // Automatic Schedule
         private void btnDiscard_Click(object sender, EventArgs e)
         {
@@ -170,10 +54,18 @@ namespace MediaBazaar
             pnlManageCreatedSchedule.Visible = visible;
             pnlSchedule.Visible = visible;
         }
+        private void DisplayAllPanelsInViewSchedule(bool visible)
+        {
+            pnlSelectedWeek.Visible = visible;
+            pnlManageCreatedSchedule.Visible = visible;
+            btnSave.Visible = false;
+            pnlSchedule.Visible = visible;
+        }
         private void btnGenerateSchedule_Click(object sender, EventArgs e)
         {
             try
             {
+                btnSave.Visible = true;
                 DisplayAllPanelsInAutoSchedule(true);
                 pnlGenerateSchedule.Visible = false;
                 DateTime selectedDate = monthCalendarAutoSchedule.SelectionRange.Start;
@@ -218,46 +110,6 @@ namespace MediaBazaar
         {
             ShowDepartments();
         }
-
-        private void btnClosePanelAssignedEmployees_Click(object sender, EventArgs e)
-        {
-            pnlDisplayAssignedEmployees.Visible = false;
-        }
-
-        private void dgvViewGeneratedSchedule_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            pnlDisplayAssignedEmployees.Visible = true;
-            pnlDisplayAssignedEmployees.BringToFront();
-            lbxAssignedEmployees.Items.Clear();
-            int rowIndex = dgvViewGeneratedSchedule.CurrentCell.RowIndex;
-            int columnIndex = dgvViewGeneratedSchedule.CurrentCell.ColumnIndex;
-            Enum.TryParse(dgvViewGeneratedSchedule.Rows[rowIndex].HeaderCell.Value.ToString(), out DayOfWeek day);
-            Enum.TryParse(dgvViewGeneratedSchedule.Columns[columnIndex].HeaderText.ToString(), out ShiftType shiftType);
-            currentSelectedShift = newSchedule.GetShift(shiftType, day);
-            if (currentSelectedShift.GetAssignedEmployees().Count == 0)
-            {
-                lbxAssignedEmployees.Items.Add($"0 out of {currentSelectedShift.AssignableEmployees} employees are assigned to this shift!");
-            }
-            else
-            {
-                foreach (Employee employee in currentSelectedShift.GetAssignedEmployees())
-                {
-                    lbxAssignedEmployees.Items.Add($"{employee.Id}. {employee.GetEmployeeNames}");
-                }
-            }
-        }
-
-        private void btnEditShift_Click(object sender, EventArgs e)
-        {
-            pnlDisplayAssignedEmployees.Visible = false;
-            btnSave.Enabled = false;
-            btnDiscard.Enabled = false;
-            pnlEditShift.Visible = true;
-            pnlEditShift.BringToFront();
-            UpdateInfoInAutoSchedule();
-            tbMaxAssignableEmployees.Text = currentSelectedShift.AssignableEmployees.ToString();
-            
-        }
         private void UpdateInfoInAutoSchedule()
         {
             lbxAvailableEmployeesForShift.Items.Clear();
@@ -275,15 +127,6 @@ namespace MediaBazaar
                     lbxAvailableEmployeesForShift.Items[lbxAvailableEmployeesForShift.Items.IndexOf(newItem)].BackColor = System.Drawing.ColorTranslator.FromHtml("#FF686B");
                 }
             }
-        }
-        private void btnCloseEditMode_Click(object sender, EventArgs e)
-        {
-            btnDiscard.Enabled = true;
-            btnSave.Enabled = true;
-            pnlEditShift.Visible = false;
-            pnlDisplayAssignedEmployees.Visible = false;
-            UpdateDisplayOfShiftsInGrid();
-
         }
         private void UpdateDisplayOfShiftsInGrid()
         {
@@ -305,7 +148,92 @@ namespace MediaBazaar
                 dgvViewGeneratedSchedule[$"cl{s.Type}Schedule", rowIndex].Value = $"{s.GetAssignedEmployees().Count}/{s.AssignableEmployees} emp. assigned";
             }
         }
-        private void btnChangeMaxAssignableEmployees_Click(object sender, EventArgs e)
+
+        
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            shiftManager.SaveGeneratedSchedule(newSchedule);
+            MessageBox.Show("The schedule was successfully saved!");
+            DisplayAllPanelsInAutoSchedule(false);
+            pnlGenerateSchedule.Visible = true;
+            
+        }
+
+        private void btnViewSchedule_Click(object sender, EventArgs e)
+        {
+            DisplayAllPanelsInViewSchedule(true);
+            pnlGenerateSchedule.Visible = false;
+            DateTime selectedDate = monthCalendarAutoSchedule.SelectionRange.Start;
+
+            Department department = new Department(Convert.ToInt32(cbxDepartment.SelectedItem.ToString().Substring(6, cbxDepartment.SelectedItem.ToString().IndexOf('-') - 7)), cbxDepartment.SelectedItem.ToString().Substring(cbxDepartment.SelectedItem.ToString().IndexOf('-') + 2, cbxDepartment.SelectedItem.ToString().Length - (cbxDepartment.SelectedItem.ToString().IndexOf('-') + 2)));
+            newSchedule = shiftManager.GetSchedule(selectedDate, department);
+
+            lblSelectedWeekAndDepartment.Text = $"Week: {newSchedule.WeekStartDate.ToShortDateString()} - {newSchedule.WeekEndDate.ToShortDateString()} - Department: {newSchedule.Department.Name}";
+            shifts = newSchedule.GetAllShifts();
+            AddDefaultRows(dgvViewGeneratedSchedule);
+            UpdateDisplayOfShiftsInGrid();
+        }
+
+        private void dgvViewGeneratedSchedule_CellMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            pnlDisplayAssignedEmployees.Visible = true;
+            pnlDisplayAssignedEmployees.BringToFront();
+            lbxAssignedEmployees.Items.Clear();
+            int rowIndex = dgvViewGeneratedSchedule.CurrentCell.RowIndex;
+            int columnIndex = dgvViewGeneratedSchedule.CurrentCell.ColumnIndex;
+            Enum.TryParse(dgvViewGeneratedSchedule.Rows[rowIndex].HeaderCell.Value.ToString(), out DayOfWeek day);
+            Enum.TryParse(dgvViewGeneratedSchedule.Columns[columnIndex].HeaderText.ToString(), out ShiftType shiftType);
+            currentSelectedShift = newSchedule.GetShift(shiftType, day);
+            if (currentSelectedShift.GetAssignedEmployees().Count == 0)
+            {
+                lbxAssignedEmployees.Items.Add($"0 out of {currentSelectedShift.AssignableEmployees} employees are assigned to this shift!");
+            }
+            else
+            {
+                foreach (Employee employee in currentSelectedShift.GetAssignedEmployees())
+                {
+                    lbxAssignedEmployees.Items.Add($"{employee.Id}. {employee.GetEmployeeNames}");
+                }
+            }
+            if (btnSave.Visible == false)
+            {
+                btnEditShift.Visible = false;
+            }
+            else
+            {
+                btnEditShift.Visible = true;
+            }
+        }
+
+        private void btnEditShift_Click_1(object sender, EventArgs e)
+        {
+
+            pnlDisplayAssignedEmployees.Visible = false;
+            btnSave.Enabled = false;
+            btnDiscard.Enabled = false;
+            pnlEditShift.Visible = true;
+            pnlEditShift.BringToFront();
+            UpdateInfoInAutoSchedule();
+            tbMaxAssignableEmployees.Text = currentSelectedShift.AssignableEmployees.ToString();
+        }
+
+        private void btnCloseEditMode_Click_1(object sender, EventArgs e)
+        {
+
+            btnDiscard.Enabled = true;
+            btnSave.Enabled = true;
+            pnlEditShift.Visible = false;
+            pnlDisplayAssignedEmployees.Visible = false;
+            UpdateDisplayOfShiftsInGrid();
+
+        }
+
+        private void btnClosePanelAssignedEmployees_Click_1(object sender, EventArgs e)
+        {
+            pnlDisplayAssignedEmployees.Visible = false;
+        }
+
+        private void btnChangeMaxAssignableEmployees_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -317,13 +245,13 @@ namespace MediaBazaar
             {
                 MessageBox.Show(ex.Message);
             }
-            catch(ArgumentException ex)
+            catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
-        private void btnRemoveEmployee_Click(object sender, EventArgs e)
+        private void btnRemoveEmployee_Click_1(object sender, EventArgs e)
         {
             int selectedUser;
             try
@@ -355,27 +283,28 @@ namespace MediaBazaar
 
         private void btnAssignEmployee_Click(object sender, EventArgs e)
         {
+
             int selectedUser;
-            
-                if (lbxAvailableEmployeesForShift.SelectedItems.Count<=0)
+
+            if (lbxAvailableEmployeesForShift.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("Please select a store worker from the available store workers for the selected shift!");
+            }
+            else
+            {
+                string selectedItem = lbxAvailableEmployeesForShift.SelectedItems[0].Text;
+                selectedUser = Convert.ToInt32(selectedItem.Substring(0, selectedItem.IndexOf('.')));
+                EmployeeInSchedule foundEmployee = newSchedule.GetEmployeeFromAvailableEmployees(currentSelectedShift, selectedUser);
+                if (newSchedule.AssignEmployeeToShift(currentSelectedShift, foundEmployee))
                 {
-                    MessageBox.Show("Please select a store worker from the available store workers for the selected shift!");
+                    UpdateInfoInAutoSchedule();
                 }
                 else
                 {
-                    string selectedItem = lbxAvailableEmployeesForShift.SelectedItems[0].Text;
-                    selectedUser = Convert.ToInt32(selectedItem.Substring(0, selectedItem.IndexOf('.')));
-                    EmployeeInSchedule foundEmployee = newSchedule.GetEmployeeFromAvailableEmployees(currentSelectedShift, selectedUser);
-                    if (newSchedule.AssignEmployeeToShift(currentSelectedShift,foundEmployee))
-                    {
-                        UpdateInfoInAutoSchedule();
-                    }
-                    else
-                    {
-                        MessageBox.Show("The employee cannot be assigned to the shift!");
-                    }
-
+                    MessageBox.Show("The employee cannot be assigned to the shift!");
                 }
+
+            }
         }
     }
 }
