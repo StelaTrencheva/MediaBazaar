@@ -27,6 +27,7 @@ namespace MediaBazaar
             lbxDisplayPRevenueProfit.DrawMode = DrawMode.OwnerDrawFixed;
             lbxDisplayPRevenueProfit.DrawItem += new DrawItemEventHandler(lbxDisplayPRevenueProfit_DrawItem);
             this.UpdateChart();
+            cbbTypeOfStats.SelectedIndex = 0;
         }
 
         public void UpdateListBoxAllProducts()

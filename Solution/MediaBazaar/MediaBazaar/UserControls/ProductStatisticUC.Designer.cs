@@ -49,9 +49,9 @@ namespace MediaBazaar
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbpIndividualProdStats = new System.Windows.Forms.TabPage();
             this.tbpTopTenSold = new System.Windows.Forms.TabPage();
-            this.chartProductStatistics = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lblTopTen = new System.Windows.Forms.Label();
             this.cbbTypeOfStats = new System.Windows.Forms.ComboBox();
+            this.lblTopTen = new System.Windows.Forms.Label();
+            this.chartProductStatistics = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.gbxProductInformation.SuspendLayout();
             this.pnlAmountInWarehouse.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -237,47 +237,6 @@ namespace MediaBazaar
             this.tbpTopTenSold.Text = "Top ten products";
             this.tbpTopTenSold.UseVisualStyleBackColor = true;
             // 
-            // chartProductStatistics
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chartProductStatistics.ChartAreas.Add(chartArea1);
-            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Legend1";
-            this.chartProductStatistics.Legends.Add(legend1);
-            this.chartProductStatistics.Location = new System.Drawing.Point(27, 127);
-            this.chartProductStatistics.Name = "chartProductStatistics";
-            this.chartProductStatistics.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            series1.IsValueShownAsLabel = true;
-            series1.IsXValueIndexed = true;
-            series1.Legend = "Legend1";
-            series1.Name = "Sold products";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            series2.IsValueShownAsLabel = true;
-            series2.IsXValueIndexed = true;
-            series2.Legend = "Legend1";
-            series2.Name = "Profitable products";
-            this.chartProductStatistics.Series.Add(series1);
-            this.chartProductStatistics.Series.Add(series2);
-            this.chartProductStatistics.Size = new System.Drawing.Size(1055, 537);
-            this.chartProductStatistics.TabIndex = 0;
-            this.chartProductStatistics.Text = "chart1";
-            // 
-            // lblTopTen
-            // 
-            this.lblTopTen.AutoSize = true;
-            this.lblTopTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTopTen.Location = new System.Drawing.Point(45, 43);
-            this.lblTopTen.Name = "lblTopTen";
-            this.lblTopTen.Size = new System.Drawing.Size(160, 29);
-            this.lblTopTen.TabIndex = 1;
-            this.lblTopTen.Text = "Top ten most:";
-            // 
             // cbbTypeOfStats
             // 
             this.cbbTypeOfStats.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -291,6 +250,47 @@ namespace MediaBazaar
             this.cbbTypeOfStats.Size = new System.Drawing.Size(310, 33);
             this.cbbTypeOfStats.TabIndex = 2;
             this.cbbTypeOfStats.SelectedIndexChanged += new System.EventHandler(this.cbbTypeOfStats_SelectedIndexChanged);
+            // 
+            // lblTopTen
+            // 
+            this.lblTopTen.AutoSize = true;
+            this.lblTopTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTopTen.Location = new System.Drawing.Point(45, 43);
+            this.lblTopTen.Name = "lblTopTen";
+            this.lblTopTen.Size = new System.Drawing.Size(160, 29);
+            this.lblTopTen.TabIndex = 1;
+            this.lblTopTen.Text = "Top ten most:";
+            // 
+            // chartProductStatistics
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartProductStatistics.ChartAreas.Add(chartArea1);
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            this.chartProductStatistics.Legends.Add(legend1);
+            this.chartProductStatistics.Location = new System.Drawing.Point(27, 127);
+            this.chartProductStatistics.Name = "chartProductStatistics";
+            this.chartProductStatistics.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            series1.IsValueShownAsLabel = true;
+            series1.IsXValueIndexed = true;
+            series1.Legend = "Legend1";
+            series1.Name = "Sold products";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            series2.IsValueShownAsLabel = true;
+            series2.IsXValueIndexed = true;
+            series2.Legend = "Legend1";
+            series2.Name = "Profitable products";
+            this.chartProductStatistics.Series.Add(series1);
+            this.chartProductStatistics.Series.Add(series2);
+            this.chartProductStatistics.Size = new System.Drawing.Size(1055, 537);
+            this.chartProductStatistics.TabIndex = 0;
+            this.chartProductStatistics.Text = "chart1";
             // 
             // ProductStatisticInterface
             // 
