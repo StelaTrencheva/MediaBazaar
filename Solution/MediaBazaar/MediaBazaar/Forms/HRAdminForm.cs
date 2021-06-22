@@ -19,7 +19,7 @@ namespace MediaBazaar
         public HRAdminForm(Employee employee)
         {
             InitializeComponent();
-            this.manageEmployees = new EmployeeManager();
+            this.manageEmployees = new EmployeeManager(DatabaseType.MAIN);
             currentEmp = employee;
             userInterface1.SendInfo(currentEmp);
         }

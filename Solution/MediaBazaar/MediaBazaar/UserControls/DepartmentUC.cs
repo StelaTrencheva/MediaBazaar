@@ -18,8 +18,8 @@ namespace MediaBazaar
         public DepartmentInterface()
         {
             InitializeComponent();
-            this.deptMngr = new DepartmentManager();
-            this.empMng = new EmployeeManager();
+            this.deptMngr = new DepartmentManager(DatabaseType.MAIN);
+            this.empMng = new EmployeeManager(DatabaseType.MAIN);
             this.DisplayDepartments();
             this.DisplayDepartmentManagersInCbx();
             this.DisplayDepartmentsInCbx();

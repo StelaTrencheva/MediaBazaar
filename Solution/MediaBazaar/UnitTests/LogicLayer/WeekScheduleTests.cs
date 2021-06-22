@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjectClasses;
 
 namespace ProjectClasses.LogicLayer.Tests
 {
@@ -87,7 +88,7 @@ namespace ProjectClasses.LogicLayer.Tests
     {
         private List<EmployeeInSchedule> employeeInSchedules;
 
-        public DbMediatorShiftsTest(List<EmployeeInSchedule> employeeInSchedules)
+        public DbMediatorShiftsTest(List<EmployeeInSchedule> employeeInSchedules): base(DatabaseType.MAIN)
         {
             this.employeeInSchedules = employeeInSchedules;
         }

@@ -21,8 +21,8 @@ namespace MediaBazaar
         {
             InitializeComponent();
             this.dept = dept;
-            this.empoyeeManager = new EmployeeManager();
-            this.assignPersonDepartmentManager = new AssignPersonDepartmentManager();
+            this.empoyeeManager = new EmployeeManager(DatabaseType.MAIN);
+            this.assignPersonDepartmentManager = new AssignPersonDepartmentManager(DatabaseType.MAIN);
             this.DisplayAssignDepartmentManager();
             this.DisplayDepartmentManager();
         }

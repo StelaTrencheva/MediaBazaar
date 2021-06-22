@@ -19,7 +19,7 @@ namespace MediaBazaar
         {
             InitializeComponent();
             this.employee = emp;
-            mngEmp = new EmployeeManager();
+            mngEmp = new EmployeeManager(DatabaseType.MAIN);
         }
 
         private void btnSubmitChanges_Click(object sender, EventArgs e)

@@ -21,8 +21,8 @@ namespace MediaBazaar
         public ProductStatisticInterface()
         {
             InitializeComponent();
-            this.pManager = new ProductManager();
-            this.productStatsManager = new ProductStatisticsManager();
+            this.pManager = new ProductManager(DatabaseType.MAIN);
+            this.productStatsManager = new ProductStatisticsManager(DatabaseType.MAIN);
             UpdateListBoxAllProducts();
             lbxDisplayPRevenueProfit.DrawMode = DrawMode.OwnerDrawFixed;
             lbxDisplayPRevenueProfit.DrawItem += new DrawItemEventHandler(lbxDisplayPRevenueProfit_DrawItem);

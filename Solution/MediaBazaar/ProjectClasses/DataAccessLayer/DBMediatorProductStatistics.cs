@@ -9,7 +9,7 @@ namespace ProjectClasses
 {
     class DBMediatorProductStatistics : DBMediator
     {
-        public DBMediatorProductStatistics() : base() { }
+        public DBMediatorProductStatistics(DatabaseType databaseType) : base(databaseType) { }
 
         public Dictionary<Product, int> GetTenMostSoldProductsQuantity()
         {

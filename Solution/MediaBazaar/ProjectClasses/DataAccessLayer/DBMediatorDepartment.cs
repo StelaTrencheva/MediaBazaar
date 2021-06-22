@@ -9,7 +9,7 @@ namespace ProjectClasses
 {
      class DBMediatorDepartment: DBMediator
      {
-        public DBMediatorDepartment() : base() { }
+        public DBMediatorDepartment(DatabaseType databaseType) : base(databaseType) { }
 
         //ADD DEPARTMENT
         public Department AddDepartment(int code,string name)

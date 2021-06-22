@@ -42,13 +42,14 @@ namespace CashierApp
             this.nudProductQuantity = new System.Windows.Forms.NumericUpDown();
             this.btnAddToBasket = new System.Windows.Forms.Button();
             this.gbProducts = new System.Windows.Forms.GroupBox();
+            this.gbQuantity = new System.Windows.Forms.GroupBox();
+            this.tbProductPrice = new System.Windows.Forms.TextBox();
+            this.lbProductPrice = new System.Windows.Forms.Label();
             this.tbFinalPrice = new System.Windows.Forms.TextBox();
             this.gbBasket = new System.Windows.Forms.GroupBox();
             this.btnClearBascet = new System.Windows.Forms.Button();
             this.btnRemoveProduct = new System.Windows.Forms.Button();
             this.btnRemovePiece = new System.Windows.Forms.Button();
-            this.lbProductPrice = new System.Windows.Forms.Label();
-            this.tbProductPrice = new System.Windows.Forms.TextBox();
             this.lbTotalPrice = new System.Windows.Forms.Label();
             this.gbFinishOrder = new System.Windows.Forms.GroupBox();
             this.rbtnCard = new System.Windows.Forms.RadioButton();
@@ -57,37 +58,37 @@ namespace CashierApp
             this.statusBox = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.btnLogOut = new System.Windows.Forms.Button();
-            this.gbQuantity = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudProductQuantity)).BeginInit();
             this.gbProducts.SuspendLayout();
+            this.gbQuantity.SuspendLayout();
             this.gbBasket.SuspendLayout();
             this.gbFinishOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statusBox)).BeginInit();
-            this.gbQuantity.SuspendLayout();
             this.SuspendLayout();
             // 
             // lboxProducts
             // 
             this.lboxProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.lboxProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lboxProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lboxProducts.FormattingEnabled = true;
-            this.lboxProducts.ItemHeight = 18;
+            this.lboxProducts.ItemHeight = 22;
             this.lboxProducts.Location = new System.Drawing.Point(21, 40);
             this.lboxProducts.Margin = new System.Windows.Forms.Padding(2);
             this.lboxProducts.Name = "lboxProducts";
-            this.lboxProducts.Size = new System.Drawing.Size(330, 436);
+            this.lboxProducts.Size = new System.Drawing.Size(330, 422);
             this.lboxProducts.TabIndex = 0;
             this.lboxProducts.SelectedIndexChanged += new System.EventHandler(this.lboxProducts_SelectedIndexChanged);
             // 
             // cbDepartment
             // 
             this.cbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDepartment.FormattingEnabled = true;
-            this.cbDepartment.Location = new System.Drawing.Point(355, 62);
+            this.cbDepartment.Location = new System.Drawing.Point(355, 63);
             this.cbDepartment.Margin = new System.Windows.Forms.Padding(2);
             this.cbDepartment.Name = "cbDepartment";
-            this.cbDepartment.Size = new System.Drawing.Size(215, 28);
+            this.cbDepartment.Size = new System.Drawing.Size(215, 33);
             this.cbDepartment.TabIndex = 1;
             this.cbDepartment.TabStop = false;
             this.cbDepartment.SelectedIndexChanged += new System.EventHandler(this.cbDepartment_SelectedIndexChanged);
@@ -96,11 +97,12 @@ namespace CashierApp
             // cbCategory
             // 
             this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(355, 112);
+            this.cbCategory.Location = new System.Drawing.Point(355, 125);
             this.cbCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(215, 28);
+            this.cbCategory.Size = new System.Drawing.Size(215, 33);
             this.cbCategory.TabIndex = 2;
             this.cbCategory.TabStop = false;
             this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
@@ -109,11 +111,12 @@ namespace CashierApp
             // cbSubCategory
             // 
             this.cbSubCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSubCategory.FormattingEnabled = true;
-            this.cbSubCategory.Location = new System.Drawing.Point(355, 169);
+            this.cbSubCategory.Location = new System.Drawing.Point(355, 188);
             this.cbSubCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbSubCategory.Name = "cbSubCategory";
-            this.cbSubCategory.Size = new System.Drawing.Size(215, 28);
+            this.cbSubCategory.Size = new System.Drawing.Size(215, 33);
             this.cbSubCategory.TabIndex = 3;
             this.cbSubCategory.TabStop = false;
             this.cbSubCategory.SelectedIndexChanged += new System.EventHandler(this.cbSubCategory_SelectedIndexChanged);
@@ -133,7 +136,8 @@ namespace CashierApp
             // 
             // lbSubCategory
             // 
-            this.lbSubCategory.Location = new System.Drawing.Point(355, 142);
+            this.lbSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSubCategory.Location = new System.Drawing.Point(356, 160);
             this.lbSubCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSubCategory.Name = "lbSubCategory";
             this.lbSubCategory.Size = new System.Drawing.Size(214, 25);
@@ -143,17 +147,19 @@ namespace CashierApp
             // 
             // lbCategory
             // 
-            this.lbCategory.Location = new System.Drawing.Point(355, 91);
+            this.lbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCategory.Location = new System.Drawing.Point(356, 95);
             this.lbCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbCategory.Name = "lbCategory";
-            this.lbCategory.Size = new System.Drawing.Size(214, 20);
+            this.lbCategory.Size = new System.Drawing.Size(214, 28);
             this.lbCategory.TabIndex = 89;
             this.lbCategory.Text = "Category";
             this.lbCategory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbDepartment
             // 
-            this.lbDepartment.Location = new System.Drawing.Point(355, 39);
+            this.lbDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDepartment.Location = new System.Drawing.Point(356, 40);
             this.lbDepartment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbDepartment.Name = "lbDepartment";
             this.lbDepartment.Size = new System.Drawing.Size(214, 20);
@@ -166,18 +172,19 @@ namespace CashierApp
             this.lboxBasket.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lboxBasket.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lboxBasket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lboxBasket.FormattingEnabled = true;
-            this.lboxBasket.ItemHeight = 18;
+            this.lboxBasket.ItemHeight = 25;
             this.lboxBasket.Location = new System.Drawing.Point(26, 42);
             this.lboxBasket.Margin = new System.Windows.Forms.Padding(2);
             this.lboxBasket.Name = "lboxBasket";
-            this.lboxBasket.Size = new System.Drawing.Size(426, 400);
+            this.lboxBasket.Size = new System.Drawing.Size(426, 379);
             this.lboxBasket.TabIndex = 91;
             // 
             // nudProductQuantity
             // 
             this.nudProductQuantity.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.nudProductQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudProductQuantity.Location = new System.Drawing.Point(44, 33);
             this.nudProductQuantity.Margin = new System.Windows.Forms.Padding(2);
             this.nudProductQuantity.Minimum = new decimal(new int[] {
@@ -187,7 +194,7 @@ namespace CashierApp
             0});
             this.nudProductQuantity.Name = "nudProductQuantity";
             this.nudProductQuantity.ReadOnly = true;
-            this.nudProductQuantity.Size = new System.Drawing.Size(128, 27);
+            this.nudProductQuantity.Size = new System.Drawing.Size(128, 30);
             this.nudProductQuantity.TabIndex = 92;
             this.nudProductQuantity.Value = new decimal(new int[] {
             1,
@@ -229,12 +236,50 @@ namespace CashierApp
             this.gbProducts.TabStop = false;
             this.gbProducts.Text = "Select a product";
             // 
+            // gbQuantity
+            // 
+            this.gbQuantity.Controls.Add(this.nudProductQuantity);
+            this.gbQuantity.Controls.Add(this.btnAddToBasket);
+            this.gbQuantity.Controls.Add(this.tbProductPrice);
+            this.gbQuantity.Controls.Add(this.lbProductPrice);
+            this.gbQuantity.Location = new System.Drawing.Point(355, 216);
+            this.gbQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbQuantity.Name = "gbQuantity";
+            this.gbQuantity.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbQuantity.Size = new System.Drawing.Size(215, 168);
+            this.gbQuantity.TabIndex = 91;
+            this.gbQuantity.TabStop = false;
+            // 
+            // tbProductPrice
+            // 
+            this.tbProductPrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbProductPrice.Enabled = false;
+            this.tbProductPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbProductPrice.Location = new System.Drawing.Point(44, 86);
+            this.tbProductPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbProductPrice.Name = "tbProductPrice";
+            this.tbProductPrice.Size = new System.Drawing.Size(128, 30);
+            this.tbProductPrice.TabIndex = 98;
+            // 
+            // lbProductPrice
+            // 
+            this.lbProductPrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbProductPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProductPrice.Location = new System.Drawing.Point(44, 63);
+            this.lbProductPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbProductPrice.Name = "lbProductPrice";
+            this.lbProductPrice.Size = new System.Drawing.Size(128, 21);
+            this.lbProductPrice.TabIndex = 97;
+            this.lbProductPrice.Text = "Product price:";
+            this.lbProductPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tbFinalPrice
             // 
             this.tbFinalPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbFinalPrice.Enabled = false;
             this.tbFinalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbFinalPrice.Location = new System.Drawing.Point(92, 97);
+            this.tbFinalPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbFinalPrice.Name = "tbFinalPrice";
             this.tbFinalPrice.Size = new System.Drawing.Size(146, 34);
             this.tbFinalPrice.TabIndex = 96;
@@ -248,8 +293,10 @@ namespace CashierApp
             this.gbBasket.Controls.Add(this.btnRemoveProduct);
             this.gbBasket.Controls.Add(this.btnRemovePiece);
             this.gbBasket.Controls.Add(this.lboxBasket);
-            this.gbBasket.Location = new System.Drawing.Point(611, 85);
+            this.gbBasket.Location = new System.Drawing.Point(611, 86);
+            this.gbBasket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbBasket.Name = "gbBasket";
+            this.gbBasket.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbBasket.Size = new System.Drawing.Size(483, 515);
             this.gbBasket.TabIndex = 97;
             this.gbBasket.TabStop = false;
@@ -297,26 +344,6 @@ namespace CashierApp
             this.btnRemovePiece.UseVisualStyleBackColor = false;
             this.btnRemovePiece.Click += new System.EventHandler(this.btnRemovePiece_Click);
             // 
-            // lbProductPrice
-            // 
-            this.lbProductPrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbProductPrice.Location = new System.Drawing.Point(44, 62);
-            this.lbProductPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbProductPrice.Name = "lbProductPrice";
-            this.lbProductPrice.Size = new System.Drawing.Size(128, 21);
-            this.lbProductPrice.TabIndex = 97;
-            this.lbProductPrice.Text = "Product price:";
-            this.lbProductPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbProductPrice
-            // 
-            this.tbProductPrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbProductPrice.Enabled = false;
-            this.tbProductPrice.Location = new System.Drawing.Point(44, 85);
-            this.tbProductPrice.Name = "tbProductPrice";
-            this.tbProductPrice.Size = new System.Drawing.Size(128, 27);
-            this.tbProductPrice.TabIndex = 98;
-            // 
             // lbTotalPrice
             // 
             this.lbTotalPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -337,8 +364,10 @@ namespace CashierApp
             this.gbFinishOrder.Controls.Add(this.btnConfirm);
             this.gbFinishOrder.Controls.Add(this.lbTotalPrice);
             this.gbFinishOrder.Controls.Add(this.tbFinalPrice);
-            this.gbFinishOrder.Location = new System.Drawing.Point(1100, 85);
+            this.gbFinishOrder.Location = new System.Drawing.Point(1100, 86);
+            this.gbFinishOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbFinishOrder.Name = "gbFinishOrder";
+            this.gbFinishOrder.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbFinishOrder.Size = new System.Drawing.Size(323, 256);
             this.gbFinishOrder.TabIndex = 100;
             this.gbFinishOrder.TabStop = false;
@@ -349,6 +378,7 @@ namespace CashierApp
             this.rbtnCard.AutoSize = true;
             this.rbtnCard.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
             this.rbtnCard.Location = new System.Drawing.Point(189, 145);
+            this.rbtnCard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtnCard.Name = "rbtnCard";
             this.rbtnCard.Size = new System.Drawing.Size(49, 40);
             this.rbtnCard.TabIndex = 101;
@@ -362,6 +392,7 @@ namespace CashierApp
             this.rbtnCash.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
             this.rbtnCash.Checked = true;
             this.rbtnCash.Location = new System.Drawing.Point(92, 145);
+            this.rbtnCash.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtnCash.Name = "rbtnCash";
             this.rbtnCash.Size = new System.Drawing.Size(52, 40);
             this.rbtnCash.TabIndex = 100;
@@ -388,6 +419,7 @@ namespace CashierApp
             // 
             this.statusBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.statusBox.Location = new System.Drawing.Point(1299, 499);
+            this.statusBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.statusBox.Name = "statusBox";
             this.statusBox.Size = new System.Drawing.Size(124, 101);
             this.statusBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -406,25 +438,13 @@ namespace CashierApp
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.Location = new System.Drawing.Point(26, 619);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(140, 46);
             this.btnLogOut.TabIndex = 102;
             this.btnLogOut.Text = "Log out";
             this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
-            // 
-            // gbQuantity
-            // 
-            this.gbQuantity.Controls.Add(this.nudProductQuantity);
-            this.gbQuantity.Controls.Add(this.btnAddToBasket);
-            this.gbQuantity.Controls.Add(this.tbProductPrice);
-            this.gbQuantity.Controls.Add(this.lbProductPrice);
-            this.gbQuantity.Location = new System.Drawing.Point(355, 202);
-            this.gbQuantity.Name = "gbQuantity";
-            this.gbQuantity.Size = new System.Drawing.Size(215, 168);
-            this.gbQuantity.TabIndex = 91;
-            this.gbQuantity.TabStop = false;
             // 
             // MainForm
             // 
@@ -433,7 +453,7 @@ namespace CashierApp
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1480, 677);
+            this.ClientSize = new System.Drawing.Size(1480, 678);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.statusBox);
             this.Controls.Add(this.gbFinishOrder);
@@ -452,12 +472,12 @@ namespace CashierApp
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.nudProductQuantity)).EndInit();
             this.gbProducts.ResumeLayout(false);
+            this.gbQuantity.ResumeLayout(false);
+            this.gbQuantity.PerformLayout();
             this.gbBasket.ResumeLayout(false);
             this.gbFinishOrder.ResumeLayout(false);
             this.gbFinishOrder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statusBox)).EndInit();
-            this.gbQuantity.ResumeLayout(false);
-            this.gbQuantity.PerformLayout();
             this.ResumeLayout(false);
 
         }

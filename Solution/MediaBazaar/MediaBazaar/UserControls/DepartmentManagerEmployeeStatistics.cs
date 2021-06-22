@@ -22,8 +22,8 @@ namespace MediaBazaar
         public DepartmentManagerEmployeeStatistics()
         {
             InitializeComponent();
-            empStatistics = new EmpStatisticManager();
-            departmentManager = new DepartmentManager();
+            empStatistics = new EmpStatisticManager(DatabaseType.MAIN);
+            departmentManager = new DepartmentManager(DatabaseType.MAIN);
         }
 
         public void SetDepartmentCode(string departmentCode)

@@ -11,6 +11,7 @@ namespace ProjectClasses
 {
     class DBMediatorSoldProduct : DBMediator
     {
+        public DBMediatorSoldProduct(DatabaseType databaseType) : base(databaseType) { }
         public void updateItems(int empID, List<SoldProduct> basket, PaymentType type)
         {
             MySqlTransaction tr = null;

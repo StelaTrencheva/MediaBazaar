@@ -14,7 +14,7 @@ namespace ProjectClasses.Tests
         [TestMethod()]
         public void GetEmployeesAvailabilityPerDepartmentAndWeekNumberTest()
         {
-            DBMediatorShifts mediator = new DBMediatorShifts();
+            DBMediatorShifts mediator = new DBMediatorShifts(DatabaseType.MAIN);
             Department department = new Department(2678, "test");
             var result = mediator.GetEmployeesAvailabilityPerDepartmentAndWeekNumber(department, 22);
 

@@ -11,9 +11,9 @@ namespace ProjectClasses
         DBMediatorDepartment dbMediator;
         List<Department> departments;
 
-        public DepartmentManager()
+        public DepartmentManager(DatabaseType databaseType)
         {
-            this.dbMediator = new DBMediatorDepartment();
+            this.dbMediator = new DBMediatorDepartment(databaseType);
             departments = new List<Department>();
         }
 

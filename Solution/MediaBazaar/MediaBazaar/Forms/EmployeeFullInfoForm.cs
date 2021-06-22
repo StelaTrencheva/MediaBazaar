@@ -19,10 +19,11 @@ namespace MediaBazaar
         {
             InitializeComponent();
             this.currentEmp = currentEmp;
-            this.contractHistoryManager = new ContractHistoryManager(currentEmp.Id);
+            this.contractHistoryManager = new ContractHistoryManager(currentEmp.Id, DatabaseType.MAIN);
             UpdateLables();
             UpdateContractHistory();
         }
+
 
         private void UpdateLables()
         {

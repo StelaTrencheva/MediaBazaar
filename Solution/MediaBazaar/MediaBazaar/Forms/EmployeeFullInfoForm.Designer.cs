@@ -75,6 +75,7 @@ namespace MediaBazaar
             // lbxContractHistory
             // 
             this.lbxContractHistory.BackColor = System.Drawing.Color.AliceBlue;
+            this.lbxContractHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxContractHistory.FormattingEnabled = true;
             this.lbxContractHistory.ItemHeight = 16;
             this.lbxContractHistory.Location = new System.Drawing.Point(370, 359);

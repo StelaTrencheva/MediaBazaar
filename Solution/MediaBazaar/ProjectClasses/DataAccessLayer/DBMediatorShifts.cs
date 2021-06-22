@@ -10,7 +10,7 @@ namespace ProjectClasses
 {
     public class DBMediatorShifts : DBMediator
     {
-        public DBMediatorShifts() : base() { }
+        public DBMediatorShifts(DatabaseType databaseType) : base(databaseType) { }
 
         public Dictionary<DateTime, List<Shift>> GetAllShiftsPerDates(List<DateTime> dates)
         {

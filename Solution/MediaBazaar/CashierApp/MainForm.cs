@@ -27,12 +27,13 @@ namespace CashierApp
         {
             InitializeComponent();
             this.currentEmp = currentEmp;
-            this.productManager = new ProductManager();
-            this.basketManager = new BasketManager();
-            this.departmentManager = new DepartmentManager();
+            this.productManager = new ProductManager(DatabaseType.MAIN);
+            this.basketManager = new BasketManager(DatabaseType.MAIN);
+            this.departmentManager = new DepartmentManager(DatabaseType.MAIN);
             productManager.UpdateProducts();
             loginForm = form;
             setComboboxes();
+            setListBoxes();
             barcode = "";
             searchtext = "";
             startSesion = DateTime.Now;
@@ -124,10 +125,13 @@ namespace CashierApp
             }
         }
 
+        private void setListBoxes()
+        {
+            lboxProducts.CustomTabOffsets.Add(20);
+            lboxProducts.UseCustomTabOffsets = true;
+        }
         private void AllProducts()
         {
-            lboxProducts.CustomTabOffsets.Add(36);
-            lboxProducts.UseCustomTabOffsets = true;
             lboxProducts.Items.Clear();
             foreach (Product product in productManager.GetAllProducts())
             {

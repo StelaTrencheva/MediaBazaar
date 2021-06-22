@@ -28,8 +28,8 @@ namespace MediaBazaar
         public StoreWorkerScheduleInterface()
         {
             InitializeComponent();
-            shiftManager = new ShiftManager();
-            dm = new DepartmentManager();
+            shiftManager = new ShiftManager(DatabaseType.MAIN);
+            dm = new DepartmentManager(DatabaseType.MAIN);
             ShowDepartments();
         }
        
