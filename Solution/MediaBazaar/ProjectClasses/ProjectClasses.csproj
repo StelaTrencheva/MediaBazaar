@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssignDMDepartmentException.cs" />
     <Compile Include="LogicLayer\AssignDepartmentManagerDepartment.cs" />
     <Compile Include="LogicLayer\AssignStoreWorkerDepartment.cs" />
     <Compile Include="DataAccessLayer\DBMediator.cs" />

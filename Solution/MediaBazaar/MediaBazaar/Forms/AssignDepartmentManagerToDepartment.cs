@@ -13,14 +13,14 @@ namespace MediaBazaar
 {
     public partial class AssignDepartmentManagerToDepartment : Form
     {
-        private Department dept;
+        private Department department;
         private EmployeeManager empoyeeManager;
         private AssignPersonDepartmentManager assignPersonDepartmentManager;
 
-        public AssignDepartmentManagerToDepartment(Department dept)
+        public AssignDepartmentManagerToDepartment(Department department)
         {
             InitializeComponent();
-            this.dept = dept;
+            this.department = department;
             this.empoyeeManager = new EmployeeManager();
             this.assignPersonDepartmentManager = new AssignPersonDepartmentManager();
             this.DisplayAssignDepartmentManager();
@@ -43,28 +43,35 @@ namespace MediaBazaar
         public void DisplayAssignDepartmentManager()
         {
             lbxAssignDepartmentManager.Items.Clear();
-            lbxAssignDepartmentManager.Items.Add($"{ this.dept} is assign to:");
-            foreach(AssignPersonDepartment dm in this.assignPersonDepartmentManager.GetDepartmentManager(this.dept.Code))
+            lbxAssignDepartmentManager.Items.Add($"{ this.department} is assign to:");
+            foreach(AssignPersonDepartment dm in this.assignPersonDepartmentManager.GetDepartmentManager(this.department.Code))
             {
-                lbxAssignDepartmentManager.Items.Add($"-{dm.Person.GetEmployeeNames}");
+                lbxAssignDepartmentManager.Items.Add($"{dm.Person.GetEmployeeNames}");
             }
         }
 
         private void btnAssign_Click(object sender, EventArgs e)
         {
-            foreach(Employee emp in this.empoyeeManager.GetListOFAllEmployees())
+            try
             {
-                if(cbxDepartmentManager.SelectedItem.ToString() == emp.GetEmployeeNames)
+                foreach (Employee emp in this.empoyeeManager.GetListOFAllEmployees())
                 {
-                    this.assignPersonDepartmentManager.AssignDeparmentManager(new AssignDepartmentManagerDepartment(dept, emp));
+                    if (cbxDepartmentManager.SelectedItem.ToString() == emp.GetEmployeeNames)
+                    {
+                        this.assignPersonDepartmentManager.AssignDeparmentManager(new AssignDepartmentManagerDepartment(department, emp));
+                    }
                 }
+                this.DisplayAssignDepartmentManager();
             }
-            this.DisplayAssignDepartmentManager();
+            catch (AssignDMDepartmentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnUnAssign_Click(object sender, EventArgs e)
         {
-            if(lbxAssignDepartmentManager.SelectedItem.ToString() == null)
+            if(lbxAssignDepartmentManager.SelectedItem == null)
             {
                 MessageBox.Show("Please select a department manager");
             }
@@ -77,8 +84,8 @@ namespace MediaBazaar
                         this.assignPersonDepartmentManager.RemoveDepartmentManager(emp.Id);
                     }
                 }
-                this.DisplayAssignDepartmentManager();
             }
+            this.DisplayAssignDepartmentManager();
         }
     }
 }

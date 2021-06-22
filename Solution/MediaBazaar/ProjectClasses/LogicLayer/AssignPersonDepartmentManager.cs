@@ -21,10 +21,13 @@ namespace ProjectClasses
 
         public void AssignDeparmentManager(AssignPersonDepartment aDMDepartment)
         {
+            if(this.dbMediator.CheckIfDepartmentManagerExist(aDMDepartment.Person.Id) == true)
+            {
+                throw new AssignDMDepartmentException(aDMDepartment.Person.GetEmployeeNames, aDMDepartment.Department.Name);
+            }
             this.dbMediator.AssignDepartmentManagerToDepartment(aDMDepartment.Department.Code, aDMDepartment.Person.Id);
             //MIGHT WANT TO TEST THIS
             //this.dmDepartments.Add(dMDepartment);
-
         }
 
         public List<AssignPersonDepartment> GetDepartmentManager(int code)
@@ -77,6 +80,10 @@ namespace ProjectClasses
 
         public void AssignStoreWorkerDepartment(AssignPersonDepartment aSWDepartment)
         {
+            if(this.dbMediator.CheckIfStoreWorkerExist(aSWDepartment.Person.Id) == true)
+            {
+                throw new AssignDMDepartmentException(aSWDepartment.Person.GetEmployeeNames, aSWDepartment.Department.Name);
+            }
             this.dbMediator.AssignStoreWorkerToDepartment(aSWDepartment.Department.Code, aSWDepartment.Person.Id);
         }
 

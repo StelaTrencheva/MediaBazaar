@@ -65,15 +65,22 @@ namespace MediaBazaar
 
         private void btnAssign_Click(object sender, EventArgs e)
         {
-            foreach (Employee emp in this.employeeManager.GetListOFAllEmployees())
+            try
             {
-                if (cbxDisplayStoreWorker.SelectedItem.ToString() == emp.GetEmployeeNames)
+                foreach (Employee emp in this.employeeManager.GetListOFAllEmployees())
                 {
-                    this.assignPersonDepartmentManager.AssignStoreWorkerDepartment(new AssignStoreWorkerDepartment(this.department, emp));
+                    if (cbxDisplayStoreWorker.SelectedItem.ToString() == emp.GetEmployeeNames)
+                    {
+                        this.assignPersonDepartmentManager.AssignStoreWorkerDepartment(new AssignStoreWorkerDepartment(this.department, emp));
+                    }
                 }
-            }
 
-            this.DisplayAssignStoreWorker();
+                this.DisplayAssignStoreWorker();
+            }
+            catch(AssignDMDepartmentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnUnassign_Click(object sender, EventArgs e)
