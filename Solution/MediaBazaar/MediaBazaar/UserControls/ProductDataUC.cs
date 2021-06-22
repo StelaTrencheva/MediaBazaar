@@ -18,7 +18,7 @@ namespace MediaBazaar
         public ProductData()
         {
             InitializeComponent();
-            this.pManager = new ProductManager();
+            this.pManager = new ProductManager(DatabaseType.MAIN);
             UpdateListBoxProducts();
         }
 

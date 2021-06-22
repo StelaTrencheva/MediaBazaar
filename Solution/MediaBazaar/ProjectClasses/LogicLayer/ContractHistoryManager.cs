@@ -10,9 +10,9 @@ namespace ProjectClasses
     {
         DBMediatorContractHistory databaseMediator;
         List<ContractHistory> contractHistories;
-        public ContractHistoryManager(int id)
+        public ContractHistoryManager(int id, DatabaseType databaseType)
         {
-            databaseMediator = new DBMediatorContractHistory();
+            databaseMediator = new DBMediatorContractHistory(databaseType);
             contractHistories = databaseMediator.GetContractHystory(id);
         }
 

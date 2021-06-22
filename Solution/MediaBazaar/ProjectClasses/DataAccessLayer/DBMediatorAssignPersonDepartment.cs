@@ -9,7 +9,7 @@ namespace ProjectClasses
 {
     class DBMediatorAssignPersonDepartment : DBMediator
     {
-        public DBMediatorAssignPersonDepartment() :base() { }
+        public DBMediatorAssignPersonDepartment(DatabaseType databaseType) : base(databaseType) { }
 
         //ASSIGN DEPARTMENT MANAGER TO DEPARTMENT
         public void AssignDepartmentManagerToDepartment(int code, int managerId)

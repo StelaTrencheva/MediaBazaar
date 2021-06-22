@@ -20,7 +20,7 @@ namespace MediaBazaar
         {
             InitializeComponent();
             this.currentEmp = currentEmp;
-            this.assignPersonDepartmentManager = new AssignPersonDepartmentManager();
+            this.assignPersonDepartmentManager = new AssignPersonDepartmentManager(DatabaseType.MAIN);
             userInterface1.SendInfo(currentEmp);
         }
         private void PaintAllButtons()

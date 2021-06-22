@@ -20,10 +20,10 @@ namespace ProjectClasses
         }
 
         //Constructor
-        public BasketManager()
+        public BasketManager(DatabaseType databaseType)
         {
             this.basket = new List<SoldProduct>();
-            dbMediator = new DBMediatorSoldProduct();
+            dbMediator = new DBMediatorSoldProduct(databaseType);
         }
 
         //Methods

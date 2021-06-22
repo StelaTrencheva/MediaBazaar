@@ -9,7 +9,7 @@ namespace ProjectClasses
 {
     class DBMediatorRestockRequest : DBMediator
     {
-        public DBMediatorRestockRequest() : base() { }
+        public DBMediatorRestockRequest(DatabaseType databaseType) : base(databaseType) { }
 
 
         public void CreateRestockRequest(int pNum, int pQuantity)

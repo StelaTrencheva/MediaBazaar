@@ -12,9 +12,9 @@ namespace ProjectClasses
         DBMediatorProductStatistics dbMediator;
         Dictionary<Product, int> tenMostSoldProductsQuantity;
         Dictionary<Product, double> tenMostSoldProductsProfit;
-        public ProductStatisticsManager()
+        public ProductStatisticsManager(DatabaseType databaseType)
         {
-            dbMediator = new DBMediatorProductStatistics();
+            dbMediator = new DBMediatorProductStatistics(databaseType);
         }
 
         public Dictionary<Product, int> GetTenMostSoldProductsQuantity()

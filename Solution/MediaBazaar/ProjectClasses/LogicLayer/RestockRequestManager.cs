@@ -14,10 +14,10 @@ namespace ProjectClasses
         Dictionary<Product, int> supplierRequests;
         List<Product> products;
 
-        public RestockRequestManager()
+        public RestockRequestManager(DatabaseType databaseType)
         {
-            this.dbMediatorRestockRequest = new DBMediatorRestockRequest();
-            this.dbMediatorProduct = new DBMediatorProduct();
+            this.dbMediatorRestockRequest = new DBMediatorRestockRequest(databaseType);
+            this.dbMediatorProduct = new DBMediatorProduct(databaseType);
             this.requestedProducts = GetAllRequestedProducts();
             this.supplierRequests = GetAllSupplierRequests();
         }

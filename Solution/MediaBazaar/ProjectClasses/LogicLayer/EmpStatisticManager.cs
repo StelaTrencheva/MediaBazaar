@@ -12,15 +12,17 @@ namespace ProjectClasses
         //Employee employee;
         EmployeeManager employeeManager;
         DBMediatorEmpStatistic dbMediator;
+        DatabaseType databaseType;
         
-        public EmpStatisticManager()
+        public EmpStatisticManager(DatabaseType databaseType)
         {
-            dbMediator = new DBMediatorEmpStatistic();
+            dbMediator = new DBMediatorEmpStatistic(databaseType);
+            this.databaseType = databaseType;
         }
 
         public List<Employee> GetListOfAllEmployees()
         {
-            employeeManager = new EmployeeManager();
+            employeeManager = new EmployeeManager(databaseType);
             return employeeManager.GetListOFAllEmployees();
         }
 

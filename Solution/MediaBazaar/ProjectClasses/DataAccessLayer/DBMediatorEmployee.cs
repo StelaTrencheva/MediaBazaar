@@ -11,7 +11,7 @@ namespace ProjectClasses
     public class DBMediatorEmployee : DBMediator
     {
         //Constructor
-        public DBMediatorEmployee() : base() { }
+        public DBMediatorEmployee(DatabaseType databaseType) : base(databaseType) { }
 
         //Methods
         public Employee FindMatchingLoginInfo(string username, string password)

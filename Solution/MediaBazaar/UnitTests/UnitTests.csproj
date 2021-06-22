@@ -60,6 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccessLayer\DBMediatorShiftsTests.cs" />
+<<<<<<< HEAD
+    <Compile Include="LogicLayer\EmployeeStatisticsManagerTest.cs" />
+=======
+    <Compile Include="EmployeeTest.cs" />
+>>>>>>> 854b23c9afd58acb6895119f5e62543113ba0b9d
     <Compile Include="LogicLayer\WeekScheduleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

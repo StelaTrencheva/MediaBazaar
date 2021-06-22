@@ -80,7 +80,7 @@ namespace ProjectClasses
        
         public override string ToString()
         {
-            return $" Product number: {this.pNumber}.\t{this.brand} {this.model}.";
+            return $"{this.pNumber}.\t{this.brand} {this.model}.";
         }
     }
 }

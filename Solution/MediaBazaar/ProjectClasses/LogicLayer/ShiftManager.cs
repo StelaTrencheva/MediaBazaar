@@ -10,9 +10,9 @@ namespace ProjectClasses
     public class ShiftManager
     {
         private DBMediatorShifts dbMediator;
-        public ShiftManager()
+        public ShiftManager(DatabaseType databaseType)
         {
-            dbMediator = new DBMediatorShifts();
+            dbMediator = new DBMediatorShifts(databaseType);
         }
 
         //AutomaticSchedule

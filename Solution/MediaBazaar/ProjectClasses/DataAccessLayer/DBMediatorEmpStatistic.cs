@@ -9,7 +9,7 @@ namespace ProjectClasses
 {
     class DBMediatorEmpStatistic : DBMediator
     {
-        public DBMediatorEmpStatistic() : base() { }
+        public DBMediatorEmpStatistic(DatabaseType databaseType) : base(databaseType) { }
         public int GetEmployeeAssignedHoursForStatPerDay(int id, string date)
         {
             string sqlStatement = " SELECT IFNULL(Count(*),0) as assignedHours " +

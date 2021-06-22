@@ -1,4 +1,5 @@
-﻿using ProjectClasses.LogicLayer;
+﻿using ProjectClasses;
+using ProjectClasses.LogicLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace MediaBazaar.UserControls
         public HolidayRequestsUC()
         {
             InitializeComponent();
-            hm = new HolidayManager();
+            hm = new HolidayManager(DatabaseType.MAIN);
             UpdateRequestedHolidays();
             dtpStartDate.MinDate = DateTime.Today;
             dtpEndDate.MinDate = DateTime.Today;

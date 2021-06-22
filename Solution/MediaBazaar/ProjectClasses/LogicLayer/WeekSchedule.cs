@@ -92,7 +92,7 @@ namespace ProjectClasses.LogicLayer
 
         public WeekSchedule(DateTime selectedDate, Department department)
         {
-            dbMediator = new DBMediatorShifts();
+            dbMediator = new DBMediatorShifts(DatabaseType.MAIN);
             Initialize(selectedDate, department);
         }
 

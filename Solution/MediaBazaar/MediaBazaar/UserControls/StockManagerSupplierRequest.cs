@@ -20,7 +20,7 @@ namespace MediaBazaar
         public StockManagerSupplierRequest()
         {
             InitializeComponent();
-            requestManager = new RestockRequestManager();
+            requestManager = new RestockRequestManager(DatabaseType.MAIN);
             lbxSupplierRequests.DrawMode = DrawMode.OwnerDrawFixed;
             lbxSupplierRequests.DrawItem += new DrawItemEventHandler(lbxSupplierRequests_DrawItem);
             this.UpdateListBox();

@@ -9,7 +9,7 @@ namespace ProjectClasses
 {
     class DBMediatorProduct : DBMediator
     {
-        public DBMediatorProduct() : base() { }
+        public DBMediatorProduct(DatabaseType databaseType) : base(databaseType) { }
 
         //TAKE ALL PRODUCTS
         public List<Product> GetProducts()

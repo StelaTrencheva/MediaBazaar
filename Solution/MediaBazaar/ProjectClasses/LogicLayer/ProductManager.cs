@@ -13,9 +13,9 @@ namespace ProjectClasses
         Dictionary<Product, int> soldProducts;
 
 
-        public ProductManager()
+        public ProductManager(DatabaseType databaseType)
         {
-            this.dbMediator = new DBMediatorProduct();
+            this.dbMediator = new DBMediatorProduct(databaseType);
             this.products = GetAllProducts();
         }
 

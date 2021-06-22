@@ -21,7 +21,7 @@ namespace MediaBazaar
         public EmployeeStatistics()
         {
             InitializeComponent();
-            empStatistics = new EmpStatisticManager();
+            empStatistics = new EmpStatisticManager(DatabaseType.MAIN);
         }
 
         private void EmployeeStatistics_Load(object sender, EventArgs e)

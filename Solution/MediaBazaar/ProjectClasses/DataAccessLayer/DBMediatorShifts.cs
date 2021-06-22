@@ -10,7 +10,7 @@ namespace ProjectClasses
 {
     public class DBMediatorShifts : DBMediator
     {
-        public DBMediatorShifts() : base() { }
+        public DBMediatorShifts(DatabaseType databaseType) : base(databaseType) { }
 
         //Automatic Schedule
         public virtual List<EmployeeInSchedule> GetEmployeesAvailabilityPerDepartmentAndWeekNumber(Department department, int week)
