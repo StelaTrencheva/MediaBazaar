@@ -34,56 +34,110 @@ namespace ProjectClasses
         public int Id
         {
             get { return this.id; }
+            private set
+            {
+                if (value >= 0)
+                { this.id = value; }
+                else
+                    throw new ArgumentException();
+            }
         }
         public string BSN
         {
             get { return this.bsn; }
-            set {  this.bsn=value; }
+            private set
+            {
+                if (value != "")
+                { this.bsn = value; }
+                else
+                    throw new ArgumentException();
+            }
         }
         public string Street
         {
             get { return this.addrStreet; }
 
-            set { this.addrStreet = value; }
+            private set
+            {
+                if (value != "")
+                { this.addrStreet = value; }
+                else
+                    throw new ArgumentException();
+            }
         }
         public string StreetNumber
         {
             get { return this.addrStreetNumber; }
 
-            set { this.addrStreetNumber = value; }
+            private set
+            {
+                if (value != "")
+                { this.addrStreetNumber = value; }
+                else
+                    throw new ArgumentException();
+            }
         }
         public string Zipcode
         {
             get { return this.addrZipcode; }
 
-            set { this.addrZipcode = value; }
+            private set
+            {
+                if (value != "")
+                { this.addrZipcode = value; }
+                else
+                    throw new ArgumentException();
+            }
         }
         public string Town
         {
             get { return this.addrTown; }
 
-            set { this.addrTown = value; }
+            private set
+            {
+                if (value != "")
+                { this.addrTown = value; }
+                else
+                    throw new ArgumentException();
+            }
         }
         public string Country
         {
             get { return this.addrCountry; }
 
-            set { this.addrCountry = value; }
+            private set
+            {
+                if (value != "")
+                { this.addrCountry = value; }
+                else
+                    throw new ArgumentException();
+            }
         }
         public string FirstName
         {
             get { return this.firstName; }
 
-            set { this.firstName = value; }
+            private set
+            {
+                if (value != "")
+                { this.firstName = value; }
+                else
+                    throw new ArgumentException();
+            }
         }
         public string LastName
         {
             get { return this.lastName; }
-
-            set { this.lastName = value; }
+            private set
+            {
+                if (value != "")
+                { this.lastName = value; }
+                else
+                    throw new ArgumentException();
+            }
         }
-        public Gender Gender 
-        { 
+        public Gender Gender
+        {
             get { return this.gender; }
 
             set { this.gender = value; }
@@ -91,7 +145,13 @@ namespace ProjectClasses
         public string Username
         {
             get { return this.username; }
-            set { this.username = value; }
+            private set
+            {
+                if (value != "")
+                { this.username = value; }
+                else
+                    throw new ArgumentException();
+            }
         }
         public string Birthday
         {
@@ -100,28 +160,37 @@ namespace ProjectClasses
         }
         public DateTime BirthDay
         {
-
             set { this.birthDay = value; }
         }
         public string FirstWorkingDay
         {
             get { return this.firstWorkingDay.ToString("yyyy-MM-dd"); }
         }
-        public DateTime FirstWorkingday 
+        public DateTime FirstWorkingday
         {
-
             set { this.firstWorkingDay = value; }
         }
-
         public string Email
         {
             get { return this.email; }
-            set { this.email = value; }
+            private set
+            {
+                if (value != "")
+                { this.email = value; }
+                else
+                    throw new ArgumentException();
+            }
         }
         public string PhoneNumber
         {
             get { return this.emergencyPhoneNumber; }
-            set { this.emergencyPhoneNumber = value; }
+            private set
+            {
+                if (value != "")
+                { this.emergencyPhoneNumber = value; }
+                else
+                    throw new ArgumentException();
+            }
         }
         public EmployeeType Position
         {
@@ -142,13 +211,25 @@ namespace ProjectClasses
         {
             get { return this.hourlyWage; }
 
-            set { this.hourlyWage = value; }
+            private set
+            {
+                if (value > 0)
+                { this.hourlyWage = value; }
+                else
+                    throw new ArgumentException();
+            }
         }
         public string Iban
         {
             get { return iban; }
 
-            set { this.iban = value; }
+            private set
+            {
+                if (value != "")
+                { this.iban = value; }
+                else
+                    throw new ArgumentException();
+            }
         }
 
         public string GetNames
@@ -167,20 +248,6 @@ namespace ProjectClasses
         {
             get { return $"ID: {this.Id}      {this.firstName} {this.lastName} \t- {this.Position}\t Contract: {this.Contract}"; }
         }
-        public string EmployeeFullInfo
-        {
-            get
-            {
-                return $"ID: {this.Id}-{this.firstName} {this.lastName} - {this.gender} - {this.Position} \r\n" +
-                      $"Address: {this.addrStreet} {this.addrStreetNumber}, {this.addrTown}, {this.addrCountry} \r\n" +
-                      $"First working day: {this.firstWorkingDay.ToString("dd-MM-yyyy")},\r\n" +
-                  $"Hourly wage: {this.hourlyWage}, Phone number: {this.emergencyPhoneNumber}";
-            }
-        }
-        public string GetTotalSalaryPerTimeUnit
-        {
-            get { return $"{this.hourlyWage}/Day"; }
-        }
 
         //Constructor
         public Employee(int id, string bsn, string firstName, string lastName,
@@ -190,34 +257,26 @@ namespace ProjectClasses
                          string emergencyPhoneNumber, string iban, double hourlyWage,
                          DateTime contractStartDate, ContractType contract, EmployeeType position)
         {
-
-            if (bsn == "" || firstName == "" || lastName == "" || email == "" || username == "" ||
-                addrStreet == "" || addrStreetNumber == "" || addrZipcode == "" || addrTown == "" ||
-                addrCountry == "" || emergencyPhoneNumber == "" || iban == "")
-            {
-                throw new NullReferenceException();
-            }
-
-            this.id = id;
-            this.bsn = bsn;
-            this.firstName = firstName;
-            this.lastName = lastName;
+            this.Id = id;
+            this.BSN = bsn;
+            this.FirstName = firstName;
+            this.LastName = lastName;
             this.gender = gender;
-            this.addrStreet = addrStreet;
-            this.addrStreetNumber = addrStreetNumber;
-            this.addrZipcode = addrZipcode;
-            this.addrTown = addrTown;
-            this.addrCountry = addrCountry;
-            this.email = email;
+            this.Street = addrStreet;
+            this.StreetNumber = addrStreetNumber;
+            this.Zipcode = addrZipcode;
+            this.Town = addrTown;
+            this.Country = addrCountry;
+            this.Email = email;
             this.Username = username;
             this.birthDay = birthDay;
             this.firstWorkingDay = firstWorkingDay;
-            this.emergencyPhoneNumber = emergencyPhoneNumber;
-            this.iban = iban;
-            this.hourlyWage = hourlyWage;
+            this.PhoneNumber = emergencyPhoneNumber;
+            this.Iban = iban;
+            this.HourlyWage = hourlyWage;
             this.contractStartDate = contractStartDate;
-            this.contract = contract;
-            this.position = position;
+            this.Contract = contract;
+            this.Position = position;
         }
 
         //Method/s
