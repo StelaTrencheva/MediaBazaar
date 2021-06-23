@@ -58,28 +58,7 @@ namespace ProjectClasses.LogicLayer
             this.weekNumber = GetWeekNumber(selectedDate);
             this.department = department;
             this.employeesInDepartment = dbMediator.GetEmployeesAvailabilityPerDepartmentAndWeekNumber(department, weekNumber);
-
-            DateTime startDate = selectedDate;
-            DateTime endDate = startDate.AddDays(7);
-            shiftsInWeek = new List<Shift>();
-
-            for (DateTime i = startDate; i > selectedDate.AddDays(-7); i = i.AddDays(-1))
-            {
-                if (GetWeekNumber(i.AddDays(-1)) != weekNumber)
-                {
-                    startDate = i;
-                    endDate = startDate.AddDays(6);
-                    break;
-                }
-            }
-
-            for (DateTime i = startDate; i <= endDate; i = i.AddDays(1))
-            {
-                for (int j = 0; j < 4; j++)
-                {
-                    shiftsInWeek.Add(new Shift((ShiftType)j, i, new List<Employee>()));
-                }
-            }
+            CreateShiftsInWeek(selectedDate);
 
             FillSchedule();
         }
@@ -88,6 +67,11 @@ namespace ProjectClasses.LogicLayer
             this.weekNumber = GetWeekNumber(selectedDate);
             this.employeesInDepartment = dbMediator.GetStockWorkersAvailabilityPerWeekNumber(weekNumber);
 
+            CreateShiftsInWeek(selectedDate);
+            FillSchedule();
+        }
+        private void CreateShiftsInWeek(DateTime selectedDate)
+        {
             DateTime startDate = selectedDate;
             DateTime endDate = startDate.AddDays(7);
             shiftsInWeek = new List<Shift>();
@@ -109,9 +93,8 @@ namespace ProjectClasses.LogicLayer
                     shiftsInWeek.Add(new Shift((ShiftType)j, i, new List<Employee>()));
                 }
             }
-
-            FillSchedule();
         }
+        
 
         public WeekSchedule(DateTime selectedDate, Department department, DBMediatorShifts dBMediator)
         {
@@ -145,11 +128,14 @@ namespace ProjectClasses.LogicLayer
             List<EmployeeInSchedule> allAvailableEmployees = new List<EmployeeInSchedule>();
             foreach (EmployeeInSchedule employee in dbMediator.GetAllFlexContractEmployees(this.weekNumber,this.department))
             {
+                if (GetAssignedHoursPerDay(employee, shift) < 3)
+                {
                     allAvailableEmployees.Add(employee);
+                }
             }
             foreach (EmployeeInSchedule employeeInDepartment in employeesInDepartment)
             {
-                if (!allAvailableEmployees.Contains(employeeInDepartment)&& !shift.GetAssignedEmployees().Contains(employeeInDepartment.Employee))
+                if (!allAvailableEmployees.Contains(employeeInDepartment)&& !shift.GetAssignedEmployees().Contains(employeeInDepartment.Employee) && GetAssignedHoursPerDay(employeeInDepartment, shift) < 3)
                 {
                     allAvailableEmployees.Add(employeeInDepartment);
                 }
@@ -161,14 +147,19 @@ namespace ProjectClasses.LogicLayer
             List<EmployeeInSchedule> allAvailableEmployees = new List<EmployeeInSchedule>();
             foreach (EmployeeInSchedule employee in dbMediator.GetAllFlexContractStockWorkers(this.weekNumber,shift.GetAssignedEmployeesIds()))
             {
-                allAvailableEmployees.Add(employee);
+                if (GetAssignedHoursPerDay(employee, shift) < 3){
+                    allAvailableEmployees.Add(employee);
+                }
             }
             foreach (EmployeeInSchedule employeeInDepartment in employeesInDepartment)
             {
-                if (!allAvailableEmployees.Contains(employeeInDepartment) && !shift.GetAssignedEmployees().Contains(employeeInDepartment.Employee))
-                {
-                    allAvailableEmployees.Add(employeeInDepartment);
-                }
+                foreach (EmployeeInSchedule employee in allAvailableEmployees)
+                    {
+                        if ((employee.Employee.Id != employeeInDepartment.Employee.Id) && !shift.GetAssignedEmployees().Contains(employeeInDepartment.Employee)&& GetAssignedHoursPerDay(employeeInDepartment, shift) < 3)
+                        {
+                            allAvailableEmployees.Add(employeeInDepartment);
+                        }
+                    }
             }
             return allAvailableEmployees.OrderBy(x => x.Employee.Id).ToList();
         }
@@ -227,9 +218,12 @@ namespace ProjectClasses.LogicLayer
             int employeeAssignedHoursPerDay = 0;
             foreach (Shift shift1 in shiftsInWeek)
             {
-                if (shift1.Date == shift.Date && shift1.GetAssignedEmployees().Contains(employeeInSchedule.Employee))
+                foreach (Employee employee in shift1.GetAssignedEmployees())
                 {
-                    employeeAssignedHoursPerDay++;
+                    if (shift1.Date == shift.Date && employee.Id==employeeInSchedule.Employee.Id)
+                    {
+                        employeeAssignedHoursPerDay++;
+                    }
                 }
             }
             return employeeAssignedHoursPerDay;
