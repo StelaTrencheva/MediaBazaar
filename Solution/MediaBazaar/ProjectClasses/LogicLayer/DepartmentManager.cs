@@ -79,9 +79,14 @@ namespace ProjectClasses
             return 0;
         }
 
-        public bool AddCategoryDB(int deptId, string name)
+        public void AddCategoryDB(string name)
         {
-            return dbMediator.AddCategory(deptId, name);
+            dbMediator.AddCategory(name);
+        }
+
+        public void AssignCategory(int id, string name)
+        {
+            dbMediator.AssignCategory(id, name);
         }
 
         public bool AddSubcategoryDB(int deptId, string catName, string name)
@@ -109,6 +114,11 @@ namespace ProjectClasses
         {
             this.employees = dbMediator.GetStoreWorkers(deptId);
             return this.employees;
+        }
+
+        public List<string> GetCategories()
+        {
+            return dbMediator.GetCategories();
         }
 
         public List<string> GetDepartmentCategorieDB(int deptId)

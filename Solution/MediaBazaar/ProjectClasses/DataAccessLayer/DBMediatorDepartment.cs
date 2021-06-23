@@ -146,34 +146,37 @@ namespace ProjectClasses
             }
         }
 
-        //NEW
         //ADD CATEGORY
-        public bool AddCategory(int deptId, string name)
+        public void AssignCategory(int id, string name)
         {
-            string sqlStatement = "INSERT INTO `mb_dept_category` (dept_id, name) VALUES (@deptId, @name);";
+            string sqlStatement = "UPDATE mb_dept_category SET dept_id = @i WHERE mb_dept_category. name = @n";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
-            sqlCommand.Parameters.AddWithValue("@deptId", deptId);
-            sqlCommand.Parameters.AddWithValue("@name", name);
+            sqlCommand.Parameters.AddWithValue("@i", id);
+            sqlCommand.Parameters.AddWithValue("@n", name);
 
             try
             {
                 int n = 0;
-
                 DbConnection.Open();
                 n = sqlCommand.ExecuteNonQuery();
-                if (n == 1)
-                {
-                    return true;
-                }
-                return false;
             }
-            catch (MySqlException)
+            finally
             {
-                return false;
+                DbConnection.Close();
             }
-            catch (Exception)
+        }
+
+        public void AddCategory(string name)
+        {
+            string sqlStatement = "INSERT INTO `mb_dept_category` (name) VALUES (@n);";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@n", name);
+
+            try
             {
-                return false;
+                int n = 0;
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
             }
             finally
             {
@@ -378,6 +381,34 @@ namespace ProjectClasses
                 DbConnection.Close();
             }
 
+        }
+
+        public List<string> GetCategories()
+        {
+            string sqlStatement = "SELECT * FROM mb_dept_category";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            List<string> categories = new List<string>();
+
+            try
+            {
+                MySqlDataReader reader;
+                DbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    categories.Add((string)reader["name"]);
+                }
+                return categories;
+            }
+            catch (MySqlException e)
+            {
+                return categories;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
         }
 
         //Get Department categories

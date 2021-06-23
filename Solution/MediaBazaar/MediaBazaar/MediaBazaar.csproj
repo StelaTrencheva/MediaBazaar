@@ -79,10 +79,16 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DepartmentDetailsForm.cs">
+    <Compile Include="Forms\AssignCategoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DepartmentDetailsForm.Designer.cs">
+    <Compile Include="Forms\AssignCategoryForm.Designer.cs">
+      <DependentUpon>AssignCategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DepartmentDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DepartmentDetailsForm.Designer.cs">
       <DependentUpon>DepartmentDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AssignDepartmentManagerToDepartment.cs">
@@ -267,7 +273,10 @@
     <Compile Include="UserControls\StoreWorkerScheduleUC.Designer.cs">
       <DependentUpon>StoreWorkerScheduleUC.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DepartmentDetailsForm.resx">
+    <EmbeddedResource Include="Forms\AssignCategoryForm.resx">
+      <DependentUpon>AssignCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DepartmentDetailsForm.resx">
       <DependentUpon>DepartmentDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AssignDepartmentManagerToDepartment.resx">

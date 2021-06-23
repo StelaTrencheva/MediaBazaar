@@ -21,6 +21,7 @@ namespace MediaBazaar
             this.deptMngr = new DepartmentManager(DatabaseType.MAIN);
             this.empMng = new EmployeeManager(DatabaseType.MAIN);
             this.DisplayDepartments();
+            this.DisplayCategory();
         }
 
         private void DisplayDepartments()//DISPLAY ON THE DEPARMENT TAB WHEN CREATING A DEPARTMENT
@@ -138,6 +139,28 @@ namespace MediaBazaar
             Department d = (Department)lbxDepartments.SelectedItem;
             DepartmentDetailsForm departmentDetailsForm = new DepartmentDetailsForm(d, this.deptMngr);
             departmentDetailsForm.ShowDialog();
+        }
+
+        public void DisplayCategory()
+        {
+            lbxCategory.Items.Clear();
+            foreach(string category in this.deptMngr.GetCategories())
+            {
+                lbxCategory.Items.Add(category);
+            }
+        }
+
+        private void btnAddC_Click(object sender, EventArgs e)
+        {
+            this.deptMngr.AddCategoryDB(tbxCName.Text);
+            this.DisplayCategory();
+        }
+
+        private void btnAssignC_Click(object sender, EventArgs e)
+        {
+            Department d = (Department)lbxDepartments.SelectedItem;
+            AssignCategoryForm assignCategoryForm = new AssignCategoryForm(d, this.deptMngr);
+            assignCategoryForm.ShowDialog();
         }
     }
 }
