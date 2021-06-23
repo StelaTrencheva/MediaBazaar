@@ -46,7 +46,7 @@ namespace ProjectClasses.LogicLayer
             string result= $"ID: {employee.Id}";
             foreach (Shift availableShift in availableShifts)
             {
-                result += $" - ({availableShift.Type}, {availableShift.Date})";
+                result += $" - ({availableShift.Type}, {availableShift.Date.ToString("yyyy-MM-dd")})";
             }
             return result;
         }

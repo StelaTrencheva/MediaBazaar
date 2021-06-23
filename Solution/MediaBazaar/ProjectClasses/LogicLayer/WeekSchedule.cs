@@ -287,10 +287,10 @@ namespace ProjectClasses.LogicLayer
                 return false;
             }
             // check if employee available shifts contains shift
-            //if (!EmployeeIsAvailableAtShift(employee, shift))
-            //{
-            //    return false;
-            //}
+            if (!EmployeeIsAvailableAtShift(employee, shift))
+            {
+                return false;
+            }
 
             return true;
         }
@@ -347,14 +347,14 @@ namespace ProjectClasses.LogicLayer
         {
             if (shift.AssignableEmployees - shift.GetAssignedEmployees().Count > 0 && !shift.GetAssignedEmployees().Contains(employee.Employee)&&employee!=null)
             {
-                //foreach (Shift shift1 in employee.AvailableShifts)
-                //{
-                //    if (shift1.Date.Equals(shift.Date) && shift1.Type == shift.Type)
-                //    {
+                foreach (Shift shift1 in employee.AvailableShifts)
+                {
+                    if (shift1.Date.Equals(shift.Date) && shift1.Type == shift.Type)
+                    {
                         shift.AssignEmployee(employee.Employee);
                         return true;
-                //    }
-                //}
+                    }
+                }
             }
             return false;
         }

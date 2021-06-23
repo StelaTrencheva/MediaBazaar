@@ -26,7 +26,7 @@ session_start();
          }
       }
       else{
-         $errorMessage= 'Please select start and end date!'; 
+         $errorMessage= 'Please enter a valid mail!'; 
          header('Location: ../Contact.php?employeeId='.$_SESSION['employeeId'].'&error='.$errorMessage);
          exit;
       }       
