@@ -47,6 +47,7 @@ namespace MediaBazaar
             // 
             // cbxCategory
             // 
+            this.cbxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCategory.FormattingEnabled = true;
             this.cbxCategory.Location = new System.Drawing.Point(515, 81);
             this.cbxCategory.Name = "cbxCategory";
@@ -61,11 +62,12 @@ namespace MediaBazaar
             this.btnAssign.TabIndex = 4;
             this.btnAssign.Text = "Assign";
             this.btnAssign.UseVisualStyleBackColor = true;
+            this.btnAssign.Click += new System.EventHandler(this.btnAssign_Click);
             // 
             // lblDepartmentName
             // 
             this.lblDepartmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentName.Location = new System.Drawing.Point(12, 18);
+            this.lblDepartmentName.Location = new System.Drawing.Point(12, 9);
             this.lblDepartmentName.Name = "lblDepartmentName";
             this.lblDepartmentName.Size = new System.Drawing.Size(776, 27);
             this.lblDepartmentName.TabIndex = 5;

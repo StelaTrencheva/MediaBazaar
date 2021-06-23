@@ -23,6 +23,7 @@ namespace MediaBazaar
             this.departmentManager = departmentManager;
             lblDepartmentName.Text = department.Name;
             this.Category();
+            this.AssignCategory(this.department.Code);
         }
 
         public void Category()
@@ -33,6 +34,22 @@ namespace MediaBazaar
                 cbxCategory.Items.Add(category);
             }
             cbxCategory.SelectedIndex = 0;
+        }
+
+        public void AssignCategory(int code)
+        {
+            lbxCategory.Items.Clear();
+            foreach(string category in this.departmentManager.GetDepartmentCategorieDB(code))
+            {
+                lbxCategory.Items.Add(category);
+            }
+        }
+
+        private void btnAssign_Click(object sender, EventArgs e)
+        {
+            string category = (string)cbxCategory.SelectedItem;
+            this.departmentManager.AssignCategory(this.department.Code, category);
+            this.AssignCategory(this.department.Code);
         }
     }
 }

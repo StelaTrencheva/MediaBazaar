@@ -22,6 +22,7 @@ namespace MediaBazaar
             this.empMng = new EmployeeManager(DatabaseType.MAIN);
             this.DisplayDepartments();
             this.DisplayCategory();
+            this.DisplaySubCategory();
         }
 
         private void DisplayDepartments()//DISPLAY ON THE DEPARMENT TAB WHEN CREATING A DEPARTMENT
@@ -150,6 +151,15 @@ namespace MediaBazaar
             }
         }
 
+        public void DisplaySubCategory()
+        {
+            lbxSubCategory.Items.Clear();
+            foreach(string subCategory in this.deptMngr.GetSubCategories())
+            {
+                lbxSubCategory.Items.Add(subCategory);
+            }
+        }
+
         private void btnAddC_Click(object sender, EventArgs e)
         {
             try
@@ -169,9 +179,17 @@ namespace MediaBazaar
 
         private void btnAssignC_Click(object sender, EventArgs e)
         {
-            Department d = (Department)lbxDepartments.SelectedItem;
-            AssignCategoryForm assignCategoryForm = new AssignCategoryForm(d, this.deptMngr);
-            assignCategoryForm.ShowDialog();
+            if(lbxDepartments.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a department");
+            }
+            else
+            {
+                Department d = (Department)lbxDepartments.SelectedItem;
+                AssignCategoryForm assignCategoryForm = new AssignCategoryForm(d, this.deptMngr);
+                assignCategoryForm.ShowDialog();
+            }
+            
         }
 
         private void btnDeleteC_Click(object sender, EventArgs e)
@@ -193,12 +211,87 @@ namespace MediaBazaar
 
         private void btnAddSubCategory_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                this.deptMngr.AddSubCategoryDB(tbxSubCategoryName.Text);
+            }
+            catch (ArgumentNullException)
+            {
+                MessageBox.Show("Please fill in a name");
+            }
+            catch (RepeatingObjectException)
+            {
+                MessageBox.Show("This name already exist");
+            }
+            this.DisplaySubCategory();
         }
 
         private void btnDeleteSubCategory_Click(object sender, EventArgs e)
         {
+            if(lbxSubCategory.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a subcategory");
+            }
+            else
+            {
+                string subCategory = (string)lbxSubCategory.SelectedItem;
+                if (this.deptMngr.DeleteSubCategoryByName(subCategory))
+                {
+                    MessageBox.Show("successfully deleted");
+                }
+            }
+            this.DisplaySubCategory();
+        }
 
+        private void tbxSearchC_TextChanged(object sender, EventArgs e)
+        {
+            lbxCategory.Items.Clear();
+            foreach(string category in this.deptMngr.GetCategories())
+            {
+                if (category.ToLower().Contains(tbxSearchC.Text))
+                {
+                    lbxCategory.Items.Add(category);
+                }
+            }
+        }
+
+        private void tbxSearchSubCategory_TextChanged(object sender, EventArgs e)
+        {
+            lbxSubCategory.Items.Clear();
+            foreach (string subCategory in this.deptMngr.GetSubCategories())
+            {
+                if (subCategory.ToLower().Contains(tbxSearchSubCategory.Text))
+                {
+                    lbxSubCategory.Items.Add(subCategory);
+                }
+            }
+        }
+
+        private void btnAssignSubCategory_Click(object sender, EventArgs e)
+        {
+            if(lbxCategory.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a category");
+            }
+            else
+            {
+                
+                AssignSubCategoryForm assignSubCategoryForm = new AssignSubCategoryForm();
+                assignSubCategoryForm.ShowDialog();
+            }
+        }
+
+        private void btnAssignProduct_Click(object sender, EventArgs e)
+        {
+            if (lbxSubCategory.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a subcategory");
+            }
+            else
+            {
+                AssignProductForm assignProductForm = new AssignProductForm();
+                assignProductForm.ShowDialog();
+            }
         }
     }
 }
