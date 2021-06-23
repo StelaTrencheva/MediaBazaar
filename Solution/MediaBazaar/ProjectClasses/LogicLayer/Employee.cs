@@ -56,7 +56,6 @@ namespace ProjectClasses
         public string Street
         {
             get { return this.addrStreet; }
-
             private set
             {
                 if (value != "")
@@ -68,7 +67,6 @@ namespace ProjectClasses
         public string StreetNumber
         {
             get { return this.addrStreetNumber; }
-
             private set
             {
                 if (value != "")
@@ -80,7 +78,6 @@ namespace ProjectClasses
         public string Zipcode
         {
             get { return this.addrZipcode; }
-
             private set
             {
                 if (value != "")
@@ -92,7 +89,6 @@ namespace ProjectClasses
         public string Town
         {
             get { return this.addrTown; }
-
             private set
             {
                 if (value != "")
@@ -104,7 +100,6 @@ namespace ProjectClasses
         public string Country
         {
             get { return this.addrCountry; }
-
             private set
             {
                 if (value != "")
@@ -116,7 +111,6 @@ namespace ProjectClasses
         public string FirstName
         {
             get { return this.firstName; }
-
             private set
             {
                 if (value != "")
@@ -257,6 +251,10 @@ namespace ProjectClasses
                          string emergencyPhoneNumber, string iban, double hourlyWage,
                          DateTime contractStartDate, ContractType contract, EmployeeType position)
         {
+            if (firstWorkingDay<birthDay)
+            {
+                throw new ArgumentException();
+            }
             this.Id = id;
             this.BSN = bsn;
             this.FirstName = firstName;

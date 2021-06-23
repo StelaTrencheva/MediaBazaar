@@ -138,7 +138,7 @@ namespace MediaBazaar
                                                 (ContractType)(cbxContractType.SelectedIndex),
                                                 (EmployeeType)(cbxTypeOfEmployee.SelectedIndex)
                                                 );
-                if (manageEmployees.AddEmployeeToDb(newEmp))
+                if (manageEmployees.AddEmployee(newEmp))
                 {
                     MessageBox.Show("Success!");
                     manageEmployees.UpdateEmployees();
@@ -151,11 +151,11 @@ namespace MediaBazaar
             {
                 MessageBox.Show("Please fill the fields with the correct format");
             }
-            catch (NullReferenceException)
+            catch (ArgumentException)
             {
                 MessageBox.Show("Please fill all the fields");
             }
-            catch (ArgumentException)
+            catch (RepeatingObjectException)
             {
                 MessageBox.Show("This bsn already exist");
             }
