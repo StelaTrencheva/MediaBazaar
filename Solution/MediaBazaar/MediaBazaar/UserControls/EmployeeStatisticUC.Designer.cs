@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tbcEmployeeStatistics = new System.Windows.Forms.TabControl();
             this.tbpAllEmployees = new System.Windows.Forms.TabPage();
             this.cbbFilterByPosition = new System.Windows.Forms.ComboBox();
@@ -231,42 +231,42 @@
             // 
             // chartStatistics
             // 
-            chartArea3.IsSameFontSizeForAllAxes = true;
-            chartArea3.Name = "ChartArea1";
-            this.chartStatistics.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartStatistics.Legends.Add(legend3);
+            chartArea1.IsSameFontSizeForAllAxes = true;
+            chartArea1.Name = "ChartArea1";
+            this.chartStatistics.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartStatistics.Legends.Add(legend1);
             this.chartStatistics.Location = new System.Drawing.Point(5, 249);
             this.chartStatistics.Name = "chartStatistics";
-            series7.ChartArea = "ChartArea1";
-            series7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            series7.IsValueShownAsLabel = true;
-            series7.IsVisibleInLegend = false;
-            series7.IsXValueIndexed = true;
-            series7.Legend = "Legend1";
-            series7.Name = "Total salary";
-            series8.ChartArea = "ChartArea1";
-            series8.IsValueShownAsLabel = true;
-            series8.IsVisibleInLegend = false;
-            series8.IsXValueIndexed = true;
-            series8.Legend = "Legend1";
-            series8.Name = "Average salary";
-            series9.ChartArea = "ChartArea1";
-            series9.IsValueShownAsLabel = true;
-            series9.IsVisibleInLegend = false;
-            series9.IsXValueIndexed = true;
-            series9.Legend = "Legend1";
-            series9.Name = "Total hours worked";
-            series10.ChartArea = "ChartArea1";
-            series10.IsValueShownAsLabel = true;
-            series10.IsVisibleInLegend = false;
-            series10.IsXValueIndexed = true;
-            series10.Legend = "Legend1";
-            series10.Name = "Average hours worked";
-            this.chartStatistics.Series.Add(series7);
-            this.chartStatistics.Series.Add(series8);
-            this.chartStatistics.Series.Add(series9);
-            this.chartStatistics.Series.Add(series10);
+            series1.ChartArea = "ChartArea1";
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            series1.IsValueShownAsLabel = true;
+            series1.IsVisibleInLegend = false;
+            series1.IsXValueIndexed = true;
+            series1.Legend = "Legend1";
+            series1.Name = "Total salary";
+            series2.ChartArea = "ChartArea1";
+            series2.IsValueShownAsLabel = true;
+            series2.IsVisibleInLegend = false;
+            series2.IsXValueIndexed = true;
+            series2.Legend = "Legend1";
+            series2.Name = "Average salary";
+            series3.ChartArea = "ChartArea1";
+            series3.IsValueShownAsLabel = true;
+            series3.IsVisibleInLegend = false;
+            series3.IsXValueIndexed = true;
+            series3.Legend = "Legend1";
+            series3.Name = "Total hours worked";
+            series4.ChartArea = "ChartArea1";
+            series4.IsValueShownAsLabel = true;
+            series4.IsVisibleInLegend = false;
+            series4.IsXValueIndexed = true;
+            series4.Legend = "Legend1";
+            series4.Name = "Average hours worked";
+            this.chartStatistics.Series.Add(series1);
+            this.chartStatistics.Series.Add(series2);
+            this.chartStatistics.Series.Add(series3);
+            this.chartStatistics.Series.Add(series4);
             this.chartStatistics.Size = new System.Drawing.Size(1111, 498);
             this.chartStatistics.TabIndex = 20;
             this.chartStatistics.Text = "chart1";
@@ -405,31 +405,31 @@
             // chartutilizationOfAnEmployee
             // 
             this.chartutilizationOfAnEmployee.BackColor = System.Drawing.Color.Transparent;
-            chartArea4.Name = "ChartArea1";
-            this.chartutilizationOfAnEmployee.ChartAreas.Add(chartArea4);
-            legend4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            legend4.IsTextAutoFit = false;
-            legend4.Name = "Legend1";
-            this.chartutilizationOfAnEmployee.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            this.chartutilizationOfAnEmployee.ChartAreas.Add(chartArea2);
+            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            this.chartutilizationOfAnEmployee.Legends.Add(legend2);
             this.chartutilizationOfAnEmployee.Location = new System.Drawing.Point(13, 40);
             this.chartutilizationOfAnEmployee.Name = "chartutilizationOfAnEmployee";
             this.chartutilizationOfAnEmployee.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series11.ChartArea = "ChartArea1";
-            series11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            series11.IsValueShownAsLabel = true;
-            series11.IsXValueIndexed = true;
-            series11.Legend = "Legend1";
-            series11.LegendText = "Actual hours worked";
-            series11.Name = "Actual hours worked";
-            series12.ChartArea = "ChartArea1";
-            series12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            series12.IsValueShownAsLabel = true;
-            series12.IsXValueIndexed = true;
-            series12.Legend = "Legend1";
-            series12.LegendText = "Contractual hours";
-            series12.Name = "Contractual hours";
-            this.chartutilizationOfAnEmployee.Series.Add(series11);
-            this.chartutilizationOfAnEmployee.Series.Add(series12);
+            series5.ChartArea = "ChartArea1";
+            series5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            series5.IsValueShownAsLabel = true;
+            series5.IsXValueIndexed = true;
+            series5.Legend = "Legend1";
+            series5.LegendText = "Actual hours worked";
+            series5.Name = "Actual hours worked";
+            series6.ChartArea = "ChartArea1";
+            series6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            series6.IsValueShownAsLabel = true;
+            series6.IsXValueIndexed = true;
+            series6.Legend = "Legend1";
+            series6.LegendText = "Contractual hours";
+            series6.Name = "Contractual hours";
+            this.chartutilizationOfAnEmployee.Series.Add(series5);
+            this.chartutilizationOfAnEmployee.Series.Add(series6);
             this.chartutilizationOfAnEmployee.Size = new System.Drawing.Size(669, 462);
             this.chartutilizationOfAnEmployee.TabIndex = 15;
             this.chartutilizationOfAnEmployee.Text = "chart1";
@@ -463,7 +463,7 @@
             // lblTotalSalaryPerYear
             // 
             this.lblTotalSalaryPerYear.AutoSize = true;
-            this.lblTotalSalaryPerYear.Location = new System.Drawing.Point(161, 393);
+            this.lblTotalSalaryPerYear.Location = new System.Drawing.Point(161, 419);
             this.lblTotalSalaryPerYear.Name = "lblTotalSalaryPerYear";
             this.lblTotalSalaryPerYear.Size = new System.Drawing.Size(99, 25);
             this.lblTotalSalaryPerYear.TabIndex = 14;
@@ -472,7 +472,7 @@
             // lblTotalSalaryPerDay
             // 
             this.lblTotalSalaryPerDay.AutoSize = true;
-            this.lblTotalSalaryPerDay.Location = new System.Drawing.Point(161, 269);
+            this.lblTotalSalaryPerDay.Location = new System.Drawing.Point(161, 298);
             this.lblTotalSalaryPerDay.Name = "lblTotalSalaryPerDay";
             this.lblTotalSalaryPerDay.Size = new System.Drawing.Size(93, 25);
             this.lblTotalSalaryPerDay.TabIndex = 13;
@@ -481,7 +481,7 @@
             // lblTotalSalaryPerWeek
             // 
             this.lblTotalSalaryPerWeek.AutoSize = true;
-            this.lblTotalSalaryPerWeek.Location = new System.Drawing.Point(161, 309);
+            this.lblTotalSalaryPerWeek.Location = new System.Drawing.Point(161, 338);
             this.lblTotalSalaryPerWeek.Name = "lblTotalSalaryPerWeek";
             this.lblTotalSalaryPerWeek.Size = new System.Drawing.Size(107, 25);
             this.lblTotalSalaryPerWeek.TabIndex = 12;
@@ -490,7 +490,7 @@
             // lblTotalSalaryPerMonth
             // 
             this.lblTotalSalaryPerMonth.AutoSize = true;
-            this.lblTotalSalaryPerMonth.Location = new System.Drawing.Point(161, 351);
+            this.lblTotalSalaryPerMonth.Location = new System.Drawing.Point(161, 377);
             this.lblTotalSalaryPerMonth.Name = "lblTotalSalaryPerMonth";
             this.lblTotalSalaryPerMonth.Size = new System.Drawing.Size(115, 25);
             this.lblTotalSalaryPerMonth.TabIndex = 11;
@@ -499,7 +499,7 @@
             // lblTotalSalary
             // 
             this.lblTotalSalary.AutoSize = true;
-            this.lblTotalSalary.Location = new System.Drawing.Point(16, 269);
+            this.lblTotalSalary.Location = new System.Drawing.Point(11, 298);
             this.lblTotalSalary.Name = "lblTotalSalary";
             this.lblTotalSalary.Size = new System.Drawing.Size(119, 25);
             this.lblTotalSalary.TabIndex = 10;
@@ -526,7 +526,7 @@
             // lblEmpHourlyWage
             // 
             this.lblEmpHourlyWage.AutoSize = true;
-            this.lblEmpHourlyWage.Location = new System.Drawing.Point(161, 185);
+            this.lblEmpHourlyWage.Location = new System.Drawing.Point(161, 253);
             this.lblEmpHourlyWage.Name = "lblEmpHourlyWage";
             this.lblEmpHourlyWage.Size = new System.Drawing.Size(50, 25);
             this.lblEmpHourlyWage.TabIndex = 7;
@@ -535,7 +535,7 @@
             // lblEmpContract
             // 
             this.lblEmpContract.AutoSize = true;
-            this.lblEmpContract.Location = new System.Drawing.Point(161, 148);
+            this.lblEmpContract.Location = new System.Drawing.Point(161, 209);
             this.lblEmpContract.Name = "lblEmpContract";
             this.lblEmpContract.Size = new System.Drawing.Size(19, 25);
             this.lblEmpContract.TabIndex = 6;
@@ -544,11 +544,11 @@
             // lblEmpPosition
             // 
             this.lblEmpPosition.AutoSize = true;
-            this.lblEmpPosition.Location = new System.Drawing.Point(161, 113);
+            this.lblEmpPosition.Location = new System.Drawing.Point(90, 148);
             this.lblEmpPosition.Name = "lblEmpPosition";
-            this.lblEmpPosition.Size = new System.Drawing.Size(19, 25);
+            this.lblEmpPosition.Size = new System.Drawing.Size(260, 25);
             this.lblEmpPosition.TabIndex = 5;
-            this.lblEmpPosition.Text = "-";
+            this.lblEmpPosition.Text = "DEPARTMENT_MANAGER";
             // 
             // lblEmpId
             // 
@@ -562,7 +562,7 @@
             // lblHourlyWage
             // 
             this.lblHourlyWage.AutoSize = true;
-            this.lblHourlyWage.Location = new System.Drawing.Point(16, 185);
+            this.lblHourlyWage.Location = new System.Drawing.Point(11, 251);
             this.lblHourlyWage.Name = "lblHourlyWage";
             this.lblHourlyWage.Size = new System.Drawing.Size(126, 25);
             this.lblHourlyWage.TabIndex = 3;
@@ -571,7 +571,7 @@
             // lblContract
             // 
             this.lblContract.AutoSize = true;
-            this.lblContract.Location = new System.Drawing.Point(16, 148);
+            this.lblContract.Location = new System.Drawing.Point(11, 209);
             this.lblContract.Name = "lblContract";
             this.lblContract.Size = new System.Drawing.Size(92, 25);
             this.lblContract.TabIndex = 2;
@@ -580,7 +580,7 @@
             // lblPosition
             // 
             this.lblPosition.AutoSize = true;
-            this.lblPosition.Location = new System.Drawing.Point(16, 113);
+            this.lblPosition.Location = new System.Drawing.Point(16, 112);
             this.lblPosition.Name = "lblPosition";
             this.lblPosition.Size = new System.Drawing.Size(87, 25);
             this.lblPosition.TabIndex = 1;
