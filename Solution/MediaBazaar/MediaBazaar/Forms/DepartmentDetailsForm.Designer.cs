@@ -39,9 +39,9 @@ namespace MediaBazaar
             // lblDepartmentName
             // 
             this.lblDepartmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentName.Location = new System.Drawing.Point(12, 19);
+            this.lblDepartmentName.Location = new System.Drawing.Point(12, 9);
             this.lblDepartmentName.Name = "lblDepartmentName";
-            this.lblDepartmentName.Size = new System.Drawing.Size(776, 32);
+            this.lblDepartmentName.Size = new System.Drawing.Size(705, 32);
             this.lblDepartmentName.TabIndex = 0;
             this.lblDepartmentName.Text = "label1";
             this.lblDepartmentName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -50,7 +50,7 @@ namespace MediaBazaar
             // 
             this.lbxDepartmentManager.FormattingEnabled = true;
             this.lbxDepartmentManager.ItemHeight = 16;
-            this.lbxDepartmentManager.Location = new System.Drawing.Point(81, 159);
+            this.lbxDepartmentManager.Location = new System.Drawing.Point(97, 116);
             this.lbxDepartmentManager.Name = "lbxDepartmentManager";
             this.lbxDepartmentManager.Size = new System.Drawing.Size(233, 196);
             this.lbxDepartmentManager.TabIndex = 1;
@@ -59,7 +59,7 @@ namespace MediaBazaar
             // 
             this.lbxStoreWorker.FormattingEnabled = true;
             this.lbxStoreWorker.ItemHeight = 16;
-            this.lbxStoreWorker.Location = new System.Drawing.Point(466, 159);
+            this.lbxStoreWorker.Location = new System.Drawing.Point(401, 116);
             this.lbxStoreWorker.Name = "lbxStoreWorker";
             this.lbxStoreWorker.Size = new System.Drawing.Size(233, 196);
             this.lbxStoreWorker.TabIndex = 2;
@@ -67,7 +67,7 @@ namespace MediaBazaar
             // lblDepartmentManager
             // 
             this.lblDepartmentManager.AutoSize = true;
-            this.lblDepartmentManager.Location = new System.Drawing.Point(78, 139);
+            this.lblDepartmentManager.Location = new System.Drawing.Point(94, 96);
             this.lblDepartmentManager.Name = "lblDepartmentManager";
             this.lblDepartmentManager.Size = new System.Drawing.Size(142, 17);
             this.lblDepartmentManager.TabIndex = 3;
@@ -76,7 +76,7 @@ namespace MediaBazaar
             // lblStoreWorker
             // 
             this.lblStoreWorker.AutoSize = true;
-            this.lblStoreWorker.Location = new System.Drawing.Point(463, 139);
+            this.lblStoreWorker.Location = new System.Drawing.Point(398, 96);
             this.lblStoreWorker.Name = "lblStoreWorker";
             this.lblStoreWorker.Size = new System.Drawing.Size(88, 17);
             this.lblStoreWorker.TabIndex = 4;
@@ -86,13 +86,16 @@ namespace MediaBazaar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.ClientSize = new System.Drawing.Size(729, 387);
             this.Controls.Add(this.lblStoreWorker);
             this.Controls.Add(this.lblDepartmentManager);
             this.Controls.Add(this.lbxStoreWorker);
             this.Controls.Add(this.lbxDepartmentManager);
             this.Controls.Add(this.lblDepartmentName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DepartmentDetailsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DepartmentDetailsForm";
             this.ResumeLayout(false);
             this.PerformLayout();

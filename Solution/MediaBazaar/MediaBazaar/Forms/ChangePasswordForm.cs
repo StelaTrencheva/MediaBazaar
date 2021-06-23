@@ -25,11 +25,9 @@ namespace MediaBazaar
         private void btnSubmitChanges_Click(object sender, EventArgs e)
         {
             string newPass = txbNewPassword.Text.ToString();
-            string oldPass = txbOldPassword.Text.ToString();
             string repeatOldPass = txbRepeatNewPassword.Text.ToString();
 
             if (String.IsNullOrEmpty(txbNewPassword.Text.ToString()) ||
-                String.IsNullOrEmpty(txbOldPassword.Text.ToString()) ||
                 String.IsNullOrEmpty(txbRepeatNewPassword.Text.ToString()))
             {
                 MessageBox.Show("Your input is not valid");

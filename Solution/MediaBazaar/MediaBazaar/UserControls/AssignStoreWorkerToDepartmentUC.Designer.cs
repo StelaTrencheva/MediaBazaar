@@ -59,8 +59,9 @@ namespace MediaBazaar
             // 
             // lbxDisplayAssignStoreWorker
             // 
+            this.lbxDisplayAssignStoreWorker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxDisplayAssignStoreWorker.FormattingEnabled = true;
-            this.lbxDisplayAssignStoreWorker.ItemHeight = 16;
+            this.lbxDisplayAssignStoreWorker.ItemHeight = 20;
             this.lbxDisplayAssignStoreWorker.Location = new System.Drawing.Point(148, 235);
             this.lbxDisplayAssignStoreWorker.Name = "lbxDisplayAssignStoreWorker";
             this.lbxDisplayAssignStoreWorker.Size = new System.Drawing.Size(334, 244);

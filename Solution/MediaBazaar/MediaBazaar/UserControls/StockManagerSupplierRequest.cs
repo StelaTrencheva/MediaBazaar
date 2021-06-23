@@ -38,17 +38,25 @@ namespace MediaBazaar
         }
         private void lbxSupplierRequests_DoubleClick(object sender, EventArgs e)
         {
-            gbxSupplierContact.Visible = false;
-            foreach (var request in requestManager.GetAllSupplierRequests())
+            try
             {
-                if (lbxSupplierRequests.Items[prevIndex].ToString() == $"{request.Key.Type} - ({request.Key.Brand})")
+
+                gbxSupplierContact.Visible = false;
+                foreach (var request in requestManager.GetAllSupplierRequests())
                 {
-                    lblProductTypeAndModel.Text = request.Key.Type + request.Key.Model;
-                    lblProductBrand.Text = request.Key.Brand;
-                    lblSupplierRequestAmount.Text = request.Value.ToString();
-                    btnProceedRequest.Enabled = true;
-                    btnDenyRequest.Enabled = true;
+                    if (lbxSupplierRequests.Items[prevIndex].ToString() == $"{request.Key.Type} - ({request.Key.Brand})")
+                    {
+                        lblProductTypeAndModel.Text = request.Key.Type + request.Key.Model;
+                        lblProductBrand.Text = request.Key.Brand;
+                        lblSupplierRequestAmount.Text = request.Value.ToString();
+                        btnProceedRequest.Enabled = true;
+                        btnDenyRequest.Enabled = true;
+                    }
                 }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Please click a stock request.");
             }
         }
 

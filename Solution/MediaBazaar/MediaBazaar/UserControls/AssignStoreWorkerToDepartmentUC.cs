@@ -65,6 +65,11 @@ namespace MediaBazaar
 
         private void btnAssign_Click(object sender, EventArgs e)
         {
+            if (cbxDisplayStoreWorker.SelectedItem==null)
+            {
+                MessageBox.Show("Please select a store worker.");
+                return;
+            }
             try
             {
                 foreach (Employee emp in this.employeeManager.GetListOFAllEmployees())
