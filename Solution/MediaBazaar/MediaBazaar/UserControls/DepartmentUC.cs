@@ -161,6 +161,10 @@ namespace MediaBazaar
             {
                 MessageBox.Show("Please fill in the name.");
             }
+            catch (RepeatingObjectException)
+            {
+                MessageBox.Show("This name already exist");
+            }
         }
 
         private void btnAssignC_Click(object sender, EventArgs e)
@@ -168,6 +172,33 @@ namespace MediaBazaar
             Department d = (Department)lbxDepartments.SelectedItem;
             AssignCategoryForm assignCategoryForm = new AssignCategoryForm(d, this.deptMngr);
             assignCategoryForm.ShowDialog();
+        }
+
+        private void btnDeleteC_Click(object sender, EventArgs e)
+        {
+            if(lbxCategory.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a category");
+            }
+            else
+            {
+                string category = (string)lbxCategory.SelectedItem;
+                if (this.deptMngr.DeleteCategoryByName(category))
+                {
+                    MessageBox.Show("successfully deleted");
+                }
+            }
+            this.DisplayCategory();
+        }
+
+        private void btnAddSubCategory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteSubCategory_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

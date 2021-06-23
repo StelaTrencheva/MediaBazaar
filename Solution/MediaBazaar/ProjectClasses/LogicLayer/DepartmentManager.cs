@@ -81,14 +81,18 @@ namespace ProjectClasses
 
         public void AddCategoryDB(string name)
         {
-            //if(name == "")
-            //{
-            //    throw new ArgumentNullException();
-            //}
-            //else
-            //{
-            //    dbMediator.AddCategory(name);
-            //}
+            if (name == "")
+            {
+                throw new ArgumentNullException();
+            }
+            else
+            {
+                if (dbMediator.CheckIfCategoryExist(name) == true)
+                {
+                    throw new RepeatingObjectException();
+                }
+                dbMediator.AddCategory(name);
+            }
         }
 
         public void AssignCategory(int id, string name)
@@ -98,7 +102,12 @@ namespace ProjectClasses
 
         public bool AddSubcategoryDB(int deptId, string catName, string name)
         {
-            return dbMediator.AddSubcategory(deptId, catName, name);
+            return dbMediator.AssignSubcategory(deptId, catName, name);
+        }
+
+        public bool DeleteCategoryByName(string name)
+        {
+            return this.dbMediator.DeleteCategoryByName(name);
         }
 
         public bool DeleteCategoryDB(int deptId, string name)

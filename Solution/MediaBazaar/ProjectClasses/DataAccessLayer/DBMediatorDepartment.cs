@@ -166,6 +166,40 @@ namespace ProjectClasses
             }
         }
 
+        public bool CheckIfCategoryExist(string name)
+        {
+            string sqlStatement = "Select name FROM mb_dept_category where name = @n";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@n", name);
+
+            try
+            {
+                DbConnection.Open();
+                Object test = sqlCommand.ExecuteScalar();
+
+                if (test != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (MySqlException)
+            {
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
         public void AddCategory(string name)
         {
             string sqlStatement = "INSERT INTO `mb_dept_category` (name) VALUES (@n);";
@@ -185,7 +219,25 @@ namespace ProjectClasses
         }
 
         //ADD Subcategory
-        public bool AddSubcategory(int deptId, string catName, string name)
+        public void AddSubCategory(string name)
+        {
+            string sqlStatement = "INSERT INTO `mb_dept_category` (name) VALUES (@n);";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@n", name);
+
+            try
+            {
+                int n = 0;
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
+        public bool AssignSubcategory(int deptId, string catName, string name)
         {
             string sqlStatement = "INSERT INTO `mb_dept_subcategory` ( `cat_id`, `name`) VALUES " +
                 "((SELECT id FROM mb_dept_category where dept_id=@deptId AND name = @catName), @name);";
@@ -221,6 +273,37 @@ namespace ProjectClasses
         }
 
         //DELETE Category
+        public bool DeleteCategoryByName(string name)
+        {
+            string sqlStatement = "DELETE FROM `mb_dept_category` WHERE name = @name";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection); ;
+            sqlCommand.Parameters.AddWithValue("@name", name);
+            try
+            {
+                int n = 0;
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+
+                if (n == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (MySqlException)
+            {
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
         public bool DeleteCategory(int deptId, string name)
         {
             string sqlStatement = "DELETE FROM `mb_dept_category` WHERE dept_id=@deptId and name = @name";
@@ -239,14 +322,12 @@ namespace ProjectClasses
                 }
                 return false;
             }
-            catch (MySqlException e)
+            catch (MySqlException)
             {
-                //MessageBox.Show(sqlExceptionMessage(e.Message));
                 return false;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                //MessageBox.Show(sqlExceptionMessage(e.Message));
                 return false;
             }
             finally
