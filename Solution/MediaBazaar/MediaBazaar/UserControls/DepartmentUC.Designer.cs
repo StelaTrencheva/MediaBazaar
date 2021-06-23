@@ -41,6 +41,7 @@ namespace MediaBazaar
             this.tbxSearchDepartment = new System.Windows.Forms.TextBox();
             this.lbxDepartments = new System.Windows.Forms.ListBox();
             this.gbxDeleteDepartment = new System.Windows.Forms.GroupBox();
+            this.btnAssignC = new System.Windows.Forms.Button();
             this.btnAssignDepartmentManager = new System.Windows.Forms.Button();
             this.btnDepartmentUpdate = new System.Windows.Forms.Button();
             this.btnDepartmentDelete = new System.Windows.Forms.Button();
@@ -51,23 +52,21 @@ namespace MediaBazaar
             this.tbxCName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lbxCategory = new System.Windows.Forms.ListBox();
-            this.tbxSearchC = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnUpdateC = new System.Windows.Forms.Button();
             this.btnDeleteC = new System.Windows.Forms.Button();
+            this.tbxSearchC = new System.Windows.Forms.TextBox();
             this.tpAssignPCategories = new System.Windows.Forms.TabPage();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.btnAddSubCategory = new System.Windows.Forms.Button();
+            this.tbxSubCategoryName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.lbxSubCategory = new System.Windows.Forms.ListBox();
+            this.tbxSearchSubCategory = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.btnAssignC = new System.Windows.Forms.Button();
+            this.btnUpdateSubCategory = new System.Windows.Forms.Button();
+            this.btnDeleteSubCategory = new System.Windows.Forms.Button();
             this.tclDepartment.SuspendLayout();
             this.tpDepartment.SuspendLayout();
             this.gbxAddDepartment.SuspendLayout();
@@ -77,7 +76,6 @@ namespace MediaBazaar
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tpAssignPCategories.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.SuspendLayout();
@@ -112,7 +110,7 @@ namespace MediaBazaar
             // 
             // lblSearchDepartment
             // 
-            this.lblSearchDepartment.Location = new System.Drawing.Point(118, 51);
+            this.lblSearchDepartment.Location = new System.Drawing.Point(118, 73);
             this.lblSearchDepartment.Name = "lblSearchDepartment";
             this.lblSearchDepartment.Size = new System.Drawing.Size(186, 30);
             this.lblSearchDepartment.TabIndex = 5;
@@ -128,7 +126,7 @@ namespace MediaBazaar
             this.gbxAddDepartment.Controls.Add(this.tbxDepartmentName);
             this.gbxAddDepartment.Controls.Add(this.lblDepartmentName);
             this.gbxAddDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxAddDepartment.Location = new System.Drawing.Point(553, 51);
+            this.gbxAddDepartment.Location = new System.Drawing.Point(553, 73);
             this.gbxAddDepartment.Name = "gbxAddDepartment";
             this.gbxAddDepartment.Size = new System.Drawing.Size(401, 164);
             this.gbxAddDepartment.TabIndex = 2;
@@ -194,7 +192,7 @@ namespace MediaBazaar
             // 
             // tbxSearchDepartment
             // 
-            this.tbxSearchDepartment.Location = new System.Drawing.Point(310, 51);
+            this.tbxSearchDepartment.Location = new System.Drawing.Point(310, 73);
             this.tbxSearchDepartment.Name = "tbxSearchDepartment";
             this.tbxSearchDepartment.Size = new System.Drawing.Size(215, 27);
             this.tbxSearchDepartment.TabIndex = 6;
@@ -205,7 +203,7 @@ namespace MediaBazaar
             this.lbxDepartments.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxDepartments.FormattingEnabled = true;
             this.lbxDepartments.ItemHeight = 22;
-            this.lbxDepartments.Location = new System.Drawing.Point(118, 87);
+            this.lbxDepartments.Location = new System.Drawing.Point(118, 109);
             this.lbxDepartments.Name = "lbxDepartments";
             this.lbxDepartments.Size = new System.Drawing.Size(407, 312);
             this.lbxDepartments.TabIndex = 1;
@@ -219,12 +217,22 @@ namespace MediaBazaar
             this.gbxDeleteDepartment.Controls.Add(this.btnDepartmentUpdate);
             this.gbxDeleteDepartment.Controls.Add(this.btnDepartmentDelete);
             this.gbxDeleteDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxDeleteDepartment.Location = new System.Drawing.Point(553, 221);
+            this.gbxDeleteDepartment.Location = new System.Drawing.Point(553, 243);
             this.gbxDeleteDepartment.Name = "gbxDeleteDepartment";
             this.gbxDeleteDepartment.Size = new System.Drawing.Size(401, 192);
             this.gbxDeleteDepartment.TabIndex = 5;
             this.gbxDeleteDepartment.TabStop = false;
             this.gbxDeleteDepartment.Text = "Select a department to";
+            // 
+            // btnAssignC
+            // 
+            this.btnAssignC.Location = new System.Drawing.Point(54, 137);
+            this.btnAssignC.Name = "btnAssignC";
+            this.btnAssignC.Size = new System.Drawing.Size(295, 31);
+            this.btnAssignC.TabIndex = 7;
+            this.btnAssignC.Text = "Assign Category";
+            this.btnAssignC.UseVisualStyleBackColor = true;
+            this.btnAssignC.Click += new System.EventHandler(this.btnAssignC_Click);
             // 
             // btnAssignDepartmentManager
             // 
@@ -331,13 +339,6 @@ namespace MediaBazaar
             this.lbxCategory.Size = new System.Drawing.Size(407, 312);
             this.lbxCategory.TabIndex = 1;
             // 
-            // tbxSearchC
-            // 
-            this.tbxSearchC.Location = new System.Drawing.Point(329, 97);
-            this.tbxSearchC.Name = "tbxSearchC";
-            this.tbxSearchC.Size = new System.Drawing.Size(219, 27);
-            this.tbxSearchC.TabIndex = 6;
-            // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.LightBlue;
@@ -369,33 +370,30 @@ namespace MediaBazaar
             this.btnDeleteC.Text = "Delete";
             this.btnDeleteC.UseVisualStyleBackColor = true;
             // 
+            // tbxSearchC
+            // 
+            this.tbxSearchC.Location = new System.Drawing.Point(329, 97);
+            this.tbxSearchC.Name = "tbxSearchC";
+            this.tbxSearchC.Size = new System.Drawing.Size(219, 27);
+            this.tbxSearchC.TabIndex = 6;
+            // 
             // tpAssignPCategories
             // 
             this.tpAssignPCategories.BackColor = System.Drawing.SystemColors.Control;
-            this.tpAssignPCategories.Controls.Add(this.groupBox4);
+            this.tpAssignPCategories.Controls.Add(this.label3);
+            this.tpAssignPCategories.Controls.Add(this.lbxSubCategory);
+            this.tpAssignPCategories.Controls.Add(this.tbxSearchSubCategory);
+            this.tpAssignPCategories.Controls.Add(this.groupBox5);
+            this.tpAssignPCategories.Controls.Add(this.groupBox6);
             this.tpAssignPCategories.Location = new System.Drawing.Point(4, 27);
             this.tpAssignPCategories.Name = "tpAssignPCategories";
             this.tpAssignPCategories.Size = new System.Drawing.Size(1115, 748);
             this.tpAssignPCategories.TabIndex = 2;
             this.tpAssignPCategories.Text = "Assign product categories";
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Controls.Add(this.groupBox5);
-            this.groupBox4.Controls.Add(this.listBox2);
-            this.groupBox4.Controls.Add(this.textBox4);
-            this.groupBox4.Controls.Add(this.groupBox6);
-            this.groupBox4.Location = new System.Drawing.Point(13, 13);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(536, 310);
-            this.groupBox4.TabIndex = 11;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "SubCategory";
-            // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(9, 23);
+            this.label3.Location = new System.Drawing.Point(131, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(186, 30);
             this.label3.TabIndex = 5;
@@ -405,32 +403,32 @@ namespace MediaBazaar
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.LightBlue;
-            this.groupBox5.Controls.Add(this.button4);
-            this.groupBox5.Controls.Add(this.textBox3);
+            this.groupBox5.Controls.Add(this.btnAddSubCategory);
+            this.groupBox5.Controls.Add(this.tbxSubCategoryName);
             this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(230, 177);
+            this.groupBox5.Location = new System.Drawing.Point(567, 86);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(289, 120);
+            this.groupBox5.Size = new System.Drawing.Size(401, 164);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Add subcategory";
             // 
-            // button4
+            // btnAddSubCategory
             // 
-            this.button4.Location = new System.Drawing.Point(22, 77);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(252, 31);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Add";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnAddSubCategory.Location = new System.Drawing.Point(58, 82);
+            this.btnAddSubCategory.Name = "btnAddSubCategory";
+            this.btnAddSubCategory.Size = new System.Drawing.Size(292, 31);
+            this.btnAddSubCategory.TabIndex = 2;
+            this.btnAddSubCategory.Text = "Add";
+            this.btnAddSubCategory.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // tbxSubCategoryName
             // 
-            this.textBox3.Location = new System.Drawing.Point(148, 35);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(126, 27);
-            this.textBox3.TabIndex = 1;
+            this.tbxSubCategoryName.Location = new System.Drawing.Point(148, 35);
+            this.tbxSubCategoryName.Name = "tbxSubCategoryName";
+            this.tbxSubCategoryName.Size = new System.Drawing.Size(202, 27);
+            this.tbxSubCategoryName.TabIndex = 1;
             // 
             // label4
             // 
@@ -441,63 +439,53 @@ namespace MediaBazaar
             this.label4.Text = "Name:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // listBox2
+            // lbxSubCategory
             // 
-            this.listBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 22;
-            this.listBox2.Location = new System.Drawing.Point(9, 59);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(510, 114);
-            this.listBox2.TabIndex = 1;
+            this.lbxSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbxSubCategory.FormattingEnabled = true;
+            this.lbxSubCategory.ItemHeight = 22;
+            this.lbxSubCategory.Location = new System.Drawing.Point(131, 122);
+            this.lbxSubCategory.Name = "lbxSubCategory";
+            this.lbxSubCategory.Size = new System.Drawing.Size(407, 312);
+            this.lbxSubCategory.TabIndex = 1;
             // 
-            // textBox4
+            // tbxSearchSubCategory
             // 
-            this.textBox4.Location = new System.Drawing.Point(201, 23);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(318, 24);
-            this.textBox4.TabIndex = 6;
+            this.tbxSearchSubCategory.Location = new System.Drawing.Point(323, 86);
+            this.tbxSearchSubCategory.Name = "tbxSearchSubCategory";
+            this.tbxSearchSubCategory.Size = new System.Drawing.Size(215, 24);
+            this.tbxSearchSubCategory.TabIndex = 6;
             // 
             // groupBox6
             // 
             this.groupBox6.BackColor = System.Drawing.Color.LightBlue;
-            this.groupBox6.Controls.Add(this.button5);
-            this.groupBox6.Controls.Add(this.button6);
+            this.groupBox6.Controls.Add(this.btnUpdateSubCategory);
+            this.groupBox6.Controls.Add(this.btnDeleteSubCategory);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(9, 178);
+            this.groupBox6.Location = new System.Drawing.Point(567, 270);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(215, 119);
+            this.groupBox6.Size = new System.Drawing.Size(401, 164);
             this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Select a subcategory to";
             // 
-            // button5
+            // btnUpdateSubCategory
             // 
-            this.button5.Location = new System.Drawing.Point(22, 63);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(171, 31);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "Update/Modify";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnUpdateSubCategory.Location = new System.Drawing.Point(58, 73);
+            this.btnUpdateSubCategory.Name = "btnUpdateSubCategory";
+            this.btnUpdateSubCategory.Size = new System.Drawing.Size(292, 31);
+            this.btnUpdateSubCategory.TabIndex = 3;
+            this.btnUpdateSubCategory.Text = "Update/Modify";
+            this.btnUpdateSubCategory.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnDeleteSubCategory
             // 
-            this.button6.Location = new System.Drawing.Point(22, 26);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(171, 31);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "Delete";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // btnAssignC
-            // 
-            this.btnAssignC.Location = new System.Drawing.Point(54, 137);
-            this.btnAssignC.Name = "btnAssignC";
-            this.btnAssignC.Size = new System.Drawing.Size(295, 31);
-            this.btnAssignC.TabIndex = 7;
-            this.btnAssignC.Text = "Assign Category";
-            this.btnAssignC.UseVisualStyleBackColor = true;
-            this.btnAssignC.Click += new System.EventHandler(this.btnAssignC_Click);
+            this.btnDeleteSubCategory.Location = new System.Drawing.Point(58, 36);
+            this.btnDeleteSubCategory.Name = "btnDeleteSubCategory";
+            this.btnDeleteSubCategory.Size = new System.Drawing.Size(292, 31);
+            this.btnDeleteSubCategory.TabIndex = 2;
+            this.btnDeleteSubCategory.Text = "Delete";
+            this.btnDeleteSubCategory.UseVisualStyleBackColor = true;
             // 
             // DepartmentInterface
             // 
@@ -520,8 +508,7 @@ namespace MediaBazaar
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.tpAssignPCategories.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.tpAssignPCategories.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -558,17 +545,16 @@ namespace MediaBazaar
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnUpdateC;
         private System.Windows.Forms.Button btnDeleteC;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button btnAddSubCategory;
+        private System.Windows.Forms.TextBox tbxSubCategoryName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ListBox lbxSubCategory;
+        private System.Windows.Forms.TextBox tbxSearchSubCategory;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnUpdateSubCategory;
+        private System.Windows.Forms.Button btnDeleteSubCategory;
         private System.Windows.Forms.Button btnAssignC;
     }
 }

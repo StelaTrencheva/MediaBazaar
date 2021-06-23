@@ -81,7 +81,14 @@ namespace ProjectClasses
 
         public void AddCategoryDB(string name)
         {
-            dbMediator.AddCategory(name);
+            //if(name == "")
+            //{
+            //    throw new ArgumentNullException();
+            //}
+            //else
+            //{
+            //    dbMediator.AddCategory(name);
+            //}
         }
 
         public void AssignCategory(int id, string name)

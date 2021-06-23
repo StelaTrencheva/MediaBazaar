@@ -172,9 +172,9 @@ namespace MediaBazaar
             // 
             // userInterface1
             // 
-            this.userInterface1.Location = new System.Drawing.Point(334, 26);
+            this.userInterface1.Location = new System.Drawing.Point(213, 1);
             this.userInterface1.Name = "userInterface1";
-            this.userInterface1.Size = new System.Drawing.Size(1121, 747);
+            this.userInterface1.Size = new System.Drawing.Size(1129, 785);
             this.userInterface1.TabIndex = 50;
             // 
             // StockManagerForm
@@ -183,11 +183,11 @@ namespace MediaBazaar
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1340, 785);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.userInterface1);
             this.Controls.Add(this.stockWorkerScheduleInterface);
             this.Controls.Add(this.stockManagerSupplierRequest1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.addProductInterface1);
-            this.Controls.Add(this.userInterface1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "StockManagerForm";

@@ -43,7 +43,7 @@ namespace MediaBazaar
         {
             userInterface1.Hide();
             storeWorkerScheduleInterface.Hide();
-            //holidayRequestsUC.Hide();
+            holidayRequestsUC.Hide();
             assignStoreWorkerToDepartmentUC1.Hide();
             unAssignDepartmentManagerUC1.Hide();
             departmentManagerEmployeeStatistics1.Hide();

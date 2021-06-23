@@ -20,6 +20,7 @@ namespace MediaBazaar
         {
             InitializeComponent();
             this.department = department;
+            this.departmentManager = departmentManager;
             lblDepartmentName.Text = department.Name;
             this.Category();
         }
@@ -31,6 +32,7 @@ namespace MediaBazaar
             {
                 cbxCategory.Items.Add(category);
             }
+            cbxCategory.SelectedIndex = 0;
         }
     }
 }

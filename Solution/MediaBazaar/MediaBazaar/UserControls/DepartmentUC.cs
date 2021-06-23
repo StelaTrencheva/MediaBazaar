@@ -159,7 +159,7 @@ namespace MediaBazaar
             }
             catch (ArgumentNullException)
             {
-                MessageBox.Show("Please input someting");
+                MessageBox.Show("Please fill in the name.");
             }
         }
 
