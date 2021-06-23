@@ -35,7 +35,8 @@ namespace CashierApp
             this.lbUsername = new System.Windows.Forms.Label();
             this.lbPassword = new System.Windows.Forms.Label();
             this.lbLine = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbPassword
@@ -95,15 +96,16 @@ namespace CashierApp
             this.lbLine.Size = new System.Drawing.Size(1, 348);
             this.lbLine.TabIndex = 8;
             // 
-            // button1
+            // pictureBox1
             // 
-            this.button1.Location = new System.Drawing.Point(719, 282);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.pictureBox1.Image = global::CashierApp.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(11, 21);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(476, 349);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
             // 
             // LoginForm
             // 
@@ -111,7 +113,7 @@ namespace CashierApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(995, 422);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUserName);
             this.Controls.Add(this.btnLogIn);
@@ -123,6 +125,7 @@ namespace CashierApp
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cashier app";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,7 +139,7 @@ namespace CashierApp
         private System.Windows.Forms.Label lbUsername;
         private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.Label lbLine;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

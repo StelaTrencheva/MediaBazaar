@@ -21,6 +21,16 @@ namespace MediaBazaar
             InitializeComponent();
             this.department = department;
             lblDepartmentName.Text = department.Name;
+            this.Category();
+        }
+
+        public void Category()
+        {
+            cbxCategory.Items.Clear();
+            foreach(string category in this.departmentManager.GetCategories())
+            {
+                cbxCategory.Items.Add(category);
+            }
         }
     }
 }

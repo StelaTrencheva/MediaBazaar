@@ -152,8 +152,15 @@ namespace MediaBazaar
 
         private void btnAddC_Click(object sender, EventArgs e)
         {
-            this.deptMngr.AddCategoryDB(tbxCName.Text);
-            this.DisplayCategory();
+            try
+            {
+                this.deptMngr.AddCategoryDB(tbxCName.Text);
+                this.DisplayCategory();
+            }
+            catch (ArgumentNullException)
+            {
+                MessageBox.Show("Please input someting");
+            }
         }
 
         private void btnAssignC_Click(object sender, EventArgs e)
