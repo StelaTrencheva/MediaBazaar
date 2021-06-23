@@ -264,7 +264,7 @@ namespace ProjectClasses
                 DbConnection.Close();
             }
         }
-        
+
         public Dictionary<Product, int> GetListOfSoldProducts()
         {
             string sqlStatement = "SELECT p.pNum, p.brand, p.type, p.model, p.description, p.barcode, p.subcat_id, p.cost_price, p.sales_price, p.amount_in_store, p.amount_in_warehouse, p.minimum_amount_in_store, p.supplier_phone_number, p.supplier_email, sum(r.quantity) as quantity " +
@@ -302,7 +302,7 @@ namespace ProjectClasses
         public void UpdateMinimumAmountOfStockInStore(int pNum, int stock)
         {
             //
-                string sqlStatement = "UPDATE `mb_product` SET minimum_amount_in_store = @stock WHERE pNum = @pNum";
+            string sqlStatement = "UPDATE `mb_product` SET minimum_amount_in_store = @stock WHERE pNum = @pNum";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
 
             sqlCommand.Parameters.AddWithValue("@pNum", pNum);
@@ -325,6 +325,5 @@ namespace ProjectClasses
             }
 
         }
-
     }
 }

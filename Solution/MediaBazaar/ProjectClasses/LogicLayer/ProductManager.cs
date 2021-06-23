@@ -40,19 +40,6 @@ namespace ProjectClasses
             }
             return null;
         }
-
-        public Product GetProductFromName(string productNames)
-        {
-            foreach (Product product in products)
-            {
-                if (product.GetName == productNames)
-                {
-                    return product;
-                }
-            }
-            return null;
-        }
-
         public decimal GetPriceFromNames(string productNames)
         {
             foreach (Product product in products)
@@ -64,41 +51,6 @@ namespace ProjectClasses
             }
             return 0;
         }
-
-        //public List<Product> GetProductsFromCategory(string category)
-        //{
-        //    if (category == "All")
-        //    {
-        //        return products;
-        //    }
-        //    List<Product> prod = new List<Product>();
-        //    foreach (Product product in products)
-        //    {
-        //        if (product.Category == category)
-        //        {
-        //            prod.Add(product);
-        //        }
-        //    }
-        //    return prod;
-        //}
-
-        //public List<Product> GetProductsFromSubCategory(string category, string subCategory)
-        //{
-        //    if (category == "All")
-        //    {
-        //        return products;
-        //    }
-        //    List<Product> prod = new List<Product>();
-        //    foreach (Product product in products)
-        //    {
-        //        if (product.Category == category)
-        //        {
-        //            prod.Add(product);
-        //        }
-        //    }
-        //    return prod;
-        //}
-
         public bool AddProductToDB(Product newProd)
         {
 

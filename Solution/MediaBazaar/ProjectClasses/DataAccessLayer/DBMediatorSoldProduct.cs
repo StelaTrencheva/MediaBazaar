@@ -65,11 +65,24 @@ namespace ProjectClasses
                     {
                         throw new Exception();
                     }
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = "UPDATE `mb_product` SET amount_in_store = @amountInStore WHERE pNum = @pNum";
+                    int newQuantity = soldProduct.Product.AmountInStore - soldProduct.Quantity;
+                    if (newQuantity<0)
+                    {
+                        throw new Exception();
+                    }
+                    cmd.Parameters.AddWithValue("@amountInStore", newQuantity);
+                    cmd.Parameters.AddWithValue("@pNum", soldProduct.Product.PNumber);
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception();
+                    }
                 }
 
                 tr.Commit();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 try
                 {
@@ -79,8 +92,12 @@ namespace ProjectClasses
                 {
                     MessageBox.Show(ex1.ToString());
                 }
+                catch (InvalidOperationException)
+                {
+                    MessageBox.Show("The database lagged");
+                }
 
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Not enough products in Store");
             }
             finally
             {

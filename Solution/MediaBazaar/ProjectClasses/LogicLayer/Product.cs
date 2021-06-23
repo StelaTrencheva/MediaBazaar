@@ -53,7 +53,7 @@ namespace ProjectClasses
             decimal salePrice, int amountInStore, int amountInWarehouse, int minimumAmountInStore, string supplierPhoneNumber, string supplierEmail)
         {
             if (brand == "" || type == "" || model == "" || description == "" || barcode == "" || supplierPhoneNumber == ""|| supplierEmail == "" ||
-                costPrice <= 0 || salePrice <= 0 || amountInStore <= 0 || amountInWarehouse <= 0 || minimumAmountInStore <=0 || supplierPhoneNumber == ""
+                costPrice <= 0 || salePrice <= 0 || amountInStore < 0 || amountInWarehouse <= 0 || minimumAmountInStore <=0 || supplierPhoneNumber == ""
                 || supplierEmail == "")
             {
                 throw new FormatException();

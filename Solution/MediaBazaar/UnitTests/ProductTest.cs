@@ -58,9 +58,9 @@ namespace UnitTests
 
         [TestMethod]
         [ExpectedException(typeof(FormatException))]
-        public void ZeroAmountInStore()
+        public void MinusAmountInStore()
         {
-            new Product(0, "test", "test", "test", "test", "test", 2, 4, 0, 6, 2, "56789", "test");
+            new Product(0, "test", "test", "test", "test", "test", 2, 4, -1, 6, 2, "56789", "test");
         }
 
         [TestMethod]

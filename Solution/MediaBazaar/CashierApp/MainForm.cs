@@ -208,6 +208,7 @@ namespace CashierApp
             {
                 basketManager.ExecuteOrder(currentEmp.Id, PaymentType.CARD);
             }
+            productManager.UpdateProducts();
             basketManager.ClearBascet();
             updateBasket();
         }
