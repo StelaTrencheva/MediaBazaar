@@ -76,7 +76,7 @@ namespace CashierApp
             this.lboxProducts.Location = new System.Drawing.Point(21, 40);
             this.lboxProducts.Margin = new System.Windows.Forms.Padding(2);
             this.lboxProducts.Name = "lboxProducts";
-            this.lboxProducts.Size = new System.Drawing.Size(330, 422);
+            this.lboxProducts.Size = new System.Drawing.Size(330, 466);
             this.lboxProducts.TabIndex = 0;
             this.lboxProducts.SelectedIndexChanged += new System.EventHandler(this.lboxProducts_SelectedIndexChanged);
             // 
@@ -126,10 +126,10 @@ namespace CashierApp
             // 
             this.lbWelcome.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbWelcome.Font = new System.Drawing.Font("Myanmar Text", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbWelcome.Location = new System.Drawing.Point(135, 28);
+            this.lbWelcome.Location = new System.Drawing.Point(11, 28);
             this.lbWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbWelcome.Name = "lbWelcome";
-            this.lbWelcome.Size = new System.Drawing.Size(1252, 38);
+            this.lbWelcome.Size = new System.Drawing.Size(1458, 38);
             this.lbWelcome.TabIndex = 5;
             this.lbWelcome.Text = "Have a good day";
             this.lbWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -172,13 +172,13 @@ namespace CashierApp
             this.lboxBasket.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lboxBasket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lboxBasket.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lboxBasket.FormattingEnabled = true;
-            this.lboxBasket.ItemHeight = 25;
+            this.lboxBasket.ItemHeight = 22;
             this.lboxBasket.Location = new System.Drawing.Point(26, 42);
             this.lboxBasket.Margin = new System.Windows.Forms.Padding(2);
             this.lboxBasket.Name = "lboxBasket";
-            this.lboxBasket.Size = new System.Drawing.Size(426, 379);
+            this.lboxBasket.Size = new System.Drawing.Size(426, 378);
             this.lboxBasket.TabIndex = 91;
             // 
             // nudProductQuantity
@@ -307,10 +307,10 @@ namespace CashierApp
             this.btnClearBascet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClearBascet.BackColor = System.Drawing.Color.OrangeRed;
             this.btnClearBascet.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnClearBascet.Location = new System.Drawing.Point(349, 468);
+            this.btnClearBascet.Location = new System.Drawing.Point(349, 461);
             this.btnClearBascet.Margin = new System.Windows.Forms.Padding(2);
             this.btnClearBascet.Name = "btnClearBascet";
-            this.btnClearBascet.Size = new System.Drawing.Size(103, 42);
+            this.btnClearBascet.Size = new System.Drawing.Size(103, 49);
             this.btnClearBascet.TabIndex = 101;
             this.btnClearBascet.Text = "Clear";
             this.btnClearBascet.UseVisualStyleBackColor = false;
@@ -321,12 +321,12 @@ namespace CashierApp
             this.btnRemoveProduct.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnRemoveProduct.BackColor = System.Drawing.Color.OrangeRed;
             this.btnRemoveProduct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRemoveProduct.Location = new System.Drawing.Point(184, 468);
+            this.btnRemoveProduct.Location = new System.Drawing.Point(184, 461);
             this.btnRemoveProduct.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoveProduct.Name = "btnRemoveProduct";
-            this.btnRemoveProduct.Size = new System.Drawing.Size(103, 42);
+            this.btnRemoveProduct.Size = new System.Drawing.Size(103, 49);
             this.btnRemoveProduct.TabIndex = 100;
-            this.btnRemoveProduct.Text = "Product";
+            this.btnRemoveProduct.Text = "Remove Product";
             this.btnRemoveProduct.UseVisualStyleBackColor = false;
             this.btnRemoveProduct.Click += new System.EventHandler(this.btnRemoveProduct_Click);
             // 
@@ -335,12 +335,12 @@ namespace CashierApp
             this.btnRemovePiece.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRemovePiece.BackColor = System.Drawing.Color.OrangeRed;
             this.btnRemovePiece.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRemovePiece.Location = new System.Drawing.Point(26, 468);
+            this.btnRemovePiece.Location = new System.Drawing.Point(26, 461);
             this.btnRemovePiece.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemovePiece.Name = "btnRemovePiece";
-            this.btnRemovePiece.Size = new System.Drawing.Size(103, 42);
+            this.btnRemovePiece.Size = new System.Drawing.Size(103, 49);
             this.btnRemovePiece.TabIndex = 99;
-            this.btnRemovePiece.Text = "1 Piece";
+            this.btnRemovePiece.Text = "Remove Piece";
             this.btnRemovePiece.UseVisualStyleBackColor = false;
             this.btnRemovePiece.Click += new System.EventHandler(this.btnRemovePiece_Click);
             // 
@@ -438,7 +438,7 @@ namespace CashierApp
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.Location = new System.Drawing.Point(26, 619);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(140, 46);
             this.btnLogOut.TabIndex = 102;
@@ -470,6 +470,7 @@ namespace CashierApp
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudProductQuantity)).EndInit();
             this.gbProducts.ResumeLayout(false);
             this.gbQuantity.ResumeLayout(false);

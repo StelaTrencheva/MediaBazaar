@@ -30,17 +30,22 @@ namespace CashierApp
             this.productManager = new ProductManager(DatabaseType.MAIN);
             this.basketManager = new BasketManager(DatabaseType.MAIN);
             this.departmentManager = new DepartmentManager(DatabaseType.MAIN);
-            productManager.UpdateProducts();
             loginForm = form;
-            setComboboxes();
-            setListBoxes();
             barcode = "";
-            searchtext = "";
             startSesion = DateTime.Now;
             Bounds = Screen.PrimaryScreen.Bounds;
             FormBorderStyle = FormBorderStyle.None;
         }
-
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            productManager.UpdateProducts();
+            setComboboxes();
+            setListBoxes();
+            searchtext = "";
+            updateBasket();
+            MessageBox.Show(this, "If you want to search products,\njust start typing!", "Hidden features", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        
         /// <summary>
         /// Scanner and search input process & Key-enter handling
         /// </summary>
@@ -115,6 +120,8 @@ namespace CashierApp
         {
             cbDepartment.SelectedIndex = 0;
             lboxProducts.Items.Clear();
+            lboxProducts.Items.Add($"№:\tName:");
+            lboxProducts.Items.Add("");
             foreach (Product product in productManager.GetAllProducts())
             {
                 if (product.ToString().ToLower().Contains(searchtext.ToLower()))
@@ -127,12 +134,16 @@ namespace CashierApp
 
         private void setListBoxes()
         {
-            lboxProducts.CustomTabOffsets.Add(20);
+            lboxProducts.CustomTabOffsets.Add(30);
             lboxProducts.UseCustomTabOffsets = true;
+            lboxBasket.CustomTabOffsets.Add(120);
+            lboxBasket.UseCustomTabOffsets = true;
         }
         private void AllProducts()
         {
             lboxProducts.Items.Clear();
+            lboxProducts.Items.Add($"№:\tName:");
+            lboxProducts.Items.Add("");
             foreach (Product product in productManager.GetAllProducts())
             {
                 lboxProducts.Items.Add(product.ToString());
@@ -147,7 +158,7 @@ namespace CashierApp
 
         private void btnAddToBasket_Click(object sender, EventArgs e)
         {
-            if (lboxProducts.SelectedItem == null || lboxProducts.SelectedItem.ToString() == "")
+            if (lboxProducts.SelectedItem == null || lboxProducts.SelectedItem.ToString() == "" || lboxProducts.SelectedIndex == 0)
             {
                 return;
             }
@@ -163,9 +174,11 @@ namespace CashierApp
         private void updateBasket()
         {
             lboxBasket.Items.Clear();
+            lboxBasket.Items.Add($"Quantity:         Brand:                         Type:");
+            lboxBasket.Items.Add("");
             foreach (SoldProduct product in basketManager.Basket)
             {
-                lboxBasket.Items.Add(product);
+                lboxBasket.Items.Add(product.ToString());
                 lboxBasket.Items.Add("");
             }
             tbFinalPrice.Text = basketManager.GetTotalPrice().ToString();
@@ -199,7 +212,7 @@ namespace CashierApp
             updateBasket();
         }
 
-        
+
         /// <summary>
         /// Used for filtering products by Department-Category-Subcategory
         /// </summary>
@@ -262,6 +275,8 @@ namespace CashierApp
         private void updateProductsByDepartment()
         {
             lboxProducts.Items.Clear();
+            lboxProducts.Items.Add($"№:\tName:");
+            lboxProducts.Items.Add("");
             foreach (Product product in productManager.GetProductsFromDepartmentDB(getDeptCode()))
             {
                 lboxProducts.Items.Add(product);
@@ -271,6 +286,8 @@ namespace CashierApp
         private void updateProductsByCategory()
         {
             lboxProducts.Items.Clear();
+            lboxProducts.Items.Add($"№:\tName:");
+            lboxProducts.Items.Add("");
             foreach (Product product in productManager.GetProductsFromDepartmentCategoryDB(getDeptCode(),
                                                                                            cbCategory.SelectedItem.ToString()))
             {
@@ -281,6 +298,8 @@ namespace CashierApp
         private void updateProductsBySubCategory()
         {
             lboxProducts.Items.Clear();
+            lboxProducts.Items.Add($"№:\tName:");
+            lboxProducts.Items.Add("");
             foreach (Product product in productManager.GetProductsFromSubcategoryDB(getDeptCode(),
                                                                                     cbCategory.SelectedItem.ToString(),
                                                                                     cbSubCategory.SelectedItem.ToString()))
@@ -349,7 +368,7 @@ namespace CashierApp
         /// </summary>
         private void btnRemovePiece_Click(object sender, EventArgs e)
         {
-            if (lboxBasket.SelectedItem == null)
+            if (lboxBasket.SelectedItem == null|| lboxBasket.SelectedItem.ToString()=="" || lboxBasket.SelectedIndex == 0)
             {
                 MessageBox.Show("Please select a product");
                 return;
@@ -365,7 +384,7 @@ namespace CashierApp
         }
         private void btnRemoveProduct_Click(object sender, EventArgs e)
         {
-            if (lboxBasket.SelectedItem == null)
+            if (lboxBasket.SelectedItem == null || lboxBasket.SelectedItem.ToString() == ""||lboxBasket.SelectedIndex==0)
             {
                 MessageBox.Show("Please select a product");
                 return;
@@ -384,7 +403,7 @@ namespace CashierApp
             basketManager.ClearBascet();
             updateBasket();
         }
-       
+
 
         /// <summary>
         /// Actions to logout
@@ -409,5 +428,6 @@ namespace CashierApp
             string numberOrders = sesionInfo.Pop();
             MessageBox.Show($"Number of orders:{numberOrders}\nTotal products:  {numberProducts}\nTotal amount:  {totalAmount}", $"Employee sesion info");
         }
+
     }
 }

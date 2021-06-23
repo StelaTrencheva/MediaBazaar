@@ -11,12 +11,7 @@ namespace ProjectClasses
         private Product product;
         private int quantity;
         private decimal price;
-        private DateTime sellTime;
 
-        public DateTime SellTime
-        {
-            get { return sellTime; }
-        }
         public decimal Price
         {
             get { return price; }
@@ -48,12 +43,11 @@ namespace ProjectClasses
             {
                 this.quantity --;
             }
-            
             this.price = this.quantity * product.SalePrice;
         }
         public override string ToString()
         {
-            return $"{quantity}pieces {product.GetName}.";
+            return $"{quantity}                    {product.Brand}\t{product.Model}";
         }
     }
 }

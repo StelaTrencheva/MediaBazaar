@@ -163,7 +163,7 @@ namespace EmployeeUnitTests
         }
         [TestMethod]
         [ExpectedException(typeof(RepeatingObjectException))]
-        public void CreateSameEmployees()
+        public void CreateSameEmployeesTestDatabase()
         {
             EmployeeManager employeeManager = new EmployeeManager(DatabaseType.TEST);
             employeeManager.AddEmployee(new Employee(0, "Bsn", "FirstName", "LastName", Gender.MALE,
