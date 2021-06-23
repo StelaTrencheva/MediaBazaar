@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjectClasses;
 
-namespace UnitTests
+namespace EmployeeUnitTests
 {
     [TestClass]
     public class EmployeeTest
