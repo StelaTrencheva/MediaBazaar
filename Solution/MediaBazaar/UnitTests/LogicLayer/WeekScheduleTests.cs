@@ -39,7 +39,10 @@ namespace ProjectClasses.LogicLayer.Tests
 
             WeekSchedule ws = new WeekSchedule(new DateTime(2021,6,1), new Department(2678,"test"), dBMediator);
 
-            Assert.Fail();
+            Assert.AreEqual(22, ws.WeekNumber);
+            Assert.AreEqual(new DateTime(2021,05,31), ws.WeekStartDate);
+            Assert.AreEqual(new DateTime(2021, 06, 06), ws.WeekEndDate);
+            Assert.AreEqual(2678, ws.Department.Code);
         }
 
         private List<EmployeeInSchedule> CreateFulltimeEmployees(int count)

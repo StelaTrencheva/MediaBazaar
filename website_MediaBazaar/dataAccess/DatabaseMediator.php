@@ -320,6 +320,46 @@ class DatabaseMediatior {
         }
         return $holidays;
     }
-
+    public function GetDepartmentByStoreWorker(int $employeeId)
+    {
+        $sql = 'SELECT e.email FROM mb_department_dmanager as d inner join mb_employee e on d.dmanager_id=e.id where dept_code in (SELECT dept_code from mb_department_storeworker ds where ds.storeworker_id=:employeeId )';
+        $sth = $this->conn->prepare($sql);
+        $sth->execute([
+            ':employeeId' => $employeeId
+        ]);
+        if( $sth->rowCount() == 1 )
+        {
+            $result = $sth->fetch();
+            return $result['email'];
+        }else {
+            return null;
+        }
+    }
+    public function GetStoreManagerEmail()
+    {
+        $sql = 'SELECT email FROM `mb_employee` WHERE position="STORE_MANAGER"';
+        $sth = $this->conn->prepare($sql);
+        $sth->execute();
+        if( $sth->rowCount() > 0 )
+        {
+            $result = $sth->fetch();
+            return $result['email'];
+        }else {
+            return null;
+        }
+    }
+    public function GetStockManagerEmail()
+    {
+        $sql = 'SELECT email FROM `mb_employee` WHERE position="STOCK_WORKER"';
+        $sth = $this->conn->prepare($sql);
+        $sth->execute();
+        if( $sth->rowCount() > 0 )
+        {
+            $result = $sth->fetch();
+            return $result['email'];
+        }else {
+            return null;
+        }
+    }
 }
 ?>
