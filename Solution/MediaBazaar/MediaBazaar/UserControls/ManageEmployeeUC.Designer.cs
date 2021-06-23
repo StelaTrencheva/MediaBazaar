@@ -146,10 +146,10 @@ namespace MediaBazaar
             this.rbtnFiredEmployees.Location = new System.Drawing.Point(997, 141);
             this.rbtnFiredEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtnFiredEmployees.Name = "rbtnFiredEmployees";
-            this.rbtnFiredEmployees.Size = new System.Drawing.Size(45, 38);
+            this.rbtnFiredEmployees.Size = new System.Drawing.Size(36, 38);
             this.rbtnFiredEmployees.TabIndex = 87;
             this.rbtnFiredEmployees.TabStop = true;
-            this.rbtnFiredEmployees.Text = "Fired";
+            this.rbtnFiredEmployees.Text = "Left";
             this.rbtnFiredEmployees.UseVisualStyleBackColor = true;
             this.rbtnFiredEmployees.CheckedChanged += new System.EventHandler(this.rbtnFiredEmployees_CheckedChanged);
             // 
