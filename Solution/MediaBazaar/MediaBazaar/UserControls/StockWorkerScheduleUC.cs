@@ -252,18 +252,24 @@ namespace MediaBazaar
 
             try
             {
-                btnSave.Visible = true;
-                DisplayAllPanelsInAutoSchedule(true);
-                pnlGenerateSchedule.Visible = false;
-                pnlSchedule.Visible = true;
-                DateTime selectedDate = monthCalendarAutoSchedule.SelectionRange.Start;
-                newSchedule = shiftManager.CreateWeekSchedule(selectedDate);
+                if (monthCalendarAutoSchedule.SelectionRange.Start < DateTime.Today)
+                {
+                    MessageBox.Show("Please select a date in the future");
+                }
+                else
+                {
+                    btnSave.Visible = true;
+                    DisplayAllPanelsInAutoSchedule(true);
+                    pnlGenerateSchedule.Visible = false;
+                    pnlSchedule.Visible = true;
+                    DateTime selectedDate = monthCalendarAutoSchedule.SelectionRange.Start;
+                    newSchedule = shiftManager.CreateWeekSchedule(selectedDate);
 
-                lblSelectedWeekAndDepartment.Text = $"Week: {newSchedule.WeekStartDate.ToShortDateString()} - {newSchedule.WeekEndDate.ToShortDateString()}";
-                shifts = newSchedule.GetAllShifts();
-                AddDefaultRows(dgvViewGeneratedSchedule);
-                UpdateDisplayOfShiftsInGrid();
-
+                    lblSelectedWeekAndDepartment.Text = $"Week: {newSchedule.WeekStartDate.ToShortDateString()} - {newSchedule.WeekEndDate.ToShortDateString()}";
+                    shifts = newSchedule.GetAllShifts();
+                    AddDefaultRows(dgvViewGeneratedSchedule);
+                    UpdateDisplayOfShiftsInGrid();
+                }
             }
             catch (NotEnoughEmmployeesException ex)
             {

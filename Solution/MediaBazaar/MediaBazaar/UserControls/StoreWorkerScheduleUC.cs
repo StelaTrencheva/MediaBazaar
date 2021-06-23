@@ -25,6 +25,7 @@ namespace MediaBazaar
             shiftManager = new ShiftManager(DatabaseType.MAIN);
             dm = new DepartmentManager(DatabaseType.MAIN);
             ShowDepartments();
+            
         }
         private void AddDefaultRows(DataGridView dgv)
         {
@@ -62,27 +63,37 @@ namespace MediaBazaar
         {
             try
             {
-                btnSave.Visible = true;
-                DisplayAllPanelsInAutoSchedule(true);
-                pnlGenerateSchedule.Visible = false;
-                DateTime selectedDate = monthCalendarAutoSchedule.SelectionRange.Start;
+                if (cbxDepartment.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select a department!");
+                }else if (monthCalendarAutoSchedule.SelectionRange.Start < DateTime.Today)
+                {
+                    MessageBox.Show("Please select a date in the future");
+                }
+                else
+                {
+                    btnSave.Visible = true;
+                    DisplayAllPanelsInAutoSchedule(true);
+                    pnlGenerateSchedule.Visible = false;
+                    DateTime selectedDate = monthCalendarAutoSchedule.SelectionRange.Start;
 
-                Department department = new Department(Convert.ToInt32(cbxDepartment.SelectedItem.ToString().Substring(6, cbxDepartment.SelectedItem.ToString().IndexOf('-') - 7)), cbxDepartment.SelectedItem.ToString().Substring(cbxDepartment.SelectedItem.ToString().IndexOf('-') + 2, cbxDepartment.SelectedItem.ToString().Length - (cbxDepartment.SelectedItem.ToString().IndexOf('-') + 2)));
+                    Department department = new Department(Convert.ToInt32(cbxDepartment.SelectedItem.ToString().Substring(6, cbxDepartment.SelectedItem.ToString().IndexOf('-') - 7)), cbxDepartment.SelectedItem.ToString().Substring(cbxDepartment.SelectedItem.ToString().IndexOf('-') + 2, cbxDepartment.SelectedItem.ToString().Length - (cbxDepartment.SelectedItem.ToString().IndexOf('-') + 2)));
 
-                newSchedule = shiftManager.CreateWeekSchedule(selectedDate, department);
+                    newSchedule = shiftManager.CreateWeekSchedule(selectedDate, department);
 
-                lblSelectedWeekAndDepartment.Text = $"Week: {newSchedule.WeekStartDate.ToShortDateString()} - {newSchedule.WeekEndDate.ToShortDateString()} - Department: {newSchedule.Department.Name}";
-                shifts = newSchedule.GetAllShifts();
-                AddDefaultRows(dgvViewGeneratedSchedule);
-                UpdateDisplayOfShiftsInGrid();
-                
+                    lblSelectedWeekAndDepartment.Text = $"Week: {newSchedule.WeekStartDate.ToShortDateString()} - {newSchedule.WeekEndDate.ToShortDateString()} - Department: {newSchedule.Department.Name}";
+                    shifts = newSchedule.GetAllShifts();
+                    AddDefaultRows(dgvViewGeneratedSchedule);
+                    UpdateDisplayOfShiftsInGrid();
+
+                }
             }
-            catch(NotEnoughEmmployeesException ex)
+            catch (NotEnoughEmmployeesException ex)
             {
                 DisplayAllPanelsInAutoSchedule(false);
                 pnlGenerateSchedule.Visible = true;
                 MessageBox.Show(ex.Message);
-                
+
             }
         }
 
