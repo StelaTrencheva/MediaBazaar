@@ -31,41 +31,42 @@ namespace MediaBazaar
         {
             this.lbxAssignDepartmentManager = new System.Windows.Forms.ListBox();
             this.cbxDepartmentManager = new System.Windows.Forms.ComboBox();
-            this.lblDepartmentManager = new System.Windows.Forms.Label();
+            this.lblUnassignDepartmentManager = new System.Windows.Forms.Label();
             this.btnAssign = new System.Windows.Forms.Button();
-            this.lblDepartment = new System.Windows.Forms.Label();
+            this.lblAssignDepartmentManager = new System.Windows.Forms.Label();
             this.btnUnAssign = new System.Windows.Forms.Button();
+            this.lblDepartmentName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbxAssignDepartmentManager
             // 
             this.lbxAssignDepartmentManager.FormattingEnabled = true;
             this.lbxAssignDepartmentManager.ItemHeight = 16;
-            this.lbxAssignDepartmentManager.Location = new System.Drawing.Point(242, 101);
+            this.lbxAssignDepartmentManager.Location = new System.Drawing.Point(113, 106);
             this.lbxAssignDepartmentManager.Name = "lbxAssignDepartmentManager";
-            this.lbxAssignDepartmentManager.Size = new System.Drawing.Size(254, 212);
+            this.lbxAssignDepartmentManager.Size = new System.Drawing.Size(327, 212);
             this.lbxAssignDepartmentManager.TabIndex = 0;
             // 
             // cbxDepartmentManager
             // 
             this.cbxDepartmentManager.FormattingEnabled = true;
-            this.cbxDepartmentManager.Location = new System.Drawing.Point(513, 101);
+            this.cbxDepartmentManager.Location = new System.Drawing.Point(457, 106);
             this.cbxDepartmentManager.Name = "cbxDepartmentManager";
             this.cbxDepartmentManager.Size = new System.Drawing.Size(208, 24);
             this.cbxDepartmentManager.TabIndex = 1;
             // 
-            // lblDepartmentManager
+            // lblUnassignDepartmentManager
             // 
-            this.lblDepartmentManager.AutoSize = true;
-            this.lblDepartmentManager.Location = new System.Drawing.Point(513, 78);
-            this.lblDepartmentManager.Name = "lblDepartmentManager";
-            this.lblDepartmentManager.Size = new System.Drawing.Size(142, 17);
-            this.lblDepartmentManager.TabIndex = 2;
-            this.lblDepartmentManager.Text = "Department Manager";
+            this.lblUnassignDepartmentManager.AutoSize = true;
+            this.lblUnassignDepartmentManager.Location = new System.Drawing.Point(457, 83);
+            this.lblUnassignDepartmentManager.Name = "lblUnassignDepartmentManager";
+            this.lblUnassignDepartmentManager.Size = new System.Drawing.Size(203, 17);
+            this.lblUnassignDepartmentManager.TabIndex = 2;
+            this.lblUnassignDepartmentManager.Text = "Unassign department manager";
             // 
             // btnAssign
             // 
-            this.btnAssign.Location = new System.Drawing.Point(513, 131);
+            this.btnAssign.Location = new System.Drawing.Point(457, 136);
             this.btnAssign.Name = "btnAssign";
             this.btnAssign.Size = new System.Drawing.Size(208, 30);
             this.btnAssign.TabIndex = 3;
@@ -73,18 +74,18 @@ namespace MediaBazaar
             this.btnAssign.UseVisualStyleBackColor = true;
             this.btnAssign.Click += new System.EventHandler(this.btnAssign_Click);
             // 
-            // lblDepartment
+            // lblAssignDepartmentManager
             // 
-            this.lblDepartment.AutoSize = true;
-            this.lblDepartment.Location = new System.Drawing.Point(239, 81);
-            this.lblDepartment.Name = "lblDepartment";
-            this.lblDepartment.Size = new System.Drawing.Size(82, 17);
-            this.lblDepartment.TabIndex = 4;
-            this.lblDepartment.Text = "Department";
+            this.lblAssignDepartmentManager.AutoSize = true;
+            this.lblAssignDepartmentManager.Location = new System.Drawing.Point(110, 83);
+            this.lblAssignDepartmentManager.Name = "lblAssignDepartmentManager";
+            this.lblAssignDepartmentManager.Size = new System.Drawing.Size(186, 17);
+            this.lblAssignDepartmentManager.TabIndex = 4;
+            this.lblAssignDepartmentManager.Text = "Assign department manager";
             // 
             // btnUnAssign
             // 
-            this.btnUnAssign.Location = new System.Drawing.Point(513, 167);
+            this.btnUnAssign.Location = new System.Drawing.Point(457, 172);
             this.btnUnAssign.Name = "btnUnAssign";
             this.btnUnAssign.Size = new System.Drawing.Size(208, 30);
             this.btnUnAssign.TabIndex = 5;
@@ -92,18 +93,32 @@ namespace MediaBazaar
             this.btnUnAssign.UseVisualStyleBackColor = true;
             this.btnUnAssign.Click += new System.EventHandler(this.btnUnAssign_Click);
             // 
+            // lblDepartmentName
+            // 
+            this.lblDepartmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepartmentName.Location = new System.Drawing.Point(12, 9);
+            this.lblDepartmentName.Name = "lblDepartmentName";
+            this.lblDepartmentName.Size = new System.Drawing.Size(745, 34);
+            this.lblDepartmentName.TabIndex = 6;
+            this.lblDepartmentName.Text = "label1";
+            this.lblDepartmentName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AssignDepartmentManagerToDepartment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.ClientSize = new System.Drawing.Size(769, 404);
+            this.Controls.Add(this.lblDepartmentName);
             this.Controls.Add(this.btnUnAssign);
-            this.Controls.Add(this.lblDepartment);
+            this.Controls.Add(this.lblAssignDepartmentManager);
             this.Controls.Add(this.btnAssign);
-            this.Controls.Add(this.lblDepartmentManager);
+            this.Controls.Add(this.lblUnassignDepartmentManager);
             this.Controls.Add(this.cbxDepartmentManager);
             this.Controls.Add(this.lbxAssignDepartmentManager);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AssignDepartmentManagerToDepartment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AssignDepartmentManagerToDepartment";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -114,9 +129,10 @@ namespace MediaBazaar
 
         private System.Windows.Forms.ListBox lbxAssignDepartmentManager;
         private System.Windows.Forms.ComboBox cbxDepartmentManager;
-        private System.Windows.Forms.Label lblDepartmentManager;
+        private System.Windows.Forms.Label lblUnassignDepartmentManager;
         private System.Windows.Forms.Button btnAssign;
-        private System.Windows.Forms.Label lblDepartment;
+        private System.Windows.Forms.Label lblAssignDepartmentManager;
         private System.Windows.Forms.Button btnUnAssign;
+        private System.Windows.Forms.Label lblDepartmentName;
     }
 }

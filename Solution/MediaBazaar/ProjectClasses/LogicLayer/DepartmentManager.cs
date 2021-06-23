@@ -10,11 +10,13 @@ namespace ProjectClasses
     {
         DBMediatorDepartment dbMediator;
         List<Department> departments;
+        List<Employee> employees;
 
         public DepartmentManager(DatabaseType databaseType)
         {
             this.dbMediator = new DBMediatorDepartment(databaseType);
             departments = new List<Department>();
+            this.employees = new List<Employee>();
         }
 
 
@@ -99,7 +101,14 @@ namespace ProjectClasses
 
         public List<Employee> GetDepartmentManagersDB(int deptId)
         {
-            return dbMediator.GetDepartmentManagers(deptId);
+            this.employees = dbMediator.GetDepartmentManagers(deptId);
+            return this.employees;
+        }
+
+        public List<Employee> GetStoreWorkerDB(int deptId)
+        {
+            this.employees = dbMediator.GetStoreWorkers(deptId);
+            return this.employees;
         }
 
         public List<string> GetDepartmentCategorieDB(int deptId)

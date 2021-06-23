@@ -52,8 +52,9 @@ namespace ProjectClasses
         public Product(int pNumber, string brand, string type, string model, string description,string barcode, decimal costPrice,
             decimal salePrice, int amountInStore, int amountInWarehouse, int minimumAmountInStore, string supplierPhoneNumber, string supplierEmail)
         {
-            if (brand == "" || type == "" || model == "" || description == "" || supplierPhoneNumber == ""|| supplierEmail == "" ||
-                costPrice <= 0 || salePrice <= 0 || amountInStore <= 0 || amountInWarehouse <= 0 || minimumAmountInStore <=0)
+            if (brand == "" || type == "" || model == "" || description == "" || barcode == "" || supplierPhoneNumber == ""|| supplierEmail == "" ||
+                costPrice <= 0 || salePrice <= 0 || amountInStore <= 0 || amountInWarehouse <= 0 || minimumAmountInStore <=0 || supplierPhoneNumber == ""
+                || supplierEmail == "")
             {
                 throw new FormatException();
             }
@@ -80,7 +81,7 @@ namespace ProjectClasses
        
         public override string ToString()
         {
-            return $"{this.pNumber}.\t{this.brand} {this.model}.";
+            return $"{this.brand} {this.model}.";
         }
     }
 }
