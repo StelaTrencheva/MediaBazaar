@@ -29,6 +29,8 @@ namespace ProjectClasses
             products = this.dbMediator.GetProducts();
             return products;
         }
+
+        
         public Product GetNameFromToString(string productToString)
         {
             foreach (Product product in products)

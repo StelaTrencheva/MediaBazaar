@@ -53,6 +53,7 @@ namespace MediaBazaar
             this.btnAssign.TabIndex = 8;
             this.btnAssign.Text = "Assign";
             this.btnAssign.UseVisualStyleBackColor = true;
+            this.btnAssign.Click += new System.EventHandler(this.btnAssign_Click);
             // 
             // cbxSubCategory
             // 

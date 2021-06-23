@@ -200,40 +200,6 @@ namespace ProjectClasses
             }
         }
 
-        //public bool CheckIfCategoryExistById(int id)
-        //{
-        //    string sqlStatement = "Select name FROM mb_dept_category where dept_id = @i";
-        //    MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
-        //    sqlCommand.Parameters.AddWithValue("@i", id);
-
-        //    try
-        //    {
-        //        DbConnection.Open();
-        //        Object test = sqlCommand.ExecuteScalar();
-
-        //        if (test != null)
-        //        {
-        //            return true;
-        //        }
-        //        else
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //    catch (MySqlException)
-        //    {
-        //        return false;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return false;
-        //    }
-        //    finally
-        //    {
-        //        DbConnection.Close();
-        //    }
-        //}
-
         public void AddCategory(string name)
         {
             string sqlStatement = "INSERT INTO `mb_dept_category` (name) VALUES (@n);";
@@ -286,6 +252,44 @@ namespace ProjectClasses
             }
         }
 
+        public void AssignProduct(int id, int pNum)
+        {
+            string sqlStatement = "UPDATE mb_product SET subcat_id = @i WHERE mb_product . pNum  = @p";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@i", id);
+            sqlCommand.Parameters.AddWithValue("@p", pNum);
+
+            try
+            {
+                int n = 0;
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
+        public void AssignSubCategory(int id, string name)
+        {
+            string sqlStatement = "UPDATE mb_dept_subcategory SET cat_id = @i WHERE mb_dept_subcategory. name = @n";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@i", id);
+            sqlCommand.Parameters.AddWithValue("@n", name);
+
+            try
+            {
+                int n = 0;
+                DbConnection.Open();
+                n = sqlCommand.ExecuteNonQuery();
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
         //ADD Subcategory
         public void AddSubCategory(string name)
         {
@@ -305,40 +309,40 @@ namespace ProjectClasses
             }
         }
 
-        public bool AssignSubcategory(int deptId, string catName, string name)
-        {
-            string sqlStatement = "INSERT INTO `mb_dept_subcategory` ( `cat_id`, `name`) VALUES " +
-                "((SELECT id FROM mb_dept_category where dept_id=@deptId AND name = @catName), @name);";
-            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
-            sqlCommand.Parameters.AddWithValue("@deptId", deptId);
-            sqlCommand.Parameters.AddWithValue("@catName", catName);
-            sqlCommand.Parameters.AddWithValue("@name", name);
+        //public bool AssignSubcategory(int deptId, string catName, string name)
+        //{
+        //    string sqlStatement = "INSERT INTO `mb_dept_subcategory` ( `cat_id`, `name`) VALUES " +
+        //        "((SELECT id FROM mb_dept_category where dept_id=@deptId AND name = @catName), @name);";
+        //    MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+        //    sqlCommand.Parameters.AddWithValue("@deptId", deptId);
+        //    sqlCommand.Parameters.AddWithValue("@catName", catName);
+        //    sqlCommand.Parameters.AddWithValue("@name", name);
 
-            try
-            {
-                int n = 0;
+        //    try
+        //    {
+        //        int n = 0;
 
-                DbConnection.Open();
-                n = sqlCommand.ExecuteNonQuery();
-                if (n == 1)
-                {
-                    return true;
-                }
-                return false;
-            }
-            catch (MySqlException)
-            {
-                return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                DbConnection.Close();
-            }
-        }
+        //        DbConnection.Open();
+        //        n = sqlCommand.ExecuteNonQuery();
+        //        if (n == 1)
+        //        {
+        //            return true;
+        //        }
+        //        return false;
+        //    }
+        //    catch (MySqlException)
+        //    {
+        //        return false;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return false;
+        //    }
+        //    finally
+        //    {
+        //        DbConnection.Close();
+        //    }
+        //}
 
         //DELETE Category
         public bool DeleteCategoryByName(string name)
@@ -563,11 +567,11 @@ namespace ProjectClasses
 
         }
 
-        public List<string> GetCategories()
+        public Dictionary<int, string> GetCategories()
         {
             string sqlStatement = "SELECT * FROM mb_dept_category";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
-            List<string> categories = new List<string>();
+            Dictionary<int, string> categories = new Dictionary<int, string>();
 
             try
             {
@@ -577,7 +581,7 @@ namespace ProjectClasses
 
                 while (reader.Read())
                 {
-                    categories.Add((string)reader["name"]);
+                    categories.Add((int)reader["id"], (string)reader["name"]);
                 }
                 return categories;
             }
@@ -621,10 +625,100 @@ namespace ProjectClasses
             }
         }
 
-        public List<string> GetSubCategories()
+        public List<Product> GetProducts()
+        {
+            string sqlStatement = "SELECT * FROM mb_product";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            List<Product> p = new List<Product>();
+
+            try
+            {
+                MySqlDataReader reader;
+                DbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
+                        (string)reader["description"], (string)reader["barcode"], (decimal)reader["cost_price"], (decimal)reader["sales_price"],
+                        (int)reader["amount_in_store"], (int)reader["amount_in_warehouse"], (int)reader["minimum_amount_in_store"], (string)reader["supplier_phone_number"], (string)reader["supplier_email"]));
+                }
+                return p;
+            }
+            catch (MySqlException e)
+            {
+                return p;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
+        public Dictionary<Product, int>GetProduct(int id)
+        {
+            string sqlStatement = "SELECT * FROM mb_product WHERE subcat_id = @i";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@i", id);
+            Dictionary<Product, int> p = new Dictionary<Product, int>();
+
+            try
+            {
+                MySqlDataReader reader;
+                DbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    p.Add(new Product((int)reader["pNum"], (string)reader["brand"], (string)reader["type"], (string)reader["model"],
+                        (string)reader["description"], (string)reader["barcode"], (decimal)reader["cost_price"], (decimal)reader["sales_price"],
+                        (int)reader["amount_in_store"], (int)reader["amount_in_warehouse"], (int)reader["minimum_amount_in_store"], (string)reader["supplier_phone_number"], (string)reader["supplier_email"]), (int)reader["subcat_id"]);
+                }
+                return p;
+            }
+            catch (MySqlException e)
+            {
+                return p;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
+        public Dictionary<int,string> GetSubCategories()
         {
             string sqlStatement = "SELECT * FROM mb_dept_subcategory";
             MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            Dictionary<int, string> categories = new Dictionary<int, string>();
+
+            try
+            {
+                MySqlDataReader reader;
+                DbConnection.Open();
+                reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    categories.Add((int)reader["id"], (string)reader["name"]);
+                }
+                return categories;
+            }
+            catch (MySqlException e)
+            {
+                return categories;
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+        }
+
+        public List<string> GetSubCategory(int id)
+        {
+            string sqlStatement = "SELECT name FROM `mb_dept_subcategory` WHERE cat_id = @id";
+            MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+            sqlCommand.Parameters.AddWithValue("@id", id);
             List<string> categories = new List<string>();
 
             try

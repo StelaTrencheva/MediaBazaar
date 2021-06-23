@@ -145,18 +145,18 @@ namespace MediaBazaar
         public void DisplayCategory()
         {
             lbxCategory.Items.Clear();
-            foreach(string category in this.deptMngr.GetCategories())
+            foreach(var category in this.deptMngr.GetCategories())
             {
-                lbxCategory.Items.Add(category);
+                lbxCategory.Items.Add(category.Value);
             }
         }
 
         public void DisplaySubCategory()
         {
             lbxSubCategory.Items.Clear();
-            foreach(string subCategory in this.deptMngr.GetSubCategories())
+            foreach(var subCategory in this.deptMngr.GetSubCategories())
             {
-                lbxSubCategory.Items.Add(subCategory);
+                lbxSubCategory.Items.Add(subCategory.Value);
             }
         }
 
@@ -246,11 +246,11 @@ namespace MediaBazaar
         private void tbxSearchC_TextChanged(object sender, EventArgs e)
         {
             lbxCategory.Items.Clear();
-            foreach(string category in this.deptMngr.GetCategories())
+            foreach(var category in this.deptMngr.GetCategories())
             {
-                if (category.ToLower().Contains(tbxSearchC.Text))
+                if (category.ToString().ToLower().Contains(tbxSearchC.Text))
                 {
-                    lbxCategory.Items.Add(category);
+                    lbxCategory.Items.Add(category.Value);
                 }
             }
         }
@@ -258,11 +258,11 @@ namespace MediaBazaar
         private void tbxSearchSubCategory_TextChanged(object sender, EventArgs e)
         {
             lbxSubCategory.Items.Clear();
-            foreach (string subCategory in this.deptMngr.GetSubCategories())
+            foreach (var subCategory in this.deptMngr.GetSubCategories())
             {
-                if (subCategory.ToLower().Contains(tbxSearchSubCategory.Text))
+                if (subCategory.ToString().ToLower().Contains(tbxSearchSubCategory.Text))
                 {
-                    lbxSubCategory.Items.Add(subCategory);
+                    lbxSubCategory.Items.Add(subCategory.Value);
                 }
             }
         }
@@ -275,9 +275,14 @@ namespace MediaBazaar
             }
             else
             {
-                
-                AssignSubCategoryForm assignSubCategoryForm = new AssignSubCategoryForm();
-                assignSubCategoryForm.ShowDialog();
+                foreach(var category in this.deptMngr.GetCategories())
+                {
+                    if(category.Value == lbxCategory.SelectedItem.ToString())
+                    {
+                        AssignSubCategoryForm assignSubCategoryForm = new AssignSubCategoryForm(category.Key, category.Value, this.deptMngr);
+                        assignSubCategoryForm.ShowDialog();
+                    }
+                }
             }
         }
 
@@ -289,8 +294,14 @@ namespace MediaBazaar
             }
             else
             {
-                AssignProductForm assignProductForm = new AssignProductForm();
-                assignProductForm.ShowDialog();
+                foreach (var SubCategory in this.deptMngr.GetSubCategories())
+                {
+                    if (SubCategory.Value == lbxSubCategory.SelectedItem.ToString())
+                    {
+                        AssignProductForm assignProductForm = new AssignProductForm(SubCategory.Key, SubCategory.Value, this.deptMngr);
+                        assignProductForm.ShowDialog();
+                    }
+                }
             }
         }
     }

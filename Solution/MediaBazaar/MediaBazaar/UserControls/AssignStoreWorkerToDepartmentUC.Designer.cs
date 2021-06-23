@@ -89,18 +89,20 @@ namespace MediaBazaar
             // lblUnassignStoreWorker
             // 
             this.lblUnassignStoreWorker.AutoSize = true;
+            this.lblUnassignStoreWorker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnassignStoreWorker.Location = new System.Drawing.Point(532, 212);
             this.lblUnassignStoreWorker.Name = "lblUnassignStoreWorker";
-            this.lblUnassignStoreWorker.Size = new System.Drawing.Size(149, 17);
+            this.lblUnassignStoreWorker.Size = new System.Drawing.Size(177, 20);
             this.lblUnassignStoreWorker.TabIndex = 5;
             this.lblUnassignStoreWorker.Text = "Unassign store worker";
             // 
             // lblAssignStoreWorker
             // 
             this.lblAssignStoreWorker.AutoSize = true;
+            this.lblAssignStoreWorker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAssignStoreWorker.Location = new System.Drawing.Point(145, 212);
             this.lblAssignStoreWorker.Name = "lblAssignStoreWorker";
-            this.lblAssignStoreWorker.Size = new System.Drawing.Size(132, 17);
+            this.lblAssignStoreWorker.Size = new System.Drawing.Size(158, 20);
             this.lblAssignStoreWorker.TabIndex = 6;
             this.lblAssignStoreWorker.Text = "Assign store worker";
             // 
@@ -108,6 +110,7 @@ namespace MediaBazaar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Azure;
             this.Controls.Add(this.lblAssignStoreWorker);
             this.Controls.Add(this.lblUnassignStoreWorker);
             this.Controls.Add(this.btnUnassign);

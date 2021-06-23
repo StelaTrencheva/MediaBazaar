@@ -29,9 +29,9 @@ namespace MediaBazaar
         public void Category()
         {
             cbxCategory.Items.Clear();
-            foreach(string category in this.departmentManager.GetCategories())
+            foreach(var category in this.departmentManager.GetCategories())
             {
-                cbxCategory.Items.Add(category);
+                cbxCategory.Items.Add(category.Value);
             }
             cbxCategory.SelectedIndex = 0;
         }

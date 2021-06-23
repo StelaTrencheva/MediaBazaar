@@ -42,6 +42,8 @@ namespace ProjectClasses
             }
         }
 
+        
+
         //ADD PRODUCT
         public bool AddProduct(Product newProd)
         {

@@ -36,13 +36,13 @@ namespace MediaBazaar
             // 
             // lbxProductDisplay
             // 
-            this.lbxProductDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbxProductDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxProductDisplay.FormattingEnabled = true;
             this.lbxProductDisplay.HorizontalScrollbar = true;
-            this.lbxProductDisplay.ItemHeight = 20;
+            this.lbxProductDisplay.ItemHeight = 29;
             this.lbxProductDisplay.Location = new System.Drawing.Point(2, 70);
             this.lbxProductDisplay.Name = "lbxProductDisplay";
-            this.lbxProductDisplay.Size = new System.Drawing.Size(663, 664);
+            this.lbxProductDisplay.Size = new System.Drawing.Size(663, 642);
             this.lbxProductDisplay.TabIndex = 84;
             // 
             // lblAllProducts

@@ -49,10 +49,11 @@ namespace MediaBazaar
             // 
             this.btnAssign.Location = new System.Drawing.Point(516, 132);
             this.btnAssign.Name = "btnAssign";
-            this.btnAssign.Size = new System.Drawing.Size(151, 31);
+            this.btnAssign.Size = new System.Drawing.Size(243, 31);
             this.btnAssign.TabIndex = 8;
             this.btnAssign.Text = "Assign";
             this.btnAssign.UseVisualStyleBackColor = true;
+            this.btnAssign.Click += new System.EventHandler(this.btnAssign_Click);
             // 
             // cbxProduct
             // 
@@ -60,7 +61,7 @@ namespace MediaBazaar
             this.cbxProduct.FormattingEnabled = true;
             this.cbxProduct.Location = new System.Drawing.Point(516, 89);
             this.cbxProduct.Name = "cbxProduct";
-            this.cbxProduct.Size = new System.Drawing.Size(151, 24);
+            this.cbxProduct.Size = new System.Drawing.Size(243, 24);
             this.cbxProduct.TabIndex = 7;
             // 
             // lbxProduct

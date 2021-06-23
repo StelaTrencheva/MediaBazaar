@@ -28,7 +28,6 @@ namespace MediaBazaar
             foreach (Product i in pManager.GetAllProducts())
             {
                 lbxProductDisplay.Items.Add(i.ToString());
-                lbxProductDisplay.Items.Add("");
             }
         }
 

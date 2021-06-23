@@ -116,9 +116,14 @@ namespace ProjectClasses
             }
         }
 
-        public bool AssignSubcategoryDB(int deptId, string catName, string name)
+        public void AssignSubcategoryDB(int id, string name)
         {
-            return dbMediator.AssignSubcategory(deptId, catName, name);
+            dbMediator.AssignSubCategory(id, name);
+        }
+
+        public void AssignProductDB(int id, int pNUm)
+        {
+            dbMediator.AssignProduct(id, pNUm);
         }
 
         public bool DeleteCategoryByName(string name)
@@ -153,7 +158,17 @@ namespace ProjectClasses
             return this.employees;
         }
 
-        public List<string> GetCategories()
+        public List<Product> GetProducts()
+        {
+            return dbMediator.GetProducts();
+        }
+
+        public Dictionary<Product, int> GetProduct(int id)
+        {
+            return dbMediator.GetProduct(id);
+        }
+
+        public Dictionary<int, string> GetCategories()
         {
             return dbMediator.GetCategories();
         }
@@ -163,9 +178,14 @@ namespace ProjectClasses
             return dbMediator.GetDepartmentCategories(deptId);
         }
 
-        public List<string> GetSubCategories()
+        public Dictionary<int, string> GetSubCategories()
         {
             return dbMediator.GetSubCategories();
+        }
+
+        public List<string> GetSubCategory(int id)
+        {
+            return dbMediator.GetSubCategory(id);
         }
 
         public List<string> GetDepartmentSubcategories(int deptId, string category)
