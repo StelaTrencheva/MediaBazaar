@@ -25,14 +25,6 @@ namespace ProjectClasses
                 DbConnection.Open();
                 n = sqlCommand.ExecuteNonQuery();
             }
-            //catch (MySqlException)
-            //{
-            //    return false;
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             finally
             {
                 DbConnection.Close();
@@ -124,19 +116,19 @@ namespace ProjectClasses
                     return false;
                 }
             }
-            //catch (MySqlException)
-            //{
-            //    return false;
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             finally
             {
                 DbConnection.Close();
             }
         }
+
+        //public bool CheckIfDempartmentManagerIsUnassign()
+        //{
+        //    string sqlStatement = "SELECT* FROM mb_department AS d INNER JOIN mb_department_dmanager AS m " +
+        //        "ON d.code = m.dept_code INNER JOIN mb_employee AS e ON m.dmanager_id = e.id";
+        //    MySqlCommand sqlCommand = new MySqlCommand(sqlStatement, DbConnection);
+
+        //}
 
         //MIGHT REMOVE THIS METHOD
         //GET DEPARTMENT CODE BY GIVING DEPARTMENT MANAGER ID
@@ -235,14 +227,6 @@ namespace ProjectClasses
                 DbConnection.Open();
                 n = sqlCommand.ExecuteNonQuery();
             }
-            //catch (MySqlException)
-            //{
-            //    return false;
-            //}
-            //catch (Exception)
-            //{
-            //    return false;
-            //}
             finally
             {
                 DbConnection.Close();

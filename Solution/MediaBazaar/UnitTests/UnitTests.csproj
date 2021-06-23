@@ -63,6 +63,7 @@
     <Compile Include="EmployeeTest.cs" />
     <Compile Include="LogicLayer\EmployeeStatisticsTest.cs" />
     <Compile Include="LogicLayer\WeekScheduleTests.cs" />
+    <Compile Include="ProductTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -41,13 +41,9 @@ namespace MediaBazaar
             this.lblSupplierEmail = new System.Windows.Forms.Label();
             this.txbSupplierPhone = new System.Windows.Forms.TextBox();
             this.lblSupplierPhone = new System.Windows.Forms.Label();
-            this.lblProductCategory = new System.Windows.Forms.Label();
             this.tbxBarcode = new System.Windows.Forms.TextBox();
-            this.tbxProductCategory = new System.Windows.Forms.TextBox();
             this.lbBarcode = new System.Windows.Forms.Label();
-            this.lblProductSubCategory = new System.Windows.Forms.Label();
             this.tbxProductAmountInWarehouse = new System.Windows.Forms.TextBox();
-            this.tbxProductSubCategory = new System.Windows.Forms.TextBox();
             this.tbxProductAmountInStore = new System.Windows.Forms.TextBox();
             this.lblProductType = new System.Windows.Forms.Label();
             this.tbxProductSalesPrice = new System.Windows.Forms.TextBox();
@@ -106,7 +102,7 @@ namespace MediaBazaar
             this.btnViewProductInfo.Location = new System.Drawing.Point(634, 97);
             this.btnViewProductInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnViewProductInfo.Name = "btnViewProductInfo";
-            this.btnViewProductInfo.Size = new System.Drawing.Size(242, 78);
+            this.btnViewProductInfo.Size = new System.Drawing.Size(329, 78);
             this.btnViewProductInfo.TabIndex = 4;
             this.btnViewProductInfo.Text = "View a product information";
             this.btnViewProductInfo.UseVisualStyleBackColor = false;
@@ -119,7 +115,7 @@ namespace MediaBazaar
             this.btnDeleteProduct.Location = new System.Drawing.Point(634, 215);
             this.btnDeleteProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteProduct.Name = "btnDeleteProduct";
-            this.btnDeleteProduct.Size = new System.Drawing.Size(242, 106);
+            this.btnDeleteProduct.Size = new System.Drawing.Size(329, 106);
             this.btnDeleteProduct.TabIndex = 3;
             this.btnDeleteProduct.Text = "Remove a product\r\n/Only when necessary/";
             this.btnDeleteProduct.UseVisualStyleBackColor = false;
@@ -172,13 +168,9 @@ namespace MediaBazaar
             this.gbxAddProduct.Controls.Add(this.lblSupplierEmail);
             this.gbxAddProduct.Controls.Add(this.txbSupplierPhone);
             this.gbxAddProduct.Controls.Add(this.lblSupplierPhone);
-            this.gbxAddProduct.Controls.Add(this.lblProductCategory);
             this.gbxAddProduct.Controls.Add(this.tbxBarcode);
-            this.gbxAddProduct.Controls.Add(this.tbxProductCategory);
             this.gbxAddProduct.Controls.Add(this.lbBarcode);
-            this.gbxAddProduct.Controls.Add(this.lblProductSubCategory);
             this.gbxAddProduct.Controls.Add(this.tbxProductAmountInWarehouse);
-            this.gbxAddProduct.Controls.Add(this.tbxProductSubCategory);
             this.gbxAddProduct.Controls.Add(this.tbxProductAmountInStore);
             this.gbxAddProduct.Controls.Add(this.lblProductType);
             this.gbxAddProduct.Controls.Add(this.tbxProductSalesPrice);
@@ -201,7 +193,7 @@ namespace MediaBazaar
             // txbSupplierEmail
             // 
             this.txbSupplierEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txbSupplierEmail.Location = new System.Drawing.Point(756, 267);
+            this.txbSupplierEmail.Location = new System.Drawing.Point(756, 244);
             this.txbSupplierEmail.Name = "txbSupplierEmail";
             this.txbSupplierEmail.Size = new System.Drawing.Size(218, 34);
             this.txbSupplierEmail.TabIndex = 29;
@@ -210,7 +202,7 @@ namespace MediaBazaar
             // 
             this.lblSupplierEmail.AutoSize = true;
             this.lblSupplierEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblSupplierEmail.Location = new System.Drawing.Point(480, 267);
+            this.lblSupplierEmail.Location = new System.Drawing.Point(480, 244);
             this.lblSupplierEmail.Name = "lblSupplierEmail";
             this.lblSupplierEmail.Size = new System.Drawing.Size(175, 29);
             this.lblSupplierEmail.TabIndex = 28;
@@ -219,7 +211,7 @@ namespace MediaBazaar
             // txbSupplierPhone
             // 
             this.txbSupplierPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txbSupplierPhone.Location = new System.Drawing.Point(756, 211);
+            this.txbSupplierPhone.Location = new System.Drawing.Point(756, 190);
             this.txbSupplierPhone.Name = "txbSupplierPhone";
             this.txbSupplierPhone.Size = new System.Drawing.Size(218, 34);
             this.txbSupplierPhone.TabIndex = 27;
@@ -228,78 +220,42 @@ namespace MediaBazaar
             // 
             this.lblSupplierPhone.AutoSize = true;
             this.lblSupplierPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblSupplierPhone.Location = new System.Drawing.Point(479, 214);
+            this.lblSupplierPhone.Location = new System.Drawing.Point(479, 193);
             this.lblSupplierPhone.Name = "lblSupplierPhone";
             this.lblSupplierPhone.Size = new System.Drawing.Size(184, 29);
             this.lblSupplierPhone.TabIndex = 26;
             this.lblSupplierPhone.Text = "Supplier phone:";
             // 
-            // lblProductCategory
-            // 
-            this.lblProductCategory.AutoSize = true;
-            this.lblProductCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblProductCategory.Location = new System.Drawing.Point(6, 17);
-            this.lblProductCategory.Name = "lblProductCategory";
-            this.lblProductCategory.Size = new System.Drawing.Size(116, 29);
-            this.lblProductCategory.TabIndex = 4;
-            this.lblProductCategory.Text = "Category:";
-            // 
             // tbxBarcode
             // 
             this.tbxBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxBarcode.Location = new System.Drawing.Point(756, 163);
+            this.tbxBarcode.Location = new System.Drawing.Point(756, 130);
             this.tbxBarcode.Name = "tbxBarcode";
             this.tbxBarcode.Size = new System.Drawing.Size(218, 34);
             this.tbxBarcode.TabIndex = 25;
-            // 
-            // tbxProductCategory
-            // 
-            this.tbxProductCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxProductCategory.Location = new System.Drawing.Point(204, 19);
-            this.tbxProductCategory.Name = "tbxProductCategory";
-            this.tbxProductCategory.Size = new System.Drawing.Size(218, 34);
-            this.tbxProductCategory.TabIndex = 5;
             // 
             // lbBarcode
             // 
             this.lbBarcode.AutoSize = true;
             this.lbBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbBarcode.Location = new System.Drawing.Point(479, 165);
+            this.lbBarcode.Location = new System.Drawing.Point(479, 132);
             this.lbBarcode.Name = "lbBarcode";
             this.lbBarcode.Size = new System.Drawing.Size(110, 29);
             this.lbBarcode.TabIndex = 24;
             this.lbBarcode.Text = "Barcode:";
             // 
-            // lblProductSubCategory
-            // 
-            this.lblProductSubCategory.AutoSize = true;
-            this.lblProductSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblProductSubCategory.Location = new System.Drawing.Point(8, 64);
-            this.lblProductSubCategory.Name = "lblProductSubCategory";
-            this.lblProductSubCategory.Size = new System.Drawing.Size(160, 29);
-            this.lblProductSubCategory.TabIndex = 6;
-            this.lblProductSubCategory.Text = "Sub category:";
-            // 
             // tbxProductAmountInWarehouse
             // 
             this.tbxProductAmountInWarehouse.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxProductAmountInWarehouse.Location = new System.Drawing.Point(756, 113);
+            this.tbxProductAmountInWarehouse.Location = new System.Drawing.Point(756, 80);
             this.tbxProductAmountInWarehouse.Name = "tbxProductAmountInWarehouse";
             this.tbxProductAmountInWarehouse.Size = new System.Drawing.Size(218, 34);
             this.tbxProductAmountInWarehouse.TabIndex = 21;
             // 
-            // tbxProductSubCategory
-            // 
-            this.tbxProductSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxProductSubCategory.Location = new System.Drawing.Point(204, 64);
-            this.tbxProductSubCategory.Name = "tbxProductSubCategory";
-            this.tbxProductSubCategory.Size = new System.Drawing.Size(218, 34);
-            this.tbxProductSubCategory.TabIndex = 7;
-            // 
             // tbxProductAmountInStore
             // 
             this.tbxProductAmountInStore.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxProductAmountInStore.Location = new System.Drawing.Point(756, 66);
+            this.tbxProductAmountInStore.Location = new System.Drawing.Point(756, 31);
             this.tbxProductAmountInStore.Name = "tbxProductAmountInStore";
             this.tbxProductAmountInStore.Size = new System.Drawing.Size(218, 34);
             this.tbxProductAmountInStore.TabIndex = 19;
@@ -308,7 +264,7 @@ namespace MediaBazaar
             // 
             this.lblProductType.AutoSize = true;
             this.lblProductType.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblProductType.Location = new System.Drawing.Point(8, 113);
+            this.lblProductType.Location = new System.Drawing.Point(8, 36);
             this.lblProductType.Name = "lblProductType";
             this.lblProductType.Size = new System.Drawing.Size(74, 29);
             this.lblProductType.TabIndex = 8;
@@ -317,7 +273,7 @@ namespace MediaBazaar
             // tbxProductSalesPrice
             // 
             this.tbxProductSalesPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxProductSalesPrice.Location = new System.Drawing.Point(756, 19);
+            this.tbxProductSalesPrice.Location = new System.Drawing.Point(204, 249);
             this.tbxProductSalesPrice.Name = "tbxProductSalesPrice";
             this.tbxProductSalesPrice.Size = new System.Drawing.Size(218, 34);
             this.tbxProductSalesPrice.TabIndex = 17;
@@ -326,7 +282,7 @@ namespace MediaBazaar
             // 
             this.lblProductModel.AutoSize = true;
             this.lblProductModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblProductModel.Location = new System.Drawing.Point(6, 214);
+            this.lblProductModel.Location = new System.Drawing.Point(6, 137);
             this.lblProductModel.Name = "lblProductModel";
             this.lblProductModel.Size = new System.Drawing.Size(87, 29);
             this.lblProductModel.TabIndex = 2;
@@ -335,7 +291,7 @@ namespace MediaBazaar
             // tbxProductCostPrice
             // 
             this.tbxProductCostPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxProductCostPrice.Location = new System.Drawing.Point(204, 267);
+            this.tbxProductCostPrice.Location = new System.Drawing.Point(204, 190);
             this.tbxProductCostPrice.Name = "tbxProductCostPrice";
             this.tbxProductCostPrice.Size = new System.Drawing.Size(218, 34);
             this.tbxProductCostPrice.TabIndex = 15;
@@ -344,7 +300,7 @@ namespace MediaBazaar
             // 
             this.lblProductAmountInWarehouse.AutoSize = true;
             this.lblProductAmountInWarehouse.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblProductAmountInWarehouse.Location = new System.Drawing.Point(480, 118);
+            this.lblProductAmountInWarehouse.Location = new System.Drawing.Point(480, 85);
             this.lblProductAmountInWarehouse.Name = "lblProductAmountInWarehouse";
             this.lblProductAmountInWarehouse.Size = new System.Drawing.Size(250, 29);
             this.lblProductAmountInWarehouse.TabIndex = 20;
@@ -353,7 +309,7 @@ namespace MediaBazaar
             // tbxProductModel
             // 
             this.tbxProductModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxProductModel.Location = new System.Drawing.Point(204, 208);
+            this.tbxProductModel.Location = new System.Drawing.Point(204, 131);
             this.tbxProductModel.Name = "tbxProductModel";
             this.tbxProductModel.Size = new System.Drawing.Size(218, 34);
             this.tbxProductModel.TabIndex = 3;
@@ -361,7 +317,7 @@ namespace MediaBazaar
             // tbxProductType
             // 
             this.tbxProductType.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxProductType.Location = new System.Drawing.Point(204, 110);
+            this.tbxProductType.Location = new System.Drawing.Point(204, 33);
             this.tbxProductType.Name = "tbxProductType";
             this.tbxProductType.Size = new System.Drawing.Size(218, 34);
             this.tbxProductType.TabIndex = 9;
@@ -370,7 +326,7 @@ namespace MediaBazaar
             // 
             this.lblProductAmountInStore.AutoSize = true;
             this.lblProductAmountInStore.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblProductAmountInStore.Location = new System.Drawing.Point(480, 69);
+            this.lblProductAmountInStore.Location = new System.Drawing.Point(480, 34);
             this.lblProductAmountInStore.Name = "lblProductAmountInStore";
             this.lblProductAmountInStore.Size = new System.Drawing.Size(185, 29);
             this.lblProductAmountInStore.TabIndex = 18;
@@ -380,7 +336,7 @@ namespace MediaBazaar
             // 
             this.lblProductBrand.AutoSize = true;
             this.lblProductBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblProductBrand.Location = new System.Drawing.Point(6, 163);
+            this.lblProductBrand.Location = new System.Drawing.Point(6, 86);
             this.lblProductBrand.Name = "lblProductBrand";
             this.lblProductBrand.Size = new System.Drawing.Size(83, 29);
             this.lblProductBrand.TabIndex = 10;
@@ -389,7 +345,7 @@ namespace MediaBazaar
             // tbxProductBrand
             // 
             this.tbxProductBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbxProductBrand.Location = new System.Drawing.Point(204, 160);
+            this.tbxProductBrand.Location = new System.Drawing.Point(204, 83);
             this.tbxProductBrand.Name = "tbxProductBrand";
             this.tbxProductBrand.Size = new System.Drawing.Size(218, 34);
             this.tbxProductBrand.TabIndex = 11;
@@ -398,7 +354,7 @@ namespace MediaBazaar
             // 
             this.lblProductSalesPrice.AutoSize = true;
             this.lblProductSalesPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblProductSalesPrice.Location = new System.Drawing.Point(480, 22);
+            this.lblProductSalesPrice.Location = new System.Drawing.Point(3, 249);
             this.lblProductSalesPrice.Name = "lblProductSalesPrice";
             this.lblProductSalesPrice.Size = new System.Drawing.Size(140, 29);
             this.lblProductSalesPrice.TabIndex = 16;
@@ -408,7 +364,7 @@ namespace MediaBazaar
             // 
             this.lblProductCostPrice.AutoSize = true;
             this.lblProductCostPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblProductCostPrice.Location = new System.Drawing.Point(6, 270);
+            this.lblProductCostPrice.Location = new System.Drawing.Point(6, 193);
             this.lblProductCostPrice.Name = "lblProductCostPrice";
             this.lblProductCostPrice.Size = new System.Drawing.Size(128, 29);
             this.lblProductCostPrice.TabIndex = 14;
@@ -480,17 +436,13 @@ namespace MediaBazaar
         private System.Windows.Forms.ListBox lbxProductDisplay;
         private System.Windows.Forms.TabPage tpAddProduct;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblProductCategory;
         private System.Windows.Forms.Button btnAddProduct;
         private System.Windows.Forms.Label lblProductModel;
         private System.Windows.Forms.TextBox tbxProductAmountInWarehouse;
         private System.Windows.Forms.TextBox tbxProductModel;
         private System.Windows.Forms.Label lblProductAmountInWarehouse;
-        private System.Windows.Forms.TextBox tbxProductCategory;
         private System.Windows.Forms.TextBox tbxProductAmountInStore;
-        private System.Windows.Forms.Label lblProductSubCategory;
         private System.Windows.Forms.Label lblProductAmountInStore;
-        private System.Windows.Forms.TextBox tbxProductSubCategory;
         private System.Windows.Forms.TextBox tbxProductSalesPrice;
         private System.Windows.Forms.Label lblProductType;
         private System.Windows.Forms.Label lblProductSalesPrice;

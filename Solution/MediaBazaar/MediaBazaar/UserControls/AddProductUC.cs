@@ -23,14 +23,14 @@ namespace MediaBazaar
         private void AddProductInterface_Load(object sender, EventArgs e)
         {
             UpdateListBoxAllProducts();
-            prepareListBox();
+            //prepareListBox();
         }
 
-        private void prepareListBox()
-        {
-            lbxProductDisplay.CustomTabOffsets.Add(100);
-            lbxProductDisplay.UseCustomTabOffsets = true;
-        }
+        //private void prepareListBox()
+        //{
+        //    lbxProductDisplay.CustomTabOffsets.Add(100);
+        //    lbxProductDisplay.UseCustomTabOffsets = true;
+        //}
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
@@ -82,7 +82,6 @@ namespace MediaBazaar
             foreach (Product i in pManager.GetAllProducts())
             {
                 lbxProductDisplay.Items.Add(i.ToString());
-                lbxProductDisplay.Items.Add("");
             }
         }
 

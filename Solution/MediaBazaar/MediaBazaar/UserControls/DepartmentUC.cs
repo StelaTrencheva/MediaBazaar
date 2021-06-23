@@ -21,10 +21,6 @@ namespace MediaBazaar
             this.deptMngr = new DepartmentManager(DatabaseType.MAIN);
             this.empMng = new EmployeeManager(DatabaseType.MAIN);
             this.DisplayDepartments();
-            this.DisplayDepartmentManagersInCbx();
-            this.DisplayDepartmentsInCbx();
-            this.DisplayDepartmentsWithDManagers();
-            DisplayDepartmentsWithPCategories();
         }
 
         private void DisplayDepartments()//DISPLAY ON THE DEPARMENT TAB WHEN CREATING A DEPARTMENT
@@ -32,33 +28,8 @@ namespace MediaBazaar
             lbxDepartments.Items.Clear();
             foreach (Department i in this.deptMngr.GetDepartments())
             {
-                lbxDepartments.Items.Add(i.ToString());
-                //lbxDepartments.Items.Add("");
+                lbxDepartments.Items.Add(i);
             }
-        }
-
-        //MIGHT DELETE THIS
-        private void DisplayDepartmentsWithDManagers()//DISPLAY ON ASSING DEPARTMENT MANAGER TAB
-        {
-            //lbxDepartmentsAndDM.CustomTabOffsets.Add(150);
-            //lbxDepartmentsAndDM.UseCustomTabOffsets = true;
-            //lbxDepartmentsAndDM.Items.Clear();
-            //foreach (Department i in this.deptMngr.GetDepartmentsWithDManagers())
-            //{
-            //    lbxDepartmentsAndDM.Items.Add(i.DisplayAssignDManager());
-            //    //lbxDepartmentsAndDM.Items.Add("");
-            //}
-        }
-
-        //MIGHT DELETE THIS
-        private void DisplayDepartmentsWithPCategories()//DISPLAY ON ASSIGN PRODUCT CATEGORY
-        {
-            //lbxDepartmentsAndPCategory.Items.Clear();
-            //foreach (Department i in this.deptMngr.GetDepartmentsWithPCategories())
-            //{
-            //    lbxDepartmentsAndPCategory.Items.Add(i.DisplayAssignPCategory());
-            //    //lbxDepartmentsAndPCategory.Items.Add("");
-            //}
         }
 
         private void btnAdd_Click(object sender, EventArgs e)//ADD DEPARTMENT
@@ -68,7 +39,6 @@ namespace MediaBazaar
                 this.deptMngr.AddDepartment(new Department((int)nudDepartmentCode.Value, tbxDepartmentName.Text));
                 MessageBox.Show("Succesfully added");
                 this.DisplayDepartments();
-                this.DisplayDepartmentsInCbx();
             }
             catch (ArgumentException)
             {
@@ -87,53 +57,6 @@ namespace MediaBazaar
             nudDepartmentCode.Value = 1000;
         }
 
-        //MIGHT DELETE THIS
-        private void DisplayDepartmentManagersInCbx()//DISPLAY DEPARTMENT MANAGER IN COMBOBOX IN ASSIGN DMANAGER TAB
-        {
-            cbxDManagers.Items.Clear();
-            foreach (Employee emp in this.empMng.GetListOFAllEmployees())
-            {
-                if (emp.Position == EmployeeType.DEPARTMENT_MANAGER)
-                {
-                    cbxDManagers.Items.Add(emp.GetNames);
-                }
-            }
-            //cbxDManagers.SelectedIndex = 0;
-        }
-
-        //MIGHT DELETE THIS
-        private void DisplayDepartmentsInCbx()//DISPLAY DEPARTMENT IN COMBOBOX IN ASSIGN DMANAGER TAB
-        {
-            cbxDMDepartments.Items.Clear();
-            foreach (Department dept in this.deptMngr.GetDepartments())
-            {
-                cbxDMDepartments.Items.Add(dept);
-            }
-            //cbxDMDepartments.SelectedIndex = 0;
-        }
-
-        //MIGHT DELETE THIS
-        private void btnAssignDM_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //Department d = (Department)cbxDMDepartments.SelectedItem;
-                foreach (Employee emp in this.empMng.GetListOFAllEmployees())
-                {
-                    if (cbxDManagers.SelectedItem.ToString() == emp.GetNames)
-                    {
-                        //this.deptMngr.AssignDManagerToDept(new Department(d.Code, d.Name, emp.Id, emp.FirstName, emp.LastName));
-                    }
-                }
-                this.DisplayDepartmentsWithDManagers();
-            }
-            catch (RepeatingObjectException)
-            {
-                MessageBox.Show("the department or department manager is already assign.");
-            }
-        }
-
-        //NEW STUFF ADDED
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if(lbxDepartments.SelectedItem == null)
@@ -208,6 +131,13 @@ namespace MediaBazaar
                 }
             }
             this.DisplayDepartments();
+        }
+
+        private void lbxDepartments_DoubleClick(object sender, EventArgs e)
+        {
+            Department d = (Department)lbxDepartments.SelectedItem;
+            DepartmentDetailsForm departmentDetailsForm = new DepartmentDetailsForm(d, this.deptMngr);
+            departmentDetailsForm.ShowDialog();
         }
     }
 }

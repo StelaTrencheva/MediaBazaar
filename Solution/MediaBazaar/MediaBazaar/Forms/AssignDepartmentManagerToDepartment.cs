@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjectClasses;
+using MySql.Data.MySqlClient;
 
 namespace MediaBazaar
 {
@@ -23,6 +24,7 @@ namespace MediaBazaar
             this.department = department;
             this.empoyeeManager = new EmployeeManager(DatabaseType.MAIN);
             this.assignPersonDepartmentManager = new AssignPersonDepartmentManager(DatabaseType.MAIN);
+            lblDepartmentName.Text = this.department.Name;
             this.DisplayAssignDepartmentManager();
             this.DisplayDepartmentManager();
         }
@@ -43,7 +45,6 @@ namespace MediaBazaar
         public void DisplayAssignDepartmentManager()
         {
             lbxAssignDepartmentManager.Items.Clear();
-            lbxAssignDepartmentManager.Items.Add($"{ this.department} is assign to:");
             foreach(AssignPersonDepartment dm in this.assignPersonDepartmentManager.GetDepartmentManager(this.department.Code))
             {
                 lbxAssignDepartmentManager.Items.Add($"{dm.Person.GetEmployeeNames}");
@@ -67,25 +68,36 @@ namespace MediaBazaar
             {
                 MessageBox.Show(ex.Message);
             }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnUnAssign_Click(object sender, EventArgs e)
         {
-            if(lbxAssignDepartmentManager.SelectedItem == null)
+            try
             {
-                MessageBox.Show("Please select a department manager");
-            }
-            else
-            {
-                foreach(Employee emp in this.empoyeeManager.GetListOFAllEmployees())
+                if (lbxAssignDepartmentManager.SelectedItem == null)
                 {
-                    if(lbxAssignDepartmentManager.SelectedItem.ToString() == emp.GetEmployeeNames)
+                    MessageBox.Show("Please select a department manager");
+                }
+                else
+                {
+                    foreach (Employee emp in this.empoyeeManager.GetListOFAllEmployees())
                     {
-                        this.assignPersonDepartmentManager.RemoveDepartmentManager(emp.Id);
+                        if (lbxAssignDepartmentManager.SelectedItem.ToString() == emp.GetEmployeeNames)
+                        {
+                            this.assignPersonDepartmentManager.RemoveDepartmentManager(emp.Id);
+                        }
                     }
                 }
+                this.DisplayAssignDepartmentManager();
             }
-            this.DisplayAssignDepartmentManager();
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

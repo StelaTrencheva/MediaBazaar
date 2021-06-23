@@ -42,6 +42,8 @@ namespace MediaBazaar
             this.employeeStatistics1 = new MediaBazaar.EmployeeStatistics();
             this.userInterface1 = new MediaBazaar.UserInterface();
             this.departmentInterface1 = new MediaBazaar.DepartmentInterface();
+            this.btnStoreWorkersSchedule = new System.Windows.Forms.Button();
+            this.storeWorkerScheduleInterface = new MediaBazaar.StoreWorkerScheduleInterface();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -50,6 +52,7 @@ namespace MediaBazaar
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnStoreWorkersSchedule);
             this.panel1.Controls.Add(this.btnDepartment);
             this.panel1.Controls.Add(this.btnStoreMEmployeeStatistic);
             this.panel1.Controls.Add(this.btnStoreMStockStatistic);
@@ -116,9 +119,9 @@ namespace MediaBazaar
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.btnStoreMLogOut);
             this.panel2.Controls.Add(this.btnStoreM);
-            this.panel2.Location = new System.Drawing.Point(-1, 399);
+            this.panel2.Location = new System.Drawing.Point(-1, 471);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(207, 386);
+            this.panel2.Size = new System.Drawing.Size(207, 314);
             this.panel2.TabIndex = 0;
             // 
             // btnStoreMLogOut
@@ -178,12 +181,34 @@ namespace MediaBazaar
             this.departmentInterface1.Size = new System.Drawing.Size(1129, 785);
             this.departmentInterface1.TabIndex = 51;
             // 
+            // btnStoreWorkersSchedule
+            // 
+            this.btnStoreWorkersSchedule.BackColor = System.Drawing.Color.SlateGray;
+            this.btnStoreWorkersSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStoreWorkersSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStoreWorkersSchedule.Location = new System.Drawing.Point(23, 406);
+            this.btnStoreWorkersSchedule.Name = "btnStoreWorkersSchedule";
+            this.btnStoreWorkersSchedule.Size = new System.Drawing.Size(155, 59);
+            this.btnStoreWorkersSchedule.TabIndex = 52;
+            this.btnStoreWorkersSchedule.Text = "Schedule";
+            this.btnStoreWorkersSchedule.UseVisualStyleBackColor = false;
+            this.btnStoreWorkersSchedule.Click += new System.EventHandler(this.btnStoreWorkersSchedule_Click);
+            // 
+            // storeWorkerScheduleInterface
+            // 
+            this.storeWorkerScheduleInterface.Location = new System.Drawing.Point(213, 1);
+            this.storeWorkerScheduleInterface.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.storeWorkerScheduleInterface.Name = "storeWorkerScheduleInterface";
+            this.storeWorkerScheduleInterface.Size = new System.Drawing.Size(1129, 812);
+            this.storeWorkerScheduleInterface.TabIndex = 52;
+            // 
             // StoreManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1340, 786);
+            this.Controls.Add(this.storeWorkerScheduleInterface);
             this.Controls.Add(this.departmentInterface1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.productStatisticInterface1);
@@ -215,5 +240,7 @@ namespace MediaBazaar
         private UserInterface userInterface1;
         private System.Windows.Forms.Button btnDepartment;
         private DepartmentInterface departmentInterface1;
+        private System.Windows.Forms.Button btnStoreWorkersSchedule;
+        private StoreWorkerScheduleInterface storeWorkerScheduleInterface;
     }
 }

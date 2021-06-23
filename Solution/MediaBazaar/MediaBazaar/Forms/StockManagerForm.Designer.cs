@@ -38,11 +38,10 @@ namespace MediaBazaar
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnStockMLogOut = new System.Windows.Forms.Button();
             this.btnStockMAccount = new System.Windows.Forms.Button();
+            this.stockWorkerScheduleInterface = new MediaBazaar.StockWorkerScheduleInterface();
+            this.stockManagerSupplierRequest1 = new MediaBazaar.StockManagerSupplierRequest();
             this.addProductInterface1 = new MediaBazaar.AddProductInterface();
             this.userInterface1 = new MediaBazaar.UserInterface();
-            this.stockWorkerScheduleInterface1 = new MediaBazaar.StockWorkerScheduleInterface();
-            this.stockManagerSupplierRequest1 = new MediaBazaar.StockManagerSupplierRequest();
-            this.stockWorkerScheduleInterface = new MediaBazaar.StockWorkerScheduleInterface();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -148,40 +147,35 @@ namespace MediaBazaar
             this.btnStockMAccount.UseVisualStyleBackColor = false;
             this.btnStockMAccount.Click += new System.EventHandler(this.btnStockMAccount_Click);
             // 
-            // addProductInterface1
+            // stockWorkerScheduleInterface
             // 
-            this.addProductInterface1.Location = new System.Drawing.Point(213, 1);
-            this.addProductInterface1.Name = "addProductInterface1";
-            this.addProductInterface1.Size = new System.Drawing.Size(1129, 785);
-            this.addProductInterface1.TabIndex = 49;
-            // 
-            // userInterface1
-            // 
-            this.userInterface1.Location = new System.Drawing.Point(221, 1);
-            this.userInterface1.Name = "userInterface1";
-            this.userInterface1.Size = new System.Drawing.Size(1121, 747);
-            this.userInterface1.TabIndex = 50;
-            // 
-            // stockWorkerScheduleInterface1
-            // 
-            this.stockWorkerScheduleInterface1.Location = new System.Drawing.Point(212, 0);
-            this.stockWorkerScheduleInterface1.Name = "stockWorkerScheduleInterface1";
-            this.stockWorkerScheduleInterface1.Size = new System.Drawing.Size(1121, 747);
-            this.stockWorkerScheduleInterface1.TabIndex = 48;
+            this.stockWorkerScheduleInterface.Location = new System.Drawing.Point(213, 0);
+            this.stockWorkerScheduleInterface.Name = "stockWorkerScheduleInterface";
+            this.stockWorkerScheduleInterface.Size = new System.Drawing.Size(1129, 812);
+            this.stockWorkerScheduleInterface.TabIndex = 52;
+            this.stockWorkerScheduleInterface.Visible = false;
             // 
             // stockManagerSupplierRequest1
             // 
-            this.stockManagerSupplierRequest1.Location = new System.Drawing.Point(204, 0);
+            this.stockManagerSupplierRequest1.Location = new System.Drawing.Point(213, 0);
             this.stockManagerSupplierRequest1.Name = "stockManagerSupplierRequest1";
             this.stockManagerSupplierRequest1.Size = new System.Drawing.Size(1129, 785);
             this.stockManagerSupplierRequest1.TabIndex = 51;
             // 
-            // stockWorkerScheduleInterface
+            // addProductInterface1
             // 
-            this.stockWorkerScheduleInterface.Location = new System.Drawing.Point(215, 0);
-            this.stockWorkerScheduleInterface.Name = "stockWorkerScheduleInterface";
-            this.stockWorkerScheduleInterface.Size = new System.Drawing.Size(1129, 812);
-            this.stockWorkerScheduleInterface.TabIndex = 52;
+            this.addProductInterface1.Location = new System.Drawing.Point(212, 1);
+            this.addProductInterface1.Name = "addProductInterface1";
+            this.addProductInterface1.Size = new System.Drawing.Size(1129, 785);
+            this.addProductInterface1.TabIndex = 49;
+            this.addProductInterface1.Visible = false;
+            // 
+            // userInterface1
+            // 
+            this.userInterface1.Location = new System.Drawing.Point(334, 26);
+            this.userInterface1.Name = "userInterface1";
+            this.userInterface1.Size = new System.Drawing.Size(1121, 747);
+            this.userInterface1.TabIndex = 50;
             // 
             // StockManagerForm
             // 
@@ -194,7 +188,6 @@ namespace MediaBazaar
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.addProductInterface1);
             this.Controls.Add(this.userInterface1);
-            this.Controls.Add(this.stockWorkerScheduleInterface1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "StockManagerForm";
@@ -217,7 +210,6 @@ namespace MediaBazaar
         private System.Windows.Forms.Button btnStockMLogOut;
         private System.Windows.Forms.Button btnStockMAccount;
         private System.Windows.Forms.Button btnStockMAddProduct;
-        private StockWorkerScheduleInterface stockWorkerScheduleInterface1;
         private AddProductInterface addProductInterface1;
         private UserInterface userInterface1;
         private System.Windows.Forms.Button btnViewSupplierRequests;
