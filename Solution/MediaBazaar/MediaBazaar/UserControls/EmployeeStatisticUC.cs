@@ -90,7 +90,11 @@ namespace MediaBazaar
                 lblEmpId.Text = employee.Id.ToString();
                 lblEmpContract.Text = employee.Contract.ToString();
                 lblEmpHourlyWage.Text = employee.HourlyWage.ToString();
-                lblEmpPosition.Text = employee.Position.ToString();
+                if(employee.Position.ToString() == "DEPARTMENT_MANAGER")
+                {
+                    lblEmpPosition.Text = "DEPARTMENT \r\n MANAGER";
+                }
+                else { lblEmpPosition.Text = employee.Position.ToString(); }
                 List<int> TotalAssignedHours = empStatistics.GetEmployeeHoursPerTimeUnit(employee.Id, dateIndividualStats);
                 lblTotalSalaryPerDay.Text = TotalAssignedHours[0].ToString() + " /day";
                 lblTotalSalaryPerWeek.Text = TotalAssignedHours[1].ToString() + " /week"; 
