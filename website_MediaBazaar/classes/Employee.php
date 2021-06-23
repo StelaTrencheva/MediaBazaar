@@ -54,6 +54,9 @@ class Employee
     public function getId()
     {
         return $this->id;
+    }public function getBsn()
+    {
+        return $this->bsn;
     }
     public function getFname()
     {

@@ -66,9 +66,11 @@ if(!is_numeric($_GET['employeeId'])||$_SESSION["employeeId"]!=$_GET['employeeId'
       echo '<a href="Availability.php?employeeId='.$_GET['employeeId'].'">Availability</a>';
       echo '<a href="RequestHoliday.php?employeeId='.$_GET['employeeId'].'">Request Holiday</a>';
   }
+  if($employee->getPosition()=="STORE_WORKER"||$employee->getPosition()=="STOCK_WORKER"||$employee->getPosition()=="CASHIER"){
+    echo '<a href="Contact.php?employeeId='.$_GET['employeeId'].'">Contact</a>';
+  }
   echo
-  '<a>Contact</a>
-   <a href="EditProfile.php?employeeId='.$_GET['employeeId'].'">Edit profile</a>
+   '<a href="EditProfile.php?employeeId='.$_GET['employeeId'].'">Edit profile</a>
    <a href="LogOutPage.php">Log out</a>';
   ?>
 </div>
