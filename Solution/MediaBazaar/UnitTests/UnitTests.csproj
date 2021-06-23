@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="DataAccessLayer\DBMediatorShiftsTests.cs" />
     <Compile Include="EmployeeTest.cs" />
+    <Compile Include="LogicLayer\EmployeeStatisticsTest.cs" />
     <Compile Include="LogicLayer\WeekScheduleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
